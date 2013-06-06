@@ -287,11 +287,11 @@ body { background-color: #f4f4f4; background-position: center center; background
 
 /** [-] Header ****************************************************************************************/
 header #logo { width: 570px; height: 200px; background-image: url("../images/logo-title.png"); background-repeat: no-repeat; margin: 2rem 0 2rem 2rem; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); margin: 2rem 2rem 0 0; position: fixed; }
 header #account-links a { color: #fefefe; }
 
 .second header #logo, .third header #logo { width: 200px; height: 70px; background-image: url("../images/logo.png"); background-repeat: no-repeat; background-size: 200px 70px; margin: 3rem auto; margin-bottom: 2rem; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-.second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+.second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); margin: 2rem 2rem 0 0; position: fixed; }
 .second header #account-links a, .third header #account-links a { color: #fefefe; }
 
 /** [-] Main Content **********************************************************************************/
@@ -336,6 +336,36 @@ ul { margin: 0; }
 #photo-credit:hover { opacity: 0.7; }
 
 /** [-] Profile ***************************************************************************************/
+#action-bar, #breadcrumbs { background-color: #e7e7e7; border-bottom: 1px solid #cfcfcf; width: 100%; }
+
+#action-bar { color: #585959; font-family: "OpenSansSemibold"; height: 149px; padding: 0 0 0 2rem; }
+#action-bar a { /* width: 100%; height: 100%; */ color: #585959; }
+#action-bar a h1, #action-bar ul { display: inline-block; }
+#action-bar h1 { width: 258px; height: 90px; background-image: url("../images/logo-action-bar.png"); background-size: 258px 90px; margin: 2.4rem 0 0 0; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#action-bar ul { float: right; }
+#action-bar ul li { width: 149px; height: 149px; border-left: 1px solid #cfcfcf; display: table-cell; text-align: center; }
+#action-bar ul li:first-child { border-left: 0; }
+#action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
+#action-bar ul #action-create { background-image: url("../images/action-create.png"); }
+#action-bar ul #action-feed { background-image: url("../images/action-feed.png"); }
+#action-bar ul #action-discovery { background-image: url("../images/action-discovery.png"); }
+#action-bar ul #action-friends { background-image: url("../images/action-friends.png"); }
+
+#breadcrumbs { height: 29px; }
+
+#main-content { width: 100%; height: 100%; background-image: url("../images/spacecakes.jpg"); background-position: top left; background-repeat: no-repeat; background-size: cover; overflow: hidden; /*
+#user-cover {
+	width: 100%; height: 100%;
+	margin: -7% 0 0 0;
+}
+*/ }
+
+@media only screen and (max-height: 700px) { /** [-] Profile *************************************************************************************/
+  #action-bar { height: 99px; }
+  #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
+  #action-bar ul li { width: 99px; height: 99px; }
+  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-size: 99px; }
+  #main-content { background-position: bottom left; } }
 /** [-] Footer ****************************************************************************************/
 footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
 footer a { color: #585959; }
@@ -352,7 +382,7 @@ footer ul li:last-child:after { content: ""; }
 /********************************************************************** [+] SCREENS SMALLER THAN 960 **/
 @media only screen and (max-width: 959px) { /** [-] Header **************************************************************************************/
   header #logo { width: 430px; height: 150px; background-repeat: no-repeat; background-size: 430px 150px; margin: 2rem 0 2rem 2rem; }
-  header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+  header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); margin: 2rem 2rem 0 0; position: fixed; }
   header #account-links a { color: #fefefe; }
   /** [-] Main Content ********************************************************************************/
   #dimension-list { margin: 0 auto; padding: 2rem 0; }
