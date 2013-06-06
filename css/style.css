@@ -1,0 +1,458 @@
+@charset "UTF-8";
+/************************************************************************************** SKELETON 1.2 **/
+/** [-] TABLE OF CONTENTS *****************************************************************************/
+/****** [+] Base 960 Grid [+] Tablet in 768-width portrait view [+] Mobile in 320-width portrait view [+] Mobile in 480-width landscape view [+] Clearing
+*******************************************************************************************************/
+/********************************************************************************* [+] BASE 960 GRID **/
+.container { margin: 0 auto; padding: 0; position: relative; width: 960px; }
+
+.container .column, .container .columns { margin-left: 10px; margin-right: 10px; box-sizing: border-box; display: inline; float: left; }
+
+.row { margin-bottom: 20px; }
+
+/** [-] NESTED COLUMN CLASSES *************************************************************************/
+.column.alpha, .columns.alpha { margin-left: 0; }
+
+.column.omega, .columns.omega { margin-right: 0; }
+
+/** [-] BASE GRID *************************************************************************************/
+/****** [*] [***********] ONE // ELEVEN [**] [**********] TWO // TEN [***] [*********] THREE // NINE [****] [********] FOUR // EIGHT [*****] [*******] FIVE // SEVEN [******] [******] SIX // SIX [*******] [*****] SEVEN // FIVE [********] [****] EIGHT // FOUR [*********] [***] NINE // THREE [**********] [**] TEN // TWO [***********] [*] ELEVEN // ONE
+*******************************************************************************************************/
+.container .one.column { width: 40px; }
+
+.container .two.columns { width: 100px; }
+
+.container .three.columns { width: 160px; }
+
+.container .four.columns { width: 220px; }
+
+.container .five.columns { width: 280px; }
+
+.container .six.columns { width: 340px; }
+
+.container .seven.columns { width: 400px; }
+
+.container .eight.columns { width: 460px; }
+
+.container .nine.columns { width: 520px; }
+
+.container .ten.columns { width: 580px; }
+
+.container .eleven.columns { width: 640px; }
+
+.container .twelve.columns { width: 700px; }
+
+.container .thirteen.columns { width: 760px; }
+
+.container .fourteen.columns { width: 820px; }
+
+.container .fifteen.columns { width: 880px; }
+
+.container .sixteen.columns { width: 940px; }
+
+.container .one-third.column { width: 300px; }
+
+.container .two-thirds.column { width: 620px; }
+
+/** [-] OFFSETS ***************************************************************************************/
+.container .offset-by-one { padding-left: 60px; }
+
+.container .offset-by-two { padding-left: 120px; }
+
+.container .offset-by-three { padding-left: 180px; }
+
+.container .offset-by-four { padding-left: 240px; }
+
+.container .offset-by-five { padding-left: 300px; }
+
+.container .offset-by-six { padding-left: 360px; }
+
+.container .offset-by-seven { padding-left: 420px; }
+
+.container .offset-by-eight { padding-left: 480px; }
+
+.container .offset-by-nine { padding-left: 540px; }
+
+.container .offset-by-ten { padding-left: 600px; }
+
+.container .offset-by-eleven { padding-left: 660px; }
+
+.container .offset-by-twelve { padding-left: 720px; }
+
+.container .offset-by-thirteen { padding-left: 780px; }
+
+.container .offset-by-fourteen { padding-left: 840px; }
+
+.container .offset-by-fifteen { padding-left: 900px; }
+
+/************************************************************* [+] TABLET IN 768-WIDTH PORTRAIT VIEW **/
+@media only screen and (min-width: 768px) and (max-width: 959px) { .container { width: 768px; }
+  .container .column, v.container .columns { margin-left: 10px; margin-right: 10px; }
+  .column.alpha, .columns.alpha { margin-left: 0; margin-right: 10px; }
+  .column.omega, .columns.omega { margin-right: 0; margin-left: 10px; }
+  .alpha.omega { margin-left: 0; margin-right: 0; }
+  .container .one.column { width: 28px; }
+  .container .two.columns { width: 76px; }
+  .container .three.columns { width: 124px; }
+  .container .four.columns { width: 172px; }
+  .container .five.columns { width: 220px; }
+  .container .six.columns { width: 268px; }
+  .container .seven.columns { width: 316px; }
+  .container .eight.columns { width: 364px; }
+  .container .nine.columns { width: 412px; }
+  .container .ten.columns { width: 460px; }
+  .container .eleven.columns { width: 508px; }
+  .container .twelve.columns { width: 556px; }
+  .container .thirteen.columns { width: 604px; }
+  .container .fourteen.columns { width: 652px; }
+  .container .fifteen.columns { width: 700px; }
+  .container .sixteen.columns { width: 748px; }
+  .container .one-third.column { width: 236px; }
+  .container .two-thirds.column { width: 492px; }
+  /** [-] OFFSETS *************************************************************************************/
+  .container .offset-by-one { padding-left: 48px; }
+  .container .offset-by-two { padding-left: 96px; }
+  .container .offset-by-three { padding-left: 144px; }
+  .container .offset-by-four { padding-left: 192px; }
+  .container .offset-by-five { padding-left: 240px; }
+  .container .offset-by-six { padding-left: 288px; }
+  .container .offset-by-seven { padding-left: 336px; }
+  .container .offset-by-eight { padding-left: 384px; }
+  .container .offset-by-nine { padding-left: 432px; }
+  .container .offset-by-ten { padding-left: 480px; }
+  .container .offset-by-eleven { padding-left: 528px; }
+  .container .offset-by-twelve { padding-left: 576px; }
+  .container .offset-by-thirteen { padding-left: 624px; }
+  .container .offset-by-fourteen { padding-left: 672px; }
+  .container .offset-by-fifteen { padding-left: 720px; } }
+/************************************************************* [+] MOBILE IN 320-WIDTH PORTRAIT VIEW **/
+@media only screen and (max-width: 767px) { .container { box-sizing: border-box; padding: 0 1rem; width: 300px; }
+  .container .columns, .container .column { margin: 0; }
+  .container .one.column, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns, .container .thirteen.columns, .container .fourteen.columns, .container .fifteen.columns, .container .sixteen.columns, .container .one-third.column, .container .two-thirds.column { padding: 0 1rem; width: 300px; }
+  /** [-] OFFSETS *************************************************************************************/
+  .container .offset-by-one, .container .offset-by-two, .container .offset-by-three, .container .offset-by-four, .container .offset-by-five, .container .offset-by-six, .container .offset-by-seven, .container .offset-by-eight, .container .offset-by-nine, .container .offset-by-ten, .container .offset-by-eleven, .container .offset-by-twelve, .container .offset-by-thirteen, .container .offset-by-fourteen, .container .offset-by-fifteen { padding-left: 0; } }
+/*********************************************************** [+] MOBILE IN 480-WIDTH LANDSCAPE VIEW **/
+@media only screen and (min-width: 480px) and (max-width: 767px) { .container { width: 420px; }
+  .container .columns, .container .column { margin: 0; }
+  .container .one.column, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns, .container .thirteen.columns, .container .fourteen.columns, .container .fifteen.columns, .container .sixteen.columns, .container .one-third.column, .container .two-thirds.column { width: 420px; } }
+/************************************************************************************** [+] CLEARING **/
+.container:after { clear: both; content: "\0020"; display: block; height: 0; visibility: hidden; }
+
+/** [-] NOTE ******************************************************************************************/
+/****** Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row"/>
+*******************************************************************************************************/
+.clearfix:before, .clearfix:after, .row:before, .row:after { width: 0; height: 0; content: "\0020"; display: block; overflow: hidden; visibility: hidden; }
+
+.row:after, .clearfix:after { clear: both; }
+
+.row, .clearfix { zoom: 1; }
+
+/** [-] NOTE ******************************************************************************************/
+/****** You can also use <br class="clear"/> to clear columns *****************************************/
+.clear { width: 0; height: 0; clear: both; display: block; overflow: hidden; visibility: hidden; }
+
+/** [-] TABLE OF CONTENTS *****************************************************************************/
+/****** [+] Reset						[+] Titles
+				[+] Clearfix				[+] Lists [+] Colours					[+] Quotes
+				[+] @font-face [+] Mixins
+				[+] Generic
+*******************************************************************************************************/
+/** [-] Reset *****************************************************************************************/
+* { margin: 0; padding: 0; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+input:focus { outline: 0; }
+
+body { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+/** [-] Clearfix **************************************************************************************/
+.cf { zoom: 1; }
+
+.cf:before, .cf:after { content: " "; display: table; }
+
+.cf:after { clear: both; }
+
+/** [-] Colours ***************************************************************************************/
+.navy { color: #02121f; }
+
+.orange { color: #fc6f46; }
+
+.gray { color: #e4e4e4; }
+
+/** [-] @font-face ************************************************************************************/
+@font-face { font-family: "OpenSansLight"; font-style: normal; font-weight: 300; src: local("Γÿ║"), url("../font-face/OpenSans-Light.svg#OpenSansLight") format("svg"); src: url("../font-face/OpenSans-Light.eot"), url("../font-face/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Light.ttf") format("truetype"), url("../font-face/OpenSans-Light.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansLightItalic"; font-style: italic; font-weight: 300; src: local("Γÿ║"), url("../font-face/OpenSans-LightItalic.svg#OpenSansLightItalic") format("svg"); src: url("../font-face/OpenSans-LightItalic.eot"), url("../font-face/OpenSans-LightItalic.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-LightItalic.ttf") format("truetype"), url("../font-face/OpenSans-LightItalic.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansRegular"; font-style: normal; font-weight: 400; src: local("Γÿ║"), url("../font-face/OpenSans-Regular.svg#OpenSansRegular") format("svg"); src: url("../font-face/OpenSans-Regular.eot"), url("../font-face/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Regular.ttf") format("truetype"), url("../font-face/OpenSans-Regular.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansItalic"; font-style: italic; font-weight: 400; src: local("Γÿ║"), url("../font-face/OpenSans-Italic.svg#OpenSansItalic") format("svg"); src: url("../font-face/OpenSans-Italic.eot"), url("../font-face/OpenSans-Italic.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Italic.ttf") format("truetype"), url("../font-face/OpenSans-Italic.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansSemibold"; font-style: normal; font-weight: 600; src: local("Γÿ║"), url("../font-face/OpenSans-Semibold.svg#OpenSansSemibold") format("svg"); src: url("../font-face/OpenSans-Semibold.eot"), url("../font-face/OpenSans-Semibold.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Semibold.ttf") format("truetype"), url("../font-face/OpenSans-Semibold.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansSemiboldItalic"; font-style: italic; font-weight: 600; src: local("Γÿ║"), url("../font-face/OpenSans-SemiboldItalic.svg#OpenSansSemiboldItalic") format("svg"); src: url("../font-face/OpenSans-SemiboldItalic.eot"), url("../font-face/OpenSans-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-SemiboldItalic.ttf") format("truetype"), url("../font-face/OpenSans-SemiboldItalic.woff") format("woff") l; }
+
+@font-face { font-family: "OpenSansBold"; font-style: normal; font-weight: 700; src: local("Γÿ║"), url("../font-face/OpenSansBold.svg#OpenSansBold") format("svg"); src: url("../font-face/OpenSans-Bold.eot"), url("../font-face/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Bold.ttf") format("truetype"), url("../font-face/OpenSans-Bold.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansBoldItalic"; font-style: italic; font-weight: 700; src: local("Γÿ║"), url("../font-face/OpenSansBoldItalic.svg#OpenSansBoldItalic") format("svg"); src: url("../font-face/OpenSans-BoldItalic.eot"), url("../font-face/OpenSans-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-BoldItalic.ttf") format("truetype"), url("../font-face/OpenSans-BoldItalic.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansExtrabold"; font-style: normal; font-weight: 800; src: local("Γÿ║"), url("../font-face/OpenSansExtrabold.svg#OpenSansExtrabold") format("svg"); src: url("../font-face/OpenSans-ExtraBold.eot"), url("../font-face/OpenSans-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-ExtraBold.ttf") format("truetype"), url("../font-face/OpenSans-ExtraBold.woff") format("woff"); }
+
+@font-face { font-family: "OpenSansExtraboldItalic"; font-style: italic; font-weight: 800; src: local("Γÿ║"), url("../font-face/OpenSansExtraboldItalic.svg#OpenSansExtraboldItalic") format("svg"); src: url("../font-face/OpenSans-ExtraBoldItalic.eot"), url("../font-face/OpenSans-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-ExtraBoldItalic.ttf") format("truetype"), url("../font-face/OpenSans-ExtraBoldItalic.woff") format("woff"); }
+
+/** [-] Mixins ****************************************************************************************/
+/** [-] Generic ***************************************************************************************/
+p { font-size: 16px/1.5em; margin: 0 0 1.5rem 0; }
+
+a { text-decoration: none; }
+
+em { font-style: italic; }
+
+strong, .strong { font-weight: 700; }
+
+pre, code { font-family: Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
+
+small { font-size: 80%; }
+
+.hide-text { border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+
+.unicode-char { font-family: Arial, Verdana, Geneva, sans-serif; }
+
+/** [-] Titles ****************************************************************************************/
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+
+h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px; }
+
+h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+
+h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+
+h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
+
+h5 { font-size: 17px; line-height: 24px; }
+
+h6 { font-size: 14px; line-height: 21px; }
+
+/** [-] Lists *****************************************************************************************/
+ul, ol { margin-bottom: 20px; }
+ul ul, ul ol, ol ul, ol ol { font-size: 90%; margin: 4px 0 5px 30px; }
+ul ul li, ul ol li, ol ul li, ol ol li { margin-bottom: 6px; }
+ul li, ol li { line-height: 18px; margin-bottom: 12px; }
+ul li p, ol li p { line-height: 21px; }
+
+ul { list-style: none outside; }
+
+ol { list-style: decimal; }
+
+.square, .circle, .disc { margin-left: 30px; }
+
+.square { list-style: square outside; }
+
+.circle { list-style: circle outside; }
+
+.disc { list-style: disc outside; }
+
+hr { border: 1px solid #ddd; clear: both; height: 0; margin: 10px 0 30px; }
+
+/** [-] Quotes ****************************************************************************************/
+blockquote { margin: 1.5em 10px; padding: 0.5em 10px; background-color: #f9f9f9; border-left: 10px solid #ccc; line-height: 25px; quotes: "\201C" "\201D" "\2018" "\2019"; }
+blockquote:before { color: #ccc; content: open-quote; font-size: 4em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; }
+
+/*
+blockquote {
+	margin: 0 0 20px; padding: 9px 20px 0 19px;
+	border-left: 1px solid #ddd;
+
+	cite {
+		color: #555;
+		display: block;
+		font-size: 12px;
+
+		&:before { content: "\2014 \0020"; }
+	}
+
+	p {
+		color: #777;
+		display: inline;
+		font-size: 17px;
+		font-style: italic;
+		line-height: 24px;
+	}
+}
+*/
+/** [-] MEDIA *****************************************************************************************/
+/*
+img { width: 100%; height: auto; border-style: none;
+}
+*/
+.video-container { margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; position: relative; }
+.video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
+
+/* #Images
+================================================== */
+img.scale-with-grid { max-width: 100%; height: auto; }
+
+/* #Buttons
+================================================== */
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] { background: #eee; background: #eeeeee linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%); border: 1px solid #aaa; border-top: 1px solid #ccc; border-left: 1px solid #ccc; border-radius: 3px; color: #444; display: inline-block; font-size: 11px; font-weight: 700; text-decoration: none; text-shadow: 0 1px rgba(255, 255, 255, 0.75); cursor: pointer; margin-bottom: 20px; line-height: normal; padding: 8px 10px; }
+
+.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover { color: #222; background: #ddd; background: #dddddd linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%); border: 1px solid #888; border-top: 1px solid #aaa; border-left: 1px solid #aaa; }
+
+.button:active, button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active { border: 1px solid #666; background: #ccc; background: #cccccc linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%); }
+
+.button.full-width, button.full-width, input[type="submit"].full-width, input[type="reset"].full-width, input[type="button"].full-width { width: 100%; padding-left: 0 !important; padding-right: 0 !important; text-align: center; }
+
+/* #Forms
+================================================== */
+form { margin-bottom: 20px; }
+
+fieldset { margin-bottom: 20px; }
+
+input[type="text"], input[type="password"], input[type="email"], textarea, select { border: 1px solid #ccc; padding: 6px 4px; outline: none; border-radius: 2px; color: #777; margin: 0; width: 210px; max-width: 100%; display: block; margin-bottom: 20px; background: #fff; }
+
+select { padding: 0; }
+
+textarea { min-height: 60px; }
+
+label, legend { display: block; font-weight: 700; font-size: 13px; }
+label span, legend span { font-weight: normal; font-size: 13px; color: #444; }
+
+select { width: 220px; }
+
+input[type="checkbox"] { display: inline; }
+
+/** [-] Table of Contents *****************************************************************************/
+/****** [+] Let's get started
+						[-] Header
+						[-] Shared Content Bar Styles
+						[-] Main Navigation
+						[-] Sub Navigation
+						[-] Klip Items
+						[-] Footer
+				*** [+] Screens smaller than 960 [+] Tablet screens in portrait view [+] All mobile screens [+] Tablet screens, landscape to portrait [+] Tablet screens, portrait to landscape
+*******************************************************************************************************/
+/***************************************************************************** [+] LET'S GET STARTED **/
+* { box-sizing: border-box; }
+
+html, body { width: 100%; height: 100%; }
+
+body { background-color: #f5f5f5; background-position: center center; background-size: cover; color: #191919; font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; font-size: 15px; position: fixed; /* white text enhancement */ /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ }
+
+.first { background-image: url("../images/bg.jpg"); }
+
+.second { background-image: url("../images/bg-ii.jpg"); }
+
+.third { background-image: url("../images/bg-iii.jpg"); }
+
+/** [-] Header ****************************************************************************************/
+header #logo { width: 570px; height: 200px; background-image: url("../images/logo-title.png"); background-repeat: no-repeat; /* background-size: 500px 174px; */ margin: 2rem 0 2rem 2rem; /* position: fixed; */ border: 0; color: transparent; font: 0/0 a; text-shadow: none; /* margin: 2rem 0 0 2rem; */ }
+header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+header #account-links a { color: #fefefe; }
+
+.second header #logo, .third header #logo { width: 200px; height: 70px; background-image: url("../images/logo.png"); background-repeat: no-repeat; background-size: 200px 70px; margin: 3rem auto; margin-bottom: 2rem; /* position: fixed; */ border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+.second header #account-links a, .third header #account-links a { color: #fefefe; }
+
+/** [-] Main Content **********************************************************************************/
+hr { margin: 2rem auto; width: 50%; }
+
+button, input[type="text"], input[type="password"], input[type="email"] { margin: 0 auto; margin-bottom: 1rem; padding: 1rem 2rem; border: 0; border-radius: 8px; color: #191919; display: block; font-family: "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: normal; text-align: center; text-shadow: none; width: 300px; }
+button:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover { border: 0; }
+
+#login-facebook, #login-google { color: #fefefe; }
+#login-facebook:hover, #login-google:hover { opacity: 0.7; }
+
+#login-facebook { background-color: #3d75a0; /* border: 1px solid #1c4e76; */ }
+
+#login-google { background-color: #e16252; /* border: 1px solid #b13c2d; */ }
+
+#dimension-list, #cta { width: 100%; height: auto; margin: 0 auto; padding: 2rem 0; background-color: rgba(25, 25, 25, 0.5); color: #fefefe; text-align: center; }
+#dimension-list li, #cta li { width: 100px; height: 100px; margin: 0 1rem 0 0; padding: 0; background-size: 100px; display: inline-block; line-height: 212px; }
+#dimension-list li:last-child, #cta li:last-child { margin: 0; }
+#dimension-list li a, #cta li a { width: 100%; height: 100%; color: #fefefe; }
+
+#cta { bottom: 30px; font-size: 25px; position: fixed; }
+
+ul, #progress { display: inline-block; vertical-align: middle; }
+
+ul { margin: 0; }
+
+#dimension-life { background-image: url("../images/dimension-life.png"); }
+
+#dimension-flow { background-image: url("../images/dimension-flow.png"); }
+
+#dimension-wonder { background-image: url("../images/dimension-wonder.png"); }
+
+#dimension-art { background-image: url("../images/dimension-art.png"); }
+
+#dimension-pulse { background-image: url("../images/dimension-pulse.png"); }
+
+#dimension-wow { background-image: url("../images/dimension-wow.png"); }
+
+#progress { width: 57px; height: 104px; background-image: url("../images/arrow-right.png"); background-size: 57px 104px; float: right; border: 0; color: transparent; font: 0/0 a; text-shadow: none; margin: 0 2rem 0 0; position: fixed; right: 0; }
+
+#photo-credit { top: -15px; right: 5px; color: #fefefe; font-size: 12px; opacity: 0.7; position: absolute; }
+#photo-credit:hover { opacity: 0.7; }
+
+/** [-] Footer ****************************************************************************************/
+footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
+footer a { color: #585959; }
+footer a:hover { opacity: 0.7; }
+footer p, footer ul { display: inline-block; vertical-align: middle; }
+footer p { margin: 0; }
+footer ul { margin: 0; padding: 0; float: right; }
+footer ul li { margin: 0; padding: 0; display: inline-block; line-height: 1; }
+footer ul li:after { content: " |"; }
+footer ul li:last-child:after { content: ""; }
+
+/****************************************************************** [+] THINGS TO HIDE WHEN PRINTING **/
+@media only screen and (max-height: 588px) { #cta { bottom: 30px; font-size: 15px; padding: 1rem 0; } }
+/********************************************************************** [+] SCREENS SMALLER THAN 960 **/
+@media only screen and (max-width: 959px) { /** [-] Header **************************************************************************************/
+  header #logo { width: 430px; height: 150px; background-repeat: no-repeat; background-size: 430px 150px; margin: 2rem 0 2rem 2rem; }
+  header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
+  header #account-links a { color: #fefefe; }
+  /** [-] Main Content ********************************************************************************/
+  #dimension-list { margin: 0 auto; padding: 2rem 0; }
+  #dimension-list li { width: 50px; height: 50px; margin: 0 1rem 0 0; padding: 0; background-size: 50px; line-height: 112px; }
+  #progress { width: 30px; height: 55px; background-size: 30px 55px; } }
+/********************************************************************* [+] TABLET SCREENS (PORTRAIT) **/
+/**************************************************************************** [+] ALL MOBILE SCREENS **/
+@media only screen and (max-width: 767px) { /** [-] Header **************************************************************************************/
+  header #logo { width: 300px; height: 104px; background-size: 300px 104px; margin: 2rem 0 2rem 2rem; }
+  header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); margin: 2rem 2rem 0 0; position: fixed; }
+  header #account-links a { color: #fefefe; }
+  /** [-] Main Content ********************************************************************************/
+  #dimension-list { margin: 0 auto; padding: 2rem 0; }
+  #dimension-list li { width: 50px; height: 50px; margin: 0 1rem 0 0; padding: 0; background-size: 50px; line-height: 112px; }
+  #progress { width: 30px; height: 55px; background-size: 30px 55px; } }
+/******************************************************** [+] TABLET SCREENS (LANDSCAPE TO PORTRAIT) **/
+/******************************************************** [+] TABLET SCREENS (PORTRAIT TO LANDSCAPE) **/
+@media only screen and (max-width: 479px) { /** [-] Header **************************************************************************************/
+  header #logo { width: 300px; height: 104px; background-size: 300px 104px; margin: 2rem auto; }
+  header #account-links { margin: 0 0 2rem 0; position: relative; text-align: center; }
+  .second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: block; margin: 0 auto 1rem; position: static; }
+  .second header #account-links a, .third header #account-links a { color: #fefefe; }
+  /** [-] Main Content ********************************************************************************/
+  hr { width: 112%; }
+  button, input[type="text"], input[type="password"], input[type="email"] { margin: 0 auto; margin-bottom: 1rem; padding: 1rem 2rem; border: 0; border-radius: 8px; color: #191919; display: block; font-family: "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: normal; text-align: center; text-shadow: none; width: 100%; }
+  button:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover { border: 0; }
+  #dimension-list { margin: 0 auto; padding: 2rem 0; width: 260px; }
+  #dimension-list li { width: 50px; height: 50px; margin: 0 1rem 0 0; padding: 0; background-size: 50px; line-height: 112px; }
+  #progress { width: auto; height: auto; background-image: none; color: #fefefe; display: block; float: none; font-size: 14px; line-height: 1; margin: 1.5rem auto; margin-bottom: 0; position: static; text-transform: uppercase; }
+  #cta { bottom: 66px; font-size: 15px; padding: 0.5rem 0; }
+  /** [-] Footer **************************************************************************************/
+  footer { width: 100%; height: auto; bottom: 0; left: 0; padding: 1rem 2rem; text-align: center; }
+  footer p, footer ul { display: block; }
+  footer p { margin: 0 0 0.5rem 0; }
+  footer ul { float: none; } }
