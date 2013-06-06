@@ -345,26 +345,31 @@ ul { margin: 0; }
 #action-bar ul { float: right; }
 #action-bar ul li { width: 149px; height: 149px; border-left: 1px solid #cfcfcf; display: table-cell; text-align: center; }
 #action-bar ul li:first-child { border-left: 0; }
+#action-bar ul li a { padding: 7rem 0 0 0; }
 #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
 #action-bar ul #action-create { background-image: url("../images/action-create.png"); }
 #action-bar ul #action-feed { background-image: url("../images/action-feed.png"); }
 #action-bar ul #action-discovery { background-image: url("../images/action-discovery.png"); }
 #action-bar ul #action-friends { background-image: url("../images/action-friends.png"); }
+#action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 
 #breadcrumbs { height: 29px; }
 
-#main-content { width: 100%; height: 100%; background-image: url("../images/spacecakes.jpg"); background-position: top left; background-repeat: no-repeat; background-size: cover; overflow: hidden; /*
+#main-content { width: 100%; height: 100%; background-image: url("../images/spacecakes.jpg"); background-position: top left; background-repeat: no-repeat; background-size: cover; overflow: hidden; padding: 2rem; /*
 #user-cover {
 	width: 100%; height: 100%;
 	margin: -7% 0 0 0;
 }
 */ }
+#main-content input[type="text"], #main-content input[type="password"], #main-content input[type="email"] { margin: 0; padding: 0; border: 0; border-radius: 0; color: #191919; display: block; font-size: 16px; text-align: left; width: auto; }
+#main-content #username-edit { color: #fefefe; font-family: "OpenSansBold"; font-size: 56px; /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); }
 
 @media only screen and (max-height: 700px) { /** [-] Profile *************************************************************************************/
   #action-bar { height: 99px; }
   #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
   #action-bar ul li { width: 99px; height: 99px; }
-  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-size: 99px; }
+  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); background-size: 99px 100px; }
   #main-content { background-position: bottom left; } }
 /** [-] Footer ****************************************************************************************/
 footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
@@ -418,3 +423,16 @@ footer ul li:last-child:after { content: ""; }
   footer p, footer ul { display: block; }
   footer p { margin: 0 0 0.5rem 0; }
   footer ul { float: none; } }
+.jeip-saving { background-color: rgba(25, 25, 25, 0.3); background-image: url("../images/ajax-loader.gif"); background-position: 14% 50%; background-repeat: no-repeat; color: #fefefe; /* display: table-cell; */ font-family: "OpenSansLight"; padding: 0.5rem 0.6rem 0.5rem 2.5rem; text-align: center; text-transform: uppercase; }
+
+.jeip-mouseover, .jeip-editfield { background-color: rgba(255, 255, 153, 0.2); cursor: pointer; }
+
+.jeip-savebutton, .jeip-cancelbutton { border: 0; color: #fefefe; cursor: pointer; font-size: 13px; padding: 0.5rem 1rem; text-align: center; }
+
+.jeip-savebutton { background-color: #00da3c; }
+
+.jeip-cancelbutton { background-color: #df151a; }
+
+.edit-sep { background-color: rgba(25, 25, 25, 0.2); color: #fefefe; font-size: 12px; padding: 0 0.5rem; }
+
+.editable:after { width: 20px; height: 19px; content: url("../images/edit-icon-black.png"); vertical-align: top; }

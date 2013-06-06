@@ -31,8 +31,7 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script>
-		</script>
+		<script src="scripts/jquery-2.0.2.min.js"></script>
 
 	</head>
 
@@ -60,6 +59,7 @@
 		<!--/ the good stuff																																	 /-->
 
 		<section id="main-content">
+			<span id="username-edit" class="editable">spacecakes</span>
 			<!--/ <img src="images/spacecakes.jpg" id="user-cover" alt=""/> /-->
 		</section>
 
@@ -78,7 +78,24 @@
 
 		<!--/ scripts																																					 /-->
 
+		<script src="scripts/jeip.js"></script>
+
 		<script>
+			$("#username-edit").eip("save.php", { select_text: true });
+
+			$("#textarea-edit").eip("save.php", { form_type: "textarea" });
+
+			$("#select-edit").eip("save.php", {
+				form_type: "select",
+				select_options: {
+					blue	: "Blue",
+					green	: "Green",
+					red		: "Red",
+					black	: "Black",
+					brown	: "Brown",
+					white	: "White"
+				}
+			});
 		</script>
 
 	</body>

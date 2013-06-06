@@ -231,6 +231,10 @@ ul { margin: 0; }
 			text-align: center;
 
 			&:first-child { border-left: 0; }
+
+			a {
+				padding: 7rem 0 0 0;
+			}
 		}
 
 		#action-create, #action-feed, #action-discovery, #action-friends {
@@ -246,6 +250,13 @@ ul { margin: 0; }
 		#action-feed { background-image: url("../images/action-feed.png"); }
 		#action-discovery { background-image: url("../images/action-discovery.png"); }
 		#action-friends { background-image: url("../images/action-friends.png"); }
+
+		#action-user {
+			background-image: url("../images/avatar-spacecakes.jpg");
+			background-repeat: no-repeat;
+			background-size: 149px 150px;
+			@include hide-text;
+		}
 	}
 }
 
@@ -261,6 +272,19 @@ ul { margin: 0; }
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
+	padding: 2rem;
+
+	input[type="text"], input[type="password"], input[type="email"] {
+		margin: 0; padding: 0;
+
+		border: 0;
+		border-radius: 0;
+		color: #191919;
+		display: block;
+		font-size: 16px;
+		text-align: left;
+		width: auto;
+	}
 
 	/*
 	#user-cover {
@@ -268,6 +292,14 @@ ul { margin: 0; }
 		margin: -7% 0 0 0;
 	}
 	*/
+
+	#username-edit {
+		color: $white;
+		font-family: "OpenSansBold";
+		font-size: 56px;
+		/* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+	}
 }
 
 @media only screen and (max-height: 700px) {
@@ -288,7 +320,17 @@ ul { margin: 0; }
 				width: 99px; height: 99px;
 			}
 
-			#action-create, #action-feed, #action-discovery, #action-friends { background-size: 99px; }
+			#action-create, #action-feed, #action-discovery, #action-friends {
+				background-size: 99px;
+				font-family: "OpenSansLight";
+				font-size: 12px;
+				padding: 0 0 1rem 0;
+			}
+
+			#action-user {
+				background-image: url("../images/avatar-spacecakes.jpg");
+				background-size: 99px 100px;
+			}
 		}
 	}
 
