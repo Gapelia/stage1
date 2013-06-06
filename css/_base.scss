@@ -9,7 +9,10 @@
 
 /** [-] Reset *****************************************************************************************/
 
-* { margin: 0; padding: 0; }
+* {
+	margin: 0; padding: 0;
+	box-sizing: border-box;
+}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub,
@@ -60,13 +63,10 @@ $gray:			rgba(228, 228, 228, 1);	// #e4e4e4;
 $l-gray:		rgba(244, 244, 244, 1);	// #f4f4f4;
 $white:     rgba(254, 254, 254, 1); // #fefefe;
 
-$navy:			rgba(2, 18, 31, 1);			// #02121f;
-$orange:		rgba(252, 111, 70, 1);	// #fc6f46;
-$pink:			rgba(239, 25, 94, 1);		// #ef195e;
-
-.navy				{ color: $navy; }
-.orange			{ color: $orange; }
-.gray				{ color: $gray; }
+$gray-i:		rgba(231, 231, 231, 1);	// #e7e7e7;
+$gray-ii:		rgba(207, 207, 207, 1);	// #cfcfcf;
+$gray-iii:	rgba(190, 190, 190, 1);	// #bebebe;
+$gray-v:		rgba(88, 89, 89, 1);		// #585959;
 
 /** [-] @font-face ************************************************************************************/
 
@@ -262,20 +262,13 @@ h6 {
 /** [-] Lists *****************************************************************************************/
 
 ul, ol {
-	margin-bottom: 20px;
+	margin: 0; padding: 0;
 
 	ul, ol {
-		font-size: 90%;
-		margin: 4px 0 5px 30px;
-
-		li { margin-bottom: 6px; }
-	}
-
-	li {
-		line-height: 18px;
-		margin-bottom: 12px;
-
-		p { line-height: 21px; }
+		li {
+			margin: 0; padding: 0;
+			line-height: 1;
+		}
 	}
 }
 
@@ -315,29 +308,6 @@ blockquote {
   }
 }
 
-/*
-blockquote {
-	margin: 0 0 20px; padding: 9px 20px 0 19px;
-	border-left: 1px solid #ddd;
-
-	cite {
-		color: #555;
-		display: block;
-		font-size: 12px;
-
-		&:before { content: "\2014 \0020"; }
-	}
-
-	p {
-		color: #777;
-		display: inline;
-		font-size: 17px;
-		font-style: italic;
-		line-height: 24px;
-	}
-}
-*/
-
 /** [-] MEDIA *****************************************************************************************/
 
 /*
@@ -363,93 +333,3 @@ img {
 		position: absolute;
 	}
 }
-
-/* #Images
-================================================== */
-
-img.scale-with-grid {
-max-width: 100%;
-height: auto; }
-
-/* #Buttons
-================================================== */
-
-.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
-	background: #eee;
-	background: #eee linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);
-	border: 1px solid #aaa;
-	border-top: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	border-radius: 3px;
-	color: #444;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: 700;
-	text-decoration: none;
-	text-shadow: 0 1px rgba(255, 255, 255, .75);
-	cursor: pointer;
-	margin-bottom: 20px;
-	line-height: normal;
-	padding: 8px 10px;
-}
-
-.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
-	color: #222;
-	background: #ddd;
-	background: #ddd linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%);
-	border: 1px solid #888;
-	border-top: 1px solid #aaa;
-	border-left: 1px solid #aaa;
-}
-
-.button:active, button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active {
-	border: 1px solid #666;
-	background: #ccc;
-	background: #ccc linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%);
-}
-
-.button.full-width, button.full-width, input[type="submit"].full-width, input[type="reset"].full-width, input[type="button"].full-width {
-	width: 100%;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	text-align: center;
-}
-
-/* #Forms
-================================================== */
-
-form { margin-bottom: 20px; }
-fieldset { margin-bottom: 20px; }
-
-input[type="text"], input[type="password"], input[type="email"], textarea, select {
-	border: 1px solid #ccc;
-	padding: 6px 4px;
-	outline: none;
-	border-radius: 2px;
-	color: #777;
-	margin: 0;
-	width: 210px;
-	max-width: 100%;
-	display: block;
-	margin-bottom: 20px;
-	background: #fff;
-}
-
-select { padding: 0; }
-
-textarea { min-height: 60px; }
-
-label, legend {
-	display: block;
-	font-weight: 700;
-	font-size: 13px;
-
-	span {
-		font-weight: normal;
-		font-size: 13px;
-		color: #444;
-	}
-}
-
-select { width: 220px; }
-input[type="checkbox"] { display: inline; }

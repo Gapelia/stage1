@@ -158,7 +158,7 @@
 				[+] Generic
 *******************************************************************************************************/
 /** [-] Reset *****************************************************************************************/
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 
@@ -183,12 +183,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 .cf:after { clear: both; }
 
 /** [-] Colours ***************************************************************************************/
-.navy { color: #02121f; }
-
-.orange { color: #fc6f46; }
-
-.gray { color: #e4e4e4; }
-
 /** [-] @font-face ************************************************************************************/
 @font-face { font-family: "OpenSansLight"; font-style: normal; font-weight: 300; src: local("Γÿ║"), url("../font-face/OpenSans-Light.svg#OpenSansLight") format("svg"); src: url("../font-face/OpenSans-Light.eot"), url("../font-face/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Light.ttf") format("truetype"), url("../font-face/OpenSans-Light.woff") format("woff"); }
 
@@ -244,11 +238,8 @@ h5 { font-size: 17px; line-height: 24px; }
 h6 { font-size: 14px; line-height: 21px; }
 
 /** [-] Lists *****************************************************************************************/
-ul, ol { margin-bottom: 20px; }
-ul ul, ul ol, ol ul, ol ol { font-size: 90%; margin: 4px 0 5px 30px; }
-ul ul li, ul ol li, ol ul li, ol ol li { margin-bottom: 6px; }
-ul li, ol li { line-height: 18px; margin-bottom: 12px; }
-ul li p, ol li p { line-height: 21px; }
+ul, ol { margin: 0; padding: 0; }
+ul ul li, ul ol li, ol ul li, ol ol li { margin: 0; padding: 0; line-height: 1; }
 
 ul { list-style: none outside; }
 
@@ -268,28 +259,6 @@ hr { border: 1px solid #ddd; clear: both; height: 0; margin: 10px 0 30px; }
 blockquote { margin: 1.5em 10px; padding: 0.5em 10px; background-color: #f9f9f9; border-left: 10px solid #ccc; line-height: 25px; quotes: "\201C" "\201D" "\2018" "\2019"; }
 blockquote:before { color: #ccc; content: open-quote; font-size: 4em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; }
 
-/*
-blockquote {
-	margin: 0 0 20px; padding: 9px 20px 0 19px;
-	border-left: 1px solid #ddd;
-
-	cite {
-		color: #555;
-		display: block;
-		font-size: 12px;
-
-		&:before { content: "\2014 \0020"; }
-	}
-
-	p {
-		color: #777;
-		display: inline;
-		font-size: 17px;
-		font-style: italic;
-		line-height: 24px;
-	}
-}
-*/
 /** [-] MEDIA *****************************************************************************************/
 /*
 img { width: 100%; height: auto; border-style: none;
@@ -298,55 +267,17 @@ img { width: 100%; height: auto; border-style: none;
 .video-container { margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; position: relative; }
 .video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
 
-/* #Images
-================================================== */
-img.scale-with-grid { max-width: 100%; height: auto; }
-
-/* #Buttons
-================================================== */
-.button, button, input[type="submit"], input[type="reset"], input[type="button"] { background: #eee; background: #eeeeee linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%); border: 1px solid #aaa; border-top: 1px solid #ccc; border-left: 1px solid #ccc; border-radius: 3px; color: #444; display: inline-block; font-size: 11px; font-weight: 700; text-decoration: none; text-shadow: 0 1px rgba(255, 255, 255, 0.75); cursor: pointer; margin-bottom: 20px; line-height: normal; padding: 8px 10px; }
-
-.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover { color: #222; background: #ddd; background: #dddddd linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%); border: 1px solid #888; border-top: 1px solid #aaa; border-left: 1px solid #aaa; }
-
-.button:active, button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active { border: 1px solid #666; background: #ccc; background: #cccccc linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%); }
-
-.button.full-width, button.full-width, input[type="submit"].full-width, input[type="reset"].full-width, input[type="button"].full-width { width: 100%; padding-left: 0 !important; padding-right: 0 !important; text-align: center; }
-
-/* #Forms
-================================================== */
-form { margin-bottom: 20px; }
-
-fieldset { margin-bottom: 20px; }
-
-input[type="text"], input[type="password"], input[type="email"], textarea, select { border: 1px solid #ccc; padding: 6px 4px; outline: none; border-radius: 2px; color: #777; margin: 0; width: 210px; max-width: 100%; display: block; margin-bottom: 20px; background: #fff; }
-
-select { padding: 0; }
-
-textarea { min-height: 60px; }
-
-label, legend { display: block; font-weight: 700; font-size: 13px; }
-label span, legend span { font-weight: normal; font-size: 13px; color: #444; }
-
-select { width: 220px; }
-
-input[type="checkbox"] { display: inline; }
-
 /** [-] Table of Contents *****************************************************************************/
 /****** [+] Let's get started
 						[-] Header
-						[-] Shared Content Bar Styles
-						[-] Main Navigation
-						[-] Sub Navigation
-						[-] Klip Items
+						[-] Main Content
 						[-] Footer
 				*** [+] Screens smaller than 960 [+] Tablet screens in portrait view [+] All mobile screens [+] Tablet screens, landscape to portrait [+] Tablet screens, portrait to landscape
 *******************************************************************************************************/
 /***************************************************************************** [+] LET'S GET STARTED **/
-* { box-sizing: border-box; }
-
 html, body { width: 100%; height: 100%; }
 
-body { background-color: #f5f5f5; background-position: center center; background-size: cover; color: #191919; font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; font-size: 15px; position: fixed; /* white text enhancement */ /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ }
+body { background-color: #f4f4f4; background-position: center center; background-size: cover; color: #191919; font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; font-size: 15px; position: fixed; /* white text enhancement */ /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ }
 
 .first { background-image: url("../images/bg.jpg"); }
 
@@ -355,11 +286,11 @@ body { background-color: #f5f5f5; background-position: center center; background
 .third { background-image: url("../images/bg-iii.jpg"); }
 
 /** [-] Header ****************************************************************************************/
-header #logo { width: 570px; height: 200px; background-image: url("../images/logo-title.png"); background-repeat: no-repeat; /* background-size: 500px 174px; */ margin: 2rem 0 2rem 2rem; /* position: fixed; */ border: 0; color: transparent; font: 0/0 a; text-shadow: none; /* margin: 2rem 0 0 2rem; */ }
+header #logo { width: 570px; height: 200px; background-image: url("../images/logo-title.png"); background-repeat: no-repeat; margin: 2rem 0 2rem 2rem; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
 header #account-links a { color: #fefefe; }
 
-.second header #logo, .third header #logo { width: 200px; height: 70px; background-image: url("../images/logo.png"); background-repeat: no-repeat; background-size: 200px 70px; margin: 3rem auto; margin-bottom: 2rem; /* position: fixed; */ border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.second header #logo, .third header #logo { width: 200px; height: 70px; background-image: url("../images/logo.png"); background-repeat: no-repeat; background-size: 200px 70px; margin: 3rem auto; margin-bottom: 2rem; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 .second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: absolute; margin: 2rem 2rem 0 0; position: fixed; }
 .second header #account-links a, .third header #account-links a { color: #fefefe; }
 
@@ -404,6 +335,7 @@ ul { margin: 0; }
 #photo-credit { top: -15px; right: 5px; color: #fefefe; font-size: 12px; opacity: 0.7; position: absolute; }
 #photo-credit:hover { opacity: 0.7; }
 
+/** [-] Profile ***************************************************************************************/
 /** [-] Footer ****************************************************************************************/
 footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
 footer a { color: #585959; }
