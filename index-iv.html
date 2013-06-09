@@ -40,27 +40,81 @@
 		<!--/ the action bar 																																	 /-->
 
 		<header id="action-bar">
-			<!--/ <h1 id="logo">Gapelia</h1> /-->
 			<a href="index.html"><h1>Gapelia</h1></a>
 
 			<ul>
+				<li id="action-next"><a href="">Next</a></li>
+				<li id="action-logo"><a href="">Gapelia</a></li>
+
+				<!--/
 				<li id="action-create"><a href="">Create book</a></li>
 				<li id="action-feed"><a href="">Feed</a></li>
 				<li id="action-discovery"><a href="">Discovery</a></li>
 				<li id="action-friends"><a href="">Friends</a></li>
-				<!--/ <li id="action-account">Sign Up | Log In</li> /-->
 				<li id="action-user"><a href="">Your account</a></li>
+				/-->
+				<!--/ <li id="action-account">Sign Up | Log In</li> /-->
 			</ul>
 		</header>
 
 		<section id="breadcrumbs">
+			Welcome to Gapelia! Start by giving your cover page a fresh look.
 		</section>
 
 		<!--/ the good stuff																																	 /-->
 
 		<section id="main-content">
-			<span id="username-edit" class="editable">spacecakes</span>
-			<!--/ <img src="images/spacecakes.jpg" id="user-cover" alt=""/> /-->
+
+			<div id="details-left">
+
+				<span id="username-edit" class="editable"><label data-type="editable" data-for="#username-input">SpaceCakes</label><input id="username-input"/></span>
+				<span id="location-edit" class="editable"><label data-type="editable" data-for="#location-input">Hawaii</label><input id="location-input"/></span>
+
+				<ul id="social-edit">
+					<li id="www-edit" class="editable"><label data-type="editable" data-for="#www-input">Homepage</label><input id="www-input"/></li>
+					<li id="facebook-edit" class="editable"><label data-type="editable" data-for="#facebook-input">Facebook</label><input id="facebook-input"/></li>
+					<li id="twitter-edit" class="editable"><label data-type="editable" data-for="#twitter-input">Twitter</label><input id="twitter-input"/></li>
+				</ul>
+
+			</div>
+
+			<div id="details-right">
+
+				<div id="lifestyle-title">Lifestyle</div>
+
+				<div id="lifestyle-edit">
+					<form>
+						<input id="tags_1" type="text" class="tags editable" value="surfing,Hawaii,cupcakes,happiness,sun,AK47s"/>
+						Add tags
+					</form>
+
+					
+					<!--/
+					<label data-type="editable" data-for="#lifestyle-input">
+						What inspires you to take charge of your destiny? What is your favorite food? This is where you tell everyone!
+					</label>
+
+					<input id="lifestyle-input"/>
+					/-->
+				</div>
+
+				<!--/ <input type="file" class="" multiple="1" name="sdgh" id="js_4"/> /-->
+
+				<form method="POST" id="cover-form" enctype="multipart/form-data" action="" autocomplete="off">
+					<a>
+						<span class="editable">Choose background picture</span>
+						<input id="cover-upload" type="file" capture="filesystem" name="file" class="file-upload"/>
+					</a>
+
+					<!--/
+					<input type="hidden" name="folder_name" value="Saved Submissions"/>
+					<input type="hidden" name="project_name" value=""/>
+					<input type="hidden" name="use_defaults" value="1"/>
+					/-->
+				</form>
+
+			</div>
+
 		</section>
 
 		<!--/ footer, the end																																	 /-->
@@ -78,10 +132,61 @@
 
 		<!--/ scripts																																					 /-->
 
+		<script src="scripts/jquery.editable.js"></script>
+
+		<script>
+			$("#details-left, #details-right").editables({
+				beforeEdit: function(field) {
+					field.val(this.text());
+				},
+				beforeFreeze: function(display) {
+					display.text(this.val());
+				}
+			});
+		</script>
+
+		<script src="scripts/jquery.tagsinput.min.js"></script>
+
+		<script>
+			function onAddTag(tag) { alert("Added a tag: " + tag); }
+			function onRemoveTag(tag) { alert("Removed a tag: " + tag); }
+			function onChangeTag(input,tag) { alert("Changed a tag: " + tag); }
+
+			$(function() {
+				$("#tags_1").tagsInput({width:"auto"});
+
+				$("#tags_2").tagsInput({
+					width: "auto",
+					onChange: function(elem, elem_tags) {
+						var languages = ["php","ruby","javascript"];
+
+						$(".tag", elem_tags).each(function() {
+							if($(this).text().search(new RegExp('\\b(" + languages.join("|") + ")\\b')) >= 0)
+							$(this).css("background-color", "yellow");
+						});
+					}
+				});
+
+				$("#tags_3").tagsInput({
+					width: "auto",
+					autocomplete_url:"test/fake_json_endpoint.html" // jquery ui autocomplete requires a json endpoint
+					// autocomplete_url:"test/fake_plaintext_endpoint.html" // jquery.autocomplete (not jquery ui)
+				});
+
+				// Uncomment this line to see the callback functions in action
+				// $("input.tags").tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});		
+
+				// Uncomment this line to see an input with no interface for adding new tags.
+				// $("input.tags").tagsInput({interactive:false});
+			});
+		</script>
+
+		<!--/
 		<script src="scripts/jeip.js"></script>
 
 		<script>
-			$("#username-edit").eip("save.php", { select_text: true });
+			$("#username-edit").eip("save.php", { select_text: false });
+			$("#location-edit").eip("save.php", { select_text: false });
 
 			$("#textarea-edit").eip("save.php", { form_type: "textarea" });
 
@@ -97,6 +202,7 @@
 				}
 			});
 		</script>
+		/-->
 
 	</body>
 

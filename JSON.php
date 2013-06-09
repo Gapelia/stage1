@@ -760,20 +760,20 @@ class Services_JSON
         }
     }
 
-    /**
-     * @todo Ultimately, this should just call PEAR::isError()
-     */
-    function isError($data, $code = null)
-    {
-        if (class_exists('pear')) {
-            return PEAR::isError($data, $code);
-        } elseif (is_object($data) && (get_class($data) == 'services_json_error' ||
-                                 is_subclass_of($data, 'services_json_error'))) {
-            return true;
-        }
+	/**
+	 * @todo Ultimately, this should just call PEAR::isError()
+	**/
+	function isError($data, $code = null) {
+		if (class_exists('pear')) {
+			return PEAR::isError($data, $code);
+		}
 
-        return false;
-    }
+		elseif (is_object($data) && (get_class($data) == 'services_json_error' || is_subclass_of($data, 'services_json_error'))) {
+			return true;
+		}
+
+		return false;
+	}
 }
 
 if (class_exists('PEAR_Error')) {

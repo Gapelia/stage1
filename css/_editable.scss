@@ -12,7 +12,7 @@
 }
 
 .jeip-mouseover, .jeip-editfield {
-	background-color: transparentize($edit, 0.8);
+	/* background-color: transparentize($edit, 0.8); */
 	cursor: pointer;
 }
 
@@ -38,13 +38,4 @@
 	color: $white;
 	font-size: 12px;
 	padding: 0 0.5rem;
-}
-
-.editable {
-	&:after {
-		width: 20px; height: 19px;
-
-		content: url("../images/edit-icon-black.png");
-		vertical-align: top;
-	}
 }

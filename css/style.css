@@ -335,42 +335,6 @@ ul { margin: 0; }
 #photo-credit { top: -15px; right: 5px; color: #fefefe; font-size: 12px; opacity: 0.7; position: absolute; }
 #photo-credit:hover { opacity: 0.7; }
 
-/** [-] Profile ***************************************************************************************/
-#action-bar, #breadcrumbs { background-color: #e7e7e7; border-bottom: 1px solid #cfcfcf; width: 100%; }
-
-#action-bar { color: #585959; font-family: "OpenSansSemibold"; height: 149px; padding: 0 0 0 2rem; }
-#action-bar a { /* width: 100%; height: 100%; */ color: #585959; }
-#action-bar a h1, #action-bar ul { display: inline-block; }
-#action-bar h1 { width: 258px; height: 90px; background-image: url("../images/logo-action-bar.png"); background-size: 258px 90px; margin: 2.4rem 0 0 0; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-#action-bar ul { float: right; }
-#action-bar ul li { width: 149px; height: 149px; border-left: 1px solid #cfcfcf; display: table-cell; text-align: center; }
-#action-bar ul li:first-child { border-left: 0; }
-#action-bar ul li a { padding: 7rem 0 0 0; }
-#action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
-#action-bar ul #action-create { background-image: url("../images/action-create.png"); }
-#action-bar ul #action-feed { background-image: url("../images/action-feed.png"); }
-#action-bar ul #action-discovery { background-image: url("../images/action-discovery.png"); }
-#action-bar ul #action-friends { background-image: url("../images/action-friends.png"); }
-#action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-
-#breadcrumbs { height: 29px; }
-
-#main-content { width: 100%; height: 100%; background-image: url("../images/spacecakes.jpg"); background-position: top left; background-repeat: no-repeat; background-size: cover; overflow: hidden; padding: 2rem; /*
-#user-cover {
-	width: 100%; height: 100%;
-	margin: -7% 0 0 0;
-}
-*/ }
-#main-content input[type="text"], #main-content input[type="password"], #main-content input[type="email"] { margin: 0; padding: 0; border: 0; border-radius: 0; color: #191919; display: block; font-size: 16px; text-align: left; width: auto; }
-#main-content #username-edit { color: #fefefe; font-family: "OpenSansBold"; font-size: 56px; /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); }
-
-@media only screen and (max-height: 700px) { /** [-] Profile *************************************************************************************/
-  #action-bar { height: 99px; }
-  #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
-  #action-bar ul li { width: 99px; height: 99px; }
-  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
-  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); background-size: 99px 100px; }
-  #main-content { background-position: bottom left; } }
 /** [-] Footer ****************************************************************************************/
 footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
 footer a { color: #585959; }
@@ -423,16 +387,73 @@ footer ul li:last-child:after { content: ""; }
   footer p, footer ul { display: block; }
   footer p { margin: 0 0 0.5rem 0; }
   footer ul { float: none; } }
-.jeip-saving { background-color: rgba(25, 25, 25, 0.3); background-image: url("../images/ajax-loader.gif"); background-position: 14% 50%; background-repeat: no-repeat; color: #fefefe; /* display: table-cell; */ font-family: "OpenSansLight"; padding: 0.5rem 0.6rem 0.5rem 2.5rem; text-align: center; text-transform: uppercase; }
+/** [-] Action Bar ************************************************************************************/
+#action-bar, #breadcrumbs { background-color: #e7e7e7; border-bottom: 1px solid #cfcfcf; width: 100%; }
 
-.jeip-mouseover, .jeip-editfield { background-color: rgba(255, 255, 153, 0.2); cursor: pointer; }
+#action-bar { color: #585959; font-family: "OpenSansSemibold"; height: 149px; padding: 0 0 0 2rem; }
+#action-bar a { /* width: 100%; height: 100%; */ color: #585959; }
+#action-bar a h1, #action-bar ul { display: inline-block; }
+#action-bar h1 { width: 258px; height: 90px; background-image: url("../images/logo-action-bar.png"); background-size: 258px 90px; margin: 2.4rem 0 0 0; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#action-bar ul { float: right; }
+#action-bar ul li { width: 149px; height: 149px; border-left: 1px solid #cfcfcf; display: table-cell; text-align: center; }
+#action-bar ul li:first-child { border-left: 0; }
+#action-bar ul li a { padding: 7rem 0 0 0; }
+#action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
+#action-bar ul #action-create { background-image: url("../images/action-create.png"); }
+#action-bar ul #action-feed { background-image: url("../images/action-feed.png"); }
+#action-bar ul #action-discovery { background-image: url("../images/action-discovery.png"); }
+#action-bar ul #action-friends { background-image: url("../images/action-friends.png"); }
+#action-bar ul #action-user, #action-bar ul #action-logo { background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+#action-bar ul #action-logo { background-image: url("../images/action-logo.png"); border-left: 1px solid #cfcfcf; }
+#action-bar ul #action-next { font-size: 26px; padding: 0; vertical-align: middle; }
 
-.jeip-savebutton, .jeip-cancelbutton { border: 0; color: #fefefe; cursor: pointer; font-size: 13px; padding: 0.5rem 1rem; text-align: center; }
+#breadcrumbs { font-family: "OpenSansLight"; font-size: 14px; height: 29px; padding: 0.4rem 2rem; }
 
-.jeip-savebutton { background-color: #00da3c; }
+/** [-] Main Content Area *****************************************************************************/
+#main-content { width: 100%; height: 100%; background-image: url("../images/spacecakes.jpg"); background-position: top left; background-repeat: no-repeat; background-size: cover; overflow: hidden; padding: 2rem; /*
+#user-cover {
+	width: 100%; height: 100%;
+	margin: -7% 0 0 0;
+}
+*/ }
+#main-content input[type="text"], #main-content input[type="password"], #main-content input[type="email"] { margin: 0; padding: 0; border: 0; border-radius: 0; color: #191919; display: block; font-size: 16px; text-align: left; width: auto; }
+#main-content #details-left, #main-content #details-right { color: #fefefe; display: inline-block; font-family: "OpenSansBold"; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); width: 45%; }
+#main-content #details-left input, #main-content #details-right input { display: none; }
+#main-content #details-left span, #main-content #details-right span { display: block; }
+#main-content #details-left .editable:after, #main-content #details-right .editable:after { width: 20px; height: 19px; padding: 0.3rem; }
+#main-content #details-left .editable:after { content: url("../images/edit-icon-black.png"); }
+#main-content #username-edit, #main-content #lifestyle-title { font-size: 56px; margin: 0 0 2rem 0; }
+#main-content #location-edit { font-size: 36px; margin: 0 0 2rem 0; }
+#main-content #social-edit li { display: inline-block; /*
+&:after { content: " |"; }
+&:last-child { &:after { content: ""; } }
+*/ }
+#main-content #lifestyle-title, #main-content #details-right { float: right; }
+#main-content #lifestyle-title .editable:before, #main-content #details-right .editable:before { content: url("../images/edit-icon-black.png"); }
+#main-content #lifestyle-edit { float: right; font-size: 16px; line-height: 1.5; text-align: right; text-shadow: none; width: 80%; }
+#main-content #lifestyle-edit input { display: block; }
+#main-content #cover-form { bottom: 5rem; right: 2rem; position: fixed; }
+#main-content #cover-form span { padding: 1rem 0; }
+#main-content #cover-form #cover-upload { display: block; }
+#main-content #cover-form input.file-upload { margin: 0; padding: 0; top: 0; right: 0; border: 0; cursor: pointer; /* font-size: 100px; */ /* height: 200px; */ height: 3.5rem; opacity: 0; position: absolute; }
 
-.jeip-cancelbutton { background-color: #df151a; }
+/** [-] Tags ******************************************************************************************/
+div.tagsinput { width: auto !important; height: auto !important; /* width: 300px; height: 100px; */ /* background-color: transparentize($black, 0.7); */ background-color: transparent; border: 0; color: #fefefe; overflow-y: auto; /* padding: 5px; */ }
+div.tagsinput span.tag { margin: 0 5px 5px 0; padding: 5px; background: #cde69c; border: 1px solid #a5d24a; color: #638421; display: block; float: right; font-size: 13px; text-decoration: none; }
+div.tagsinput span.tag a { color: #82ad2b; font-size: 11px; font-weight: 700; text-decoration: none; }
+div.tagsinput input { margin: 0 5px 5px 0; padding: 5px; background: transparent; border: 1px solid transparent; color: #fefefe !important; font-size: 13px; outline: 0; width: 80px; }
+div.tagsinput div { display: block; float: left; }
+div.tagsinput .tags_clear { width: 100%; height: 0; clear: both; }
+div.tagsinput .not_valid { background: #fbd8db !important; color: #90111a !important; }
 
-.edit-sep { background-color: rgba(25, 25, 25, 0.2); color: #fefefe; font-size: 12px; padding: 0 0.5rem; }
-
-.editable:after { width: 20px; height: 19px; content: url("../images/edit-icon-black.png"); vertical-align: top; }
+@media only screen and (max-height: 700px) { /** [-] Profile *************************************************************************************/
+  #action-bar { height: 99px; }
+  #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
+  #action-bar ul li { width: 99px; height: 99px; }
+  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-next { font-size: 20px; padding: 0; vertical-align: middle; }
+  #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
+  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+  #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
+  #main-content { background-position: bottom left; } }
