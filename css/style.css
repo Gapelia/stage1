@@ -284,6 +284,7 @@ body { background-color: #f4f4f4; background-position: center center; background
 .second { background-image: url("../images/bg-ii.jpg"); }
 
 .third { background-image: url("../images/bg-iii.jpg"); }
+.third #username, .third #password { display: inline-block; width: 49.2%; }
 
 /** [-] Header ****************************************************************************************/
 header #logo { width: 570px; height: 200px; background-image: url("../images/logo-title.png"); background-repeat: no-repeat; margin: 2rem 0 2rem 2rem; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
@@ -303,9 +304,11 @@ button:hover, input[type="text"]:hover, input[type="password"]:hover, input[type
 #login-facebook, #login-google { color: #fefefe; }
 #login-facebook:hover, #login-google:hover { opacity: 0.7; }
 
-#login-facebook { background-color: #3d75a0; /* border: 1px solid #1c4e76; */ }
+#login-facebook { background-color: #3d75a0; }
 
-#login-google { background-color: #e16252; /* border: 1px solid #b13c2d; */ }
+#login-google { background-color: #e16252; }
+
+#user-pass { margin: 0 auto; width: 300px; }
 
 #dimension-list, #cta { width: 100%; height: auto; margin: 0 auto; padding: 2rem 0; background-color: rgba(25, 25, 25, 0.5); color: #fefefe; text-align: center; }
 #dimension-list li, #cta li { width: 100px; height: 100px; margin: 0 1rem 0 0; padding: 0; background-size: 100px; display: inline-block; line-height: 212px; }
@@ -372,6 +375,7 @@ footer ul li:last-child:after { content: ""; }
 @media only screen and (max-width: 479px) { /** [-] Header **************************************************************************************/
   header #logo { width: 300px; height: 104px; background-size: 300px 104px; margin: 2rem auto; }
   header #account-links { margin: 0 0 2rem 0; position: relative; text-align: center; }
+  .second header #logo, .third header #logo { margin: 1rem auto 2rem; }
   .second header #account-links, .third header #account-links { top: 0; right: 0; color: rgba(254, 254, 254, 0.5); display: block; margin: 0 auto 1rem; position: static; }
   .second header #account-links a, .third header #account-links a { color: #fefefe; }
   /** [-] Main Content ********************************************************************************/
@@ -382,6 +386,8 @@ footer ul li:last-child:after { content: ""; }
   #dimension-list li { width: 50px; height: 50px; margin: 0 1rem 0 0; padding: 0; background-size: 50px; line-height: 112px; }
   #progress { width: auto; height: auto; background-image: none; color: #fefefe; display: block; float: none; font-size: 14px; line-height: 1; margin: 1.5rem auto; margin-bottom: 0; position: static; text-transform: uppercase; }
   #cta { bottom: 66px; font-size: 15px; padding: 0.5rem 0; }
+  .third #user-pass { width: 300px; }
+  .third #username, .third #password { width: 44%; }
   /** [-] Footer **************************************************************************************/
   footer { width: 100%; height: auto; bottom: 0; left: 0; padding: 1rem 2rem; text-align: center; }
   footer p, footer ul { display: block; }

@@ -31,7 +31,15 @@ body {
 
 .first { background-image: url("../images/bg.jpg"); }
 .second { background-image: url("../images/bg-ii.jpg"); }
-.third { background-image: url("../images/bg-iii.jpg"); }
+
+.third {
+	background-image: url("../images/bg-iii.jpg");
+
+	#username, #password {
+		display: inline-block;
+		width: 49.2%;
+	}
+}
 
 /** [-] Header ****************************************************************************************/
 
@@ -109,14 +117,12 @@ button, input[type="text"], input[type="password"], input[type="email"] {
 	&:hover { opacity: 0.7; }
 }
 
-#login-facebook {
-	background-color: #3d75a0;
-	/* border: 1px solid #1c4e76; */
-}
+#login-facebook { background-color: #3d75a0; }
+#login-google { background-color: #e16252; }
 
-#login-google {
-	background-color: #e16252;
-	/* border: 1px solid #b13c2d; */
+#user-pass {
+	margin: 0 auto;
+	width: 300px;
 }
 
 #dimension-list, #cta {
@@ -362,6 +368,8 @@ footer {
 	
 	.second, .third {
 		header {
+			#logo { margin: 1rem auto 2rem; }
+
 			#account-links {
 				top: 0; right: 0;
 
@@ -427,6 +435,11 @@ footer {
 		bottom: 66px;
 		font-size: 15px;
 		padding: 0.5rem 0;
+	}
+
+	.third {
+		#user-pass { width: 300px; }
+		#username, #password { width: 44%; }
 	}
 
 	/** [-] Footer **************************************************************************************/
