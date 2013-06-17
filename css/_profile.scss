@@ -153,15 +153,13 @@
 	font-size: 14px;
 	height: 29px;
 	padding: 0.4rem 2rem;
-}
 
-#small-switcher {
-	a { color: $gray-v; }
-
-	.selected {
+	.selected, .current {
 		color: $gray-v;
 		font-family: "OpenSansBold";
 	}
+
+	a { color: $gray-v; }
 }
 
 /** [-] Shared User and Main Content Styles ***********************************************************/

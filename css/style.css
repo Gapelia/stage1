@@ -433,9 +433,8 @@ footer ul li:last-child:after { content: ""; }
 #action-bar ul #action-next { border-left: 1px solid #cfcfcf; padding: 0; }
 
 #breadcrumbs, #small-switcher { font-family: "OpenSansLight"; font-size: 14px; height: 29px; padding: 0.4rem 2rem; }
-
-#small-switcher a { color: #585959; }
-#small-switcher .selected { color: #585959; font-family: "OpenSansBold"; }
+#breadcrumbs .selected, #breadcrumbs .current, #small-switcher .selected, #small-switcher .current { color: #585959; font-family: "OpenSansBold"; }
+#breadcrumbs a, #small-switcher a { color: #585959; }
 
 /** [-] Shared User and Main Content Styles ***********************************************************/
 #user-content, #main-content { width: 100%; height: 100%; }
@@ -488,14 +487,15 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Big Scroller **********************************************************************************/
 #big-scroller { overflow-y: scroll; width: auto; }
-#big-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; /*
-.book-cover {
-	width: 100%; height: auto;
-	display: table-cell;
-}
-*/ }
+#big-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
 #big-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
 #big-scroller .dimension-book .mark { position: absolute; width: 150px; }
+#big-scroller .dimension-book .like-collect { top: 0; right: 0; position: absolute; }
+#big-scroller .dimension-book .like-collect li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#big-scroller .dimension-book .like-collect li:hover { opacity: 0.7; }
+#big-scroller .dimension-book .like-collect li a { width: 100%; height: 100%; display: block; }
+#big-scroller .dimension-book .like-collect .like { background-image: url("../images/like.png"); }
+#big-scroller .dimension-book .like-collect .collect { background-image: url("../images/collect.png"); }
 
 /** [-] Small Scroller ********************************************************************************/
 #small-scroller { overflow-y: scroll !important; width: auto; }
@@ -516,7 +516,7 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Dimensions ************************************************************************************/
 .art .mask, .flow .mask, .life .mask, .pulse .mask, .wonder .mask, .wow .mask { width: 100%; height: 100%; background-color: transparent; background-position: center center; background-repeat: no-repeat; background-size: 150px; display: table-cell; }
-.art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { width: 100%; height: 100%; background-size: 100%; display: table-cell; }
+.art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
 
 .art .mask { background-image: url("../images/svg/dimension-art.svg"); }
 .art .book-cover { background-image: url("../images/book-thumb.jpg"); }
@@ -536,7 +536,29 @@ footer ul li:last-child:after { content: ""; }
 .wow .mask { background-image: url("../images/svg/dimension-wow.svg"); }
 .wow .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
-@media only screen and (max-height: 700px) { /** [-] Profile *************************************************************************************/
+@media only screen and (max-height: 677px) { /** [-] Profile *************************************************************************************/
+  #action-bar { height: 99px; }
+  #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
+  #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
+  #action-bar ul li { width: 99px; height: 99px; }
+  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
+  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+  #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
+  #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
+  #action-bar ul #action-next { padding: 0; }
+  #main-content { background-position: bottom left; }
+  /** [-] Big + Small Scroller Shared Styles **********************************************************/
+  /** [-] Big Scroller **********************************************************************************/
+  #big-scroller .dimension-book { width: 200px; height: 339px; }
+  #big-scroller .dimension-book .mark { width: 100px; }
+  /** [-] Small Scroller ********************************************************************************/
+  #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
+  #small-scroller .user-book { width: 360px; height: 144px; }
+  #small-scroller .user-book .cover { width: 144px; height: 144px; }
+  /** [-] Dimensions **********************************************************************************/
+  .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; } }
+@media only screen and (max-height: 651px) { /** [-] Profile *************************************************************************************/
   #action-bar { height: 99px; }
   #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
   #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
@@ -551,8 +573,10 @@ footer ul li:last-child:after { content: ""; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
   #big-scroller .dimension-book { width: 200px; height: 320px; }
-  #big-scroller .dimension-book .mark { width: 150px; }
+  #big-scroller .dimension-book .mark { width: 100px; }
   /** [-] Small Scroller ********************************************************************************/
   #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
   #small-scroller .user-book { width: 360px; height: 144px; }
-  #small-scroller .user-book .cover { width: 144px; height: 144px; } }
+  #small-scroller .user-book .cover { width: 144px; height: 144px; }
+  /** [-] Dimensions **********************************************************************************/
+  .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; } }
