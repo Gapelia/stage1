@@ -24,15 +24,6 @@
 		<link href="css/style.css" rel="stylesheet"/>
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			/*
-      span.editable {
-        background-color: #ffa;
-        padding: 3px;
-      }
-			*/
-		</style>
-
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -78,13 +69,6 @@
 					$("#tumblr-edit .editable").html(a_tag);
 				});
 			});
-
-			/*
-			$("#details-left, #details-right").editables({
-				beforeEdit: function(field) { field.val(this.text()); },
-				beforeFreeze: function(display) { display.text(this.val()); }
-			});
-			*/
 		</script>
 
 	</head>
@@ -101,28 +85,13 @@
 
 			<ul>
 				<li id="action-next">
-					<a href="" class="top">Next</a>
-					<a href="" class="bottom">Preview</a>
+					<a href="index-v.html" class="top">Next</a>
+					<a href="index-iv-preview.html" class="bottom">Preview</a>
 				</li>
 
 				<li id="action-logo"><a href="">Gapelia</a></li>
-
-				<!--/
-				<li id="action-create"><a href="">Create book</a></li>
-				<li id="action-feed"><a href="">Feed</a></li>
-				<li id="action-discovery"><a href="">Discovery</a></li>
-				<li id="action-friends"><a href="">Friends</a></li>
-				<li id="action-user"><a href="">Your account</a></li>
-				/-->
-				<!--/ <li id="action-account">Sign Up | Log In</li> /-->
 			</ul>
 		</header>
-
-		<!--/
-		<section id="breadcrumbs">
-			Welcome to Gapelia! Start by giving your cover page a fresh look.
-		</section>
-		/-->
 
 		<!--/ the good stuff																																	 /-->
 
@@ -169,29 +138,13 @@
 						<input id="tags_1" type="text" class="tags editable" value=""/>
 						<span id="form-description">Add the passions, feelings, and places that best describe your lifestyle.</span>
 					</form>
-
-					<!--/
-					<label data-type="editable" data-for="#lifestyle-input">
-						What inspires you to take charge of your destiny? What is your favorite food? This is where you tell everyone!
-					</label>
-
-					<input id="lifestyle-input"/>
-					/-->
 				</div>
-
-				<!--/ <input type="file" class="" multiple="1" name="sdgh" id="js_4"/> /-->
 
 				<form method="POST" id="cover-form" enctype="multipart/form-data" action="" autocomplete="off">
 					<a>
 						<span class="editable">Choose background picture</span>
 						<input id="cover-upload" type="file" capture="filesystem" name="file" class="file-upload"/>
 					</a>
-
-					<!--/
-					<input type="hidden" name="folder_name" value="Saved Submissions"/>
-					<input type="hidden" name="project_name" value=""/>
-					<input type="hidden" name="use_defaults" value="1"/>
-					/-->
 				</form>
 
 			</div>
@@ -232,13 +185,14 @@
 							if($(this).text().search(new RegExp('\\b(" + languages.join("|") + ")\\b')) >= 0)
 							$(this).css("background-color", "yellow");
 						});
-					}
+					},
+					autocomplete_url:"test/fake_plaintext_endpoint.html"
 				});
 
 				$("#tags_3").tagsInput({
 					width: "auto",
-					autocomplete_url:"test/fake_json_endpoint.html" // jquery ui autocomplete requires a json endpoint
-					// autocomplete_url:"test/fake_plaintext_endpoint.html" // jquery.autocomplete (not jquery ui)
+					// autocomplete_url:"test/fake_json_endpoint.html" // jquery ui autocomplete requires a json endpoint
+					autocomplete_url:"test/fake_plaintext_endpoint.html" // jquery.autocomplete (not jquery ui)
 				});
 
 				// Uncomment this line to see the callback functions in action
