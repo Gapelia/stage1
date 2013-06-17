@@ -1,0 +1,76 @@
+@media only screen and (max-height: 700px) {
+	/** [-] Profile *************************************************************************************/
+
+	#action-bar {
+		height: 99px;
+
+		h1 {
+			width: 172px; height: 60px;
+
+			background-size: 172px 60px;
+			margin: 1.6rem 0 0 0;
+		}
+
+		h2 {
+			font-size: 25px;
+			line-height: 30px;
+			margin: 1.2rem 0 0 0;
+		}
+
+		ul {
+			li {
+				width: 99px; height: 99px;
+			}
+
+			#action-create, #action-feed, #action-discovery, #action-friends,
+			#action-next {
+				background-size: 99px;
+				font-family: "OpenSansLight";
+				font-size: 12px;
+				padding: 0 0 1rem 0;
+			}
+
+			#action-user, #action-logo { background-size: 99px 100px; }
+			#action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+			#action-logo { background-image: url("../images/action-logo.png"); }
+
+			#action-account, #action-next {
+				.top, .bottom { padding: 1.1rem; }
+			}
+
+			#action-next { padding: 0; }
+		}
+	}
+
+	#main-content { background-position: bottom left; }
+
+	/** [-] Big + Small Scroller Shared Styles **********************************************************/
+
+	#big-scroller-wrapper, #small-scroller-wrapper {
+	}
+
+	/** [-] Big Scroller **********************************************************************************/
+
+	#big-scroller {
+		.dimension-book {
+			width: 200px; height: 320px;
+			.mark { width: 150px; }
+		}
+	}
+
+	/** [-] Small Scroller ********************************************************************************/
+
+	#small-scroller-wrapper {
+		#prev-small, #next-small { padding: 4rem 0; }
+	}
+
+	#small-scroller {
+		.user-book {
+			width: 360px; height: 144px;
+
+			.cover {
+				width: 144px; height: 144px;
+			}
+		}
+	}
+}

@@ -1,63 +1,69 @@
-/*
- *
- * jQuery Editables 1.0.1
- * 
- * Date: Aug 11 2012
- * Source: www.tectual.com.au, www.arashkarimzadeh.com
- * Author: Arash Karimzadeh (arash@tectual.com.au)
- *
- * Copyright (c) 2012 Tectual Pty. Ltd.
- * http://www.opensource.org/licenses/mit-license.php
- *
-**/
+(function ($) {
 
-(function($) {
-	$.fn.editables = function(options) {
-		
-		var opts = $.extend({}, $.fn.editables.options, options);
+	$.fn.editable = function (event, callback) {
+		if (typeof callback != "function") callback = function (arg) {};
 
-		if(!$.isArray(opts.freezeOn)) opts.freezeOn = [opts.freezeOn];
-		if(!$.isArray(opts.editOn)) opts.editOn = [opts.editOn];
+		if (typeof event == "string") {
+			var trigger = this;
+			var action = event;
+		}
 
-		$("[data-type=editable]", this).each(
-			function() {
-				var $this = $(this);
+		else {
+			var trigger = event.trigger;
+			var action = event.action;
+		}
 
-				var fn = function(ev) {
-					var t = $($this.data("for"));
-					if(opts.beforeFreeze.call(t, $this, ev)==false) return;
-					t.hide();
-					$this.show();
-					t.trigger("onFreeze");
-				};
+		var target = this;
+		var edit = {};
 
-				var evs= {};
-				$.each(opts.freezeOn, function() { evs[this] = fn; });
-				$($this.data("for")).hide().bind("onFreeze", opts.onFreeze).bind(evs);
+		edit.start = function (e) {
+			trigger.unbind(action == "clickhold" ? "mousedown" : action);
+			if (trigger != target) trigger.hide();
 
-				var fn = function(ev) {
-					var t = $($this.data("for"));
-					if(opts.beforeEdit.call($this, t, ev)==false) return;
-					$this.hide();
-					t.show().focus();
-					$this.trigger("onEdit");
-				}
+			var old_value = target.text().replace(/^\s+/, "").replace(/\s+$/, "");
 
-				var evs = {};
-				$.each(opts.editOn, function() { evs[this] = fn; });
-				$this.bind("onEdit", opts.onEdit).bind(evs);
+			var input = $("<input>").val(old_value).
+			width(target.width() + target.height()).css("font-size", "100%").
+			css("margin", 0).attr("id", "editable_" + (new Date() * 1)).
+			addClass("editable");
+
+			var finish = function () {
+				var res = input.val().replace(/^\s+/, "").replace(/\s+$/, "");
+				target.text(res);
+
+				callback({
+					value: res,
+					target: target,
+					old_value: old_value
+				});
+
+				edit.regist();
+				if (trigger != target) trigger.show();
+			};
+
+			input.blur(finish);
+			input.keydown(function (e) { if (e.keyCode == 13) finish(); });
+
+			target.html(input);
+			input.focus();
+		};
+
+		edit.regist = function () {
+			if (action == "clickhold") {
+				var tid = null;
+
+				trigger.bind("mousedown", function (e) {
+					tid = setTimeout(function () { edit.start(e); }, 500);
+				});
+
+				trigger.bind("mouseup mouseout", function (e) { clearTimeout(tid); });
 			}
-		);
 
+			else { trigger.bind(action, edit.start); }
+		};
+
+		edit.regist();
 		return this;
-	}
+	};
 
-	$.fn.editables.options = {
-		editOn: "click",			/* Event, Array[Events]: All jquery events */
-		beforeEdit: $.noop,		/* Function: It is called before conversion, you can stop it by returning false */
-		onEdit: $.noop,				/* Function: This function bind to editable item as event */
-		freezeOn: "blur",			/* Event, Array[Events]: All jquery events */
-		beforeFreeze: $.noop,	/* Function: It is called before conversion, you can stop it by returning false */
-		onFreeze: $.noop			/* Function: This function bind to edit field as event */
-	}
 })(jQuery);

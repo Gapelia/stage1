@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8"/>
+		<title>Gapelia | Profile Page Preview</title>
+
+		<!--/ GAPELIA
+			 ______   ______   ______  ______   __       __   ______
+			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
+			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
+			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+
+			//////// 01000111011000010111000001100101011011000110100101100001
+
+		/-->
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+		<meta name="author" content="Gapelia"/>
+
+		<link href="css/style.css" rel="stylesheet"/>
+		<link href="images/favicon.png" rel="shortcut icon"/>
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script src="scripts/jquery-2.0.2.min.js"></script>
+		<script src="scripts/jquery.editable.js"></script>
+
+	</head>
+
+	<body id="profile-preview">
+
+		<!--/ the action bar 																																	 /-->
+
+		<header id="action-bar">
+			<ul id="preview-nav">
+				<li><a href="index.html">&larr;</a></li>
+				<li>Preview</li>
+				<li><a href="">Next</a></li>
+			</ul>
+		</header>
+
+		<!--/ the good stuff																																	 /-->
+
+		<section id="user-content">
+
+			<div id="details-left">
+
+				<span id="username-edit">
+					<span class="editable">SpaceCakes</span>
+				</span>
+
+				<span id="location-edit">
+					<span class="editable">Hawaii</span>
+				</span>
+
+				<ul id="social-edit">
+					<li id="facebook-edit">
+						<span class="editable"><a href="http://facebook.com" class="link"></a></span>
+					</li>
+
+					<li id="twitter-edit">
+						<span class="editable"><a href="http://twitter.com" class="link"></a></span>
+					</li>
+
+					<li id="tumblr-edit">
+						<span class="editable"><a href="http://tumblr.com" class="link"></a></span>
+					</li>
+				</ul>
+
+				<span id="book-count">
+					<span class="count">000</span> Books
+				</span>
+
+				<span id="gapelian-count">
+					<span class="count">000</span> Gapelians
+				</span>
+
+				<span id="user-rating">
+					<img src="images/rating-light.png" alt=""/>
+					<span class="count">72</span>
+				</span>
+
+			</div>
+
+			<div id="details-right">
+
+				<div id="lifestyle-title">Lifestyle</div>
+
+				<div id="lifestyle-edit">
+					<ul>
+						<li>Hawaii</li>
+						<li>Surf</li>
+						<li>Marijuana</li>
+						<li>Fun</li>
+						<li>Happy</li>
+						<li>Love</li>
+						<li>Beatles</li>
+						<li>Night</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!--/ footer, the end																																	 /-->
+
+		<footer>
+			<p><a href="index-ii.html">Be curious, join as a Gapelian</a></p>
+
+			<ul>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Blog</a></li>
+				<li><a href="">Partners</a></li>
+				<li><a href="">Terms</a></li>
+			</ul>		
+		</footer>
+
+		<!--/ scripts																																					 /-->
+
+		<script src="scripts/jquery.tagsinput.js"></script>
+
+		<script>
+			function onAddTag(tag) { alert("Added a tag: " + tag); }
+			function onRemoveTag(tag) { alert("Removed a tag: " + tag); }
+			function onChangeTag(input,tag) { alert("Changed a tag: " + tag); }
+
+			$(function() {
+				$("#tags_1").tagsInput({width:"auto"});
+
+				$("#tags_2").tagsInput({
+					width: "auto",
+					onChange: function(elem, elem_tags) {
+						var languages = ["php","ruby","javascript"];
+
+						$(".tag", elem_tags).each(function() {
+							if($(this).text().search(new RegExp('\\b(" + languages.join("|") + ")\\b')) >= 0)
+							$(this).css("background-color", "yellow");
+						});
+					}
+				});
+
+				$("#tags_3").tagsInput({
+					width: "auto",
+					autocomplete_url:"test/fake_json_endpoint.html" // jquery ui autocomplete requires a json endpoint
+					// autocomplete_url:"test/fake_plaintext_endpoint.html" // jquery.autocomplete (not jquery ui)
+				});
+
+				// Uncomment this line to see the callback functions in action
+				// $("input.tags").tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});		
+
+				// Uncomment this line to see an input with no interface for adding new tags.
+				// $("input.tags").tagsInput({interactive:false});
+			});
+		</script>
+
+	</body>
+
+</html>

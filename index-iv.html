@@ -25,6 +25,12 @@
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
 		<style>
+			/*
+      span.editable {
+        background-color: #ffa;
+        padding: 3px;
+      }
+			*/
 		</style>
 
 		<!--[if lt IE 9]>
@@ -32,6 +38,54 @@
 		<![endif]-->
 
 		<script src="scripts/jquery-2.0.2.min.js"></script>
+		<script src="scripts/jquery.editable.js"></script>
+
+		<script>
+			$(function() {
+				// username edit
+				var option = { trigger : $("#username-edit .btn-edit"), action : "click" };
+
+				$("#username-edit .editable").editable(option, function(e) {
+				});
+
+				// location edit
+				var option = { trigger : $("#location-edit .btn-edit"), action : "click" };
+
+				$("#location-edit .editable").editable(option, function(e) {
+				});
+
+				// Facebook edit
+				var option = { trigger : $("#facebook-edit .btn-edit"), action : "click" };
+
+				$("#facebook-edit .editable").editable(option, function(e) {
+					var a_tag = $("<a class='link'>").attr("href", e.value).text(e.value);
+					$("#facebook-edit .editable").html(a_tag);
+				});
+
+				// Twitter edit
+				var option = { trigger : $("#twitter-edit .btn-edit"), action : "click" };
+
+				$("#twitter-edit .editable").editable(option, function(e) {
+					var a_tag = $("<a class='link'>").attr("href", e.value).text(e.value);
+					$("#twitter-edit .editable").html(a_tag);
+				});
+
+				// tumblr edit
+				var option = { trigger : $("#tumblr-edit .btn-edit"), action : "click" };
+
+				$("#tumblr-edit .editable").editable(option, function(e) {
+					var a_tag = $("<a class='link'>").attr("href", e.value).text(e.value);
+					$("#tumblr-edit .editable").html(a_tag);
+				});
+			});
+
+			/*
+			$("#details-left, #details-right").editables({
+				beforeEdit: function(field) { field.val(this.text()); },
+				beforeFreeze: function(display) { display.text(this.val()); }
+			});
+			*/
+		</script>
 
 	</head>
 
@@ -40,10 +94,17 @@
 		<!--/ the action bar 																																	 /-->
 
 		<header id="action-bar">
-			<a href="index.html"><h1>Gapelia</h1></a>
+			<a href="index.html">
+				<!--/ <h1>Gapelia</h1> /-->
+				<h2>Welcome to Gapelia!<br/>Start by giving your cover page a fresh look.</h2>
+			</a>
 
 			<ul>
-				<li id="action-next"><a href="">Next</a></li>
+				<li id="action-next">
+					<a href="" class="top">Next</a>
+					<a href="" class="bottom">Preview</a>
+				</li>
+
 				<li id="action-logo"><a href="">Gapelia</a></li>
 
 				<!--/
@@ -57,23 +118,43 @@
 			</ul>
 		</header>
 
+		<!--/
 		<section id="breadcrumbs">
 			Welcome to Gapelia! Start by giving your cover page a fresh look.
 		</section>
+		/-->
 
 		<!--/ the good stuff																																	 /-->
 
-		<section id="main-content">
+		<section id="user-content">
 
 			<div id="details-left">
 
-				<span id="username-edit" class="editable"><label data-type="editable" data-for="#username-input">SpaceCakes</label><input id="username-input"/></span>
-				<span id="location-edit" class="editable"><label data-type="editable" data-for="#location-input">Hawaii</label><input id="location-input"/></span>
+				<span id="username-edit">
+					<span class="editable">SpaceCakes</span>
+					<input type="button" value="edit" class="btn-edit"></input>
+				</span>
+
+				<span id="location-edit">
+					<span class="editable">Hawaii</span>
+					<input type="button" value="edit" class="btn-edit"></input>
+				</span>
 
 				<ul id="social-edit">
-					<li id="www-edit" class="editable"><label data-type="editable" data-for="#www-input">Homepage</label><input id="www-input"/></li>
-					<li id="facebook-edit" class="editable"><label data-type="editable" data-for="#facebook-input">Facebook</label><input id="facebook-input"/></li>
-					<li id="twitter-edit" class="editable"><label data-type="editable" data-for="#twitter-input">Twitter</label><input id="twitter-input"/></li>
+					<li id="facebook-edit">
+						<span class="editable"><a href="http://facebook.com" class="link"></a></span>
+						<input type="button" value="edit" class="btn-edit"></input>
+					</li>
+
+					<li id="twitter-edit">
+						<span class="editable"><a href="http://twitter.com" class="link"></a></span>
+						<input type="button" value="edit" class="btn-edit"></input>
+					</li>
+
+					<li id="tumblr-edit">
+						<span class="editable"><a href="http://tumblr.com" class="link"></a></span>
+						<input type="button" value="edit" class="btn-edit"></input>
+					</li>
 				</ul>
 
 			</div>
@@ -84,11 +165,11 @@
 
 				<div id="lifestyle-edit">
 					<form>
-						<input id="tags_1" type="text" class="tags editable" value="surfing,Hawaii,cupcakes,happiness,sun,AK47s"/>
-						Add tags
+						<!--/ <input id="tags_1" type="text" class="tags editable" value="surfing,Hawaii,cupcakes,happiness,sun,AK47s"/> /-->
+						<input id="tags_1" type="text" class="tags editable" value=""/>
+						<span id="form-description">Add the passions, feelings, and places that best describe your lifestyle.</span>
 					</form>
 
-					
 					<!--/
 					<label data-type="editable" data-for="#lifestyle-input">
 						What inspires you to take charge of your destiny? What is your favorite food? This is where you tell everyone!
@@ -132,20 +213,7 @@
 
 		<!--/ scripts																																					 /-->
 
-		<script src="scripts/jquery.editable.js"></script>
-
-		<script>
-			$("#details-left, #details-right").editables({
-				beforeEdit: function(field) {
-					field.val(this.text());
-				},
-				beforeFreeze: function(display) {
-					display.text(this.val());
-				}
-			});
-		</script>
-
-		<script src="scripts/jquery.tagsinput.min.js"></script>
+		<script src="scripts/jquery.tagsinput.js"></script>
 
 		<script>
 			function onAddTag(tag) { alert("Added a tag: " + tag); }
