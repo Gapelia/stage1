@@ -22,13 +22,21 @@
 				width: 99px; height: 99px;
 			}
 
-			#action-create, #action-feed, #action-discovery, #action-friends,
+			#action-create, #action-gapelians, #action-books, #action-dimensions,
 			#action-next {
 				background-size: 99px;
 				font-family: "OpenSansLight";
 				font-size: 12px;
 				padding: 0 0 1rem 0;
 			}
+
+			#action-create, #action-gapelians, #action-books, #action-dimensions {
+				background-size: 99px 198px;
+
+				&:hover { background-position: 0 -99px; }
+			}
+
+			.active { background-position: 0 -99px !important; }
 
 			#action-user, #action-logo { background-size: 99px 100px; }
 			#action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
@@ -50,6 +58,10 @@
 	}
 
 	/** [-] Big Scroller **********************************************************************************/
+
+	#big-scroller-wrapper {
+		#prev-big, #next-big { padding: 10.4rem 0; }
+	}
 
 	#big-scroller {
 		.dimension-book {
@@ -134,11 +146,17 @@
 
 	/** [-] Big Scroller **********************************************************************************/
 
+	#big-scroller-wrapper {
+		#prev-big, #next-big { padding: 9.6rem 0; }
+	}
+
 	#big-scroller {
 		.dimension-book {
 			width: 200px; height: 320px;
 			.mark { width: 100px; }
 		}
+
+		.book-cover { background-size: 100%; }
 	}
 
 	/** [-] Small Scroller ********************************************************************************/
@@ -160,6 +178,5 @@
 	/** [-] Dimensions **********************************************************************************/
 
 	.art, .flow, .life, .pulse, .wonder, .wow {
-		.book-cover { background-size: 100%; }
 	}
 }

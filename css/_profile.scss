@@ -100,7 +100,6 @@
 			a { padding: 7rem 0 0 0; }
 		}
 
-		#action-create, #action-feed, #action-discovery, #action-friends,
 		#action-next {
 			background-repeat: no-repeat;
 			background-size: 149px;
@@ -111,9 +110,26 @@
 		}
 
 		#action-create { background-image: url("../images/action-create.png"); }
-		#action-feed { background-image: url("../images/action-feed.png"); }
-		#action-discovery { background-image: url("../images/action-discovery.png"); }
-		#action-friends { background-image: url("../images/action-friends.png"); }
+		#action-books { background-image: url("../images/action-books.png"); }
+		#action-dimensions { background-image: url("../images/action-dimensions.png"); }
+		#action-gapelians { background-image: url("../images/action-gapelians.png"); }
+
+		#action-create, #action-gapelians, #action-books, #action-dimensions {
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			background-size: 149px 298px;
+			font-size: 14px;
+			padding: 0 0 1.5rem 0;
+			text-transform: uppercase;
+			vertical-align: bottom;
+
+			&:hover { background-position: 0 -149px; }
+		}
+
+		.active {
+			background-position: 0 -149px !important;
+			&:hover { opacity: 0.7; }
+		}
 
 		#action-user, #action-logo {
 			background-repeat: no-repeat;

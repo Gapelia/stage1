@@ -208,7 +208,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 /** [-] Generic ***************************************************************************************/
 p { font-size: 16px/1.5em; margin: 0 0 1.5rem 0; }
 
-a { text-decoration: none; }
+a { font-color: inherit; text-decoration: none; }
+a:hover { opacity: 0.7; }
 
 em { font-style: italic; }
 
@@ -418,11 +419,15 @@ footer ul li:last-child:after { content: ""; }
 #action-bar ul li { width: 149px; height: 149px; border-left: 1px solid #cfcfcf; display: table-cell; text-align: center; }
 #action-bar ul li:first-child { border-left: 0; }
 #action-bar ul li a { padding: 7rem 0 0 0; }
-#action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
+#action-bar ul #action-next { background-repeat: no-repeat; background-size: 149px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
 #action-bar ul #action-create { background-image: url("../images/action-create.png"); }
-#action-bar ul #action-feed { background-image: url("../images/action-feed.png"); }
-#action-bar ul #action-discovery { background-image: url("../images/action-discovery.png"); }
-#action-bar ul #action-friends { background-image: url("../images/action-friends.png"); }
+#action-bar ul #action-books { background-image: url("../images/action-books.png"); }
+#action-bar ul #action-dimensions { background-image: url("../images/action-dimensions.png"); }
+#action-bar ul #action-gapelians { background-image: url("../images/action-gapelians.png"); }
+#action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions { background-position: 0 0; background-repeat: no-repeat; background-size: 149px 298px; font-size: 14px; padding: 0 0 1.5rem 0; text-transform: uppercase; vertical-align: bottom; }
+#action-bar ul #action-create:hover, #action-bar ul #action-gapelians:hover, #action-bar ul #action-books:hover, #action-bar ul #action-dimensions:hover { background-position: 0 -149px; }
+#action-bar ul .active { background-position: 0 -149px !important; }
+#action-bar ul .active:hover { opacity: 0.7; }
 #action-bar ul #action-user, #action-bar ul #action-logo { background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
 #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); border-left: 1px solid #cfcfcf; }
@@ -479,25 +484,54 @@ footer ul li:last-child:after { content: ""; }
 /** [-] Big + Small Scroller Shared Styles ************************************************************/
 #big-scroller-wrapper, #small-scroller-wrapper { overflow: hidden; position: relative; }
 #big-scroller-wrapper nav, #small-scroller-wrapper nav { width: 100%; height: 100%; position: absolute; }
-#big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big, #big-scroller-wrapper #prev-small, #big-scroller-wrapper #next-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #next-big, #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { width: 50px; height: 100%; background-color: rgba(25, 25, 25, 0.7); /* @include hide-text; */ color: #fefefe; opacity: 0.3; padding: 3.7rem 0; position: relative; text-align: center; z-index: 9999999; }
+#big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big, #big-scroller-wrapper #prev-small, #big-scroller-wrapper #next-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #next-big, #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { width: 50px; height: 100%; background-color: rgba(25, 25, 25, 0.7); /* @include hide-text; */ color: #fefefe; opacity: 0.3; position: relative; text-align: center; z-index: 9999999; }
 #big-scroller-wrapper #prev-big:hover, #big-scroller-wrapper #next-big:hover, #big-scroller-wrapper #prev-small:hover, #big-scroller-wrapper #next-small:hover, #small-scroller-wrapper #prev-big:hover, #small-scroller-wrapper #next-big:hover, #small-scroller-wrapper #prev-small:hover, #small-scroller-wrapper #next-small:hover { opacity: 1; }
 #big-scroller-wrapper #small-scroller:hover #prev-small, #big-scroller-wrapper #small-scroller:hover #next-small, #small-scroller-wrapper #small-scroller:hover #prev-small, #small-scroller-wrapper #small-scroller:hover #next-small { opacity: 1; }
 #big-scroller-wrapper #prev-big, #big-scroller-wrapper #prev-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #prev-small { float: left; }
 #big-scroller-wrapper #next-big, #big-scroller-wrapper #next-small, #small-scroller-wrapper #next-big, #small-scroller-wrapper #next-small { float: right; }
 
 /** [-] Big Scroller **********************************************************************************/
+#big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 12.1rem 0; }
+
 #big-scroller { overflow-y: scroll; width: auto; }
 #big-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
 #big-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
 #big-scroller .dimension-book .mark { position: absolute; width: 150px; }
-#big-scroller .dimension-book .like-collect { top: 0; right: 0; position: absolute; }
-#big-scroller .dimension-book .like-collect li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-#big-scroller .dimension-book .like-collect li:hover { opacity: 0.7; }
-#big-scroller .dimension-book .like-collect li a { width: 100%; height: 100%; display: block; }
-#big-scroller .dimension-book .like-collect .like { background-image: url("../images/like.png"); }
-#big-scroller .dimension-book .like-collect .collect { background-image: url("../images/collect.png"); }
+#big-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
+#big-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; }
+#big-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
+#big-scroller .dimension-book .book-info .book-meta { font-size: 70%; }
+#big-scroller .dimension-book .book-info .book-meta li { float: left; }
+#big-scroller .dimension-book .book-info .book-meta li:after { content: "\00a0\00b7\00a0"; }
+#big-scroller .dimension-book .book-info .book-meta li:last-child:after { content: ""; }
+#big-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
+#big-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
+#big-scroller .dimension-book .book-info .photo-credit { font-size: 70%; }
+#big-scroller .dimension-book .book-info .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
+#big-scroller .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
+#big-scroller .book-cover { background-image: url("../images/book-thumb.jpg"); }
+#big-scroller .b-01 { background-image: url("../images/book-thumb-01.jpg"); }
+#big-scroller .b-02 { background-image: url("../images/book-thumb-02.jpg"); }
+#big-scroller .b-03 { background-image: url("../images/book-thumb-03.jpg"); }
+#big-scroller .b-04 { background-image: url("../images/book-thumb-04.jpg"); }
+#big-scroller .b-05 { background-image: url("../images/book-thumb-05.jpg"); }
+#big-scroller .b-06 { background-image: url("../images/book-thumb-06.jpg"); }
+#big-scroller .b-07 { background-image: url("../images/book-thumb-07.jpg"); }
+#big-scroller .b-08 { background-image: url("../images/book-thumb-08.jpg"); }
+#big-scroller .b-09 { background-image: url("../images/book-thumb-09.jpg"); }
+#big-scroller .b-10 { background-image: url("../images/book-thumb-10.jpg"); }
+#big-scroller .like-collect, #big-scroller .edit-delete { top: 0; right: 0; position: absolute; }
+#big-scroller .like-collect li, #big-scroller .edit-delete li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#big-scroller .like-collect li:hover, #big-scroller .edit-delete li:hover { opacity: 1; }
+#big-scroller .like-collect li a, #big-scroller .edit-delete li a { width: 100%; height: 100%; display: block; }
+#big-scroller .like-collect .like, #big-scroller .edit-delete .like { background-image: url("../images/like.png"); }
+#big-scroller .like-collect .collect, #big-scroller .edit-delete .collect { background-image: url("../images/collect.png"); }
+#big-scroller .like-collect .edit, #big-scroller .edit-delete .edit { background-image: url("../images/icon-edit.png"); }
+#big-scroller .like-collect .delete, #big-scroller .edit-delete .delete { background-image: url("../images/icon-trash.png"); }
 
 /** [-] Small Scroller ********************************************************************************/
+#small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 3.7rem 0; }
+
 #small-scroller { overflow-y: scroll !important; width: auto; }
 #small-scroller .user-book { width: 328px; height: 131px; background-color: #e7e7e7; float: left; margin: 0 0.5rem 0 0; }
 #small-scroller .user-book .cover, #small-scroller .user-book .book-info { display: inline-block; vertical-align: top; }
@@ -516,32 +550,28 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Dimensions ************************************************************************************/
 .art .mask, .flow .mask, .life .mask, .pulse .mask, .wonder .mask, .wow .mask { width: 100%; height: 100%; background-color: transparent; background-position: center center; background-repeat: no-repeat; background-size: 150px; display: table-cell; }
-.art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
 
 .art .mask { background-image: url("../images/svg/dimension-art.svg"); }
-.art .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 .flow .mask { background-image: url("../images/svg/dimension-flow.svg"); }
-.flow .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 .life .mask { background-image: url("../images/svg/dimension-life.svg"); }
-.life .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 .pulse .mask { background-image: url("../images/svg/dimension-pulse.svg"); }
-.pulse .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 .wonder .mask { background-image: url("../images/svg/dimension-wonder.svg"); }
-.wonder .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 .wow .mask { background-image: url("../images/svg/dimension-wow.svg"); }
-.wow .book-cover { background-image: url("../images/book-thumb.jpg"); }
 
 @media only screen and (max-height: 677px) { /** [-] Profile *************************************************************************************/
   #action-bar { height: 99px; }
   #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
   #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
   #action-bar ul li { width: 99px; height: 99px; }
-  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions { background-size: 99px 198px; }
+  #action-bar ul #action-create:hover, #action-bar ul #action-gapelians:hover, #action-bar ul #action-books:hover, #action-bar ul #action-dimensions:hover { background-position: 0 -99px; }
+  #action-bar ul .active { background-position: 0 -99px !important; }
   #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
   #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
   #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
@@ -550,6 +580,7 @@ footer ul li:last-child:after { content: ""; }
   #main-content { background-position: bottom left; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
+  #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 10.4rem 0; }
   #big-scroller .dimension-book { width: 200px; height: 339px; }
   #big-scroller .dimension-book .mark { width: 100px; }
   /** [-] Small Scroller ********************************************************************************/
@@ -572,11 +603,12 @@ footer ul li:last-child:after { content: ""; }
   #main-content { background-position: bottom left; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
+  #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 9.6rem 0; }
   #big-scroller .dimension-book { width: 200px; height: 320px; }
   #big-scroller .dimension-book .mark { width: 100px; }
+  #big-scroller .book-cover { background-size: 100%; }
   /** [-] Small Scroller ********************************************************************************/
   #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
   #small-scroller .user-book { width: 360px; height: 144px; }
   #small-scroller .user-book .cover { width: 144px; height: 144px; }
-  /** [-] Dimensions **********************************************************************************/
-  .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; } }
+  /** [-] Dimensions **********************************************************************************/ }
