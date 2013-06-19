@@ -165,18 +165,28 @@
 		#prev-small, #next-small { padding: 4rem 0; }
 	}
 
-	#small-scroller {
-		.user-book {
+	#small-scroller, #gapelian-scroller {
+		.user-book, .user {
 			width: 360px; height: 144px;
 
 			.cover {
 				width: 144px; height: 144px;
 			}
 		}
+
+		.user {
+			width: 144px;
+		}
 	}
 
 	/** [-] Dimensions **********************************************************************************/
 
 	.art, .flow, .life, .pulse, .wonder, .wow {
+	}
+
+	/** [-] Footer **************************************************************************************/
+
+	footer {
+		height: 28px;
 	}
 }

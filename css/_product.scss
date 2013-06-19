@@ -78,6 +78,13 @@
 			top: 35%;
 			width: 100%;
 
+			/*
+			.book-title, .book-meta, .photo-credit {
+				background-color: rgba($black, 0.5);
+				padding: 0.5rem;
+			}
+			*/
+
 			.book-title {
 				font-family: "OpenSansBold";
 				font-size: 150%;
@@ -112,7 +119,16 @@
 				&:hover { opacity: 0.7; }
 			}
 
+			.book-author {
+				font-family: "OpenSansLight";
+				font-size: 85%;
+				margin: 0 0 1rem 0;
+
+				span { font-family: "OpenSansBold"; }
+			}
+
 			.photo-credit {
+				font-family: "OpenSansLight";
 				font-size: 70%;
 
 				a {
@@ -131,6 +147,7 @@
 	}
 
 	.book-cover { background-image: url("../images/book-thumb.jpg"); }
+
 	.b-01 { background-image: url("../images/book-thumb-01.jpg"); }
 	.b-02 { background-image: url("../images/book-thumb-02.jpg"); }
 	.b-03 { background-image: url("../images/book-thumb-03.jpg"); }
@@ -141,6 +158,9 @@
 	.b-08 { background-image: url("../images/book-thumb-08.jpg"); }
 	.b-09 { background-image: url("../images/book-thumb-09.jpg"); }
 	.b-10 { background-image: url("../images/book-thumb-10.jpg"); }
+	.b-11 { background-image: url("../images/book-thumb-11.jpg"); }
+	.b-12 { background-image: url("../images/book-thumb-12.jpg"); }
+	.b-13 { background-image: url("../images/book-thumb-13.jpg"); }
 
 	.like-collect, .edit-delete {
 		top: 0; right: 0;
@@ -178,18 +198,18 @@
 	#prev-small, #next-small { padding: 3.7rem 0; }
 }
 
-#small-scroller {
+#small-scroller, #gapelian-scroller {
 	overflow-y: scroll !important;
 	width: auto;
 
-	.user-book {
+	.user-book, .user {
 		width: 328px; height: 131px;
 
 		background-color: $gray-i;
 		float: left;
 		margin: 0 0.5rem 0 0;
-		
-		.cover, .book-info {
+
+		.cover, .book-info, .user-info {
 			display: inline-block;
 			vertical-align: top;
 		}
@@ -198,7 +218,7 @@
 			width: 131px; height: 131px;
 		}
 
-		.book-info {
+		.book-info, .user-info {
 			font-size: 80%;
 			padding: 1rem 0.4rem;
 
@@ -239,6 +259,17 @@
 			.love-rating {
 			}
 		}
+	}
+
+	.user {
+		width: 131px;
+
+		.book-info {
+		}
+	}
+
+	.user-info {
+		transition: width 0.2s ease-in-out;
 	}
 }
 

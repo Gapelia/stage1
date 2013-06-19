@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8"/>
+		<title>Gapelia | Gapelians</title>
+
+		<!--/ GAPELIA
+			 ______   ______   ______  ______   __       __   ______
+			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
+			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
+			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+
+			//////// 01000111011000010111000001100101011011000110100101100001
+
+		/-->
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+		<meta name="author" content="Gapelia"/>
+
+		<link href="css/style.css" rel="stylesheet"/>
+		<link href="css/jscrollpane.css" rel="stylesheet"/>
+
+		<link href="images/favicon.png" rel="shortcut icon"/>
+
+		<style>
+			.horizontal-only { height: auto; }
+		</style>
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script src="scripts/jquery-2.0.2.min.js"></script>
+		<script src="scripts/jquery.mousewheel.js"></script>
+		<script src="scripts/midway.min.js"></script>
+
+	</head>
+
+	<body>
+
+		<!--/ the action bar 																																	 /-->
+
+		<header id="action-bar">
+			<a href="index.html"><h1>Gapelia</h1></a>
+
+			<ul>
+				<li id="action-create"><a href="">Create book</a></li>
+				<li id="action-gapelians" class="active"><a href="">Gapelians</a></li>
+				<li id="action-books"><a href="">Books</a></li>
+				<li id="action-dimensions"><a href="">Dimensions</a></li>
+				<li id="action-user"><a href="">Your account</a></li>
+				<!--/ <li id="action-account"><span class="top">Sign Up</span><span class="bottom">Log In</span></li> /-->
+			</ul>
+		</header>
+
+		<section id="breadcrumbs">
+			<a href="">Home</a> > <a href="" class="current">Gapelians</a>
+		</section>
+
+		<!--/ the good stuff																																	 /-->
+
+		<section id="main-content">
+
+			<div id="big-scroller-wrapper">
+
+				<nav>
+					<a id="prev-big" class="prev" href="#">&#9664;</a>
+					<a id="next-big" class="next" href="#">&#9654;</a>
+				</nav>
+
+				<ul id="big-scroller">
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Japanimation</div>
+
+							<ul class="book-meta">
+								<li>Akihabara</li>
+								<li>Exhilaration</li>
+								<li>Gaming</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Spaceman Fresh</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-03"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Heart + Seoul</div>
+
+							<ul class="book-meta">
+								<li>Korea</li>
+								<li>Tradition</li>
+								<li>Food</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Jane Lane</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-04"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">J'taime du jour</div>
+
+							<ul class="book-meta">
+								<li>Paris</li>
+								<li>Love</li>
+								<li>Photography</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Daria Morgendorffer</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-05"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Strawberry Fields</div>
+
+							<ul class="book-meta">
+								<li>Connecticut</li>
+								<li>Blissful</li>
+								<li>Nature</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Patti Mayonaisse</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-06"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Bahama Mama</div>
+
+							<ul class="book-meta">
+								<li>Bahamas</li>
+								<li>Happy</li>
+								<li>Cruise</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Doug Funnie</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-07"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">AmsterDAYUM</div>
+
+							<ul class="book-meta">
+								<li>Amsterdam</li>
+								<li>High</li>
+								<li>Party Life</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Jimmy Neutron</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-08"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">I'm On A Boat</div>
+
+							<ul class="book-meta">
+								<li>Harvard</li>
+								<li>Brofest</li>
+								<li>Rowing</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>T-Pain</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-09"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Hullabaloo</div>
+
+							<ul class="book-meta">
+								<li>Texas</li>
+								<li>Carefree</li>
+								<li>BBQ</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Lizzie McGuire</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-10"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Majesty</div>
+
+							<ul class="book-meta">
+								<li>China</li>
+								<li>Nobility</li>
+								<li>Nature</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Tarzan</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-11"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">World of Blue</div>
+
+							<ul class="book-meta">
+								<li>Iceland</li>
+								<li>Wonder</li>
+								<li>Photography</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Misty Cerulean</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-12"></div>
+					</li>
+
+					<!--/ dimension book																														 /-->
+
+					<li class="dimension-book">
+						<ul class="edit-delete">
+							<li class="edit"><a href="">Edit</a></li>
+							<li class="delete"><a href="">Delete</a></li>
+						</ul>
+
+						<div class="book-info">
+							<div class="book-title">Swiss Interiors</div>
+
+							<ul class="book-meta">
+								<li>Switzerland</li>
+								<li>Inspiration</li>
+								<li>Architecture</li>
+							</ul>
+
+							<a class="explore-book" href="">Explore</a>
+
+							<div class="book-author">by <span>Dieter Rams</span></div>
+							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="book-cover b-13"></div>
+					</li>
+
+				</ul>
+
+			</div>
+
+			<section id="small-switcher">
+				<a href="" class="selected">Books</a> | <a href="">Collections</a>
+			</section>
+
+			<div id="small-scroller-wrapper">
+
+				<nav>
+					<a id="prev-small" class="prev" href="#">&#9664;</a>
+					<a id="next-small" class="next" href="#">&#9654;</a>
+				</nav>
+
+				<ul id="gapelian-scroller">
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/01.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Spaceman Fresh</div>
+							<div class="book-author">Boston, MA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/02.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Jane Lane</div>
+							<div class="book-author">Lawndale, USA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">72</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">1035</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/03.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Daria Morgendorffer</div>
+							<div class="book-author">Lawndale, USA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">72</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">1035</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/04.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Patti Mayonaisse</div>
+							<div class="book-author">Bluffington, VA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/05.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Doug Funnie</div>
+							<div class="book-author">Bluffington, VA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/06.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Jimmy Neutron</div>
+							<div class="book-author">Retroville, USA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/07.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">T-Pain</div>
+							<div class="book-author">Atlanta, GA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/08.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Lizzie McGuire</div>
+							<div class="book-author">Anytown, USA</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/09.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Tarzan</div>
+							<div class="book-author">Amazon Jungle</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/10.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Misty Cerulean</div>
+							<div class="book-author">Cerulean City</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+					<!--/ user book																																	 /-->
+
+					<li class="user">
+						<img src="images/users/11.jpg" class="cover" alt=""/>
+
+						<div class="user-info">
+							<div class="book-title">Dieter Rams</div>
+							<div class="book-author">Wiesbaden, Hessen, Germany</div>
+
+							<br/><br/>
+
+							<div class="light-rating">
+								<img src="images/rating-light.png" alt=""/>
+								<span class="count">60</span>
+							</div>
+
+							<div class="love-rating">
+								<img src="images/rating-love.png" alt=""/>
+								<span class="count">128</span>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</section>
+
+		<!--/ footer, the end																																	 /-->
+
+		<footer>
+			<p><a href="">&copy; Gapelia</a></p>
+
+			<ul>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Blog</a></li>
+				<li><a href="">Partners</a></li>
+				<li><a href="">Terms</a></li>
+			</ul>
+		</footer>
+
+		<!--/ scripts																																					 /-->
+
+		<script src="scripts/jquery.carouFredSel-6.2.1-packed.js"></script>
+
+		<script src="scripts/helper-plugins/jquery.touchSwipe.min.js"></script>
+		<script src="scripts/helper-plugins/jquery.transit.min.js"></script>
+		<script src="scripts/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+		
+		<script src="scripts/jquery.squishy.js"></script>
+
+		<script>
+			$(function() {
+
+				$("#big-scroller").carouFredSel({
+					auto: false,
+					responsive: true,
+					width: "100%",
+					scroll: 1,
+					prev: "#prev-big",
+					next: "#next-big",
+					items: {
+						width: 200,
+						// height: "30%", // optionally resize item-height
+						visible: { min: 2, max: 6 }
+					}
+				});
+
+				$("#small-scroller").carouFredSel({
+					auto: false,
+					responsive: true,
+					width: "100%",
+					scroll: 1,
+					prev: "#prev-small",
+					next: "#next-small",
+					items: {
+						width: 360,
+						// height: "30%", // optionally resize item-height
+						visible: { min: 2, max: 6 }
+					}
+				});
+
+				$("#gapelian-scroller").carouFredSel({
+					auto: false,
+					responsive: true,
+					width: "100%",
+					scroll: 1,
+					prev: "#prev-small",
+					next: "#next-small",
+					items: {
+						width: 160,
+						// height: "30%", // optionally resize item-height
+						visible: { min: 7, max: 10 }
+					}
+				});
+
+			});
+
+			$(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
+
+			$(function() {
+
+				$(document).ready(function() {
+
+					var isOpen = false;
+
+					$(".user .cover").click(function() {
+						isOpen = !isOpen;
+
+						if(isOpen) { // .animate({ width: "360px" }, 500)
+							$("#gapelian-scroller").carouFredSel({
+								auto: false,
+								responsive: true,
+								width: "100%",
+								scroll: 1,
+								prev: "#prev-small",
+								next: "#next-small",
+								items: {
+									width: 360,
+									// height: "30%", // optionally resize item-height
+									visible: { min: 2, max: 10 }
+								}
+							});
+
+							/*
+							$(".user").animate({
+								width: 340
+								// opacity: 0.25,
+								// left: "+=50",
+								// height: "toggle"
+							}, 500, function() {
+								// Animation complete.
+							});
+							*/
+						}
+
+						else { // .animate({ width: "160px" }, 500)
+							$("#gapelian-scroller").carouFredSel({
+								auto: false,
+								responsive: true,
+								width: "100%",
+								scroll: 1,
+								prev: "#prev-small",
+								next: "#next-small",
+								items: {
+									width: 160,
+									// height: "30%", // optionally resize item-height
+									visible: { min: 7, max: 10 }
+								}
+							});
+
+							/*
+							$(".user").animate({
+								width: 143
+								// opacity: 0.25,
+								// left: "+=50",
+								// height: "toggle"
+							}, 500, function() {
+								// Animation complete.
+							});
+							*/
+						}
+
+						event.preventDefault();
+					});
+
+				});
+
+			});
+
+			/*
+			$(function() {
+				$("#small-scroller").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 30);
+					event.preventDefault();
+				});
+			});
+			*/
+
+			/*
+			$(function() {
+				$("html, body").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 30);
+					event.preventDefault();
+				});
+			});
+			*/
+		</script>
+		
+		<script>
+			$(window).load(function () {
+
+				if ($(window).height() > 677) {
+					$(function() {
+						$("#big-scroller").carouFredSel({
+							auto: false,
+							responsive: true,
+							width: "100%",
+							scroll: 1,
+							prev: "#prev-big",
+							next: "#next-big",
+							items: {
+								width: 250,
+								visible: { min: 2, max: 5 }
+							}
+						});
+					});
+				}
+
+				else {
+				};
+
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -343,7 +343,6 @@ ul { margin: 0; }
 /** [-] Footer ****************************************************************************************/
 footer { width: 100%; height: 30px; bottom: 0; left: 0; background-color: #cfcfcf; color: #bebebe; font-size: 13px; padding: 0.5rem 2rem; position: fixed; }
 footer a { color: #585959; }
-footer a:hover { opacity: 0.7; }
 footer p, footer ul { display: inline-block; vertical-align: middle; }
 footer p { margin: 0; }
 footer ul { margin: 0; padding: 0; float: right; }
@@ -498,7 +497,12 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
 #big-scroller .dimension-book .mark { position: absolute; width: 150px; }
 #big-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
-#big-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; }
+#big-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
+.book-title, .book-meta, .photo-credit {
+	background-color: rgba($black, 0.5);
+	padding: 0.5rem;
+}
+*/ }
 #big-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
 #big-scroller .dimension-book .book-info .book-meta { font-size: 70%; }
 #big-scroller .dimension-book .book-info .book-meta li { float: left; }
@@ -506,7 +510,9 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .dimension-book .book-info .book-meta li:last-child:after { content: ""; }
 #big-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
 #big-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
-#big-scroller .dimension-book .book-info .photo-credit { font-size: 70%; }
+#big-scroller .dimension-book .book-info .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
+#big-scroller .dimension-book .book-info .book-author span { font-family: "OpenSansBold"; }
+#big-scroller .dimension-book .book-info .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
 #big-scroller .dimension-book .book-info .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
 #big-scroller .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
 #big-scroller .book-cover { background-image: url("../images/book-thumb.jpg"); }
@@ -520,6 +526,9 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .b-08 { background-image: url("../images/book-thumb-08.jpg"); }
 #big-scroller .b-09 { background-image: url("../images/book-thumb-09.jpg"); }
 #big-scroller .b-10 { background-image: url("../images/book-thumb-10.jpg"); }
+#big-scroller .b-11 { background-image: url("../images/book-thumb-11.jpg"); }
+#big-scroller .b-12 { background-image: url("../images/book-thumb-12.jpg"); }
+#big-scroller .b-13 { background-image: url("../images/book-thumb-13.jpg"); }
 #big-scroller .like-collect, #big-scroller .edit-delete { top: 0; right: 0; position: absolute; }
 #big-scroller .like-collect li, #big-scroller .edit-delete li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 #big-scroller .like-collect li:hover, #big-scroller .edit-delete li:hover { opacity: 1; }
@@ -532,21 +541,23 @@ footer ul li:last-child:after { content: ""; }
 /** [-] Small Scroller ********************************************************************************/
 #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 3.7rem 0; }
 
-#small-scroller { overflow-y: scroll !important; width: auto; }
-#small-scroller .user-book { width: 328px; height: 131px; background-color: #e7e7e7; float: left; margin: 0 0.5rem 0 0; }
-#small-scroller .user-book .cover, #small-scroller .user-book .book-info { display: inline-block; vertical-align: top; }
-#small-scroller .user-book .cover { width: 131px; height: 131px; }
-#small-scroller .user-book .book-info { font-size: 80%; padding: 1rem 0.4rem; }
-#small-scroller .user-book .book-info .book-title, #small-scroller .user-book .book-info .book-author, #small-scroller .user-book .book-info .book-dimensions { margin: 0 0 0.5rem 0; }
-#small-scroller .user-book .book-info .book-title { font-family: "OpenSansExtraBold"; font-size: 15px; }
-#small-scroller .user-book .book-info .book-dimensions li { float: left; }
-#small-scroller .user-book .book-info .book-dimensions li:after { content: "\00a0\00b7\00a0"; }
-#small-scroller .user-book .book-info .book-dimensions li:last-child:after { content: ""; }
-#small-scroller .user-book .book-info .light-rating, #small-scroller .user-book .book-info .love-rating { float: left; }
-#small-scroller .user-book .book-info .light-rating span, #small-scroller .user-book .book-info .light-rating img, #small-scroller .user-book .book-info .love-rating span, #small-scroller .user-book .book-info .love-rating img { vertical-align: middle; }
-#small-scroller .user-book .book-info .light-rating span, #small-scroller .user-book .book-info .love-rating span { margin: 0 0 0 0.2rem; }
-#small-scroller .user-book .book-info .light-rating img, #small-scroller .user-book .book-info .love-rating img { width: 30px; height: auto; }
-#small-scroller .user-book .book-info .light-rating { margin: 0 1rem 0 0; }
+#small-scroller, #gapelian-scroller { overflow-y: scroll !important; width: auto; }
+#small-scroller .user-book, #small-scroller .user, #gapelian-scroller .user-book, #gapelian-scroller .user { width: 328px; height: 131px; background-color: #e7e7e7; float: left; margin: 0 0.5rem 0 0; }
+#small-scroller .user-book .cover, #small-scroller .user-book .book-info, #small-scroller .user-book .user-info, #small-scroller .user .cover, #small-scroller .user .book-info, #small-scroller .user .user-info, #gapelian-scroller .user-book .cover, #gapelian-scroller .user-book .book-info, #gapelian-scroller .user-book .user-info, #gapelian-scroller .user .cover, #gapelian-scroller .user .book-info, #gapelian-scroller .user .user-info { display: inline-block; vertical-align: top; }
+#small-scroller .user-book .cover, #small-scroller .user .cover, #gapelian-scroller .user-book .cover, #gapelian-scroller .user .cover { width: 131px; height: 131px; }
+#small-scroller .user-book .book-info, #small-scroller .user-book .user-info, #small-scroller .user .book-info, #small-scroller .user .user-info, #gapelian-scroller .user-book .book-info, #gapelian-scroller .user-book .user-info, #gapelian-scroller .user .book-info, #gapelian-scroller .user .user-info { font-size: 80%; padding: 1rem 0.4rem; }
+#small-scroller .user-book .book-info .book-title, #small-scroller .user-book .book-info .book-author, #small-scroller .user-book .book-info .book-dimensions, #small-scroller .user-book .user-info .book-title, #small-scroller .user-book .user-info .book-author, #small-scroller .user-book .user-info .book-dimensions, #small-scroller .user .book-info .book-title, #small-scroller .user .book-info .book-author, #small-scroller .user .book-info .book-dimensions, #small-scroller .user .user-info .book-title, #small-scroller .user .user-info .book-author, #small-scroller .user .user-info .book-dimensions, #gapelian-scroller .user-book .book-info .book-title, #gapelian-scroller .user-book .book-info .book-author, #gapelian-scroller .user-book .book-info .book-dimensions, #gapelian-scroller .user-book .user-info .book-title, #gapelian-scroller .user-book .user-info .book-author, #gapelian-scroller .user-book .user-info .book-dimensions, #gapelian-scroller .user .book-info .book-title, #gapelian-scroller .user .book-info .book-author, #gapelian-scroller .user .book-info .book-dimensions, #gapelian-scroller .user .user-info .book-title, #gapelian-scroller .user .user-info .book-author, #gapelian-scroller .user .user-info .book-dimensions { margin: 0 0 0.5rem 0; }
+#small-scroller .user-book .book-info .book-title, #small-scroller .user-book .user-info .book-title, #small-scroller .user .book-info .book-title, #small-scroller .user .user-info .book-title, #gapelian-scroller .user-book .book-info .book-title, #gapelian-scroller .user-book .user-info .book-title, #gapelian-scroller .user .book-info .book-title, #gapelian-scroller .user .user-info .book-title { font-family: "OpenSansExtraBold"; font-size: 15px; }
+#small-scroller .user-book .book-info .book-dimensions li, #small-scroller .user-book .user-info .book-dimensions li, #small-scroller .user .book-info .book-dimensions li, #small-scroller .user .user-info .book-dimensions li, #gapelian-scroller .user-book .book-info .book-dimensions li, #gapelian-scroller .user-book .user-info .book-dimensions li, #gapelian-scroller .user .book-info .book-dimensions li, #gapelian-scroller .user .user-info .book-dimensions li { float: left; }
+#small-scroller .user-book .book-info .book-dimensions li:after, #small-scroller .user-book .user-info .book-dimensions li:after, #small-scroller .user .book-info .book-dimensions li:after, #small-scroller .user .user-info .book-dimensions li:after, #gapelian-scroller .user-book .book-info .book-dimensions li:after, #gapelian-scroller .user-book .user-info .book-dimensions li:after, #gapelian-scroller .user .book-info .book-dimensions li:after, #gapelian-scroller .user .user-info .book-dimensions li:after { content: "\00a0\00b7\00a0"; }
+#small-scroller .user-book .book-info .book-dimensions li:last-child:after, #small-scroller .user-book .user-info .book-dimensions li:last-child:after, #small-scroller .user .book-info .book-dimensions li:last-child:after, #small-scroller .user .user-info .book-dimensions li:last-child:after, #gapelian-scroller .user-book .book-info .book-dimensions li:last-child:after, #gapelian-scroller .user-book .user-info .book-dimensions li:last-child:after, #gapelian-scroller .user .book-info .book-dimensions li:last-child:after, #gapelian-scroller .user .user-info .book-dimensions li:last-child:after { content: ""; }
+#small-scroller .user-book .book-info .light-rating, #small-scroller .user-book .book-info .love-rating, #small-scroller .user-book .user-info .light-rating, #small-scroller .user-book .user-info .love-rating, #small-scroller .user .book-info .light-rating, #small-scroller .user .book-info .love-rating, #small-scroller .user .user-info .light-rating, #small-scroller .user .user-info .love-rating, #gapelian-scroller .user-book .book-info .light-rating, #gapelian-scroller .user-book .book-info .love-rating, #gapelian-scroller .user-book .user-info .light-rating, #gapelian-scroller .user-book .user-info .love-rating, #gapelian-scroller .user .book-info .light-rating, #gapelian-scroller .user .book-info .love-rating, #gapelian-scroller .user .user-info .light-rating, #gapelian-scroller .user .user-info .love-rating { float: left; }
+#small-scroller .user-book .book-info .light-rating span, #small-scroller .user-book .book-info .light-rating img, #small-scroller .user-book .book-info .love-rating span, #small-scroller .user-book .book-info .love-rating img, #small-scroller .user-book .user-info .light-rating span, #small-scroller .user-book .user-info .light-rating img, #small-scroller .user-book .user-info .love-rating span, #small-scroller .user-book .user-info .love-rating img, #small-scroller .user .book-info .light-rating span, #small-scroller .user .book-info .light-rating img, #small-scroller .user .book-info .love-rating span, #small-scroller .user .book-info .love-rating img, #small-scroller .user .user-info .light-rating span, #small-scroller .user .user-info .light-rating img, #small-scroller .user .user-info .love-rating span, #small-scroller .user .user-info .love-rating img, #gapelian-scroller .user-book .book-info .light-rating span, #gapelian-scroller .user-book .book-info .light-rating img, #gapelian-scroller .user-book .book-info .love-rating span, #gapelian-scroller .user-book .book-info .love-rating img, #gapelian-scroller .user-book .user-info .light-rating span, #gapelian-scroller .user-book .user-info .light-rating img, #gapelian-scroller .user-book .user-info .love-rating span, #gapelian-scroller .user-book .user-info .love-rating img, #gapelian-scroller .user .book-info .light-rating span, #gapelian-scroller .user .book-info .light-rating img, #gapelian-scroller .user .book-info .love-rating span, #gapelian-scroller .user .book-info .love-rating img, #gapelian-scroller .user .user-info .light-rating span, #gapelian-scroller .user .user-info .light-rating img, #gapelian-scroller .user .user-info .love-rating span, #gapelian-scroller .user .user-info .love-rating img { vertical-align: middle; }
+#small-scroller .user-book .book-info .light-rating span, #small-scroller .user-book .book-info .love-rating span, #small-scroller .user-book .user-info .light-rating span, #small-scroller .user-book .user-info .love-rating span, #small-scroller .user .book-info .light-rating span, #small-scroller .user .book-info .love-rating span, #small-scroller .user .user-info .light-rating span, #small-scroller .user .user-info .love-rating span, #gapelian-scroller .user-book .book-info .light-rating span, #gapelian-scroller .user-book .book-info .love-rating span, #gapelian-scroller .user-book .user-info .light-rating span, #gapelian-scroller .user-book .user-info .love-rating span, #gapelian-scroller .user .book-info .light-rating span, #gapelian-scroller .user .book-info .love-rating span, #gapelian-scroller .user .user-info .light-rating span, #gapelian-scroller .user .user-info .love-rating span { margin: 0 0 0 0.2rem; }
+#small-scroller .user-book .book-info .light-rating img, #small-scroller .user-book .book-info .love-rating img, #small-scroller .user-book .user-info .light-rating img, #small-scroller .user-book .user-info .love-rating img, #small-scroller .user .book-info .light-rating img, #small-scroller .user .book-info .love-rating img, #small-scroller .user .user-info .light-rating img, #small-scroller .user .user-info .love-rating img, #gapelian-scroller .user-book .book-info .light-rating img, #gapelian-scroller .user-book .book-info .love-rating img, #gapelian-scroller .user-book .user-info .light-rating img, #gapelian-scroller .user-book .user-info .love-rating img, #gapelian-scroller .user .book-info .light-rating img, #gapelian-scroller .user .book-info .love-rating img, #gapelian-scroller .user .user-info .light-rating img, #gapelian-scroller .user .user-info .love-rating img { width: 30px; height: auto; }
+#small-scroller .user-book .book-info .light-rating, #small-scroller .user-book .user-info .light-rating, #small-scroller .user .book-info .light-rating, #small-scroller .user .user-info .light-rating, #gapelian-scroller .user-book .book-info .light-rating, #gapelian-scroller .user-book .user-info .light-rating, #gapelian-scroller .user .book-info .light-rating, #gapelian-scroller .user .user-info .light-rating { margin: 0 1rem 0 0; }
+#small-scroller .user, #gapelian-scroller .user { width: 131px; }
+#small-scroller .user-info, #gapelian-scroller .user-info { transition: width 0.2s ease-in-out; }
 
 /** [-] Dimensions ************************************************************************************/
 .art .mask, .flow .mask, .life .mask, .pulse .mask, .wonder .mask, .wow .mask { width: 100%; height: 100%; background-color: transparent; background-position: center center; background-repeat: no-repeat; background-size: 150px; display: table-cell; }
@@ -609,6 +620,9 @@ footer ul li:last-child:after { content: ""; }
   #big-scroller .book-cover { background-size: 100%; }
   /** [-] Small Scroller ********************************************************************************/
   #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
-  #small-scroller .user-book { width: 360px; height: 144px; }
-  #small-scroller .user-book .cover { width: 144px; height: 144px; }
-  /** [-] Dimensions **********************************************************************************/ }
+  #small-scroller .user-book, #small-scroller .user, #gapelian-scroller .user-book, #gapelian-scroller .user { width: 360px; height: 144px; }
+  #small-scroller .user-book .cover, #small-scroller .user .cover, #gapelian-scroller .user-book .cover, #gapelian-scroller .user .cover { width: 144px; height: 144px; }
+  #small-scroller .user, #gapelian-scroller .user { width: 144px; }
+  /** [-] Dimensions **********************************************************************************/
+  /** [-] Footer **************************************************************************************/
+  footer { height: 28px; } }
