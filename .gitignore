@@ -37,5 +37,5 @@ nosetests.xml
 # My Computer
 .sass-cache
 code
-.psd
-.PSD
+*.psd
+*.PSD
