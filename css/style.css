@@ -496,6 +496,7 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
 #big-scroller .dimension-book .mark-wrapper, #dimension-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
 #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { position: absolute; width: 150px; }
+#big-scroller .dimension-book:hover .book-info, #dimension-scroller .dimension-book:hover .book-info { text-shadow: 0 3px 4px #191919; }
 #big-scroller .dimension-book:hover .book-info .explore-book, #dimension-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
 #big-scroller .dimension-book .book-info, #dimension-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
 .book-title, .book-meta, .photo-credit {
@@ -504,10 +505,10 @@ footer ul li:last-child:after { content: ""; }
 }
 */ }
 #big-scroller .dimension-book .book-info .book-title, #dimension-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
-#big-scroller .dimension-book .book-info .book-meta, #dimension-scroller .dimension-book .book-info .book-meta { font-size: 70%; }
-#big-scroller .dimension-book .book-info .book-meta li, #dimension-scroller .dimension-book .book-info .book-meta li { float: left; }
-#big-scroller .dimension-book .book-info .book-meta li:after, #dimension-scroller .dimension-book .book-info .book-meta li:after { content: "\00a0\00b7\00a0"; }
-#big-scroller .dimension-book .book-info .book-meta li:last-child:after, #dimension-scroller .dimension-book .book-info .book-meta li:last-child:after { content: ""; }
+#big-scroller .dimension-book .book-info .lifestyle, #dimension-scroller .dimension-book .book-info .lifestyle { font-size: 68%; }
+#big-scroller .dimension-book .book-info .lifestyle li, #dimension-scroller .dimension-book .book-info .lifestyle li { float: left; }
+#big-scroller .dimension-book .book-info .lifestyle li:after, #dimension-scroller .dimension-book .book-info .lifestyle li:after { content: "\00a0\00b7\00a0"; }
+#big-scroller .dimension-book .book-info .lifestyle li:last-child:after, #dimension-scroller .dimension-book .book-info .lifestyle li:last-child:after { content: ""; }
 #big-scroller .dimension-book .book-info .explore-book, #dimension-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
 #big-scroller .dimension-book .book-info .explore-book:hover, #dimension-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
 #big-scroller .dimension-book .book-info .book-author, #dimension-scroller .dimension-book .book-info .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }

@@ -51,6 +51,7 @@ $(function() {
 });
 
 $(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
+// $(".dimension-book .lifestyle li").squishy();
 
 // Expand users in Gapelian scroller
 
