@@ -26,17 +26,36 @@
 
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			.horizontal-only { height: auto; }
-		</style>
-
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/jquery-2.0.2.min.js"></script>
-		<script src="scripts/jquery.mousewheel.js"></script>
-		<script src="scripts/midway.min.js"></script>
+		<script src="scripts/jquery-2.0.2.js"></script>
+		<script src="scripts/midway.js"></script>
+
+		<script>
+			var img = document.getElementsByClassName("dimension-book");
+			var c = document.createElement("canvas");
+			var ctx = c.getContext("2d");
+			var w = img.width, h = img.height;
+			c.width = w;
+			c.height = h;
+			ctx.drawImage(img, 0, 0);
+
+			var data = ctx.getImageData(0, 0, w, h).data;
+			var brightness = 0;
+			var sX = 0, sY = 0, eX = w, eY = h;
+			var start = (w * sY + sX) * 4, end = (w * eY + eX) * 4;
+
+			for (var i = start, n = end; i < n; i += 4) {
+				var r = data[i], g = data[i + 1], b = data[i + 2];
+				brightness += 0.34 * r + 0.5 * g + 0.16 * b;
+				if (brightness !== 0) brightness /= 2;
+			}
+
+			if (brightness > 0.5) var textColor = "#fefefe";
+			else var textColor = "#191919";
+		</script>
 
 	</head>
 
@@ -651,177 +670,15 @@
 
 		<!--/ scripts																																					 /-->
 
-		<script src="scripts/jquery.carouFredSel-6.2.1-packed.js"></script>
+		<script src="scripts/carouFredSel.js"></script>
 
-		<script src="scripts/helper-plugins/jquery.touchSwipe.min.js"></script>
-		<script src="scripts/helper-plugins/jquery.transit.min.js"></script>
-		<script src="scripts/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
-		
-		<script src="scripts/jquery.squishy.js"></script>
+		<script src="scripts/ba-throttle-debounce.js"></script>
+		<script src="scripts/mousewheel.js"></script>
+		<script src="scripts/touchSwipe.js"></script>
+		<script src="scripts/transit.js"></script>
 
-		<script>
-			$(function() {
-
-				$("#big-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-big",
-					next: "#next-big",
-					items: {
-						width: 200,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 2, max: 6 }
-					}
-				});
-
-				$("#small-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-small",
-					next: "#next-small",
-					items: {
-						width: 360,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 2, max: 6 }
-					}
-				});
-
-				$("#gapelian-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-small",
-					next: "#next-small",
-					items: {
-						width: 160,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 7, max: 10 }
-					}
-				});
-
-			});
-
-			$(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
-
-			$(function() {
-
-				$(document).ready(function() {
-
-					var isOpen = false;
-
-					$(".user .cover").click(function() {
-						isOpen = !isOpen;
-
-						if(isOpen) { // .animate({ width: "360px" }, 500)
-							$("#gapelian-scroller").carouFredSel({
-								auto: false,
-								responsive: true,
-								width: "100%",
-								scroll: 1,
-								prev: "#prev-small",
-								next: "#next-small",
-								items: {
-									width: 360,
-									// height: "30%", // optionally resize item-height
-									visible: { min: 2, max: 10 }
-								}
-							});
-
-							/*
-							$(".user").animate({
-								width: 340
-								// opacity: 0.25,
-								// left: "+=50",
-								// height: "toggle"
-							}, 500, function() {
-								// Animation complete.
-							});
-							*/
-						}
-
-						else { // .animate({ width: "160px" }, 500)
-							$("#gapelian-scroller").carouFredSel({
-								auto: false,
-								responsive: true,
-								width: "100%",
-								scroll: 1,
-								prev: "#prev-small",
-								next: "#next-small",
-								items: {
-									width: 160,
-									// height: "30%", // optionally resize item-height
-									visible: { min: 7, max: 10 }
-								}
-							});
-
-							/*
-							$(".user").animate({
-								width: 143
-								// opacity: 0.25,
-								// left: "+=50",
-								// height: "toggle"
-							}, 500, function() {
-								// Animation complete.
-							});
-							*/
-						}
-
-						event.preventDefault();
-					});
-
-				});
-
-			});
-
-			/*
-			$(function() {
-				$("#small-scroller").mousewheel(function(event, delta) {
-					this.scrollLeft -= (delta * 30);
-					event.preventDefault();
-				});
-			});
-			*/
-
-			/*
-			$(function() {
-				$("html, body").mousewheel(function(event, delta) {
-					this.scrollLeft -= (delta * 30);
-					event.preventDefault();
-				});
-			});
-			*/
-		</script>
-		
-		<script>
-			$(window).load(function () {
-
-				if ($(window).height() > 677) {
-					$(function() {
-						$("#big-scroller").carouFredSel({
-							auto: false,
-							responsive: true,
-							width: "100%",
-							scroll: 1,
-							prev: "#prev-big",
-							next: "#next-big",
-							items: {
-								width: 250,
-								visible: { min: 2, max: 5 }
-							}
-						});
-					});
-				}
-
-				else {
-				};
-
-			});
-		</script>
+		<script src="scripts/squishy.js"></script>
+		<script src="scripts/gapelia.js"></script>
 
 	</body>
 

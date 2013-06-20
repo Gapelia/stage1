@@ -492,51 +492,51 @@ footer ul li:last-child:after { content: ""; }
 /** [-] Big Scroller **********************************************************************************/
 #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 12.1rem 0; }
 
-#big-scroller { overflow-y: scroll; width: auto; }
-#big-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
-#big-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
-#big-scroller .dimension-book .mark { position: absolute; width: 150px; }
-#big-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
-#big-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
+#big-scroller, #dimension-scroller { overflow-y: scroll; width: auto; }
+#big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
+#big-scroller .dimension-book .mark-wrapper, #dimension-scroller .dimension-book .mark-wrapper { width: 100%; height: 100%; position: absolute; }
+#big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { position: absolute; width: 150px; }
+#big-scroller .dimension-book:hover .book-info .explore-book, #dimension-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
+#big-scroller .dimension-book .book-info, #dimension-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
 .book-title, .book-meta, .photo-credit {
 	background-color: rgba($black, 0.5);
 	padding: 0.5rem;
 }
 */ }
-#big-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
-#big-scroller .dimension-book .book-info .book-meta { font-size: 70%; }
-#big-scroller .dimension-book .book-info .book-meta li { float: left; }
-#big-scroller .dimension-book .book-info .book-meta li:after { content: "\00a0\00b7\00a0"; }
-#big-scroller .dimension-book .book-info .book-meta li:last-child:after { content: ""; }
-#big-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
-#big-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
-#big-scroller .dimension-book .book-info .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
-#big-scroller .dimension-book .book-info .book-author span { font-family: "OpenSansBold"; }
-#big-scroller .dimension-book .book-info .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
-#big-scroller .dimension-book .book-info .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
-#big-scroller .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
-#big-scroller .book-cover { background-image: url("../images/book-thumb.jpg"); }
-#big-scroller .b-01 { background-image: url("../images/book-thumb-01.jpg"); }
-#big-scroller .b-02 { background-image: url("../images/book-thumb-02.jpg"); }
-#big-scroller .b-03 { background-image: url("../images/book-thumb-03.jpg"); }
-#big-scroller .b-04 { background-image: url("../images/book-thumb-04.jpg"); }
-#big-scroller .b-05 { background-image: url("../images/book-thumb-05.jpg"); }
-#big-scroller .b-06 { background-image: url("../images/book-thumb-06.jpg"); }
-#big-scroller .b-07 { background-image: url("../images/book-thumb-07.jpg"); }
-#big-scroller .b-08 { background-image: url("../images/book-thumb-08.jpg"); }
-#big-scroller .b-09 { background-image: url("../images/book-thumb-09.jpg"); }
-#big-scroller .b-10 { background-image: url("../images/book-thumb-10.jpg"); }
-#big-scroller .b-11 { background-image: url("../images/book-thumb-11.jpg"); }
-#big-scroller .b-12 { background-image: url("../images/book-thumb-12.jpg"); }
-#big-scroller .b-13 { background-image: url("../images/book-thumb-13.jpg"); }
-#big-scroller .like-collect, #big-scroller .edit-delete { top: 0; right: 0; position: absolute; }
-#big-scroller .like-collect li, #big-scroller .edit-delete li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-#big-scroller .like-collect li:hover, #big-scroller .edit-delete li:hover { opacity: 1; }
-#big-scroller .like-collect li a, #big-scroller .edit-delete li a { width: 100%; height: 100%; display: block; }
-#big-scroller .like-collect .like, #big-scroller .edit-delete .like { background-image: url("../images/like.png"); }
-#big-scroller .like-collect .collect, #big-scroller .edit-delete .collect { background-image: url("../images/collect.png"); }
-#big-scroller .like-collect .edit, #big-scroller .edit-delete .edit { background-image: url("../images/icon-edit.png"); }
-#big-scroller .like-collect .delete, #big-scroller .edit-delete .delete { background-image: url("../images/icon-trash.png"); }
+#big-scroller .dimension-book .book-info .book-title, #dimension-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
+#big-scroller .dimension-book .book-info .book-meta, #dimension-scroller .dimension-book .book-info .book-meta { font-size: 70%; }
+#big-scroller .dimension-book .book-info .book-meta li, #dimension-scroller .dimension-book .book-info .book-meta li { float: left; }
+#big-scroller .dimension-book .book-info .book-meta li:after, #dimension-scroller .dimension-book .book-info .book-meta li:after { content: "\00a0\00b7\00a0"; }
+#big-scroller .dimension-book .book-info .book-meta li:last-child:after, #dimension-scroller .dimension-book .book-info .book-meta li:last-child:after { content: ""; }
+#big-scroller .dimension-book .book-info .explore-book, #dimension-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
+#big-scroller .dimension-book .book-info .explore-book:hover, #dimension-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
+#big-scroller .dimension-book .book-info .book-author, #dimension-scroller .dimension-book .book-info .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
+#big-scroller .dimension-book .book-info .book-author span, #dimension-scroller .dimension-book .book-info .book-author span { font-family: "OpenSansBold"; }
+#big-scroller .dimension-book .book-info .photo-credit, #dimension-scroller .dimension-book .book-info .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
+#big-scroller .dimension-book .book-info .photo-credit a, #dimension-scroller .dimension-book .book-info .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
+#big-scroller .book-cover, #dimension-scroller .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
+#big-scroller .book-cover, #dimension-scroller .book-cover { background-image: url("../images/book-thumb.jpg"); }
+#big-scroller .b-01, #dimension-scroller .b-01 { background-image: url("../images/book-thumb-01.jpg"); }
+#big-scroller .b-02, #dimension-scroller .b-02 { background-image: url("../images/book-thumb-02.jpg"); }
+#big-scroller .b-03, #dimension-scroller .b-03 { background-image: url("../images/book-thumb-03.jpg"); }
+#big-scroller .b-04, #dimension-scroller .b-04 { background-image: url("../images/book-thumb-04.jpg"); }
+#big-scroller .b-05, #dimension-scroller .b-05 { background-image: url("../images/book-thumb-05.jpg"); }
+#big-scroller .b-06, #dimension-scroller .b-06 { background-image: url("../images/book-thumb-06.jpg"); }
+#big-scroller .b-07, #dimension-scroller .b-07 { background-image: url("../images/book-thumb-07.jpg"); }
+#big-scroller .b-08, #dimension-scroller .b-08 { background-image: url("../images/book-thumb-08.jpg"); }
+#big-scroller .b-09, #dimension-scroller .b-09 { background-image: url("../images/book-thumb-09.jpg"); }
+#big-scroller .b-10, #dimension-scroller .b-10 { background-image: url("../images/book-thumb-10.jpg"); }
+#big-scroller .b-11, #dimension-scroller .b-11 { background-image: url("../images/book-thumb-11.jpg"); }
+#big-scroller .b-12, #dimension-scroller .b-12 { background-image: url("../images/book-thumb-12.jpg"); }
+#big-scroller .b-13, #dimension-scroller .b-13 { background-image: url("../images/book-thumb-13.jpg"); }
+#big-scroller .like-collect, #big-scroller .edit-delete, #dimension-scroller .like-collect, #dimension-scroller .edit-delete { top: 0; right: 0; position: absolute; }
+#big-scroller .like-collect li, #big-scroller .edit-delete li, #dimension-scroller .like-collect li, #dimension-scroller .edit-delete li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#big-scroller .like-collect li:hover, #big-scroller .edit-delete li:hover, #dimension-scroller .like-collect li:hover, #dimension-scroller .edit-delete li:hover { opacity: 1; }
+#big-scroller .like-collect li a, #big-scroller .edit-delete li a, #dimension-scroller .like-collect li a, #dimension-scroller .edit-delete li a { width: 100%; height: 100%; display: block; }
+#big-scroller .like-collect .like, #big-scroller .edit-delete .like, #dimension-scroller .like-collect .like, #dimension-scroller .edit-delete .like { background-image: url("../images/like.png"); }
+#big-scroller .like-collect .collect, #big-scroller .edit-delete .collect, #dimension-scroller .like-collect .collect, #dimension-scroller .edit-delete .collect { background-image: url("../images/collect.png"); }
+#big-scroller .like-collect .edit, #big-scroller .edit-delete .edit, #dimension-scroller .like-collect .edit, #dimension-scroller .edit-delete .edit { background-image: url("../images/icon-edit.png"); }
+#big-scroller .like-collect .delete, #big-scroller .edit-delete .delete, #dimension-scroller .like-collect .delete, #dimension-scroller .edit-delete .delete { background-image: url("../images/icon-trash.png"); }
 
 /** [-] Small Scroller ********************************************************************************/
 #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 3.7rem 0; }
@@ -592,8 +592,8 @@ footer ul li:last-child:after { content: ""; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
   #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 10.4rem 0; }
-  #big-scroller .dimension-book { width: 200px; height: 339px; }
-  #big-scroller .dimension-book .mark { width: 100px; }
+  #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 339px; }
+  #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
   /** [-] Small Scroller ********************************************************************************/
   #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
   #small-scroller .user-book { width: 360px; height: 144px; }
@@ -615,9 +615,9 @@ footer ul li:last-child:after { content: ""; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
   #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 9.6rem 0; }
-  #big-scroller .dimension-book { width: 200px; height: 320px; }
-  #big-scroller .dimension-book .mark { width: 100px; }
-  #big-scroller .book-cover { background-size: 100%; }
+  #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 320px; }
+  #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
+  #big-scroller .book-cover, #dimension-scroller .book-cover { background-size: 100%; }
   /** [-] Small Scroller ********************************************************************************/
   #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
   #small-scroller .user-book, #small-scroller .user, #gapelian-scroller .user-book, #gapelian-scroller .user { width: 360px; height: 144px; }

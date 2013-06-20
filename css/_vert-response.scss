@@ -63,7 +63,7 @@
 		#prev-big, #next-big { padding: 10.4rem 0; }
 	}
 
-	#big-scroller {
+	#big-scroller, #dimension-scroller {
 		.dimension-book {
 			width: 200px; height: 339px;
 			.mark { width: 100px; }
@@ -150,7 +150,7 @@
 		#prev-big, #next-big { padding: 9.6rem 0; }
 	}
 
-	#big-scroller {
+	#big-scroller, #dimension-scroller {
 		.dimension-book {
 			width: 200px; height: 320px;
 			.mark { width: 100px; }
@@ -174,9 +174,7 @@
 			}
 		}
 
-		.user {
-			width: 144px;
-		}
+		.user { width: 144px; }
 	}
 
 	/** [-] Dimensions **********************************************************************************/

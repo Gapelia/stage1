@@ -26,17 +26,12 @@
 
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			.horizontal-only { height: auto; }
-		</style>
-
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/jquery-2.0.2.min.js"></script>
-		<script src="scripts/jquery.mousewheel.js"></script>
-		<script src="scripts/midway.min.js"></script>
+		<script src="scripts/jquery-2.0.2.js"></script>
+		<script src="scripts/midway.js"></script>
 
 	</head>
 
@@ -706,91 +701,15 @@
 
 		<!--/ scripts																																					 /-->
 
-		<script src="scripts/jquery.carouFredSel-6.2.1-packed.js"></script>
+		<script src="scripts/carouFredSel.js"></script>
 
-		<script src="scripts/helper-plugins/jquery.touchSwipe.min.js"></script>
-		<script src="scripts/helper-plugins/jquery.transit.min.js"></script>
-		<script src="scripts/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
-		
-		<script src="scripts/jquery.squishy.js"></script>
+		<script src="scripts/ba-throttle-debounce.js"></script>
+		<script src="scripts/mousewheel.js"></script>
+		<script src="scripts/touchSwipe.js"></script>
+		<script src="scripts/transit.js"></script>
 
-		<script>
-			$(function() {
-				$("#big-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-big",
-					next: "#next-big",
-					items: {
-						width: 200,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 2, max: 6 }
-					}
-				});
-
-				$("#small-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-small",
-					next: "#next-small",
-					items: {
-						width: 360,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 2, max: 6 }
-					}
-				});
-			});
-
-			$(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
-
-			/*
-			$(function() {
-				$("#small-scroller").mousewheel(function(event, delta) {
-					this.scrollLeft -= (delta * 30);
-					event.preventDefault();
-				});
-			});
-			*/
-
-			/*
-			$(function() {
-				$("html, body").mousewheel(function(event, delta) {
-					this.scrollLeft -= (delta * 30);
-					event.preventDefault();
-				});
-			});
-			*/
-		</script>
-		
-		<script>
-			$(window).load(function () {
-
-				if ($(window).height() > 677) {
-					$(function() {
-						$("#big-scroller").carouFredSel({
-							auto: false,
-							responsive: true,
-							width: "100%",
-							scroll: 1,
-							prev: "#prev-big",
-							next: "#next-big",
-							items: {
-								width: 250,
-								visible: { min: 2, max: 5 }
-							}
-						});
-					});
-				}
-
-				else {
-				};
-
-			});
-		</script>
+		<script src="scripts/squishy.js"></script>
+		<script src="scripts/gapelia.js"></script>
 
 	</body>
 
