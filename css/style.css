@@ -428,7 +428,38 @@ footer ul li:last-child:after { content: ""; }
 #action-bar ul .active { background-position: 0 -149px !important; }
 #action-bar ul .active:hover { opacity: 0.7; }
 #action-bar ul #action-user, #action-bar ul #action-logo { background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-#action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+#action-bar ul #action-user { overflow: hidden; 			/*
+			#cover-form {
+				bottom: 5rem; right: 2rem;
+				position: fixed;
+
+				span { padding: 1rem 0; }
+				#cover-upload { display: block; }
+
+				input.file-upload {
+					margin: 0; padding: 0;
+					top: 0; right: 0;
+
+					border: 0;
+					cursor: pointer;
+					height: 3.5rem;
+					opacity: 0;
+					position: absolute;
+				}
+			}
+			*/ }
+#action-bar ul #action-user a { opacity: 1; }
+#action-bar ul #action-user img { width: 149px; height: 149px; }
+#action-bar ul #action-user ul { margin: 0; padding: 0; top: 149px; right: 0; background-color: #e7e7e7; display: none; float: left; font-family: "OpenSansSemibold"; font-size: 14px; position: absolute; width: 149px; z-index: 2147483647; }
+#action-bar ul #action-user ul li { width: auto; height: auto; border-bottom: 1px solid #cfcfcf; border-left: 1px solid #cfcfcf; display: block; text-align: right; }
+#action-bar ul #action-user ul li:hover { background-color: #585959; border-bottom: 1px solid #585959; border-left: 1px solid #585959; }
+#action-bar ul #action-user ul li a { display: block; padding: 0.46rem; }
+#action-bar ul #action-user ul li a:hover { color: #fefefe; }
+#action-bar ul #action-user #avatar-upload { width: 100px; height: 100px; background-color: rgba(254, 254, 254, 0.8); display: none; padding: 2.4rem 0.7rem; position: absolute; }
+#action-bar ul #action-user #avatar-upload label.cabinet { width: 79px; height: 22px; background: url("../images/btn-choose-file.gif") 0 0 no-repeat; display: block; overflow: hidden; }
+#action-bar ul #action-user #avatar-upload label.cabinet:after { content: "Edit"; color: #191919; }
+#action-bar ul #action-user #avatar-upload label.cabinet input.file { width: auto; height: 100%; cursor: pointer; opacity: 0; position: relative; }
+#action-bar ul #action-user:hover #avatar-upload { display: block; }
 #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); border-left: 1px solid #cfcfcf; }
 #action-bar ul #action-account, #action-bar ul #action-next { overflow: hidden; }
 #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { display: block; padding: 1.9rem; }
@@ -491,6 +522,18 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Big Scroller **********************************************************************************/
 #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 12.1rem 0; }
+#big-scroller-wrapper #small-profile { width: 150px; height: 100%; background-color: #fefefe; /* rgba($white, 0.7); */ color: #585959; font-size: 85%; position: absolute; left: 50px; z-index: 2654654; }
+#big-scroller-wrapper #small-profile a { color: #585959; }
+#big-scroller-wrapper #small-profile .active { font-family: "OpenSansBold"; }
+#big-scroller-wrapper #small-profile img { width: 150px; height: 150px; }
+#big-scroller-wrapper #small-profile ul { width: 100%; height: 183px; /* height: 119px; */ overflow-y: auto; }
+#big-scroller-wrapper #small-profile ul li { padding: 0.3rem 0.6rem; }
+#big-scroller-wrapper #small-profile ul li:hover { background-color: rgba(88, 89, 89, 0.7); }
+#big-scroller-wrapper #small-profile ul li:hover a { color: #fefefe; }
+#big-scroller-wrapper #small-profile #profile-name, #big-scroller-wrapper #small-profile #profile-switcher, #big-scroller-wrapper #small-profile #profile-visit { padding: 0.3rem 0.6rem; width: 100%; }
+#big-scroller-wrapper #small-profile #profile-name, #big-scroller-wrapper #small-profile #profile-switcher { border-bottom: 1px solid #585959; }
+#big-scroller-wrapper #small-profile #profile-visit { background-color: #fefefe; border-top: 1px solid #585959; bottom: 0; position: absolute; }
+#big-scroller-wrapper #small-profile-wrapper { height: 100%; }
 
 #big-scroller, #dimension-scroller { overflow-y: scroll; width: auto; }
 #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 250px; height: 400px; background-color: #585959; display: table; float: left; margin: 0 0.5rem 0 0; position: relative; }
@@ -498,23 +541,25 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { position: absolute; width: 150px; }
 #big-scroller .dimension-book:hover .book-info, #dimension-scroller .dimension-book:hover .book-info { text-shadow: 0 3px 4px #191919; }
 #big-scroller .dimension-book:hover .book-info .explore-book, #dimension-scroller .dimension-book:hover .book-info .explore-book { visibility: visible; }
-#big-scroller .dimension-book .book-info, #dimension-scroller .dimension-book .book-info { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
+#big-scroller .dimension-book .book-info, #big-scroller .dimension-book .collection-new, #dimension-scroller .dimension-book .book-info, #dimension-scroller .dimension-book .collection-new { color: #fefefe; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); top: 35%; width: 100%; /*
 .book-title, .book-meta, .photo-credit {
 	background-color: rgba($black, 0.5);
 	padding: 0.5rem;
 }
 */ }
-#big-scroller .dimension-book .book-info .book-title, #dimension-scroller .dimension-book .book-info .book-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
-#big-scroller .dimension-book .book-info .lifestyle, #dimension-scroller .dimension-book .book-info .lifestyle { font-size: 68%; }
-#big-scroller .dimension-book .book-info .lifestyle li, #dimension-scroller .dimension-book .book-info .lifestyle li { float: left; }
-#big-scroller .dimension-book .book-info .lifestyle li:after, #dimension-scroller .dimension-book .book-info .lifestyle li:after { content: "\00a0\00b7\00a0"; }
-#big-scroller .dimension-book .book-info .lifestyle li:last-child:after, #dimension-scroller .dimension-book .book-info .lifestyle li:last-child:after { content: ""; }
-#big-scroller .dimension-book .book-info .explore-book, #dimension-scroller .dimension-book .book-info .explore-book { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
-#big-scroller .dimension-book .book-info .explore-book:hover, #dimension-scroller .dimension-book .book-info .explore-book:hover { opacity: 0.7; }
-#big-scroller .dimension-book .book-info .book-author, #dimension-scroller .dimension-book .book-info .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
-#big-scroller .dimension-book .book-info .book-author span, #dimension-scroller .dimension-book .book-info .book-author span { font-family: "OpenSansBold"; }
-#big-scroller .dimension-book .book-info .photo-credit, #dimension-scroller .dimension-book .book-info .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
-#big-scroller .dimension-book .book-info .photo-credit a, #dimension-scroller .dimension-book .book-info .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
+#big-scroller .dimension-book .book-info .book-title, #big-scroller .dimension-book .book-info .collect-title, #big-scroller .dimension-book .collection-new .book-title, #big-scroller .dimension-book .collection-new .collect-title, #dimension-scroller .dimension-book .book-info .book-title, #dimension-scroller .dimension-book .book-info .collect-title, #dimension-scroller .dimension-book .collection-new .book-title, #dimension-scroller .dimension-book .collection-new .collect-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
+#big-scroller .dimension-book .book-info .lifestyle, #big-scroller .dimension-book .collection-new .lifestyle, #dimension-scroller .dimension-book .book-info .lifestyle, #dimension-scroller .dimension-book .collection-new .lifestyle { font-size: 68%; }
+#big-scroller .dimension-book .book-info .lifestyle li, #big-scroller .dimension-book .collection-new .lifestyle li, #dimension-scroller .dimension-book .book-info .lifestyle li, #dimension-scroller .dimension-book .collection-new .lifestyle li { float: left; }
+#big-scroller .dimension-book .book-info .lifestyle li:after, #big-scroller .dimension-book .collection-new .lifestyle li:after, #dimension-scroller .dimension-book .book-info .lifestyle li:after, #dimension-scroller .dimension-book .collection-new .lifestyle li:after { content: "\00a0\00b7\00a0"; }
+#big-scroller .dimension-book .book-info .lifestyle li:last-child:after, #big-scroller .dimension-book .collection-new .lifestyle li:last-child:after, #dimension-scroller .dimension-book .book-info .lifestyle li:last-child:after, #dimension-scroller .dimension-book .collection-new .lifestyle li:last-child:after { content: ""; }
+#big-scroller .dimension-book .book-info .explore-book, #big-scroller .dimension-book .book-info .collect-close, #big-scroller .dimension-book .collection-new .explore-book, #big-scroller .dimension-book .collection-new .collect-close, #dimension-scroller .dimension-book .book-info .explore-book, #dimension-scroller .dimension-book .book-info .collect-close, #dimension-scroller .dimension-book .collection-new .explore-book, #dimension-scroller .dimension-book .collection-new .collect-close { margin: 1rem auto; padding: 0.5rem; background-color: #fefefe; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; visibility: hidden; width: 50%; }
+#big-scroller .dimension-book .book-info .explore-book:hover, #big-scroller .dimension-book .book-info .collect-close:hover, #big-scroller .dimension-book .collection-new .explore-book:hover, #big-scroller .dimension-book .collection-new .collect-close:hover, #dimension-scroller .dimension-book .book-info .explore-book:hover, #dimension-scroller .dimension-book .book-info .collect-close:hover, #dimension-scroller .dimension-book .collection-new .explore-book:hover, #dimension-scroller .dimension-book .collection-new .collect-close:hover { opacity: 0.7; }
+#big-scroller .dimension-book .book-info .book-author, #big-scroller .dimension-book .collection-new .book-author, #dimension-scroller .dimension-book .book-info .book-author, #dimension-scroller .dimension-book .collection-new .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
+#big-scroller .dimension-book .book-info .book-author span, #big-scroller .dimension-book .collection-new .book-author span, #dimension-scroller .dimension-book .book-info .book-author span, #dimension-scroller .dimension-book .collection-new .book-author span { font-family: "OpenSansBold"; }
+#big-scroller .dimension-book .book-info .photo-credit, #big-scroller .dimension-book .collection-new .photo-credit, #dimension-scroller .dimension-book .book-info .photo-credit, #dimension-scroller .dimension-book .collection-new .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
+#big-scroller .dimension-book .book-info .photo-credit a, #big-scroller .dimension-book .collection-new .photo-credit a, #dimension-scroller .dimension-book .book-info .photo-credit a, #dimension-scroller .dimension-book .collection-new .photo-credit a { color: #fefefe; font-family: "OpenSansExtraBold"; }
+#big-scroller .dimension-book #collect-001, #big-scroller .dimension-book #collect-002, #big-scroller .dimension-book #collect-003, #big-scroller .dimension-book #collect-004, #big-scroller .dimension-book #collect-005, #big-scroller .dimension-book #collect-006, #big-scroller .dimension-book #collect-007, #big-scroller .dimension-book #collect-008, #big-scroller .dimension-book #collect-009, #big-scroller .dimension-book #collect-010, #big-scroller .dimension-book #collect-011, #dimension-scroller .dimension-book #collect-001, #dimension-scroller .dimension-book #collect-002, #dimension-scroller .dimension-book #collect-003, #dimension-scroller .dimension-book #collect-004, #dimension-scroller .dimension-book #collect-005, #dimension-scroller .dimension-book #collect-006, #dimension-scroller .dimension-book #collect-007, #dimension-scroller .dimension-book #collect-008, #dimension-scroller .dimension-book #collect-009, #dimension-scroller .dimension-book #collect-010, #dimension-scroller .dimension-book #collect-011 { display: none; }
+#big-scroller .dimension-book #collect-001 .collect-close, #big-scroller .dimension-book #collect-002 .collect-close, #big-scroller .dimension-book #collect-003 .collect-close, #big-scroller .dimension-book #collect-004 .collect-close, #big-scroller .dimension-book #collect-005 .collect-close, #big-scroller .dimension-book #collect-006 .collect-close, #big-scroller .dimension-book #collect-007 .collect-close, #big-scroller .dimension-book #collect-008 .collect-close, #big-scroller .dimension-book #collect-009 .collect-close, #big-scroller .dimension-book #collect-010 .collect-close, #big-scroller .dimension-book #collect-011 .collect-close, #dimension-scroller .dimension-book #collect-001 .collect-close, #dimension-scroller .dimension-book #collect-002 .collect-close, #dimension-scroller .dimension-book #collect-003 .collect-close, #dimension-scroller .dimension-book #collect-004 .collect-close, #dimension-scroller .dimension-book #collect-005 .collect-close, #dimension-scroller .dimension-book #collect-006 .collect-close, #dimension-scroller .dimension-book #collect-007 .collect-close, #dimension-scroller .dimension-book #collect-008 .collect-close, #dimension-scroller .dimension-book #collect-009 .collect-close, #dimension-scroller .dimension-book #collect-010 .collect-close, #dimension-scroller .dimension-book #collect-011 .collect-close { visibility: visible; }
 #big-scroller .book-cover, #dimension-scroller .book-cover { width: 100%; height: 100%; background-size: 115%; display: table-cell; }
 #big-scroller .book-cover, #dimension-scroller .book-cover { background-image: url("../images/book-thumb.jpg"); }
 #big-scroller .b-01, #dimension-scroller .b-01 { background-image: url("../images/book-thumb-01.jpg"); }
@@ -530,11 +575,13 @@ footer ul li:last-child:after { content: ""; }
 #big-scroller .b-11, #dimension-scroller .b-11 { background-image: url("../images/book-thumb-11.jpg"); }
 #big-scroller .b-12, #dimension-scroller .b-12 { background-image: url("../images/book-thumb-12.jpg"); }
 #big-scroller .b-13, #dimension-scroller .b-13 { background-image: url("../images/book-thumb-13.jpg"); }
-#big-scroller .like-collect, #big-scroller .edit-delete, #dimension-scroller .like-collect, #dimension-scroller .edit-delete { top: 0; right: 0; position: absolute; }
-#big-scroller .like-collect li, #big-scroller .edit-delete li, #dimension-scroller .like-collect li, #dimension-scroller .edit-delete li { width: 32px; height: 32px; background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+#big-scroller .like-collect, #big-scroller .edit-delete, #dimension-scroller .like-collect, #dimension-scroller .edit-delete { top: 0; right: 0; margin: 0 0.7rem 0 0; position: absolute; }
+#big-scroller .like-collect li, #big-scroller .edit-delete li, #dimension-scroller .like-collect li, #dimension-scroller .edit-delete li { width: 24px; height: 24px; /* width: 32px; height: 32px; */ background-repeat: no-repeat; background-size: 24px; display: inline-block; opacity: 0.7; text-align: center; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 #big-scroller .like-collect li:hover, #big-scroller .edit-delete li:hover, #dimension-scroller .like-collect li:hover, #dimension-scroller .edit-delete li:hover { opacity: 1; }
 #big-scroller .like-collect li a, #big-scroller .edit-delete li a, #dimension-scroller .like-collect li a, #dimension-scroller .edit-delete li a { width: 100%; height: 100%; display: block; }
-#big-scroller .like-collect .like, #big-scroller .edit-delete .like, #dimension-scroller .like-collect .like, #dimension-scroller .edit-delete .like { background-image: url("../images/like.png"); }
+#big-scroller .like-collect .like, #big-scroller .like-collect .edit, #big-scroller .edit-delete .like, #big-scroller .edit-delete .edit, #dimension-scroller .like-collect .like, #dimension-scroller .like-collect .edit, #dimension-scroller .edit-delete .like, #dimension-scroller .edit-delete .edit { margin: 0 0.5rem 0 0; }
+#big-scroller .like-collect .like, #big-scroller .edit-delete .like, #dimension-scroller .like-collect .like, #dimension-scroller .edit-delete .like { background-image: url("../images/like.png"); background-position: 0 0; background-size: 24px 48px; /* 32px 64px; */ }
+#big-scroller .like-collect .like:hover, #big-scroller .edit-delete .like:hover, #dimension-scroller .like-collect .like:hover, #dimension-scroller .edit-delete .like:hover { background-position: 0 -24px; }
 #big-scroller .like-collect .collect, #big-scroller .edit-delete .collect, #dimension-scroller .like-collect .collect, #dimension-scroller .edit-delete .collect { background-image: url("../images/collect.png"); }
 #big-scroller .like-collect .edit, #big-scroller .edit-delete .edit, #dimension-scroller .like-collect .edit, #dimension-scroller .edit-delete .edit { background-image: url("../images/icon-edit.png"); }
 #big-scroller .like-collect .delete, #big-scroller .edit-delete .delete, #dimension-scroller .like-collect .delete, #dimension-scroller .edit-delete .delete { background-image: url("../images/icon-trash.png"); }
@@ -575,7 +622,94 @@ footer ul li:last-child:after { content: ""; }
 
 .wow .mask { background-image: url("../images/svg/dimension-wow.svg"); }
 
-@media only screen and (max-height: 677px) { /** [-] Profile *************************************************************************************/
+/** [-] Settings **************************************************************************************/
+#settings-wrapper { width: 100%; height: 100%; background-color: #e7e7e7; }
+#settings-wrapper #settings-sidebar, #settings-wrapper #settings-content { float: left; padding: 1rem 2rem; vertical-align: top; }
+#settings-wrapper #settings-sidebar { width: 20%; height: 100%; border-right: 1px solid #cfcfcf; }
+#settings-wrapper #settings-sidebar ul { margin: 3.15rem 0 0 0; }
+#settings-wrapper #settings-sidebar ul li { margin: 0 0 1rem 0; }
+#settings-wrapper #settings-sidebar a { color: #585959; font-family: "OpenSansLight"; }
+#settings-wrapper #settings-sidebar .active a { font-family: "OpenSansSemibold"; }
+#settings-wrapper #settings-content { width: 80%; height: 100%; display: block; }
+#settings-wrapper #settings-content h3 { margin: 0; padding: 0 0 1rem 0; border-bottom: 1px solid #cfcfcf; }
+#settings-wrapper #settings-content .setting-row { border-bottom: 1px solid #cfcfcf; padding: 1rem 0; }
+#settings-wrapper #settings-content .setting-row:last-child { border-bottom: none; }
+#settings-wrapper #settings-content .setting-row input { border: 0; font-family: "OpenSansSemibold"; padding: 0; }
+#settings-wrapper #settings-content .setting-row .setting-name, #settings-wrapper #settings-content .setting-row .user-setting, #settings-wrapper #settings-content .setting-row .edit, #settings-wrapper #settings-content .setting-row .comment { display: inline-block; }
+#settings-wrapper #settings-content .setting-row .user-setting, #settings-wrapper #settings-content .setting-row .edit, #settings-wrapper #settings-content .setting-row .comment { font-family: "OpenSansSemibold"; }
+#settings-wrapper #settings-content .setting-row .setting-name { font-family: "OpenSansLight"; width: 30%; }
+#settings-wrapper #settings-content .setting-row .user-setting { width: 40%; }
+#settings-wrapper #settings-content .setting-row .user-setting #settings-tags_addTag { display: none; }
+#settings-wrapper #settings-content .setting-row .edit, #settings-wrapper #settings-content .setting-row .comment { color: #70a1b1; text-align: right; width: 20%; }
+#settings-wrapper #settings-content .setting-row .comment { color: #585959; font-size: 80%; }
+#settings-wrapper #settings-content .btn-save { margin: 1rem 0 0 0; padding: 0.5rem; background-color: #585959; border: 0; border-radius: 0; color: #fefefe; cursor: pointer; font-family: "OpenSansLight"; font-size: 12px; width: auto; }
+#settings-wrapper #settings-content .btn-save:hover { opacity: 0.7; }
+
+/*
+#modal-wrapper {
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+
+	position: absolute;
+	z-index: 26542668445;
+
+	.wrap {
+		width: 100%; height: 100%;
+		position: relative;
+	}
+}
+
+#create-modal-01 {
+	width: 500px;
+	background-color: $gray-v;
+	display: block;
+}
+*/
+.reveal-modal-bg { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.8); display: none; position: fixed; z-index: 100; }
+
+.reveal-modal { margin: 0 0 0 -300px; padding: 0; /* padding: 30px 40px 34px; */ top: 5% !important; /* top: 100px; */ left: 50%; background-color: #e7e7e7; border-radius: 0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); position: absolute; visibility: hidden; width: 520px; z-index: 101; }
+.reveal-modal .modal-row { border-bottom: 1px solid #cfcfcf; display: table; padding: 1rem 3rem; width: 100%; }
+.reveal-modal .modal-row:last-child { border-bottom: 0; }
+.reveal-modal .modal-row .modal-title, .reveal-modal .modal-row .modal-input { display: table-cell; vertical-align: top; }
+.reveal-modal .modal-row .modal-title { width: 200px; }
+.reveal-modal .modal-row .modal-title span { display: block; font-size: 10px; margin: 5px 0 0 0; }
+.reveal-modal .modal-row .modal-input { width: 100% !important; }
+.reveal-modal .modal-row textarea { border: 0; height: 80px; }
+.reveal-modal .modal-header { font-family: "OpenSansBold"; font-size: 20px; text-align: center; }
+.reveal-modal .modal-header .active { color: #70a1b1; }
+.reveal-modal .modal-header span { margin: 0 2rem 0 0; }
+.reveal-modal .modal-header span:last-child { margin: 0; }
+.reveal-modal #filepicker-iframe { width: auto; height: auto; }
+.reveal-modal #filepicker-iframe iframe { width: 700px; height: 410px; }
+.reveal-modal .next-modal { text-align: center; }
+.reveal-modal .next-modal a { color: #585959; font-family: "OpenSansBold"; font-size: 20px; }
+.reveal-modal .safe, .reveal-modal .over { padding: 3px; font-weight: 700; color: #fefefe; }
+.reveal-modal .safe { background-color: green; }
+.reveal-modal .over { background-color: red; }
+
+.reveal-modal.small { margin-left: -140px; width: 200px; }
+
+.reveal-modal.medium { margin-left: -240px; width: 400px; }
+
+.reveal-modal.large { margin-left: -340px; width: 600px; }
+
+.reveal-modal.xlarge { margin-left: -440px; width: 800px; }
+
+/** [-] Book Creator **********************************************************************************/
+#book-creation-wrapper { width: 100%; height: auto; }
+#book-creation-wrapper #create-book { clear: left; height: 400px; overflow: hidden; }
+#book-creation-wrapper #create-book #create-content, #book-creation-wrapper #create-book #create-sidebar { float: left; }
+#book-creation-wrapper #create-book #create-content { background-color: #cfcfcf; width: 80%; }
+#book-creation-wrapper #create-book #create-content img { width: 100%; height: auto; }
+#book-creation-wrapper #create-book #create-sidebar { width: 20%; }
+
+#page-scroller-wrapper nav { display: none; }
+#page-scroller-wrapper nav #prev-small, #page-scroller-wrapper nav #next-small { height: 0; }
+#page-scroller-wrapper #page-scroller { height: 50px; }
+#page-scroller-wrapper #page-scroller .page { float: left; }
+#page-scroller-wrapper #page-scroller .page img { width: 100px; height: 100px; }
+
+@media only screen and (min-height: 653px) and (max-height: 677px) { /** [-] Profile *************************************************************************************/
   #action-bar { height: 99px; }
   #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
   #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
@@ -585,7 +719,8 @@ footer ul li:last-child:after { content: ""; }
   #action-bar ul #action-create:hover, #action-bar ul #action-gapelians:hover, #action-bar ul #action-books:hover, #action-bar ul #action-dimensions:hover { background-position: 0 -99px; }
   #action-bar ul .active { background-position: 0 -99px !important; }
   #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
-  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+  #action-bar ul #action-user img { width: 98px; height: 98px; }
+  #action-bar ul #action-user ul { font-family: "OpenSansLight"; top: 99px; width: 99px; }
   #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
   #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
   #action-bar ul #action-next { padding: 0; }
@@ -593,6 +728,7 @@ footer ul li:last-child:after { content: ""; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
   #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 10.4rem 0; }
+  #big-scroller-wrapper #small-profile ul { height: 117px; }
   #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 339px; }
   #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
   /** [-] Small Scroller ********************************************************************************/
@@ -601,14 +737,17 @@ footer ul li:last-child:after { content: ""; }
   #small-scroller .user-book .cover { width: 144px; height: 144px; }
   /** [-] Dimensions **********************************************************************************/
   .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; } }
-@media only screen and (max-height: 651px) { /** [-] Profile *************************************************************************************/
+@media only screen and (max-height: 652px) { /** [-] Profile *************************************************************************************/
   #action-bar { height: 99px; }
   #action-bar h1 { width: 172px; height: 60px; background-size: 172px 60px; margin: 1.6rem 0 0 0; }
   #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
   #action-bar ul li { width: 99px; height: 99px; }
-  #action-bar ul #action-create, #action-bar ul #action-feed, #action-bar ul #action-discovery, #action-bar ul #action-friends, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
+  #action-bar ul #action-create:hover, #action-bar ul #action-gapelians:hover, #action-bar ul #action-books:hover, #action-bar ul #action-dimensions:hover, #action-bar ul #action-next:hover { background-position: 0 -99px; }
+  #action-bar ul .active { background-position: 0 -99px !important; }
   #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
-  #action-bar ul #action-user { background-image: url("../images/avatar-spacecakes.jpg"); }
+  #action-bar ul #action-user img { width: 98px; height: 98px; }
+  #action-bar ul #action-user ul { font-family: "OpenSansLight"; top: 99px; width: 99px; }
   #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
   #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
   #action-bar ul #action-next { padding: 0; }
@@ -616,6 +755,7 @@ footer ul li:last-child:after { content: ""; }
   /** [-] Big + Small Scroller Shared Styles **********************************************************/
   /** [-] Big Scroller **********************************************************************************/
   #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 9.6rem 0; }
+  #big-scroller-wrapper #small-profile ul { height: 122px; }
   #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 320px; }
   #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
   #big-scroller .book-cover, #dimension-scroller .book-cover { background-size: 100%; }
@@ -625,5 +765,7 @@ footer ul li:last-child:after { content: ""; }
   #small-scroller .user-book .cover, #small-scroller .user .cover, #gapelian-scroller .user-book .cover, #gapelian-scroller .user .cover { width: 144px; height: 144px; }
   #small-scroller .user, #gapelian-scroller .user { width: 144px; }
   /** [-] Dimensions **********************************************************************************/
+  /** [-] Book Creator ********************************************************************************/
+  #book-creation-wrapper #create-book { height: 367px; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }

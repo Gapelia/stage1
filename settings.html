@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8"/>
+		<title>Gapelia | Your Settings</title>
+
+		<!--/ GAPELIA
+			 ______   ______   ______  ______   __       __   ______
+			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
+			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
+			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+
+			//////// 01000111011000010111000001100101011011000110100101100001
+
+		/-->
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+		<meta name="author" content="Gapelia"/>
+
+		<link href="css/style.css" rel="stylesheet"/>
+		<link href="css/jscrollpane.css" rel="stylesheet"/>
+
+		<link href="images/favicon.png" rel="shortcut icon"/>
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script src="scripts/jquery-2.0.2.js"></script>
+		<script src="scripts/editable.js"></script>
+
+		<script>
+			$(function() {
+
+				// full name edit
+				var option = { trigger : $("#s-full-name .edit"), action : "click" };
+				$("#s-full-name .editable").editable(option, function(e) {});
+
+				// username edit
+				var option = { trigger : $("#s-username .edit"), action : "click" };
+				$("#s-username .editable").editable(option, function(e) {});
+
+				// email edit
+				var option = { trigger : $("#s-email .edit"), action : "click" };
+				$("#s-email .editable").editable(option, function(e) {});
+
+				// location edit
+				var option = { trigger : $("#s-location .edit"), action : "click" };
+				$("#s-location .editable").editable(option, function(e) {});
+
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<!--/ the action bar 																																	 /-->
+
+		<header id="action-bar">
+			<a href="index.html"><h1>Gapelia</h1></a>
+
+			<ul>
+				<li id="action-create"><a href="">Create book</a></li>
+				<li id="action-gapelians"><a href="index-gapelians.html">Gapelians</a></li>
+				<li id="action-books"><a href="index-books.html">Books</a></li>
+				<li id="action-dimensions"><a href="index-dimensions.html">Dimensions</a></li>
+				<li id="action-user">
+					<a href="#"><img src="images/avatar-spacecakes.jpg" alt=""/></a>
+
+					<ul>
+						<li><a href="#">View Profile</a></li>
+						<li><a href="#">Edit Profile</a></li>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</li>
+
+				<!--/ <li id="action-account"><span class="top">Sign Up</span><span class="bottom">Log In</span></li> /-->
+			</ul>
+		</header>
+
+		<section id="breadcrumbs">
+			<a href="">Home</a> > <a href="">Commander Spacecakes</a> > <a href="" class="current">Settings</a>
+		</section>
+
+		<!--/ the good stuff																																	 /-->
+
+		<section id="main-content">
+
+			<div id="settings-wrapper">
+
+				<aside id="settings-sidebar">
+					<ul>
+						<li class="active"><a href="settings.html">General</a></li>
+						<li><a href="settings-password.html">Password</a></li>
+					</ul>
+				</aside>
+
+				<div id="settings-content">
+					<h3>Edit Profile Settings</h3>
+
+					<div class="setting-row" id="s-full-name">
+						<div class="setting-name">Full Name</div>
+						<div class="editable user-setting">Lacey Honda</div>
+						<a href="#" class="edit">Edit</a>
+					</div>
+
+					<div class="setting-row" id="s-username">
+						<div class="setting-name">Username</div>
+						<div class="editable user-setting">Space Cakes</div>
+						<a href="#" class="edit">Edit</a>
+					</div>
+
+					<div class="setting-row" id="s-email">
+						<div class="setting-name">Email</div>
+						<div class="editable user-setting">lacey.honda@gmail.com</div>
+						<a href="#" class="edit">Edit</a>
+					</div>
+
+					<div class="setting-row" id="s-location">
+						<div class="setting-name">Location</div>
+						<div class="editable user-setting">Boston, MA</div>
+						<a href="#" class="edit">Edit</a>
+					</div>
+
+					<div class="setting-row" id="s-tags">
+						<div class="setting-name">Lifestyle Tags</div>
+						<form class="editable user-setting">
+							<input id="settings-tags" type="text" class="tags editable" value="Europe, photography, getting lost"/>
+						</form>
+						<a href="#" class="edit">Edit</a>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!--/ footer, the end																																	 /-->
+
+		<footer>
+			<p><a href="">&copy; Gapelia</a></p>
+
+			<ul>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Blog</a></li>
+				<li><a href="">Partners</a></li>
+				<li><a href="">Terms</a></li>
+			</ul>
+		</footer>
+
+		<!--/ scripts																																					 /-->
+		
+		<script src="scripts/tagsinput.js"></script>
+
+		<script>
+			function onAddTag(tag) { alert("Added a tag: " + tag); }
+			function onRemoveTag(tag) { alert("Removed a tag: " + tag); }
+			function onChangeTag(input,tag) { alert("Changed a tag: " + tag); }
+
+			$(function() {
+				$("#settings-tags").tagsInput({ width: "auto" });
+				
+				$(document).click(function() {
+					$("#settings-tags_addTag").hide();
+				});
+
+				$("#s-tags .edit").click(function(e) {
+					$("#settings-tags_addTag").css("display", "block");
+					$("#settings-tags_tagsinput").css("display", "none");
+					e.preventDefault();
+					e.stopPropagation();
+				});
+			});
+		</script>
+
+		<script src="scripts/gapelia.js"></script>
+
+		<script>
+			$(function () {
+
+
+			});
+		</script>
+
+	</body>
+
+</html>

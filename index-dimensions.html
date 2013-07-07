@@ -22,8 +22,6 @@
 		<meta name="author" content="Gapelia"/>
 
 		<link href="css/style.css" rel="stylesheet"/>
-		<link href="css/jscrollpane.css" rel="stylesheet"/>
-
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
 		<!--[if lt IE 9]>
@@ -31,6 +29,7 @@
 		<![endif]-->
 
 		<script src="scripts/jquery-2.0.2.js"></script>
+		<script src="scripts/reveal.js"></script>
 		<script src="scripts/midway.js"></script>
 
 	</head>
@@ -43,11 +42,21 @@
 			<a href="index.html"><h1>Gapelia</h1></a>
 
 			<ul>
-				<li id="action-create"><a href="">Create book</a></li>
-				<li id="action-gapelians"><a href="">Gapelians</a></li>
-				<li id="action-books"><a href="">Books</a></li>
-				<li id="action-dimensions" class="active"><a href="">Dimensions</a></li>
-				<li id="action-user"><a href="">Your account</a></li>
+				<li id="action-create"><a href="#" data-reveal-id="create-modal-01" data-animation="fade">Create book</a></li>
+				<li id="action-gapelians"><a href="index-gapelians.html">Gapelians</a></li>
+				<li id="action-books"><a href="index-books.html">Books</a></li>
+				<li id="action-dimensions" class="active"><a href="index-dimensions.html">Dimensions</a></li>
+				<li id="action-user">
+					<a href="#"><img src="images/avatar-spacecakes.jpg" alt=""/></a>
+
+					<ul>
+						<li><a href="#">View Profile</a></li>
+						<li><a href="#">Edit Profile</a></li>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</li>
+
 				<!--/ <li id="action-account"><span class="top">Sign Up</span><span class="bottom">Log In</span></li> /-->
 			</ul>
 		</header>
@@ -446,13 +455,78 @@
 
 			</div>
 
+			<!--/ book creation modals																													 /-->
+			<!--/ modal 01																																			 /-->
+
+			<div id="create-modal-01" class="reveal-modal xlarge">
+				<div class="modal-row modal-header">
+					<span class="active">1. Create discovery book</span>
+					<span>2. Upload Content</span>
+					<span>3. Save &amp; Publish</span>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Title*</div>
+					<input class="modal-input" type="text"/>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Add description
+						<span id="modal-counter"></span><span>characters left</span>
+					</div>
+
+					<textarea id="modal-description" class="modal-input" cols="50" rows="4"></textarea>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Choose Dimension*</div>
+					<input class="modal-input" type="text"/>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Add a Geotag</div>
+					<input class="modal-input" type="text"/>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Add a Passion</div>
+					<input class="modal-input" type="text"/>
+				</div>
+
+				<div class="modal-row">
+					<div class="modal-title">Add a Feeling</div>
+					<input class="modal-input" type="text"/>
+				</div>
+
+				<div class="modal-row next-modal">
+					<a href="#" class="close-reveal-modal" data-reveal-id="create-modal-02" data-animation="fade">Next</a>
+				</div>
+			</div>
+
+			<!--/ modal 02																																			 /-->
+
+			<div id="create-modal-02" class="reveal-modal xlarge">
+				<div class="modal-row modal-header">
+					<span>1. Create discovery book</span>
+					<span class="active">2. Upload Content</span>
+					<span>3. Save &amp; Publish</span>
+				</div>
+
+				<div class="modal-row" id="filepicker-iframe">
+					<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&id=1372359022211&referrer=localhost&iframe=false&version=v1&multi=true&m=image/*#/computer/"></iframe>
+				</div>
+
+				<div class="modal-row next-modal">
+					<a href="book-creation.html">Next</a>
+				</div>
+			</div>
+
 		</section>
 
 		<!--/ footer, the end																																	 /-->
 
 		<footer>
-			<!--/
-			<p><a href="index-ii.html">Be curious, join as a Gapelian</a></p>
+			<p><a href="">&copy; Gapelia</a></p>
 
 			<ul>
 				<li><a href="">About Us</a></li>
@@ -460,7 +534,6 @@
 				<li><a href="">Partners</a></li>
 				<li><a href="">Terms</a></li>
 			</ul>
-			/-->			
 		</footer>
 
 		<!--/ scripts																																					 /-->
@@ -474,6 +547,20 @@
 
 		<script src="scripts/squishy.js"></script>
 		<script src="scripts/gapelia.js"></script>
+
+		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
+		<script src="scripts/filepicker.js"></script>
+
+		<script src="scripts/simplyCountable.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$("#modal-description").simplyCountable({
+					counter: "#modal-counter",
+					maxCount: 300
+				});
+			});
+		</script>
 
 	</body>
 

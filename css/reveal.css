@@ -1,0 +1,75 @@
+/*	--------------------------------------------------
+Reveal Modals
+-------------------------------------------------- */
+
+.reveal-modal-bg {
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	position: fixed;
+	z-index: 100;
+}
+
+.reveal-modal {
+	margin-left: -300px; padding: 30px 40px 34px;
+	top: 100px; left: 50%;
+
+	background-color: #eee;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,.4);
+	position: absolute;
+	visibility: hidden;
+	width: 520px;
+	z-index: 101;
+}
+
+.reveal-modal.small {
+	margin-left: -140px;
+	width: 200px;
+}
+
+.reveal-modal.medium {
+	margin-left: -240px;
+	width: 400px;
+}
+
+.reveal-modal.large {
+	margin-left: -340px;
+	width: 600px;
+}
+
+.reveal-modal.xlarge {
+	margin-left: -440px;
+	width: 800px;
+}
+
+.reveal-modal .close-reveal-modal {
+	top: 8px; right: 11px;
+
+	color: #aaa;
+	cursor: pointer;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 0.5;
+	position: absolute;
+	text-shadow: 0 -1px 1px rbga(0, 0, 0, 0.6);
+}
+
+/*
+
+NOTES
+
+Close button entity is &#215;
+
+Example markup
+
+<div id="myModal" class="reveal-modal">
+<h2>Awesome. I have it.</h2>
+<p class="lead">Your couch.  I it's mine.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+<a class="close-reveal-modal">&#215;</a>
+</div>
+
+*/

@@ -33,6 +33,7 @@
 		<script src="scripts/jquery-2.0.2.js"></script>
 		<script src="scripts/midway.js"></script>
 
+		<!--/
 		<script>
 			var img = document.getElementsByClassName("dimension-book");
 			var c = document.createElement("canvas");
@@ -50,12 +51,14 @@
 			for (var i = start, n = end; i < n; i += 4) {
 				var r = data[i], g = data[i + 1], b = data[i + 2];
 				brightness += 0.34 * r + 0.5 * g + 0.16 * b;
+
 				if (brightness !== 0) brightness /= 2;
 			}
 
 			if (brightness > 0.5) var textColor = "#fefefe";
 			else var textColor = "#191919";
 		</script>
+		/-->
 
 	</head>
 
@@ -68,10 +71,20 @@
 
 			<ul>
 				<li id="action-create"><a href="">Create book</a></li>
-				<li id="action-gapelians" class="active"><a href="">Gapelians</a></li>
-				<li id="action-books"><a href="">Books</a></li>
-				<li id="action-dimensions"><a href="">Dimensions</a></li>
-				<li id="action-user"><a href="">Your account</a></li>
+				<li id="action-gapelians" class="active"><a href="index-gapelians.html">Gapelians</a></li>
+				<li id="action-books"><a href="index-books.html">Books</a></li>
+				<li id="action-dimensions"><a href="index-dimensions.html">Dimensions</a></li>
+				<li id="action-user">
+					<a href="#"><img src="images/avatar-spacecakes.jpg" alt=""/></a>
+
+					<ul>
+						<li><a href="#">View Profile</a></li>
+						<li><a href="#">Edit Profile</a></li>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</li>
+
 				<!--/ <li id="action-account"><span class="top">Sign Up</span><span class="bottom">Log In</span></li> /-->
 			</ul>
 		</header>
@@ -91,14 +104,37 @@
 					<a id="next-big" class="next" href="#">&#9654;</a>
 				</nav>
 
+				<div id="small-profile">
+					<img src="images/users/05.jpg" id="" alt=""/>
+
+					<div id="profile-name"><a href="">Spaceman Fresh</a></div>
+					<div id="profile-switcher"><a href="" class="active">Books</a> | <a href="">Collections</a></div>
+
+					<ul>
+						<li><a href="">Aussies</a></li>
+						<li><a href="">Adventure Time</a></li>
+						<li><a href="">The Artist in Me</a></li>
+						<li><a href="">Beach Bum</a></li>
+						<li><a href="">California Dreaming</a></li>
+						<li><a href="">Crazy Nights</a></li>
+						<li><a href="">Fern Gully</a></li>
+						<li><a href="">Fine Dining</a></li>
+						<li><a href="">The Great Escape</a></li>
+						<li><a href="">India</a></li>
+						<li><a href="">Slow Ride</a></li>
+					</ul>
+
+					<div id="profile-visit"><a href="">View Profile</a></div>
+				</div>
+
 				<ul id="big-scroller">
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 001																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-001">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -116,15 +152,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-001">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-03"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 002																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-002">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -142,15 +183,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-002">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-04"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 003																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-003">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -168,15 +214,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-003">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-05"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 004																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-004">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -194,15 +245,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-004">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-06"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 005																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-005">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -220,15 +276,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-005">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-07"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 006																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-006">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -246,15 +307,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-006">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-08"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 007																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-007">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -272,15 +338,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-007">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-09"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 008																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-008">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -298,15 +369,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-008">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-10"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 009																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-009">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -324,15 +400,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-009">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-11"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 010																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-010">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -350,15 +431,20 @@
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
 						</div>
 
+						<div class="collection-new" id="collect-010">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
+						</div>
+
 						<div class="book-cover b-12"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ dimension book — Book 011																									 /-->
 
-					<li class="dimension-book">
+					<li class="dimension-book" id="book-011">
 						<ul class="like-collect">
-							<li class="like"><a href="">Like</a></li>
-							<li class="collect"><a href="">Collect</a></li>
+							<li class="like"><a href="#">Like</a></li>
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -374,6 +460,11 @@
 
 							<div class="book-author">by <span>Dieter Rams</span></div>
 							<div class="photo-credit">photo by <a href="">Lacey Honda</a></div>
+						</div>
+
+						<div class="collection-new" id="collect-011">
+							<div class="collect-title"><span>[book]</span><br/>added to your collection</div>
+							<a class="collect-close" href="#">Close</a>
 						</div>
 
 						<div class="book-cover b-13"></div>
@@ -399,7 +490,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/01.jpg" class="cover" alt=""/>
+						<img src="images/users/01.jpg" id="user-001" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Spaceman Fresh</div>
@@ -422,7 +513,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/02.jpg" class="cover" alt=""/>
+						<img src="images/users/02.jpg" id="user-002" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Jane Lane</div>
@@ -445,7 +536,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/03.jpg" class="cover" alt=""/>
+						<img src="images/users/03.jpg" id="user-003" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Daria Morgendorffer</div>
@@ -468,7 +559,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/04.jpg" class="cover" alt=""/>
+						<img src="images/users/04.jpg" id="user-004" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Patti Mayonaisse</div>
@@ -491,7 +582,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/05.jpg" class="cover" alt=""/>
+						<img src="images/users/05.jpg" id="user-005" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Doug Funnie</div>
@@ -514,7 +605,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/06.jpg" class="cover" alt=""/>
+						<img src="images/users/06.jpg" id="user-006" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Jimmy Neutron</div>
@@ -537,7 +628,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/07.jpg" class="cover" alt=""/>
+						<img src="images/users/07.jpg" id="user-007" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">T-Pain</div>
@@ -560,7 +651,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/08.jpg" class="cover" alt=""/>
+						<img src="images/users/08.jpg" id="user-008" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Lizzie McGuire</div>
@@ -583,7 +674,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/09.jpg" class="cover" alt=""/>
+						<img src="images/users/09.jpg" id="user-009" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Tarzan</div>
@@ -606,7 +697,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/10.jpg" class="cover" alt=""/>
+						<img src="images/users/10.jpg" id="user-010" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Misty Cerulean</div>
@@ -629,7 +720,7 @@
 					<!--/ user book																																	 /-->
 
 					<li class="user">
-						<img src="images/users/11.jpg" class="cover" alt=""/>
+						<img src="images/users/11.jpg" id="user-011" class="cover" alt=""/>
 
 						<div class="user-info">
 							<div class="book-title">Dieter Rams</div>

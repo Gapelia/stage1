@@ -53,6 +53,7 @@ $(function() {
 $(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
 // $(".dimension-book .lifestyle li").squishy();
 
+//////////////////////////////////////////////////////////////////
 // Expand users in Gapelian scroller
 
 $(function() {
@@ -79,17 +80,6 @@ $(function() {
 					},
 					mousewheel: true
 				});
-
-				/*
-				$(".user").animate({
-					width: 340
-					// opacity: 0.25,
-					// left: "+=50",
-					// height: "toggle"
-				}, 500, function() {
-					// Animation complete.
-				});
-				*/
 			}
 
 			else { // .animate({ width: "160px" }, 500)
@@ -107,17 +97,6 @@ $(function() {
 					},
 					mousewheel: true
 				});
-
-				/*
-				$(".user").animate({
-					width: 143
-					// opacity: 0.25,
-					// left: "+=50",
-					// height: "toggle"
-				}, 500, function() {
-					// Animation complete.
-				});
-				*/
 			}
 
 			event.preventDefault();
@@ -127,62 +106,8 @@ $(function() {
 
 });
 
-/*
-$(function() {
-	$("#big-scroller").mousewheel(function(event, delta) {
-		this.scrollLeft -= (delta * 30);
-		event.preventDefault();
-	});
-});
-*/
-
-/*
-$("div#home-slideshow ul").carouFredSel({
-	width: 680, height: 635,
-	items: {
-		visible: "variable",
-		width: 680, height: 635
-	},
-	scroll: {
-		items: 1,
-		fx: "uncover",
-		pauseOnHover: "immediate"
-	},
-
-	auto: true,
-	prev: {
-		button: "div#home-slideshow button.prev",
-		key: "left"
-	},
-	next: {
-		button: "div#home-slideshow button.next",
-		key: "right"
-	},
-	pagination: {
-		container: "div#home-slideshow div.pagination",
-		keys: true
-	},
-	swipe: true,
-	mousewheel: true
-});
-*/
-
-/*
-$(function () {
-	$("#big-scroller").jScrollPane();
-});
-*/
-
-/*
-$(function() {
-	$("html, body").mousewheel(function(event, delta) {
-		this.scrollLeft -= (delta * 30);
-		event.preventDefault();
-	});
-});
-*/
-
-// change width of dimension books, based on viewable window height
+//////////////////////////////////////////////////////////////////
+// Change width of dimension books, based on window height
 
 $(window).load(function () {
 
@@ -198,12 +123,204 @@ $(window).load(function () {
 				items: {
 					width: 250,
 					visible: { min: 2, max: 5 }
-				}
+				},
+				mousewheel: true
 			});
 		});
 	}
 
 	else {
 	};
+
+});
+
+//////////////////////////////////////////////////////////////////
+// User Menu / click to show
+
+$(function () {
+
+	$(document).click(function() {
+		$("#action-user ul").hide();
+	});
+
+	/* Clicks within the dropdown won't make it past the dropdown itself */
+
+	$("#action-user a").click(function(e) {
+		$("#action-user ul").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+});
+
+//////////////////////////////////////////////////////////////////
+// Add a book to your collection
+
+$(function() {
+
+	// Japanimation book
+	$("#book-001 .collect").click(function(e) {
+		$("#book-001 .collection-new").css("display", "block");
+		$("#book-001 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-001 .collect-close").click(function(e) {
+		$("#book-001 .collection-new").css("display", "none");
+		$("#book-001 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Heart + Seoul book
+	$("#book-002 .collect").click(function(e) {
+		$("#book-002 .collection-new").css("display", "block");
+		$("#book-002 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-002 .collect-close").click(function(e) {
+		$("#book-002 .collection-new").css("display", "none");
+		$("#book-002 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// J'taime du Jour book
+	$("#book-003 .collect").click(function(e) {
+		$("#book-003 .collection-new").css("display", "block");
+		$("#book-003 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-003 .collect-close").click(function(e) {
+		$("#book-003 .collection-new").css("display", "none");
+		$("#book-003 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Strawberry Fields book
+	$("#book-004 .collect").click(function(e) {
+		$("#book-004 .collection-new").css("display", "block");
+		$("#book-004 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-004 .collect-close").click(function(e) {
+		$("#book-004 .collection-new").css("display", "none");
+		$("#book-004 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Bahama Mama book
+	$("#book-005 .collect").click(function(e) {
+		$("#book-005 .collection-new").css("display", "block");
+		$("#book-005 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-005 .collect-close").click(function(e) {
+		$("#book-005 .collection-new").css("display", "none");
+		$("#book-005 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// AmsterDAYUM book
+	$("#book-006 .collect").click(function(e) {
+		$("#book-006 .collection-new").css("display", "block");
+		$("#book-006 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-006 .collect-close").click(function(e) {
+		$("#book-006 .collection-new").css("display", "none");
+		$("#book-006 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// I'm On A Boat book
+	$("#book-007 .collect").click(function(e) {
+		$("#book-007 .collection-new").css("display", "block");
+		$("#book-007 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-007 .collect-close").click(function(e) {
+		$("#book-007 .collection-new").css("display", "none");
+		$("#book-007 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Hullabaloo book
+	$("#book-008 .collect").click(function(e) {
+		$("#book-008 .collection-new").css("display", "block");
+		$("#book-008 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-008 .collect-close").click(function(e) {
+		$("#book-008 .collection-new").css("display", "none");
+		$("#book-008 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Majesty book
+	$("#book-009 .collect").click(function(e) {
+		$("#book-009 .collection-new").css("display", "block");
+		$("#book-009 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-009 .collect-close").click(function(e) {
+		$("#book-009 .collection-new").css("display", "none");
+		$("#book-009 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// World of Blue book
+	$("#book-010 .collect").click(function(e) {
+		$("#book-010 .collection-new").css("display", "block");
+		$("#book-010 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-010 .collect-close").click(function(e) {
+		$("#book-010 .collection-new").css("display", "none");
+		$("#book-010 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	// Swiss Interiors book
+	$("#book-011 .collect").click(function(e) {
+		$("#book-011 .collection-new").css("display", "block");
+		$("#book-011 .book-info").css("display", "none");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("#book-011 .collect-close").click(function(e) {
+		$("#book-011 .collection-new").css("display", "none");
+		$("#book-011 .book-info").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
 
 });
