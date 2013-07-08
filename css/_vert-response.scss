@@ -230,6 +230,12 @@
 
 			#create-sidebar {
 				width: 28.9%;
+
+				#tabs-container {
+					#tab-content, #tab-tags, #tab-snippets, #tab-settings {
+						height: 363px !important;
+					}
+				}
 			}
 		}
 	}

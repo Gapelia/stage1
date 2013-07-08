@@ -63,7 +63,6 @@
 
 		span {
 			margin: 0 2rem 0 0;
-
 			&:last-child { margin: 0; }
 		}
 	}
@@ -123,7 +122,7 @@
 
 	#create-book {
 		clear: left;
-		height: 400px;
+		height: 431px; /* height: 400px; */
 		overflow: hidden;
 
 		#create-content, #create-sidebar {
@@ -132,7 +131,7 @@
 
 		#create-content {
 			background-color: $gray-ii;
-			width: 80%;
+			width: 67.4%;
 
 			img {
 				width: 100%; height: auto;
@@ -140,43 +139,72 @@
 		}
 
 		#create-sidebar {
-			width: 20%;
+			width: 32.6%;
 
-			#tabs, #tabs2, #tabs3, #tabs4, #tabs5 {
-				margin: 0 auto; margin-bottom: 40px;
-				width: 500px;
+			#sidebar-wrapper {
 			}
 
-			#tabs li, #tabs2 li, #tabs3 li, #tabs4 li, #tabs5 li {
-				float: left;
-				margin-right: 2px;
+			#sidebar-actions, #sidebar-nav {
+				display: inline-block;
+				width: 100%;
+
+				li {
+					border-right: 1px solid $gray-ii;
+					float: left;
+					text-align: center;
+
+					&:last-child { border-right: 0; }
+				}
+
+				a { color: $gray-v; }
 			}
 
-			#tabs li a, #tabs2 li a, #tabs3 li a, #tabs4 li a, #tabs5 li a {
-				background: #544f6b;
-				color: #8478B3;
-				display: block;
-				padding: 17px 30px;
-				text-decoration: none;
+			#sidebar-actions {
+				border-bottom: 1px solid $gray-ii;
+
+				li {
+					font-size: 20px;
+					padding: 0.5rem;
+					width: 33.3%;
+				}
 			}
 
-			#tabs li a:hover, #tabs2 li a:hover, #tabs3 li a:hover, #tabs4 li a:hover, #tabs5 li a:hover { background-color: rgb(78, 74, 99); }
+			#sidebar-nav {
+				li {
+					width: 25%;
 
-			#tabs_container {
-				background-color: white;
+					a {
+						border-bottom: 1px solid $gray-ii;
+						display: block;
+						font-family: "OpenSansLight";
+						padding: 0.5rem;
+					}
+				}
+			}
+
+			#tabs-container {
+				width: 100%; height: 100%;
+
+				background-color: $white;
 				overflow: hidden;
-				padding: 40px;
 				position: relative;
-			}
 
-			#tabs_container div { margin-right: 40px; }
+				#tab-content, #tab-tags, #tab-snippets, #tab-settings {
+					width: 100%; height: 427px !important;
+					top: 0; left: 0;
+
+					display: table;
+					padding: 2rem;
+					position: absolute;
+				}
+			}
 
 			.transition {
-				transition: all .3s ease-in-out;
-				transition-delay: .3s;
+				transition: all 0.3s ease-in-out;
+				transition-delay: 0.3s;
 			}
 
-			.make_transist { transition: all .3s ease-in-out; }
+			.make-transist { transition: all 0.3s ease-in-out; }
 
 			.hidescale {
 				opacity: 0;
@@ -186,7 +214,7 @@
 			.showscale {
 				opacity: 1;
 				transform: scale(1);
-				transition-delay: .3s;
+				transition-delay: 0.3s;
 			}
 
 			.hideleft {
@@ -197,7 +225,7 @@
 			.showleft {
 				opacity: 1;
 				transform: translateX(0px);
-				transition-delay: .3s;
+				transition-delay: 0.3s;
 			}
 
 			.hidescaleup {
@@ -208,7 +236,7 @@
 			.showscaleup {
 				opacity: 1;
 				transform: scale(1);
-				transition-delay: .3s;
+				transition-delay: 0.3s;
 			}
 
 			.hideflip {
@@ -221,12 +249,13 @@
 				opacity: 1;
 				transform: rotatey(0deg) scale(1);
 				transform-origin: 50% 50%;
-				transition-delay: .3s;
+				transition-delay: 0.3s;
 			}
 
-			.tabulous_active {
-				background: white !important;
-				color: #655c89 !important;
+			.tabulous-active {
+				background-color: $white;
+				border-bottom: 1px solid $white !important;
+				font-family: "OpenSansSemibold" !important;
 			}
 
 			.tabulousclear {
