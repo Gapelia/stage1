@@ -222,19 +222,24 @@
 	#book-creation-wrapper {
 
 		#create-book {
-			height: 367px;
+			height: 395px;
 
 			#create-content {
-				width: 71.1%;
+				width: 63.9%;
 			}
 
 			#create-sidebar {
-				width: 28.9%;
+				width: 36.1%;
 
 				#tabs-container {
 					#tab-content, #tab-tags, #tab-snippets, #tab-settings {
-						height: 363px !important;
+						height: 390px !important;
 					}
+				}
+
+				/* Content Tab */
+				.redactor_box {
+					.redactor_editor { height: 230px !important; }
 				}
 			}
 		}

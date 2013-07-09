@@ -677,7 +677,7 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Book Creator **********************************************************************************/
 #book-creation-wrapper { width: 100%; height: auto; }
-#book-creation-wrapper #create-book { clear: left; height: 431px; /* height: 400px; */ overflow: hidden; }
+#book-creation-wrapper #create-book { clear: left; height: 461px; overflow: hidden; }
 #book-creation-wrapper #create-book #create-content, #book-creation-wrapper #create-book #create-sidebar { float: left; }
 #book-creation-wrapper #create-book #create-content { background-color: #cfcfcf; width: 67.4%; }
 #book-creation-wrapper #create-book #create-content img { width: 100%; height: auto; }
@@ -690,8 +690,16 @@ footer ul li:last-child:after { content: ""; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions li { font-size: 20px; padding: 0.5rem; width: 33.3%; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-nav li { width: 25%; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-nav li a { border-bottom: 1px solid #cfcfcf; display: block; font-family: "OpenSansLight"; padding: 0.5rem; }
-#book-creation-wrapper #create-book #create-sidebar #tabs-container { width: 100%; height: 100%; background-color: #fefefe; overflow-y: auto; position: relative; }
-#book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { width: 100%; height: 427px !important; top: 0; left: 0; display: table; overflow: hidden; padding: 2rem; position: absolute; }
+#book-creation-wrapper #create-book #create-sidebar #sidebar-nav li a:hover { background-color: #fefefe; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container { width: 100%; height: 100%; background-color: #fefefe; overflow-y: hidden; /* auto */ position: relative; /* Content Tab */ /* Tags Tab */ }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { width: 100%; height: 456px !important; top: 0; left: 0; display: table; overflow: hidden; padding: 2rem; position: absolute; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .redactor_box .redactor_toolbar { width: 100%; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .redactor_box .redactor_editor { height: 300px; z-index: 1; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input { border-bottom: 1px solid #cfcfcf; clear: both; padding: 1rem; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input label, #book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input input { display: inline; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input label { /* float: left; */ }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input input { background-color: #585959; float: right; }
+#book-creation-wrapper #create-book #create-sidebar #tabs-container .tag-input .hint { float: right; font-size: 10px; font-style: italic; }
 #book-creation-wrapper #create-book #create-sidebar .transition { transition: all 0.3s ease-in-out; transition-delay: 0.3s; }
 #book-creation-wrapper #create-book #create-sidebar .make-transist { transition: all 0.3s ease-in-out; }
 #book-creation-wrapper #create-book #create-sidebar .hidescale { opacity: 0; transform: scale(0.9); }
@@ -711,17 +719,18 @@ footer ul li:last-child:after { content: ""; }
 #page-scroller-wrapper #page-scroller .page { float: left; }
 #page-scroller-wrapper #page-scroller .page img { width: 100px; height: 100px; }
 
-.redactor_box { background-color: #fefefe; border: 1px solid #ddd; overflow: visible; position: relative; }
+.redactor_box { background-color: #fefefe; border: 1px solid #cfcfcf; overflow: visible; position: relative; }
 .redactor_box iframe { margin: 0; padding: 0; display: block; }
-.redactor_box textarea, .redactor_box textarea:focus { margin: 0; padding: 0; background-color: #222; border: none; box-shadow: none; color: #ccc; display: block; font-family: Menlo, Monaco, monospace; font-size: 13px; outline: none; overflow: auto; position: relative; resize: none; width: 100%; z-index: 1004; }
-.redactor_box .redactor_toolbar { border: none; border-bottom: 1px solid #b8b8b8; }
+.redactor_box textarea { margin: 0; padding: 0; background-color: #222; border: none; box-shadow: none; color: #ccc; display: block; font-family: Menlo, Monaco, monospace; font-size: 13px; outline: none; overflow: auto; position: relative; resize: none; width: 100%; z-index: 1004; }
+.redactor_box textarea:focus { margin: 0; padding: 0; background-color: #222; border: none; box-shadow: none; color: #ccc; display: block; font-family: Menlo, Monaco, monospace; font-size: 13px; outline: none; overflow: auto; position: relative; resize: none; width: 100%; z-index: 1004; }
+.redactor_box .redactor_toolbar { border: none; border-bottom: 1px solid #cfcfcf; }
 
 body .redactor_air { position: absolute; z-index: 2; }
 
 /* Fullscreen */
 body .redactor_box_fullscreen { top: 0; left: 0; overflow: hidden; position: fixed; width: 100%; z-index: 2000; }
 
-.redactor_editor { margin: 0 !important; padding: 10px 10px 5px 10px; background: #fefefe !important; box-shadow: none !important; position: relative; outline: none; overflow: auto; white-space: normal; }
+.redactor_editor { margin: 0 !important; padding: 10px 10px 5px 10px; background-color: #fefefe !important; box-shadow: none !important; position: relative; outline: none; overflow: auto; white-space: normal; }
 .redactor_editor a { color: #15c !important; text-decoration: underline !important; }
 .redactor_editor div, .redactor_editor p, .redactor_editor ul, .redactor_editor ol, .redactor_editor table, .redactor_editor dl, .redactor_editor blockquote, .redactor_editor pre, .redactor_editor h1, .redactor_editor h2, .redactor_editor h3, .redactor_editor h4, .redactor_editor h5 { font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important; }
 .redactor_editor div, .redactor_editor p, .redactor_editor ul, .redactor_editor ol, .redactor_editor table, .redactor_editor dl, .redactor_editor blockquote, .redactor_editor pre { font-size: 15px !important; line-height: 1.5em; }
@@ -748,9 +757,9 @@ body .redactor_box_fullscreen { top: 0; left: 0; overflow: hidden; position: fix
 .redactor_editor h3 { font-size: 24px !important; line-height: 30px; margin-bottom: 10px; }
 .redactor_editor h4 { font-size: 18px !important; line-height: 24px !important; margin-bottom: 10px; }
 .redactor_editor h5 { font-size: 1em !important; margin-bottom: 10px; }
-.redactor_editor:focus { margin: inherit; padding: inherit; background: inherit; box-shadow: inherit; font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important; font-size: 15px !important; line-height: 1.5em; position: inherit; outline: inherit; overflow: inherit; white-space: inherit; }
+.redactor_editor:focus { margin: 0 !important; padding: 10px 10px 5px 10px; background-color: #fefefe !important; box-shadow: none !important; font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important; font-size: 15px !important; line-height: 1.5em; position: relative; outline: none; overflow: auto; white-space: normal; }
 
-.redactor_editor.redactor_editor_wym { padding: 10px 7px 0 7px !important; background: #f6f6f6 !important; }
+.redactor_editor.redactor_editor_wym { padding: 10px 7px 0 7px !important; background-color: #f6f6f6 !important; }
 
 .redactor_editor_wym div, .redactor_editor_wym p, .redactor_editor_wym ul, .redactor_editor_wym ol, .redactor_editor_wym table, .redactor_editor_wym dl, .redactor_editor_wym pre, .redactor_editor_wym h1, .redactor_editor_wym h2, .redactor_editor_wym h3, .redactor_editor_wym h4, .redactor_editor_wym h5, .redactor_editor_wym h6, .redactor_editor_wym blockquote { margin: 0 0 5px 0; padding: 10px !important; border: 1px solid #e4e4e4 !important; background-color: #fefefe !important; }
 .redactor_editor_wym div { border: 1px dotted #aaa !important; }
@@ -951,9 +960,10 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   #small-scroller .user, #gapelian-scroller .user { width: 144px; }
   /** [-] Dimensions **********************************************************************************/
   /** [-] Book Creator ********************************************************************************/
-  #book-creation-wrapper #create-book { height: 367px; }
-  #book-creation-wrapper #create-book #create-content { width: 71.1%; }
-  #book-creation-wrapper #create-book #create-sidebar { width: 28.9%; }
-  #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { height: 363px !important; }
+  #book-creation-wrapper #create-book { height: 395px; }
+  #book-creation-wrapper #create-book #create-content { width: 63.9%; }
+  #book-creation-wrapper #create-book #create-sidebar { width: 36.1%; /* Content Tab */ }
+  #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { height: 390px !important; }
+  #book-creation-wrapper #create-book #create-sidebar .redactor_box .redactor_editor { height: 230px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }

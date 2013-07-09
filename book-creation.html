@@ -43,8 +43,8 @@
 			<a href="index.html"><h1>Gapelia</h1></a>
 
 			<ul>
-				<li id="action-create"><a href="">Create book</a></li>
-				<li id="action-gapelians" class="active"><a href="index-gapelians.html">Gapelians</a></li>
+				<li id="action-create" class="active"><a href="">Create book</a></li>
+				<li id="action-gapelians"><a href="index-gapelians.html">Gapelians</a></li>
 				<li id="action-books"><a href="index-books.html">Books</a></li>
 				<li id="action-dimensions"><a href="index-dimensions.html">Dimensions</a></li>
 				<li id="action-user">
@@ -96,17 +96,39 @@
 							<div id="tabs-container">
 
 								<div id="tab-content" class="showleft">
-									<textarea id="redactor" name="content">
-										<h2>Hello and Welcome</h2>
+									<textarea id="text-editor" name="content">
+										<h2>This is a title</h2>
 
-										<p>Lorem ipsum <a href="http://test.com" title="dolor">dolor</a> sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										<p>This is a short description of the page. If there is no description, we will automatically use the description you wrote for the book.</p>
 
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing <b>elit, sed do eiusmod tempor incididunt</b> ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										<p>Snazzy.</p>
 									</textarea>
 								</div>
 
 								<div id="tab-tags" class="hideleft">
-									<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor.</p>
+									<section class="tag-input">
+										<label>Geotag</label>
+										<input type="text" placeholder=""/>
+										<span class="hint">ex. Hawaii</span>
+									</section>
+
+									<section class="tag-input">
+										<label>Passion</label>
+										<input type="text" placeholder=""/>
+										<span class="hint">ex. Surfing</span>
+									</section>
+
+									<section class="tag-input">
+										<label>Feeling</label>
+										<input type="text" placeholder=""/>
+										<span class="hint">ex. Adrenaline</span>
+									</section>
+
+									<section class="tag-input">
+										<label>Custom Wiki Link</label>
+										<input type="text" placeholder=""/>
+										<span class="hint">(default link will associate geotag)</span>
+									</section>
 								</div>
 
 								<div id="tab-snippets" class="hideleft">
@@ -282,6 +304,7 @@
 
 		<!--/ footer, the end																																	 /-->
 
+		<!--/
 		<footer>
 			<p><a href="">&copy; Gapelia</a></p>
 
@@ -292,6 +315,7 @@
 				<li><a href="">Terms</a></li>
 			</ul>
 		</footer>
+		/-->
 
 		<!--/ scripts																																					 /-->
 
@@ -304,18 +328,20 @@
 
 		<script src="scripts/squishy.js"></script>
 		<script src="scripts/tabulous.js"></script>
+
 		<script src="scripts/redactor.js"></script>
 		<script src="scripts/fontfamily.js"></script>
 		<script src="scripts/fontsize.js"></script>
+
 		<script src="scripts/gapelia.js"></script>
 
 		<script>
 			$(function() {
 				// var buttons = ["html", "|", "formatting", "|", "bold", "italic", "deleted", "|", "unorderedlist", "orderedlist", "outdent", "indent", "|", "image", "video", "file", "table", "link", "|", "fontcolor", "backcolor", "|", "alignment", "|", "horizontalrule"];
 
-				var buttons = ["fontcolor", "|", "formatting", "|", "bold", "italic", "deleted", "|", "alignment"];
+				var buttons = ["fontfamily", "fontcolor", "fontsize", "|", "formatting", "|", "bold", "italic", "deleted", "|", "alignment"];
 
-				$("#redactor").redactor({
+				$("#text-editor").redactor({
 					buttons: buttons,
 					focus: true,
 					plugins: ["fontfamily", "fontsize"]

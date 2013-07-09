@@ -1,6 +1,6 @@
 .redactor_box {
 	background-color: $white;
-	border: 1px solid #ddd;
+	border: 1px solid $gray-ii;
 	overflow: visible;
 	position: relative;	
 
@@ -9,7 +9,7 @@
 		display: block;
 	}
 
-	textarea, textarea:focus {
+	textarea {
 		margin: 0; padding: 0;
 
 		background-color: #222;
@@ -25,11 +25,29 @@
 		resize: none;
 		width: 100%;
 		z-index: 1004;
+
+		&:focus {
+			margin: 0; padding: 0;
+
+			background-color: #222;
+			border: none;
+			box-shadow: none;
+			color: #ccc;
+			display: block;
+			font-family: Menlo, Monaco, monospace;
+			font-size: 13px;
+			outline: none;
+			overflow: auto;
+			position: relative;
+			resize: none;
+			width: 100%;
+			z-index: 1004;		
+		}
 	}
 
 	.redactor_toolbar {
 		border: none;
-		border-bottom: 1px solid #b8b8b8;
+		border-bottom: 1px solid $gray-ii;
 	}
 }
 
@@ -52,7 +70,7 @@ body .redactor_box_fullscreen {
 .redactor_editor {
 	margin: 0 !important; padding: 10px 10px 5px 10px;
 
-	background: $white !important;
+	background-color: $white !important;
 	box-shadow: none !important;
 	position: relative;
 	outline: none;
@@ -189,23 +207,23 @@ body .redactor_box_fullscreen {
 	}
 
 	&:focus {
-		margin: inherit; padding: inherit;
+		margin: 0 !important; padding: 10px 10px 5px 10px;
 
-		background: inherit;
-		box-shadow: inherit;
+		background-color: $white !important;
+		box-shadow: none !important;
 		font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 		font-size: 15px !important;
 		line-height: 1.5em;
-		position: inherit;
-		outline: inherit;
-		overflow: inherit;
-		white-space: inherit;
+		position: relative;
+		outline: none;
+		overflow: auto;
+		white-space: normal;
 	}
 }
 
 .redactor_editor.redactor_editor_wym {
 	padding: 10px 7px 0 7px !important;
-	background: #f6f6f6 !important;
+	background-color: #f6f6f6 !important;
 }
 
 .redactor_editor_wym {
