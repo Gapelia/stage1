@@ -1,0 +1,203 @@
+.image-annotate-add {
+	width: 64px; height: 18px;
+	margin: 5px 0; padding: 2px 0 2px 24px;
+
+	background: #fefefe url(../images/asterisk_yellow.png) no-repeat 3px 3px;
+	border: solid 1px #ccc !important;
+	color: #000 !important;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+}
+
+.image-annotate-add:hover { background-color: #eee; }
+
+.image-annotate-canvas {
+	background-position: left top;
+	background-repeat: no-repeat;
+	border: solid 1px #ccc;
+	display: block;
+	margin: 0;
+	position: relative;
+}
+
+.image-annotate-view {
+	display: none;
+	position: relative;
+}
+
+.image-annotate-area {
+	border: 1px solid #191919;
+	position: absolute;
+}
+
+.image-annotate-area div {
+	border: 1px solid #fefefe;
+	display: block;
+}
+
+.image-annotate-area-hover div { border-color: yellow !important; }
+.image-annotate-area-editable { cursor: pointer; }
+.image-annotate-area-editable-hover div { border-color: #00ad00 !important; }
+
+.image-annotate-note {
+	background: #e7ffe7 none repeat scroll 0 0;
+	border: 1px solid #397f39;
+	color: #191919;
+	display: none;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 12px;
+	padding: 3px 7px;
+	position: absolute;
+	max-width: 200px;
+}
+
+.image-annotate-note .actions {
+	display: block;
+	font-size: 80%;
+}
+
+.image-annotate-edit { display: none; }
+
+#image-annotate-edit-form {
+	background: #fffee3 none repeat scroll 0 0;
+	border: 1px solid #191919;
+	height: 78px;
+	padding: 7px;
+	position: absolute;
+	width: 250px;
+}
+
+#image-annotate-edit-form form {
+	margin: 0 !important; padding: 0;
+
+	clear: right;
+	z-index: 999;
+}
+
+#image-annotate-edit-form .box { margin: 0; }
+
+#image-annotate-edit-form input.form-text,
+#image-annotate-edit-form #edit-comment-wrapper textarea { width: 90%; }
+
+#image-annotate-edit-form textarea {
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 12px;
+	height: 50px;
+	width: 248px;
+}
+
+#image-annotate-edit-form fieldset { background: transparent none repeat scroll 0 0; }
+#image-annotate-edit-form .form-item { margin: 0 0 5px; }
+
+#image-annotate-edit-form .form-button,
+#image-annotate-edit-form .form-submit { margin: 0; }
+
+#image-annotate-edit-form a {
+	margin: 3px 6px 3px 0; padding: 2px 0 2px 24px;
+
+	background-color: #fefefe;
+	background-position: 3px 3px;
+	background-repeat: no-repeat;
+	border: solid 1px #ccc;
+	color: #333;
+	cursor: pointer;
+	display: block;
+	float: left;    
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 12px;
+	height: 18px;
+	line-height: 18px;
+	width: 48px;
+}
+
+#image-annotate-edit-form a:hover { background-color: #eee; }
+
+.image-annotate-edit-area {
+	width: 60px; height: 60px;
+	margin: 0; padding: 0;
+	top: 10px; left: 10px;
+
+	border: 1px solid #191919;
+	cursor: move;
+	display: block;
+	position: absolute;
+}
+
+.image-annotate-edit-area .ui-resizable-handle { opacity: 0.8; }
+
+.image-annotate-edit-ok { background-image: url(../images/accept.png); }
+.image-annotate-edit-delete { background-image: url(../images/delete.png); }
+.image-annotate-edit-close { background-image: url(../images/cross.png); }
+
+.ui-resizable { position: relative; }
+
+.ui-resizable-handle {
+display: block;
+font-size: 0.1px;
+position: absolute;
+z-index: 99999;
+}
+
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle { display: block; }
+
+.ui-resizable-n {
+	width: 100%; height: 7px;
+	top: -5px; left: 0;
+
+	cursor: n-resize;
+}
+
+.ui-resizable-s {
+	width: 100%; height: 7px;
+	bottom: -5px; left: 0;
+
+	cursor: s-resize;
+}
+
+.ui-resizable-e {
+	width: 7px; height: 100%;
+	top: 0; right: -5px;
+
+	cursor: e-resize;
+}
+
+.ui-resizable-w {
+	width: 7px; height: 100%;
+	top: 0; left: -5px;
+
+	cursor: w-resize;
+}
+
+.ui-resizable-se {
+	width: 12px; height: 12px;
+	bottom: 1px; right: 1px;
+
+	cursor: se-resize;
+}
+
+.ui-resizable-sw {
+	width: 9px; height: 9px;
+	bottom: -5px; left: -5px;
+
+	cursor: sw-resize;
+}
+
+.ui-resizable-nw {
+	width: 9px; height: 9px;
+	top: -5px; left: -5px;
+
+	cursor: nw-resize;
+}
+
+.ui-resizable-ne {
+	width: 9px; height: 9px;
+	top: -5px; right: -5px;
+
+	cursor: ne-resize;
+}

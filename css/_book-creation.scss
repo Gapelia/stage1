@@ -217,25 +217,46 @@
 				.tag-input {
 					border-bottom: 1px solid $gray-ii;
 					clear: both;
-					padding: 1rem;
+					padding: 1.8rem 1rem;
 
 					label, input {
 						display: inline;
+						vertical-align: middle;
+						width: 50%;
 					}
 
 					label {
-						/* float: left; */
+						font-size: 14px;
 					}
 
 					input {
-						background-color: $gray-v;
+						background-color: $white;
+						border: 1px solid $gray-ii;
 						float: right;
+						font-size: 12px;
+						height: 20px;
+						margin: 0 0 3px 0;
 					}
 
 					.hint {
 						float: right;
 						font-size: 10px;
 						font-style: italic;
+						text-align: right;
+						width: 100%;
+					}
+
+					&:first-child { padding-top: 0; }
+				}
+
+				/* Snippets Tab */
+
+				#snippet-preview {
+					img {
+						width: 300px; height: auto;
+
+						display: table;
+						margin: 0 auto;
 					}
 				}
 			}
