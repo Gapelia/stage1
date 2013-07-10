@@ -522,7 +522,7 @@ footer ul li:last-child:after { content: ""; }
 
 /** [-] Big Scroller **********************************************************************************/
 #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 12.1rem 0; }
-#big-scroller-wrapper #small-profile { width: 150px; height: 100%; background-color: #fefefe; /* rgba($white, 0.7); */ color: #585959; font-size: 85%; position: absolute; left: 50px; z-index: 2654654; }
+#big-scroller-wrapper #small-profile { width: 150px; height: 100%; background-color: #fefefe; /* rgba($white, 0.7); */ color: #585959; font-size: 85%; position: absolute; left: 50px; z-index: 100; }
 #big-scroller-wrapper #small-profile a { color: #585959; }
 #big-scroller-wrapper #small-profile .active { font-family: "OpenSansBold"; }
 #big-scroller-wrapper #small-profile img { width: 150px; height: 150px; }

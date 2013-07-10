@@ -1,3 +1,25 @@
+
+//////////////////////////////////////////////////////////////////////////////////////////// GENERAL //
+// USER MENU, CLICK TO SHOW ///////////////////////////////////////////////////////////////////////////
+
+$(function () {
+
+	$(document).click(function() {
+		$("#action-user ul").hide();
+	});
+
+	/* Clicks within the dropdown won't make it past the dropdown itself */
+
+	$("#action-user a").click(function(e) {
+		$("#action-user ul").css("display", "block");
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+});
+
+// MAIN SCROLLER //////////////////////////////////////////////////////////////////////////////////////
+
 $(function() {
 
 	// default top scroller
@@ -50,11 +72,13 @@ $(function() {
 
 });
 
+// MISCELLANEOUS //////////////////////////////////////////////////////////////////////////////////////
+
 $(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
 // $(".dimension-book .lifestyle li").squishy();
 
-//////////////////////////////////////////////////////////////////
-// Expand users in Gapelian scroller
+// EXPAND USERS IN SMALL SCROLLER /////////////////////////////////////////////////////////////////////
+// NEED TO FIND BETTER IMPLEMENTATION /////////////////////////////////////////////////////////////////
 
 $(function() {
 
@@ -106,55 +130,7 @@ $(function() {
 
 });
 
-//////////////////////////////////////////////////////////////////
-// Change width of dimension books, based on window height
-
-$(window).load(function () {
-
-	if ($(window).height() > 677) {
-		$(function() {
-			$("#big-scroller").carouFredSel({
-				auto: false,
-				responsive: true,
-				width: "100%",
-				scroll: 1,
-				prev: "#prev-big",
-				next: "#next-big",
-				items: {
-					width: 250,
-					visible: { min: 2, max: 5 }
-				},
-				mousewheel: true
-			});
-		});
-	}
-
-	else {
-	};
-
-});
-
-//////////////////////////////////////////////////////////////////
-// User Menu / click to show
-
-$(function () {
-
-	$(document).click(function() {
-		$("#action-user ul").hide();
-	});
-
-	/* Clicks within the dropdown won't make it past the dropdown itself */
-
-	$("#action-user a").click(function(e) {
-		$("#action-user ul").css("display", "block");
-		e.preventDefault();
-		e.stopPropagation();
-	});
-
-});
-
-//////////////////////////////////////////////////////////////////
-// Add a book to your collection
+// ADD BOOK TO COLLECTION /////////////////////////////////////////////////////////////////////////////
 
 $(function() {
 
@@ -322,6 +298,34 @@ $(function() {
 		e.preventDefault();
 		e.stopPropagation();
 	});
+
+});
+
+//////////////////////////////////////////////////////////////////////////// VERTICAL RESPONSIVENESS //
+// CHANGE WIDTH OF BOOKS IN SCROLLER, BASED ON WINDOW HEIGHT //////////////////////////////////////////
+
+$(window).load(function () {
+
+	if ($(window).height() > 677) {
+		$(function() {
+			$("#big-scroller").carouFredSel({
+				auto: false,
+				responsive: true,
+				width: "100%",
+				scroll: 1,
+				prev: "#prev-big",
+				next: "#next-big",
+				items: {
+					width: 250,
+					visible: { min: 2, max: 5 }
+				},
+				mousewheel: true
+			});
+		});
+	}
+
+	else {
+	};
 
 });
 
