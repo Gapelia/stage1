@@ -154,7 +154,7 @@
 				li {
 					float: left;
 
-					&:after { content: "\00a0\00b7\00a0"; }
+					&:after { content: "\00a0 |\00a0"; }
 					&:last-child {
 						&:after { content: ""; }
 					}
@@ -312,7 +312,7 @@
 				li {
 					float: left;
 
-					&:after { content: "\00a0\00b7\00a0"; }
+					&:after { content: "\00a0 |\00a0"; }
 					&:last-child {
 						&:after { content: ""; }
 					}
