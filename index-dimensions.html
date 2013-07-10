@@ -466,36 +466,65 @@
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Title*</div>
+					<label class="modal-title">Title*</label>
 					<input class="modal-input" type="text"/>
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Add description
+					<div class="modal-title">
+						<label for="modal-description" class="modal-title">Add description</label>
 						<span id="modal-counter"></span><span>characters left</span>
 					</div>
 
-					<textarea id="modal-description" class="modal-input" cols="50" rows="4"></textarea>
+					<textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea>
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Choose Dimension*</div>
-					<input class="modal-input" type="text"/>
+					<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
+					<input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/>
+
+					<datalist id="modal-dimension-tag">
+						<option value="Art">
+						<option value="Flow">
+						<option value="Life">
+						<option value="Pulse">
+						<option value="Wonder">
+						<option value="Wow">
+					</datalist>
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Add a Geotag</div>
-					<input class="modal-input" id="geotag" placeholder="" type="text"/>
+					<label for="modal-geotag" class="modal-title">Add a Geotag</label>
+					<input class="modal-input" id="modal-geotag" placeholder="" type="text"/>
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Add a Passion</div>
-					<input class="modal-input" type="text"/>
+					<label for="modal-passion" class="modal-title">Add a Passion</label>
+					<input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/>
+
+					<datalist id="modal-passion-tag">
+						<option value="* Create new tag">
+						<option value="Computers">
+						<option value="Gaming">
+						<option value="Gardening">
+						<option value="Skydiving">
+						<option value="Surfing">
+					</datalist>
 				</div>
 
 				<div class="modal-row">
-					<div class="modal-title">Add a Feeling</div>
-					<input class="modal-input" type="text"/>
+					<label for="modal-input" class="modal-title">Add a Feeling</label>
+					<input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/>
+
+					<datalist id="modal-feeling-tag">
+						<option value="* Create new tag">
+						<option value="Adrenaline">
+						<option value="Calm">
+						<option value="Ecstatic">
+						<option value="Longing">
+						<option value="Serenity">
+					</datalist>
+
 				</div>
 
 				<div class="modal-row next-modal">
@@ -552,6 +581,8 @@
 
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
 		<script src="scripts/filepicker.js"></script>
+
+		<!--/ Reveal.js is probably conflicting with simplyCountable. Shit. /-->
 		<script src="scripts/simplyCountable.js"></script>
 
 		<script>
@@ -566,7 +597,7 @@
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
-			var input = document.getElementById("geotag");
+			var input = document.getElementById("modal-geotag");
 			var autocomplete = new google.maps.places.Autocomplete(input);
 		</script>
 
