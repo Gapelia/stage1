@@ -29,7 +29,7 @@
 		<![endif]-->
 
 		<script src="scripts/jquery-2.0.2.js"></script>
-		<script src="scripts/reveal.js"></script>
+		<!--/ <script src="scripts/reveal.js"></script> /-->
 		<script src="scripts/midway.js"></script>
 
 	</head>
@@ -112,14 +112,44 @@
 									</section>
 
 									<section class="tag-input">
+										<!--/
 										<label>Passion</label>
 										<input type="text" placeholder=""/>
+										/-->
+
+										<label for="passion">Passion</label>
+										<input id="passion" name="passion" type="text" list="passion-tag"/>
+
+										<datalist id="passion-tag">
+											<option value="Create new tag">
+											<option value="Computers">
+											<option value="Gaming">
+											<option value="Gardening">
+											<option value="Skydiving">
+											<option value="Surfing">
+										</datalist>
+
 										<span class="hint">ex. Surfing</span>
 									</section>
 
 									<section class="tag-input">
+										<!--/
 										<label>Feeling</label>
 										<input type="text" placeholder=""/>
+										/-->
+
+										<label for="feeling">Feeling</label>
+										<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+
+										<datalist id="feeling-tag">
+											<option value="Create new tag">
+											<option value="Adrenaline">
+											<option value="Calm">
+											<option value="Ecstatic">
+											<option value="Longing">
+											<option value="Serenity">
+										</datalist>
+
 										<span class="hint">ex. Adrenaline</span>
 									</section>
 
@@ -323,6 +353,7 @@
 			<!--/ book creation modals																													 /-->
 			<!--/ modal 01																																			 /-->
 
+			<!--/
 			<div id="create-modal-01" class="reveal-modal xlarge">
 				<div class="modal-row modal-header">
 					<span class="active">1. Create discovery book</span>
@@ -367,9 +398,11 @@
 					<a href="#" class="close-reveal-modal" data-reveal-id="create-modal-02" data-animation="fade">Next</a>
 				</div>
 			</div>
+			/-->
 
 			<!--/ modal 02																																			 /-->
 
+			<!--/
 			<div id="create-modal-02" class="reveal-modal xlarge">
 				<div class="modal-row modal-header">
 					<span>1. Create discovery book</span>
@@ -385,6 +418,7 @@
 					<a href="book-creation.html">Next</a>
 				</div>
 			</div>
+			/-->
 
 		</section>
 
@@ -436,6 +470,7 @@
 		</script>
 
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
+		<!--/
 		<script src="scripts/filepicker.js"></script>
 		<script src="scripts/simplyCountable.js"></script>
 
@@ -447,6 +482,7 @@
 				});
 			});
 		</script>
+		/-->
 
 	</body>
 
