@@ -511,6 +511,7 @@
 		<th>List 5</th>
 		<th></th>
 		</tr>
+
 		<tr>
 		<td>
 		<div id="list4Editors">
@@ -520,6 +521,7 @@
 		<input id="d4Edit" name="d4Edit" class="inplace" tabindex="10"/>
 		<input id="e4Edit" name="e4Edit" class="inplace" tabindex="10"/>
 		</div>
+
 		<ul id="list4" class="sortable boxy">
 		<li>
 		<div class="handle"></div>
@@ -582,50 +584,51 @@
 
 		<!--/ surround in table to fix Firefox weirdness -->
 		<table>
-			<tr><td>
-			<div id="slideEditors">
-			<!-- 
-			IE 5.5+ BugFix: don't put these inside a 'position: relative' layer
-			-->
-			<input id="oneEdit" name="oneEdit" class="inplace"/>
-			<input id="twoEdit" name="oneEdit" class="inplace"/>
-			<input id="threeEdit" name="oneEdit" class="inplace"/>
-			<input id="fourEdit" name="oneEdit" class="inplace"/>
-			<input id="fiveEdit" name="oneEdit" class="inplace"/>
-			<input id="sixEdit" name="oneEdit" class="inplace"/>
-			</div>
-			<ul id="slideshow" class="slideshow">
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/1.png"/></div>
-			<div id="oneView" class="view">Slide 1</div>
-			</li>
+			<tr>
+				<td>
+					<div id="slideEditors">
+						<!--/ IE 5.5+ BugFix: don't put these inside a 'position: relative' layer /-->
+						<input id="oneEdit" name="oneEdit" class="inplace"/>
+						<input id="twoEdit" name="oneEdit" class="inplace"/>
+						<input id="threeEdit" name="oneEdit" class="inplace"/>
+						<input id="fourEdit" name="oneEdit" class="inplace"/>
+						<input id="fiveEdit" name="oneEdit" class="inplace"/>
+						<input id="sixEdit" name="oneEdit" class="inplace"/>
+					</div>
 
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/2.png"/></div>
-			<div id="twoView" class="view">Slide 2</div>
-			</li>
+					<ul id="slideshow" class="slideshow">
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/1.png"/></div>
+							<div id="oneView" class="view">Slide 1</div>
+						</li>
 
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/3.png"/></div>
-			<div id="threeView" class="view">Slide 3</div>
-			</li>
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/2.png"/></div>
+							<div id="twoView" class="view">Slide 2</div>
+						</li>
 
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/4.png"/></div>
-			<div id="fourView" class="view">Slide 4</div>
-			</li>
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/3.png"/></div>
+							<div id="threeView" class="view">Slide 3</div>
+						</li>
 
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/5.png"/></div>
-			<div id="fiveView" class="view">Slide 5</div>
-			</li>
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/4.png"/></div>
+							<div id="fourView" class="view">Slide 4</div>
+						</li>
 
-			<li class="slide">
-			<div class="thumb handle"><img src="slideshow/6.png"/></div>
-			<div id="sixView" class="view">Slide 6</div>
-			</li>
-			</ul>
-			</td></tr>
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/5.png"/></div>
+							<div id="fiveView" class="view">Slide 5</div>
+						</li>
+
+						<li class="slide">
+							<div class="thumb handle"><img src="slideshow/6.png"/></div>
+							<div id="sixView" class="view">Slide 6</div>
+						</li>
+					</ul>
+				</td>
+			</tr>
 		</table>
 
 		<br style="clear: both"/>

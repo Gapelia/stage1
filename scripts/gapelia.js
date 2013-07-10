@@ -325,10 +325,34 @@ $(function() {
 
 });
 
+////////////////////////////////////////////////////////////////////////////////////// BOOK CREATION //
+// TAB SWITCHER ///////////////////////////////////////////////////////////////////////////////////////
+
 $(document).ready(function($) {
-	$("#sidebar-wrapper").tabulous({ effect: "slideLeft" });
-	// $("#tabs").tabulous({ effect: "scale" });
-	// $("#tabs2").tabulous({ effect: "slideLeft" });
-	// $("#tabs3").tabulous({ effect: "scaleUp" });
-	// $("#tabs4").tabulous({ effect: "flip" });
+	$("#sidebar-wrapper").tabulous({ effect: "slideLeft" });		/* OTHER EFFECTS: scale, scaleUp, flip */
 });
+
+// DRAGGABLE LIST /////////////////////////////////////////////////////////////////////////////////////
+
+var coordinates = ToolMan.coordinates();
+var dragsort = ToolMan.dragsort();
+
+window.onload = function () {
+	dragsort.makeListSortable(document.getElementById("page-scroller"), setHandle);
+}
+
+function setHandle(item) {
+	item.toolManDragGroup.setHandle(findHandle(item));
+}
+
+function findHandle(item) {
+	var children = item.getElementsByTagName("li");
+	for (var i = 0; i < children.length; i++) {
+		var child = children[i];
+
+		if (child.getAttribute("class") == null) continue;
+		if (child.getAttribute("class").indexOf("page") >= 0);
+		return child;
+	}
+	return item;
+}

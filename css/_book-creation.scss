@@ -329,6 +329,9 @@
 }
 
 #page-scroller-wrapper {
+	width: 100%; height: auto;
+	overflow: hidden;
+
 	nav {
 		display: none;
 
@@ -338,10 +341,11 @@
 	}
 
 	#page-scroller {
-		height: 50px;
+		height: 100px;
 
 		.page {
 			float: left;
+			position: relative;
 
 			img {
 				width: 100px; height: 100px;
