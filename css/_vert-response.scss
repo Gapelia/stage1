@@ -2,14 +2,16 @@
 	/** [-] Profile *************************************************************************************/
 
 	#action-bar {
-		height: 99px;
+		/* height: 99px; */
 
+		/*
 		h1 {
 			width: 172px; height: 60px;
 
 			background-size: 172px 60px;
 			margin: 1.6rem 0 0 0;
 		}
+		*/
 
 		h2 {
 			font-size: 25px;
@@ -106,20 +108,66 @@
 	.art, .flow, .life, .pulse, .wonder, .wow {
 		.book-cover { background-size: 100%; }
 	}
+
+	/** [-] Book Creator ********************************************************************************/
+
+	#book-creation-wrapper {
+
+		#create-book {
+			/* height: 395px; */
+
+			#create-content {
+				width: 63.7%;
+			}
+
+			#create-sidebar {
+				width: 36.3%;
+
+				/*
+				#tabs-container {
+					#tab-content, #tab-tags, #tab-snippets, #tab-settings {
+						height: 440px !important;
+					}
+				}
+				*/
+
+				/* Content Tab */
+				.redactor_box {
+					.redactor_editor { height: 230px !important; }
+				}
+			}
+		}
+	}
+}
+
+/** 1366 × 768 ****************************************************************************************/
+/** FULLSCREEN ****************************************************************************************/
+
+@media only screen and (max-width: 1366px) and (max-height: 768px) {
+	/** [-] Book Creator ********************************************************************************/
+
+	#book-creation-wrapper {
+		#create-book {
+			#create-content { width: 67.25%; }
+			#create-sidebar { width: 32.75%; }
+		}
+	}
 }
 
 @media only screen and (max-height: 652px) {
 	/** [-] Profile *************************************************************************************/
 
 	#action-bar {
-		height: 99px;
+		/* height: 99px; */
 
+		/*
 		h1 {
 			width: 172px; height: 60px;
 
 			background-size: 172px 60px;
 			margin: 1.6rem 0 0 0;
 		}
+		*/
 
 		h2 {
 			font-size: 25px;
@@ -129,9 +177,10 @@
 
 		ul {
 			li {
-				width: 99px; height: 99px;
+				/* width: 99px; height: 99px; */
 			}
 
+			/*
 			#action-create, #action-gapelians, #action-books, #action-dimensions,
 			#action-next {
 				background-size: 99px;
@@ -157,6 +206,7 @@
 					width: 99px;
 				}
 			}
+			*/
 
 			#action-logo { background-image: url("../images/action-logo.png"); }
 
@@ -222,18 +272,18 @@
 	#book-creation-wrapper {
 
 		#create-book {
-			height: 395px;
+			/* height: 395px; */
 
 			#create-content {
-				width: 63.9%;
+				width: 59.9%;
 			}
 
 			#create-sidebar {
-				width: 36.1%;
+				width: 40.1%;
 
 				#tabs-container {
 					#tab-content, #tab-tags, #tab-snippets, #tab-settings {
-						height: 390px !important;
+						height: 440px !important;
 					}
 				}
 

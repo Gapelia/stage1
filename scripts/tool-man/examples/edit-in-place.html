@@ -15,119 +15,113 @@
 			}
 
 			.slide {
-			position: relative;
-			float: left;
-			width: 172px;
-			margin-bottom: 10px;
-			margin-right: 10px;
+				float: left;
+				margin: 0 10px 10px 0;
+				position: relative;
+				width: 172px;
 			}
 
 			.slide div.thumb {
-			background: #fff;
-			width: 170px;
-			height: 120px;
-			border: 1px solid #000;
-			font-size: 5px;
-			font-family: "Times New Roman", serif;
-			overflow: hidden;
+				width: 170px; height: 120px;
+
+				background-color: #fff;
+				border: 1px solid #000;
+				font-family: "Open Sans", Arial, serif;
+				font-size: 5px;
+				overflow: hidden;
 			}
 
 			.slide .view {
-			padding: 2px 2px;
-			margin: 2px 0px;
-			cursor: text;
-			border-width: 1px;
-			border-style: solid;
-			border-color: #ccc;
-			background-color: #eee;
-			height: 1em;
+				margin: 2px 0; padding: 2px 2px;
+
+				border-color: #ccc;
+				border-style: solid;
+				border-width: 1px;
+				background-color: #eee;
+				cursor: text;
+				height: 1em;
 			}
 
 			.view:hover { background-color: #ffffcc; }
 
 			.view, .inplace, #list5 input {
-			font-size: 14px;
-			font-family: sans-serif;
+				font-family: "Open Sans", Arial, serif;
+				font-size: 14px;
 			}
 
 			.inplace {
-			position: absolute;
-			visibility: hidden;
-			z-index: 10000;
+				position: absolute;
+				visibility: hidden;
+				z-index: 10000;
 			}
 
 			.inplace, #list5 input:hover, #list5 input:focus { background-color: #ffffcc; }
 
 			#slideEditors input.inplace {
-			width: 12em;
-			max-width: 12em;
-			margin-left: 1px;
+				margin-left: 1px;
+				width: 12em; max-width: 12em;
 			}
 
 			#slideEditors input.inplace, #slideshow .view { text-align: center; }
 
 			#paragraphView, #paragraphEdit, #markupView, #markupEdit {
-			font-family: "Times New Roman", serif;
-			font-size: 14px;
+				font-family: "Open Sans", Arial, serif;
+				font-size: 14px;
 			}
 
 			#paragraphView, #markupView {
-			border: 1px solid #fff;
-			padding: 8px;
-			width: 400px;
-			max-width: 400px;
+				border: 1px solid #fefefe;
+				padding: 8px;
+				width: 400px; max-width: 400px;
 			}
 
 			#paragraphView:hover, #markupView:hover {
-			background-color: #ffffcc;
-			border-color: #ccc;
+				background-color: #ffffcc;
+				border-color: #ccc;
 			}
 
 			#paragraphEdit, #markupEdit {
-			width: 315px;
-			background-color: #ffffcc;
+				background-color: #ffffcc;
+				width: 315px;
 			}
 
 			#paragraphEdit { height: 5em; }
 			#markupEdit { height: 15em; }
 
 			#listExamples td {
-			width: 9em;
-			margin-right: 20px; 
-			padding: 0px 20px;
-			vertical-align: top;
+				margin: 0 20px 0 0; padding: 0 20px;
+
+				vertical-align: top;
+				width: 9em;
 			}
 
 			#listExamples th {
-			vertical-align: bottom;
-			font-weight: normal;
-			font-size: 14px;
-			padding-top: 20px;
+				font-size: 14px;
+				font-weight: normal;
+				padding-top: 20px;
+				vertical-align: bottom;
 			}
 
 			#listExamples td.caption {
-			font-size: 12px;
-			text-align: center;
+				font-size: 12px;
+				text-align: center;
 			}
 
 			#listExamples li {
-			padding: 0px;
-			height: 20px;
-			min-height: 1em;
-			width: 120px;
+				width: 120px; height: 20px; min-height: 1em;
+				padding: 0;
 			}
 
 			#listExamples li .view {
-			height: 16px;
-			vertical-align: middle;
-			padding: 2px;
+				height: 16px;
+				padding: 2px;
+				vertical-align: middle;
 			}
 
 			#list1 li:hover { background-color: #eee; }
 
 			#listExamples input.inplace {
-			width: 120px;
-			max-width: 120px;
+				width: 120px; max-width: 120px;
 			}
 
 			/* BugFix: Firefox: avoid bottom margin on draggable elements */
@@ -138,30 +132,28 @@
 			#listExamples #list4 li { cursor: default; }
 
 			#listExamples #list4 .handle, #listExamples #list5 .handle {
-			float: right;
-			background-color: #ccc;
-			background-image: url(common/handle.png);
-			background-repeat: repeat-y;
-			width: 7px;
-			height: 20px;
+				width: 7px; height: 20px;
+
+				background-color: #ccc;
+				background-image: url(common/handle.png);
+				background-repeat: repeat-y;
+				float: right;
 			}
 
 			#listExamples #list4 li .view { cursor: text; }
 
 			#listExamples #list4Editors input.inplace, #listExamples #list5 input {
-			width: 104px;
-			max-width: 104px;
+				width: 104px; max-width: 104px;
 			}
 
 			#listExamples #list4Editors>input.inplace, #listExamples #list5>li>input {
-			width: 111px;
-			max-width: 111px;
+				width: 111px; max-width: 111px;
 			}
 
 			#list5 input { background-color: #eee; }
 
 			.inplace, #list5 input {
-			margin: 0; padding-left: 1px;
+				margin: 0; padding-left: 1px;
 			}
 
 			.handle { cursor: move; }
