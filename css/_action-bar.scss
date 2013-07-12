@@ -82,17 +82,19 @@
 		}
 
 		#action-user {
+			background-size: 50px;
 			overflow: hidden;
+			width: 50px;
 
 			a { opacity: 1; }
 
 			img {
-				width: 149px; height: 149px;
+				width: 50px; height: auto;
 			}
 
 			ul {
 				margin: 0; padding: 0;
-				top: 149px; right: 0;
+				top: 50px; right: 0;
 
 				background-color: $gray-i;
 				display: none;
@@ -100,7 +102,7 @@
 				font-family: "OpenSansSemibold";
 				font-size: 14px;
 				position: absolute;
-				width: 149px;
+				width: 150px;
 				z-index: 2147483647;
 
 				li {

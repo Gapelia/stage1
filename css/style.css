@@ -477,7 +477,7 @@ footer ul li:last-child:after { content: ""; }
 #action-bar ul .active { background-position: 0 -117px !important; /* background-position: 0 -149px !important; */ }
 #action-bar ul .active:hover { opacity: 0.7; }
 #action-bar ul #action-user, #action-bar ul #action-logo { background-repeat: no-repeat; background-size: 149px 150px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-#action-bar ul #action-user { overflow: hidden; 			/*
+#action-bar ul #action-user { background-size: 50px; overflow: hidden; width: 50px; 			/*
 			#cover-form {
 				bottom: 5rem; right: 2rem;
 				position: fixed;
@@ -498,8 +498,8 @@ footer ul li:last-child:after { content: ""; }
 			}
 			*/ }
 #action-bar ul #action-user a { opacity: 1; }
-#action-bar ul #action-user img { width: 149px; height: 149px; }
-#action-bar ul #action-user ul { margin: 0; padding: 0; top: 149px; right: 0; background-color: #e7e7e7; display: none; float: left; font-family: "OpenSansSemibold"; font-size: 14px; position: absolute; width: 149px; z-index: 2147483647; }
+#action-bar ul #action-user img { width: 50px; height: auto; }
+#action-bar ul #action-user ul { margin: 0; padding: 0; top: 50px; right: 0; background-color: #e7e7e7; display: none; float: left; font-family: "OpenSansSemibold"; font-size: 14px; position: absolute; width: 150px; z-index: 2147483647; }
 #action-bar ul #action-user ul li { width: auto; height: auto; border-bottom: 1px solid #cfcfcf; border-left: 1px solid #cfcfcf; display: block; text-align: right; }
 #action-bar ul #action-user ul li:hover { background-color: #585959; border-bottom: 1px solid #585959; border-left: 1px solid #585959; }
 #action-bar ul #action-user ul li a { display: block; padding: 0.46rem; }
@@ -915,74 +915,23 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
 .redactor-progress-striped .redactor-progress-bar { background-image: url("data:image/gif;base64,R0lGODlhIAAQAIABAP///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExODE3QTgyOEM0MzAwRkUyMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3NEY2MUMyQTlDMzgxMUUwOUFFQ0M4MEYwM0YzNUE2RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3NEY2MUMyOTlDMzgxMUUwOUFFQ0M4MEYwM0YzNUE2RCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAxODAxMTc0MDcyMDY4MTE4MTdBODI4QzQzMDBGRTIzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxODAxMTc0MDcyMDY4MTE4MTdBODI4QzQzMDBGRTIzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkECQoAAQAsAAAAACAAEAAAAiwMjqkQ7Q/bmijaR+ndee7bLZ8VKmNUJieUVqvTHi8cz1Jtx0yOz7pt6L10BQAh+QQJCgABACwAAAAAIAAQAAACLYwNqctwD2GbKtpH6d157ts1nxUyY1Qup5QmK9Y6LxLPdGsHsTvv8uuzBXuhAgAh+QQJCgABACwAAAAAIAAQAAACLIx/oMsNCKNxdMk7K8VXbx55DhiKDAmZJ5qoFhu4LysrcFzf9QPvet4D0igFACH5BAkKAAEALAAAAAAgABAAAAIsjI8Hy+2QYnyUyWtqxVdvnngUGIoOiZgnmqkWG7gvKy9wXN81BO963gPSGAUAIfkECQoAAQAsAAAAACAAEAAAAixEjqkB7Q/bmijaR+ndee7bLZ8VKmNUJieUVqvTHi8cz1Jtx0yOz7pt6L10BQAh+QQJCgABACwAAAAAIAAQAAACLYQdqctxD2GbKtpH6d157ts1nxUyY1Qup5QmK9Y6LxLPdGsDsTvv8uuzBXuhAgAh+QQJCgABACwAAAAAIAAQAAACLIR/ocsdCKNxdMk7K8VXbx55DhiKDAmZJ5qoFgu4LysrcFzf9QPvet4D0igFACH5BAUKAAEALAAAAAAgABAAAAIshI8Xy+2RYnyUyWtqxVdvnngUGIoOiZgnmqkWC7gvKy9wXN81BO963gPSGAUAOw=="); }
 .redactor-progress-striped .redactor-progress-bar:after { top: 0; right: 0; bottom: 0; left: 0; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA6lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFRTE5QjlCQTlDMkQxMUUwOUFFQ0M4MEYwM0YzNUE2RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNkRFQUIzNjlDMkUxMUUwOUFFQ0M4MEYwM0YzNUE2RCI+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+Z3JhZGllbnQ8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFRTE5QjlCODlDMkQxMUUwOUFFQ0M4MEYwM0YzNUE2RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFRTE5QjlCOTlDMkQxMUUwOUFFQ0M4MEYwM0YzNUE2RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pq477Q0AAAD2SURBVHjaxFIxDsIwDLRF/1AmRp7AM9iYWHkD76AP6h9Qi1SGfqAMqGJg6XA4jts0RUwZiKLEsZ3L+Rwmoi0lDC6Ky4rAMuGO5DY5iuWH93oDegMuK8QA7JIYCMDpvwDDMBzNHCGtONYq2enjHKYLMObCp7dtu/+FDppDgyJpTemsrm/9l7L2ku4aUy4BTEmKR1hmVXV9OjfsqlqC7irAhBKxDnmOQdPc+ynKMXdenEELAFmzrnu8RoK6jpRhHkGJmFgdXmsByNf5Wx+fJPbigEI3OKrB77Bfy2VZzppqC0IfAtlIAusC9CNtUn/iIRXgnALwEWAA/+5+ZNOapmcAAAAASUVORK5CYII="); content: ""; position: absolute; }
 
-@media only screen and (min-height: 653px) and (max-height: 677px) { /** [-] Profile *************************************************************************************/
-  #action-bar { /* height: 99px; */ 		/*
-		h1 {
-			width: 172px; height: 60px;
+@media only screen and (min-height: 654px) and (max-height: 677px) { /** [-] Profile *************************************************************************************/
+  #action-bar { 		/*
+		ul {
+			li {
+				width: 99px; height: 99px;
+			}
 
-			background-size: 172px 60px;
-			margin: 1.6rem 0 0 0;
-		}
-		*/ }
-  #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
-  #action-bar ul li { width: 99px; height: 99px; }
-  #action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions, #action-bar ul #action-next { background-size: 99px; font-family: "OpenSansLight"; font-size: 12px; padding: 0 0 1rem 0; }
-  #action-bar ul #action-create, #action-bar ul #action-gapelians, #action-bar ul #action-books, #action-bar ul #action-dimensions { background-size: 99px 198px; }
-  #action-bar ul #action-create:hover, #action-bar ul #action-gapelians:hover, #action-bar ul #action-books:hover, #action-bar ul #action-dimensions:hover { background-position: 0 -99px; }
-  #action-bar ul .active { background-position: 0 -99px !important; }
-  #action-bar ul #action-user, #action-bar ul #action-logo { background-size: 99px 100px; }
-  #action-bar ul #action-user img { width: 98px; height: 98px; }
-  #action-bar ul #action-user ul { font-family: "OpenSansLight"; top: 99px; width: 99px; }
-  #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
-  #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
-  #action-bar ul #action-next { padding: 0; }
-  #main-content { background-position: bottom left; }
-  /** [-] Big + Small Scroller Shared Styles **********************************************************/
-  /** [-] Big Scroller **********************************************************************************/
-  #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 10.4rem 0; }
-  #big-scroller-wrapper #small-profile ul { height: 117px; }
-  #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 339px; }
-  #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
-  /** [-] Small Scroller ********************************************************************************/
-  #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
-  #small-scroller .user-book { width: 360px; height: 144px; }
-  #small-scroller .user-book .cover { width: 144px; height: 144px; }
-  /** [-] Dimensions **********************************************************************************/
-  .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; }
-  /** [-] Book Creator ********************************************************************************/
-  #book-creation-wrapper #create-book { /* height: 395px; */ }
-  #book-creation-wrapper #create-book #create-content { width: 63.7%; }
-  #book-creation-wrapper #create-book #create-sidebar { width: 36.3%; /*
-#tabs-container {
-	#tab-content, #tab-tags, #tab-snippets, #tab-settings {
-		height: 440px !important;
-	}
-}
-*/ /* Content Tab */ }
-  #book-creation-wrapper #create-book #create-sidebar .redactor_box .redactor_editor { height: 230px !important; } }
-/** 1366 ├ù 768 ****************************************************************************************/
-/** FULLSCREEN ****************************************************************************************/
-@media only screen and (max-width: 1366px) and (max-height: 768px) { /** [-] Book Creator ********************************************************************************/
-  #book-creation-wrapper #create-book #create-content { width: 67.25%; }
-  #book-creation-wrapper #create-book #create-sidebar { width: 32.75%; } }
-@media only screen and (max-height: 652px) { /** [-] Profile *************************************************************************************/
-  #action-bar { /* height: 99px; */ 		/*
-		h1 {
-			width: 172px; height: 60px;
-
-			background-size: 172px 60px;
-			margin: 1.6rem 0 0 0;
-		}
-		*/ }
-  #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
-  #action-bar ul { 			/*
 			#action-create, #action-gapelians, #action-books, #action-dimensions,
 			#action-next {
 				background-size: 99px;
 				font-family: "OpenSansLight";
 				font-size: 12px;
 				padding: 0 0 1rem 0;
+			}
 
+			#action-create, #action-gapelians, #action-books, #action-dimensions {
+				background-size: 99px 198px;
 				&:hover { background-position: 0 -99px; }
 			}
 
@@ -1001,8 +950,45 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
 					width: 99px;
 				}
 			}
-			*/ }
-  #action-bar ul li { /* width: 99px; height: 99px; */ }
+
+			#action-logo { background-image: url("../images/action-logo.png"); }
+
+			#action-account, #action-next {
+				.top, .bottom { padding: 1.1rem; }
+			}
+
+			#action-next { padding: 0; }
+		}
+		*/ }
+  #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
+  #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
+  #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
+  #action-bar ul #action-next { padding: 0; }
+  #main-content { background-position: bottom left; }
+  /** [-] Big + Small Scroller Shared Styles **********************************************************/
+  /** [-] Big Scroller **********************************************************************************/
+  #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 10.4rem 0; }
+  #big-scroller-wrapper #small-profile ul { height: 117px; }
+  #big-scroller .dimension-book, #dimension-scroller .dimension-book { width: 200px; height: 339px; }
+  #big-scroller .dimension-book .mark, #dimension-scroller .dimension-book .mark { width: 100px; }
+  /** [-] Small Scroller ********************************************************************************/
+  #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { padding: 4rem 0; }
+  #small-scroller .user-book { width: 360px; height: 144px; }
+  #small-scroller .user-book .cover { width: 144px; height: 144px; }
+  /** [-] Dimensions **********************************************************************************/
+  .art .book-cover, .flow .book-cover, .life .book-cover, .pulse .book-cover, .wonder .book-cover, .wow .book-cover { background-size: 100%; }
+  /** [-] Book Creator ********************************************************************************/
+  #book-creation-wrapper #create-book #create-content { width: 67.15%; }
+  #book-creation-wrapper #create-book #create-sidebar { width: 32.85%; }
+  				/* 	#book-creation-wrapper {  		#create-book {  			#create-content { 				width: 59.8%; 			}  			#create-sidebar { 				width: 40.2%;  				/* Content Tab */
+  			                 /* 			.redactor_box { 				.redactor_editor { height: 230px !important; } 			} 		} 	} } */ }
+/** 1366 ├ù 768 ****************************************************************************************/
+/** FULLSCREEN ****************************************************************************************/
+@media only screen and (max-width: 1366px) and (max-height: 768px) { /** [-] Book Creator ********************************************************************************/
+  #book-creation-wrapper #create-book #create-content { width: 67.15%; }
+  #book-creation-wrapper #create-book #create-sidebar { width: 32.85%; } }
+@media only screen and (max-height: 652px) { /** [-] Profile *************************************************************************************/
+  #action-bar h2 { font-size: 25px; line-height: 30px; margin: 1.2rem 0 0 0; }
   #action-bar ul #action-logo { background-image: url("../images/action-logo.png"); }
   #action-bar ul #action-account .top, #action-bar ul #action-account .bottom, #action-bar ul #action-next .top, #action-bar ul #action-next .bottom { padding: 1.1rem; }
   #action-bar ul #action-next { padding: 0; }
@@ -1022,8 +1008,8 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   /** [-] Dimensions **********************************************************************************/
   /** [-] Book Creator ********************************************************************************/
   #book-creation-wrapper #create-book { /* height: 395px; */ }
-  #book-creation-wrapper #create-book #create-content { width: 59.9%; }
-  #book-creation-wrapper #create-book #create-sidebar { width: 40.1%; /* Content Tab */ }
+  #book-creation-wrapper #create-book #create-content { width: 59.85%; }
+  #book-creation-wrapper #create-book #create-sidebar { width: 40.15%; /* Content Tab */ }
   #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { height: 440px !important; }
   #book-creation-wrapper #create-book #create-sidebar .redactor_box .redactor_editor { height: 230px !important; }
   /** [-] Footer **************************************************************************************/
