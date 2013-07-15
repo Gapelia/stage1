@@ -684,7 +684,10 @@ footer ul li:last-child:after { content: ""; }
 #book-creation-wrapper { width: 100%; height: auto; }
 #book-creation-wrapper #create-book { clear: left; height: 100%; /* height: 461px; */ overflow: hidden; }
 #book-creation-wrapper #create-book #create-content, #book-creation-wrapper #create-book #create-sidebar { float: left; }
-#book-creation-wrapper #create-book #create-content { background-color: #cfcfcf; width: 67.4%; }
+#book-creation-wrapper #create-book #create-content { position: relative; background-color: #cfcfcf; width: 67.4%; }
+#book-creation-wrapper #create-book #create-content #create-header { width: 100%; height: 37px; /* height: 50px; */ top: 0; left: 0; background-color: rgba(25, 25, 25, 0.7); position: absolute; }
+#book-creation-wrapper #create-book #create-content #create-header .left, #book-creation-wrapper #create-book #create-content #create-header .right { float: left; width: 50%; }
+#book-creation-wrapper #create-book #create-content #create-header .right { float: right; text-align: right; }
 #book-creation-wrapper #create-book #create-content img { width: 100%; height: auto; }
 #book-creation-wrapper #create-book #create-sidebar { width: 32.6%; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions, #book-creation-wrapper #create-book #create-sidebar #sidebar-nav { display: inline-block; width: 100%; }
