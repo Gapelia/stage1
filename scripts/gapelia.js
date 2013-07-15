@@ -70,6 +70,22 @@ $(function() {
 		mousewheel: true
 	});
 
+	// page scroller
+	$("#page-scroller").carouFredSel({
+		auto: false,
+		responsive: true,
+		width: "100%",
+		scroll: 1,
+		prev: "#prev-small",
+		next: "#next-small",
+		items: {
+			width: 100,
+			// height: "30%", // optionally resize item-height
+			visible: { min: 7, max: 10 }
+		},
+		mousewheel: true
+	});
+
 });
 
 // MISCELLANEOUS //////////////////////////////////////////////////////////////////////////////////////

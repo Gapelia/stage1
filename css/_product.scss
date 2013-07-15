@@ -1,6 +1,7 @@
 /** [-] Big + Small Scroller Shared Styles ************************************************************/
 
-#big-scroller-wrapper, #small-scroller-wrapper {
+#big-scroller-wrapper, #small-scroller-wrapper,
+#page-scroller-wrapper {
 	overflow: hidden;
 	position: relative;
 
@@ -24,7 +25,7 @@
 		&:hover { opacity: 1; }
 	}
 
-	#small-scroller {
+	#small-scroller, #page-scroller {
 		&:hover {
 			#prev-small, #next-small { opacity: 1; }
 		}

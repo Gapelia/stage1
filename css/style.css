@@ -517,13 +517,13 @@ footer ul li:last-child:after { content: ""; }
 #action-bar ul #action-next { border-left: 1px solid #cfcfcf; padding: 0; }
 
 /** [-] Big + Small Scroller Shared Styles ************************************************************/
-#big-scroller-wrapper, #small-scroller-wrapper { overflow: hidden; position: relative; }
-#big-scroller-wrapper nav, #small-scroller-wrapper nav { width: 100%; height: 100%; position: absolute; }
-#big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big, #big-scroller-wrapper #prev-small, #big-scroller-wrapper #next-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #next-big, #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small { width: 50px; height: 100%; background-color: rgba(25, 25, 25, 0.7); /* @include hide-text; */ color: #fefefe; opacity: 0.3; position: relative; text-align: center; z-index: 9999999; }
-#big-scroller-wrapper #prev-big:hover, #big-scroller-wrapper #next-big:hover, #big-scroller-wrapper #prev-small:hover, #big-scroller-wrapper #next-small:hover, #small-scroller-wrapper #prev-big:hover, #small-scroller-wrapper #next-big:hover, #small-scroller-wrapper #prev-small:hover, #small-scroller-wrapper #next-small:hover { opacity: 1; }
-#big-scroller-wrapper #small-scroller:hover #prev-small, #big-scroller-wrapper #small-scroller:hover #next-small, #small-scroller-wrapper #small-scroller:hover #prev-small, #small-scroller-wrapper #small-scroller:hover #next-small { opacity: 1; }
-#big-scroller-wrapper #prev-big, #big-scroller-wrapper #prev-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #prev-small { float: left; }
-#big-scroller-wrapper #next-big, #big-scroller-wrapper #next-small, #small-scroller-wrapper #next-big, #small-scroller-wrapper #next-small { float: right; }
+#big-scroller-wrapper, #small-scroller-wrapper, #page-scroller-wrapper { overflow: hidden; position: relative; }
+#big-scroller-wrapper nav, #small-scroller-wrapper nav, #page-scroller-wrapper nav { width: 100%; height: 100%; position: absolute; }
+#big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big, #big-scroller-wrapper #prev-small, #big-scroller-wrapper #next-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #next-big, #small-scroller-wrapper #prev-small, #small-scroller-wrapper #next-small, #page-scroller-wrapper #prev-big, #page-scroller-wrapper #next-big, #page-scroller-wrapper #prev-small, #page-scroller-wrapper #next-small { width: 50px; height: 100%; background-color: rgba(25, 25, 25, 0.7); /* @include hide-text; */ color: #fefefe; opacity: 0.3; position: relative; text-align: center; z-index: 9999999; }
+#big-scroller-wrapper #prev-big:hover, #big-scroller-wrapper #next-big:hover, #big-scroller-wrapper #prev-small:hover, #big-scroller-wrapper #next-small:hover, #small-scroller-wrapper #prev-big:hover, #small-scroller-wrapper #next-big:hover, #small-scroller-wrapper #prev-small:hover, #small-scroller-wrapper #next-small:hover, #page-scroller-wrapper #prev-big:hover, #page-scroller-wrapper #next-big:hover, #page-scroller-wrapper #prev-small:hover, #page-scroller-wrapper #next-small:hover { opacity: 1; }
+#big-scroller-wrapper #small-scroller:hover #prev-small, #big-scroller-wrapper #small-scroller:hover #next-small, #big-scroller-wrapper #page-scroller:hover #prev-small, #big-scroller-wrapper #page-scroller:hover #next-small, #small-scroller-wrapper #small-scroller:hover #prev-small, #small-scroller-wrapper #small-scroller:hover #next-small, #small-scroller-wrapper #page-scroller:hover #prev-small, #small-scroller-wrapper #page-scroller:hover #next-small, #page-scroller-wrapper #small-scroller:hover #prev-small, #page-scroller-wrapper #small-scroller:hover #next-small, #page-scroller-wrapper #page-scroller:hover #prev-small, #page-scroller-wrapper #page-scroller:hover #next-small { opacity: 1; }
+#big-scroller-wrapper #prev-big, #big-scroller-wrapper #prev-small, #small-scroller-wrapper #prev-big, #small-scroller-wrapper #prev-small, #page-scroller-wrapper #prev-big, #page-scroller-wrapper #prev-small { float: left; }
+#big-scroller-wrapper #next-big, #big-scroller-wrapper #next-small, #small-scroller-wrapper #next-big, #small-scroller-wrapper #next-small, #page-scroller-wrapper #next-big, #page-scroller-wrapper #next-small { float: right; }
 
 /** [-] Big Scroller **********************************************************************************/
 #big-scroller-wrapper #prev-big, #big-scroller-wrapper #next-big { padding: 12.1rem 0; }
@@ -724,11 +724,17 @@ footer ul li:last-child:after { content: ""; }
 #book-creation-wrapper #create-book #create-sidebar .tabulous-active { background-color: #fefefe; border-bottom: 1px solid #fefefe !important; font-family: "OpenSansSemibold" !important; }
 #book-creation-wrapper #create-book #create-sidebar .tabulousclear { clear: both; display: block; }
 
-#page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; }
-#page-scroller-wrapper nav { display: none; }
-#page-scroller-wrapper nav #prev-small, #page-scroller-wrapper nav #next-small { height: 0; }
+#page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; 	/*
+	nav {
+		display: none;
+
+		#prev-small, #next-small {
+			height: 0;
+		}
+	}
+	*/ }
 #page-scroller-wrapper #page-scroller { height: 100px; }
-#page-scroller-wrapper #page-scroller .page { float: left; position: relative; }
+#page-scroller-wrapper #page-scroller .page { width: 100px !important; height: 100px !important; float: left; position: relative; }
 #page-scroller-wrapper #page-scroller .page img { width: 100px; height: 100px; }
 
 .redactor_box { background-color: #fefefe; border: 1px solid #cfcfcf; overflow: visible; position: relative; }
