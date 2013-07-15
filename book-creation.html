@@ -79,31 +79,13 @@
 
 					<div id="create-content">
 
-						<div id="create-header">
-							<div class="left">
-								<span>BOOK:</span>
+						<ul id="create-header">
+							<li id="page-edit"><a href="">Edit</a></li>
+							<li id="page-upload"><a href="">Upload</a></li>
+							<li id="page-delete"><a href="">Delete</a></li>
+						</ul>
 
-								<select id="title" name="title">
-									<option value="" selected>California Dreaming</option>
-
-									<option value="01">Book 01</option>
-									<option value="02">Book 02</option>
-									<option value="03">Book 03</option>
-									<option value="04">Book 04</option>
-									<option value="05">Book 05</option>
-									<option value="06">Book 06</option>
-								</select>
-							</div>
-
-							<div class="right">
-								<ul>
-									<li>Edit</li>
-									<li>Upload</li>
-									<li>Delete</li>
-								</ul>
-							</div>
-						</div>
-
+						<div id="live-preview"></div>
 						<img src="images/bg-ii.jpg" alt=""/>
 
 					</div>
@@ -476,6 +458,26 @@
 					plugins: ["fontfamily", "fontsize"]
 				});
 			});
+		</script>
+
+		<script src="scripts/livepreview.js"></script>
+
+		<script>
+			$(function () {
+				$("#text-editor").livePreview({
+					previewElement: $("#live-preview"),
+					allowedTags: ["p", "strong", "br", "em", "strike"],
+					interval: 20
+				});
+			});
+
+			// .redactor_editor || #text-editor
+		</script>
+
+		<script>
+			$(document).ready(function() {
+				$(".redactor_editor").html($("#live-preview").html());
+			}); 
 		</script>
 
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
