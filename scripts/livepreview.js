@@ -16,7 +16,7 @@
 			var preview = $(opts.previewElement[Math.min(i, previewMaxIndex)]);
 
 			textarea.handleKeyUp = function () {
-				textarea.unbind('keyup', textarea.handleKeyUp);
+				textarea.unbind("keyup", textarea.handleKeyUp);
 				if (!preview.updatingPreview) {
 					preview.updatingPreview = true;
 					window.setTimeout(function () {
