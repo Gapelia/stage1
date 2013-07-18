@@ -44,9 +44,7 @@
 			}
 		}
 
-		.modal-input {
-			width: 100% !important;
-		}
+		.modal-input { width: 100% !important; }
 
 		textarea {
 			border: 0;
@@ -64,6 +62,11 @@
 		span {
 			margin: 0 2rem 0 0;
 			&:last-child { margin: 0; }
+		}
+
+		p {
+			margin: 0; padding: 0;
+			line-height: 1.3em;
 		}
 	}
 
