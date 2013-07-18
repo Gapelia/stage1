@@ -87,8 +87,9 @@
 						</ul>
 						/-->
 
-						<!--/ <div id="live-preview"></div> /-->
+						<div id="live-preview"></div>
 
+						<!--/
 						<div id="default-preview">
 							<div class="cover-page">
 								<div class="cover-info">
@@ -101,10 +102,12 @@
 										<li>Relax</li>
 									</ul>
 
-									<p>Eveliquistia di re consequi ni teturias minullabo. Epudandeles aligendiorem estiis aut aut voluptur, quatias magnia doluptate nos dem sam venest qui asi soloreptum ipsandias utecaerum aut quo initassequis et unt exeferi demporitiis <!--//-->magnihilit, idellecea eum quid quas rem nis aut erfero consedion exerum utaspis estor assinis nobit ernatiis. Pel ipiduntios eos sendi cus resto in perupta tendamus id magnimin repudia consequam denda dolut verectectate et ad et.</p>
+									<p>Eveliquistia di re consequi ni teturias minullabo. Epudandeles aligendiorem estiis aut aut voluptur, quatias magnia doluptate nos dem sam venest qui asi soloreptum ipsandias utecaerum aut quo initassequis et unt exeferi demporitiis|magnihilit, idellecea eum quid quas rem nis aut erfero consedion exerum utaspis estor assinis nobit ernatiis. Pel ipiduntios eos sendi cus resto in perupta tendamus id magnimin repudia consequam denda dolut verectectate et ad et.</p>
 								</div>
 							</div>
 						</div>
+						/-->
+
 						<img src="images/bg-ii.jpg" alt=""/>
 
 					</div>
@@ -469,6 +472,7 @@
 			$(function() {
 				// var buttons = ["html", "|", "formatting", "|", "bold", "italic", "deleted", "|", "unorderedlist", "orderedlist", "outdent", "indent", "|", "image", "video", "file", "table", "link", "|", "fontcolor", "backcolor", "|", "alignment", "|", "horizontalrule"];
 
+				/*
 				var buttons = ["fontfamily", "fontcolor", "fontsize", "|", "formatting", "|", "bold", "italic", "deleted", "|", "alignment"];
 
 				$("#text-editor").redactor({
@@ -476,19 +480,37 @@
 					focus: true,
 					plugins: ["fontfamily", "fontsize"]
 				});
+				*/
+
+				$("#text-editor").redactor({
+					syncAfterCallback: function(html) {
+						$("#live-preview").val(html);
+					}
+				});
 			});
 		</script>
 
-		<!--/
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
+			// $(function () {
+				// $("#text-editor").livePreview({
+					// previewElement: $("#live-preview"),
+					// allowedTags: ["p", "strong", "br", "em", "strike"],
+					// interval: 20
+				// });
+			// });
+
+			var livePreviewElem = $("#live-preview");
+			var editorElem = $("#text-editor");
+
+			function livePoller() {
+				setTimeout(livePoller, 300);
+				livePreviewElem.html(editorElem.redactor('get'));
+			}
+
 			$(function () {
-				$("#text-editor").livePreview({
-					previewElement: $("#live-preview"),
-					allowedTags: ["p", "strong", "br", "em", "strike"],
-					interval: 20
-				});
+				livePoller();
 			});
 
 			// .redactor_editor || #text-editor
