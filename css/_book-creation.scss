@@ -144,6 +144,7 @@
 				background-color: rgba($black, 0.7);
 				padding: 1rem;
 				position: absolute;
+				z-index: 235484;
 
 				li {
 					margin: 0 0 1rem 0;
@@ -189,17 +190,26 @@
 				}
 			}
 
-			#live-preview {
-				/* background-color: rgba(#07d0eb, 0.2); */
-				padding: 2rem;
-			}
+			#photo-preview, #phototext-preview {
+				bottom: 0; left: 0;
 
-			#default-preview {
+				background-color: rgba($black, 0.8);
+				color: $white;
+				height: auto;
+				padding: 2rem;
 			}
 
 			#text-preview {
 				background-color: $white;
 				border-right: 1px solid $gray-ii;
+			}
+			
+			#integrated-preview {
+				background-color: rgba($black, 0.8);
+				color: $white;
+				padding: 2rem;
+				right: 0;
+				width: 50%;
 			}
 
 			.cover-page {
