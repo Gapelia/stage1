@@ -169,18 +169,22 @@
 				#page-delete { background-image: url("../images/icon-trash.png"); }
 			}
 
-			#live-preview, #default-preview {
+			#live-preview, #default-preview, #text-preview {
 				width: 100%; height: 100%;
 				position: absolute;
 			}
 
 			#live-preview {
-				background-color: rgba(#07d0eb, 0.2);
+				/* background-color: rgba(#07d0eb, 0.2); */
 				padding: 2rem;
 			}
 
 			#default-preview {
-				/* background-color: rgba($white, 0.5); */
+			}
+
+			#text-preview {
+				background-color: $white;
+				border-right: 1px solid $gray-ii;
 			}
 
 			.cover-page {
