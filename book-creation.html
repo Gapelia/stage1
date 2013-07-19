@@ -393,7 +393,7 @@
 
 				$("#text-editor").redactor({
 					syncAfterCallback: function(html) {
-						$("#live-preview").val(html);
+						$("#live-preview, #text-preview, #default-preview").val(html);
 					},
 					buttons: buttons,
 					focus: true,
@@ -405,7 +405,7 @@
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
-			var livePreviewElem = $("#live-preview");
+			var livePreviewElem = $("#live-preview, #text-preview, #default-preview");
 			var editorElem = $("#text-editor");
 
 			function livePoller() {
