@@ -79,40 +79,57 @@
 
 					<div id="create-content">
 
-						<!--/
-						<ul id="create-header">
-							<li id="page-edit"><a href="">Edit</a></li>
-							<li id="page-upload"><a href="">Upload</a></li>
-							<li id="page-delete"><a href="">Delete</a></li>
-						</ul>
-						/-->
+						<section id="photo-preview-wrapper">
+							<ul class="create-header">
+								<li id="page-edit"><a href="">Edit</a></li>
+								<li id="page-upload"><a href="">Upload</a></li>
+								<li id="page-delete"><a href="">Delete</a></li>
+							</ul>
 
-						<!--/ <div id="live-preview"></div> /-->
-
-						<div id="text-preview">
-						
-						</div>
-
-						<!--/
-						<div id="default-preview">
-							<div class="cover-page">
-								<div class="cover-info">
-									<h1>Beach Bum</h1>
-									<h3>by <span>Anne Latini</span></h3>
-
-									<ul class="cover-lifestyle">
-										<li>Beaches</li>
-										<li>International</li>
-										<li>Relax</li>
-									</ul>
-
-									<p>Eveliquistia di re consequi ni teturias minullabo. Epudandeles aligendiorem estiis aut aut voluptur, quatias magnia doluptate nos dem sam venest qui asi soloreptum ipsandias utecaerum aut quo initassequis et unt exeferi demporitiis|magnihilit, idellecea eum quid quas rem nis aut erfero consedion exerum utaspis estor assinis nobit ernatiis. Pel ipiduntios eos sendi cus resto in perupta tendamus id magnimin repudia consequam denda dolut verectectate et ad et.</p>
-								</div>
+							<div id="photo-preview">
 							</div>
-						</div>
-						/-->
 
-						<img src="images/bg-ii.jpg" alt=""/>
+							<img src="images/bg-ii.jpg" alt=""/>
+						</section>
+
+						<section id="text-preview-wrapper">
+							<ul class="create-header">
+								<li id="page-edit"><a href="">Edit</a></li>
+								<li id="page-upload"><a href="">Upload</a></li>
+								<li id="page-delete"><a href="">Delete</a></li>
+							</ul>
+
+							<div id="text-preview">
+							</div>
+
+							<img src="images/bg.jpg" alt=""/>
+						</section>
+
+						<section id="phototext-preview-wrapper">
+							<ul class="create-header">
+								<li id="page-edit"><a href="">Edit</a></li>
+								<li id="page-upload"><a href="">Upload</a></li>
+								<li id="page-delete"><a href="">Delete</a></li>
+							</ul>
+
+							<div id="phototext-preview">
+							</div>
+
+							<img src="images/bg-iii.jpg" alt=""/>
+						</section>
+
+						<section id="integrated-preview-wrapper">
+							<ul class="create-header">
+								<li id="page-edit"><a href="">Edit</a></li>
+								<li id="page-upload"><a href="">Upload</a></li>
+								<li id="page-delete"><a href="">Delete</a></li>
+							</ul>
+
+							<div id="integrated-preview">
+							</div>
+
+							<img src="images/bg.jpg" alt=""/>
+						</section>
 
 					</div>
 
@@ -145,11 +162,14 @@
 									<section id="view-mode">
 										<p>View Mode:</p>
 
-										<input type="radio" id="bc-photo" name="rr"/>
+										<input type="radio" id="bc-photo" name="rr" checked/>
 										<label for="bc-photo"><span></span>Photo</label>
 
 										<input type="radio" id="bc-text" name="rr"/>
 										<label for="bc-text"><span></span>Text</label>
+
+										<input type="radio" id="bc-phototext" name="rr"/>
+										<label for="bc-phototext"><span></span>Photo/Text</label>
 
 										<input type="radio" id="bc-integrated" name="rr"/>
 										<label for="bc-integrated"><span></span>Integrated</label>
@@ -393,7 +413,7 @@
 
 				$("#text-editor").redactor({
 					syncAfterCallback: function(html) {
-						$("#live-preview, #text-preview, #default-preview").val(html);
+						$("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview").val(html);
 					},
 					buttons: buttons,
 					focus: true,
@@ -405,16 +425,40 @@
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
-			var livePreviewElem = $("#live-preview, #text-preview, #default-preview");
+			var livePreviewElem = $("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview");
 			var editorElem = $("#text-editor");
 
 			function livePoller() {
 				setTimeout(livePoller, 300);
-				livePreviewElem.html(editorElem.redactor('get'));
+				livePreviewElem.html(editorElem.redactor("get"));
 			}
 
 			$(function () {
 				livePoller();
+			});
+		</script>
+
+		<script>
+			$(document).ready(function () {
+				$("#bc-photo").change(function () {
+					$("#text-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#photo-preview-wrapper").show();
+				});
+				
+				$("#bc-text").change(function () {
+					$("#photo-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#text-preview-wrapper").show();
+				});
+				
+				$("#bc-phototext").change(function () {
+					$("#text-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#phototext-preview-wrapper").show();
+				});
+				
+				$("#bc-integrated").change(function () {
+					$("#text-preview-wrapper, #phototext-preview-wrapper, #photo-preview-wrapper").hide();
+					$("#integrated-preview-wrapper").show();
+				});
 			});
 		</script>
 
