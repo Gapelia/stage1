@@ -1,0 +1,16 @@
+.md-modal {
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.md-overlay { -webkit-transition: all 0.3s; }
+
+/* Individual modal styles with animations/transitions */
+
+/* Effect 1: Fade in and scale up */
+.md-effect-1 .md-content {
+	-webkit-transform: scale(0.7);
+	-webkit-transition: all 0.3s;
+}
+
+.md-show.md-effect-1 .md-content { -webkit-transform: scale(1); }

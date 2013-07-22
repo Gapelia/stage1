@@ -154,7 +154,7 @@
 					background-color: rgba($black, 0.7);
 					padding: 1rem;
 					position: absolute;
-					z-index: 235484;
+					z-index: 235;
 
 					li {
 						margin: 0 0 1rem 0;
@@ -359,9 +359,7 @@
 						width: 50%;
 					}
 
-					label {
-						font-size: 14px;
-					}
+					label { font-size: 14px; }
 
 					input {
 						background-color: $white;
