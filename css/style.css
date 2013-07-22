@@ -268,146 +268,135 @@ img { width: 100%; height: auto; border-style: none;
 .video-container { margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; position: relative; }
 .video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
 
-/* General styles for the modal */
-/*
-	Styles for the html/body for special modal where we want 3d effects
-	Note that we need a container wrapping all content on the page for the
-	perspective effects (not including the modals and the overlay).
-*/
+/*************************************************************************************** MODAL/SCSS **/
+/**************************************************************************** DEFAULT MODAL STYLING **/
 .md-perspective, .md-perspective body { height: 100%; overflow: hidden; }
 
-.md-perspective body { background: #222; perspective: 600px; }
+.md-perspective body { background-color: #222; perspective: 600px; }
 
-.container { background: #e74c3c; min-height: 100%; }
-
+/* .container { background: #e74c3c; min-height: 100%; } */
 .md-modal { width: 50%; max-width: 630px; min-width: 320px; height: auto; top: 50%; left: 50%; backface-visibility: hidden; position: fixed; transform: translateX(-50%) translateY(-50%); visibility: hidden; z-index: 2000; }
 
 .md-show { visibility: visible; }
 
-.md-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(143, 27, 15, 0.8); opacity: 0; position: fixed; transition: all 0.3s; visibility: hidden; z-index: 1000; }
+.md-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.8); opacity: 0; position: fixed; transition: all 0.3s; visibility: hidden; z-index: 1000; }
 
 .md-show ~ .md-overlay { opacity: 1; visibility: visible; }
 
-/* Content styles */
-.md-content { background: #e74c3c; border-radius: 3px; color: #fefefe; margin: 0 auto; position: relative; }
+/** CONTENT STYLING **********************************************************************************/
+.md-content { background-color: #585959; border-radius: 3px; color: #fefefe; margin: 0 auto; position: relative; }
+.md-content h3 { margin: 0; padding: 0.4em; background-color: rgba(25, 25, 25, 0.8); border-radius: 3px 3px 0 0; font-size: 2.4em; font-weight: 300; opacity: 0.8; text-align: center; }
+.md-content div { margin: 0; padding: 15px 40px 30px; font-size: 1.15em; font-weight: 300; }
+.md-content div p { margin: 0; padding: 10px 0; }
+.md-content div ul { margin: 0; padding: 0 0 30px 20px; }
+.md-content div ul li { padding: 5px 0; }
+.md-content div button { display: block; font-size: 0.8em; margin: 0 auto; }
 
-.md-content h3 { margin: 0; padding: 0.4em; background: rgba(0, 0, 0, 0.1); border-radius: 3px 3px 0 0; font-size: 2.4em; font-weight: 300; opacity: 0.8; text-align: center; }
-
-.md-content > div { margin: 0; padding: 15px 40px 30px; font-size: 1.15em; font-weight: 300; }
-
-.md-content > div p { margin: 0; padding: 10px 0; }
-
-.md-content > div ul { margin: 0; padding: 0 0 30px 20px; }
-
-.md-content > div ul li { padding: 5px 0; }
-
-.md-content button { display: block; font-size: 0.8em; margin: 0 auto; }
-
-/* Individual modal styles with animations/transitions */
-/* Effect 1: Fade in and scale up */
+/************************************************************************* INDIVIDUAL MODAL STYLING **/
+/** FADE IN + SCALE UP *******************************************************************************/
 .md-effect-1 .md-content { opacity: 0; transform: scale(0.7); transition: all 0.3s; }
 
 .md-show.md-effect-1 .md-content { opacity: 1; transform: scale(1); }
 
-/* Effect 2: Slide from the right */
+/** SLIDE FROM THE RIGHT *****************************************************************************/
 .md-effect-2 .md-content { opacity: 0; transform: translateX(20%); transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9); }
 
 .md-show.md-effect-2 .md-content { opacity: 1; transform: translateX(0); }
 
-/* Effect 3: Slide from the bottom */
+/** SLIDE FROM THE BOTTOM ****************************************************************************/
 .md-effect-3 .md-content { opacity: 0; transform: translateY(20%); transition: all 0.3s; }
 
 .md-show.md-effect-3 .md-content { opacity: 1; transform: translateY(0); }
 
-/* Effect 4: Newspaper */
+/** NEWSPAPER ****************************************************************************************/
 .md-effect-4 .md-content { opacity: 0; transform: scale(0) rotate(720deg); }
 
 .md-show.md-effect-4 ~ .md-overlay, .md-effect-4 .md-content { transition: all 0.5s; }
 
 .md-show.md-effect-4 .md-content { opacity: 1; transform: scale(1) rotate(0deg); }
 
-/* Effect 5: fall */
+/** FALL *********************************************************************************************/
 .md-effect-5.md-modal { perspective: 1300px; }
 
 .md-effect-5 .md-content { opacity: 0; transform: translateZ(600px) rotateX(20deg); transform-style: preserve-3d; }
 
 .md-show.md-effect-5 .md-content { opacity: 1; transform: translateZ(0px) rotateX(0deg); transition: all 0.3s ease-in; }
 
-/* Effect 6: side fall */
+/** SIDE FALL ****************************************************************************************/
 .md-effect-6.md-modal { perspective: 1300px; }
 
 .md-effect-6 .md-content { opacity: 0; transform: translate(30%) translateZ(600px) rotate(10deg); transform-style: preserve-3d; }
 
 .md-show.md-effect-6 .md-content { opacity: 1; transform: translate(0%) translateZ(0) rotate(0deg); transition: all 0.3s ease-in; }
 
-/* Effect 7:  slide and stick to top */
+/** SLIDE + STICK TO TOP *****************************************************************************/
 .md-effect-7 { top: 0; transform: translateX(-50%); }
 
 .md-effect-7 .md-content { opacity: 0; transform: translateY(-200%); transition: all .3s; }
 
 .md-show.md-effect-7 .md-content { border-radius: 0 0 3px 3px; opacity: 1; transform: translateY(0%); }
 
-/* Effect 8: 3D flip horizontal */
+/** HORIZONTAL 3D FLIP *******************************************************************************/
 .md-effect-8.md-modal { perspective: 1300px; }
 
 .md-effect-8 .md-content { opacity: 0; transform: rotateY(-70deg); transform-style: preserve-3d; transition: all 0.3s; }
 
 .md-show.md-effect-8 .md-content { opacity: 1; transform: rotateY(0deg); }
 
-/* Effect 9: 3D flip vertical */
+/** VERTICAL 3D FLIP *********************************************************************************/
 .md-effect-9.md-modal { perspective: 1300px; }
 
 .md-effect-9 .md-content { opacity: 0; transform: rotateX(-70deg); transform-style: preserve-3d; transition: all 0.3s; }
 
 .md-show.md-effect-9 .md-content { opacity: 1; transform: rotateX(0deg); }
 
-/* Effect 10: 3D sign */
+/** 3D SIGN ******************************************************************************************/
 .md-effect-10.md-modal { perspective: 1300px; }
 
 .md-effect-10 .md-content { opacity: 0; transform: rotateX(-60deg); transform-origin: 50% 0; transform-style: preserve-3d; transition: all 0.3s; }
 
 .md-show.md-effect-10 .md-content { opacity: 1; transform: rotateX(0deg); }
 
-/* Effect 11: Super scaled */
+/** SUPER SCALED *************************************************************************************/
 .md-effect-11 .md-content { opacity: 0; transform: scale(2); transition: all 0.3s; }
 
 .md-show.md-effect-11 .md-content { opacity: 1; transform: scale(1); }
 
-/* Effect 12:  Just me */
+/** JUST ME ******************************************************************************************/
 .md-effect-12 .md-content { opacity: 0; transform: scale(0.8); transition: all 0.3s; }
 
-.md-show.md-effect-12 ~ .md-overlay { background-color: #e74c3c; }
+.md-show.md-effect-12 ~ .md-overlay { background-color: #191919; }
 
 .md-effect-12 .md-content h3, .md-effect-12 .md-content { background-color: transparent; }
 
 .md-show.md-effect-12 .md-content { opacity: 1; transform: scale(1); }
 
-/* Effect 13: 3D slit */
+/** 3D SLIT ******************************************************************************************/
 .md-effect-13.md-modal { perspective: 1300px; }
 
 .md-effect-13 .md-content { opacity: 0; transform: translateZ(-3000px) rotateY(90deg); transform-style: preserve-3d; }
 
-.md-show.md-effect-13 .md-content { animation: slit .7s forwards ease-out; }
+.md-show.md-effect-13 .md-content { animation: slit 0.7s forwards ease-out; }
 
 @keyframes slit { 50% { animation-timing-function: ease-in; opacity: 1; transform: translateZ(-250px) rotateY(89deg); }
   100% { opacity: 1; transform: translateZ(0) rotateY(0deg); } }
 
-/* Effect 14:  3D Rotate from bottom */
+/** 3D ROTATE FROM BOTTOM ****************************************************************************/
 .md-effect-14.md-modal { perspective: 1300px; }
 
 .md-effect-14 .md-content { opacity: 0; transform: translateY(100%) rotateX(90deg); transform-origin: 0 100%; transform-style: preserve-3d; transition: all 0.3s ease-out; }
 
 .md-show.md-effect-14 .md-content { opacity: 1; transform: translateY(0%) rotateX(0deg); }
 
-/* Effect 15:  3D Rotate in from left */
+/** 3D ROTATE FROM LEFT ******************************************************************************/
 .md-effect-15.md-modal { perspective: 1300px; }
 
 .md-effect-15 .md-content { opacity: 0; transform: translateZ(100px) translateX(-30%) rotateY(90deg); transform-origin: 0 100%; transform-style: preserve-3d; transition: all 0.3s; }
 
 .md-show.md-effect-15 .md-content { opacity: 1; transform: translateZ(0px) translateX(0%) rotateY(0deg); }
 
-/* Effect 16:  Blur */
-.md-show.md-effect-16 ~ .md-overlay { background: rgba(180, 46, 32, 0.5); }
+/** BLUR *********************************************************************************************/
+.md-show.md-effect-16 ~ .md-overlay { background-color: rgba(25, 25, 25, 0.5); }
 
 .md-show.md-effect-16 ~ .container { filter: blur(3px); }
 
@@ -417,7 +406,7 @@ img { width: 100%; height: auto; border-style: none;
 
 .md-show.md-effect-16 .md-content { opacity: 1; transform: translateY(0); }
 
-/* Effect 17:  Slide in from bottom with perspective on container */
+/** BOTTOM SLIDE + PERSPECTIVE ***********************************************************************/
 .md-show.md-effect-17 ~ .container { height: 100%; overflow: hidden; transition: transform 0.3s; }
 
 .md-show.md-effect-17 ~ .container, .md-show.md-effect-17 ~ .md-overlay { transform: rotateX(-2deg); transform-origin: 50% 0%; transform-style: preserve-3d; }
@@ -426,10 +415,10 @@ img { width: 100%; height: auto; border-style: none;
 
 .md-show.md-effect-17 .md-content { opacity: 1; transform: translateY(0); transition: all 0.3s 0.2s; }
 
-/* Effect 18:  Slide from right with perspective on container */
+/** RIGHT SLIDE + PERSPECTIVE ************************************************************************/
 .md-show.md-effect-18 ~ .container { height: 100%; overflow: hidden; }
 
-.md-show.md-effect-18 ~ .md-overlay { background: rgba(143, 27, 15, 0.8); transition: all 0.5s; }
+.md-show.md-effect-18 ~ .md-overlay { background: rgba(25, 25, 25, 0.8); transition: all 0.5s; }
 
 .md-show.md-effect-18 ~ .container, .md-show.md-effect-18 ~ .md-overlay { animation: rotateRightSideFirst 0.5s forwards ease-in; transform-origin: 0% 50%; transform-style: preserve-3d; }
 
@@ -440,7 +429,7 @@ img { width: 100%; height: auto; border-style: none;
 
 .md-show.md-effect-18 .md-content { opacity: 1; transform: translateX(0); transition: all 0.5s 0.1s; }
 
-/* Effect 19:  Slip in from the top with perspective on container */
+/** TOP SLIDE + PERSPECTIVE **************************************************************************/
 .md-show.md-effect-19 ~ .container { height: 100%; overflow: hidden; }
 
 .md-show.md-effect-19 ~ .md-overlay { transition: all 0.5s; }
@@ -453,7 +442,11 @@ img { width: 100%; height: auto; border-style: none;
 
 .md-show.md-effect-19 .md-content { opacity: 1; transform: translateY(0); transition: all 0.5s 0.1s; }
 
-@media screen and (max-width: 32em) { body { font-size: 75%; } }
+/*
+@media screen and (max-width: 32em) {
+	body { font-size: 75%; }
+}
+*/
 /** [-] Table of Contents *****************************************************************************/
 /****** [+] Let's get started
 						[-] Header
@@ -1235,12 +1228,149 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   #book-creation-wrapper #create-book #create-sidebar .redactor_box .redactor_editor { height: 230px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }
+/*************************************************************************************** SHAME/SCSS **/
+/****************************** FOR THOSE BROWSERS THAT STILL NEED VENDOR PREFIXES TO WORK. PUSSIES **/
+/**************************************************************************** DEFAULT MODAL STYLING **/
 .md-modal { -webkit-backface-visibility: hidden; -webkit-transform: translateX(-50%) translateY(-50%); }
 
 .md-overlay { -webkit-transition: all 0.3s; }
 
-/* Individual modal styles with animations/transitions */
-/* Effect 1: Fade in and scale up */
+/************************************************************************* INDIVIDUAL MODAL STYLING **/
+/** FADE IN + SCALE UP *******************************************************************************/
 .md-effect-1 .md-content { -webkit-transform: scale(0.7); -webkit-transition: all 0.3s; }
 
 .md-show.md-effect-1 .md-content { -webkit-transform: scale(1); }
+
+/** SLIDE FROM THE RIGHT *****************************************************************************/
+.md-effect-2 .md-content { -webkit-transform: translateX(20%); -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9); }
+
+.md-show.md-effect-2 .md-content { -webkit-transform: translateX(0); }
+
+/** SLIDE FROM THE BOTTOM ****************************************************************************/
+.md-effect-3 .md-content { -webkit-transform: translateY(20%); -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-3 .md-content { -webkit-transform: translateY(0); }
+
+/** NEWSPAPER ****************************************************************************************/
+.md-effect-4 .md-content { -webkit-transform: scale(0) rotate(720deg); }
+
+.md-show.md-effect-4 ~ .md-overlay, .md-effect-4 .md-content { -webkit-transition: all 0.5s; }
+
+.md-show.md-effect-4 .md-content { -webkit-transform: scale(1) rotate(0deg); }
+
+/** FALL *********************************************************************************************/
+.md-effect-5.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-5 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: translateZ(600px) rotateX(20deg); }
+
+.md-show.md-effect-5 .md-content { -webkit-transition: all 0.3s ease-in; -webkit-transform: translateZ(0px) rotateX(0deg); }
+
+/** SIDE FALL ****************************************************************************************/
+.md-effect-6.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-6 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: translate(30%) translateZ(600px) rotate(10deg); }
+
+.md-show.md-effect-6 .md-content { -webkit-transition: all 0.3s ease-in; -webkit-transform: translate(0%) translateZ(0) rotate(0deg); }
+
+/** SLIDE + STICK TO TOP *****************************************************************************/
+.md-effect-7 { -webkit-transform: translateX(-50%); }
+
+.md-effect-7 .md-content { -webkit-transform: translateY(-200%); -webkit-transition: all .3s; }
+
+.md-show.md-effect-7 .md-content { -webkit-transform: translateY(0%); }
+
+/** HORIZONTAL 3D FLIP *******************************************************************************/
+.md-effect-8.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-8 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: rotateY(-70deg); -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-8 .md-content { -webkit-transform: rotateY(0deg); }
+
+/** VERTICAL 3D FLIP *********************************************************************************/
+.md-effect-9.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-9 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: rotateX(-70deg); -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-9 .md-content { -webkit-transform: rotateX(0deg); }
+
+/** 3D SIGN ******************************************************************************************/
+.md-effect-10.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-10 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: rotateX(-60deg); -webkit-transform-origin: 50% 0; -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-10 .md-content { -webkit-transform: rotateX(0deg); }
+
+/** SUPER SCALED *************************************************************************************/
+.md-effect-11 .md-content { -webkit-transform: scale(2); -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-11 .md-content { -webkit-transform: scale(1); }
+
+/** JUST ME ******************************************************************************************/
+.md-effect-12 .md-content { -webkit-transform: scale(0.8); -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-12 .md-content { -webkit-transform: scale(1); }
+
+/** 3D SLIT ******************************************************************************************/
+.md-effect-13.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-13 .md-content { -webkit-transform-style: preserve-3d; -webkit-transform: translateZ(-3000px) rotateY(90deg); }
+
+.md-show.md-effect-13 .md-content { -webkit-animation: slit .7s forwards ease-out; }
+
+@-webkit-keyframes slit { 50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: 0.5; }
+  100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; } }
+
+/** 3D ROTATE FROM BOTTOM ****************************************************************************/
+.md-effect-14.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-14 .md-content { -webkit-transform: translateY(100%) rotateX(90deg); -webkit-transform-origin: 0 100%; -webkit-transform-style: preserve-3d; -webkit-transition: all 0.3s ease-out; }
+
+.md-show.md-effect-14 .md-content { -webkit-transform: translateY(0%) rotateX(0deg); }
+
+/** 3D ROTATE FROM LEFT ******************************************************************************/
+.md-effect-15.md-modal { -webkit-perspective: 1300px; }
+
+.md-effect-15 .md-content { -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg); -webkit-transform-origin: 0 100%; -webkit-transform-style: preserve-3d; -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-15 .md-content { -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg); }
+
+/** BLUR *********************************************************************************************/
+.md-show.md-effect-16 ~ .container { -webkit-filter: blur(3px); }
+
+.md-effect-16 .md-content { -webkit-transform: translateY(-5%); }
+
+.md-show.md-effect-16 ~ .container, .md-effect-16 .md-content { -webkit-transition: all 0.3s; }
+
+.md-show.md-effect-16 .md-content { -webkit-transform: translateY(0); }
+
+/** BOTTOM SLIDE + PERSPECTIVE ***********************************************************************/
+.md-show.md-effect-17 ~ .container { -webkit-transition: -webkit-transform 0.3s; }
+
+.md-show.md-effect-17 ~ .container, .md-show.md-effect-17 ~ .md-overlay { -webkit-transform: rotateX(-2deg); -webkit-transform-origin: 50% 0%; -webkit-transform-style: preserve-3d; }
+
+.md-effect-17 .md-content { -webkit-transform: translateY(200%); }
+
+.md-show.md-effect-17 .md-content { -webkit-transform: translateY(0); -webkit-transition: all 0.3s 0.2s; }
+
+/** RIGHT SLIDE + PERSPECTIVE ************************************************************************/
+.md-show.md-effect-18 ~ .md-overlay { -webkit-transition: all 0.5s; }
+
+.md-show.md-effect-18 ~ .container, .md-show.md-effect-18 ~ .md-overlay { -webkit-animation: rotateRightSideFirst 0.5s forwards ease-in; -webkit-transform-origin: 0% 50%; -webkit-transform-style: preserve-3d; }
+
+@-webkit-keyframes rotateRightSideFirst { 50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateZ(-50px) rotateY(5deg); }
+  100% { -webkit-transform: translateZ(-200px); } }
+
+.md-effect-18 .md-content { -webkit-transform: translateX(200%); }
+
+.md-show.md-effect-18 .md-content { -webkit-transform: translateX(0); -webkit-transition: all 0.5s 0.1s; }
+
+/** TOP SLIDE + PERSPECTIVE **************************************************************************/
+.md-show.md-effect-19 ~ .md-overlay { -webkit-transition: all 0.5s; }
+
+.md-show.md-effect-19 ~ .container, .md-show.md-effect-19 ~ .md-overlay { -webkit-animation: OpenTop 0.5s forwards ease-in; -webkit-transform-origin: 50% 100%; -webkit-transform-style: preserve-3d; }
+
+@-webkit-keyframes OpenTop { 50% { -webkit-animation-timing-function: ease-out; -webkit-transform: rotateX(10deg); } }
+
+.md-effect-19 .md-content { -webkit-transform: translateY(-200%); }
+
+.md-show.md-effect-19 .md-content { -webkit-transform: translateY(0); -webkit-transition: all 0.5s 0.1s; }

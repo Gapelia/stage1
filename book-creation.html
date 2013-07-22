@@ -430,19 +430,6 @@
 		<div class="md-overlay"></div>
 
 		<!--/ scripts																																					 /-->
-		
-		<script src="scripts/modal/classie.js"></script>
-		<script src="scripts/modal/modalEffects.js"></script>
-
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
-			// this is important for IEs
-			var polyfilter_scriptpath = "/scripts/modal/";
-		</script>
-
-		<script src="scripts/modal/cssParser.js"></script>
-		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
 		<script src="scripts/carouFredSel.js"></script>
 
@@ -527,6 +514,18 @@
 		<script>
 			$(".pp-bg").aspectRatio({ scale: true });
 		</script>
+
+		<!--/ scripts/modal																																		 /-->
+
+		<script src="scripts/modal/classie.js"></script>
+		<script src="scripts/modal/modalEffects.js"></script>
+
+		<script>
+			var polyfilter_scriptpath = "/scripts/modal/"; // important for IEs
+		</script>
+
+		<script src="scripts/modal/cssParser.js"></script>
+		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
 		<!--/ Reveal.js conflicts with Redactor. Poo.

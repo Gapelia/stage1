@@ -1,25 +1,19 @@
-/* General styles for the modal */
 
-/*
-	Styles for the html/body for special modal where we want 3d effects
-	Note that we need a container wrapping all content on the page for the
-	perspective effects (not including the modals and the overlay).
-*/
+/*************************************************************************************** MODAL/SCSS **/
+
+/**************************************************************************** DEFAULT MODAL STYLING **/
 
 .md-perspective, .md-perspective body {
 	height: 100%;
 	overflow: hidden;
 }
 
-.md-perspective body  {
-	background: #222;
+.md-perspective body {
+	background-color: #222;
 	perspective: 600px;
 }
 
-.container {
-	background: #e74c3c;
-	min-height: 100%;
-}
+/* .container { background: #e74c3c; min-height: 100%; } */
 
 .md-modal {
 	width: 50%; max-width: 630px; min-width: 320px; height: auto;
@@ -38,7 +32,7 @@
 	width: 100%; height: 100%;
 	top: 0; left: 0;
 
-	background-color: rgba(143, 27, 15, 0.8);
+	background-color: rgba($black, 0.8);
 	opacity: 0;
 	position: fixed;
 	transition: all 0.3s;
@@ -51,52 +45,53 @@
 	visibility: visible;
 }
 
-/* Content styles */
+/** CONTENT STYLING **********************************************************************************/
+
 .md-content {
-	background: #e74c3c;
+	background-color: $gray-v;
 	border-radius: 3px;
-	color: #fefefe;
+	color: $white;
 	margin: 0 auto;
 	position: relative;
+
+	h3 {
+		margin: 0; padding: 0.4em;
+
+		background-color: rgba($black, 0.8);
+		border-radius: 3px 3px 0 0;
+		font-size: 2.4em;
+		font-weight: 300;
+		opacity: 0.8;
+		text-align: center;
+	}
+
+	div {
+		margin: 0; padding: 15px 40px 30px;
+
+		font-size: 1.15em;
+		font-weight: 300;
+
+		p {
+			margin: 0; padding: 10px 0;
+		}
+
+		ul {
+			margin: 0; padding: 0 0 30px 20px;
+			li { padding: 5px 0; }
+		}
+
+		button {
+			display: block;
+			font-size: 0.8em;
+			margin: 0 auto;
+		}
+	}
 }
 
-.md-content h3 {
-	margin: 0; padding: 0.4em;
+/************************************************************************* INDIVIDUAL MODAL STYLING **/
 
-	background: rgba(0, 0, 0, 0.1);
-	border-radius: 3px 3px 0 0;
-	font-size: 2.4em;
-	font-weight: 300;
-	opacity: 0.8;
-	text-align: center;
-}
+/** FADE IN + SCALE UP *******************************************************************************/
 
-.md-content > div {
-	margin: 0; padding: 15px 40px 30px;
-
-	font-size: 1.15em;
-	font-weight: 300;
-}
-
-.md-content > div p {
-	margin: 0; padding: 10px 0;
-}
-
-.md-content > div ul {
-	margin: 0; padding: 0 0 30px 20px;
-}
-
-.md-content > div ul li { padding: 5px 0; }
-
-.md-content button {
-	display: block;
-	font-size: 0.8em;
-	margin: 0 auto;
-}
-
-/* Individual modal styles with animations/transitions */
-
-/* Effect 1: Fade in and scale up */
 .md-effect-1 .md-content {
 	opacity: 0;
 	transform: scale(0.7);
@@ -108,7 +103,8 @@
 	transform: scale(1);
 }
 
-/* Effect 2: Slide from the right */
+/** SLIDE FROM THE RIGHT *****************************************************************************/
+
 .md-effect-2 .md-content {
 	opacity: 0;
 	transform: translateX(20%);
@@ -120,7 +116,8 @@
 	transform: translateX(0);
 }
 
-/* Effect 3: Slide from the bottom */
+/** SLIDE FROM THE BOTTOM ****************************************************************************/
+
 .md-effect-3 .md-content {
 	opacity: 0;
 	transform: translateY(20%);
@@ -132,7 +129,8 @@
 	transform: translateY(0);
 }
 
-/* Effect 4: Newspaper */
+/** NEWSPAPER ****************************************************************************************/
+
 .md-effect-4 .md-content {
 	opacity: 0;
 	transform: scale(0) rotate(720deg);
@@ -146,7 +144,8 @@
 	transform: scale(1) rotate(0deg);
 }
 
-/* Effect 5: fall */
+/** FALL *********************************************************************************************/
+
 .md-effect-5.md-modal { perspective: 1300px; }
 
 .md-effect-5 .md-content {
@@ -161,7 +160,8 @@
 	transition: all 0.3s ease-in;
 }
 
-/* Effect 6: side fall */
+/** SIDE FALL ****************************************************************************************/
+
 .md-effect-6.md-modal { perspective: 1300px; }
 
 .md-effect-6 .md-content {
@@ -176,7 +176,8 @@
 	transition: all 0.3s ease-in;
 }
 
-/* Effect 7:  slide and stick to top */
+/** SLIDE + STICK TO TOP *****************************************************************************/
+
 .md-effect-7 {
 	top: 0;
 	transform: translateX(-50%);
@@ -194,7 +195,8 @@
 	transform: translateY(0%);
 }
 
-/* Effect 8: 3D flip horizontal */
+/** HORIZONTAL 3D FLIP *******************************************************************************/
+
 .md-effect-8.md-modal { perspective: 1300px; }
 
 .md-effect-8 .md-content {
@@ -209,7 +211,8 @@
 	transform: rotateY(0deg);
 }
 
-/* Effect 9: 3D flip vertical */
+/** VERTICAL 3D FLIP *********************************************************************************/
+
 .md-effect-9.md-modal { perspective: 1300px; }
 
 .md-effect-9 .md-content {
@@ -224,7 +227,8 @@
 	transform: rotateX(0deg);
 }
 
-/* Effect 10: 3D sign */
+/** 3D SIGN ******************************************************************************************/
+
 .md-effect-10.md-modal { perspective: 1300px; }
 
 .md-effect-10 .md-content {
@@ -240,7 +244,8 @@
 	transform: rotateX(0deg);
 }
 
-/* Effect 11: Super scaled */
+/** SUPER SCALED *************************************************************************************/
+
 .md-effect-11 .md-content {
 	opacity: 0;
 	transform: scale(2);
@@ -252,15 +257,15 @@
 	transform: scale(1);
 }
 
-/* Effect 12:  Just me */
+/** JUST ME ******************************************************************************************/
+
 .md-effect-12 .md-content {
 	opacity: 0;
 	transform: scale(0.8);
 	transition: all 0.3s;
 }
 
-.md-show.md-effect-12 ~ .md-overlay { background-color: #e74c3c; }
-
+.md-show.md-effect-12 ~ .md-overlay { background-color: $black; }
 .md-effect-12 .md-content h3, .md-effect-12 .md-content { background-color: transparent; }
 
 .md-show.md-effect-12 .md-content {
@@ -268,7 +273,8 @@
 	transform: scale(1);
 }
 
-/* Effect 13: 3D slit */
+/** 3D SLIT ******************************************************************************************/
+
 .md-effect-13.md-modal { perspective: 1300px; }
 
 .md-effect-13 .md-content {
@@ -277,7 +283,7 @@
 	transform-style: preserve-3d;
 }
 
-.md-show.md-effect-13 .md-content { animation: slit .7s forwards ease-out; }
+.md-show.md-effect-13 .md-content { animation: slit 0.7s forwards ease-out; }
 
 @keyframes slit {
 	50% {
@@ -292,7 +298,8 @@
 	}
 }
 
-/* Effect 14:  3D Rotate from bottom */
+/** 3D ROTATE FROM BOTTOM ****************************************************************************/
+
 .md-effect-14.md-modal { perspective: 1300px; }
 
 .md-effect-14 .md-content {
@@ -308,7 +315,8 @@
 	transform: translateY(0%) rotateX(0deg);
 }
 
-/* Effect 15:  3D Rotate in from left */
+/** 3D ROTATE FROM LEFT ******************************************************************************/
+
 .md-effect-15.md-modal { perspective: 1300px; }
 
 .md-effect-15 .md-content {
@@ -324,8 +332,9 @@
 	transform: translateZ(0px) translateX(0%) rotateY(0deg);
 }
 
-/* Effect 16:  Blur */
-.md-show.md-effect-16 ~ .md-overlay { background: rgba(180, 46, 32, 0.5); }
+/** BLUR *********************************************************************************************/
+
+.md-show.md-effect-16 ~ .md-overlay { background-color: rgba($black, 0.5); }
 .md-show.md-effect-16 ~ .container { filter: blur(3px); }
 
 .md-effect-16 .md-content {
@@ -340,14 +349,15 @@
 	transform: translateY(0);
 }
 
-/* Effect 17:  Slide in from bottom with perspective on container */
+/** BOTTOM SLIDE + PERSPECTIVE ***********************************************************************/
+
 .md-show.md-effect-17 ~ .container {
 	height: 100%;
 	overflow: hidden;
 	transition: transform 0.3s;
 }	
 
-.md-show.md-effect-17 ~ .container, .md-show.md-effect-17 ~ .md-overlay  {
+.md-show.md-effect-17 ~ .container, .md-show.md-effect-17 ~ .md-overlay {
 	transform: rotateX(-2deg);
 	transform-origin: 50% 0%;
 	transform-style: preserve-3d;
@@ -364,14 +374,15 @@
 	transition: all 0.3s 0.2s;
 }
 
-/* Effect 18:  Slide from right with perspective on container */
+/** RIGHT SLIDE + PERSPECTIVE ************************************************************************/
+
 .md-show.md-effect-18 ~ .container {
 	height: 100%;
 	overflow: hidden;
 }
 
 .md-show.md-effect-18 ~ .md-overlay {
-	background: rgba(143, 27, 15, 0.8);
+	background: rgba($black, 0.8);
 	transition: all 0.5s;
 }
 
@@ -401,7 +412,8 @@
 	transition: all 0.5s 0.1s;
 }
 
-/* Effect 19:  Slip in from the top with perspective on container */
+/** TOP SLIDE + PERSPECTIVE **************************************************************************/
+
 .md-show.md-effect-19 ~ .container {
 	height: 100%;
 	overflow: hidden;
@@ -433,6 +445,8 @@
 	transition: all 0.5s 0.1s;
 }
 
+/*
 @media screen and (max-width: 32em) {
 	body { font-size: 75%; }
 }
+*/
