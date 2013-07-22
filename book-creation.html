@@ -81,9 +81,9 @@
 
 						<section id="photo-preview-wrapper">
 							<ul class="create-header">
-								<li id="page-edit"><a href="">Edit</a></li>
-								<li id="page-upload"><a href="">Upload</a></li>
-								<li id="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="">Edit</a></li>
+								<li class="page-upload"><a href="">Upload</a></li>
+								<li class="page-delete"><a href="">Delete</a></li>
 							</ul>
 
 							<div id="photo-preview">
@@ -95,9 +95,9 @@
 
 						<section id="text-preview-wrapper">
 							<ul class="create-header">
-								<li id="page-edit"><a href="">Edit</a></li>
-								<li id="page-upload"><a href="">Upload</a></li>
-								<li id="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="">Edit</a></li>
+								<li class="page-upload"><a href="">Upload</a></li>
+								<li class="page-delete"><a href="">Delete</a></li>
 							</ul>
 
 							<div id="text-preview">
@@ -109,9 +109,9 @@
 
 						<section id="phototext-preview-wrapper">
 							<ul class="create-header">
-								<li id="page-edit"><a href="">Edit</a></li>
-								<li id="page-upload"><a href="">Upload</a></li>
-								<li id="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="">Edit</a></li>
+								<li class="page-upload"><a href="">Upload</a></li>
+								<li class="page-delete"><a href="">Delete</a></li>
 							</ul>
 
 							<div id="phototext-preview">
@@ -123,9 +123,9 @@
 
 						<section id="integrated-preview-wrapper">
 							<ul class="create-header">
-								<li id="page-edit"><a href="">Edit</a></li>
-								<li id="page-upload"><a href="">Upload</a></li>
-								<li id="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="">Edit</a></li>
+								<li class="page-upload"><a href="">Upload</a></li>
+								<li class="page-delete"><a href="">Delete</a></li>
 							</ul>
 
 							<div id="integrated-preview">
@@ -134,6 +134,25 @@
 
 							<img src="images/bg.jpg" alt=""/>
 						</section>
+
+						<!--/
+						<div id="default-preview">
+							<div class="cover-page">
+								<div class="cover-info">
+									<h1>Beach Bum</h1>
+									<h3>by <span>Anne Latini</span></h3>
+
+									<ul class="cover-lifestyle">
+										<li>Beaches</li>
+										<li>International</li>
+										<li>Relax</li>
+									</ul>
+
+									<p>Eveliquistia di re consequi ni teturias minullabo. Epudandeles aligendiorem estiis aut aut voluptur, quatias magnia doluptate nos dem sam venest qui asi soloreptum ipsandias utecaerum aut quo initassequis et unt exeferi demporitiis|magnihilit, idellecea eum quid quas rem nis aut erfero consedion exerum utaspis estor assinis nobit ernatiis. Pel ipiduntios eos sendi cus resto in perupta tendamus id magnimin repudia consequam denda dolut verectectate et ad et.</p>
+								</div>
+							</div>
+						</div>
+						/-->
 
 					</div>
 
@@ -448,17 +467,17 @@
 					$("#text-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
 					$("#photo-preview-wrapper").show();
 				});
-				
+
 				$("#bc-text").change(function () {
 					$("#photo-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
 					$("#text-preview-wrapper").show();
 				});
-				
+
 				$("#bc-phototext").change(function () {
 					$("#text-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper").hide();
 					$("#phototext-preview-wrapper").show();
 				});
-				
+
 				$("#bc-integrated").change(function () {
 					$("#text-preview-wrapper, #phototext-preview-wrapper, #photo-preview-wrapper").hide();
 					$("#integrated-preview-wrapper").show();
