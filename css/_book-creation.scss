@@ -483,8 +483,18 @@
 		.page {
 			width: 100px !important; height: 100px !important;
 
+			counter-increment: section;
+			counter-reset: sub-section;
 			float: left;
 			position: relative;
+
+			&:before {
+				background-color: rgba($black, 0.8);
+				color: $white;
+				content: counter(section) " ";
+				padding: 5px;
+				position: absolute;
+			}
 
 			img {
 				width: 100px; height: 100px;

@@ -22,6 +22,7 @@ body {
 	background-position: center center;
 	background-size: cover;
   color: $black;
+	counter-reset: section;
 	@include sans;
 	font-size: 15px;
 	position: fixed;
