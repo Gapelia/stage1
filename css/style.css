@@ -944,6 +944,7 @@ img {
 #page-scroller-wrapper #page-scroller { height: 100px; }
 #page-scroller-wrapper #page-scroller .page { width: 100px !important; height: 100px !important; counter-increment: section; counter-reset: sub-section; float: left; position: relative; }
 #page-scroller-wrapper #page-scroller .page:before { background-color: rgba(25, 25, 25, 0.8); color: #fefefe; content: counter(section) " "; padding: 5px; position: absolute; }
+#page-scroller-wrapper #page-scroller .page input { bottom: 3px; right: 3px; background-color: rgba(25, 25, 25, 0.8); padding: 8px; position: absolute; }
 #page-scroller-wrapper #page-scroller .page img { width: 100px; height: 100px; }
 
 .redactor_box { background-color: #fefefe; border: 1px solid #cfcfcf; overflow: visible; position: relative; }

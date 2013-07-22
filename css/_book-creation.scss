@@ -496,6 +496,14 @@
 				position: absolute;
 			}
 
+			input {
+				bottom: 3px; right: 3px;
+
+				background-color: rgba($black, 0.8);
+				padding: 8px;
+				position: absolute;
+			}
+
 			img {
 				width: 100px; height: 100px;
 			}
