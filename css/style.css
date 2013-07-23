@@ -275,11 +275,11 @@ img { width: 100%; height: auto; border-style: none;
 .md-perspective body { background-color: #222; perspective: 600px; }
 
 /* .container { background: #e74c3c; min-height: 100%; } */
-.md-modal { width: 50%; max-width: 630px; min-width: 320px; height: auto; top: 50%; left: 50%; backface-visibility: hidden; position: fixed; transform: translateX(-50%) translateY(-50%); visibility: hidden; z-index: 2000; }
+.md-modal { width: 50%; max-width: 630px; min-width: 320px; height: auto; top: 50%; left: 50%; backface-visibility: hidden; position: fixed; transform: translateX(-50%) translateY(-50%); visibility: hidden; z-index: 200000; /* z-index: 2000; */ }
 
 .md-show { visibility: visible; }
 
-.md-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.8); opacity: 0; position: fixed; transition: all 0.3s; visibility: hidden; z-index: 1000; }
+.md-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.8); opacity: 0; position: fixed; transition: all 0.3s; visibility: hidden; z-index: 100000; /* z-index: 1000; */ }
 
 .md-show ~ .md-overlay { opacity: 1; visibility: visible; }
 
