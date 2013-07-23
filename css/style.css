@@ -269,38 +269,6 @@ img { width: 100%; height: auto; border-style: none;
 .video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
 
 /*************************************************************************************** MODAL/SCSS **/
-/******************************************************************* ORIGINAL MODAL, TO BE REPLACED **/
-.reveal-modal-bg { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.8); display: none; position: fixed; z-index: 100; }
-
-.reveal-modal { margin: 0 0 0 -300px; padding: 0; /* padding: 30px 40px 34px; */ top: 5% !important; /* top: 100px; */ left: 50%; background-color: #e7e7e7; border-radius: 0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); position: absolute; visibility: hidden; width: 520px; z-index: 101; }
-.reveal-modal .modal-row { border-bottom: 1px solid #cfcfcf; display: table; padding: 1rem 3rem; width: 100%; }
-.reveal-modal .modal-row:last-child { border-bottom: 0; }
-.reveal-modal .modal-row .modal-title, .reveal-modal .modal-row .modal-input { display: table-cell; vertical-align: top; }
-.reveal-modal .modal-row .modal-title { width: 200px; }
-.reveal-modal .modal-row .modal-title span { display: block; font-size: 10px; margin: 5px 0 0 0; }
-.reveal-modal .modal-row .modal-input { width: 100% !important; }
-.reveal-modal .modal-row textarea { border: 0; height: 80px; }
-.reveal-modal .modal-header { font-family: "OpenSansBold"; font-size: 20px; text-align: center; }
-.reveal-modal .modal-header .active { color: #70a1b1; }
-.reveal-modal .modal-header span { margin: 0 2rem 0 0; }
-.reveal-modal .modal-header span:last-child { margin: 0; }
-.reveal-modal .modal-header p { margin: 0; padding: 0; line-height: 1.3em; }
-.reveal-modal #filepicker-iframe { width: auto; height: auto; }
-.reveal-modal #filepicker-iframe iframe { width: 700px; height: 410px; }
-.reveal-modal .next-modal { text-align: center; }
-.reveal-modal .next-modal a { color: #585959; font-family: "OpenSansBold"; font-size: 20px; }
-.reveal-modal .safe, .reveal-modal .over { padding: 3px; font-weight: 700; color: #fefefe; }
-.reveal-modal .safe { background-color: green; }
-.reveal-modal .over { background-color: red; }
-
-.reveal-modal.small { margin-left: -140px; width: 200px; }
-
-.reveal-modal.medium { margin-left: -240px; width: 400px; }
-
-.reveal-modal.large { margin-left: -340px; width: 600px; }
-
-.reveal-modal.xlarge { margin-left: -440px; width: 800px; }
-
 /**************************************************************************** DEFAULT MODAL STYLING **/
 .md-perspective, .md-perspective body { height: 100%; overflow: hidden; }
 
@@ -323,7 +291,7 @@ img { width: 100%; height: auto; border-style: none;
 .md-content div ul { margin: 0; padding: 0 0 30px 20px; }
 .md-content div ul li { padding: 5px 0; }
 .md-content div button { display: block; font-size: 0.8em; margin: 0 auto; }
-.md-content .modal-row { border-bottom: 1px solid #cfcfcf; display: table; padding: 1rem 3rem; width: 100%; }
+.md-content .modal-row { background-color: #e7e7e7; border-bottom: 1px solid #cfcfcf; color: #585959; display: table; padding: 1rem 3rem; width: 100%; }
 .md-content .modal-row:last-child { border-bottom: 0; }
 .md-content .modal-row .modal-title, .md-content .modal-row .modal-input { display: table-cell; vertical-align: top; }
 .md-content .modal-row .modal-title { width: 200px; }
@@ -335,8 +303,8 @@ img { width: 100%; height: auto; border-style: none;
 .md-content .modal-header span { margin: 0 2rem 0 0; }
 .md-content .modal-header span:last-child { margin: 0; }
 .md-content .modal-header p { margin: 0; padding: 0; line-height: 1.3em; }
-.md-content #filepicker-iframe { width: auto; height: auto; }
-.md-content #filepicker-iframe iframe { width: 700px; height: 410px; }
+.md-content #filepicker-iframe { width: 100%; height: auto; }
+.md-content #filepicker-iframe iframe { width: 100%; /* width: 700px; */ height: 410px; }
 .md-content .next-modal { text-align: center; }
 .md-content .next-modal a { color: #585959; font-family: "OpenSansBold"; font-size: 20px; }
 .md-content .safe, .md-content .over { padding: 3px; font-weight: 700; color: #fefefe; }

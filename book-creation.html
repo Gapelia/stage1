@@ -79,7 +79,7 @@
 						<section id="photo-preview-wrapper">
 							<ul class="create-header">
 								<li class="page-edit"><a href="">Edit</a></li>
-								<li class="page-upload"><a href="">Upload</a></li>
+								<li class="page-upload"><a class="md-trigger" data-modal="modal-upload">Upload</a></li>
 								<li class="page-delete"><a class="md-trigger" data-modal="modal-1">Delete</a></li>
 							</ul>
 
@@ -406,7 +406,7 @@
 
 				<li class="page" id="new-page">
 					<input name="" value="" type="checkbox"/>
-					<img src="images/bc-new-page.jpg" class="cover" alt=""/>
+					<img src="images/bc-new-page.jpg" class="md-trigger cover" data-modal="modal-upload" alt=""/>
 				</li>
 
 				<!--/ cutoff /-->
@@ -440,6 +440,20 @@
 
 					<button>Yes</button>
 					<button class="md-close">Cancel</button>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="md-modal md-effect-1" id="modal-upload">
+			<div class="md-content">
+
+				<div class="modal-row" id="filepicker-iframe">
+					<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&id=1372359022211&referrer=localhost&iframe=false&version=v1&multi=true&m=image/*#/computer/"></iframe>
+				</div>
+
+				<div class="modal-row next-modal">
+					<a class="md-close md-trigger">Next</a>
 				</div>
 
 			</div>
