@@ -28,14 +28,11 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/modernizr.custom.js"></script>
-
 		<!--/ <script src="scripts/jquery-2.0.2.js"></script> /-->
 		<!--/ <script src="scripts/jquery-1.10.2.js"></script> /-->
 		<script src="scripts/jquery-1.7.1.js"></script>
 		<!--/ <script src="scripts/reveal.js"></script> /-->
-
-		<!--/ <script src="scripts/midway.js"></script> /-->
+		<script src="scripts/midway.js"></script>
 
 	</head>
 
@@ -167,137 +164,129 @@
 						</ul>
 
 						<div id="sidebar-wrapper">
-							<!--/
 							<ul id="sidebar-nav">
 								<li><a href="#tab-content" title="">Content</a></li>
 								<li><a href="#tab-tags" title="">Tags</a></li>
 								<li><a href="#tab-snippets" title="">Snippets</a></li>
 								<li style="border-right: 0;"><a href="#tab-settings" title="">Settings</a></li>
 							</ul>
-							/-->
 
-							<div id="tabs-container" class="cbp-contentslider">
-								<nav id="sidebar-nav">
-									<a href="#tab-content" title="">Content</a>
-									<a href="#tab-tags" title="">Tags</a>
-									<a href="#tab-snippets" title="">Snippets</a>
-									<a href="#tab-settings" title="">Settings</a>
-								</nav>
+							<div id="tabs-container">
 
-								<ul id="sidebar-content">
-									<li id="tab-content">
-										<textarea id="text-editor" name="content">
-											<h2>This is a title</h2>
+								<div id="tab-content" class="showleft">
+									<textarea id="text-editor" name="content">
+										<h2>This is a title</h2>
 
-											<p>This is a short description of the page. If there is no description, we will automatically use the description you wrote for the book.</p>
+										<p>This is a short description of the page. If there is no description, we will automatically use the description you wrote for the book.</p>
 
-											<p>Snazzy.</p>
-										</textarea>
+										<p>Snazzy.</p>
+									</textarea>
 
-										<section id="view-mode">
-											<p>View Mode:</p>
+									<section id="view-mode">
+										<p>View Mode:</p>
 
-											<input type="radio" id="bc-photo" name="rr" checked/>
-											<label for="bc-photo"><span></span>Photo</label>
+										<input type="radio" id="bc-photo" name="rr" checked/>
+										<label for="bc-photo"><span></span>Photo</label>
 
-											<input type="radio" id="bc-text" name="rr"/>
-											<label for="bc-text"><span></span>Text</label>
+										<input type="radio" id="bc-text" name="rr"/>
+										<label for="bc-text"><span></span>Text</label>
 
-											<input type="radio" id="bc-phototext" name="rr"/>
-											<label for="bc-phototext"><span></span>Photo/Text</label>
+										<input type="radio" id="bc-phototext" name="rr"/>
+										<label for="bc-phototext"><span></span>Photo/Text</label>
 
-											<input type="radio" id="bc-integrated" name="rr"/>
-											<label for="bc-integrated"><span></span>Integrated</label>
-										</section>
-									</li>
+										<input type="radio" id="bc-integrated" name="rr"/>
+										<label for="bc-integrated"><span></span>Integrated</label>
+									</section>
+								</div>
 
-									<li id="tab-tags">
-										<section class="tag-input">
-											<label for="geotag">Geotag</label>
-											<input id="geotag" type="text" placeholder=""/>
-											<span class="hint">ex. Hawaii</span>
-										</section>
+								<div id="tab-tags" class="hideleft">
+									<section class="tag-input">
+										<label for="geotag">Geotag</label>
+										<input id="geotag" type="text" placeholder=""/>
+										<span class="hint">ex. Hawaii</span>
+									</section>
 
-										<section class="tag-input">
-											<!--/
-											<label>Passion</label>
-											<input type="text" placeholder=""/>
-											/-->
+									<section class="tag-input">
+										<!--/
+										<label>Passion</label>
+										<input type="text" placeholder=""/>
+										/-->
 
-											<label for="passion">Passion</label>
-											<input id="passion" name="passion" type="text" list="passion-tag"/>
+										<label for="passion">Passion</label>
+										<input id="passion" name="passion" type="text" list="passion-tag"/>
 
-											<datalist id="passion-tag">
-												<option value="* Create new tag">
-												<option value="Computers">
-												<option value="Gaming">
-												<option value="Gardening">
-												<option value="Skydiving">
-												<option value="Surfing">
-											</datalist>
+										<datalist id="passion-tag">
+											<option value="* Create new tag">
+											<option value="Computers">
+											<option value="Gaming">
+											<option value="Gardening">
+											<option value="Skydiving">
+											<option value="Surfing">
+										</datalist>
 
-											<span class="hint">ex. Surfing</span>
-										</section>
+										<span class="hint">ex. Surfing</span>
+									</section>
 
-										<section class="tag-input">
-											<!--/
-											<label>Feeling</label>
-											<input type="text" placeholder=""/>
-											/-->
+									<section class="tag-input">
+										<!--/
+										<label>Feeling</label>
+										<input type="text" placeholder=""/>
+										/-->
 
-											<label for="feeling">Feeling</label>
-											<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+										<label for="feeling">Feeling</label>
+										<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
 
-											<datalist id="feeling-tag">
-												<option value="* Create new tag">
-												<option value="Adrenaline">
-												<option value="Calm">
-												<option value="Ecstatic">
-												<option value="Longing">
-												<option value="Serenity">
-											</datalist>
+										<datalist id="feeling-tag">
+											<option value="* Create new tag">
+											<option value="Adrenaline">
+											<option value="Calm">
+											<option value="Ecstatic">
+											<option value="Longing">
+											<option value="Serenity">
+										</datalist>
 
-											<span class="hint">ex. Adrenaline</span>
-										</section>
+										<span class="hint">ex. Adrenaline</span>
+									</section>
 
-										<section class="tag-input">
-											<label>Custom Wiki Link</label>
-											<input type="text" placeholder=""/>
-											<span class="hint">(default link will associate geotag)</span>
-										</section>
-									</li>
+									<section class="tag-input">
+										<label>Custom Wiki Link</label>
+										<input type="text" placeholder=""/>
+										<span class="hint">(default link will associate geotag)</span>
+									</section>
+								</div>
 
-									<li id="tab-snippets">
-										<p>Snippet Locations</p>
+								<div id="tab-snippets" class="hideleft">
+									<p>Snippet Locations</p>
 
-										<section id="snippet-preview">
-											<img src="images/bg-ii.jpg" alt=""/>
-										</section>
-									</li>
+									<section id="snippet-preview">
+										<img src="images/bg-ii.jpg" alt=""/>
+									</section>
+								</div>
 
-									<li id="tab-settings">
-										<!--/ <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p> /-->
-										<p>Privacy</p>
+								<div id="tab-settings" class="hideleft">
+									<!--/
+									<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p>
+									/-->
+									<p>Privacy</p>
 
-										<input type="radio" id="cc-01" name="rr"/>
-										<label for="cc-01"><span></span>CC BY</label><br/>
+									<input type="radio" id="cc-01" name="rr"/>
+									<label for="cc-01"><span></span>CC BY</label><br/>
 
-										<input type="radio" id="cc-02" name="rr"/>
-										<label for="cc-02"><span></span>CC BY-SA</label><br/>
+									<input type="radio" id="cc-02" name="rr"/>
+									<label for="cc-02"><span></span>CC BY-SA</label><br/>
 
-										<input type="radio" id="cc-03" name="rr"/>
-										<label for="cc-03"><span></span>CC BY-ND</label><br/>
+									<input type="radio" id="cc-03" name="rr"/>
+									<label for="cc-03"><span></span>CC BY-ND</label><br/>
 
-										<input type="radio" id="cc-04" name="rr"/>
-										<label for="cc-04"><span></span>CC BY-NC</label><br/>
+									<input type="radio" id="cc-04" name="rr"/>
+									<label for="cc-04"><span></span>CC BY-NC</label><br/>
 
-										<input type="radio" id="cc-05" name="rr"/>
-										<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
+									<input type="radio" id="cc-05" name="rr"/>
+									<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
 
-										<input type="radio" id="cc-06" name="rr"/>
-										<label for="cc-06"><span></span>CC BY-NC-ND</label>
-									</li>
-								</ul>
+									<input type="radio" id="cc-06" name="rr"/>
+									<label for="cc-06"><span></span>CC BY-NC-ND</label>
+								</div>
 
 							</div>
 						</div>
@@ -454,25 +443,23 @@
 		<div class="md-overlay"></div>
 
 		<!--/ scripts																																					 /-->
-		<!--/ scripts/carousel																																 /-->
 
 		<script src="scripts/carouFredSel.js"></script>
+
 		<script src="scripts/ba-throttle-debounce.js"></script>
 		<script src="scripts/mousewheel.js"></script>
 		<script src="scripts/touchSwipe.js"></script>
 		<script src="scripts/transit.js"></script>
 
-		<script src="scripts/draggable-list.js"></script>
-
-		<!--/ scripts/gapelia																																 	 /-->
-
-		<script src="scripts/gapelia.js"></script>
-
-		<!--/ scripts/redactor																															 	 /-->
+		<script src="scripts/squishy.js"></script>
+		<script src="scripts/tabulous.js"></script>
 
 		<script src="scripts/redactor.js"></script>
 		<script src="scripts/fontfamily.js"></script>
 		<script src="scripts/fontsize.js"></script>
+
+		<script src="scripts/draggable-list.js"></script>
+		<script src="scripts/gapelia.js"></script>
 
 		<script>
 			$(function() {
@@ -489,9 +476,8 @@
 			});
 		</script>
 
-		<!--/ scripts/livepreview																															 /-->
-
 		<script src="scripts/livepreview.js"></script>
+		<script src="scripts/aspectratio.js"></script>
 
 		<script>
 			var livePreviewElem = $("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview");
@@ -538,6 +524,10 @@
 			var autocomplete = new google.maps.places.Autocomplete(input);
 		</script>
 
+		<script>
+			$(".pp-bg").aspectRatio({ scale: true });
+		</script>
+
 		<!--/ scripts/modal																																		 /-->
 
 		<script src="scripts/modal/classie.js"></script>
@@ -550,25 +540,8 @@
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
-		<!--/ scripts/tabswitcher																															 /-->
-
-		<script src="scripts/cbpContentSlider.js"></script>
-
-		<script>
-			$(function() {
-				$("#tabs-container").cbpContentSlider();
-			});
-		</script>
-
-		<!--/ <script src="scripts/squishy.js"></script> /-->
-		<!--/ <script src="scripts/tabulous.js"></script> /-->
-
-		<!--/ <script src="scripts/aspectratio.js"></script> /-->
-		<!--/ <script>$(".pp-bg").aspectRatio({ scale: true });</script> /-->
-
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
-		<!--/
-		Reveal.js conflicts with Redactor. Poo.
+		<!--/ Reveal.js conflicts with Redactor. Poo.
 		<script src="scripts/filepicker.js"></script>
 		<script src="scripts/simplyCountable.js"></script>
 
