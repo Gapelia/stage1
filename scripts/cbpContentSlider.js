@@ -24,7 +24,7 @@
 	// the options
 	$.CBPContentSlider.defaults = {
 		// default transition speed (ms)
-		speed: 500,
+		speed: 300,
 		// default transition easing
 		easing: "ease-in-out",
 		// current item's index

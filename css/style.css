@@ -1422,7 +1422,7 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   #book-creation-wrapper #create-book #create-content { width: 59.85%; }
   #book-creation-wrapper #create-book #create-sidebar { width: 40.15%; /* Content Tab */ }
   #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-content, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-tags, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-snippets, #book-creation-wrapper #create-book #create-sidebar #tabs-container #tab-settings { /* height: 440px !important; */ }
-  #book-creation-wrapper #create-book #create-sidebar .redactor_box { /* .redactor_editor { height: 230px !important; } */ }
+  #book-creation-wrapper #create-book #create-sidebar .redactor_box .redactor_editor { height: 230px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }
 /*************************************************************************************** SHAME/SCSS **/
