@@ -209,6 +209,82 @@
 			margin: 0 auto;
 		}
 	}
+
+	.modal-row {
+		border-bottom: 1px solid $gray-ii;
+		display: table;
+		padding: 1rem 3rem;
+		width: 100%;
+
+		&:last-child { border-bottom: 0; }
+
+		.modal-title, .modal-input {
+			display: table-cell;
+			vertical-align: top;
+		}
+
+		.modal-title {
+			width: 200px;
+
+			span {
+				display: block;
+				font-size: 10px;
+				margin: 5px 0 0 0;
+			}
+		}
+
+		.modal-input { width: 100% !important; }
+
+		textarea {
+			border: 0;
+			height: 80px;
+		}
+	}
+
+	.modal-header {
+		font-family: "OpenSansBold";
+		font-size: 20px;
+		text-align: center;
+
+		.active { color: $slate; }
+
+		span {
+			margin: 0 2rem 0 0;
+			&:last-child { margin: 0; }
+		}
+
+		p {
+			margin: 0; padding: 0;
+			line-height: 1.3em;
+		}
+	}
+
+	#filepicker-iframe {
+		width: auto; height: auto;
+
+		iframe {
+			width: 700px; height: 410px;
+		}
+	}
+
+	.next-modal {
+		text-align: center;
+
+		a {
+			color: $gray-v;
+			font-family: "OpenSansBold";
+			font-size: 20px;
+		}
+	}
+
+	.safe, .over {
+		padding: 3px;
+		font-weight: 700;
+		color: #fefefe;
+	}
+
+	.safe { background-color: green; }
+	.over { background-color: red; }
 }
 
 /************************************************************************* INDIVIDUAL MODAL STYLING **/

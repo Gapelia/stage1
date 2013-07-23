@@ -28,10 +28,7 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<!--/ <script src="scripts/jquery-2.0.2.js"></script> /-->
-		<!--/ <script src="scripts/jquery-1.10.2.js"></script> /-->
 		<script src="scripts/jquery-1.7.1.js"></script>
-		<script src="scripts/reveal.js"></script>
 		<script src="scripts/midway.js"></script>
 
 	</head>
@@ -44,7 +41,7 @@
 			<a href="index.html"><h1>Gapelia</h1></a>
 
 			<ul>
-				<li id="action-create"><a href="#" data-reveal-id="create-modal-01" data-animation="fade">Create book</a></li>
+				<li id="action-create"><a class="md-trigger" data-modal="modal-1">Create book</a></li>
 				<li id="action-gapelians"><a href="index-gapelians.html">Gapelians</a></li>
 				<li id="action-books" class="active"><a href="index-books.html">Books</a></li>
 				<li id="action-dimensions"><a href="index-dimensions.html">Dimensions</a></li>
@@ -695,163 +692,171 @@
 
 			</div>
 
+			<!--/ modals																																				 /-->
 			<!--/ book creation modals																													 /-->
-			<!--/ modal 01																																			 /-->
 
-			<div id="create-modal-01" class="reveal-modal xlarge">
-				<div class="modal-row modal-header">
-					<span class="active">1. Create discovery book</span>
-					<span>2. Upload Content</span>
-					<span>3. Save &amp; Publish</span>
-				</div>
+			<div class="md-modal md-effect-1" id="modal-1">
+				<div class="md-content">
 
-				<div class="modal-row">
-					<label class="modal-title">Title*</label>
-					<input class="modal-input" type="text"/>
-				</div>
-
-				<div class="modal-row">
-					<div class="modal-title">
-						<label for="modal-description" class="modal-title">Add description</label>
-						<span id="modal-counter"></span><span>characters left</span>
+					<div class="modal-row modal-header">
+						<span class="active">1. Create discovery book</span>
+						<span>2. Upload Content</span>
+						<span>3. Save &amp; Publish</span>
 					</div>
 
-					<textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea>
-				</div>
+					<div class="modal-row">
+						<label class="modal-title">Title*</label>
+						<input class="modal-input" type="text"/>
+					</div>
 
-				<div class="modal-row">
-					<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
-					<input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/>
+					<div class="modal-row">
+						<div class="modal-title">
+							<label for="modal-description" class="modal-title">Add description</label>
+							<span id="modal-counter"></span><span>characters left</span>
+						</div>
 
-					<datalist id="modal-dimension-tag">
-						<option value="Art">
-						<option value="Flow">
-						<option value="Life">
-						<option value="Pulse">
-						<option value="Wonder">
-						<option value="Wow">
-					</datalist>
-				</div>
+						<textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea>
+					</div>
 
-				<div class="modal-row">
-					<label for="modal-geotag" class="modal-title">Add a Geotag</label>
-					<input class="modal-input" id="modal-geotag" placeholder="" type="text"/>
-				</div>
+					<div class="modal-row">
+						<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
+						<input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/>
 
-				<div class="modal-row">
-					<label for="modal-passion" class="modal-title">Add a Passion</label>
-					<input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/>
+						<datalist id="modal-dimension-tag">
+							<option value="Art">
+							<option value="Flow">
+							<option value="Life">
+							<option value="Pulse">
+							<option value="Wonder">
+							<option value="Wow">
+						</datalist>
+					</div>
 
-					<datalist id="modal-passion-tag">
-						<option value="* Create new tag">
-						<option value="Computers">
-						<option value="Gaming">
-						<option value="Gardening">
-						<option value="Skydiving">
-						<option value="Surfing">
-					</datalist>
-				</div>
+					<div class="modal-row">
+						<label for="modal-geotag" class="modal-title">Add a Geotag</label>
+						<input class="modal-input" id="modal-geotag" placeholder="" type="text"/>
+					</div>
 
-				<div class="modal-row">
-					<label for="modal-input" class="modal-title">Add a Feeling</label>
-					<input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/>
+					<div class="modal-row">
+						<label for="modal-passion" class="modal-title">Add a Passion</label>
+						<input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/>
 
-					<datalist id="modal-feeling-tag">
-						<option value="* Create new tag">
-						<option value="Adrenaline">
-						<option value="Calm">
-						<option value="Ecstatic">
-						<option value="Longing">
-						<option value="Serenity">
-					</datalist>
+						<datalist id="modal-passion-tag">
+							<option value="* Create new tag">
+							<option value="Computers">
+							<option value="Gaming">
+							<option value="Gardening">
+							<option value="Skydiving">
+							<option value="Surfing">
+						</datalist>
+					</div>
 
-				</div>
+					<div class="modal-row">
+						<label for="modal-input" class="modal-title">Add a Feeling</label>
+						<input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/>
 
-				<div class="modal-row next-modal">
-					<a href="#" class="close-reveal-modal" data-reveal-id="create-modal-02" data-animation="fade">Next</a>
-				</div>
-			</div>
+						<datalist id="modal-feeling-tag">
+							<option value="* Create new tag">
+							<option value="Adrenaline">
+							<option value="Calm">
+							<option value="Ecstatic">
+							<option value="Longing">
+							<option value="Serenity">
+						</datalist>
 
-			<!--/ modal 02																																			 /-->
+					</div>
 
-			<div id="create-modal-02" class="reveal-modal xlarge">
-				<div class="modal-row modal-header">
-					<span>1. Create discovery book</span>
-					<span class="active">2. Upload Content</span>
-					<span>3. Save &amp; Publish</span>
-				</div>
+					<div class="modal-row next-modal">
+						<a class="md-close md-trigger" data-modal="modal-2">Next</a>
+					</div>
 
-				<div class="modal-row" id="filepicker-iframe">
-					<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&id=1372359022211&referrer=localhost&iframe=false&version=v1&multi=true&m=image/*#/computer/"></iframe>
-				</div>
-
-				<div class="modal-row next-modal">
-					<a href="#" class="close-reveal-modal" data-reveal-id="create-modal-03" data-animation="fade">Next</a>
 				</div>
 			</div>
 
-			<!--/ modal 03																																			 /-->
+			<div class="md-modal md-effect-1" id="modal-2">
+				<div class="md-content">
 
-			<div id="create-modal-03" class="reveal-modal xlarge">
-				<div class="modal-row modal-header">
-					<p>They say that two minds are better than one, would you like to invite collaborators to this collection?</p>
-				</div>
+					<div class="modal-row modal-header">
+						<span>1. Create discovery book</span>
+						<span class="active">2. Upload Content</span>
+						<span>3. Save &amp; Publish</span>
+					</div>
 
-				<div class="modal-row">
-					<input class="modal-input" id="modal-gapelian" name="modal-gapelian" placeholder="Choose Gapelians" type="text" list="modal-gapelian-tag"/>
+					<div class="modal-row" id="filepicker-iframe">
+						<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&id=1372359022211&referrer=localhost&iframe=false&version=v1&multi=true&m=image/*#/computer/"></iframe>
+					</div>
 
-					<datalist id="modal-gapelian-tag">
-						<option value="Tyra Banks">
-						<option value="Fiddy Cent">
-						<option value="Jimmy Kimmel">
-						<option value="Chelsea Lately">
-						<option value="Will Smith">
-						<option value="Oprah Winfrey">
-					</datalist>
+					<div class="modal-row next-modal">
+						<a class="md-close md-trigger" data-modal="modal-3">Next</a>
+					</div>
 
-					<br/>
-
-					<input class="modal-input" placeholder="Enter email address" type="text"/>
-				</div>
-
-				<div class="modal-row next-modal">
-					<a href="book-creation.html">Skip</a>
 				</div>
 			</div>
+
+			<div class="md-modal md-effect-1" id="modal-3">
+				<div class="md-content">
+
+					<div class="modal-row modal-header">
+						<p>They say that two minds are better than one, would you like to invite collaborators to this collection?</p>
+					</div>
+
+					<div class="modal-row">
+						<input class="modal-input" id="modal-gapelian" name="modal-gapelian" placeholder="Choose Gapelians" type="text" list="modal-gapelian-tag"/>
+
+						<datalist id="modal-gapelian-tag">
+							<option value="Tyra Banks">
+							<option value="Fiddy Cent">
+							<option value="Jimmy Kimmel">
+							<option value="Chelsea Lately">
+							<option value="Will Smith">
+							<option value="Oprah Winfrey">
+						</datalist>
+
+						<br/>
+
+						<input class="modal-input" placeholder="Enter email address" type="text"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a href="book-creation.html">Skip</a>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="md-overlay"></div>
 
 		</section>
 
-		<!--/ footer, the end																																	 /-->
-
-		<!--/
-		<footer>
-			<p><a href="">&copy; Gapelia</a></p>
-
-			<ul>
-				<li><a href="">About Us</a></li>
-				<li><a href="">Blog</a></li>
-				<li><a href="">Partners</a></li>
-				<li><a href="">Terms</a></li>
-			</ul>
-		</footer>
-		/-->
-
 		<!--/ scripts																																					 /-->
+		<!--/ scripts/carousel																																 /-->
 
-		<script src="scripts/carouFredSel.js"></script>
+		<script src="scripts/carousel/carouFredSel.js"></script>
+		<script src="scripts/carousel/ba-throttle-debounce.js"></script>
+		<script src="scripts/carousel/mousewheel.js"></script>
+		<script src="scripts/carousel/touchSwipe.js"></script>
+		<script src="scripts/carousel/transit.js"></script>
 
-		<script src="scripts/ba-throttle-debounce.js"></script>
-		<script src="scripts/mousewheel.js"></script>
-		<script src="scripts/touchSwipe.js"></script>
-		<script src="scripts/transit.js"></script>
+		<!--/ scripts/gapelia																																 	 /-->
 
 		<script src="scripts/squishy.js"></script>
 		<script src="scripts/gapelia.js"></script>
 
+		<!--/ scripts/modal																																		 /-->
+
+		<script src="scripts/modal/classie.js"></script>
+		<script src="scripts/modal/modalEffects.js"></script>
+
+		<script>
+			var polyfilter_scriptpath = "/scripts/modal/"; // important for IEs
+		</script>
+
+		<script src="scripts/modal/cssParser.js"></script>
+		<script src="scripts/modal/css-filters-polyfill.js"></script>
+
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
 		<script src="scripts/filepicker.js"></script>
 
-		<!--/ Reveal.js is probably conflicting with simplyCountable. Shit. /-->
 		<script src="scripts/simplyCountable.js"></script>
 
 		<script>
