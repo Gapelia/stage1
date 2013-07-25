@@ -106,4 +106,170 @@
 		width: 100%; height: auto;
 	}
 
+	#draggable {
+		width: 400px; height: 450px;
+		top: 55px !important; right: 100px !important;
+
+		background-color: $gray-ii;
+		position: absolute;
+		z-index: 2000;
+		
+		nav {
+			display: inline-block;
+			height: 3.313em;
+			overflow: hidden;
+			position: absolute;
+			width: 100%;
+			z-index: 1000;
+
+			a {
+				border-right: 1px solid $gray-ii;
+				border-bottom: 1px solid $gray-ii;
+				display: block;
+				float: left;
+				font-family: "OpenSansLight";
+				padding: 0.5rem;
+				text-align: center;
+				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				width: 25%; /* width: 20%; height: 100%; */
+
+				-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+				/*
+				&:last-child {
+					border: none;
+					box-shadow: 1px 0 #47a3da;
+				}
+				*/
+
+				&:hover { background-color: $white; }
+				&:last-child { border-right: 0; }
+
+				/* span { display: block; } */
+			}
+
+			a.rc-active {
+				background-color: $white;
+				border-bottom: 1px solid $white;
+			}
+		}
+
+		.cbp-contentslider {
+			width: 100%; height: 100%; /* height: 70%; */
+			position: relative;
+
+			#sidebar-content {
+				width: 100%; height: 100%;
+				margin: 0; padding: 0;
+
+				list-style: none;
+				overflow: hidden;
+				position: relative;
+
+				#tab-content, #tab-tags, #tab-snippets, #tab-settings {
+					width: 100%; height: 100%; /* height: 555px !important; */
+					top: 2rem; left: 0;
+
+					background-color: $white;
+					display: table;
+					overflow-x: hidden;
+					overflow-y: auto;
+					padding: 1rem;
+					position: absolute;
+
+					/* &:target { z-index: 100; } /* Without JS, we use :target */
+
+					/*
+					div {
+						top: 2rem; left: 0;
+
+						overflow-x: hidden;
+						overflow-y: auto;
+						padding: 1rem;
+						position: absolute;
+						width: 100%;
+					}
+					*/
+				}
+
+				/* Content Tab */
+				.redactor_box {
+					.redactor_toolbar { width: 100%; }
+
+					.redactor_editor {
+						height: 300px;
+						z-index: 1;
+					}
+				}
+
+				#view-mode {
+					margin: 1rem 0 0 0;
+
+					p, input, label {
+						float: left;
+						vertical-align: middle;
+					}
+
+					p, label { margin: 0 1rem 0 0; }
+					input { margin: 0 0.2rem 0 0; }
+				}
+
+				/* Tags Tab */
+				.tag-input {
+					border-bottom: 1px solid $gray-ii;
+					clear: both;
+					padding: 1.8rem 1rem;
+
+					label, input {
+						display: inline;
+						vertical-align: middle;
+						width: 50%;
+					}
+
+					label { font-size: 14px; }
+
+					input {
+						background-color: $white;
+						border: 1px solid $gray-ii;
+						float: right;
+						font-size: 12px;
+						height: 20px;
+						margin: 0 0 3px 0;
+					}
+
+					.hint {
+						float: right;
+						font-size: 10px;
+						font-style: italic;
+						text-align: right;
+						width: 100%;
+					}
+
+					&:first-child { padding-top: 0; }
+				}
+
+				/* Snippets Tab */
+				#snippet-preview {
+					img {
+						width: 300px; height: auto;
+
+						display: table;
+						margin: 0 auto;
+					}
+				}
+			}
+
+			/*
+			p {
+				margin: 0; padding: 0 0.5em 0.4em;
+
+				color: #47a3da;
+				font-size: 1.2em;
+				font-weight: 300;
+				line-height: 1.6;
+				text-align: justify;
+			}
+			*/
+		}
+	}
 }
