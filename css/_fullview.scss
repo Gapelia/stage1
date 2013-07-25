@@ -106,6 +106,15 @@
 		width: 100%; height: auto;
 	}
 
+	#handle {
+		width: 400px; height: 475px !important;
+		top: 45px !important; right: 120px !important;
+
+		background-color: $gray-ii;
+		position: fixed;
+		z-index: 2000;
+	}
+
 	#draggable {
 		width: 400px; height: 450px;
 		top: 55px !important; right: 100px !important;
@@ -113,7 +122,17 @@
 		background-color: $gray-ii;
 		position: absolute;
 		z-index: 2000;
-		
+
+		/*
+		#handle {
+			width: 25px; height: 100%;
+			top: 0; left: 0;
+
+			background-color: $gray-v;
+			display: block;
+		}
+		*/
+
 		nav {
 			display: inline-block;
 			height: 3.313em;

@@ -1148,7 +1148,16 @@ img {
 .preview #information #page-title { font-family: "OpenSansLight"; font-size: 1.5em; margin: 0 0 0.5rem 0; }
 .preview #information #geocode { font-family: "OpenSansSemibold"; font-size: 1.2em; }
 .preview .page-bg { width: 100%; height: auto; }
-.preview #draggable { width: 400px; height: 450px; top: 55px !important; right: 100px !important; background-color: #cfcfcf; position: absolute; z-index: 2000; }
+.preview #handle { width: 400px; height: 475px !important; top: 45px !important; right: 120px !important; background-color: #cfcfcf; position: fixed; z-index: 2000; }
+.preview #draggable { width: 400px; height: 450px; top: 55px !important; right: 100px !important; background-color: #cfcfcf; position: absolute; z-index: 2000; 		/*
+		#handle {
+			width: 25px; height: 100%;
+			top: 0; left: 0;
+
+			background-color: $gray-v;
+			display: block;
+		}
+		*/ }
 .preview #draggable nav { display: inline-block; height: 3.313em; overflow: hidden; position: absolute; width: 100%; z-index: 1000; }
 .preview #draggable nav a { border-right: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf; display: block; float: left; font-family: "OpenSansLight"; padding: 0.5rem; text-align: center; transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; width: 25%; /* width: 20%; height: 100%; */ -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /*
 &:last-child {
