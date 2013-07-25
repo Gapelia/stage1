@@ -51,7 +51,7 @@
 		}
 	}
 
-	#photo-fullview-wrapper {
+	#photo-fullview-wrapper, #text-fullview-wrapper {
 		width: 100%; height: 100%;
 		margin: 50px 0 0 0;
 
@@ -100,6 +100,16 @@
 			font-family: "OpenSansSemibold";
 			font-size: 1.2em;
 		}
+	}
+
+	#story-content {
+		width: 100%; height: auto;
+		/* top: 50px; left: 50px; */
+
+		background-color: rgba(#07d0eb, 0.2);
+		box-sizing: border-box;
+		padding: 2% 5% 0 5%;
+		position: fixed;
 	}
 
 	.page-bg {
