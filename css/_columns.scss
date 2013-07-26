@@ -1,7 +1,7 @@
 /*
 .begin-title {
 	background-color: #314C87;
-	color: #fff;
+	color: $white;
 	height: 24em;
 	margin-bottom: 2.75em;
 	position: relative;
@@ -20,16 +20,18 @@
 	-ms-hyphens: none;
 }
 
-.address {
-	font-size: 1.2em;
-	line-height: 1.517241379em;
-	margin-bottom: 1em;
-}
-
 .sc {
 	font-family: "Alegreya SC", "Noticia Text", "Georgia", "Times New Roman", serif;
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+*/
+
+.address {
+	font-size: 1.2em;
+	line-height: 1.517241379em;
+	margin-bottom: 1em;
 }
 
 p {
@@ -43,7 +45,7 @@ p + p {
 	margin-bottom: 0;
 	text-indent: 1.5em;
 }
-*/
+
 .text .author {
 	margin-bottom: 0.65em; padding: 0.65em 0;
 
@@ -54,13 +56,13 @@ p + p {
 	line-height: 1.375em;
 	text-align: center;
 }
-
+/*
 .text p:nth-child(3)::first-line {
 	font-family: "Alegreya SC", "Noticia Text", "Georgia", "Times New Roman", serif;
 	font-size: 1.1em;
 	text-transform: lowercase;
 }
-/*
+
 #main {
 	margin: 5.5em auto;
 	width: 35em;
@@ -141,6 +143,7 @@ a:hover {
 	color: #FF002C;
 }
 */
+
 .position-aid-wrap { position: relative; }
 
 .position-aid-offset {
@@ -194,143 +197,134 @@ pre + p { margin-top: 1.5em; }
 	.columns {
 		font-size: 16px;
 		max-width: 1000%;
-	}
 
-	.columns .begin-title {
-		display: inline-block;
-		width: 22em;
-		text-align: center;
-		font-weight: normal;
-		white-space: normal;
-		background-color: #314C87;
-		color: #fff;
-		height: 100%;
-		margin-right: 1.375em;
-		margin-bottom: 0;
-		position: relative;
-	}
-	/* line 286, ../sass/screen.scss */
-	.columns .begin-title .middle-wrapper {
-		position: absolute;
-		top: 50%;
-		margin-top: -6em;
-		height: 12em;
-		width: 100%;
-	}
-	/* line 294, ../sass/screen.scss */
-	.columns .begin-title h1 {
-		color: #fff;
-		margin: 0;
-		letter-spacing: 0.1em;
-		line-height: 1.3em;
-	}
-	/* line 300, ../sass/screen.scss */
-	.columns .begin-title .by {
-		margin-top: 1.5em;
-		font-style: italic;
-		text-align: center;
-	}
-	/* line 307, ../sass/screen.scss */
-	.columns .text {
-		height: 100%;
-		display: inline-block;
-		-webkit-column-width: 21em;
-		-moz-column-width: 21em;
-		column-width: 21em;
-		-webkit-column-gap: 1px;
-		-moz-column-gap: 1px;
-		column-gap: 1px;
-		-webkit-column-fill: auto;
-		-moz-column-fill: auto;
-		column-fill: auto;
-		-webkit-column-rule: 1px dotted #ccc;
-		-moz-column-rule: 1px dotted #ccc;
-		column-rule: 1px dotted #000;
-		white-space: normal;
-		margin-right: 1.2em;
-		vertical-align: top;
-	}
-	/* line 326, ../sass/screen.scss */
-	.columns .text div, .columns .text h2, .columns .text h3, .columns .text h4, .columns .text ol, .columns .text ul {
-		margin-left: 1.375em;
-		margin-right: 1.375em;
-	}
-	/* line 330, ../sass/screen.scss */
-	.columns .text .author {
-		text-align: left;
-		margin-left: 1.6923em;
-		margin-right: 1.6923em;
-	}
-	/* line 335, ../sass/screen.scss */
-	.columns .text .address {
-		margin-left: 1.1579em;
-		margin-right: 1.1579em;
-	}
-	/* line 342, ../sass/screen.scss */
-	.columns p {
-		line-height: 1.375em;
-		margin: 0 1.375em 0 1.375em;
-	}
-	/* line 348, ../sass/screen.scss */
-	.columns #main {
-		position: absolute;
-		margin: 0;
-		top: 4.85em;
-		bottom: 2.75em;
-		left: 2.75em;
-		right: 2.75em;
-		min-width: 100%;
-		white-space: nowrap;
-		vertical-align: top;
-	}
-	/* line 360, ../sass/screen.scss */
-	.columns .img-container {
-		display: inline-block;
-		vertical-align: middle;
-		margin: 0;
-		margin-right: 1.2em;
-		height: 100%;
-		overflow: hidden;
-		vertical-align: top;
-	}
-	/* line 371, ../sass/screen.scss */
-	.columns img.header {
-		width: auto;
-	}
-	/* line 376, ../sass/screen.scss */
-	.columns ol.index li {
-		height: 1.5em;
-	}
-	/* line 381, ../sass/screen.scss */
-	.columns h1 {
-		margin-top: 0.5em;
-		line-height: 1.1em;
-		margin-bottom: 1em;
-		width: 100%;
-	}
+		.begin-title {
+			display: inline-block;
+			width: 22em;
+			text-align: center;
+			font-weight: normal;
+			white-space: normal;
+			background-color: #314C87;
+			color: $white;
+			height: 100%;
+			margin-right: 1.375em;
+			margin-bottom: 0;
+			position: relative;
 
-	.columns h2, .columns h3, .columns h4, .columns h5 {
-		margin-top: 1.575em;
-		margin-bottom: 0.075em;
+			h1 {
+				color: $white;
+				margin: 0;
+				letter-spacing: 0.1em;
+				line-height: 1.3em;
+			}
+
+			.by {
+				font-style: italic;
+				margin-top: 1.5em;
+				text-align: center;
+			}
+
+			.middle-wrapper {
+				width: 100%; height: 12em;
+
+				margin-top: -6em;
+				position: absolute;
+				top: 50%;
+			}
+		}
+
+		.text {
+			column-fill: auto;
+			column-gap: 1px;
+			column-rule: 1px dotted #000;
+			column-width: 21em;
+			display: inline-block;
+			height: 100%;
+			margin-right: 1.2em;
+			vertical-align: top;
+			white-space: normal;
+
+			div, h2, h3, h4, ol, ul {
+				margin-left: 1.375em; margin-right: 1.375em;
+			}
+
+			.author {
+				margin-left: 1.6923em; margin-right: 1.6923em;
+				text-align: left;
+			}
+
+			.address {
+				margin-left: 1.1579em; margin-right: 1.1579em;
+			}
+
+			-webkit-column-fill: auto;
+			-webkit-column-gap: 1px;
+			-webkit-column-rule: 1px dotted #ccc;
+			-webkit-column-width: 21em;
+
+			-moz-column-fill: auto;
+			-moz-column-gap: 1px;
+			-moz-column-rule: 1px dotted #ccc;
+			-moz-column-width: 21em;
+		}
+
+		p {
+			line-height: 1.375em;
+			margin: 0 1.375em 0 1.375em;
+		}
+
+		#main {
+			top: 4.85em; left: 2.75em;
+			bottom: 2.75em; right: 2.75em;
+
+			margin: 0;
+			position: absolute;
+			vertical-align: top;
+			white-space: nowrap;
+			min-width: 100%;
+		}
+
+		.img-container {
+			display: inline-block;
+			height: 100%;
+			margin: 0; margin-right: 1.2em;
+			overflow: hidden;
+			vertical-align: top;
+			vertical-align: middle;
+		}
+
+		img.header { width: auto; }
+
+		ol.index li { height: 1.5em; }
+
+		h1 {
+			line-height: 1.1em;
+			margin-top: 0.5em; margin-bottom: 1em;
+			width: 100%;
+		}
+
+		h2, h3, h4, h5 {
+			margin-top: 1.575em; margin-bottom: 0.075em;
+		}
+
+		h2 { text-align: left; }
+
+		blockquote {
+			margin: 0.6875em 0; padding: 0.6875em 0;
+			background-color: #eee;
+
+			-webkit-column-break-inside: avoid;
+		}
+
+		ol {
+			color: #444;
+			list-style-position: inside;
+			list-style-type: decimal;
+			margin: 0.6875em 0;
+
+			li { line-height: 1.375em; }
+		}
 	}
-
-	.columns h2 { text-align: left; }
-
-	.columns blockquote {
-		background-color: #eee;
-		padding: 0.6875em 0;
-		margin: 0.6875em 0;
-		-webkit-column-break-inside: avoid;
-	}
-
-	.columns ol {
-		list-style-type: decimal;
-		list-style-position: inside;
-		margin: 0.6875em 0;
-		color: #444;
-	}
-
-	.columns ol li { line-height: 1.375em; }
 }
 
 @media screen and (max-width: 980px) {

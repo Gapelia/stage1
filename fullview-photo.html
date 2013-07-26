@@ -29,16 +29,8 @@
 		<![endif]-->
 
 		<script src="scripts/modernizr.custom.js"></script>
-		<script src="scripts/modernizr.min.js"></script>
 		<script src="scripts/jquery-1.10.2.js"></script>
-
-		<script src="scripts/pep.js"></script>
-
-    <script>
-      $(document).ready(function() {
-				// $("#draggable").pep();
-      });
-    </script>
+		<script src="scripts/easing.min.js"></script>
 
 		<script src="scripts/bg-resize.js"></script>
 
@@ -48,6 +40,15 @@
 					img: "images/tokyo2610-by-tokyo-form.jpg" // you could also use an absolute url (http://...)
 				});
 			});
+		</script>
+
+		<script>
+			//<![CDATA[
+			(function() {
+				var image = new Image();
+				image.src = "https://d26houopdteji.cloudfront.net/images/q/mustachify/rand/mirror_in/true/mirror_out/true/fit_width/1366/flop/true/cross_process/true/tilt_shift/true/quality/83/interlace/true/src/http%3A%2F%2Fjux-user-files-prod.s3.amazonaws.com%2F2013%2F07%2F12%2F20%2F34%2F56%2F968%2F8835401324_e29e2dbedd_o.jpg";
+			})();
+			//]]>
 		</script>
 
 	</head>
@@ -70,6 +71,7 @@
 
 		<section id="photo-fullview-wrapper">
 			<div id="draggable">
+				<div class="grip" style="height:15px;background:#333;">&nbsp;</div>
 				<div id="tabs-container" class="cbp-contentslider">
 					<nav id="sidebar-nav">
 						<a href="#tab-content" title="">Content</a>
@@ -113,11 +115,6 @@
 							</section>
 
 							<section class="tag-input">
-								<!--/
-								<label>Passion</label>
-								<input type="text" placeholder=""/>
-								/-->
-
 								<label for="passion">Passion</label>
 								<input id="passion" name="passion" type="text" list="passion-tag"/>
 
@@ -134,11 +131,6 @@
 							</section>
 
 							<section class="tag-input">
-								<!--/
-								<label>Feeling</label>
-								<input type="text" placeholder=""/>
-								/-->
-
 								<label for="feeling">Feeling</label>
 								<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
 
@@ -170,7 +162,6 @@
 						</li>
 
 						<li id="tab-settings">
-							<!--/ <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p> /-->
 							<p>Privacy</p>
 
 							<input type="radio" id="cc-01" name="rr"/>
@@ -343,6 +334,36 @@
 		<script>
 			$(function() {
 				$("#tabs-container").cbpContentSlider();
+			});
+		</script>
+
+		<!--/ scripts/draggable																																 /-->
+
+		<script src="scripts/animadrag.js"></script>
+
+		<script>
+			$(document).ready(function () {
+			  document.body.onselectstart = function () { return false; }
+
+			  $("#draggable").animaDrag({
+			    speed: 150,
+			    interval: 120,
+			    grip: ".grip"
+			  });
+
+				$(function() {
+					$("#jq_ez_bg").mousedown(function(e) {
+						e.preventDefault();
+						return false;
+
+						// $("#tab-content").unbind("mousedown").mousedown();
+						// $("#tab-content").mousedown(function(e) { return true; });
+					});
+				});
+			});
+
+			$(function() {
+
 			});
 		</script>
 

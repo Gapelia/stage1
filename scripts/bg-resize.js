@@ -68,7 +68,7 @@
 		var ih = $("#jq_ez_bg").children("img").height();
 
 		if ($(window).width() > $(window).height()) {
-			//console.log(iw, ih);
+			// console.log(iw, ih);
 			if (iw > ih) {
 				var fRatio = iw / ih;
 				$("#jq_ez_bg").children("img").css("width", $(window).width() + "px");
@@ -95,7 +95,7 @@
 		// Center the image
 		if (typeof (jqez.center) == "undefined" || jqez.center) {
 			if ($("#jq_ez_bg").children("img").width() > $(window).width()) {
-				var this_left = ($("#jq_ez_bg").children('img').width() - $(window).width()) / 2;
+				var this_left = ($("#jq_ez_bg").children("img").width() - $(window).width()) / 2;
 				$("#jq_ez_bg").children("img").css({
 					"top": 0,
 					"left": -this_left

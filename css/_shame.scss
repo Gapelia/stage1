@@ -258,3 +258,27 @@
 	-webkit-transform: translateY(0);
 	-webkit-transition: all 0.5s 0.1s;
 }
+
+/********************************************************************************* FULLVIEW STYLING **/
+
+.preview {
+	-webkit-user-select: none;
+
+	#photo-fullview-wrapper, #text-fullview-wrapper {
+		-webkit-user-select: none;
+	}
+
+	#draggable {
+		nav {
+			a { -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
+		}
+
+		.cbp-contentslider {
+			#sidebar-content {
+				#tab-content, #tab-tags, #tab-snippets, #tab-settings {
+					-webkit-user-select: text !important;
+				}
+			}
+		}
+	}
+}

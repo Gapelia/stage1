@@ -5,10 +5,15 @@
 	width: 100%; height: 100%;
 	margin: 0; padding: 0;
 
-	/* background-color: $gray-i; */
 	box-sizing: border-box;
 	font-family: "OpenSansRegular";
 	overflow: hidden;
+	user-select: none;
+
+	::selection {
+		background: none;
+		color: none;
+	}
 
 	a { color: $gray-v; }
 
@@ -18,6 +23,12 @@
 
 		background-color: $gray-i;
 		position: absolute;
+		user-select: none;
+
+		::selection {
+			background: none;
+			color: none;
+		}
 
 		#back, #title, #finish {
 			display: inline-block;
@@ -46,9 +57,7 @@
 			}
 		}
 
-		#finish {
-			text-align: right;
-		}
+		#finish { text-align: right; }
 	}
 
 	#photo-fullview-wrapper, #text-fullview-wrapper {
@@ -63,7 +72,13 @@
 			font-size: 1.4em;
 			position: absolute;
 			text-align: center;
+			user-select: none;
 			z-index: 1000;
+
+			::selection {
+				background: none;
+				color: none;
+			}
 
 			span {
 				position: absolute;
@@ -116,22 +131,13 @@
 		width: 100%; height: auto;
 	}
 
-	#handle {
-		width: 400px; height: 475px !important;
-		top: 45px !important; right: 120px !important;
+	#draggable {
+		width: 400px; height: 450px;
+		top: 5rem; right: 5rem;
 
 		background-color: $gray-ii;
 		position: fixed;
-		z-index: 2000;
-	}
-
-	#draggable {
-		width: 400px; height: 450px;
-		top: 55px !important; right: 100px !important;
-
-		background-color: $gray-ii;
-		position: absolute;
-		z-index: 2000;
+		z-index: 2000 !important;
 
 		/*
 		#handle {
@@ -161,8 +167,6 @@
 				text-align: center;
 				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 				width: 25%; /* width: 20%; height: 100%; */
-
-				-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
 				/*
 				&:last-child {
@@ -205,6 +209,12 @@
 					overflow-y: auto;
 					padding: 1rem;
 					position: absolute;
+					user-select: text !important;
+
+					::selection {
+						background-color: $gray-ii;
+						color: $black;
+					}
 
 					/* &:target { z-index: 100; } /* Without JS, we use :target */
 
@@ -299,6 +309,24 @@
 				text-align: justify;
 			}
 			*/
+		}
+	}
+
+	#jq_ez_bg {
+		user-select: none !important;
+
+		::selection {
+			background: none !important;
+			color: none !important;
+		}
+
+		img {
+			user-select: none !important;
+
+			::selection {
+				background: none !important;
+				color: none !important;
+			}
 		}
 	}
 }

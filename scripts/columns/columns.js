@@ -29,13 +29,13 @@ var ColumnsDemo = {
       var softHyphen = /\u00AD/
       var unhyphenate = $("p").each(function (index, element) {
         var oldstring = $(element).html();
-        var newstring = oldstring.replace(/\u00AD/g, '')
+        var newstring = oldstring.replace(/\u00AD/g, "")
         $(element).html(newstring)
       })
       ColumnsDemo.hyphenated = false;
     } else {
       $("p").toggleClass("unhyphenate")
-      $(".hyphenate").hyphenate('en-us');
+      $(".hyphenate").hyphenate("en-us");
       ColumnsDemo.hyphenated = true;
     }
   },
