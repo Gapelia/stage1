@@ -1,6 +1,53 @@
 
 /************************************************************************************ FULL-VIEW/SCSS **/
 
+.fv-photo {
+	user-select: none;
+
+	::selection {
+		background: none;
+		color: none;
+	}
+
+	header {
+		user-select: none;
+
+		::selection {
+			background: none;
+			color: none;
+		}
+	}
+
+	#photo-fullview-wrapper {
+		.previous, .next {
+			user-select: none;
+
+			::selection {
+				background: none;
+				color: none;
+			}
+		}
+	}
+
+	#jq_ez_bg {
+		user-select: none;
+
+		::selection {
+			background: none;
+			color: none;
+		}
+
+		img {
+			user-select: none;
+
+			::selection {
+				background: none;
+				color: none;
+			}
+		}
+	}
+}
+
 .preview {
 	width: 100%; height: 100%;
 	margin: 0; padding: 0;
@@ -8,12 +55,6 @@
 	box-sizing: border-box;
 	font-family: "OpenSansRegular";
 	overflow: hidden;
-	user-select: none;
-
-	::selection {
-		background: none;
-		color: none;
-	}
 
 	a { color: $gray-v; }
 
@@ -23,12 +64,6 @@
 
 		background-color: $gray-i;
 		position: absolute;
-		user-select: none;
-
-		::selection {
-			background: none;
-			color: none;
-		}
 
 		#back, #title, #finish {
 			display: inline-block;
@@ -72,13 +107,7 @@
 			font-size: 1.4em;
 			position: absolute;
 			text-align: center;
-			user-select: none;
 			z-index: 1000;
-
-			::selection {
-				background: none;
-				color: none;
-			}
 
 			span {
 				position: absolute;
@@ -101,9 +130,7 @@
 		display: block;
 		position: absolute;
 
-		#page-title, #geocode {
-			display: block;
-		}
+		#page-title, #geocode { display: block; }
 
 		#page-title {
 			font-family: "OpenSansLight";
@@ -118,13 +145,29 @@
 	}
 
 	#story-content {
-		width: 100%; height: auto;
-		/* top: 50px; left: 50px; */
+		margin: 0 0 0 50px; padding: 0 5%;
 
-		background-color: rgba(#07d0eb, 0.2);
+		/* background-color: rgba(#07d0eb, 0.2); */
 		box-sizing: border-box;
-		padding: 2% 5% 0 5%;
-		position: fixed;
+		overflow: hidden;
+		position: relative;
+		text-overflow: ellipsis;
+
+		#story {
+			h2 { margin: 0; }
+
+			h5 {
+				border-bottom: 1px dotted $gray-i;
+				text-transform: uppercase;
+				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+			}
+
+			margin: 0 auto;
+
+			p {
+				&:first-of-type { font-family: "OpenSansBold"; }
+			}
+		}
 	}
 
 	.page-bg {
@@ -309,24 +352,6 @@
 				text-align: justify;
 			}
 			*/
-		}
-	}
-
-	#jq_ez_bg {
-		user-select: none !important;
-
-		::selection {
-			background: none !important;
-			color: none !important;
-		}
-
-		img {
-			user-select: none !important;
-
-			::selection {
-				background: none !important;
-				color: none !important;
-			}
 		}
 	}
 }

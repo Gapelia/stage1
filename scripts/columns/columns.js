@@ -5,7 +5,7 @@ Modernizr.load([{
   }
 ]);
 
-var ColumnsDemo = {
+var Columns = {
   aidPosition: function () {
     var el = $(".position-aid")
     var pos = el.position();
@@ -24,7 +24,7 @@ var ColumnsDemo = {
   hyphenated: true,
 
   toggleHyphenation: function () {
-    if (ColumnsDemo.hyphenated) {
+    if (Columns.hyphenated) {
       $("p").toggleClass("unhyphenate")
       var softHyphen = /\u00AD/
       var unhyphenate = $("p").each(function (index, element) {
@@ -32,11 +32,11 @@ var ColumnsDemo = {
         var newstring = oldstring.replace(/\u00AD/g, "")
         $(element).html(newstring)
       })
-      ColumnsDemo.hyphenated = false;
+      Columns.hyphenated = false;
     } else {
       $("p").toggleClass("unhyphenate")
       $(".hyphenate").hyphenate("en-us");
-      ColumnsDemo.hyphenated = true;
+      Columns.hyphenated = true;
     }
   },
 
@@ -65,7 +65,7 @@ var ColumnsDemo = {
         }
         $(window).off("resize")
         $(".text").removeAttr("style")
-        ColumnsDemo.disableHorizontalScrolling();
+        Columns.disableHorizontalScrolling();
         $("label.columnswitch input").prop("disabled", true).parent().css("opacity", 0.5);
       },
 
@@ -85,14 +85,14 @@ var ColumnsDemo = {
           }
         });
 
-        ColumnsDemo.enableHorizontalScrolling();
-        $("label.columnswitch input").prop('disabled', false).parent().removeAttr("style");
+        Columns.enableHorizontalScrolling();
+        $("label.columnswitch input").prop("disabled", false).parent().removeAttr("style");
       },
 
       setup: function () {
         if (Modernizr.csscolumns && $("body.columns").length) {
-          ColumnsDemo.enableHorizontalScrolling();
-          ColumnsDemo.aidPosition();
+          Columns.enableHorizontalScrolling();
+          Columns.aidPosition();
         } else {
           $(".fixed-nav a.main").hide();
         }
@@ -102,7 +102,7 @@ var ColumnsDemo = {
 
   unregisterEnquire: function () {
     enquire.unregister("screen and (min-width:980px)");
-    ColumnsDemo.disableHorizontalScrolling();
+    Columns.disableHorizontalScrolling();
     $(".text").removeAttr("style");
     $(window).off("resize")
   }
@@ -114,16 +114,16 @@ $(document).ready(function () {
   $(".fixed-nav input").prop("checked", true)
 
   if (Modernizr.csscolumns) {
-    ColumnsDemo.columns = true;
+    Columns.columns = true;
     $("body").addClass("columns")
-    ColumnsDemo.registerEnquire();
+    Columns.registerEnquire();
     $(".fixed-nav .no-support").hide();
   } else {
     $(".fixed-nav .columnswitch input").prop("disabled", true).removeAttr("checked");
   }
 
   $("label.hyphenationswitch input").click(function () {
-    ColumnsDemo.toggleHyphenation();
+    Columns.toggleHyphenation();
   })
 
   $("label.justificationswitch input").click(function () {
@@ -131,17 +131,16 @@ $(document).ready(function () {
   })
 
   $("label.columnswitch input").click(function () {
-    if (ColumnsDemo.columns && Modernizr.csscolumns) {
+    if (Columns.columns && Modernizr.csscolumns) {
       $("body").removeClass("columns");
-      ColumnsDemo.unregisterEnquire();
-      ColumnsDemo.columns = false;
+      Columns.unregisterEnquire();
+      Columns.columns = false;
     } else {
       $("body").addClass("columns");
 
-      ColumnsDemo.columns = true;
-
-      ColumnsDemo.registerEnquire();
-      ColumnsDemo.aidPosition();
+      Columns.columns = true;
+      Columns.registerEnquire();
+      Columns.aidPosition();
     }
   })
 });
