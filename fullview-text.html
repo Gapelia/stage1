@@ -35,7 +35,9 @@
 			}
 		</style>
 
+		<script src="scripts/modernizr.custom.js"></script>
 		<script src="scripts/jquery-1.10.2.js"></script>
+		<script src="scripts/easing.min.js"></script>
 
 		<script src="scripts/bg-resize.js"></script>
 
@@ -66,14 +68,120 @@
 		</header>
 
 		<section id="text-fullview-wrapper">
-			<a href="#" class="previous"><span>&#9664;</span></a>
+			<div id="draggable">
+				<div class="grip" style="background: #333; height: 15px;">&nbsp;</div>
 
-			<!--/
-			<div id="information">
-				<span id="page-title">The Tunnel</span>
-				<span id="geocode">Okinawa, Japan</span>
+				<div id="tabs-container" class="cbp-contentslider">
+					<nav id="sidebar-nav">
+						<a href="#tab-content" title="">Content</a>
+						<a href="#tab-tags" title="">Tags</a>
+						<a href="#tab-snippets" title="">Snippets</a>
+						<a href="#tab-settings" title="">Settings</a>
+					</nav>
+
+					<ul id="sidebar-content">
+						<li id="tab-content">
+							<textarea id="text-editor" name="content">
+
+							</textarea>
+
+							<section id="view-mode">
+								<p>View Mode:</p>
+
+								<input type="radio" id="bc-photo" name="rr" checked/>
+								<label for="bc-photo"><span></span>Photo</label>
+
+								<input type="radio" id="bc-text" name="rr"/>
+								<label for="bc-text"><span></span>Text</label>
+
+								<input type="radio" id="bc-phototext" name="rr"/>
+								<label for="bc-phototext"><span></span>Photo/Text</label>
+
+								<input type="radio" id="bc-integrated" name="rr"/>
+								<label for="bc-integrated"><span></span>Integrated</label>
+							</section>
+						</li>
+
+						<li id="tab-tags">
+							<section class="tag-input">
+								<label for="geotag">Geotag</label>
+								<input id="geotag" type="text" placeholder=""/>
+								<span class="hint">ex. Hawaii</span>
+							</section>
+
+							<section class="tag-input">
+								<label for="passion">Passion</label>
+								<input id="passion" name="passion" type="text" list="passion-tag"/>
+
+								<datalist id="passion-tag">
+									<option value="* Create new tag">
+									<option value="Computers">
+									<option value="Gaming">
+									<option value="Gardening">
+									<option value="Skydiving">
+									<option value="Surfing">
+								</datalist>
+
+								<span class="hint">ex. Surfing</span>
+							</section>
+
+							<section class="tag-input">
+								<label for="feeling">Feeling</label>
+								<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+
+								<datalist id="feeling-tag">
+									<option value="* Create new tag">
+									<option value="Adrenaline">
+									<option value="Calm">
+									<option value="Ecstatic">
+									<option value="Longing">
+									<option value="Serenity">
+								</datalist>
+
+								<span class="hint">ex. Adrenaline</span>
+							</section>
+
+							<section class="tag-input">
+								<label>Custom Wiki Link</label>
+								<input type="text" placeholder=""/>
+								<span class="hint">(default link will associate geotag)</span>
+							</section>
+						</li>
+
+						<li id="tab-snippets">
+							<p>Snippet Locations</p>
+
+							<section id="snippet-preview">
+								<img src="images/bg-ii.jpg" alt=""/>
+							</section>
+						</li>
+
+						<li id="tab-settings">
+							<p>Privacy</p>
+
+							<input type="radio" id="cc-01" name="rr"/>
+							<label for="cc-01"><span></span>CC BY</label><br/>
+
+							<input type="radio" id="cc-02" name="rr"/>
+							<label for="cc-02"><span></span>CC BY-SA</label><br/>
+
+							<input type="radio" id="cc-03" name="rr"/>
+							<label for="cc-03"><span></span>CC BY-ND</label><br/>
+
+							<input type="radio" id="cc-04" name="rr"/>
+							<label for="cc-04"><span></span>CC BY-NC</label><br/>
+
+							<input type="radio" id="cc-05" name="rr"/>
+							<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
+
+							<input type="radio" id="cc-06" name="rr"/>
+							<label for="cc-06"><span></span>CC BY-NC-ND</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-			/-->
+
+			<a href="#" class="previous"><span>&#9664;</span></a>
 
 			<div id="story-content">
 				<div id="story">
@@ -133,7 +241,7 @@
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
-			var livePreviewElem = $("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview");
+			var livePreviewElem = $("#story");
 			var editorElem = $("#text-editor");
 
 			function livePoller() {
@@ -146,6 +254,7 @@
 			});
 		</script>
 
+		<!--/
 		<script>
 			$(document).ready(function () {
 				$("#bc-photo").change(function () {
@@ -169,6 +278,7 @@
 				});
 			});
 		</script>
+		/-->
 
 		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script> /-->
 
@@ -211,6 +321,35 @@
 			});
 		</script>
 		/-->
+
+		<!--/ scripts/draggable																																 /-->
+
+		<script src="scripts/animadrag.js"></script>
+
+		<script>
+			$(document).ready(function () {
+			  document.body.onselectstart = function () { return false; }
+
+			  $("#draggable").animaDrag({
+			    speed: 150,
+			    interval: 120,
+			    grip: ".grip"
+			  });
+
+				$(function() {
+					$("#jq_ez_bg").mousedown(function(e) {
+						e.preventDefault();
+						return false;
+
+						// $("#tab-content").unbind("mousedown").mousedown();
+						// $("#tab-content").mousedown(function(e) { return true; });
+					});
+				});
+			});
+
+			$(function() {
+			});
+		</script>
 
 		<!--/ scripts/columns																																	 /-->
 
@@ -266,6 +405,22 @@
 						"padding": "3rem"
 					});
 				}
+
+				// var livePreviewElem = $("#story");
+				// var editorElem = $("#text-editor");
+
+				function livePoller() {
+					setTimeout(livePoller, 300);
+					// livePreviewElem.html(editorElem.redactor("get"));
+					$story.css({
+						"column-count": "1",
+						"column-width": "30em",
+						"padding": "3rem",
+						"width": "auto"
+					});
+				}
+
+				$(function () { livePoller(); });
 
 				$(window).resize(function() {
 				});
