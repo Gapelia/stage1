@@ -31,7 +31,8 @@ $(function() {
 		prev: "#prev-big",
 		next: "#next-big",
 		items: {
-			width: 200,
+			// width: 200,
+			width: 278,
 			// height: "30%", // optionally resize item-height
 			visible: { min: 2, max: 6 }
 		},
@@ -47,7 +48,8 @@ $(function() {
 		prev: "#prev-small",
 		next: "#next-small",
 		items: {
-			width: 360,
+			// width: 360,
+			width: 300,
 			// height: "30%", // optionally resize item-height
 			visible: { min: 2, max: 6 }
 		},
@@ -92,6 +94,7 @@ $(function() {
 
 $(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
 // $(".dimension-book .lifestyle li").squishy();
+$("#small-scroller .book-title").squishy({ maxSize: 14 });
 
 // EXPAND USERS IN SMALL SCROLLER /////////////////////////////////////////////////////////////////////
 // NEED TO FIND BETTER IMPLEMENTATION /////////////////////////////////////////////////////////////////
@@ -322,9 +325,10 @@ $(function() {
 
 $(window).load(function () {
 
-	if ($(window).height() > 677) {
+	if ($(window).height() <= 677) {
 		$(function() {
-			$("#big-scroller").carouFredSel({
+			// default top scroller
+			$("#big-scroller, #dimension-scroller").carouFredSel({
 				auto: false,
 				responsive: true,
 				width: "100%",
@@ -332,7 +336,7 @@ $(window).load(function () {
 				prev: "#prev-big",
 				next: "#next-big",
 				items: {
-					width: 250,
+					width: 289,
 					visible: { min: 2, max: 5 }
 				},
 				mousewheel: true
@@ -343,13 +347,33 @@ $(window).load(function () {
 	else {
 	};
 
+	if ($(window).height() > 677) {
+		$(function() {
+			// default top scroller
+			$("#big-scroller, #dimension-scroller").carouFredSel({
+				auto: false,
+				responsive: true,
+				width: "100%",
+				scroll: 1,
+				prev: "#prev-big",
+				next: "#next-big",
+				items: {
+					width: 351,
+					visible: { min: 2, max: 6 }
+				},
+				mousewheel: true
+			});
+		});
+	}
+
 });
 
 ////////////////////////////////////////////////////////////////////////////////////// BOOK CREATION //
 // TAB SWITCHER ///////////////////////////////////////////////////////////////////////////////////////
 
 // $(document).ready(function($) {
-	// $("#sidebar-wrapper").tabulous({ effect: "slideLeft" });		/* OTHER EFFECTS: scale, scaleUp, flip */
+	// $("#sidebar-wrapper").tabulous({ effect: "slideLeft" });
+	// OTHER EFFECTS: scale, scaleUp, flip
 // });
 
 // DRAGGABLE LIST /////////////////////////////////////////////////////////////////////////////////////

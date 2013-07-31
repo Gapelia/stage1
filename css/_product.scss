@@ -1,3 +1,6 @@
+
+/************************************************************************************** PRODUCT/SCSS **/
+
 /** [-] Big + Small Scroller Shared Styles ************************************************************/
 
 #big-scroller-wrapper, #small-scroller-wrapper,
@@ -92,9 +95,7 @@
 		}
 	}
 
-	#small-profile-wrapper {
-		height: 100%;
-	}
+	#small-profile-wrapper { height: 100%; }
 }
 
 #big-scroller, #dimension-scroller {
@@ -123,7 +124,11 @@
 		&:hover {
 			.book-info {
 				text-shadow: 0 3px 4px transparentize($black, 0);
-				.explore-book { visibility: visible; }
+
+				.explore-book {
+					box-shadow: 0 3px 4px transparentize($black, 0.3);
+					visibility: visible;
+				}
 			}
 		}
 
@@ -133,6 +138,7 @@
 			position: absolute;
 			text-align: center;
 			text-shadow: 0 1px 3px transparentize($black, 0.3);
+			transition: text-shadow 0.2s ease-in-out;
 			top: 35%;
 			width: 100%;
 
@@ -171,6 +177,7 @@
 				font-size: 70%;
 				text-shadow: none;
 				text-transform: uppercase;
+				transition: visibility 0.1s ease-in-out;
 				visibility: hidden;
 				width: 50%;
 
@@ -203,10 +210,39 @@
 		}
 	}
 
+	.new-book {
+		background-color: $gray-ii;
+		text-shadow: 0 !important;
+
+		.book-info {
+			color: $gray-v;
+			text-shadow: none !important;
+			transition: color 0.2s ease-in-out;
+
+			.add-new-book {
+				cursor: pointer;
+				font-size: 10em;
+			}
+		}
+
+		&:hover {
+			.book-info {
+				color: $white;
+
+				/*
+				.explore-book {
+					box-shadow: 0 3px 4px transparentize($black, 0.3);
+					visibility: visible;
+				}
+				*/
+			}
+		}
+	}
+
 	.book-cover {
 		width: 100%; height: 100%;
 
-		background-size: 115%;
+		background-size: 115% !important;
 		display: table-cell;
 	}
 
@@ -272,7 +308,13 @@
 /** [-] Small Scroller ********************************************************************************/
 
 #small-scroller-wrapper {
-	#prev-small, #next-small { padding: 3.7rem 0; }
+	width: 100%; height: auto;
+	bottom: 0; left: 0;
+
+	overflow: hidden;
+	position: absolute;
+
+	#prev-small, #next-small { /* padding: 3.7rem 0; */ padding: 2.7rem 0; }
 }
 
 #small-scroller, #gapelian-scroller {
@@ -280,7 +322,7 @@
 	width: auto;
 
 	.user-book, .user {
-		width: 328px; height: 131px;
+		width: 300px; /* width is overridden by JS */ height: 100px;
 
 		background-color: $gray-i;
 		float: left;
@@ -292,7 +334,7 @@
 		}
 
 		.cover {
-			width: 131px; height: 131px;
+			width: 100px; height: 100px;
 		}
 
 		.book-info, .user-info {
@@ -310,10 +352,13 @@
 			}
 
 			.book-dimensions {
+				display: none; /**/
+
 				li {
 					float: left;
 
 					&:after { content: "\00a0 |\00a0"; }
+
 					&:last-child {
 						&:after { content: ""; }
 					}
@@ -338,7 +383,7 @@
 		}
 	}
 
-	.user { width: 131px; }
+	.user { /* width: 131px; */ width: 100px; }
 	.user-info { transition: width 0.2s ease-in-out; }
 }
 
