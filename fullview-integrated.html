@@ -4,7 +4,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia | Fullview Edit Mode: Text</title>
+		<title>Gapelia | Fullview Edit Mode: Integrated I</title>
 
 		<!--/ GAPELIA
 			 ______   ______   ______  ______   __       __   ______
@@ -37,14 +37,14 @@
 		<script>
 			$(document).ready(function() {
 				$("body").bgResize({
-					img: "images/text-bg.jpg" // you could also use an absolute url (http://...)
+					img: "images/tokyo2610-by-tokyo-form.jpg" // you could also use an absolute url (http://...)
 				});
 			});
 		</script>
 
 	</head>
 
-	<body class="preview fv-text">
+	<body class="preview fv-integrated">
 
 		<header>
 			<div id="back">
@@ -60,10 +60,9 @@
 			</div>
 		</header>
 
-		<section id="text-fullview-wrapper">
+		<section id="integrated-fullview-wrapper">
 			<div id="draggable">
-				<div class="grip" style="background: #333; height: 15px;">&nbsp;</div>
-
+				<div class="grip" style="background-color: #333; height: 15px;">&nbsp;</div>
 				<div id="tabs-container" class="cbp-contentslider">
 					<nav id="sidebar-nav">
 						<a href="#tab-content" title="">Content</a>
@@ -75,7 +74,11 @@
 					<ul id="sidebar-content">
 						<li id="tab-content">
 							<textarea id="text-editor" name="content">
-
+								<h2>The Tunnel</h2>
+								<h5>Okinawa, Japan</h5>
+								<p><strong>Okinawa Prefecture</strong> is the southernmost prefecture of Japan. It comprises hundreds of the Ryukyu Islands in a chain over 1,000 kilometres (620 mi) long. The Ryukyus extend southwest from Kyushu (the southwesternmost of Japan's main four islands) to Taiwan. The Okinawa Prefecture encompases the southern two thirds of that chain. Okinawa's capital, Naha, is located in the southern part of Okinawa Island.</p>
+								<p>Despite widespread destruction during the war, there are many remains of a unique type of castle or fortress known as gusuku; the most significant are now inscribed on the UNESCO World Heritage List (Gusuku Sites and Related Properties of the Kingdom of Ryukyu). In addition, twenty-one Ryukyuan architectural complexes and thirty-six historic sites have been designated for protection by the national government.</p>
+								<p>Whereas most homes in Japan are made with wood and allow free-flow of air to combat humidity, typical modern homes in Okinawa are made from concrete with barred windows (protection from flying plant matter) to deal with regular typhoons. Roofs are also designed with strong winds in mind, with each tile cemented on and not merely layered as seen with many homes elsewhere in Japan.</p>
 							</textarea>
 
 							<section id="view-mode">
@@ -176,27 +179,17 @@
 
 			<a href="#" class="previous"><span>&#9664;</span></a>
 
+			<!--/
+			<div id="information">
+				<span id="page-title">The Tunnel</span>
+				<span id="geocode">Okinawa, Japan</span>
+			</div>
+			/-->
+
 			<div id="story-content">
 				<div id="story">
-					<!--/ <div class="author">Spaceman Fresh</div> /-->
-					<h2>Japanimation!</h2>
-					<h5>Akihabara, Tokyo</h5>
-
-					<p>Akihabara ("Field of Autumn Leaves"), also known as Akihabara Electric Town, is a district of Tokyo, Japan. It is located less than five minutes by rail from Tokyo Station. Its name is frequently shortened to Akiba in Japan. While there is an official locality named Akibahara, nearby (as part of Taito-ku), the area known to most people as Akihabara (including the railway station of the same name) also include Soto-Kanda, a part of Chiyoda-ku.</p>
-
-					<p>Akihabara is a major shopping area for electronic, computer, anime, games and otaku goods, including new and used items. New items are mostly to be found on the main street, Chuodori, with many kinds of used items found in the back streets of Soto Kanda 3-chome. New parts for PC-building are readily available from a variety of stores. Tools, electrical parts, wires, microsized cameras and similar items are found in the cramped passageways of Soto Kanda 1-chome (near the station). Foreign tourists tend to visit the big name shops like Laox or other speciality shops near the station, though there is more variety and lower prices at locales a little further away. Akihabara gained some fame through being home to one of the first stores devoted to personal robots and robotics.</p>
-
-					<p>The area was just out of Sujikai-gomon city gate (present Mansei bridge) which was one of the city gates (Mitsuke) of old Edo (Tokyo). It was the gateway from inner Edo to northern and northwestern Japan and Kan’ei-ji temple in Ueno. Many dealers, craftsmen and relatively lower class samurai lived there.</p>
-
-					<h2>CSS3 Columns</h2>
-
-					<p><abbr>CSS3</abbr> columns take content and divide it into columns based on either the <code>column-width</code> or <code>column-count</code> <abbr>CSS</abbr>-properties. The former inserts content into a dynamic number of columns with the width you gave it. The latter distributes content in identical height to the number of columns you gave it.</p>
-
-					<p>For articles, there's one viable option: <code>column-width</code>. If I used <code>column-count</code>, I would run into problems with longer text. It could force the reader to scroll up and down.</p>
-
-					<p>Using <code>column-width</code> creates new columns to the right as content expands. Setting the height to something smaller than the screen height will remove the need for any up and down scrolling. Because the content expands horizontally, the only sensible solution for navigating is horizontal scrolling. This article uses a simple jQuery script to convert vertical mousewheel scrolling to horizontal.</p>
-
-					<!--/					/-->
+					<span id="page-title">The Tunnel</span>
+					<span id="geocode">Okinawa, Japan</span>
 				</div>
 			</div>
 
@@ -247,33 +240,7 @@
 			});
 		</script>
 
-		<!--/
-		<script>
-			$(document).ready(function () {
-				$("#bc-photo").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#photo-preview-wrapper").show();
-				});
-
-				$("#bc-text").change(function () {
-					$("#photo-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#text-preview-wrapper").show();
-				});
-
-				$("#bc-phototext").change(function () {
-					$("#text-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#phototext-preview-wrapper").show();
-				});
-
-				$("#bc-integrated").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #photo-preview-wrapper").hide();
-					$("#integrated-preview-wrapper").show();
-				});
-			});
-		</script>
-		/-->
-
-		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script> /-->
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
 			var input = document.getElementById("geotag");
@@ -301,19 +268,6 @@
 				$("#tabs-container").cbpContentSlider();
 			});
 		</script>
-
-		<!--/
-		<script src="scripts/simplyCountable.js"></script>
-
-		<script>
-			$(document).ready(function() {
-				$("#modal-description").simplyCountable({
-					counter: "#modal-counter",
-					maxCount: 300
-				});
-			});
-		</script>
-		/-->
 
 		<!--/ scripts/draggable																																 /-->
 
@@ -344,81 +298,18 @@
 			});
 		</script>
 
-		<!--/ scripts/columns																																	 /-->
+		<!--/
+		<script src="scripts/simplyCountable.js"></script>
 
 		<script>
 			$(document).ready(function() {
-				var viewportWidth = $(window).width();
-				var viewportHeight = $(window).height();
-
-				var w = viewportWidth - 234;
-				var h = viewportHeight - 50;
-				
-				var w2 = viewportWidth / 2;
-
-				$("#story").width(w).height(h);
-
-				var $story = $("#story");
-				var $numWords = $story.text().split(" ").length;
-
-				if (($numWords >= 1) && ($numWords < 141)) { // one column
-					$story.css({
-						"column-count": "1",
-						"column-width": "30em",
-						"padding": "3rem",
-						"width": "auto"
-					});
-
-					$story.each(function () {
-						$(this).css("margin-left", $(window).width() - 1250 / 2 - $(this).width() + "px");
-					});
-				}
-
-				if (($numWords >= 141) && ($numWords < 230)) { // two columns
-					$story.css({
-						"column-fill": "auto",
-						"column-gap": "30px",
-						"column-rule": "1px dotted #e7e7e7",
-						"column-width": "16em",
-						"padding": "3rem",
-						"width": "auto"
-					});
-
-					$story.each(function () {
-						$(this).css("margin-left", $(window).width() - 100 / 2 - $(this).width() + "px");
-					});
-				}
-
-				if ($numWords >= 230) { // three columns
-					$story.css({
-						"column-fill": "auto",
-						"column-gap": "30px",
-						"column-rule": "1px dotted #e7e7e7",
-						"column-width": "16em",
-						"padding": "3rem"
-					});
-				}
-
-				// var livePreviewElem = $("#story");
-				// var editorElem = $("#text-editor");
-
-				function livePoller() {
-					setTimeout(livePoller, 300);
-					// livePreviewElem.html(editorElem.redactor("get"));
-					$story.css({
-						"column-count": "1",
-						"column-width": "30em",
-						"padding": "3rem",
-						"width": "auto"
-					});
-				}
-
-				$(function () { livePoller(); });
-
-				$(window).resize(function() {
+				$("#modal-description").simplyCountable({
+					counter: "#modal-counter",
+					maxCount: 300
 				});
 			});
 		</script>
+		/-->
 
 	</body>
 

@@ -48,10 +48,22 @@
 	}
 }
 
+.fv-phototext-ii {
+	#vertical-bg, #story-content {
+		/* width: auto !important; */ max-width: 500px !important; height: 100% !important;
+		top: auto !important; right: auto !important;
+
+		display: inline-block !important;
+		float: left;
+		position: relative !important;
+	}
+}
+
 .preview {
 	width: 100%; height: 100%;
 	margin: 0; padding: 0;
 
+	background-color: $white;
 	box-sizing: border-box;
 	font-family: "OpenSansRegular";
 	overflow: hidden;
@@ -95,7 +107,8 @@
 		#finish { text-align: right; }
 	}
 
-	#photo-fullview-wrapper, #text-fullview-wrapper {
+	#photo-fullview-wrapper, #text-fullview-wrapper,
+	#integrated-fullview-wrapper, #phototext-fullview-wrapper {
 		width: 100%; height: 100%;
 		margin: 50px 0 0 0;
 
@@ -118,60 +131,150 @@
 
 		.previous { left: 0; }
 		.next { right: 0; }
-	}
 
-	#information {
-		width: 100%; height: auto;
-		padding: 1.5rem 4.5rem;
-		bottom: 0; left: 0;
-
-		background-color: rgba($black, 0.8);
-		color: $white;
-		display: block;
-		position: absolute;
-
-		#page-title, #geocode { display: block; }
-
-		#page-title {
-			font-family: "OpenSansLight";
-			font-size: 1.5em;
-			margin: 0 0 0.5rem 0;
+		.previous, #story-content, .next {
+			display: inline-block !important;
+			vertical-align: top !important;
 		}
 
-		#geocode {
-			font-family: "OpenSansSemibold";
-			font-size: 1.2em;
-		}
-	}
+		#story-content {
+			#story {
+				p {
+					margin: 0 auto 1rem;
 
-	#story-content {
-		margin: 0 0 0 50px; padding: 0 5%;
+					line-height: 1.4em;
+					text-align: justify;
+					width: 100%;
 
-		/* background-color: rgba(#07d0eb, 0.2); */
-		box-sizing: border-box;
-		overflow: hidden;
-		position: relative;
-		text-overflow: ellipsis;
-
-		#story {
-			h2 { margin: 0; }
-
-			h5 {
-				border-bottom: 1px dotted $gray-i;
-				text-transform: uppercase;
-				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-			}
-
-			margin: 0 auto;
-
-			p {
-				&:first-of-type { font-family: "OpenSansBold"; }
+					&:last-child { margin: 0 auto; }
+				}
 			}
 		}
 	}
 
-	.page-bg {
-		width: 100%; height: auto;
+	#photo-fullview-wrapper {
+		#information {
+			width: 100%; height: auto;
+			padding: 1.5rem 4.5rem;
+			bottom: 0; left: 0;
+
+			background-color: rgba($black, 0.8);
+			color: $white;
+			display: block;
+			position: absolute;
+
+			#page-title, #geocode { display: block; }
+
+			#page-title {
+				font-family: "OpenSansLight";
+				font-size: 1.5em;
+				margin: 0 0 0.5rem 0;
+			}
+
+			#geocode {
+				font-family: "OpenSansSemibold";
+				font-size: 1.2em;
+			}
+		}
+	}
+
+	#text-fullview-wrapper {
+		#story-content {
+			margin: 0 0 0 50px; padding: 0 5%;
+
+			/* background-color: rgba(#07d0eb, 0.2); */
+			box-sizing: border-box;
+			overflow: hidden;
+			position: relative;
+			text-overflow: ellipsis;
+
+			#story {
+				h2 { margin: 0; }
+
+				h5 {
+					border-bottom: 1px dotted $gray-i;
+					text-transform: uppercase;
+					margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+				}
+
+				margin: 0 auto;
+
+				p {
+					&:first-of-type { font-family: "OpenSansBold"; }
+				}
+			}
+		}
+	}
+
+	#integrated-fullview-wrapper {
+		#quote {
+			display: block !important;
+			font-size: 350%;
+			text-align: center !important;
+
+			span {
+				display: block !important;
+				font-family: Georgia, serif;
+				font-style: italic !important;
+				text-align: left !important;
+			}
+		}
+
+		#story-content {
+			width: 100%; height: auto;
+			margin: 0; padding: 0;
+			/* margin: 0 0 0 50px; padding: 0 5%; */
+
+			box-sizing: border-box;
+			overflow: hidden;
+			position: relative;
+			text-overflow: ellipsis;
+
+			#story {
+				margin: 5% auto 0; padding: 3rem;
+
+				background-color: rgba($black, 0.5);
+				color: $white;
+				width: 70%;
+
+				h2, h5 {
+					text-align: center;
+					width: 100%;
+				}
+
+				h2 { margin: 0; }
+
+				h5 {
+					margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+
+	#phototext-fullview-wrapper {
+		#story-content {
+			/* margin: 0 0 0 50px; padding: 0 5%; */
+			width: 30%; height: 100%;
+			top: 50px; right: 50px;
+
+			background-color: rgba($white, 0.7);
+			box-sizing: border-box;
+			overflow: hidden;
+			padding: 2rem;
+			position: absolute;
+			text-overflow: ellipsis;
+
+			#story {
+				h2 { margin: 0; }
+
+				h5 {
+					border-bottom: 1px dotted $gray-i;
+					text-transform: uppercase;
+					margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+				}
+			}
+		}
 	}
 
 	#draggable {
