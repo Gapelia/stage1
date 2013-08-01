@@ -59,6 +59,83 @@
 	}
 }
 
+.fv-frontcover {
+	#text-editor, #story {
+		text-align: center !important;
+
+		#lifestyle {
+			font-size: 17px;
+			line-height: 24px;
+			margin: 0 0 1rem 0;
+			text-align: center !important;
+			text-transform: normal;
+			width: 100% !important;
+
+			span {
+				float: left;
+				margin: 0 auto !important;
+
+				&:after { content: "| " !important; }
+				&:last-child { &:after { content: "" !important; } }
+			}
+		}
+
+		/*
+		section {
+			border-top: 1px solid $white;
+			border-bottom: 1px solid $white;
+			padding: 1rem 0;
+		}
+		*/
+
+		p {
+			border-top: 1px solid $white;
+			border-bottom: 1px solid $white;
+			padding: 1rem 0;
+			width: 60% !important;
+		}
+
+		p + p {
+			border-top: 0; border-bottom: 0;
+			display: inline-block;
+			margin: 0 0 0 3% !important; padding: 0;
+			vertical-align: top !important;
+			width: 45% !important;
+
+			&:first-child { margin: 0 !important; }
+		}
+	}
+
+	#story-content {
+		#meta-wrapper {
+			position: relative;
+			margin: 0 auto;
+			width: 70% !important;
+
+			#light-rating, #dimension-icon {
+				width: 32px; height: 32px;
+
+				background-color: $white;
+				border-radius: 30000px;
+				bottom: 10px;
+				display: block;
+				position: absolute;
+
+				span {
+					bottom: 4px;
+					padding: 0.31rem 0;
+					position: absolute;
+					text-align: center;
+					width: 100%;
+				}
+			}
+
+			#light-rating { left: 10px; }
+			#dimension-icon { right: 10px; }
+		}
+	}
+}
+
 .preview {
 	width: 100%; height: 100%;
 	margin: 0; padding: 0;
@@ -67,6 +144,7 @@
 	box-sizing: border-box;
 	font-family: "OpenSansRegular";
 	overflow: hidden;
+	user-select: none;
 
 	a { color: $gray-v; }
 
@@ -108,7 +186,8 @@
 	}
 
 	#photo-fullview-wrapper, #text-fullview-wrapper,
-	#integrated-fullview-wrapper, #phototext-fullview-wrapper {
+	#integrated-fullview-wrapper, #phototext-fullview-wrapper,
+	#frontcover-fullview-wrapper {
 		width: 100%; height: 100%;
 		margin: 50px 0 0 0;
 
@@ -206,7 +285,7 @@
 		}
 	}
 
-	#integrated-fullview-wrapper {
+	#integrated-fullview-wrapper, #frontcover-fullview-wrapper {
 		#quote {
 			display: block !important;
 			font-size: 350%;
@@ -279,21 +358,11 @@
 
 	#draggable {
 		width: 400px; height: 450px;
-		top: 5rem; right: 5rem;
+		/* top: 5rem; right: 5rem; */
 
 		background-color: $gray-ii;
-		position: fixed;
+		/* position: fixed; */
 		z-index: 2000 !important;
-
-		/*
-		#handle {
-			width: 25px; height: 100%;
-			top: 0; left: 0;
-
-			background-color: $gray-v;
-			display: block;
-		}
-		*/
 
 		nav {
 			display: inline-block;
@@ -312,7 +381,7 @@
 				padding: 0.5rem;
 				text-align: center;
 				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-				width: 25%; /* width: 20%; height: 100%; */
+				width: 25%;
 
 				&:first-child {
 					border-left: 1px solid $gray-ii;
@@ -473,3 +542,128 @@
 		}
 	}
 }
+
+/*******************************************************************************************************************/
+
+body.customWindowNoDragSelect { user-select: none; }
+
+.customWindowContainer {
+	background: #e8e8e8 url("../cW/images/head.png") repeat-x left top;
+	border: 1px solid #aaa;
+	padding: 3px;
+}
+
+.customWindowWidthResize, .customWindowHeightResize, .customWindowResize { user-select: none; }
+.customWindowDragging, .customWindowResizing { opacity: 0.5; }
+
+.unselectWindow {
+	background: #a2a2a2 url("../cW/images/headh.png") repeat-x left top;
+	border: 1px solid #565656;
+
+	.customWindowResize { display: none; }
+}
+
+.windowChanged .customWindowTitle { color: #aaa; }
+
+.customWindowStatus {
+	background-color: #ececec;
+	height: 16px;
+	user-select: none;
+
+	.customWindowResize { position: static; }
+}
+
+.customWindowResize {
+	width: 16px; height: 16px;
+	bottom: 0; right: 0;
+
+	background: url("../images/cW/resize.png") no-repeat center center;
+	display: block;
+	position: absolute;
+	user-select: none;
+}
+
+.customWindowHead {
+	background-color: #fefefe !important;
+	height: 26px;
+}
+
+.customWindowMaximize {
+	width: 21px; height: 21px;
+	margin: 1px 3px 0 0; padding: 0;
+
+	background: url("../images/cW/maximize.png") no-repeat center center;
+	border: 0;
+	cursor: pointer;
+	display: block;
+	float: right;
+}
+
+.customWindowRestore {
+	width: 21px; height: 21px;
+	margin: 1px 3px 0 0; padding: 0;
+
+	background: url("../images/cW/restore.png") no-repeat center center;
+	border: 0;
+	cursor: pointer;
+	display: block;
+	float: right;
+}
+
+.customWindowMinimize {
+	width: 21px; height: 21px;
+	margin: 1px 3px 0 0; padding: 0;
+
+	background: url("../images/cW/minimize.png") no-repeat center center;
+	border: 0;
+	cursor: pointer;
+	display: block;
+	float: right;
+}
+
+.customWindowClose {
+	width: 21px; height: 21px;
+	margin: 1px 3px 0 0; padding: 0;
+
+	background: url("../images/cW/close.png") no-repeat center center;
+	border: 0;
+	cursor: pointer;
+	display: block;
+	float: right;
+}
+
+.customWindowTitle {
+	margin: 0 0 0 3px; padding: 3px 0 0 26px;
+
+	background: url("../images/cW/window.png") no-repeat 0 2px;
+	border: 0;
+	color: #fefefe;
+	display: block;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 18px;
+	overflow: hidden;
+	text-decoration: none;
+	text-transform: none;
+	white-space: nowrap;
+}
+
+.customWindowContent {
+	background-color: #fefefe;
+	border: 1px solid #acacac;
+	padding: 8px;
+}
+
+.customWindowFooter {
+	top: 4px; left: -1px;
+	position: relative;
+}
+
+.customWindowMinimized {
+	.customWindowFooter { display: none; }
+}
+
+/*******************************************************************************************************************/
