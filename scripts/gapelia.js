@@ -18,6 +18,24 @@ $(function () {
 
 });
 
+// RESPONSIVE VERTICAL HEIGHT. HOLLAAAAA! /////////////////////////////////////////////////////////////
+
+$(document).ready(function() {
+	var viewportWidth = $(window).width();
+	var viewportHeight = $(window).height();
+
+	var w = viewportWidth;
+	var h = viewportHeight - 208;
+
+	$("#main-content, #user-content").width(w).height(h);
+
+	// BOOK CREATION ////////////////////////////////////////////////////////////////////////////////////
+
+	$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").height(h);
+
+	$("#tab-layout, #tab-content, #tab-tags, #tab-settings").height(h);
+});
+
 // MAIN SCROLLER //////////////////////////////////////////////////////////////////////////////////////
 
 $(function() {

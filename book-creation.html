@@ -31,6 +31,10 @@
 		<script src="scripts/modernizr.custom.js"></script>
 		<script src="scripts/jquery-1.7.1.js"></script>
 
+		<!--/ scripts/gapelia																																 	 /-->
+
+		<script src="scripts/gapelia.js"></script>
+
 	</head>
 
 	<body>
@@ -76,15 +80,39 @@
 
 					<div id="create-content">
 
+						<section id="frontcover-preview-wrapper">
+							<ul class="create-header">
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
+							</ul>
+
+							<div id="frontcover-preview">
+								<div class="cover-info">
+									<h1>Iceland Air</h1>
+									<h5>by <span>Lord Scruffington</span></h5>
+
+									<ul class="cover-lifestyle">
+										<li>Mountains</li>
+										<li>Adventure</li>
+										<li>Flow</li>
+									</ul>
+
+									<p>Eyjafjallajökull consists of a volcano completely covered by an ice cap. The ice cap covers an area of about 100 square kilometres (39 sq mi), feeding many outlet glaciers. The main outlet glaciers are to the north; Gígjökull, flowing into Lónið, and Steinholtsjökull, flowing into Steinholtslón. The glacier is the 6th largest in Iceland.</p>
+								</div>
+							</div>
+
+							<img src="images/bg.jpg" id="pp-bg" alt=""/>
+						</section>
+
 						<section id="photo-preview-wrapper">
 							<ul class="create-header">
-								<li class="page-edit"><a href="">Edit</a></li>
-								<li class="page-upload"><a class="md-trigger" data-modal="modal-upload">Upload</a></li>
-								<li class="page-delete"><a class="md-trigger" data-modal="modal-1">Delete</a></li>
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
 							</ul>
 
 							<div id="photo-preview">
-								<span class="geocode"></span>
 							</div>
 
 							<img src="images/bg-ii.jpg" id="pp-bg" alt=""/>
@@ -92,9 +120,9 @@
 
 						<section id="text-preview-wrapper">
 							<ul class="create-header">
-								<li class="page-edit"><a href="">Edit</a></li>
-								<li class="page-upload"><a href="">Upload</a></li>
-								<li class="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
 							</ul>
 
 							<div id="text-preview">
@@ -104,25 +132,11 @@
 							<img src="images/bg.jpg" alt=""/>
 						</section>
 
-						<section id="phototext-preview-wrapper">
-							<ul class="create-header">
-								<li class="page-edit"><a href="">Edit</a></li>
-								<li class="page-upload"><a href="">Upload</a></li>
-								<li class="page-delete"><a href="">Delete</a></li>
-							</ul>
-
-							<div id="phototext-preview">
-								<span class="geocode"></span>
-							</div>
-
-							<img src="images/bg-iii.jpg" alt=""/>
-						</section>
-
 						<section id="integrated-preview-wrapper">
 							<ul class="create-header">
-								<li class="page-edit"><a href="">Edit</a></li>
-								<li class="page-upload"><a href="">Upload</a></li>
-								<li class="page-delete"><a href="">Delete</a></li>
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
 							</ul>
 
 							<div id="integrated-preview">
@@ -132,24 +146,63 @@
 							<img src="images/bg.jpg" alt=""/>
 						</section>
 
-						<!--/
-						<div id="default-preview">
-							<div class="cover-page">
-								<div class="cover-info">
-									<h1>Beach Bum</h1>
-									<h3>by <span>Anne Latini</span></h3>
+						<!--//-->
 
-									<ul class="cover-lifestyle">
-										<li>Beaches</li>
-										<li>International</li>
-										<li>Relax</li>
-									</ul>
+						<section id="phototext-preview-wrapper">
+							<ul class="create-header">
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
+							</ul>
 
-									<p>Eveliquistia di re consequi ni teturias minullabo. Epudandeles aligendiorem estiis aut aut voluptur, quatias magnia doluptate nos dem sam venest qui asi soloreptum ipsandias utecaerum aut quo initassequis et unt exeferi demporitiis|magnihilit, idellecea eum quid quas rem nis aut erfero consedion exerum utaspis estor assinis nobit ernatiis. Pel ipiduntios eos sendi cus resto in perupta tendamus id magnimin repudia consequam denda dolut verectectate et ad et.</p>
-								</div>
+							<div id="phototext-preview">
+								<span class="geocode"></span>
 							</div>
-						</div>
-						/-->
+
+							<img src="images/bg-iii.jpg" alt=""/>
+						</section>
+
+						<section id="phototext-ii-preview-wrapper">
+							<ul class="create-header">
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
+							</ul>
+
+							<div id="phototext-ii-preview">
+								<span class="geocode"></span>
+							</div>
+
+							<img src="images/bg-iii.jpg" alt=""/>
+						</section>
+
+						<section id="integrated-ii-preview-wrapper">
+							<ul class="create-header">
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
+							</ul>
+
+							<div id="integrated-ii-preview">
+								<span class="geocode"></span>
+							</div>
+
+							<img src="images/bg-iii.jpg" alt=""/>
+						</section>
+
+						<section id="video-preview-wrapper">
+							<ul class="create-header">
+								<li class="page-edit"><a href="#">Edit</a></li>
+								<li class="page-upload"><a class="md-trigger" href="#" data-modal="modal-upload">Upload</a></li>
+								<li class="page-delete"><a class="md-trigger" href="#" data-modal="modal-1">Delete</a></li>
+							</ul>
+
+							<div id="video-preview">
+								<span class="geocode"></span>
+							</div>
+
+							<img src="images/bg-iii.jpg" alt=""/>
+						</section>
 
 					</div>
 
@@ -161,37 +214,24 @@
 						</ul>
 
 						<div id="sidebar-wrapper">
-							<!--/
-							<ul id="sidebar-nav">
-								<li><a href="#tab-content" title="">Content</a></li>
-								<li><a href="#tab-tags" title="">Tags</a></li>
-								<li><a href="#tab-snippets" title="">Snippets</a></li>
-								<li style="border-right: 0;"><a href="#tab-settings" title="">Settings</a></li>
-							</ul>
-							/-->
-
 							<div id="tabs-container" class="cbp-contentslider">
 								<nav id="sidebar-nav">
+									<a href="#tab-layout" title="">Layout</a>
 									<a href="#tab-content" title="">Content</a>
 									<a href="#tab-tags" title="">Tags</a>
-									<a href="#tab-snippets" title="">Snippets</a>
+									<!--/ <a href="#tab-snippets" title="">Snippets</a> /-->
 									<a href="#tab-settings" title="">Settings</a>
 								</nav>
 
 								<ul id="sidebar-content">
-									<li id="tab-content">
-										<textarea id="text-editor" name="content">
-											<h2>This is a title</h2>
-
-											<p>This is a short description of the page. If there is no description, we will automatically use the description you wrote for the book.</p>
-
-											<p>Snazzy.</p>
-										</textarea>
-
+									<li id="tab-layout">
 										<section id="view-mode">
 											<p>View Mode:</p>
 
-											<input type="radio" id="bc-photo" name="rr" checked/>
+											<input type="radio" id="bc-frontcover" name="rr" checked/>
+											<label for="bc-frontcover"><span></span>Front Cover</label>
+
+											<input type="radio" id="bc-photo" name="rr"/>
 											<label for="bc-photo"><span></span>Photo</label>
 
 											<input type="radio" id="bc-text" name="rr"/>
@@ -200,9 +240,25 @@
 											<input type="radio" id="bc-phototext" name="rr"/>
 											<label for="bc-phototext"><span></span>Photo/Text</label>
 
+											<input type="radio" id="bc-phototext-ii" name="rr"/>
+											<label for="bc-phototext-ii"><span></span>Photo/Text II</label>
+
 											<input type="radio" id="bc-integrated" name="rr"/>
 											<label for="bc-integrated"><span></span>Integrated</label>
+
+											<input type="radio" id="bc-integrated-ii" name="rr"/>
+											<label for="bc-integrated-ii"><span></span>Integrated II</label>
+											
+											<input type="radio" id="bc-video" name="rr"/>
+											<label for="bc-video"><span></span>Video</label>
 										</section>
+									</li>
+
+									<li id="tab-content">
+										<textarea id="text-editor" name="content">
+											<h1 class="title">The Tunnel</h1>
+											<h5 class="geocode">Okinawa, Japan</h5>
+										</textarea>
 									</li>
 
 									<li id="tab-tags">
@@ -213,11 +269,6 @@
 										</section>
 
 										<section class="tag-input">
-											<!--/
-											<label>Passion</label>
-											<input type="text" placeholder=""/>
-											/-->
-
 											<label for="passion">Passion</label>
 											<input id="passion" name="passion" type="text" list="passion-tag"/>
 
@@ -234,11 +285,6 @@
 										</section>
 
 										<section class="tag-input">
-											<!--/
-											<label>Feeling</label>
-											<input type="text" placeholder=""/>
-											/-->
-
 											<label for="feeling">Feeling</label>
 											<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
 
@@ -261,6 +307,7 @@
 										</section>
 									</li>
 
+									<!--/
 									<li id="tab-snippets">
 										<p>Snippet Locations</p>
 
@@ -268,9 +315,9 @@
 											<img src="images/bg-ii.jpg" alt=""/>
 										</section>
 									</li>
+									/-->
 
 									<li id="tab-settings">
-										<!--/ <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p> /-->
 										<p>Privacy</p>
 
 										<input type="radio" id="cc-01" name="rr"/>
@@ -472,10 +519,6 @@
 
 		<script src="scripts/draggable-list.js"></script>
 
-		<!--/ scripts/gapelia																																 	 /-->
-
-		<script src="scripts/gapelia.js"></script>
-
 		<!--/ scripts/redactor																															 	 /-->
 
 		<script src="scripts/redactor.js"></script>
@@ -502,7 +545,8 @@
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
-			var livePreviewElem = $("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview");
+			// removed #frontcover-preview
+			var livePreviewElem = $("#photo-preview, #text-preview, #integrated-preview, #phototext-preview, #phototext-ii-preview, #integrated-ii-preview, #video-preview");
 			var editorElem = $("#text-editor");
 
 			function livePoller() {
@@ -517,24 +561,46 @@
 
 		<script>
 			$(document).ready(function () {
+				$("#bc-frontcover").change(function () {
+					$("#photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
+					$("#frontcover-preview-wrapper").show();
+				});
+
 				$("#bc-photo").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#frontcover-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
 					$("#photo-preview-wrapper").show();
 				});
 
 				$("#bc-text").change(function () {
-					$("#photo-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
 					$("#text-preview-wrapper").show();
 				});
 
+				$("#bc-integrated").change(function () {
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
+					$("#integrated-preview-wrapper").show();
+				});
+
+				//
+
 				$("#bc-phototext").change(function () {
-					$("#text-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper").hide();
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
 					$("#phototext-preview-wrapper").show();
 				});
 
-				$("#bc-integrated").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #photo-preview-wrapper").hide();
-					$("#integrated-preview-wrapper").show();
+				$("#bc-phototext-ii").change(function () {
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-i-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").hide();
+					$("#phototext-ii-preview-wrapper").show();
+				});
+
+				$("#bc-integrated-ii").change(function () {
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-i-preview-wrapper, #phototext-ii-preview-wrapper, #video-preview-wrapper").hide();
+					$("#integrated-ii-preview-wrapper").show();
+				});
+
+				$("#bc-video").change(function () {
+					$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-i-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper").hide();
+					$("#video-preview-wrapper").show();
 				});
 			});
 		</script>

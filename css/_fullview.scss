@@ -379,10 +379,11 @@
 
 	#draggable {
 		width: 400px; height: 450px;
-		/* top: 5rem; right: 5rem; */
+		top: 5rem; right: 5rem;
 
 		background-color: $gray-ii;
-		/* position: fixed; */
+		opacity: 0.2;
+		position: fixed;
 		z-index: 2000 !important;
 
 		nav {
