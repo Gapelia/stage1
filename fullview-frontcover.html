@@ -28,10 +28,9 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/modernizr.custom.js"></script>
+		<script src="scripts/vendor/modernizr-ii.js"></script>
 		<script src="scripts/jquery-1.10.2.js"></script>
 
-		<script src="scripts/easing.min.js"></script>
 		<script src="scripts/bg-resize.js"></script>
 
 		<script>
@@ -39,40 +38,6 @@
 				$("body").bgResize({
 					img: "images/tokyo2610-by-tokyo-form.jpg" // you could also use an absolute url (http://...)
 				});
-			});
-		</script>
-
-		<script src="scripts/jquery-1.4.1.js"></script>
-		<script src="scripts/jquery-migrate-1.2.1.js"></script>
-		<script src="scripts/cW.js"></script>
-
-		<script>
-			var jq141 = jQuery.noConflict(true);
-
-			jq141(function () {
-			  var i = 1;
-
-			  var win = jq141.customWindow({
-			    title: "Finestra " + i,
-			    onopen: function (cont, obj) {
-			      cont.html($("#draggable").html());
-			    },
-			    onclose: function () {
-			      // alert("close -" + i);
-			    },
-			    onresize: function (obj) {
-			      // alert(obj.container.attr("id"));
-			    }
-			  });
-
-			  jq141("a.openWin").each(function () {
-			    jq141(this).bind("click", function (e) {
-			      i++;
-			      jq141.customWindow({
-			        title: "Finestra " + i
-			      });
-			    });
-			  });
 			});
 		</script>
 
@@ -101,133 +66,136 @@
 				<div id="story">
 				</div>
 
+				<!--/
 				<div id="meta-wrapper">
 					<div id="light-rating"><span>80</span></div>
 					<div id="dimension-icon"></div>
 				</div>
+				/-->
 			</div>
 
 			<a href="#" class="next"><span>&#9654;</span></a>
 		</section>
 
-		<div id="draggable">
-			<div class="grip" style="background-color: #333; height: 15px;">&nbsp;</div>
-			<div id="tabs-container" class="cbp-contentslider">
-				<nav id="sidebar-nav">
-					<a href="#tab-content" title="">Content</a>
-					<a href="#tab-tags" title="">Tags</a>
-					<a href="#tab-snippets" title="">Snippets</a>
-					<a href="#tab-settings" title="">Settings</a>
-				</nav>
+		<div class="draggable-window" style="display:none" unselectable="on">
+			<div id="draggable">
+				<div id="tabs-container" class="cbp-contentslider">
+					<nav id="sidebar-nav">
+						<a href="#tab-content" title="">Content</a>
+						<a href="#tab-tags" title="">Tags</a>
+						<a href="#tab-snippets" title="">Snippets</a>
+						<a href="#tab-settings" title="">Settings</a>
+					</nav>
 
-				<ul id="sidebar-content">
-					<li id="tab-content">
-						<textarea id="text-editor" name="content">
-							<h2>Places Unknown</h2>
-							<h5>by Spaceman Fresh</h5>
+					<ul id="sidebar-content">
+						<li id="tab-content">
+							<textarea id="text-editor" name="content">
+								<h2>Places Unknown</h2>
+								<h5>by Spaceman Fresh</h5>
 
-							<h5 id="lifestyle">
-								<span>Japan</span>
-								<span>Exploration</span>
-								<span>Wow</span>
-							</h5>
+								<h5 id="lifestyle">
+									<span>Japan</span>
+									<span>Exploration</span>
+									<span>Wow</span>
+								</h5>
 
-							<p><strong>Okinawa Prefecture</strong> is the southernmost prefecture of Japan. It comprises hundreds of the Ryukyu Islands in a chain over 1,000 kilometres (620 mi) long. The Ryukyus extend southwest from Kyushu (the southwesternmost of Japan's main four islands) to Taiwan. The Okinawa Prefecture encompases the southern two thirds of that chain. Okinawa's capital, Naha, is located in the southern part of Okinawa Island.</p>
-						</textarea>
+								<p><strong>Okinawa Prefecture</strong> is the southernmost prefecture of Japan. It comprises hundreds of the Ryukyu Islands in a chain over 1,000 kilometres (620 mi) long. The Ryukyus extend southwest from Kyushu (the southwesternmost of Japan's main four islands) to Taiwan. The Okinawa Prefecture encompases the southern two thirds of that chain. Okinawa's capital, Naha, is located in the southern part of Okinawa Island.</p>
+							</textarea>
 
-						<section id="view-mode">
-							<p>View Mode:</p>
+							<section id="view-mode">
+								<p>View Mode:</p>
 
-							<input type="radio" id="bc-photo" name="rr" checked/>
-							<label for="bc-photo"><span></span>Photo</label>
+								<input type="radio" id="bc-photo" name="rr" checked/>
+								<label for="bc-photo"><span></span>Photo</label>
 
-							<input type="radio" id="bc-text" name="rr"/>
-							<label for="bc-text"><span></span>Text</label>
+								<input type="radio" id="bc-text" name="rr"/>
+								<label for="bc-text"><span></span>Text</label>
 
-							<input type="radio" id="bc-phototext" name="rr"/>
-							<label for="bc-phototext"><span></span>Photo/Text</label>
+								<input type="radio" id="bc-phototext" name="rr"/>
+								<label for="bc-phototext"><span></span>Photo/Text</label>
 
-							<input type="radio" id="bc-integrated" name="rr"/>
-							<label for="bc-integrated"><span></span>Integrated</label>
-						</section>
-					</li>
+								<input type="radio" id="bc-integrated" name="rr"/>
+								<label for="bc-integrated"><span></span>Integrated</label>
+							</section>
+						</li>
 
-					<li id="tab-tags">
-						<section class="tag-input">
-							<label for="geotag">Geotag</label>
-							<input id="geotag" type="text" placeholder=""/>
-							<span class="hint">ex. Hawaii</span>
-						</section>
+						<li id="tab-tags">
+							<section class="tag-input">
+								<label for="geotag">Geotag</label>
+								<input id="geotag" type="text" placeholder=""/>
+								<span class="hint">ex. Hawaii</span>
+							</section>
 
-						<section class="tag-input">
-							<label for="passion">Passion</label>
-							<input id="passion" name="passion" type="text" list="passion-tag"/>
+							<section class="tag-input">
+								<label for="passion">Passion</label>
+								<input id="passion" name="passion" type="text" list="passion-tag"/>
 
-							<datalist id="passion-tag">
-								<option value="* Create new tag">
-								<option value="Computers">
-								<option value="Gaming">
-								<option value="Gardening">
-								<option value="Skydiving">
-								<option value="Surfing">
-							</datalist>
+								<datalist id="passion-tag">
+									<option value="* Create new tag">
+									<option value="Computers">
+									<option value="Gaming">
+									<option value="Gardening">
+									<option value="Skydiving">
+									<option value="Surfing">
+								</datalist>
 
-							<span class="hint">ex. Surfing</span>
-						</section>
+								<span class="hint">ex. Surfing</span>
+							</section>
 
-						<section class="tag-input">
-							<label for="feeling">Feeling</label>
-							<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+							<section class="tag-input">
+								<label for="feeling">Feeling</label>
+								<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
 
-							<datalist id="feeling-tag">
-								<option value="* Create new tag">
-								<option value="Adrenaline">
-								<option value="Calm">
-								<option value="Ecstatic">
-								<option value="Longing">
-								<option value="Serenity">
-							</datalist>
+								<datalist id="feeling-tag">
+									<option value="* Create new tag">
+									<option value="Adrenaline">
+									<option value="Calm">
+									<option value="Ecstatic">
+									<option value="Longing">
+									<option value="Serenity">
+								</datalist>
 
-							<span class="hint">ex. Adrenaline</span>
-						</section>
+								<span class="hint">ex. Adrenaline</span>
+							</section>
 
-						<section class="tag-input">
-							<label>Custom Wiki Link</label>
-							<input type="text" placeholder=""/>
-							<span class="hint">(default link will associate geotag)</span>
-						</section>
-					</li>
+							<section class="tag-input">
+								<label>Custom Wiki Link</label>
+								<input type="text" placeholder=""/>
+								<span class="hint">(default link will associate geotag)</span>
+							</section>
+						</li>
 
-					<li id="tab-snippets">
-						<p>Snippet Locations</p>
+						<li id="tab-snippets">
+							<p>Snippet Locations</p>
 
-						<section id="snippet-preview">
-							<img src="images/bg-ii.jpg" alt=""/>
-						</section>
-					</li>
+							<section id="snippet-preview">
+								<img src="images/bg-ii.jpg" alt=""/>
+							</section>
+						</li>
 
-					<li id="tab-settings">
-						<p>Privacy</p>
+						<li id="tab-settings">
+							<p>Privacy</p>
 
-						<input type="radio" id="cc-01" name="rr"/>
-						<label for="cc-01"><span></span>CC BY</label><br/>
+							<input type="radio" id="cc-01" name="rr"/>
+							<label for="cc-01"><span></span>CC BY</label><br/>
 
-						<input type="radio" id="cc-02" name="rr"/>
-						<label for="cc-02"><span></span>CC BY-SA</label><br/>
+							<input type="radio" id="cc-02" name="rr"/>
+							<label for="cc-02"><span></span>CC BY-SA</label><br/>
 
-						<input type="radio" id="cc-03" name="rr"/>
-						<label for="cc-03"><span></span>CC BY-ND</label><br/>
+							<input type="radio" id="cc-03" name="rr"/>
+							<label for="cc-03"><span></span>CC BY-ND</label><br/>
 
-						<input type="radio" id="cc-04" name="rr"/>
-						<label for="cc-04"><span></span>CC BY-NC</label><br/>
+							<input type="radio" id="cc-04" name="rr"/>
+							<label for="cc-04"><span></span>CC BY-NC</label><br/>
 
-						<input type="radio" id="cc-05" name="rr"/>
-						<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
+							<input type="radio" id="cc-05" name="rr"/>
+							<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
 
-						<input type="radio" id="cc-06" name="rr"/>
-						<label for="cc-06"><span></span>CC BY-NC-ND</label>
-					</li>
-				</ul>
+							<input type="radio" id="cc-06" name="rr"/>
+							<label for="cc-06"><span></span>CC BY-NC-ND</label>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
@@ -294,6 +262,33 @@
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
+		<!--/ scripts/window																																	 /-->
+
+		<script src="scripts/vendor/handlebars.js"></script>
+		<script src="scripts/ventus.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				"use strict";
+
+				var wm = new Ventus.WindowManager();
+
+				// var pos = 50;
+				// var num = 1;
+				window.wm = wm;
+
+				$(function () {
+					wm.createWindow.fromQuery("#tabs-container", {
+						title: "Dream Editor",
+						x: 100,
+						y: 100,
+						width: 400,
+						height: 500
+					}).open();
+				});
+			});
+		</script>
+
 		<!--/ scripts/tabswitcher																															 /-->
 
 		<script src="scripts/cbpContentSlider.js"></script>
@@ -303,37 +298,6 @@
 				$("#tabs-container").cbpContentSlider();
 			});
 		</script>
-
-		<!--/ scripts/draggable																																 /-->
-
-		<!--/
-		<script src="scripts/animadrag.js"></script>
-
-		<script>
-			$(document).ready(function () {
-			  document.body.onselectstart = function () { return false; }
-
-			  $("#draggable").animaDrag({
-			    speed: 150,
-			    interval: 120,
-			    grip: ".grip"
-			  });
-
-				$(function() {
-					$("#jq_ez_bg").mousedown(function(e) {
-						e.preventDefault();
-						return false;
-
-						// $("#tab-content").unbind("mousedown").mousedown();
-						// $("#tab-content").mousedown(function(e) { return true; });
-					});
-				});
-			});
-
-			$(function() {
-			});
-		</script>
-		/-->
 
 		<!--/
 		<script src="scripts/simplyCountable.js"></script>

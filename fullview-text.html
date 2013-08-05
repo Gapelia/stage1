@@ -28,9 +28,8 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/modernizr.custom.js"></script>
+		<script src="scripts/vendor/modernizr-ii.js"></script>
 		<script src="scripts/jquery-1.10.2.js"></script>
-		<script src="scripts/easing.min.js"></script>
 
 		<script src="scripts/bg-resize.js"></script>
 
@@ -61,135 +60,133 @@
 		</header>
 
 		<section id="text-fullview-wrapper">
-			<!--/
-			<div id="draggable">
-				<div class="grip" style="background: #333; height: 15px;">&nbsp;</div>
+			<div class="draggable-window" style="display:none" unselectable="on">
+				<div id="draggable">
+					<div id="tabs-container" class="cbp-contentslider">
+						<nav id="sidebar-nav">
+							<a href="#tab-content" title="">Content</a>
+							<a href="#tab-tags" title="">Tags</a>
+							<a href="#tab-snippets" title="">Snippets</a>
+							<a href="#tab-settings" title="">Settings</a>
+						</nav>
 
-				<div id="tabs-container" class="cbp-contentslider">
-					<nav id="sidebar-nav">
-						<a href="#tab-content" title="">Content</a>
-						<a href="#tab-tags" title="">Tags</a>
-						<a href="#tab-snippets" title="">Snippets</a>
-						<a href="#tab-settings" title="">Settings</a>
-					</nav>
+						<ul id="sidebar-content">
+							<li id="tab-content">
+								<textarea id="text-editor" name="content">
+									<h2>Japanimation!</h2>
+									<h5>Akihabara, Tokyo</h5>
 
-					<ul id="sidebar-content">
-						<li id="tab-content">
-							<textarea id="text-editor" name="content">
-								<h2>Japanimation!</h2>
-								<h5>Akihabara, Tokyo</h5>
+									<p>Akihabara ("Field of Autumn Leaves"), also known as Akihabara Electric Town, is a district of Tokyo, Japan. It is located less than five minutes by rail from Tokyo Station. Its name is frequently shortened to Akiba in Japan. While there is an official locality named Akibahara, nearby (as part of Taito-ku), the area known to most people as Akihabara (including the railway station of the same name) also include Soto-Kanda, a part of Chiyoda-ku.</p>
 
-								<p>Akihabara ("Field of Autumn Leaves"), also known as Akihabara Electric Town, is a district of Tokyo, Japan. It is located less than five minutes by rail from Tokyo Station. Its name is frequently shortened to Akiba in Japan. While there is an official locality named Akibahara, nearby (as part of Taito-ku), the area known to most people as Akihabara (including the railway station of the same name) also include Soto-Kanda, a part of Chiyoda-ku.</p>
+									<p>Akihabara is a major shopping area for electronic, computer, anime, games and otaku goods, including new and used items. New items are mostly to be found on the main street, Chuodori, with many kinds of used items found in the back streets of Soto Kanda 3-chome. New parts for PC-building are readily available from a variety of stores. Tools, electrical parts, wires, microsized cameras and similar items are found in the cramped passageways of Soto Kanda 1-chome (near the station). Foreign tourists tend to visit the big name shops like Laox or other speciality shops near the station, though there is more variety and lower prices at locales a little further away. Akihabara gained some fame through being home to one of the first stores devoted to personal robots and robotics.</p>
 
-								<p>Akihabara is a major shopping area for electronic, computer, anime, games and otaku goods, including new and used items. New items are mostly to be found on the main street, Chuodori, with many kinds of used items found in the back streets of Soto Kanda 3-chome. New parts for PC-building are readily available from a variety of stores. Tools, electrical parts, wires, microsized cameras and similar items are found in the cramped passageways of Soto Kanda 1-chome (near the station). Foreign tourists tend to visit the big name shops like Laox or other speciality shops near the station, though there is more variety and lower prices at locales a little further away. Akihabara gained some fame through being home to one of the first stores devoted to personal robots and robotics.</p>
+									<p>The area was just out of Sujikai-gomon city gate (present Mansei bridge) which was one of the city gates (Mitsuke) of old Edo (Tokyo). It was the gateway from inner Edo to northern and northwestern Japan and Kan’ei-ji temple in Ueno. Many dealers, craftsmen and relatively lower class samurai lived there.</p>
 
-								<p>The area was just out of Sujikai-gomon city gate (present Mansei bridge) which was one of the city gates (Mitsuke) of old Edo (Tokyo). It was the gateway from inner Edo to northern and northwestern Japan and Kan’ei-ji temple in Ueno. Many dealers, craftsmen and relatively lower class samurai lived there.</p>
+									<h2>CSS3 Columns</h2>
 
-								<h2>CSS3 Columns</h2>
+									<p><abbr>CSS3</abbr> columns take content and divide it into columns based on either the <code>column-width</code> or <code>column-count</code> <abbr>CSS</abbr>-properties. The former inserts content into a dynamic number of columns with the width you gave it. The latter distributes content in identical height to the number of columns you gave it.</p>
 
-								<p><abbr>CSS3</abbr> columns take content and divide it into columns based on either the <code>column-width</code> or <code>column-count</code> <abbr>CSS</abbr>-properties. The former inserts content into a dynamic number of columns with the width you gave it. The latter distributes content in identical height to the number of columns you gave it.</p>
+									<p>For articles, there's one viable option: <code>column-width</code>. If I used <code>column-count</code>, I would run into problems with longer text. It could force the reader to scroll up and down.</p>
 
-								<p>For articles, there's one viable option: <code>column-width</code>. If I used <code>column-count</code>, I would run into problems with longer text. It could force the reader to scroll up and down.</p>
+									<p>Using <code>column-width</code> creates new columns to the right as content expands. Setting the height to something smaller than the screen height will remove the need for any up and down scrolling. Because the content expands horizontally, the only sensible solution for navigating is horizontal scrolling. This article uses a simple jQuery script to convert vertical mousewheel scrolling to horizontal.</p>
+								</textarea>
 
-								<p>Using <code>column-width</code> creates new columns to the right as content expands. Setting the height to something smaller than the screen height will remove the need for any up and down scrolling. Because the content expands horizontally, the only sensible solution for navigating is horizontal scrolling. This article uses a simple jQuery script to convert vertical mousewheel scrolling to horizontal.</p>
-							</textarea>
+								<section id="view-mode">
+									<p>View Mode:</p>
 
-							<section id="view-mode">
-								<p>View Mode:</p>
+									<input type="radio" id="bc-photo" name="rr" checked/>
+									<label for="bc-photo"><span></span>Photo</label>
 
-								<input type="radio" id="bc-photo" name="rr" checked/>
-								<label for="bc-photo"><span></span>Photo</label>
+									<input type="radio" id="bc-text" name="rr"/>
+									<label for="bc-text"><span></span>Text</label>
 
-								<input type="radio" id="bc-text" name="rr"/>
-								<label for="bc-text"><span></span>Text</label>
+									<input type="radio" id="bc-phototext" name="rr"/>
+									<label for="bc-phototext"><span></span>Photo/Text</label>
 
-								<input type="radio" id="bc-phototext" name="rr"/>
-								<label for="bc-phototext"><span></span>Photo/Text</label>
+									<input type="radio" id="bc-integrated" name="rr"/>
+									<label for="bc-integrated"><span></span>Integrated</label>
+								</section>
+							</li>
 
-								<input type="radio" id="bc-integrated" name="rr"/>
-								<label for="bc-integrated"><span></span>Integrated</label>
-							</section>
-						</li>
+							<li id="tab-tags">
+								<section class="tag-input">
+									<label for="geotag">Geotag</label>
+									<input id="geotag" type="text" placeholder=""/>
+									<span class="hint">ex. Hawaii</span>
+								</section>
 
-						<li id="tab-tags">
-							<section class="tag-input">
-								<label for="geotag">Geotag</label>
-								<input id="geotag" type="text" placeholder=""/>
-								<span class="hint">ex. Hawaii</span>
-							</section>
+								<section class="tag-input">
+									<label for="passion">Passion</label>
+									<input id="passion" name="passion" type="text" list="passion-tag"/>
 
-							<section class="tag-input">
-								<label for="passion">Passion</label>
-								<input id="passion" name="passion" type="text" list="passion-tag"/>
+									<datalist id="passion-tag">
+										<option value="* Create new tag">
+										<option value="Computers">
+										<option value="Gaming">
+										<option value="Gardening">
+										<option value="Skydiving">
+										<option value="Surfing">
+									</datalist>
 
-								<datalist id="passion-tag">
-									<option value="* Create new tag">
-									<option value="Computers">
-									<option value="Gaming">
-									<option value="Gardening">
-									<option value="Skydiving">
-									<option value="Surfing">
-								</datalist>
+									<span class="hint">ex. Surfing</span>
+								</section>
 
-								<span class="hint">ex. Surfing</span>
-							</section>
+								<section class="tag-input">
+									<label for="feeling">Feeling</label>
+									<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
 
-							<section class="tag-input">
-								<label for="feeling">Feeling</label>
-								<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+									<datalist id="feeling-tag">
+										<option value="* Create new tag">
+										<option value="Adrenaline">
+										<option value="Calm">
+										<option value="Ecstatic">
+										<option value="Longing">
+										<option value="Serenity">
+									</datalist>
 
-								<datalist id="feeling-tag">
-									<option value="* Create new tag">
-									<option value="Adrenaline">
-									<option value="Calm">
-									<option value="Ecstatic">
-									<option value="Longing">
-									<option value="Serenity">
-								</datalist>
+									<span class="hint">ex. Adrenaline</span>
+								</section>
 
-								<span class="hint">ex. Adrenaline</span>
-							</section>
+								<section class="tag-input">
+									<label>Custom Wiki Link</label>
+									<input type="text" placeholder=""/>
+									<span class="hint">(default link will associate geotag)</span>
+								</section>
+							</li>
 
-							<section class="tag-input">
-								<label>Custom Wiki Link</label>
-								<input type="text" placeholder=""/>
-								<span class="hint">(default link will associate geotag)</span>
-							</section>
-						</li>
+							<li id="tab-snippets">
+								<p>Snippet Locations</p>
 
-						<li id="tab-snippets">
-							<p>Snippet Locations</p>
+								<section id="snippet-preview">
+									<img src="images/bg-ii.jpg" alt=""/>
+								</section>
+							</li>
 
-							<section id="snippet-preview">
-								<img src="images/bg-ii.jpg" alt=""/>
-							</section>
-						</li>
+							<li id="tab-settings">
+								<p>Privacy</p>
 
-						<li id="tab-settings">
-							<p>Privacy</p>
+								<input type="radio" id="cc-01" name="rr"/>
+								<label for="cc-01"><span></span>CC BY</label><br/>
 
-							<input type="radio" id="cc-01" name="rr"/>
-							<label for="cc-01"><span></span>CC BY</label><br/>
+								<input type="radio" id="cc-02" name="rr"/>
+								<label for="cc-02"><span></span>CC BY-SA</label><br/>
 
-							<input type="radio" id="cc-02" name="rr"/>
-							<label for="cc-02"><span></span>CC BY-SA</label><br/>
+								<input type="radio" id="cc-03" name="rr"/>
+								<label for="cc-03"><span></span>CC BY-ND</label><br/>
 
-							<input type="radio" id="cc-03" name="rr"/>
-							<label for="cc-03"><span></span>CC BY-ND</label><br/>
+								<input type="radio" id="cc-04" name="rr"/>
+								<label for="cc-04"><span></span>CC BY-NC</label><br/>
 
-							<input type="radio" id="cc-04" name="rr"/>
-							<label for="cc-04"><span></span>CC BY-NC</label><br/>
+								<input type="radio" id="cc-05" name="rr"/>
+								<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
 
-							<input type="radio" id="cc-05" name="rr"/>
-							<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
-
-							<input type="radio" id="cc-06" name="rr"/>
-							<label for="cc-06"><span></span>CC BY-NC-ND</label>
-						</li>
-					</ul>
+								<input type="radio" id="cc-06" name="rr"/>
+								<label for="cc-06"><span></span>CC BY-NC-ND</label>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			/-->
 
 			<a href="#" class="previous"><span>&#9664;</span></a>
 
@@ -249,7 +246,6 @@
 
 		<!--/ scripts/livepreview																															 /-->
 
-		<!--/
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
@@ -265,35 +261,8 @@
 				livePoller();
 			});
 		</script>
-		/-->
 
-		<!--/
-		<script>
-			$(document).ready(function () {
-				$("#bc-photo").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#photo-preview-wrapper").show();
-				});
-
-				$("#bc-text").change(function () {
-					$("#photo-preview-wrapper, #phototext-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#text-preview-wrapper").show();
-				});
-
-				$("#bc-phototext").change(function () {
-					$("#text-preview-wrapper, #photo-preview-wrapper, #integrated-preview-wrapper").hide();
-					$("#phototext-preview-wrapper").show();
-				});
-
-				$("#bc-integrated").change(function () {
-					$("#text-preview-wrapper, #phototext-preview-wrapper, #photo-preview-wrapper").hide();
-					$("#integrated-preview-wrapper").show();
-				});
-			});
-		</script>
-		/-->
-
-		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script> /-->
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
 			var input = document.getElementById("geotag");
@@ -312,6 +281,33 @@
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
+		<!--/ scripts/window																																	 /-->
+
+		<script src="scripts/vendor/handlebars.js"></script>
+		<script src="scripts/ventus.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				"use strict";
+
+				var wm = new Ventus.WindowManager();
+
+				// var pos = 50;
+				// var num = 1;
+				window.wm = wm;
+
+				$(function () {
+					wm.createWindow.fromQuery("#tabs-container", {
+						title: "Dream Editor",
+						x: 100,
+						y: 100,
+						width: 400,
+						height: 500
+					}).open();
+				});
+			});
+		</script>
+
 		<!--/ scripts/tabswitcher																															 /-->
 
 		<script src="scripts/cbpContentSlider.js"></script>
@@ -319,48 +315,6 @@
 		<script>
 			$(function() {
 				$("#tabs-container").cbpContentSlider();
-			});
-		</script>
-
-		<!--/
-		<script src="scripts/simplyCountable.js"></script>
-
-		<script>
-			$(document).ready(function() {
-				$("#modal-description").simplyCountable({
-					counter: "#modal-counter",
-					maxCount: 300
-				});
-			});
-		</script>
-		/-->
-
-		<!--/ scripts/draggable																																 /-->
-
-		<script src="scripts/animadrag.js"></script>
-
-		<script>
-			$(document).ready(function () {
-			  document.body.onselectstart = function () { return false; }
-
-			  $("#draggable").animaDrag({
-			    speed: 150,
-			    interval: 120,
-			    grip: ".grip"
-			  });
-
-				$(function() {
-					$("#jq_ez_bg").mousedown(function(e) {
-						e.preventDefault();
-						return false;
-
-						// $("#tab-content").unbind("mousedown").mousedown();
-						// $("#tab-content").mousedown(function(e) { return true; });
-					});
-				});
-			});
-
-			$(function() {
 			});
 		</script>
 
@@ -441,6 +395,19 @@
 				});
 			});
 		</script>
+
+		<!--/
+		<script src="scripts/simplyCountable.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$("#modal-description").simplyCountable({
+					counter: "#modal-counter",
+					maxCount: 300
+				});
+			});
+		</script>
+		/-->
 
 	</body>
 
