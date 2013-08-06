@@ -34,6 +34,7 @@ $(document).ready(function() {
 	$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").height(h);
 
 	$("#tab-layout, #tab-content, #tab-tags, #tab-settings").height(h);
+	$("#big-scroller-wrapper, .caroufredsel_wrapper, #big-scroller, .dimension-book").height(h);
 });
 
 // MAIN SCROLLER //////////////////////////////////////////////////////////////////////////////////////
@@ -377,6 +378,25 @@ $(window).load(function () {
 				next: "#next-big",
 				items: {
 					width: 351,
+					visible: { min: 2, max: 6 }
+				},
+				mousewheel: true
+			});
+		});
+	}
+
+	if ($(window).height() > 700) {
+		$(function() {
+			// default top scroller
+			$("#big-scroller, #dimension-scroller").carouFredSel({
+				auto: false,
+				responsive: true,
+				width: "100%",
+				scroll: 1,
+				prev: "#prev-big",
+				next: "#next-big",
+				items: {
+					width: 400,
 					visible: { min: 2, max: 6 }
 				},
 				mousewheel: true
