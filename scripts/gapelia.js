@@ -100,9 +100,8 @@ $(function() {
 		prev: "#prev-small",
 		next: "#next-small",
 		items: {
-			width: 100,
-			// height: "30%", // optionally resize item-height
-			visible: { min: 7, max: 10 }
+			width: 160, // wide, for magazine look
+			visible: { min: 7, max: 15 }
 		},
 		mousewheel: true
 	});
@@ -415,7 +414,7 @@ $(window).load(function () {
 // });
 
 // DRAGGABLE LIST /////////////////////////////////////////////////////////////////////////////////////
-
+/*
 var coordinates = ToolMan.coordinates();
 var dragsort = ToolMan.dragsort();
 
@@ -429,16 +428,18 @@ function setHandle(item) {
 
 function findHandle(item) {
 	var children = item.getElementsByTagName("li");
+
 	for (var i = 0; i < children.length; i++) {
 		var child = children[i];
-
 		if (child.getAttribute("class") == null) continue;
 		if (child.getAttribute("class").indexOf("page") >= 0);
+
 		return child;
 	}
+
 	return item;
 }
-
+*/
 // ASPECT RATIO ///////////////////////////////////////////////////////////////////////////////////////
 
 /*

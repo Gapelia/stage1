@@ -60,7 +60,35 @@
 		</header>
 
 		<section id="integrated-fullview-wrapper">
-			<div class="draggable-window" style="display:none" unselectable="on">
+			<a href="#" class="previous"><span>&#9664;</span></a>
+
+			<div id="story-content">
+				<div id="story-wrapper">
+					<div class="handle">Click &amp; drag to position this</div>
+
+					<div id="story">
+						<!--/
+						<span id="page-title">The Tunnel</span>
+						<span id="geocode">Okinawa, Japan</span>
+						/-->
+					</div>
+
+					<div class="handle-ii NE"></div>
+					<div class="handle-ii NN"></div>
+					<div class="handle-ii NW"></div>
+					<div class="handle-ii WW"></div>
+					<div class="handle-ii EE"></div>
+					<div class="handle-ii SW"></div>
+					<div class="handle-ii SS"></div>
+					<div class="handle-ii SE"></div>
+
+					<!--/ <div class="handle-iii"></div> /-->
+				</div>
+			</div>
+
+			<a href="#" class="next"><span>&#9654;</span></a>
+
+			<div class="draggable-window" style="display: none" unselectable="on">
 				<div id="draggable">
 					<div id="tabs-container" class="cbp-contentslider">
 						<nav id="sidebar-nav">
@@ -172,26 +200,6 @@
 					</div>
 				</div>
 			</div>
-
-			<a href="#" class="previous"><span>&#9664;</span></a>
-
-			<!--/
-			<div id="information">
-				<span id="page-title">The Tunnel</span>
-				<span id="geocode">Okinawa, Japan</span>
-			</div>
-			/-->
-
-			<div id="story-content">
-				<div id="story">
-					<!--/
-					<span id="page-title">The Tunnel</span>
-					<span id="geocode">Okinawa, Japan</span>
-					/-->
-				</div>
-			</div>
-
-			<a href="#" class="next"><span>&#9654;</span></a>
 		</section>
 
 		<!--/ scripts																																					 /-->
@@ -291,6 +299,81 @@
 		<script>
 			$(function() {
 				$("#tabs-container").cbpContentSlider();
+			});
+		</script>
+
+		<script src="scripts/event/event.drag-2.2.js"></script>
+		<script src="scripts/event/event.drag.live-2.2.js"></script>
+		<script src="scripts/event/event.drop-2.2.js"></script>
+		<script src="scripts/event/event.drop.live-2.2.js"></script>
+
+		<script>
+			/*
+			jQuery(function($) {
+				$("#story-content").drag(function(ev, dd) {
+					$(this).css({
+						top: dd.offsetY,
+						left: dd.offsetX
+					});
+				},{ handle: ".handle" });
+			});
+			*/
+
+			/*
+			jQuery(function($) {
+				$("#story-content").drag("start", function(ev, dd) {
+					dd.width = $(this).width();
+					dd.height = $(this).height();
+				}).drag(function(ev, dd) {
+					$(this).css({
+						width: Math.max(20, dd.width + dd.deltaX),
+						height: Math.max(20, dd.height + dd.deltaY)
+					});
+				},{ handle: ".handle-iii" });
+			});
+			*/
+
+			jQuery(function($) {
+
+				$("#story-content")
+					.drag(function(ev, dd) {
+						if (dd.attr == "handle") {
+							$(this).css({
+								top: dd.offsetY,
+								left: dd.offsetX
+							});
+
+							// .offset({ top: 10, left: 30 })
+							// divOffset = $("#story-content").offset()
+						}
+
+						var props = {};
+
+						if (dd.attr.indexOf("E") > -1) { props.width = Math.max(32, dd.width + dd.deltaX); }
+						if (dd.attr.indexOf("S") > -1) { props.height = Math.max(32, dd.height + dd.deltaY); }
+
+						if (dd.attr.indexOf("W") > -1) {
+							props.width = Math.max(32, dd.width - dd.deltaX);
+							props.left = dd.originalX + dd.width - props.width;
+						}
+
+						if (dd.attr.indexOf("N") > -1) {
+							props.height = Math.max(32, dd.height - dd.deltaY);
+							props.top = dd.originalY + dd.height - props.height;
+						}
+
+						if (dd.attr.indexOf("drag") > -1) {
+							props.top = dd.offsetY;
+							props.left = dd.offsetX;
+						}
+
+						$(this).css(props);
+					})
+					.drag("start", function(ev, dd) {
+						dd.attr = $(ev.target).prop("className");
+						dd.width = $(this).width();
+						dd.height = $(this).height();
+					});
 			});
 		</script>
 

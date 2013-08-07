@@ -1,11 +1,8 @@
 
 /************************************************************************************** WINDOW/SCSS **/
 
-.wm-space { z-index: 1 !important; }
-
-.wm-content {
-	color: $black !important;
-}
+.wm-space { z-index: inherit !important; } /* Fixes z-index issues */
+.wm-content { color: $black !important; }
 
 .wm-space.expose {
 	.wm-window.active, .wm-window {

@@ -322,12 +322,61 @@
 			position: relative;
 			text-overflow: ellipsis;
 
-			#story {
-				margin: 5% auto 0; padding: 3rem;
+			#story-wrapper {
+				margin: 10% auto 0;
+				position: relative;
+				width: 70%;
+			}
 
+			.handle {
+				margin: 5% auto 0; padding: 2px 0;
+
+				background-color: $gray-v;
+				color: $white;
+				cursor: move;
+				font-family: "OpenSansSemibold";
+				font-size: 10px;
+				line-height: 10px;
+				text-align: center;
+				text-transform: uppercase;
+				width: 100%;
+			}
+
+			.handle-ii {
+				width: 6px; height: 6px;
+
+				background-color: $gray-ii;
+				position: absolute;
+			}
+
+			.NW, .NN, .NE {
+				display: none;
+				top: 0;
+			}
+
+			.NE, .EE, .SE { right: 0; }
+			.SW, .SS, .SE { bottom: 0; }
+			.NW, .WW, .SW { left: 0; }
+
+			.SE, .NW { cursor: nw-resize; }
+			.SW, .NE { cursor: ne-resize; }
+
+			.NN, .SS {
+				cursor: n-resize;
+				left: 50%;
+				margin-left: -4px;
+			}
+
+			.EE, .WW {
+				cursor: e-resize;
+				margin-top: -4px;
+				top: 50%;
+			}
+
+			#story {
 				background-color: rgba($black, 0.5);
 				color: $white;
-				width: 70%;
+				padding: 3rem;
 
 				h2, h5 {
 					text-align: center;

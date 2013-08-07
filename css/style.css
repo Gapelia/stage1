@@ -1106,7 +1106,18 @@ section {
 .preview #integrated-fullview-wrapper #quote, .preview #frontcover-fullview-wrapper #quote { display: block !important; font-size: 350%; text-align: center !important; }
 .preview #integrated-fullview-wrapper #quote span, .preview #frontcover-fullview-wrapper #quote span { display: block !important; font-family: Georgia, serif; font-style: italic !important; text-align: left !important; }
 .preview #integrated-fullview-wrapper #story-content, .preview #frontcover-fullview-wrapper #story-content { width: 100%; height: auto; margin: 0; padding: 0; /* margin: 0 0 0 50px; padding: 0 5%; */ box-sizing: border-box; overflow: hidden; position: relative; text-overflow: ellipsis; }
-.preview #integrated-fullview-wrapper #story-content #story, .preview #frontcover-fullview-wrapper #story-content #story { margin: 5% auto 0; padding: 3rem; background-color: rgba(25, 25, 25, 0.5); color: #fefefe; width: 70%; }
+.preview #integrated-fullview-wrapper #story-content #story-wrapper, .preview #frontcover-fullview-wrapper #story-content #story-wrapper { margin: 10% auto 0; position: relative; width: 70%; }
+.preview #integrated-fullview-wrapper #story-content .handle, .preview #frontcover-fullview-wrapper #story-content .handle { margin: 5% auto 0; padding: 2px 0; background-color: #585959; color: #fefefe; cursor: move; font-family: "OpenSansSemibold"; font-size: 10px; line-height: 10px; text-align: center; text-transform: uppercase; width: 100%; }
+.preview #integrated-fullview-wrapper #story-content .handle-ii, .preview #frontcover-fullview-wrapper #story-content .handle-ii { width: 6px; height: 6px; background-color: #cfcfcf; position: absolute; }
+.preview #integrated-fullview-wrapper #story-content .NW, .preview #integrated-fullview-wrapper #story-content .NN, .preview #integrated-fullview-wrapper #story-content .NE, .preview #frontcover-fullview-wrapper #story-content .NW, .preview #frontcover-fullview-wrapper #story-content .NN, .preview #frontcover-fullview-wrapper #story-content .NE { display: none; top: 0; }
+.preview #integrated-fullview-wrapper #story-content .NE, .preview #integrated-fullview-wrapper #story-content .EE, .preview #integrated-fullview-wrapper #story-content .SE, .preview #frontcover-fullview-wrapper #story-content .NE, .preview #frontcover-fullview-wrapper #story-content .EE, .preview #frontcover-fullview-wrapper #story-content .SE { right: 0; }
+.preview #integrated-fullview-wrapper #story-content .SW, .preview #integrated-fullview-wrapper #story-content .SS, .preview #integrated-fullview-wrapper #story-content .SE, .preview #frontcover-fullview-wrapper #story-content .SW, .preview #frontcover-fullview-wrapper #story-content .SS, .preview #frontcover-fullview-wrapper #story-content .SE { bottom: 0; }
+.preview #integrated-fullview-wrapper #story-content .NW, .preview #integrated-fullview-wrapper #story-content .WW, .preview #integrated-fullview-wrapper #story-content .SW, .preview #frontcover-fullview-wrapper #story-content .NW, .preview #frontcover-fullview-wrapper #story-content .WW, .preview #frontcover-fullview-wrapper #story-content .SW { left: 0; }
+.preview #integrated-fullview-wrapper #story-content .SE, .preview #integrated-fullview-wrapper #story-content .NW, .preview #frontcover-fullview-wrapper #story-content .SE, .preview #frontcover-fullview-wrapper #story-content .NW { cursor: nw-resize; }
+.preview #integrated-fullview-wrapper #story-content .SW, .preview #integrated-fullview-wrapper #story-content .NE, .preview #frontcover-fullview-wrapper #story-content .SW, .preview #frontcover-fullview-wrapper #story-content .NE { cursor: ne-resize; }
+.preview #integrated-fullview-wrapper #story-content .NN, .preview #integrated-fullview-wrapper #story-content .SS, .preview #frontcover-fullview-wrapper #story-content .NN, .preview #frontcover-fullview-wrapper #story-content .SS { cursor: n-resize; left: 50%; margin-left: -4px; }
+.preview #integrated-fullview-wrapper #story-content .EE, .preview #integrated-fullview-wrapper #story-content .WW, .preview #frontcover-fullview-wrapper #story-content .EE, .preview #frontcover-fullview-wrapper #story-content .WW { cursor: e-resize; margin-top: -4px; top: 50%; }
+.preview #integrated-fullview-wrapper #story-content #story, .preview #frontcover-fullview-wrapper #story-content #story { background-color: rgba(25, 25, 25, 0.5); color: #fefefe; padding: 3rem; }
 .preview #integrated-fullview-wrapper #story-content #story h2, .preview #integrated-fullview-wrapper #story-content #story h5, .preview #frontcover-fullview-wrapper #story-content #story h2, .preview #frontcover-fullview-wrapper #story-content #story h5 { text-align: center; width: 100%; }
 .preview #integrated-fullview-wrapper #story-content #story h2, .preview #frontcover-fullview-wrapper #story-content #story h2 { margin: 0; }
 .preview #integrated-fullview-wrapper #story-content #story h5, .preview #frontcover-fullview-wrapper #story-content #story h5 { margin: 0 0 1rem 0; padding: 0 0 1rem 0; text-transform: uppercase; }
@@ -1270,6 +1281,46 @@ section {
 .wm-content .cbp-contentslider #sidebar-content .tag-input .hint { float: right; font-size: 10px; font-style: italic; text-align: right; width: 100%; }
 .wm-content .cbp-contentslider #sidebar-content .tag-input:first-child { padding-top: 0; }
 .wm-content .cbp-contentslider #sidebar-content #snippet-preview img { width: 300px; height: auto; display: table; margin: 0 auto; }
+
+/***************************************************************************************** MENU/SCSS **/
+/* General styles for all menus */
+.cbp-spmenu { background-color: #e7e7e7; position: fixed; }
+.cbp-spmenu #menu-toggle { width: 100%; /* height: 20px; */ height: auto; bottom: 0; left: 0; background-color: #cfcfcf; color: #585959; cursor: pointer; font-size: 0.8em; margin: 0; padding: 0.3rem 0; position: fixed; text-align: center; text-transform: uppercase; transition: all 0.3s ease; z-index: 25 !important; }
+.cbp-spmenu h3 { margin: 0; padding: 20px; /* background-color: #0d77b6; */ /* color: $gray-v; */ font-size: 1.9em; font-weight: 300; }
+.cbp-spmenu a { /* color: $white; */ display: block; font-size: 1.1em; font-weight: 300; }
+.cbp-spmenu a:hover { /* background-color: #258ecd; */ }
+.cbp-spmenu a:active { /* background-color: #afdefa; */ /* color: #47a3da; */ }
+
+.cbp-spmenu-horizontal { width: 100%; height: 100px; left: 0; /* overflow: hidden; */ z-index: 1001; }
+
+/* Vertical menu that slides from the left or right */
+.cbp-spmenu-left { left: -240px; }
+
+.cbp-spmenu-right { right: -240px; }
+
+.cbp-spmenu-left.cbp-spmenu-open { left: 0; }
+
+.cbp-spmenu-right.cbp-spmenu-open { right: 0; }
+
+/* Horizontal menu that slides from the top or bottom */
+.cbp-spmenu-top { top: -150px; }
+
+.cbp-spmenu-bottom { bottom: -150px; }
+
+.cbp-spmenu-top.cbp-spmenu-open { top: 0; }
+
+.cbp-spmenu-bottom.cbp-spmenu-open { bottom: 0; }
+.cbp-spmenu-bottom.cbp-spmenu-open #menu-toggle { bottom: 100px; }
+
+/* Push classes applied to the body */
+.cbp-spmenu-push { left: 0; overflow-x: hidden; position: relative; }
+
+.cbp-spmenu-push-toright { left: 240px; }
+
+.cbp-spmenu-push-toleft { left: -240px; }
+
+/* Transitions */
+.cbp-spmenu, .cbp-spmenu-push { transition: all 0.3s ease; -webkit-transition: all 0.3s ease; }
 
 /************************************************************************************* REDACTOR/SCSS **/
 .redactor_box { background-color: #fefefe; border: 1px solid #cfcfcf; overflow: visible; position: relative; }
@@ -1518,8 +1569,9 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }
 /************************************************************************************** WINDOW/SCSS **/
-.wm-space { z-index: 1 !important; }
+.wm-space { z-index: inherit !important; }
 
+/* Fixes z-index issues */
 .wm-content { color: #191919 !important; }
 
 .wm-space.expose .wm-window.active, .wm-space.expose .wm-window { transform: translate3d(0, 0, 0); transition: top 0.5s ease-out, left 0.5s ease-out; }
