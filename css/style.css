@@ -893,7 +893,9 @@ img {
 .wow .mask { background-image: url("../images/svg/dimension-wow.svg"); }
 
 /**************************************************************************************** BOOK/SCSS **/
-.book .current-thumbnail img { border: 3px solid #70a1b1; }
+.book .current-thumbnail a { border: 3px solid #70a1b1; }
+.book #page-scroller-wrapper #page-scroller .page a { width: 100px; height: 100px; overflow: hidden; }
+.book #page-scroller-wrapper #page-scroller .page a img { width: auto; height: 100%; }
 
 #backcover-wrapper { background-color: rgba(25, 25, 25, 0.7); color: #fefefe; }
 #backcover-wrapper .previous, #backcover-wrapper .next { /* span { display: none; } */ }

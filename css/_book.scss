@@ -3,12 +3,27 @@
 
 .book {
 	.current-thumbnail {
-		img { border: 3px solid $slate; }
+		a { border: 3px solid $slate; }
 	}
 
 	#phototext-fullview-wrapper {
 		.width {
 		
+		}
+	}
+
+	#page-scroller-wrapper {
+		#page-scroller {
+			.page {
+				a {
+					width: 100px; height: 100px;
+					overflow: hidden;
+
+					img {
+						width: auto; height: 100%;
+					}
+				}
+			}
 		}
 	}
 }
