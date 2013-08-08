@@ -1,12 +1,24 @@
 
 /**************************************************************************************** BOOK/SCSS **/
 
+.book {
+	.current-thumbnail {
+		img { border: 3px solid $slate; }
+	}
+
+	#phototext-fullview-wrapper {
+		.width {
+		
+		}
+	}
+}
+
 #backcover-wrapper {
 	background-color: rgba($black, 0.7);
 	color: $white;
 
 	.previous, .next {
-		span { display: none; }
+		/* span { display: none; } */
 	}
 
 	#book-credits, #book-comments {
