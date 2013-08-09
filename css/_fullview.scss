@@ -156,13 +156,19 @@
 		width: 100%; height: 50px;
 		top: 0; left: 0;
 
-		background-color: $gray-i;
+		/* background-color: $gray-i; */
+		background-color: rgba($gray-ii, 0.4);
+		transition: all 0.2s;
+
 		position: absolute;
+		z-index: 1;
 
 		#back, #title, #finish {
 			display: inline-block;
 			vertical-align: middle;
 			width: 33%;
+
+			a { color: $black; }
 		}
 
 		#back {
@@ -172,6 +178,7 @@
 		}
 
 		#title {
+			cursor: default;
 			font-family: "OpenSansLight";
 			font-size: 1.5em;
 			line-height: 2.2em;
@@ -187,7 +194,11 @@
 		}
 
 		#finish { text-align: right; }
+
+		&:hover { background-color: $gray-ii; }
 	}
+
+	.cbp-spmenu { z-index: 10002 !important; /* get page menu in front of the content window */ }
 
 	#photo-fullview-wrapper, #text-fullview-wrapper,
 	#integrated-fullview-wrapper, #phototext-fullview-wrapper,
@@ -204,6 +215,7 @@
 			font-size: 1.4em;
 			position: absolute;
 			text-align: center;
+			transition: all 0.2s;
 			z-index: 1000;
 
 			span {
@@ -249,13 +261,14 @@
 
 			#page-title, #geocode { display: block; }
 
-			#page-title {
+			h2, #page-title {
 				font-family: "OpenSansLight";
 				font-size: 1.5em;
+				line-height: inherit;
 				margin: 0 0 0.5rem 0;
 			}
 
-			#geocode {
+			h5, #geocode {
 				font-family: "OpenSansSemibold";
 				font-size: 1.2em;
 			}
@@ -264,8 +277,8 @@
 
 	#video-fullview-wrapper {
 		iframe {
-			width: 92.8%; height: 78.3%;
-			top: 6.6%; left: 3.6%;
+			width: 100%; height: 84.9%; /* width: 92.8%; height: 78.3%; */
+			top: 0; left: 0; /* top: 6.6%; left: 3.6%; */
 
 			display: inline-block;
 			position: fixed;
@@ -273,8 +286,10 @@
 		}
 
 		#information {
+			/*
 			height: 15.3%;
 			padding: 1.5rem 4.5rem 0;
+			*/
 		}
 	}
 
@@ -643,8 +658,8 @@
 	}
 
 	.cbp-contentslider {
-		/* width: 100%; height: 100%; */
 		width: 400px; height: 450px;
+
 		margin: 2.3rem 0 0 0;
 		position: relative;
 
@@ -652,17 +667,14 @@
 			width: 100%; height: 100%;
 			margin: 0; padding: 0;
 
-			/* border: 1px solid $gray-i; */
-			/* border-top: none; */
 			list-style: none;
 			overflow: hidden;
 			position: relative;
 
-			#tab-content, #tab-tags, #tab-snippets, #tab-settings {
-				width: 100%; height: 100%; /* height: 555px !important; */
+			#tab-layout, #tab-content, #tab-tags, #tab-snippets, #tab-settings {
+				width: 100%; height: 430px !important; /* height: 100% !important; */
 				top: 2rem; left: 0;
 
-				/* background-color: $white; */
 				display: table;
 				overflow-x: hidden;
 				overflow-y: auto;
@@ -677,18 +689,6 @@
 
 				/* &:target { z-index: 100; } /* Without JS, we use :target */
 
-				/*
-				div {
-					top: 2rem; left: 0;
-
-					overflow-x: hidden;
-					overflow-y: auto;
-					padding: 1rem;
-					position: absolute;
-					width: 100%;
-				}
-				*/
-
 				button, input[type="text"], input[type="password"], input[type="email"] {
 					margin: 0 auto 1rem; padding: 0;
 
@@ -700,12 +700,60 @@
 				}
 			}
 
+			#tab-layout { z-index: 100; }
+
+			/* Layout Tab */
+			#view-mode {
+				margin: 1rem 0 0 0;
+
+				p, input, label { text-align: center; }
+				p, label { margin: 0 !important; }
+				input, label { float: none !important; }
+
+				label {
+					display: block;
+					font-size: 0.7em;
+					padding: 0 0 0.4rem 0;
+
+					span {
+						display: block;
+						margin: 0 0 0.4rem 0;
+					}
+				}
+
+				input {
+					/* display: block; */
+					margin: 0 auto !important;
+					vertical-align: inherit;
+					width: 100%;
+				}
+
+				ul {
+					/*
+					display: inline-block;
+					margin: 0 0 1rem 0;
+
+					&:last-child { margin: 0; }
+					*/
+
+					li {
+						display: inline-block;
+						/* margin: 0 0 3rem 0; */
+						margin: 0 1rem 1rem 0;
+
+						&:nth-child(4), &:nth-child(8) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+
 			/* Content Tab */
 			.redactor_box {
 				.redactor_toolbar { width: 100%; }
 
 				.redactor_editor {
-					height: 300px;
+					height: 365px;
 					z-index: 1;
 				}
 			}

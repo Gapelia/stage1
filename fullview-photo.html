@@ -28,9 +28,12 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
+		<!--/ scripts /-->
+		<!--/ scripts/base /-->
 		<script src="scripts/vendor/modernizr-ii.js"></script>
 		<script src="scripts/jquery-1.10.2.js"></script>
 
+		<!--/ scripts/background-resizer /-->
 		<script src="scripts/bg-resize.js"></script>
 
 		<script>
@@ -41,9 +44,14 @@
 			});
 		</script>
 
+		<!--/ scripts/gapelia /-->
+		<script src="scripts/gapelia.js"></script>
+
 	</head>
 
 	<body class="preview fv-photo">
+
+		<!--/ header /-->
 
 		<header>
 			<div id="back">
@@ -59,121 +67,9 @@
 			</div>
 		</header>
 
+		<!--/ main-content /-->
+
 		<section id="photo-fullview-wrapper">
-			<div class="draggable-window" style="display:none" unselectable="on">
-				<div id="draggable">
-					<div id="tabs-container" class="cbp-contentslider">
-						<nav id="sidebar-nav">
-							<a href="#tab-content" title="">Content</a>
-							<a href="#tab-tags" title="">Tags</a>
-							<a href="#tab-snippets" title="">Snippets</a>
-							<a href="#tab-settings" title="">Settings</a>
-						</nav>
-
-						<ul id="sidebar-content">
-							<li id="tab-content">
-								<textarea id="text-editor" name="content">
-									<h2>The Tunnel</h2>
-									<h5>Okinawa, Japan</h5>
-								</textarea>
-
-								<section id="view-mode">
-									<p>View Mode:</p>
-
-									<input type="radio" id="bc-photo" name="rr" checked/>
-									<label for="bc-photo"><span></span>Photo</label>
-
-									<input type="radio" id="bc-text" name="rr"/>
-									<label for="bc-text"><span></span>Text</label>
-
-									<input type="radio" id="bc-phototext" name="rr"/>
-									<label for="bc-phototext"><span></span>Photo/Text</label>
-
-									<input type="radio" id="bc-integrated" name="rr"/>
-									<label for="bc-integrated"><span></span>Integrated</label>
-								</section>
-							</li>
-
-							<li id="tab-tags">
-								<section class="tag-input">
-									<label for="geotag">Geotag</label>
-									<input id="geotag" type="text" placeholder=""/>
-									<span class="hint">ex. Hawaii</span>
-								</section>
-
-								<section class="tag-input">
-									<label for="passion">Passion</label>
-									<input id="passion" name="passion" type="text" list="passion-tag"/>
-
-									<datalist id="passion-tag">
-										<option value="* Create new tag">
-										<option value="Computers">
-										<option value="Gaming">
-										<option value="Gardening">
-										<option value="Skydiving">
-										<option value="Surfing">
-									</datalist>
-
-									<span class="hint">ex. Surfing</span>
-								</section>
-
-								<section class="tag-input">
-									<label for="feeling">Feeling</label>
-									<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
-
-									<datalist id="feeling-tag">
-										<option value="* Create new tag">
-										<option value="Adrenaline">
-										<option value="Calm">
-										<option value="Ecstatic">
-										<option value="Longing">
-										<option value="Serenity">
-									</datalist>
-
-									<span class="hint">ex. Adrenaline</span>
-								</section>
-
-								<section class="tag-input">
-									<label>Custom Wiki Link</label>
-									<input type="text" placeholder=""/>
-									<span class="hint">(default link will associate geotag)</span>
-								</section>
-							</li>
-
-							<li id="tab-snippets">
-								<p>Snippet Locations</p>
-
-								<section id="snippet-preview">
-									<img src="images/bg-ii.jpg" alt=""/>
-								</section>
-							</li>
-
-							<li id="tab-settings">
-								<p>Privacy</p>
-
-								<input type="radio" id="cc-01" name="rr"/>
-								<label for="cc-01"><span></span>CC BY</label><br/>
-
-								<input type="radio" id="cc-02" name="rr"/>
-								<label for="cc-02"><span></span>CC BY-SA</label><br/>
-
-								<input type="radio" id="cc-03" name="rr"/>
-								<label for="cc-03"><span></span>CC BY-ND</label><br/>
-
-								<input type="radio" id="cc-04" name="rr"/>
-								<label for="cc-04"><span></span>CC BY-NC</label><br/>
-
-								<input type="radio" id="cc-05" name="rr"/>
-								<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
-
-								<input type="radio" id="cc-06" name="rr"/>
-								<label for="cc-06"><span></span>CC BY-NC-ND</label>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
 			<a href="#" class="previous"><span>&#9664;</span></a>
 
 			<div id="information">
@@ -184,57 +80,333 @@
 			<a href="#" class="next"><span>&#9654;</span></a>
 		</section>
 
-		<!--/
-		<section id="text-preview-wrapper">
-			<ul class="create-header">
-				<li class="page-edit"><a href="">Edit</a></li>
-				<li class="page-upload"><a href="">Upload</a></li>
-				<li class="page-delete"><a href="">Delete</a></li>
-			</ul>
+		<!--/ page menu /-->
 
-			<div id="text-preview">
-				<span class="geocode"></span>
+		<section class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<div id="menu-toggle">Page Menu</div>
+
+			<div id="page-scroller-wrapper">
+				<nav>
+					<a id="prev-small" class="prev" href="#">&#9664;</a>
+					<a id="next-small" class="next" href="#">&#9654;</a>
+				</nav>
+
+				<ul id="page-scroller">
+
+					<!--/ page 01 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="images/book-front.jpg" id="page-01" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 02 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/bath-02.jpg" id="page-02" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 03 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/boardwalk.jpg" id="page-03" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 04 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/city-from-river.jpg" id="page-04" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 05 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/kids.jpg" id="page-05" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 06 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="images/book-video.jpg" id="page-06" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 07 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/market.jpg" id="page-07" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 08 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/old-town-food.jpg" id="page-08" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 09 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/river-boats.jpg" id="page-09" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 10 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/sadhus.jpg" id="page-10" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 11 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="images/book-text.jpg" id="page-11" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 12 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/sleeping.jpg" id="page-12" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 13 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/streets-02.jpg" id="page-13" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 14 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/temple.jpg" id="page-14" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 15 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/traffic.jpg" id="page-15" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 16 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/kids+buffalos.jpg" id="page-16" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 17 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="book/images/silk.jpg" id="page-17" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 18 /-->
+
+					<li class="page">
+						<a href="">
+							<img src="images/book-back.jpg" id="page-18" class="cover" alt=""/>
+						</a>
+					</li>
+
+				</ul>
 			</div>
-
-			<img src="images/bg.jpg" alt=""/>
 		</section>
 
-		<section id="phototext-preview-wrapper">
-			<ul class="create-header">
-				<li class="page-edit"><a href="">Edit</a></li>
-				<li class="page-upload"><a href="">Upload</a></li>
-				<li class="page-delete"><a href="">Delete</a></li>
-			</ul>
+		<!--/ content window /-->
 
-			<div id="phototext-preview">
-				<span class="geocode"></span>
+		<div class="draggable-window" style="display: none;" unselectable="on">
+			<div id="draggable">
+				<div id="tabs-container" class="cbp-contentslider">
+					<nav id="sidebar-nav">
+						<a href="#tab-layout" title="">Layout</a>
+						<a href="#tab-content" title="">Content</a>
+						<a href="#tab-tags" title="">Tags</a>
+						<a href="#tab-settings" title="">Settings</a>
+					</nav>
+
+					<ul id="sidebar-content">
+						<li id="tab-layout">
+							<section id="view-mode">
+								<ul>
+									<li class="view-style">
+										<label for="bc-frontcover">
+											<span><img src="images/view-modes/integrated.png" alt=""/></span>Front Cover
+										</label>
+
+										<input type="radio" id="bc-frontcover" name="rr"/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-photo">
+											<span><img src="images/view-modes/photo.png" alt=""/></span>Photo
+										</label>
+
+										<input type="radio" id="bc-photo" name="rr" checked/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-text">
+											<span><img src="images/view-modes/text.png" alt=""/></span>Text
+										</label>
+
+										<input type="radio" id="bc-text" name="rr"/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-integrated">
+											<span><img src="images/view-modes/integrated.png" alt=""/></span>Integrated
+										</label>
+
+										<input type="radio" id="bc-integrated" name="rr"/>
+									</li>
+
+									<!--//-->
+
+									<li class="view-style">
+										<label for="bc-phototext">
+											<span><img src="images/view-modes/phototext.png" alt=""/></span>Photo/Text
+										</label>
+
+										<input type="radio" id="bc-phototext" name="rr"/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-phototext-ii">
+											<span><img src="images/view-modes/phototext.png" alt=""/></span>Photo/Text II
+										</label>
+
+										<input type="radio" id="bc-phototext-ii" name="rr"/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-integrated-ii">
+											<span><img src="images/view-modes/integrated.png" alt=""/></span>Integrated II
+										</label>
+
+										<input type="radio" id="bc-integrated-ii" name="rr"/>
+									</li>
+
+									<li class="view-style">
+										<label for="bc-video">
+											<span><img src="images/view-modes/video.png" alt=""/></span>Video
+										</label>
+
+										<input type="radio" id="bc-video" name="rr"/>
+									</li>
+								</ul>
+							</section>
+						</li>
+
+						<li id="tab-content">
+							<textarea id="text-editor" name="content">
+								<h2>The Tunnel</h2>
+								<h5>Okinawa, Japan</h5>
+							</textarea>
+						</li>
+
+						<li id="tab-tags">
+							<section class="tag-input">
+								<label for="geotag">Geotag</label>
+								<input id="geotag" type="text" placeholder=""/>
+								<span class="hint">ex. Hawaii</span>
+							</section>
+
+							<section class="tag-input">
+								<label for="passion">Passion</label>
+								<input id="passion" name="passion" type="text" list="passion-tag"/>
+
+								<datalist id="passion-tag">
+									<option value="* Create new tag">
+									<option value="Computers">
+									<option value="Gaming">
+									<option value="Gardening">
+									<option value="Skydiving">
+									<option value="Surfing">
+								</datalist>
+
+								<span class="hint">ex. Surfing</span>
+							</section>
+
+							<section class="tag-input">
+								<label for="feeling">Feeling</label>
+								<input id="feeling" name="feeling" type="text" list="feeling-tag"/>
+
+								<datalist id="feeling-tag">
+									<option value="* Create new tag">
+									<option value="Adrenaline">
+									<option value="Calm">
+									<option value="Ecstatic">
+									<option value="Longing">
+									<option value="Serenity">
+								</datalist>
+
+								<span class="hint">ex. Adrenaline</span>
+							</section>
+
+							<section class="tag-input">
+								<label>Custom Wiki Link</label>
+								<input type="text" placeholder=""/>
+								<span class="hint">(default link will associate geotag)</span>
+							</section>
+						</li>
+
+						<li id="tab-settings">
+							<p>Privacy</p>
+
+							<input type="radio" id="cc-01" name="rr"/>
+							<label for="cc-01"><span></span>CC BY</label><br/>
+
+							<input type="radio" id="cc-02" name="rr"/>
+							<label for="cc-02"><span></span>CC BY-SA</label><br/>
+
+							<input type="radio" id="cc-03" name="rr"/>
+							<label for="cc-03"><span></span>CC BY-ND</label><br/>
+
+							<input type="radio" id="cc-04" name="rr"/>
+							<label for="cc-04"><span></span>CC BY-NC</label><br/>
+
+							<input type="radio" id="cc-05" name="rr"/>
+							<label for="cc-05"><span></span>CC BY-NC-SA</label><br/>
+
+							<input type="radio" id="cc-06" name="rr"/>
+							<label for="cc-06"><span></span>CC BY-NC-ND</label>
+						</li>
+					</ul>
+				</div>
 			</div>
+		</div>
 
-			<img src="images/bg-iii.jpg" alt=""/>
-		</section>
-
-		<section id="integrated-preview-wrapper">
-			<ul class="create-header">
-				<li class="page-edit"><a href="">Edit</a></li>
-				<li class="page-upload"><a href="">Upload</a></li>
-				<li class="page-delete"><a href="">Delete</a></li>
-			</ul>
-
-			<div id="integrated-preview">
-				<span class="geocode"></span>
-			</div>
-
-			<img src="images/bg.jpg" alt=""/>
-		</section>
-		/-->
-
-		<!--/ scripts																																					 /-->
-		<!--/ scripts/gapelia																																 	 /-->
-
-		<!--/ <script src="scripts/gapelia.js"></script> /-->
-
-		<!--/ scripts/redactor																															 	 /-->
-
+		<!--/ scripts /-->
+		<!--/ scripts/redactor /-->
 		<script src="scripts/redactor.js"></script>
 		<script src="scripts/fontfamily.js"></script>
 		<script src="scripts/fontsize.js"></script>
@@ -254,8 +426,7 @@
 			});
 		</script>
 
-		<!--/ scripts/livepreview																															 /-->
-
+		<!--/ scripts/live-preview /-->
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
@@ -272,6 +443,7 @@
 			});
 		</script>
 
+		<!--/ scripts/geolocation /-->
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
@@ -279,8 +451,7 @@
 			var autocomplete = new google.maps.places.Autocomplete(input);
 		</script>
 
-		<!--/ scripts/modal																																		 /-->
-
+		<!--/ scripts/modal /-->
 		<script src="scripts/modal/classie.js"></script>
 		<script src="scripts/modal/modalEffects.js"></script>
 
@@ -291,8 +462,7 @@
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
-		<!--/ scripts/window																																	 /-->
-
+		<!--/ scripts/window /-->
 		<script src="scripts/vendor/handlebars.js"></script>
 		<script src="scripts/ventus.js"></script>
 
@@ -318,8 +488,7 @@
 			});
 		</script>
 
-		<!--/ scripts/tabswitcher																															 /-->
-
+		<!--/ scripts/tab-switcher /-->
 		<script src="scripts/cbpContentSlider.js"></script>
 
 		<script>
@@ -328,6 +497,58 @@
 			});
 		</script>
 
+		<!--/ scripts/menu-slider /-->
+		<script>
+			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), body = document.body;
+
+			showBottom.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuBottom, "cbp-spmenu-open");
+			};
+		</script>
+
+		<!--/ scripts/carousel /-->
+		<script src="scripts/carousel/carouFredSel.js"></script>
+		<script src="scripts/carousel/ba-throttle-debounce.js"></script>
+		<script src="scripts/carousel/mousewheel.js"></script>
+		<script src="scripts/carousel/touchSwipe.js"></script>
+		<script src="scripts/carousel/transit.js"></script>
+
+		<script src="scripts/tm/core.js"></script>
+		<script src="scripts/tm/events.js"></script>
+		<script src="scripts/tm/css.js"></script>
+		<script src="scripts/tm/coordinates.js"></script>
+		<script src="scripts/tm/drag.js"></script>
+		<script src="scripts/tm/dragsort.js"></script>
+
+		<script>
+			var coordinates = ToolMan.coordinates();
+			var dragsort = ToolMan.dragsort();
+
+			window.onload = function () {
+				dragsort.makeListSortable(document.getElementById("page-scroller"), setHandle);
+			}
+
+			function setHandle(item) {
+				item.toolManDragGroup.setHandle(findHandle(item));
+			}
+
+			function findHandle(item) {
+				var children = item.getElementsByTagName("li");
+
+				for (var i = 0; i < children.length; i++) {
+					var child = children[i];
+					if (child.getAttribute("class") == null) continue;
+					if (child.getAttribute("class").indexOf("page") >= 0);
+
+					return child;
+				}
+
+				return item;
+			}
+		</script>
+
+		<!--/ scripts/character-limiter /-->
 		<!--/
 		<script src="scripts/simplyCountable.js"></script>
 
