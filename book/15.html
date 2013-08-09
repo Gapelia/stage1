@@ -51,13 +51,18 @@
 				<span id="book-title">Spirit of Varanasi</span> by <span id="book-author">Spaceman Fresh</span>
 			</div>
 
-			<div id="finish">
-				<!--/ <a href="#">Publish</a> | <a href="#">Save</a> /-->
-			</div>
+			<ul id="page-actions">
+				<li id="book-add"><a href="#">Add to Collection</a></li>
+			</ul>
 		</header>
 
 		<section id="phototext-fullview-wrapper">
 			<a href="14.html" class="previous"><span>&#9664;</span></a>
+
+			<ul id="page-sidebar">
+				<li id="book-wiki"><a href="#">Wikipedia</a></li>
+				<li id="book-r2r"><a href="#">Rome 2 Rio</a></li>
+			</ul>
 
 			<img src="images/traffic.jpg" id="vertical-bg" class="wide" alt=""/>
 
@@ -234,23 +239,23 @@
 			</div>
 		</section>
 
-		<!--/ scripts																																					 /-->
-
+		<!--/ scripts /-->
 		<script>
 			$(document).ready(function() {
 				var $vb = $("#vertical-bg");
 				var $story = $("#story-content");
 				var $wide = $(".wide");
+				var $sidebar = $("#page-sidebar");
 
 				$(function () {
 					$vb.css("margin-left", $vb.width() + $story.width() - $(window).width() / 2 + 65 + "px");
 					$wide.css("margin-top", $wide.height() - $(window).height() / 2.5 + "px");
+					$sidebar.css("top", $(window).height() / 2.5 + "px");
 				});
 			});
 		</script>
 
-		<!--/ scripts/menu slider																															 /-->
-
+		<!--/ scripts/menu-slider /-->
 		<script src="../scripts/modal/classie.js"></script>
 
 		<script>
@@ -262,8 +267,7 @@
 			};
 		</script>
 
-		<!--/ scripts/carousel																																 /-->
-
+		<!--/ scripts/carousel /-->
 		<script src="../scripts/carousel/carouFredSel.js"></script>
 		<script src="../scripts/carousel/ba-throttle-debounce.js"></script>
 		<script src="../scripts/carousel/mousewheel.js"></script>

@@ -471,6 +471,8 @@
 			position: relative;
 
 			&:before {
+				top: 3px; left: 3px;
+
 				background-color: rgba($black, 0.8);
 				color: $white;
 				content: counter(section) " ";
