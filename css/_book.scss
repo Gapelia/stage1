@@ -92,6 +92,15 @@
 			}
 		}
 	}
+
+	#wiki-window {
+		width: 500px; height: 100%;
+		top: 0; left: 10%;
+
+		background-color: $white;
+		color: $black;
+		position: absolute;
+	}
 }
 
 #backcover-wrapper {

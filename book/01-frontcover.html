@@ -69,7 +69,7 @@
 			<a href="#" class="previous" style="display: none !important;"><span>&#9664;</span></a>
 
 			<ul id="page-sidebar">
-				<li id="book-wiki"><a href="#">Wikipedia</a></li>
+				<li id="book-wiki"><a href="#wiki-window">Wikipedia</a></li>
 				<li id="book-r2r"><a href="#">Rome 2 Rio</a></li>
 			</ul>
 
@@ -94,6 +94,10 @@
 					</div>
 				</div>
 			</div>
+
+			<section id="wiki-window" style="display: none;">
+				<p>Varanasi is the spiritual capital of India. Scholarly books have been written in the city, including the Ramcharitmanas of Tulsidas. Today there is a temple of his namesake in the city, the Tulsi Manas Mandir. One of the largest residential universities of Asia the Banaras Hindu University is located here. Varanasi is often referred to as "the city of temples", "the holy city of India", "the religious capital of India", "the city of lights", "the city of learning", and "the oldest living city on earth."</p>
+			</section>
 
 			<a href="02.html" class="next"><span>&#9654;</span></a>
 		</section>
@@ -266,6 +270,13 @@
 				$(function () {
 					$sidebar.css("top", $(window).height() / 2.5 + "px");
 					$story.css("margin-top", $(window).height() / 1.3 - $story.height() + "px");
+				});
+			});
+
+			$(document).ready(function() {
+				$("#book-wiki").click(function (e) {
+					$("#wiki-window").toggle();
+					e.preventDefault();
 				});
 			});
 		</script>
