@@ -99,7 +99,10 @@
 
 		background-color: $white;
 		color: $black;
+		display: none;
+		margin: 50px 0 0 0;
 		position: absolute;
+		transition: all 0.2s;
 	}
 }
 
