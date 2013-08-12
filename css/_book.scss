@@ -63,15 +63,6 @@
 			#book-wiki { background-image: url("../images/book-wiki.png"); }
 			#book-r2r { background-image: url("../images/book-r2r.png"); }
 		}
-
-		/*
-		#page-actions {
-			top: 0; right: 3rem;
-			padding: 3rem 0;
-
-			#book-add { background-image: url("../images/book-add.png"); }
-		}
-		*/
 	}
 
 	.current-thumbnail {
@@ -95,14 +86,20 @@
 
 	#wiki-window {
 		width: 500px; height: 100%;
+		margin: 50px 0 0 0; padding: 3rem;
 		top: 0; left: 10%;
 
 		background-color: $white;
 		color: $black;
 		display: none;
-		margin: 50px 0 0 0;
 		position: absolute;
 		transition: all 0.2s;
+
+		p {
+			font-size: 1em;
+			line-height: 1.6em;
+			text-align: justify;
+		}
 	}
 }
 
@@ -170,9 +167,7 @@
 			}
 
 			#story-contributors {
-				li {
-					line-height: 1.6em;
-				}
+				li { line-height: 1.6em; }
 			}
 		}
 	}
