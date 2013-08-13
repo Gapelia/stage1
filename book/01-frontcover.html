@@ -51,6 +51,8 @@
 
 	<body class="book fv-frontcover">
 
+		<!--/ header /-->
+
 		<header>
 			<div id="back">
 				<!--/ <a href="#">&#11013;</a> /-->
@@ -64,6 +66,8 @@
 				<li id="book-add"><a href="#">Add to Collection</a></li>
 			</ul>
 		</header>
+
+		<!--/ main-content /-->
 
 		<section id="frontcover-fullview-wrapper">
 			<a href="#" class="previous" style="display: none !important;"><span>&#9664;</span></a>
@@ -96,7 +100,19 @@
 			</div>
 
 			<section id="wiki-window">
-				<p>Varanasi is the spiritual capital of India. Scholarly books have been written in the city, including the Ramcharitmanas of Tulsidas. Today there is a temple of his namesake in the city, the Tulsi Manas Mandir. One of the largest residential universities of Asia the Banaras Hindu University is located here. Varanasi is often referred to as "the city of temples", "the holy city of India", "the religious capital of India", "the city of lights", "the city of learning", and "the oldest living city on earth."</p>
+				<!--/ <h2 class="wiki-header">Wikipedia</h2> /-->
+
+				<p>Vārāņasi is the spiritual capital of India. Scholarly books have been written in the city, including the Ramcharitmanas of Tulsidas. Today there is a temple of his namesake in the city, the Tulsi Manas Mandir. One of the largest residential universities of Asia the Banaras Hindu University is located here. Varanasi is often referred to as "the city of temples", "the holy city of India", "the religious capital of India", "the city of lights", "the city of learning", and "the oldest living city on earth."</p>
+
+				<p>The name Vārāņasi possibly originates from the names of the two rivers: Varuna, still flowing in Varanasi, and Asi, a small stream near Assi Ghat. The old city does lie on the north shores of Ganges River bounded by its two tributaries Varuna and Asi. Another speculation is that the city derives its name from the river Varuna, which was called Varanasi in olden times. This is generally disregarded by historians. Through the ages, Varanasi has been known by many names including Kāśī or Kashi (used by pilgrims dating from Buddha's days), Kāśikā (the shining one), Avimukta ("never forsaken" by Shiva), Ānandavana (the forest of bliss), and Rudravāsa (the place where Rudra/Śiva resides).</p>
+
+				<p>In the Rigveda, the city is referred to as Kāśī or Kashi, the luminous city as an eminent seat of learning. The name Kāśī is also mentioned in the Skanda Purana. In one verse, Shiva says, "The three worlds form one city of mine, and Kāśī is my royal palace therein."</p>
+
+				<p>Varanasi is located in the middle Ganges valley of North India, in the Eastern part of the state of Uttar Pradesh, along the left crescent-shaped bank of the Ganges, averaging between 50 feet (15 m) and 70 feet (21 m) above the river. It has the headquarters of Varanasi district. By road, Varanasi is located 797 kilometres (495 mi) southeast of New Delhi, 320 kilometres (200 mi) southeast of Lucknow, 121 kilometres (75 mi) east of Allahabad, and 63 kilometres (39 mi) south of Jaunpur. The "Varanasi Urban Agglomeration" – an agglomeration of seven urban sub-units – covers an area of 112.26 km 2 (approximately 43 mi²). The urban agglomeration is stretched between 82° 56’E – 83° 03’E and 25° 14’N – 25° 23.5’N. Neighbourhoods of the city include Adampura, Kotwali, Jaitpura, Dhupchandi, Chaukaghat, Kail Garh, Guru Nanak Nagar, Chaitganj, Naipokhari, Sigra, Maulvibagh, Siddhagiribagh, Bulanala, Chowk, Bangali Tola, Luxa, Khanna, Gopal Vihar, Giri Nagar, Mahmoorganj, Maheshpur, Bhelpura, Shivala, Anandbagh, Nagwar, Dumraon, Gandhinagar, and Gautam Nagar, Lanka Manduadih.</p>
+
+				<p>Being located in the Indo-Gangetic Plains of North India, the land is very fertile because low level floods in the Ganges continually replenish the soil. Varanasi is often said to be located between two confluences: one of the Ganges and Varuna, and other of the Ganges and Assi, although the latter has always been a rivulet rather than a river. The distance between the two confluences is around 2.5 miles (4.0 km), and religious Hindus regard a round trip between these two places – a Pancha-kroshi Yatra (a five-mile (8.3 km) journey) ending with a visit to a Sakshi Vinayak Temple – as a holy ritual.</p>
+
+				<div class="wiki-footer" title="Information courtesy of Wikipedia">Information courtesy of <span>Wikipedia</span></div>
 			</section>
 
 			<a href="02.html" class="next"><span>&#9654;</span></a>
@@ -266,10 +282,12 @@
 			$(document).ready(function() {
 				var $sidebar = $("#page-sidebar");
 				var $story = $("#story-content");
+				var $wikiWindow = $("#wiki-window");
 
 				$(function () {
 					$sidebar.css("top", $(window).height() / 2.5 + "px");
 					$story.css("margin-top", $(window).height() / 1.3 - $story.height() + "px");
+					$wikiWindow.css("height", $(window).height() - 70 + "px");
 				});
 			});
 

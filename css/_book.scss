@@ -86,14 +86,41 @@
 
 	#wiki-window {
 		width: 500px; height: 100%;
-		margin: 50px 0 0 0; padding: 3rem;
+		margin: 50px 0 100px 0; padding: 2rem 2rem 3rem 2rem;
 		top: 0; left: 10%;
 
 		background-color: $white;
 		color: $black;
 		display: none;
+		overflow-x: hidden; overflow-y: scroll;
 		position: absolute;
 		transition: all 0.2s;
+
+		.wiki-footer {
+			cursor: default;
+			float: right;
+			font-family: Georgia, serif;
+			font-size: 0.7em;
+			font-style: italic;
+			line-height: 20px;
+			opacity: 0.3;
+			padding: 0 0 2rem 0;
+			transition: opacity 0.2s;
+
+			span {
+				width: 20px; height: 20px;
+
+				background: url("../images/logo-wiki-w.png") no-repeat;
+				background-size: 20px 20px;
+				display: inline-block;
+				margin: 0 0 0 0.1rem;
+				vertical-align: top;
+
+				@include hide-text;
+			}
+
+			&:hover { opacity: 1; }
+		}
 
 		p {
 			font-size: 1em;

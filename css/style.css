@@ -1326,7 +1326,10 @@ padding: 1.5rem 4.5rem 0;
 .book .current-thumbnail a { border: 3px solid #70a1b1; }
 .book #page-scroller-wrapper #page-scroller .page a { width: 100px; height: 100px; overflow: hidden; }
 .book #page-scroller-wrapper #page-scroller .page a img { width: auto; height: 100%; }
-.book #wiki-window { width: 500px; height: 100%; margin: 50px 0 0 0; padding: 3rem; top: 0; left: 10%; background-color: #fefefe; color: #191919; display: none; position: absolute; transition: all 0.2s; }
+.book #wiki-window { width: 500px; height: 100%; margin: 50px 0 100px 0; padding: 2rem 2rem 3rem 2rem; top: 0; left: 10%; background-color: #fefefe; color: #191919; display: none; overflow-x: hidden; overflow-y: scroll; position: absolute; transition: all 0.2s; }
+.book #wiki-window .wiki-footer { cursor: default; float: right; font-family: Georgia, serif; font-size: 0.7em; font-style: italic; line-height: 20px; opacity: 0.3; padding: 0 0 2rem 0; transition: opacity 0.2s; }
+.book #wiki-window .wiki-footer span { width: 20px; height: 20px; background: url("../images/logo-wiki-w.png") no-repeat; background-size: 20px 20px; display: inline-block; margin: 0 0 0 0.1rem; vertical-align: top; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.book #wiki-window .wiki-footer:hover { opacity: 1; }
 .book #wiki-window p { font-size: 1em; line-height: 1.6em; text-align: justify; }
 
 #backcover-wrapper { background-color: rgba(25, 25, 25, 0.7); color: #fefefe; }
