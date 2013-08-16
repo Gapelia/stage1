@@ -950,29 +950,14 @@ img {
 #book-creation-wrapper #create-book #create-content #text-preview { background-color: #fefefe; border-right: 1px solid #cfcfcf; }
 #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper #phototext-preview { background-color: rgba(25, 25, 25, 0.8); color: #fefefe; padding: 2rem; right: 0; width: 50%; }
 #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper { background-color: #fefefe; border-right: 1px solid #cfcfcf; }
-#book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper #phototext-ii-preview, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper img { /* display: inline-block; */ float: left; vertical-align: top; }
+#book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper #phototext-ii-preview, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper img { float: left; vertical-align: top; }
 #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper img { width: auto; height: 100%; margin: 0 0 0 10%; }
 #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper #phototext-ii-preview { width: 40%; height: 100%; background-color: rgba(254, 254, 254, 0.8); color: #191919; padding: 2rem; position: relative; }
 #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper #phototext-ii-preview h5 { border-bottom: 1px dotted #cfcfcf; margin: 0 0 1rem 0; padding: 0 0 1rem 0; text-transform: uppercase; }
 #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper #phototext-ii-preview p { line-height: 1.4em; }
 #book-creation-wrapper #create-book #create-content #video-preview-wrapper iframe { width: 100%; height: 70%; margin: 0; padding: 0; top: 0; left: 0; position: absolute; }
 #book-creation-wrapper #create-book #create-content #video-preview-wrapper #video-preview { max-height: 30%; }
-#book-creation-wrapper #create-book #create-sidebar { width: 32.6%; 			/*
-			#sidebar-nav {
-				li {
-					width: 25%;
-
-					a {
-						border-bottom: 1px solid $gray-ii;
-						display: block;
-						font-family: "OpenSansLight";
-						padding: 0.5rem;
-
-						&:hover { background-color: $white; }
-					}
-				}
-			}
-			*/ }
+#book-creation-wrapper #create-book #create-sidebar { width: 32.6%; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions, #book-creation-wrapper #create-book #create-sidebar #sidebar-nav { display: inline-block; width: 100%; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions li, #book-creation-wrapper #create-book #create-sidebar #sidebar-nav li { border-right: 1px solid #cfcfcf; float: left; text-align: center; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions li:last-child, #book-creation-wrapper #create-book #create-sidebar #sidebar-nav li:last-child { border-right: 0; }
@@ -980,35 +965,17 @@ img {
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions { border-bottom: 1px solid #cfcfcf; }
 #book-creation-wrapper #create-book #create-sidebar #sidebar-actions li { font-size: 20px; padding: 0.5rem; width: 33.3%; }
 #book-creation-wrapper #create-book #create-sidebar nav { display: inline-block; height: 3.313em; overflow: hidden; position: absolute; width: 100%; z-index: 1000; }
-#book-creation-wrapper #create-book #create-sidebar nav a { border-right: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf; display: block; float: left; font-family: "OpenSansLight"; padding: 0.5rem; text-align: center; transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; width: 25%; /* width: 20%; height: 100%; */ -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /*
-&:last-child {
-	border: none;
-	box-shadow: 1px 0 #47a3da;
-}
-*/ /* span { display: block; } */ }
+#book-creation-wrapper #create-book #create-sidebar nav a { border-right: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf; display: block; float: left; font-family: "OpenSansLight"; padding: 0.5rem; text-align: center; transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; width: 25%; /* width: 20%; height: 100%; */ -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
 #book-creation-wrapper #create-book #create-sidebar nav a:hover { background-color: #fefefe; }
 #book-creation-wrapper #create-book #create-sidebar nav a:last-child { border-right: 0; }
 #book-creation-wrapper #create-book #create-sidebar nav a.rc-active { background-color: #fefefe; border-bottom: 1px solid #fefefe; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider { width: 100%; height: 500px; /* height: 70%; */ position: relative; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content { width: 100%; height: 100%; margin: 0; padding: 0; list-style: none; overflow: hidden; position: relative; /* Layout Tab */ /* Content Tab */ /* Tags Tab */ /* Snippets Tab */ }
-#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-layout, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-content, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-tags, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-snippets, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-settings { width: 100%; height: 100%; /* height: 555px !important; */ top: 2rem; left: 0; background-color: #fefefe; display: table; overflow-x: hidden; overflow-y: auto; padding: 1rem; position: absolute; /* Without JS, we use :target */ 						/*
-						div {
-							top: 2rem; left: 0;
-
-							overflow-x: hidden;
-							overflow-y: auto;
-							padding: 1rem;
-							position: absolute;
-							width: 100%;
-						}
-						*/ }
+#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-layout, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-content, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-tags, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-snippets, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-settings { width: 100%; height: 100%; /* height: 555px !important; */ top: 2rem; left: 0; background-color: #fefefe; display: table; overflow-x: hidden; overflow-y: auto; padding: 1rem; position: absolute; /* Without JS, we use :target */ }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-layout:target, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-content:target, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-tags:target, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-snippets:target, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-settings:target { z-index: 100; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #tab-layout { z-index: 100; }
-#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode { margin: 1rem 0 0 0; /*
-p, label { margin: 0 1rem 0 0; }
-input { margin: 0 0.2rem 0 0; }
-*/ }
-#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode p, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode input, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode label { /* float: left; */ text-align: center; }
+#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode { margin: 1rem 0 0 0; }
+#book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode p, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode input, #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode label { text-align: center; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode label { display: block; font-size: 0.7em; margin: 0 0 0.4rem 0; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode label span { display: block; }
 #book-creation-wrapper #create-book #create-sidebar .cbp-contentslider #sidebar-content #view-mode input { display: block; margin: 0 auto; }
@@ -1027,15 +994,9 @@ input { margin: 0 0.2rem 0 0; }
 
 #small-switcher { z-index: 101; }
 
-#page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; z-index: 101; 	/*
-	nav {
-		display: none;
-
-		#prev-small, #next-small {
-			height: 0;
-		}
-	}
-	*/ }
+#page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; z-index: 101; }
+#page-scroller-wrapper #new-pages { border-left: 3px solid #70a1b1; position: absolute; right: 0; width: 203px; /* z-index: 99999; */ }
+#page-scroller-wrapper #new-pages li { float: left; }
 #page-scroller-wrapper #page-scroller { height: 100px; }
 #page-scroller-wrapper #page-scroller .page { width: 100px !important; height: 100px !important; counter-increment: section; counter-reset: sub-section; float: left; position: relative; }
 #page-scroller-wrapper #page-scroller .page:before { top: 3px; left: 3px; background-color: rgba(25, 25, 25, 0.8); color: #fefefe; content: counter(section) " "; padding: 5px; position: absolute; }

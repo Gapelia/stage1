@@ -402,7 +402,19 @@
 			Your Pages
 		</section>
 
-		<div id="page-scroller-wrapper">
+		<div id="page-scroller-wrapper" class="small-book-scroller">
+
+			<!--/ new-pages /-->
+
+			<ul id="new-pages">
+				<li id="new-text">
+					<img src="images/bc-new-text.jpg" class="cover" alt=""/>
+				</li>
+
+				<li id="new-page">
+					<img src="images/bc-new-page.jpg" class="md-trigger cover" data-modal="modal-upload" alt=""/>
+				</li>
+			</ul>
 
 			<nav>
 				<a id="prev-small" class="prev" href="#">&#9664;</a>
@@ -411,112 +423,82 @@
 
 			<ul id="page-scroller">
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/01.jpg" id="user-001" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/02.jpg" id="user-002" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/03.jpg" id="user-003" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/04.jpg" id="user-004" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/05.jpg" id="user-005" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/06.jpg" id="user-006" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/07.jpg" id="user-007" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/08.jpg" id="user-008" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/09.jpg" id="user-009" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/10.jpg" id="user-010" class="cover" alt=""/>
 				</li>
 
-				<!--/ page																																			 /-->
+				<!--/ page /-->
 
 				<li class="page">
 					<input name="" value="" type="checkbox"/>
 					<img src="images/users/11.jpg" id="user-011" class="cover" alt=""/>
 				</li>
-
-				<!--/ page																																			 /-->
-
-				<li class="page" id="new-text">
-					<input name="" value="" type="checkbox"/>
-					<img src="images/bc-new-text.jpg" class="cover" alt=""/>
-				</li>
-
-				<!--/ page																																			 /-->
-
-				<li class="page" id="new-page">
-					<input name="" value="" type="checkbox"/>
-					<img src="images/bc-new-page.jpg" class="md-trigger cover" data-modal="modal-upload" alt=""/>
-				</li>
-
-				<!--/ cutoff /-->
-
-				<!--/
-				<li class="page">
-					<img src="images/users/02.jpg" id="user-002" class="cover" alt=""/>
-				</li>
-
-				<li class="page">
-					<img src="images/users/02.jpg" id="user-002" class="cover" alt=""/>
-				</li>
-
-				<li class="page">
-					<img src="images/users/02.jpg" id="user-002" class="cover" alt=""/>
-				</li>
-				/-->
 
 			</ul>
 
@@ -554,19 +536,15 @@
 
 		<div class="md-overlay"></div>
 
-		<!--/ scripts																																					 /-->
-		<!--/ scripts/carousel																																 /-->
-
+		<!--/ scripts /-->
+		<!--/ scripts/carousel /-->
 		<script src="scripts/carousel/carouFredSel.js"></script>
 		<script src="scripts/carousel/ba-throttle-debounce.js"></script>
 		<script src="scripts/carousel/mousewheel.js"></script>
 		<script src="scripts/carousel/touchSwipe.js"></script>
 		<script src="scripts/carousel/transit.js"></script>
 
-		<script src="scripts/draggable-list.js"></script>
-
-		<!--/ scripts/redactor																															 	 /-->
-
+		<!--/ scripts/redactor /-->
 		<script src="scripts/redactor.js"></script>
 		<script src="scripts/fontfamily.js"></script>
 		<script src="scripts/fontsize.js"></script>
@@ -586,12 +564,10 @@
 			});
 		</script>
 
-		<!--/ scripts/livepreview																															 /-->
-
+		<!--/ scripts/livepreview /-->
 		<script src="scripts/livepreview.js"></script>
 
 		<script>
-			// removed #frontcover-preview
 			var livePreviewElem = $("#photo-preview, #text-preview, #integrated-preview, #phototext-preview, #phototext-ii-preview, #integrated-ii-preview, #video-preview");
 			var editorElem = $("#text-editor");
 
@@ -600,9 +576,7 @@
 				livePreviewElem.html(editorElem.redactor("get"));
 			}
 
-			$(function () {
-				livePoller();
-			});
+			$(function () { livePoller(); });
 		</script>
 
 		<script>
@@ -658,8 +632,7 @@
 			var autocomplete = new google.maps.places.Autocomplete(input);
 		</script>
 
-		<!--/ scripts/modal																																		 /-->
-
+		<!--/ scripts/modal /-->
 		<script src="scripts/modal/classie.js"></script>
 		<script src="scripts/modal/modalEffects.js"></script>
 
@@ -670,8 +643,7 @@
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
-		<!--/ scripts/tabswitcher																															 /-->
-
+		<!--/ scripts/tabswitcher /-->
 		<script src="scripts/cbpContentSlider.js"></script>
 
 		<script>

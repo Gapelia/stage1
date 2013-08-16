@@ -18,6 +18,15 @@ $(function () {
 
 });
 
+////////////////////////////////////////////////////////////////////////////////////// BOOK CREATION //
+
+$(document).ready(function() {
+	var viewportWidth = $(window).width();
+	var smallBookScroller = viewportWidth - 203;
+
+	$(".small-book-scroller nav").width(smallBookScroller);
+});
+
 // RESPONSIVE VERTICAL HEIGHT. HOLLAAAAA! /////////////////////////////////////////////////////////////
 
 $(document).ready(function() {
@@ -404,51 +413,3 @@ $(window).load(function () {
 	}
 
 });
-
-////////////////////////////////////////////////////////////////////////////////////// BOOK CREATION //
-// TAB SWITCHER ///////////////////////////////////////////////////////////////////////////////////////
-
-// $(document).ready(function($) {
-	// $("#sidebar-wrapper").tabulous({ effect: "slideLeft" });
-	// OTHER EFFECTS: scale, scaleUp, flip
-// });
-
-// DRAGGABLE LIST /////////////////////////////////////////////////////////////////////////////////////
-/*
-var coordinates = ToolMan.coordinates();
-var dragsort = ToolMan.dragsort();
-
-window.onload = function () {
-	dragsort.makeListSortable(document.getElementById("page-scroller"), setHandle);
-}
-
-function setHandle(item) {
-	item.toolManDragGroup.setHandle(findHandle(item));
-}
-
-function findHandle(item) {
-	var children = item.getElementsByTagName("li");
-
-	for (var i = 0; i < children.length; i++) {
-		var child = children[i];
-		if (child.getAttribute("class") == null) continue;
-		if (child.getAttribute("class").indexOf("page") >= 0);
-
-		return child;
-	}
-
-	return item;
-}
-*/
-// ASPECT RATIO ///////////////////////////////////////////////////////////////////////////////////////
-
-/*
-(function ($) {
-	$.fn.sixteenbynine = function () {
-		var width = this.width();
-		this.height(width * 9 / 16);
-	};
-})(jQuery);
-
-$("pp-bg").sixteenbynine();
-*/

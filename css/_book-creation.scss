@@ -94,9 +94,7 @@
 						width: 100%;
 					}
 
-					h1 {
-						margin: 0 0 0.1rem 0;
-					}
+					h1 { margin: 0 0 0.1rem 0; }
 
 					h5 {
 						margin: 0 0 0.5rem 0;
@@ -167,7 +165,6 @@
 				border-right: 1px solid $gray-ii;
 
 				#phototext-ii-preview, img {
-					/* display: inline-block; */
 					float: left;
 					vertical-align: top;
 				}
@@ -204,9 +201,7 @@
 					position: absolute;
 				}
 
-				#video-preview {
-					max-height: 30%;
-				}
+				#video-preview { max-height: 30%; }
 			}
 		}
 
@@ -241,23 +236,6 @@
 				}
 			}
 
-			/*
-			#sidebar-nav {
-				li {
-					width: 25%;
-
-					a {
-						border-bottom: 1px solid $gray-ii;
-						display: block;
-						font-family: "OpenSansLight";
-						padding: 0.5rem;
-
-						&:hover { background-color: $white; }
-					}
-				}
-			}
-			*/
-
 			nav {
 				display: inline-block;
 				height: 3.313em;
@@ -279,17 +257,8 @@
 
 					-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
-					/*
-					&:last-child {
-						border: none;
-						box-shadow: 1px 0 #47a3da;
-					}
-					*/
-
 					&:hover { background-color: $white; }
 					&:last-child { border-right: 0; }
-
-					/* span { display: block; } */
 				}
 
 				a.rc-active {
@@ -322,18 +291,6 @@
 						position: absolute;
 
 						&:target { z-index: 100; } /* Without JS, we use :target */
-
-						/*
-						div {
-							top: 2rem; left: 0;
-
-							overflow-x: hidden;
-							overflow-y: auto;
-							padding: 1rem;
-							position: absolute;
-							width: 100%;
-						}
-						*/
 					}
 
 					#tab-layout { z-index: 100; }
@@ -342,25 +299,15 @@
 					#view-mode {
 						margin: 1rem 0 0 0;
 
-						p, input, label {
-							/* float: left; */
-							text-align: center;
-						}
+						p, input, label { text-align: center; }
 
 						label {
 							display: block;
 							font-size: 0.7em;
 							margin: 0 0 0.4rem 0;
 
-							span {
-								display: block;
-							}
+							span { display: block; }
 						}
-
-						/*
-						p, label { margin: 0 1rem 0 0; }
-						input { margin: 0 0.2rem 0 0; }
-						*/
 
 						input {
 							display: block;
@@ -449,15 +396,15 @@
 	position: absolute;
 	z-index: 101;
 
-	/*
-	nav {
-		display: none;
+	#new-pages {
+		border-left: 3px solid $slate;
+		position: absolute;
+		right: 0;
+		width: 203px;
+		/* z-index: 99999; */
 
-		#prev-small, #next-small {
-			height: 0;
-		}
+		li { float: left; }
 	}
-	*/
 
 	#page-scroller {
 		height: 100px;
