@@ -482,6 +482,7 @@
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
 
 		<!--/ scripts/window /-->
+		<!--/
 		<script src="scripts/vendor/handlebars.js"></script>
 		<script src="scripts/ventus.js"></script>
 
@@ -506,6 +507,7 @@
 				});
 			});
 		</script>
+		/-->
 
 		<!--/ scripts/tab-switcher /-->
 		<script src="scripts/cbpContentSlider.js"></script>
@@ -568,17 +570,18 @@
 		</script>
 
 		<!--/ scripts/draggable-content /-->
-		<script src="scripts/event/event.drag-2.2.js"></script>
 		<script src="scripts/event/event.drag.live-2.2.js"></script>
-		<script src="scripts/event/event.drop-2.2.js"></script>
+		<script src="scripts/event/event.drag-2.2.js"></script>
+		
 		<script src="scripts/event/event.drop.live-2.2.js"></script>
+		<script src="scripts/event/event.drop-2.2.js"></script>
 
 		<script>
 			jQuery(function($) {
 				$("#story-content").drag(function(ev, dd) {
 					if (dd.attr == "handle") {
 						$(this).css({
-							top: dd.offsetY,
+							top: dd.offsetY - 50, // fixes annoying jump on drag
 							left: dd.offsetX
 						});
 					}
