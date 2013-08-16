@@ -28,14 +28,18 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/jquery-1.7.1.js"></script>
+		<!--/ scripts/enablers /-->
+		<script src="scripts/jquery-1.10.2.js"></script>
 		<script src="scripts/midway.js"></script>
+
+		<!--/ scripts/gapelia /-->
+		<script src="scripts/gapelia.js"></script>
 
 	</head>
 
 	<body>
 
-		<!--/ the action bar 																																	 /-->
+		<!--/ action-bar /-->
 
 		<header id="action-bar">
 			<a href="index.html"><h1>Gapelia</h1></a>
@@ -64,7 +68,7 @@
 			<a href="">Home</a> > <a href="" class="current">Books</a>
 		</section>
 
-		<!--/ the good stuff																																	 /-->
+		<!--/ main-content /-->
 
 		<section id="main-content">
 
@@ -77,7 +81,7 @@
 
 				<ul id="big-scroller">
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -102,12 +106,12 @@
 						<div class="book-cover b-03"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
 							<li class="edit"><a href="">Edit</a></li>
-							<li class="delete"><a href="">Delete</a></li>
+							<li class="collect"><a class="md-trigger tooltip" data-modal="modal-collection">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -127,7 +131,7 @@
 						<div class="book-cover b-04"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -152,7 +156,7 @@
 						<div class="book-cover b-05"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -177,7 +181,7 @@
 						<div class="book-cover b-06"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -202,7 +206,7 @@
 						<div class="book-cover b-07"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -227,7 +231,7 @@
 						<div class="book-cover b-08"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -252,7 +256,7 @@
 						<div class="book-cover b-09"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -277,7 +281,7 @@
 						<div class="book-cover b-10"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -302,7 +306,7 @@
 						<div class="book-cover b-11"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -327,7 +331,7 @@
 						<div class="book-cover b-12"></div>
 					</li>
 
-					<!--/ dimension book																														 /-->
+					<!--/ book /-->
 
 					<li class="dimension-book">
 						<ul class="edit-delete">
@@ -352,7 +356,7 @@
 						<div class="book-cover b-13"></div>
 					</li>
 
-					<!--/ new dimension book																														 /-->
+					<!--/ new-book /-->
 
 					<li class="dimension-book new-book">
 						<div class="book-info">
@@ -364,7 +368,7 @@
 
 			</div>
 
-			<!--/ bottom scroller																																	 /-->
+			<!--/ bottom-scroller /-->
 
 			<section id="small-switcher">
 				<a href="" class="selected">Books</a> | <a href="">Collections</a> | <a href="">Drafts</a>
@@ -379,7 +383,7 @@
 
 				<ul id="small-scroller">
 
-					<!--/ user book																																	 	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -406,7 +410,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -433,7 +437,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -460,7 +464,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -487,7 +491,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -514,7 +518,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -541,7 +545,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -568,7 +572,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -595,7 +599,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -622,7 +626,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -649,7 +653,7 @@
 						</div>
 					</li>
 
-					<!--/ user book																																	 /-->
+					<!--/ user-book /-->
 
 					<li class="user-book">
 						<img src="images/thumb.JPG" class="cover" alt=""/>
@@ -680,8 +684,8 @@
 
 			</div>
 
-			<!--/ modals																																				 /-->
-			<!--/ book creation modals																													 /-->
+			<!--/ modals /-->
+			<!--/ modals/book-creation /-->
 
 			<div class="md-modal md-effect-1" id="modal-1">
 				<div class="md-content">
@@ -751,7 +755,6 @@
 							<option value="Longing">
 							<option value="Serenity">
 						</datalist>
-
 					</div>
 
 					<div class="modal-row next-modal">
@@ -771,7 +774,7 @@
 					</h3>
 
 					<div class="modal-row" id="filepicker-iframe">
-						<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&id=1372359022211&referrer=localhost&iframe=false&version=v1&multi=true&m=image/*#/computer/"></iframe>
+						<iframe src="https://www.filepicker.io/dialog/open/?key=AI64IEXbTBOTCMcUXllQHz&amp;id=1372359022211&amp;referrer=localhost&amp;iframe=false&amp;version=v1&amp;multi=true&amp;m=image/*#/computer/"></iframe>
 					</div>
 
 					<div class="modal-row">
@@ -823,26 +826,122 @@
 				</div>
 			</div>
 
+			<!--/ modals/book-collection /-->
+
+			<div class="md-modal md-effect-1" id="modal-collection">
+				<div class="md-content">
+
+					<h3>Heart + Seoul</h3>
+
+					<section class="modal-row">
+						<!--/ carousel /-->
+						<a class="md-close md-trigger" data-modal="modal-new-collection">New Collection</a>
+					</section>
+
+					<div class="modal-row next-modal">
+						<!--/ <a class="md-close md-trigger">Close</a> /-->
+					</div>
+
+				</div>
+			</div>
+
+			<!--/ modals/new-book-collection /-->
+
+			<div class="md-modal md-effect-1" id="modal-new-collection">
+				<div class="md-content">
+
+					<h3>New Collection</h3>
+
+					<section class="modal-row">
+						<label class="modal-title">Title*</label>
+						<input class="modal-input" type="text"/>
+					</section>
+
+					<section class="modal-row">
+						<section class="modal-title">
+							<label for="modal-description" class="modal-title">Add description</label>
+							<!--/ <span id="modal-counter"></span><span>characters left</span> /-->
+						</section>
+
+						<!--/ <textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea> /-->
+					</section>
+
+					<div class="modal-row">
+						<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
+						<!--/ <input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/> /-->
+
+						<!--/
+						<datalist id="modal-dimension-tag">
+							<option value="Art">
+							<option value="Flow">
+							<option value="Life">
+							<option value="Pulse">
+							<option value="Wonder">
+							<option value="Wow">
+						</datalist>
+						/-->
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-geotag" class="modal-title">Add a Geotag</label>
+						<!--/ <input class="modal-input" id="modal-geotag" placeholder="" type="text"/> /-->
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-passion" class="modal-title">Add a Passion</label>
+						<!--/ <input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/> /-->
+
+						<!--/
+						<datalist id="modal-passion-tag">
+							<option value="* Create new tag">
+							<option value="Computers">
+							<option value="Gaming">
+							<option value="Gardening">
+							<option value="Skydiving">
+							<option value="Surfing">
+						</datalist>
+						/-->
+					</div>
+
+					<div class="modal-row">
+						<!--/ <label for="modal-input" class="modal-title">Add a Feeling</label> /-->
+						<!--/ <input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/> /-->
+
+						<!--/
+						<datalist id="modal-feeling-tag">
+							<option value="* Create new tag">
+							<option value="Adrenaline">
+							<option value="Calm">
+							<option value="Ecstatic">
+							<option value="Longing">
+							<option value="Serenity">
+						</datalist>
+						/-->
+					</div>
+
+					<div class="modal-row next-modal">
+						<a class="md-close md-trigger">Create</a>
+					</div>
+
+				</div>
+			</div>
+
 			<div class="md-overlay"></div>
 
 		</section>
 
-		<!--/ scripts																																					 /-->
-		<!--/ scripts/carousel																																 /-->
-
+		<!--/ scripts /-->
+		<!--/ scripts/carousel /-->
 		<script src="scripts/carousel/carouFredSel.js"></script>
 		<script src="scripts/carousel/ba-throttle-debounce.js"></script>
 		<script src="scripts/carousel/mousewheel.js"></script>
 		<script src="scripts/carousel/touchSwipe.js"></script>
 		<script src="scripts/carousel/transit.js"></script>
 
-		<!--/ scripts/gapelia																																 	 /-->
-
+		<!--/ scripts/gapelia /-->
 		<script src="scripts/squishy.js"></script>
-		<script src="scripts/gapelia.js"></script>
 
-		<!--/ scripts/modal																																		 /-->
-
+		<!--/ scripts/modal /-->
 		<script src="scripts/modal/classie.js"></script>
 		<script src="scripts/modal/modalEffects.js"></script>
 

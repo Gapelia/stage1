@@ -462,6 +462,19 @@ img { width: 100%; height: auto; border-style: none;
 	body { font-size: 75%; }
 }
 */
+/***************************************************************************** CUSTOM MODAL STYLING **/
+#publish-book-modal .md-content, #save-book-modal .md-content { background-color: #00da3c; }
+
+#publish-book-modal ~ .md-overlay { background-color: rgba(0, 218, 60, 0); }
+
+#save-book-modal ~ .md-overlay { background-color: rgba(0, 218, 60, 0); }
+
+#delete-modal .md-content, #delete-book-modal .md-content { background-color: #df151a; }
+
+#delete-modal ~ .md-overlay { background-color: rgba(25, 25, 25, 0.8); }
+
+#delete-book-modal ~ .md-overlay { background-color: rgba(25, 25, 25, 0.8); }
+
 /*************************************************************************************** LAYOUT/SCSS **/
 html, body { width: 100%; height: 100%; }
 
@@ -995,8 +1008,8 @@ img {
 #small-switcher { z-index: 101; }
 
 #page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; z-index: 101; }
-#page-scroller-wrapper #new-pages { border-left: 3px solid #70a1b1; position: absolute; right: 0; width: 203px; /* z-index: 99999; */ }
-#page-scroller-wrapper #new-pages li { float: left; }
+#page-scroller-wrapper #new-pages { border-left: 3px solid #70a1b1; position: absolute; right: 0; width: 203px; z-index: 99999; }
+#page-scroller-wrapper #new-pages li { cursor: pointer; float: left; }
 #page-scroller-wrapper #page-scroller { height: 100px; }
 #page-scroller-wrapper #page-scroller .page { width: 100px !important; height: 100px !important; counter-increment: section; counter-reset: sub-section; float: left; position: relative; }
 #page-scroller-wrapper #page-scroller .page:before { top: 3px; left: 3px; background-color: rgba(25, 25, 25, 0.8); color: #fefefe; content: counter(section) " "; padding: 5px; position: absolute; }

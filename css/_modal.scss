@@ -529,3 +529,19 @@
 	body { font-size: 75%; }
 }
 */
+
+/***************************************************************************** CUSTOM MODAL STYLING **/
+
+#publish-book-modal, #save-book-modal {
+	.md-content { background-color: $green; }
+}
+
+#publish-book-modal ~ .md-overlay { background-color: rgba($green, 0); }
+#save-book-modal ~ .md-overlay { background-color: rgba($green, 0); }
+
+#delete-modal, #delete-book-modal {
+	.md-content { background-color: $red; }
+}
+
+#delete-modal ~ .md-overlay { background-color: rgba($black, 0.8); }
+#delete-book-modal ~ .md-overlay { background-color: rgba($black, 0.8); }

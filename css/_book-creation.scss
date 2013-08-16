@@ -401,9 +401,12 @@
 		position: absolute;
 		right: 0;
 		width: 203px;
-		/* z-index: 99999; */
+		z-index: 99999;
 
-		li { float: left; }
+		li {
+			cursor: pointer;
+			float: left;
+		}
 	}
 
 	#page-scroller {
