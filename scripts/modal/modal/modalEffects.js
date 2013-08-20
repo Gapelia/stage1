@@ -16,6 +16,7 @@ var ModalEffects = (function () {
 	function init() {
 
 		var overlay = document.querySelector(".md-overlay");
+		//var classie;
 
 		[].slice.call(document.querySelectorAll(".md-trigger")).forEach(function (el, i) {
 

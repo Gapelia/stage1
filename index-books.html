@@ -111,7 +111,8 @@
 					<li class="dimension-book">
 						<ul class="edit-delete">
 							<li class="edit"><a href="">Edit</a></li>
-							<li class="collect"><a class="md-trigger tooltip" data-modal="modal-collection">Collect</a></li>
+							<!--/ <li class="collect"><a class="md-trigger" data-modal="modal-collect">Collect</a></li> /-->
+							<li class="collect"><a href="#">Collect</a></li>
 						</ul>
 
 						<div class="book-info">
@@ -686,6 +687,44 @@
 
 			<!--/ modals /-->
 			<!--/ modals/book-creation /-->
+			
+			<!--/ modals/book-collection /-->
+
+			<div class="md-modal md-effect-1" id="modal-collect">
+				<div class="md-content">
+
+					<h3>Heart + Seoul</h3>
+
+					<section class="modal-row">
+						This book has been added to your collection.
+					</section>
+
+					<div class="modal-row next-modal">
+						<!--/ <a class="md-trigger md-close" data-modal="modal-collect2" onclick="JavaScript:$('#modal-collect2').addClass('md-close md-show')">New Collection</a> /-->
+						<a class="md-trigger md-close" onclick="JavaScript:$('#modal-collect2').addClass('md-show')">New Collection</a>
+					</div>
+
+				</div>
+			</div>
+
+			<!--/ modals/new-book-collection /-->
+
+			<div class="md-modal md-effect-1" id="modal-collect2">
+				<div class="md-content">
+
+					<h3>Heart + Seoul</h3>
+
+					<section class="modal-row">
+						<!--/ carousel /-->
+						Stuff
+					</section>
+
+					<div class="modal-row next-modal">
+						<!--/ <a class="md-close md-trigger">New Collection</a> /-->
+					</div>
+
+				</div>
+			</div>
 
 			<div class="md-modal md-effect-1" id="modal-1">
 				<div class="md-content">
@@ -744,7 +783,7 @@
 					</div>
 
 					<div class="modal-row">
-						<label for="modal-input" class="modal-title">Add a Feeling</label>
+						<label for="modal-feeling" class="modal-title">Add a Feeling</label>
 						<input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/>
 
 						<datalist id="modal-feeling-tag">
@@ -826,106 +865,6 @@
 				</div>
 			</div>
 
-			<!--/ modals/book-collection /-->
-
-			<div class="md-modal md-effect-1" id="modal-collection">
-				<div class="md-content">
-
-					<h3>Heart + Seoul</h3>
-
-					<section class="modal-row">
-						<!--/ carousel /-->
-						<a class="md-close md-trigger" data-modal="modal-new-collection">New Collection</a>
-					</section>
-
-					<div class="modal-row next-modal">
-						<!--/ <a class="md-close md-trigger">Close</a> /-->
-					</div>
-
-				</div>
-			</div>
-
-			<!--/ modals/new-book-collection /-->
-
-			<div class="md-modal md-effect-1" id="modal-new-collection">
-				<div class="md-content">
-
-					<h3>New Collection</h3>
-
-					<section class="modal-row">
-						<label class="modal-title">Title*</label>
-						<input class="modal-input" type="text"/>
-					</section>
-
-					<section class="modal-row">
-						<section class="modal-title">
-							<label for="modal-description" class="modal-title">Add description</label>
-							<!--/ <span id="modal-counter"></span><span>characters left</span> /-->
-						</section>
-
-						<!--/ <textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea> /-->
-					</section>
-
-					<div class="modal-row">
-						<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
-						<!--/ <input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/> /-->
-
-						<!--/
-						<datalist id="modal-dimension-tag">
-							<option value="Art">
-							<option value="Flow">
-							<option value="Life">
-							<option value="Pulse">
-							<option value="Wonder">
-							<option value="Wow">
-						</datalist>
-						/-->
-					</div>
-
-					<div class="modal-row">
-						<label for="modal-geotag" class="modal-title">Add a Geotag</label>
-						<!--/ <input class="modal-input" id="modal-geotag" placeholder="" type="text"/> /-->
-					</div>
-
-					<div class="modal-row">
-						<label for="modal-passion" class="modal-title">Add a Passion</label>
-						<!--/ <input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/> /-->
-
-						<!--/
-						<datalist id="modal-passion-tag">
-							<option value="* Create new tag">
-							<option value="Computers">
-							<option value="Gaming">
-							<option value="Gardening">
-							<option value="Skydiving">
-							<option value="Surfing">
-						</datalist>
-						/-->
-					</div>
-
-					<div class="modal-row">
-						<!--/ <label for="modal-input" class="modal-title">Add a Feeling</label> /-->
-						<!--/ <input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/> /-->
-
-						<!--/
-						<datalist id="modal-feeling-tag">
-							<option value="* Create new tag">
-							<option value="Adrenaline">
-							<option value="Calm">
-							<option value="Ecstatic">
-							<option value="Longing">
-							<option value="Serenity">
-						</datalist>
-						/-->
-					</div>
-
-					<div class="modal-row next-modal">
-						<a class="md-close md-trigger">Create</a>
-					</div>
-
-				</div>
-			</div>
-
 			<div class="md-overlay"></div>
 
 		</section>
@@ -951,6 +890,49 @@
 
 		<script src="scripts/modal/cssParser.js"></script>
 		<script src="scripts/modal/css-filters-polyfill.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				// all modals
+				$(".md-overlay").click(function (e) {
+					$(".md-modal").removeClass("md-show");
+				});
+
+				// collect modals
+				$(".collect").click(function (e) {
+					$("#modal-collect").addClass("md-show");
+					e.preventDefault();
+				});
+
+				$("#modal-collect .md-close").click(function (e) {
+					$("#modal-collect").removeClass("md-show").addClass("md-close");
+					e.preventDefault();
+				});
+
+				// new book modals
+				$("#action-create").click(function (e) {
+					$("#modal-1").addClass("md-show");
+					e.preventDefault();
+				});
+
+				$("#modal-1 .md-close").click(function (e) {
+					$("#modal-1").removeClass("md-show").addClass("md-close");
+					$("#modal-2").addClass("md-show");
+					e.preventDefault();
+				});
+
+				$("#modal-2 .md-close").click(function (e) {
+					$("#modal-2").removeClass("md-show").addClass("md-close");
+					$("#modal-3").addClass("md-show");
+					e.preventDefault();
+				});
+
+				$("#modal-3 .md-close").click(function (e) {
+					$("#modal-3").removeClass("md-show").addClass("md-close");
+					e.preventDefault();
+				});
+			});
+		</script>
 
 		<!--/ <script src="//api.filepicker.io/v1/filepicker.js"></script> /-->
 		<script src="scripts/filepicker.js"></script>
