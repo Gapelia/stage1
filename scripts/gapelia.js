@@ -42,6 +42,10 @@ $(document).ready(function() {
 
 	$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").height(h);
 
+	$(".frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(h);
+
+	// $(".page-bg").height(h);
+
 	$("#tab-layout, #tab-content, #tab-tags, #tab-settings").height(h);
 	$("#big-scroller-wrapper, .caroufredsel_wrapper, #big-scroller, .dimension-book").height(h);
 });
