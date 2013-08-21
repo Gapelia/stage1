@@ -4,7 +4,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia | Your Settings</title>
+		<title>Gapelia | Your Social Settings</title>
 
 		<!--/ GAPELIA
 			 ______   ______   ______  ______   __       __   ______
@@ -30,8 +30,8 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/jquery-2.0.2.js"></script>
-		<script src="scripts/editable.js"></script>
+		<script src="scripts/jquery-1.10.2.js"></script>
+		<!--/ <script src="scripts/editable.js"></script> /-->
 
 		<script>
 			$(function() {
@@ -59,7 +59,7 @@
 
 	<body>
 
-		<!--/ the action bar 																																	 /-->
+		<!--/ header /-->
 
 		<header id="action-bar">
 			<a href="index.html"><h1>Gapelia</h1></a>
@@ -88,7 +88,7 @@
 			<a href="">Home</a> > <a href="">Commander Spacecakes</a> > <a href="" class="current">Settings</a>
 		</section>
 
-		<!--/ the good stuff																																	 /-->
+		<!--/ main-content /-->
 
 		<section id="settings-content">
 
@@ -96,44 +96,42 @@
 
 				<aside id="settings-sidebar">
 					<ul>
-						<li class="active"><a href="settings.html">General</a></li>
+						<li><a href="settings.html">General</a></li>
 						<li><a href="settings-password.html">Password</a></li>
-						<li><a href="settings-social.html">Social</a></li>
+						<li class="active"><a href="settings-social.html">Social</a></li>
 					</ul>
 				</aside>
 
 				<div id="settings-content">
-					<h3>Edit Profile Settings</h3>
+					<h3>Edit Social Settings</h3>
 
-					<div class="setting-row" id="s-full-name">
-						<div class="setting-name">Full Name</div>
-						<div class="editable user-setting">Lacey Honda</div>
+					<div class="setting-row" id="s-dribbble">
+						<div class="website-name">dribbble.com/</div>
+						<div class="editable user-id">nokadota</div>
 						<a href="#" class="edit">Edit</a>
 					</div>
 
-					<div class="setting-row" id="s-username">
-						<div class="setting-name">Username</div>
-						<div class="editable user-setting">Space Cakes</div>
+					<div class="setting-row" id="s-facebook">
+						<div class="website-name">facebook.com/</div>
+						<div class="editable user-id">FreshWibby</div>
 						<a href="#" class="edit">Edit</a>
 					</div>
 
-					<div class="setting-row" id="s-email">
-						<div class="setting-name">Email</div>
-						<div class="editable user-setting">lacey.honda@gmail.com</div>
+					<div class="setting-row" id="s-tumblr">
+						<div class="editable user-id">g3niu5</div>
+						<div class="website-name">.tumblr.com</div>
 						<a href="#" class="edit">Edit</a>
 					</div>
 
-					<div class="setting-row" id="s-location">
-						<div class="setting-name">Location</div>
-						<div class="editable user-setting">Boston, MA</div>
+					<div class="setting-row" id="s-twitter">
+						<div class="website-name">twitter.com/</div>
+						<div class="editable user-id">netopwibby</div>
 						<a href="#" class="edit">Edit</a>
 					</div>
 
-					<div class="setting-row" id="s-tags">
-						<div class="setting-name">Lifestyle Tags</div>
-						<form class="editable user-setting">
-							<input id="settings-tags" type="text" class="tags editable" value="Europe, photography, getting lost"/>
-						</form>
+					<div class="setting-row" id="s-vimeo">
+						<div class="website-name">vimeo.com/</div>
+						<div class="editable user-id">nokafresh</div>
 						<a href="#" class="edit">Edit</a>
 					</div>
 				</div>
@@ -159,6 +157,7 @@
 
 		<!--/ scripts /-->
 		<!--/ scripts/inplace-edit /-->
+		<!--/
 		<script src="scripts/tagsinput.js"></script>
 
 		<script>
@@ -181,7 +180,9 @@
 				});
 			});
 		</script>
+		/-->
 
+		<script src="scripts/inplace-edit.js"></script>
 		<script src="scripts/gapelia.js"></script>
 
 	</body>

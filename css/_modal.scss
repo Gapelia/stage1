@@ -60,6 +60,7 @@
 
 		background-color: rgba($black, 0.8);
 		border-radius: 3px 3px 0 0;
+		cursor: default;
 		font-size: 2.4em;
 		font-weight: 300;
 		opacity: 0.8;
@@ -88,39 +89,6 @@
 		}
 	}
 
-	.modal-row {
-		background-color: $gray-i;
-		border-bottom: 1px solid $gray-ii;
-		color: $gray-v;
-		display: table;
-		padding: 1rem 3rem;
-		width: 100%;
-
-		&:last-child { border-bottom: 0; }
-
-		.modal-title, .modal-input {
-			display: table-cell;
-			vertical-align: top;
-		}
-
-		.modal-title {
-			width: 200px;
-
-			span {
-				display: block;
-				font-size: 10px;
-				margin: 5px 0 0 0;
-			}
-		}
-
-		.modal-input { width: 100% !important; }
-
-		textarea {
-			border: 0;
-			height: 80px;
-		}
-	}
-
 	.modal-header {
 		font-family: "OpenSansBold";
 		font-size: 20px;
@@ -139,6 +107,57 @@
 		}
 	}
 
+	.modal-row {
+		background-color: $gray-i;
+		border-bottom: 1px solid $gray-ii;
+		color: $gray-v;
+		cursor: default;
+		display: table;
+		padding: 1rem 3rem;
+		text-align: center;
+		width: 100%;
+
+		&:last-child { border-bottom: 0; }
+
+		.modal-title, .modal-input {
+			display: table-cell;
+			vertical-align: top;
+		}
+
+		.modal-title {
+			text-align: left;
+			width: 200px;
+
+			span {
+				display: block;
+				font-size: 10px;
+				margin: 5px 0 0 0;
+			}
+		}
+
+		.modal-input { width: 100% !important; }
+
+		textarea {
+			border: 0;
+			height: 80px;
+		}
+	}
+
+	.collect-ul {
+		padding: 1rem;
+
+		#new-collection {
+			background-color: $white;
+			border: 1px dashed $gray-v;
+			padding: 1.8rem 0;
+		}
+
+		li {
+			width: 123px; height: 73px;
+			background-color: $gray-ii;
+		}
+	}
+
 	#filepicker-iframe {
 		width: 100%; height: auto;
 
@@ -152,6 +171,7 @@
 
 		a {
 			color: $gray-v;
+			cursor: pointer;
 			font-family: "OpenSansBold";
 			font-size: 20px;
 		}

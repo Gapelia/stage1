@@ -36,7 +36,8 @@ $(document).ready(function() {
 	var w = viewportWidth;
 	var h = viewportHeight - 208;
 
-	$("#main-content, #user-content").width(w).height(h);
+	// $("#main-content, #user-content").width(w).height(h);
+	$("#main-content").width(w).height(h);
 
 	// BOOK CREATION ////////////////////////////////////////////////////////////////////////////////////
 

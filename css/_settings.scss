@@ -53,16 +53,13 @@
 			}
 
 			.setting-name, .user-setting, .edit, .comment { display: inline-block; }
-			.user-setting, .edit, .comment { font-family: "OpenSansSemibold"; }
+			.user-setting, .edit, .comment, .user-id { font-family: "OpenSansSemibold"; }
 
-			.setting-name {
-				font-family: "OpenSansLight";
-				width: 30%;
-			}
+			.setting-name, .website-name { font-family: "OpenSansLight"; }
+			.setting-name { width: 30%; }
 
 			.user-setting {
 				width: 40%;
-
 				#settings-tags_addTag { display: none; }
 			}
 
@@ -76,6 +73,17 @@
 				color: $gray-v;
 				font-size: 80%;
 			}
+
+			.user-id, .website-name {
+				display: inline-block;
+				/* float: left; */
+			}
+		}
+
+		#s-dribbble, #s-facebook, #s-tumblr, #s-twitter, #s-vimeo {
+			text-align: center;
+
+			.edit { display: none; }
 		}
 
 		.btn-save {
@@ -92,5 +100,36 @@
 
 			&:hover { opacity: 0.7; }
 		}
+
+		ul.in-place-edit {
+			list-style: none;
+			margin-left: 0;
+
+			li {
+				margin: 0; padding: 3px;
+				width: 150px;
+			}
+
+			.field { width: 99%; }
+		}
+
+		.hover {
+			background: #727EA3;
+			color: #fefefe;
+		}
+
+		.editing {
+			background: #fefefe;
+			border-top: 5px solid #ccc;
+		}
+
+		.disabled {
+			background: none;
+			color: #191919;
+		}
+
+		.buttons input { font-size: 10px; }
+		#info { color: #00aa00; }
+		.underline { text-decoration: underline; }
 	}
 }
