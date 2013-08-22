@@ -22,8 +22,6 @@
 		<meta name="author" content="Gapelia"/>
 
 		<link href="css/style.css" rel="stylesheet"/>
-		<link href="css/jscrollpane.css" rel="stylesheet"/>
-
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
 		<!--[if lt IE 9]>
@@ -32,30 +30,6 @@
 
 		<script src="scripts/jquery-1.10.2.js"></script>
 		<script src="scripts/inplace-edit.js"></script>
-
-		<!--/
-		<script>
-			$(function() {
-
-				// full name edit
-				var option = { trigger : $("#s-full-name .edit"), action : "click" };
-				$("#s-full-name .editable").editable(option, function(e) {});
-
-				// username edit
-				var option = { trigger : $("#s-username .edit"), action : "click" };
-				$("#s-username .editable").editable(option, function(e) {});
-
-				// email edit
-				var option = { trigger : $("#s-email .edit"), action : "click" };
-				$("#s-email .editable").editable(option, function(e) {});
-
-				// location edit
-				var option = { trigger : $("#s-location .edit"), action : "click" };
-				$("#s-location .editable").editable(option, function(e) {});
-
-			});
-		</script>
-		/-->
 
 	</head>
 
@@ -113,9 +87,6 @@
 						<div class="social-edit user-id">
 							<span id="user-fullname">Lacey Honda</span>
 						</div>
-
-						<!--/ <div class="editable user-setting">Lacey Honda</div> /-->
-						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-username">
@@ -124,9 +95,6 @@
 						<div class="social-edit user-id">
 							<span id="user-username">Luna Spacecakes</span>
 						</div>
-
-						<!--/ <div class="editable user-setting">Space Cakes</div> /-->
-						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-email">
@@ -135,9 +103,6 @@
 						<div class="social-edit user-id">
 							<span id="user-email">lacey.honda@spacecakes.gov</span>
 						</div>
-
-						<!--/ <div class="editable user-setting">lacey.honda@gmail.com</div> /-->
-						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-location">
@@ -146,9 +111,6 @@
 						<div class="social-edit user-id">
 							<span id="user-location">Boston, MA</span>
 						</div>
-
-						<!--/ <div class="editable user-setting">Boston, MA</div> /-->
-						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-tags">
@@ -157,13 +119,6 @@
 						<div class="social-edit user-id">
 							<span id="user-tags">2001, space, getting lost</span>
 						</div>
-
-						<!--/
-						<form class="editable user-setting">
-							<input id="settings-tags" type="text" class="tags editable" value="Europe, photography, getting lost"/>
-						</form>
-						/-->
-						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 				</div>
 
@@ -171,24 +126,7 @@
 
 		</section>
 
-		<!--/ footer /-->
-
-		<!--/
-		<footer>
-			<p><a href="">&copy; Gapelia</a></p>
-
-			<ul>
-				<li><a href="">About Us</a></li>
-				<li><a href="">Blog</a></li>
-				<li><a href="">Partners</a></li>
-				<li><a href="">Terms</a></li>
-			</ul>
-		</footer>
-		/-->
-
 		<!--/ scripts /-->
-		<!--/ <script src="scripts/gapelia.js"></script> /-->
-
 		<!--/ scripts/inplace-edit /-->
 		<script>
 			var submit_handler = function(element, id, value) {
@@ -208,33 +146,6 @@
 				});
 			});
 		</script>
-		
-		<!--/
-		<script src="scripts/tagsinput.js"></script>
-
-		<script>
-			function onAddTag(tag) { alert("Added a tag: " + tag); }
-			function onRemoveTag(tag) { alert("Removed a tag: " + tag); }
-			function onChangeTag(input,tag) { alert("Changed a tag: " + tag); }
-
-			$(function() {
-				$("#settings-tags").tagsInput({ width: "auto" });
-
-				$(document).click(function() {
-					$("#settings-tags_addTag").hide();
-				});
-
-				$("#s-tags .edit").click(function(e) {
-					$("#settings-tags_addTag").css("display", "block");
-					$("#settings-tags_tagsinput").css("display", "none");
-					e.preventDefault();
-					e.stopPropagation();
-				});
-			});
-		</script>
-		/-->
-
-		
 
 	</body>
 
