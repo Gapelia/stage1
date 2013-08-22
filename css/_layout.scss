@@ -17,6 +17,11 @@ body {
 	/* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */
 }
 
+::selection {
+	background-color: $slate;
+	color: $white;
+}
+
 .first { background-image: url("../images/bg.jpg"); }
 .second { background-image: url("../images/bg-ii.jpg"); }
 

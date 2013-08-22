@@ -483,6 +483,8 @@ html, body { width: 100%; height: 100%; }
 
 body { background-color: #f4f4f4; background-position: center center; background-size: cover; color: #191919; counter-reset: section; font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; font-size: 15px; position: fixed; /* text-shadow: -1px -1px 0 rgba(255,255,255,.1), 1px -1px 0 rgba(255,255,255,.1), -1px 1px 0 rgba(255,255,255,.1), 1px 1px 0 rgba(255,255,255,.1); */ }
 
+::selection { background-color: #70a1b1; color: #fefefe; }
+
 .first { background-image: url("../images/bg.jpg"); }
 
 .second { background-image: url("../images/bg-ii.jpg"); }
@@ -918,7 +920,7 @@ img {
 #settings-wrapper #settings-sidebar .active a { font-family: "OpenSansSemibold"; }
 #settings-wrapper #settings-content { width: 80%; height: 100%; display: block; }
 #settings-wrapper #settings-content h3 { margin: 0; padding: 0 0 1rem 0; border-bottom: 1px solid #cfcfcf; }
-#settings-wrapper #settings-content .setting-row { border-bottom: 1px solid #cfcfcf; padding: 1rem 0; }
+#settings-wrapper #settings-content .setting-row { border-bottom: 1px solid #cfcfcf; padding: 1.5rem 0; }
 #settings-wrapper #settings-content .setting-row:last-child { border-bottom: none; }
 #settings-wrapper #settings-content .setting-row input { border: 0; font-family: "OpenSansSemibold"; padding: 0; }
 #settings-wrapper #settings-content .setting-row .setting-name, #settings-wrapper #settings-content .setting-row .user-setting, #settings-wrapper #settings-content .setting-row .edit, #settings-wrapper #settings-content .setting-row .comment { display: inline-block; }
@@ -930,15 +932,19 @@ img {
 #settings-wrapper #settings-content .setting-row .edit, #settings-wrapper #settings-content .setting-row .comment { color: #70a1b1; text-align: right; width: 20%; }
 #settings-wrapper #settings-content .setting-row .comment { color: #585959; font-size: 80%; }
 #settings-wrapper #settings-content .setting-row .user-id, #settings-wrapper #settings-content .setting-row .website-name { display: inline-block; /* float: left; */ }
-#settings-wrapper #settings-content #s-dribbble, #settings-wrapper #settings-content #s-facebook, #settings-wrapper #settings-content #s-tumblr, #settings-wrapper #settings-content #s-twitter, #settings-wrapper #settings-content #s-vimeo { text-align: center; }
-#settings-wrapper #settings-content #s-dribbble .edit, #settings-wrapper #settings-content #s-facebook .edit, #settings-wrapper #settings-content #s-tumblr .edit, #settings-wrapper #settings-content #s-twitter .edit, #settings-wrapper #settings-content #s-vimeo .edit { display: none; }
+#settings-wrapper #settings-content #s-facebook, #settings-wrapper #settings-content #s-flickr, #settings-wrapper #settings-content #s-tumblr, #settings-wrapper #settings-content #s-twitter, #settings-wrapper #settings-content #s-vimeo, #settings-wrapper #settings-content #s-website { text-align: center; }
+#settings-wrapper #settings-content #s-full-name input, #settings-wrapper #settings-content #s-full-name .settings-buttons, #settings-wrapper #settings-content #s-username input, #settings-wrapper #settings-content #s-username .settings-buttons, #settings-wrapper #settings-content #s-email input, #settings-wrapper #settings-content #s-email .settings-buttons, #settings-wrapper #settings-content #s-location input, #settings-wrapper #settings-content #s-location .settings-buttons, #settings-wrapper #settings-content #s-tags input, #settings-wrapper #settings-content #s-tags .settings-buttons, #settings-wrapper #settings-content #s-facebook input, #settings-wrapper #settings-content #s-facebook .settings-buttons, #settings-wrapper #settings-content #s-flickr input, #settings-wrapper #settings-content #s-flickr .settings-buttons, #settings-wrapper #settings-content #s-tumblr input, #settings-wrapper #settings-content #s-tumblr .settings-buttons, #settings-wrapper #settings-content #s-twitter input, #settings-wrapper #settings-content #s-twitter .settings-buttons, #settings-wrapper #settings-content #s-vimeo input, #settings-wrapper #settings-content #s-vimeo .settings-buttons, #settings-wrapper #settings-content #s-website input, #settings-wrapper #settings-content #s-website .settings-buttons { display: inline-block; height: 1em; }
+#settings-wrapper #settings-content #s-full-name input, #settings-wrapper #settings-content #s-username input, #settings-wrapper #settings-content #s-email input, #settings-wrapper #settings-content #s-location input, #settings-wrapper #settings-content #s-tags input, #settings-wrapper #settings-content #s-facebook input, #settings-wrapper #settings-content #s-flickr input, #settings-wrapper #settings-content #s-tumblr input, #settings-wrapper #settings-content #s-twitter input, #settings-wrapper #settings-content #s-vimeo input, #settings-wrapper #settings-content #s-website input { background-color: transparent; }
+#settings-wrapper #settings-content #s-full-name input[type=text], #settings-wrapper #settings-content #s-username input[type=text], #settings-wrapper #settings-content #s-email input[type=text], #settings-wrapper #settings-content #s-location input[type=text], #settings-wrapper #settings-content #s-tags input[type=text], #settings-wrapper #settings-content #s-facebook input[type=text], #settings-wrapper #settings-content #s-flickr input[type=text], #settings-wrapper #settings-content #s-tumblr input[type=text], #settings-wrapper #settings-content #s-twitter input[type=text], #settings-wrapper #settings-content #s-vimeo input[type=text], #settings-wrapper #settings-content #s-website input[type=text] { margin: 0; padding: 0; font-size: 100%; }
+#settings-wrapper #settings-content #s-full-name .save-button, #settings-wrapper #settings-content #s-username .save-button, #settings-wrapper #settings-content #s-email .save-button, #settings-wrapper #settings-content #s-location .save-button, #settings-wrapper #settings-content #s-tags .save-button, #settings-wrapper #settings-content #s-facebook .save-button, #settings-wrapper #settings-content #s-flickr .save-button, #settings-wrapper #settings-content #s-tumblr .save-button, #settings-wrapper #settings-content #s-twitter .save-button, #settings-wrapper #settings-content #s-vimeo .save-button, #settings-wrapper #settings-content #s-website .save-button { color: #00da3c; margin: 0 0.2rem 0 0; }
+#settings-wrapper #settings-content #s-full-name .cancel-button, #settings-wrapper #settings-content #s-username .cancel-button, #settings-wrapper #settings-content #s-email .cancel-button, #settings-wrapper #settings-content #s-location .cancel-button, #settings-wrapper #settings-content #s-tags .cancel-button, #settings-wrapper #settings-content #s-facebook .cancel-button, #settings-wrapper #settings-content #s-flickr .cancel-button, #settings-wrapper #settings-content #s-tumblr .cancel-button, #settings-wrapper #settings-content #s-twitter .cancel-button, #settings-wrapper #settings-content #s-vimeo .cancel-button, #settings-wrapper #settings-content #s-website .cancel-button { color: #df151a; }
 #settings-wrapper #settings-content .btn-save { margin: 1rem 0 0 0; padding: 0.5rem; background-color: #585959; border: 0; border-radius: 0; color: #fefefe; cursor: pointer; font-family: "OpenSansLight"; font-size: 12px; width: auto; }
 #settings-wrapper #settings-content .btn-save:hover { opacity: 0.7; }
 #settings-wrapper #settings-content ul.in-place-edit { list-style: none; margin-left: 0; }
 #settings-wrapper #settings-content ul.in-place-edit li { margin: 0; padding: 3px; width: 150px; }
 #settings-wrapper #settings-content ul.in-place-edit .field { width: 99%; }
-#settings-wrapper #settings-content .hover { background: #727EA3; color: #fefefe; }
-#settings-wrapper #settings-content .editing { background: #fefefe; border-top: 5px solid #ccc; }
+#settings-wrapper #settings-content .hover { background-color: #70a1b1; color: #fefefe; }
+#settings-wrapper #settings-content .editing { background-color: #fefefe; /* border-top: 5px solid #ccc; */ }
 #settings-wrapper #settings-content .disabled { background: none; color: #191919; }
 #settings-wrapper #settings-content .buttons input { font-size: 10px; }
 #settings-wrapper #settings-content #info { color: #00aa00; }

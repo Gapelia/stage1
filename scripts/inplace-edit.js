@@ -172,7 +172,7 @@
 		html : ' \
 		<div class="inplace-edit"> \
 			<input type="text" value="" class="field"/> \
-			<div class="buttons"> \
+			<div class="settings-buttons"> \
 				<input type="button" value="Save" class="save-button"/> \
 				<input type="button" value="Cancel" class="cancel-button"/> \
 			</div> \

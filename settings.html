@@ -30,9 +30,10 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="scripts/jquery-2.0.2.js"></script>
-		<script src="scripts/editable.js"></script>
+		<script src="scripts/jquery-1.10.2.js"></script>
+		<script src="scripts/inplace-edit.js"></script>
 
+		<!--/
 		<script>
 			$(function() {
 
@@ -54,12 +55,13 @@
 
 			});
 		</script>
+		/-->
 
 	</head>
 
 	<body>
 
-		<!--/ the action bar 																																	 /-->
+		<!--/ header /-->
 
 		<header id="action-bar">
 			<a href="index.html"><h1>Gapelia</h1></a>
@@ -88,7 +90,7 @@
 			<a href="">Home</a> > <a href="">Commander Spacecakes</a> > <a href="" class="current">Settings</a>
 		</section>
 
-		<!--/ the good stuff																																	 /-->
+		<!--/ main-content /-->
 
 		<section id="settings-content">
 
@@ -107,34 +109,61 @@
 
 					<div class="setting-row" id="s-full-name">
 						<div class="setting-name">Full Name</div>
-						<div class="editable user-setting">Lacey Honda</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-fullname">Lacey Honda</span>
+						</div>
+
+						<!--/ <div class="editable user-setting">Lacey Honda</div> /-->
+						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-username">
 						<div class="setting-name">Username</div>
-						<div class="editable user-setting">Space Cakes</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-username">Luna Spacecakes</span>
+						</div>
+
+						<!--/ <div class="editable user-setting">Space Cakes</div> /-->
+						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-email">
 						<div class="setting-name">Email</div>
-						<div class="editable user-setting">lacey.honda@gmail.com</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-email">lacey.honda@spacecakes.gov</span>
+						</div>
+
+						<!--/ <div class="editable user-setting">lacey.honda@gmail.com</div> /-->
+						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-location">
 						<div class="setting-name">Location</div>
-						<div class="editable user-setting">Boston, MA</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-location">Boston, MA</span>
+						</div>
+
+						<!--/ <div class="editable user-setting">Boston, MA</div> /-->
+						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 
 					<div class="setting-row" id="s-tags">
 						<div class="setting-name">Lifestyle Tags</div>
+
+						<div class="social-edit user-id">
+							<span id="user-tags">2001, space, getting lost</span>
+						</div>
+
+						<!--/
 						<form class="editable user-setting">
 							<input id="settings-tags" type="text" class="tags editable" value="Europe, photography, getting lost"/>
 						</form>
-						<a href="#" class="edit">Edit</a>
+						/-->
+						<!--/ <a href="#" class="edit">Edit</a> /-->
 					</div>
 				</div>
 
@@ -158,7 +187,29 @@
 		/-->
 
 		<!--/ scripts /-->
+		<!--/ <script src="scripts/gapelia.js"></script> /-->
+
 		<!--/ scripts/inplace-edit /-->
+		<script>
+			var submit_handler = function(element, id, value) {
+				alert("Edited id '" + id + "' value '" + value + "'");
+				return true;
+			};
+
+			var cancel_handler = function(element) {
+				return true; // Nothing
+			};
+
+			// Enable in-place-edit when document is loaded
+			$(document).ready(function() {
+				$(".social-edit").children().inPlaceEdit({
+					submit : submit_handler,
+					cancel : cancel_handler
+				});
+			});
+		</script>
+		
+		<!--/
 		<script src="scripts/tagsinput.js"></script>
 
 		<script>
@@ -181,8 +232,9 @@
 				});
 			});
 		</script>
+		/-->
 
-		<script src="scripts/gapelia.js"></script>
+		
 
 	</body>
 

@@ -42,7 +42,7 @@
 
 		.setting-row {
 			border-bottom: 1px solid $gray-ii;
-			padding: 1rem 0;
+			padding: 1.5rem 0;
 
 			&:last-child { border-bottom: none; }
 
@@ -80,10 +80,33 @@
 			}
 		}
 
-		#s-dribbble, #s-facebook, #s-tumblr, #s-twitter, #s-vimeo {
-			text-align: center;
+		#s-facebook, #s-flickr, #s-tumblr, #s-twitter, #s-vimeo, #s-website { text-align: center; }
 
-			.edit { display: none; }
+		#s-full-name, #s-username, #s-email, #s-location, #s-tags,
+		#s-facebook, #s-flickr, #s-tumblr, #s-twitter, #s-vimeo, #s-website {
+			input, .settings-buttons {
+				display: inline-block;
+				height: 1em;
+			}
+
+			input {
+				background-color: transparent;
+			}
+
+			input[type=text] {
+				margin: 0; padding: 0;
+				font-size: 100%;
+			}
+
+			input[type=button] {
+			}
+
+			.save-button {
+				color: $green;
+				margin: 0 0.2rem 0 0;
+			}
+
+			.cancel-button { color: $red; }
 		}
 
 		.btn-save {
@@ -114,18 +137,18 @@
 		}
 
 		.hover {
-			background: #727EA3;
-			color: #fefefe;
+			background-color: $slate;
+			color: $white;
 		}
 
 		.editing {
-			background: #fefefe;
-			border-top: 5px solid #ccc;
+			background-color: $white;
+			/* border-top: 5px solid #ccc; */
 		}
 
 		.disabled {
 			background: none;
-			color: #191919;
+			color: $black;
 		}
 
 		.buttons input { font-size: 10px; }

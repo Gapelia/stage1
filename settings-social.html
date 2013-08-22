@@ -22,8 +22,6 @@
 		<meta name="author" content="Gapelia"/>
 
 		<link href="css/style.css" rel="stylesheet"/>
-		<link href="css/jscrollpane.css" rel="stylesheet"/>
-
 		<link href="images/favicon.png" rel="shortcut icon"/>
 
 		<!--[if lt IE 9]>
@@ -31,29 +29,7 @@
 		<![endif]-->
 
 		<script src="scripts/jquery-1.10.2.js"></script>
-		<!--/ <script src="scripts/editable.js"></script> /-->
-
-		<script>
-			$(function() {
-
-				// full name edit
-				var option = { trigger : $("#s-full-name .edit"), action : "click" };
-				$("#s-full-name .editable").editable(option, function(e) {});
-
-				// username edit
-				var option = { trigger : $("#s-username .edit"), action : "click" };
-				$("#s-username .editable").editable(option, function(e) {});
-
-				// email edit
-				var option = { trigger : $("#s-email .edit"), action : "click" };
-				$("#s-email .editable").editable(option, function(e) {});
-
-				// location edit
-				var option = { trigger : $("#s-location .edit"), action : "click" };
-				$("#s-location .editable").editable(option, function(e) {});
-
-			});
-		</script>
+		<script src="scripts/inplace-edit.js"></script>
 
 	</head>
 
@@ -103,36 +79,54 @@
 				</aside>
 
 				<div id="settings-content">
-					<h3>Edit Social Settings</h3>
-
-					<div class="setting-row" id="s-dribbble">
-						<div class="website-name">dribbble.com/</div>
-						<div class="editable user-id">nokadota</div>
-						<a href="#" class="edit">Edit</a>
-					</div>
+					<h3>Edit Social Networks</h3>
 
 					<div class="setting-row" id="s-facebook">
 						<div class="website-name">facebook.com/</div>
-						<div class="editable user-id">FreshWibby</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-facebook">FreshWibby</span>
+						</div>
+					</div>
+
+					<div class="setting-row" id="s-flickr">
+						<div class="website-name">flickr.com/photos/</div>
+
+						<div class="social-edit user-id">
+							<span id="user-flickr">wingsofdreams</span>
+						</div>
 					</div>
 
 					<div class="setting-row" id="s-tumblr">
-						<div class="editable user-id">g3niu5</div>
+						<div class="social-edit user-id">
+							<span id="user-tumblr">g3niu5</span>
+						</div>
+
 						<div class="website-name">.tumblr.com</div>
-						<a href="#" class="edit">Edit</a>
 					</div>
 
 					<div class="setting-row" id="s-twitter">
 						<div class="website-name">twitter.com/</div>
-						<div class="editable user-id">netopwibby</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-twitter">netopwibby</span>
+						</div>
 					</div>
 
 					<div class="setting-row" id="s-vimeo">
 						<div class="website-name">vimeo.com/</div>
-						<div class="editable user-id">nokafresh</div>
-						<a href="#" class="edit">Edit</a>
+
+						<div class="social-edit user-id">
+							<span id="user-vimeo">nokafresh</span>
+						</div>
+					</div>
+
+					<div class="setting-row" id="s-website">
+						<div class="website-name">http://</div>
+
+						<div class="social-edit user-id">
+							<span id="user-website">pw-software.com</span>
+						</div>
 					</div>
 				</div>
 
@@ -140,50 +134,28 @@
 
 		</section>
 
-		<!--/ footer /-->
-
-		<!--/
-		<footer>
-			<p><a href="">&copy; Gapelia</a></p>
-
-			<ul>
-				<li><a href="">About Us</a></li>
-				<li><a href="">Blog</a></li>
-				<li><a href="">Partners</a></li>
-				<li><a href="">Terms</a></li>
-			</ul>
-		</footer>
-		/-->
-
 		<!--/ scripts /-->
+		<!--/ <script src="scripts/gapelia.js"></script> /-->
+
 		<!--/ scripts/inplace-edit /-->
-		<!--/
-		<script src="scripts/tagsinput.js"></script>
-
 		<script>
-			function onAddTag(tag) { alert("Added a tag: " + tag); }
-			function onRemoveTag(tag) { alert("Removed a tag: " + tag); }
-			function onChangeTag(input,tag) { alert("Changed a tag: " + tag); }
+			var submit_handler = function(element, id, value) {
+				alert("Edited id '" + id + "' value '" + value + "'");
+				return true;
+			};
 
-			$(function() {
-				$("#settings-tags").tagsInput({ width: "auto" });
+			var cancel_handler = function(element) {
+				return true; // Nothing
+			};
 
-				$(document).click(function() {
-					$("#settings-tags_addTag").hide();
-				});
-
-				$("#s-tags .edit").click(function(e) {
-					$("#settings-tags_addTag").css("display", "block");
-					$("#settings-tags_tagsinput").css("display", "none");
-					e.preventDefault();
-					e.stopPropagation();
+			// Enable in-place-edit when document is loaded
+			$(document).ready(function() {
+				$(".social-edit").children().inPlaceEdit({
+					submit : submit_handler,
+					cancel : cancel_handler
 				});
 			});
 		</script>
-		/-->
-
-		<script src="scripts/inplace-edit.js"></script>
-		<script src="scripts/gapelia.js"></script>
 
 	</body>
 
