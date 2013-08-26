@@ -240,20 +240,7 @@
 		</section>
 
 		<!--/ scripts /-->
-		<script>
-			$(document).ready(function() {
-				var $vb = $("#vertical-bg");
-				var $story = $("#story-content");
-				var $wide = $(".wide");
-				var $sidebar = $("#page-sidebar");
-
-				$(function () {
-					$vb.css("margin-left", $vb.width() + $story.width() - $(window).width() / 2 + 65 + "px");
-					$wide.css("margin-top", $wide.height() - $(window).height() / 2.5 + "px");
-					$sidebar.css("top", $(window).height() / 2.5 + "px");
-				});
-			});
-		</script>
+		<script src="../scripts/books.js"></script>
 
 		<!--/ scripts/menu-slider /-->
 		<script src="../scripts/modal/classie.js"></script>
