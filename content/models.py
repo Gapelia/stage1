@@ -13,7 +13,6 @@ from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
 
-
 class PAGE_LAYOUTS:
     FRONT_COVER = '0'
     PHOTO = '1'
@@ -39,7 +38,7 @@ DIMENSION_CHOICES = (
     ('WONDER', 'wonder'), )
 
 PAGE_LAYOUT_CHOICES = (
-    (PAGE_LAYOUTS.FRONT_COVER, 'Front cover'),
+    (PAGE_LAYOUTS.FRONT_COVER, 'Front Cover'),
     (PAGE_LAYOUTS.PHOTO, 'Photo'),
     (PAGE_LAYOUTS.TEXT, 'Text'),
     (PAGE_LAYOUTS.HORIZONTAL, 'Horizontal'),
