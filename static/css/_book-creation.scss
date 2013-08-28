@@ -828,11 +828,14 @@
 
 					.redactor_box {
 						/* max-width: 515px !important; */
+						textarea {
+						}
 
 						.redactor_toolbar { width: 100%; }
 
 						.redactor_editor {
-							height: 300px;
+							/* min-width: 515px !important; width: 515px  !important; max-width: 515px !important; */ height: 300px;
+							resize: none !important;
 							z-index: 1;
 						}
 					}

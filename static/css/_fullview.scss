@@ -920,12 +920,16 @@
 					font-size: 0.7em;
 					margin: 0 0 0.4rem 0; padding: 0.3rem;
 
-					span { display: block; }
+					span {
+						display: block;
+						width: 100%;
+					}
 				}
 
 				input {
 					display: block;
 					margin: 0 auto;
+					width: 100%;
 				}
 
 				section {
@@ -935,8 +939,11 @@
 					&:last-child { margin: 0; }
 
 					.view-style {
-						display: inline-block;
+						/* display: inline-block; */
+						float: left;
 						margin: 0 1rem 1rem 0;
+						text-align: center;
+						width: 83px;
 					}
 				}
 			}
