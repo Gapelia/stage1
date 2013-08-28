@@ -1,14 +1,7 @@
 
 /************************************************************************************** WINDOW/SCSS **/
 
-.wm-space {
-	/* display: none !important; */
-	z-index: 1 !important;
-}
-
-.wm-content {
-	color: $black !important;
-}
+.wm-content { color: $black !important; }
 
 .wm-space.expose {
 	.wm-window.active, .wm-window {
@@ -42,13 +35,12 @@
 }
 
 .wm-window {
-	min-width: 200px; min-height: 60px;
+	min-width: 200px; min-height: 37px;
 
-	background-color: #fefefe;
-	border: 1px solid #191919;
+	background-color: $white;
+	border: 1px solid $black;
 	display: none;
-	/* opacity: 0.98; */
-	opacity: 1;
+	opacity: 1; /* 0.98 */
 	overflow: hidden;
 	position: absolute;
 	touch-callout: none;
@@ -187,21 +179,21 @@
 .wm-window.move { animation: wobbly 0.5s 0.2s infinite; }
 
 .wm-space {
-	width: 100%; height: 100%;
-	top: 0; left: 0;
+	width: 90%; /* 100% */ height: 100%;
+	top: 0; left: 5%; /* 0 */
 
 	cursor: default;
-	overflow: hidden;
+	/* overflow: hidden; */
 	position: absolute;
 	touch-callout: none;
 	user-select: none;
-	z-index: -1;
+	z-index: 1; /* -1 */
 
 	.wm-overlay {
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
-		background-color: #191919;
+		background-color: $black;
 		opacity: 0;
 		overflow: hidden;
 		position: absolute;

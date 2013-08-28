@@ -1757,8 +1757,6 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }
 /************************************************************************************** WINDOW/SCSS **/
-.wm-space { /* display: none !important; */ z-index: 1 !important; }
-
 .wm-content { color: #191919 !important; }
 
 .wm-space.expose .wm-window.active, .wm-space.expose .wm-window { transform: translate3d(0, 0, 0); transition: top 0.5s ease-out, left 0.5s ease-out; }
@@ -1768,7 +1766,7 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
 .wm-space.fullscreen header.wm-window-title h1 { font-size: 40px; transition: all 0.5s ease-out; }
 .wm-space.fullscreen section.wm-content { padding: 0 40px; transition: all 0.5s ease-out; }
 
-.wm-window { min-width: 200px; min-height: 60px; background-color: #fefefe; border: 1px solid #191919; display: none; /* opacity: 0.98; */ opacity: 1; overflow: hidden; position: absolute; touch-callout: none; user-select: none; }
+.wm-window { min-width: 200px; min-height: 37px; background-color: #fefefe; border: 1px solid #191919; display: none; opacity: 1; /* 0.98 */ overflow: hidden; position: absolute; touch-callout: none; user-select: none; }
 .wm-window .wm-window-box { width: 100%; min-height: 60px; box-orient: vertical; display: flex; flex-flow: column; height: 100%; z-index: 99999999; }
 .wm-window .wm-window-box header.wm-window-title { align-items: center; background-color: #585959; border: 0; box-align: center; box-orient: horizontal; display: flex; flex-flow: row; height: 36px; overflow: hidden; padding: 0 8px; touch-callout: none; user-select: none; }
 .wm-window .wm-window-box header.wm-window-title h1 { margin: 0; padding: 0 0 0 8px; align-items: center; box-align: center; box-flex: 1; box-orient: horizontal; color: #fefefe; cursor: default; display: flex; flex: 1; flex-flow: row; font-size: 16px; font-weight: 400; touch-callout: none; user-select: none; }
@@ -1798,7 +1796,7 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
 
 .wm-window.move { animation: wobbly 0.5s 0.2s infinite; }
 
-.wm-space { width: 100%; height: 100%; top: 0; left: 0; cursor: default; overflow: hidden; position: absolute; touch-callout: none; user-select: none; z-index: -1; }
+.wm-space { width: 90%; /* 100% */ height: 100%; top: 0; left: 5%; /* 0 */ cursor: default; /* overflow: hidden; */ position: absolute; touch-callout: none; user-select: none; z-index: 1; /* -1 */ }
 .wm-space .wm-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: #191919; opacity: 0; overflow: hidden; position: absolute; touch-callout: none; transition: opacity 0.5s ease-out; user-select: none; }
 
 .wm-space.expose .wm-window.active section.wm-content, .wm-space.expose .wm-window section.wm-content, .wm-window.disabled *, .wm-window.inactive *, .wm-window.move * { touch-callout: none; user-select: none; }
