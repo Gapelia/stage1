@@ -1757,7 +1757,7 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
   /** [-] Footer **************************************************************************************/
   footer { height: 28px; } }
 /************************************************************************************** WINDOW/SCSS **/
-.wm-space { z-index: 1 !important; }
+.wm-space { /* display: none !important; */ z-index: 1 !important; }
 
 .wm-content { color: #191919 !important; }
 

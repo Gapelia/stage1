@@ -14,9 +14,17 @@ $(document).ready(function() {
 	var $navNext = $(".next");
 
 	$(function () {
+		// centering!
+		$storyFrontPage.css("marginLeft", -+$storyFrontPage.width() / 2);
+		$storyFrontPage.css("marginTop", -+$storyFrontPage.height() / 2);
+
+		$storyFrontPage.css({
+			"top": "50%",
+			"left": "50%",
+			"position": "absolute"
+		});
+
 		$sidebar.css("top", $(window).height() / 2.5 + "px");
-		$storyFrontPage.css("margin-top", $(window).height() / 1.55 - $storyFrontPage.height() + "px");
-		$storyFrontPage.css("margin-left", $(window).width() / 1.275 - $storyFrontPage.width() + "px");
 		$wikiWindow.css("height", $(window).height() - 70 + "px");
 
 		$vb.css("margin-left", $vb.width() + $story.width() - $(window).width() / 2 + 65 + "px");
