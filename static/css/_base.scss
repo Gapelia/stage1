@@ -75,6 +75,18 @@ $blue:			rgba(0, 205, 231, 1);		// #00cbe7;
 /** [-] @font-face ************************************************************************************/
 
 @font-face {
+	font-family: "entyporegular";
+	font-style: normal;
+	font-weight: 400;
+
+	src: local("☺"), url("../font-face/Entypo.svg#entyporegular") format("svg");
+	src: url("../font-face/Entypo.eot"),
+			 url("../font-face/Entypo.eot?#iefix") format("embedded-opentype"),
+			 url("../font-face/Entypo.ttf") format("truetype"),
+			 url("../font-face/Entypo.woff") format("woff");
+}
+
+@font-face {
 	font-family: "OpenSansLight";
 	font-style: normal;
 	font-weight: 300;

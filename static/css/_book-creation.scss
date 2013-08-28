@@ -24,34 +24,61 @@
 				z-index: 999;
 
 				.page-settings, .page-edit, .page-upload, .page-collab, .page-delete {
-					width: 32px; height: 32px;
+					/* width: 48px; height: 48px; */
+					width: auto; height: auto;
+
+					/* border: 1px solid rgba($black, 0.4); */
+					color: $white;
+					font-family: "entyporegular";
+					font-size: 4em;
+					text-shadow: 0 0 1px rgba($black, 0.4);
 					transition: all 0.2s;
 
 					&:hover { opacity: 0.7; }
 
-					a, span {
-						display: block;
-						@include hide-text;
-					}
+					a, span { color: $white; }
 
 					a {
 						width: auto; height: auto;
+						display: block;
 					}
 
 					span {
-						width: 32px !important; height: 32px !important;
+						/* width: 32px !important; height: 32px !important; */
+						display: inline-block;
+						text-align: center;
 					}
 				}
 
-				.page-settings { background: url("../images/icon-settings.png") no-repeat center center; }
+				/* .page-settings { background: url("../images/icon-settings.png") no-repeat center center; } */
 
-				.page-upload, .page-edit {
-					top: 71px; right: -99px;
+				.flyout-btn {
+					top: 0; right: 0;
+
+					overflow: hidden;
+					position: absolute;
+					transform: rotate(0deg);
+					transition: transform 0.4s ease;
+					z-index: 9999;
+
+					/* @include hide-text; */
+				}
+
+				.btn-rotate {
+					/* top: -1px; right: -1px; */
+					top: -2px; right: -1px;
+
+					text-shadow: 0 0 1px rgba($black, 0.4);
+					transform: rotate(-135deg);
+				}
+
+				.page-edit {
+					top: 57px; /* top: 71px; */ right: -99px;
 					height: 100px !important;
 
 					a {
 						span {
-							background: url("../images/icon-edit.png") no-repeat center center;
+							/* background: url("../images/icon-edit.png") no-repeat center center; */
 							transform: rotate(0deg);
 						}
 					}
@@ -63,7 +90,7 @@
 
 					a {
 						span {
-							background: url("../images/icon-collab.png") no-repeat center center;
+							/* background: url("../images/icon-collab.png") no-repeat center center; */
 							transform: rotate(85deg);
 						}
 					}
@@ -75,7 +102,7 @@
 
 					a {
 						span {
-							background: url("../images/icon-trash.png") no-repeat center center;
+							/* background: url("../images/icon-trash.png") no-repeat center center; */
 							transform: rotate(180deg);
 						}
 					}
@@ -179,7 +206,8 @@
 				}
 
 				.flyout {
-					top: -140px; right: 0;
+					/* top: -140px; right: 0; */
+					top: -114px; right: 8px;
 
 					line-height: 0;
 					margin: 0;
@@ -260,22 +288,6 @@
 				.flyout.fade li:nth-of-type(1) a.clicked { transform: rotate(0deg); }
 				.flyout.fade li:nth-of-type(2) a.clicked { transform: rotate(-45deg); }
 				.flyout.fade li:nth-of-type(3) a.clicked { transform: rotate(-90deg); }
-
-				.flyout-btn {
-					top: 0; right: 0;
-
-					overflow: hidden;
-					position: absolute;
-					transition: transform 0.4s ease;
-					z-index: 9999;
-
-					@include hide-text;
-				}
-
-				.btn-rotate {
-					top: 0; right: 0;
-					transform: rotate(-135deg);
-				}
 
 				.ani-expand 0 { top: 150px; }
 				.ani-expand 50% { top: -10px; }
