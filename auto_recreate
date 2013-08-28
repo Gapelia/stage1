@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+spawn ./recreate.sh
+
+expect "Would you like to create one now? (yes/no):"
+send "yes\n"
+
+expect "Username (leave blank to use 'dhilipsiva'):"
+send "\n"
+
+expect "Email address:"
+send "dhilip@launchyard.com\n"
+
+expect "Password:"
+send "test123\r"
+
+expect "Password (again): "
+send "test123\r"
+
+expect EOF

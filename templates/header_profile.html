@@ -1,0 +1,18 @@
+		{% load accounts_tags %}
+		<li id="action-user">
+			{% if enable_upload %}
+			<form action="#" id="avatar-upload">
+				<label class="cabinet">
+					<input id="avatar-upload" type="file" capture="filesystem" name="avatar" class="file-upload">Choose background picture</input>
+				</label>
+			</form>
+			{% endif %}
+			<a href="#"><img src="{{ user|get_user_avatar }}"/></a>
+
+			<ul>
+				<li><a href="{% url 'user-profile' user.username %}">View Profile</a></li>
+				<li><a href="{% url 'edit-profile' %}">Edit Profile</a></li>
+				<li><a href="{% url 'profile-settings' %}">Settings</a></li>
+				<li><a href="{% url 'signout' %}">Log Out</a></li>
+			</ul>
+		</li>

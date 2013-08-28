@@ -1,0 +1,23 @@
+[
+    {
+    "pk": 1,
+    "model": "tagging.tagtype",
+    "fields": {
+        "name": "feeling"
+    }
+},
+{
+    "pk": 2,
+    "model": "tagging.tagtype",
+    "fields": {
+        "name": "passion"
+    }
+},
+{
+    "pk": 3,
+    "model": "tagging.tagtype",
+    "fields": {
+        "name": "user"
+    }
+}
+]

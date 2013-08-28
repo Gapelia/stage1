@@ -1,0 +1,106 @@
+			{% csrf_token %}
+			<form class="md-modal md-effect-1" id="modal-1">
+				<div class="md-content">
+					<h3>
+						<span class="active">Create</span> |
+						<span>Upload</span> |
+						<span>Save</span>
+					</h3>
+
+					<section class="modal-row">
+						<label class="modal-title">Title*</label>
+						<input class="modal-input" type="text" id="book-title" name="book-title"/>
+					</section>
+
+					<section class="modal-row">
+						<section class="modal-title">
+							<label for="modal-description" class="modal-title">Add description</label>
+							<span class="modal-counter safe">300</span><span>characters left</span>
+						</section>
+
+						<textarea id="book-description" name="modal-description" class="modal-input" cols="50" rows="4" type="text"></textarea>
+					</section>
+
+					<div class="modal-row">
+						<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
+
+						<select class="modal-input" id="book-dimension" name="modal-dimension" type="text">
+							<option value"FLOW">Flow</option>
+							<option value"ART">Art</option>
+							<option value"LIFE">Life</option>
+							<option value"PULSE">Pulse</option>
+							<option value"WOW">Wow</option>
+							<option value"WONDER">Wonder</option>
+						</select>
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-geotag" class="modal-title">Add a Geotag</label>
+						<input class="modal-input" id="modal-geotag" placeholder="" type="text"/>
+						<!--/
+						<input id="geotag" value="{{ first_page|get_page_location }}" type="text" placeholder=""/>
+						<input id="geotag" value="" type="text" placeholder="" autocomplete="off">
+						/-->
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-passion" class="modal-title">Add a Passion</label>
+						<input class="modal-input" id="book-passion" name="modal-passion" type="text"/>
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-feeling" class="modal-title">Add a Feeling</label>
+						<input class="modal-input" id="book-feeling" name="modal-feeling" type="text"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a class="md-close md-trigger" data-modal="modal-2" onclick="NextModal(this, 'create')">Next</a>
+					</div>
+				</div>
+			</form>
+
+			<div class="md-modal md-effect-1" id="modal-2">
+				<div class="md-content">
+					<h3>
+						<span>Create</span> |
+						<span class="active">Upload</span> |
+						<span>Save</span>
+					</h3>
+
+					<iframe class="modal-row" id="filepicker-iframe"></iframe>
+
+					<div class="modal-row">
+						<p>Add a video URL</p>
+						<input name="" value="" type="url"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a class="md-close md-trigger" data-modal="modal-3" onclick="NextModal(this, 'upload')">Next</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="md-modal md-effect-1" id="modal-3">
+				<div class="md-content">
+					<h3>
+						<span>Create</span> |
+						<span>Upload</span> |
+						<span class="active">Save</span>
+					</h3>
+
+					<div class="modal-row modal-header">
+						<p>They say that two minds are better than one, would you like to invite collaborators to this collection?</p>
+					</div>
+
+					<div class="modal-row">
+						<input class="modal-input" id="modal-gapelian" name="modal-gapelian" placeholder="Choose Gapelians" type="text"/><br/>
+						<input class="modal-input" placeholder="Enter email address" type="email"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a href="JavaScript:editNewBook()">Skip</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="md-overlay"></div>

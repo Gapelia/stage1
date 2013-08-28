@@ -1,0 +1,17 @@
+{% verbatim %}
+{{output}}
+<div id="page-scroller-wrapper">
+    <nav>
+        <a id="prev-small" class="prev" href="#">&#9664;</a>
+        <a id="next-small" class="next" href="#">&#9654;</a>
+    </nav>
+    <ul id="page-scroller">
+        {{#each page in pages}}
+        <li class="page">
+        {{view Ember.Checkbox}}
+        <img {{bindAttr src="page.media_file.url"}} class="md-trigger cover" data-modal="modal-upload" alt=""/>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{% endverbatim %}

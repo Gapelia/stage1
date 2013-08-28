@@ -1,0 +1,22 @@
+{% verbatim %}
+<header id="action-bar">
+    <a href="/"><h1>Gapelia</h1></a>
+    <ul>
+        <li id="action-create">
+        <a href="#" class="md-trigger" data-modal="modal-1" onclick="NextModal(this)">Create book</a></li>
+        <li id="action-gapelians"><a href="#">Gapelians</a></li>
+        <li id="action-books">{{#linkTo "books"}}Books{{/linkTo}}</li>
+        <li id="action-dimensions"><a href="#">Dimensions</a></li>
+        <li id="action-user">
+        <a href="#"><img src="" alt=""></a>
+        <ul>
+            <li><a href="#">View Profile</a></li>
+            <li><a href="#">Edit Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Log Out</a></li>
+        </ul>
+        </li>
+    </ul>
+</header>
+{% endverbatim %}
+{% include "create_book.html" %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Services</title>
+        <link href="/static/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <style>
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class=row>
+                <span class="title">Your current location:</span> {{ CURRENT_LOCATION }}
+            </div>
+            <br><br>
+            <div class=row>
+                <span class="title">Wikipedia Integration:</span>
+                {% if CURRENT_CITY %} 
+                    <input type="text" placeholder="{{ CURRENT_CITY }}" id="location-input" value="{{ CURRENT_CITY }}"></input>
+                {% else %}
+                    <input type="text" placeholder="{{ CURRENT_LOCATION }}" id="location-input" value="{{ CURRENT_LOCATION }}"></input>
+                {% endif %}
+                <button class="btn btn-info" id="location-wiki">wiki</button>
+            </div>
+            <br><br>
+            <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Modal header</h3>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-body">Loading...</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+            <div class=row>
+                <span class="title">Rome2Rio integration:</span>
+                <input type="text" placeholder="{% if CURRENT_CITY %}{{ CURRENT_CITY }}{% else %}{{ CURRENT_LOCATION }}{% endif %}" class="hop-location"></input>
+                <input type="text" placeholder="paris" class="hop-location"></input>
+                <input type="text" placeholder="egypt" class="hop-location"></input>
+                <button class="btn btn-info" id="route-btn">route</button>
+            </div>
+        </div>
+        <script src="/static/scripts/jquery-2.0.2.js"></script>
+        <script src="/static/scripts/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            var location_wiki = $("#location-wiki");
+            var location_input = $("#location-input");
+            var hop_locations = $(".hop-location");
+            var route_btn = $("#route-btn");
+            hop_locations.autocomplete({ source: "/services/places"});
+            location_wiki.click(function(){
+                selfRef = this;
+                $("#myModalLabel").html(location_input.val())
+                $("#modal-body").html("Loading...")
+                $("#myModal").modal('show')
+                $.ajax({
+                    url: "/services/wiki?l=" + location_input.val(),
+                    success: function(data, one, two){
+                        $("#modal-body").html(data.wiki)
+                    },
+                    dataType: "json"
+                });
+            });
+            route_btn.click(function(){
+                l = []
+                j = 0;
+                for(var i=0; i < hop_locations.length; i++){
+                    el = hop_locations[i];
+                    t = el.value.replace(", ", " ")
+                    t = t.replace(",", " ")
+                    t = t.replace(/[ ]+/gi, "-")
+                    if(t.length>0){
+                        l[j++] = t;
+                    }
+                }
+                if(l.length > 0){
+                    destination = l[0];
+                    for(var i=1; i<l.length; i++){
+                        destination += "/" + l[i]
+                        }
+                    window.location = "/services/map?route=" + destination;
+                }
+            });
+        </script>
+    </body>
+</html>

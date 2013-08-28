@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block header_scripts%}
+<style>
+.the-big-scroller {
+    text-align: left;
+    float: none;
+    position: relative;
+    top: 0px;
+    right: auto;
+    bottom: auto;
+    left: 0px;
+    margin: 0px;
+    width: 6214px;
+    height: 400px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="ember-application"></div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/x-handlebars">
+{% include "app_header.html" %}
+
+{% verbatim %}
+{{ outlet }}
+</script>
+
+<script type="text/x-handlebars" data-template-name="books">
+<div id="big-scroller-wrapper">
+    <nav>
+        <a id="prev-big" class="prev" href="#">&#9664;</a>
+        <a id="next-big" class="next" href="#">&#9654;</a>
+    </nav>
+    <ul id="big-scroller" class="the-big-scroller">
+        {{#each model}}
+        <li class="dimension-book" style="width: 231px;">
+        <ul class="edit-delete">
+            <li class="edit">{{#linkTo "book.edit" this}}Edit{{/linkTo}}</li>
+            <li class="delete"><a href="">Delete</a></li>
+        </ul>
+        <div class="book-info">
+            <div class="book-title" style="font-size: 23px; white-space: nowrap;">{{title}}</div>
+            <ul class="lifestyle">
+                {{#each tags}}
+                <li>{{name}}</li>
+                {{/each}}
+            </ul>
+            <a class="explore-book" href="">Explore</a>
+            <div class="photo-credit">Photo by <a href="">{{createdBy.name}}</a></div>
+        </div>
+        <img {{bindAttr src="mediaUrl"}}></img>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+</script>
+{% endverbatim %}
+
+<script type="text/x-handlebars" data-template-name="book/edit">
+{% include "book_index.html" %}
+</script>
+<script type="text/template" data-template-name="book">
+{% include "book_detail_edit.html" %}
+</script>
+<script type="text/javascript">
+const FILEPICKER_API_KEY = "{{ FILEPICKER_API_KEY }}";
+</script>
+
+<!-- SCRIPTS FROM EXTERNAL SOURCE -->
+<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
+<script src="{{ STATIC_URL }}scripts/modernizr.js"></script>
+<script src="{{ STATIC_URL }}scripts/handlebars.js"></script>
+<script src="{{ STATIC_URL }}scripts/ember.js"></script>
+<script src="{{ STATIC_URL }}scripts/ember-data.js"></script>
+<script src="{{ STATIC_URL }}scripts/cbpContentSlider.js"></script>
+
+<!-- APP SCRIPTS -->
+<script src="{{ STATIC_URL }}js/app/utils.js"></script>
+<script src="{{ STATIC_URL }}js/app/app.js"></script>
+<script src="{{ STATIC_URL }}js/app/routers.js"></script>
+<script src="{{ STATIC_URL }}js/app/controllers.js"></script>
+<script src="{{ STATIC_URL }}js/app/views.js"></script>
+<script src="{{ STATIC_URL }}js/app/models.js"></script>
+<script src="{{ STATIC_URL }}js/app/create_book.js"></script>
+
+<!-- Post-render stuff-->
+<script src="{{ STATIC_URL }}scripts/squishy.js"></script>
+<script src="{{ STATIC_URL }}scripts/carousel/carouFredSel.js"></script>
+<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

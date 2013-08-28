@@ -1,0 +1,122 @@
+{% extends 'books/books_base.html' %}
+		{% load content_tags %}
+
+		{% block body_css %}parent{% endblock %}
+
+		{% block head_scripts %}
+		{% endblock %}
+
+		{% block header %}
+		{% include "books/full-view/header.html" %}
+		{% endblock %}
+
+		<!--/
+		{% block create_modal %}
+		{% endblock %}
+		/-->
+
+		{% block main_content %}
+		<!--/ <section id={ % block section_id % }{ % endblock % } class="section-bg-cover" style="background-image:url('{ % block section_image % }{ % endblock % }');"> /-->
+		<section id={% block section_id %}{% endblock %} class="section-bg-cover">
+			{% block main_content_inner %}
+			{% endblock %}
+
+			{% with prev_page=page.get_previous_by_position %}
+			{% if prev_page %}
+			<a href="{% url 'book-full-view' book.slug prev_page.id %}" onclick="if(PAGE_CHANGED) savePageChanges();" class="previous"><span>&#9664;</span></a>
+			{% endif %}
+			{% endwith %}
+
+			{% with next_page=page.get_next_by_position %}
+			{% if next_page %}
+			<a href="{% url 'book-full-view' book.slug next_page.id %}" onclick="if(PAGE_CHANGED) savePageChanges();" class="next"><span>&#9654;</span></a>
+			{% endif %}
+			{% endwith %}
+		</section>
+
+		<section class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<div id="menu-toggle">Page Menu</div>
+
+			<div id="page-scroller-wrapper">
+				<nav>
+					<a id="prev-small" class="prev" href="#">&#9664;</a>
+					<a id="next-small" class="next" href="#">&#9654;</a>
+				</nav>
+
+				<ul id="page-scroller">
+					{% for p in pages %}
+					<li class="page">
+						<a href="{% url 'book-full-view' book.slug p.id %}">
+							<img for-page="{{ p.id }}" class="cover" {% if p.media %}{% if p.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ p.media.url }}')"{% elif "image" in p.media.mimetype %}src="{{ p.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+
+		<div class="draggable-window" unselectable="on">
+			{% include "books/tab-editor.html" %}
+		</div>
+		{% endblock %}
+
+		{% block script_constants %}
+		<script src="{{ STATIC_URL }}scripts/books.js"></script>
+		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
+
+		<script>
+			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), body = document.body;
+
+			showBottom.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuBottom, "cbp-spmenu-open");
+			};
+		</script>
+
+		<script>
+			var IS_FULL_PAGE_VIEW = true;
+			var CURRENT_BOOK_SLUG = "{{ book.slug }}";
+			var CURRENT_PAGE_ID = {{ page.id }};
+			var LAYOUT_FRONT_COVER = {{ PAGE_LAYOUTS.FRONT_COVER }};
+			var LAYOUT_PHOTO = {{ PAGE_LAYOUTS.PHOTO }};
+			var LAYOUT_TEXT = {{ PAGE_LAYOUTS.TEXT }};
+			var LAYOUT_INTEGRATED_1 = {{ PAGE_LAYOUTS.HORIZONTAL }};
+			var LAYOUT_PHOTO_TEXT_1 = {{ PAGE_LAYOUTS.OVERLAY }};
+			var LAYOUT_PHOTO_TEXT_2 = {{ PAGE_LAYOUTS.PHOTOTEXT }};
+			var LAYOUT_INTEGRATED_2 = {{ PAGE_LAYOUTS.INTEGRATED }};
+			var LAYOUT_VIDEO = {{ PAGE_LAYOUTS.VIDEO }};
+			var pages_json = {{page | dump_as_array | safe}};
+			var CURRENT_PAGE_LAYOUT = {{ page.layout }};
+			var CURRENT_PAGE_LICENSE = 0
+			var PAGES_CHECKED = [];
+		</script>
+		{% endblock %}
+
+		{% block scripts %}
+		<script src="{{ STATIC_URL }}scripts/handlebars.js"></script>
+		<script src="{{ STATIC_URL }}scripts/ventus.js"></script>
+		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				var wm = new Ventus.WindowManager();
+
+				wm.createWindow.fromQuery("#tabs-container", {
+					title: "Dream Editor",
+					x: 100,
+					y: 100,
+					width: 400,
+					height: 500
+				}).open();
+
+				window.wm = wm;
+			});
+		</script>
+		{% endblock %}
+
+		{% block slow_scripts %}
+		<script>
+			var bc_input = document.getElementById("bc-geotag");
+			new google.maps.places.Autocomplete(bc_input);
+		</script>
+		{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock title %}
+
+<body {% block body_class %}class="first"{% endblock body_class %}>
+{% block content %}
+	<header>
+		<a href="/"><h1 id="logo">Gapelia</h1></a>
+
+		<div id="account-links">
+			<a href="{% url 'signin' %}">Log In</a> |
+			<a href="{% url 'signup' %}">Sign Up</a>
+		</div>
+	</header>
+
+	<!--/ main-content /-->
+
+	<div id="dimension-list">
+		<ul>
+			<li id="dimension-life"><a href="">Life</a></li>
+			<li id="dimension-flow"><a href="">Flow</a></li>
+			<li id="dimension-wonder"><a href="">Wonder</a></li>
+			<li id="dimension-art"><a href="">Art</a></li>
+			<li id="dimension-pulse"><a href="">Pulse</a></li>
+			<li id="dimension-wow"><a href="">Wow</a></li>
+		</ul>
+
+		<a href="#." id="progress">Next</a>
+	</div>
+{% endblock content %}

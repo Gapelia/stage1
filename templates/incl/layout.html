@@ -1,0 +1,11 @@
+														{% load content_tags %}
+														{% for layout in layouts %}
+														<div class="view-style {{ layout.0|layout_class }}">
+															<label for="bc-frontcover">
+																<span><img src="{{ STATIC_URL }}images/view-modes/{{layout.0}}.png" alt=""/></span>{{ layout.1 }}
+															</label>
+
+															<!--/ <input value="{{ layout.0 }}" type="radio" for-id="layout-{{ layout.0 }}" name="layout" {% if first_page.layout == layout.0 %}checked{% endif %}/> /-->
+															<input value="{{ layout.0 }}" type="radio" for-id="layout-{{ layout.0 }}" name="layout" {% if first_page.layout == layout.0 %}checked{% endif %}/>
+														</div>
+														{% endfor %}

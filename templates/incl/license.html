@@ -1,0 +1,4 @@
+{% for license in licenses %}
+<input {% if first_page.copyright_license == license.0 %}checked{% endif %}  type="radio" id="cc-{{ license.0 }}" name="aa" onchange="changeLicense({{ license.0 }})"/>
+<label for="cc-{{license.0}}"> {{ license.1 }}</label><br/>
+{% endfor %}

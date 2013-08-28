@@ -1,5 +1,13 @@
-*.py[cod]
-
+*.py~
+*.pyc
+local_settings.py
+.idea
+local
+bin
+include
+lib
+share
+.Python
 # C extensions
 *.so
 
@@ -33,10 +41,16 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+*.swp
+*.swo
+media
 
-# My Computer
-.sass-cache
 code
-psd
-*.psd
-*.PSD
+*psd
+*PSD
+.sass-cache
+models.png
+
+GeoLiteCity.dat
+gapelia.sqlite3
+gapelia.db

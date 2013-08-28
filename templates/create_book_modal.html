@@ -1,0 +1,141 @@
+			<div class="md-modal md-effect-1" id="modal-1">
+				<div class="md-content">
+
+					<!--/ This is just a hack to silence CoDrop's Nifty Windows Modal Errors /-->
+					<button class="md-close" style="display: none;">Cancel</button>
+
+					<h3>
+						<span class="active">Create</span> |
+						<span>Upload</span> |
+						<span>Save</span>
+					</h3>
+
+					<section class="modal-row">
+						<label class="modal-title">Title*</label>
+						<input id="book-title" class="modal-input" type="text"/>
+					</section>
+
+					<section class="modal-row">
+						<section class="modal-title">
+							<label for="modal-description" class="modal-title">Add description</label>
+							<span class="modal-counter"></span><span>characters left</span>
+						</section>
+
+						<textarea id="modal-description" name="modal-description" class="modal-input" cols="50" rows="4"></textarea>
+					</section>
+
+					<div class="modal-row">
+						<label for="modal-dimension" class="modal-title">Choose Dimension*</label>
+						<input class="modal-input" id="modal-dimension" name="modal-dimension" type="text" list="modal-dimension-tag"/>
+
+						<datalist id="modal-dimension-tag">
+							<option value="Art">
+							<option value="Flow">
+							<option value="Life">
+							<option value="Pulse">
+							<option value="Wonder">
+							<option value="Wow">
+						</datalist>
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-geotag-01" class="modal-title">Add a Geotag</label>
+						<input class="modal-input" id="modal-geotag-01" placeholder="" type="text" value="{{CURRENT_LOCATION}}"/>
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-passion" class="modal-title">Add a Passion</label>
+						<input class="modal-input" id="modal-passion" name="modal-passion" type="text" list="modal-passion-tag"/>
+
+						<datalist id="modal-passion-tag">
+							<option value="* Create new tag">
+							<option value="Computers">
+							<option value="Gaming">
+							<option value="Gardening">
+							<option value="Skydiving">
+							<option value="Surfing">
+						</datalist>
+					</div>
+
+					<div class="modal-row">
+						<label for="modal-feeling" class="modal-title">Add a Feeling</label>
+						<input class="modal-input" id="modal-feeling" name="modal-feeling" type="text" list="modal-feeling-tag"/>
+
+						<datalist id="modal-feeling-tag">
+							<option value="* Create new tag">
+							<option value="Adrenaline">
+							<option value="Calm">
+							<option value="Ecstatic">
+							<option value="Longing">
+							<option value="Serenity">
+						</datalist>
+					</div>
+
+					<div class="modal-row next-modal">
+						<!--/ <a id="create-book" class="md-trigger">Next</a> /-->
+						<a id="create-book-modal" class="md-trigger" data-modal="modal-2">Next</a>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="md-modal md-effect-1" id="modal-2">
+				<div class="md-content">
+					<h3>
+						<span>Create</span> |
+						<span class="active">Upload</span> |
+						<span>Save</span>
+					</h3>
+
+					<iframe class="modal-row" id="filepicker-iframe"></iframe>
+
+					<div class="modal-row">
+						<p>Add a video URL</p>
+						<input name="video-url" id="video-url" value="" type="url"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a id="create-page" class="md-close md-trigger" data-modal="modal-3">Next</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="md-modal md-effect-1" id="modal-3">
+				<!--/ This is just a hack to silence CoDrop's Nifty Windows Modal Errors /-->
+				<button class="md-close" style="display: none;">Cancel</button>
+
+				<div class="md-content">
+					<h3>
+						<span>Create</span> |
+						<span>Upload</span> |
+						<span class="active">Save</span>
+					</h3>
+
+					<div class="modal-row modal-header">
+						<p>They say that two minds are better than one, would you like to invite collaborators to this collection?</p>
+					</div>
+
+					<div class="modal-row">
+						<input class="modal-input" id="modal-gapelian" name="modal-gapelian" placeholder="Choose Gapelians" type="text" list="modal-gapelian-tag"/>
+
+						<datalist id="modal-gapelian-tag">
+							<option value="Tyra Banks">
+							<option value="Fiddy Cent">
+							<option value="Jimmy Kimmel">
+							<option value="Chelsea Lately">
+							<option value="Will Smith">
+							<option value="Oprah Winfrey">
+						</datalist>
+
+						<br/>
+
+						<input class="modal-input" placeholder="Enter email address" type="email"/>
+					</div>
+
+					<div class="modal-row next-modal">
+						<a id="go-to-editor" href="">Skip</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="md-overlay"></div>
