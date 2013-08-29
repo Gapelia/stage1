@@ -388,7 +388,7 @@
 
 				.page-geotag-elem {
 					font-family: "OpenSansSemibold";
-					font-size: 1.2em;
+					font-size: 1em;
 					text-transform: uppercase;
 				}
 
@@ -526,8 +526,8 @@
 			#photo-preview, #video-preview {
 				bottom: 0; left: 0;
 
-				/* background-color: rgba($black, 0.8); */
-				background: linear-gradient(to right, rgba($black, 1) 0%, rgba($black, 0.3) 50%, rgba($black, 0.0) 100%);
+				background: linear-gradient(to top, $black 0, rgba($black, 0.2) 80%, rgba($white, 0) 100%) transparent;
+				background-color: transparent;
 				color: $white;
 				height: auto;
 				padding: 1rem 2rem;
