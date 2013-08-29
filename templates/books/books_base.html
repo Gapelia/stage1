@@ -10,83 +10,30 @@
 		<meta name="keywords" content=""/>
 		<meta name="author" content="Gapelia"/>
 
-		<style>
-			/*
-				Will have this until Paul has something
-				better to use. I think this is better than
-				not having anything at all.
-			*//*
-				Forcing a loader that doesn't end onto
-				people isn't the way to fix issues. We
-				don't yet have users so this isn't entirely
-				necessary at the moment
-			*/
-
-			#full-page-loader {
-				width: 100%; height: 100%;
-				top: 0; left: 0;
-
-				background-color: white;
-				position: fixed;
-				z-index: 99999999;
-			}
-
-			.centerize {
-				top: 50%; left: 46%;
-				bottom: 0; right: 0;
-
-				position: absolute;
-			}
-
-			/*
-			.section-bg-cover {
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-			*/
-		</style>
-
 		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
-		<link href="{{ STATIC_URL }}css/fixes.css" rel="stylesheet"/>
-
-		<link href="{{ STATIC_URL }}scripts/osmplayer/jquery-ui.css" rel="stylesheet"/>
-		<link href="{{ STATIC_URL }}scripts/osmplayer/osmplayer_default.css" rel="stylesheet"/>
-
 		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
+
+		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/jquery-ui.css" rel="stylesheet"/>					/-->
+		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/osmplayer_default.css" rel="stylesheet"/>	/-->
 
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script>
+		<!--/ scripts/enablers /-->
+		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
+		<script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script>
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
-
-		<!--/ scripts/background-resizer /-->
-		<script src="{{ STATIC_URL }}scripts/bg-resize.js"></script>
-
-		<script>
-			$(document).ready(function() {
-				$("body").bgResize({
-					img: "{% block section_image %}{% endblock %}"
-				});
-			});
-		</script>
 		{% block head_scripts %}{% endblock %}
-
 	</head>
 
 	<body class="{% block body_css %}{% endblock %}">
-
-		<!--/
-		<div id="full-page-loader">
-			<div id="loading-spinner" class="centerize">Loading...</div>
-		</div>
-		/-->
 
 		{% block header %}
 		{% include "books/header.html" %}
 		{% endblock %}
 
+		<!--/ main-content /-->
 		{% block main_content %}
 		{% endblock %}
 
@@ -163,11 +110,9 @@
 
 		<div class="md-overlay"></div>
 
-		<!--/ Full page loader that is responsible for blocking ugly stuff while loading /-->
-
-		<script>
-			window.polyfilter_scriptpath = "{{ STATIC_URL }}scripts/modal/";
-		</script>
+		<!--/ scripts /-->
+		<script src="{{ STATIC_URL }}scripts/squishy.js"></script>
+		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
 
 		{% block script_constants %}
 		{% endblock %}
@@ -179,148 +124,62 @@
 		<script src="{{ STATIC_URL }}scripts/carousel/touchSwipe.js"></script>
 		<script src="{{ STATIC_URL }}scripts/carousel/transit.js"></script>
 
-		<script src="{{ STATIC_URL }}scripts/squishy.js"></script>
-		<script src="{{ STATIC_URL }}scripts/modal/cssParser.js"></script>
-		<script src="{{ STATIC_URL }}scripts/simplyCountable.js"></script>
-		<script src="{{ STATIC_URL }}scripts/cbpContentSlider.js"></script>
-
-		<script src="{{ STATIC_URL }}scripts/modal/css-filters-polyfill.js"></script>
-
 		<!--/ scripts/video-player /-->
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="{{ STATIC_URL }}scripts/osmplayer/osmplayer.compressed.js"></script>
 		<script src="{{ STATIC_URL }}scripts/osmplayer/osmplayer.default.js"></script>
+		/-->
 
-		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
+		<!--/ scripts/tab-switcher /-->
+		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
+		<script src="{{ STATIC_URL }}scripts/cbpContentSlider.js"></script>
 
-		<!--/ scripts/gapelia /-->
-		<script src="{{ STATIC_URL }}js/app/book.js"></script>
-		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
-		<script src="{{ STATIC_URL }}js/app/utils.js"></script>
-		<script src="{{ STATIC_URL }}js/app/video_url_parser.js"></script>
-		<script src="{{ STATIC_URL }}js/app/api.js"></script>
-		<script src="{{ STATIC_URL }}scripts/fontfamily.js"></script>
-		<script src="{{ STATIC_URL }}scripts/fontsize.js"></script>
-		<script src="{{ STATIC_URL }}scripts/redactor.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#tabs-container").cbpContentSlider();
+			});
+		</script>
 
-		{% block scripts %}
-		{% endblock %}
+		<!--/ scripts/page-menu /-->
+		<script>
+			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), body = document.body;
+
+			showBottom.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuBottom, "cbp-spmenu-open");
+			};
+		</script>
 
 		<!--/ scripts/sortable-pages /-->
 		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
-				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
+				// $("#page-scroller").sortable();
+
+				$("#page-scroller").sortable().bind("sortupdate", function(e, ui) {
 					changePosition(ui);
+					forcePlaceholderSize: true;
 				});
 			});
 		</script>
 
-		<script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script>
+		{% block scripts %}
+		{% endblock %}
 
+		<!--/ scripts/character-limiter /-->
+		<script src="{{ STATIC_URL }}scripts/simplyCountable.js"></script>
+		
 		<script>
-			$(document).ready(function() {
-				$("#tabs-container").cbpContentSlider();
-				window.livePreviewElem = $(".page-desc");
-				window.columnizeElement = $(".columnize p");
-
-				// scripts/live-preview
-				var columnize = function() {
-					var viewportWidth = $(window).width();
-					var viewportHeight = $(window).height();
-					var w = viewportWidth - 234;
-					var h = viewportHeight - 50;
-					var w2 = viewportWidth / 2;
-					var $story = columnizeElement;
-					$story.width(w).height(h);
-
-					var $numWords = $story.text().split(" ").length;
-					if (($numWords >= 1) && ($numWords < 141)) { // one column
-						$story.css({
-							"column-count": "1",
-							"column-width": "30em",
-							"padding": "3rem",
-							"width": "auto"
-						});
-
-						$story.each(function () {
-							$(this).css("margin-left", $(window).width() - 1250 / 2 - $(this).width() + "px");
-						});
-					}
-
-					if (($numWords >= 141) && ($numWords < 230)) { // two columns
-						$story.css({
-							"column-fill": "auto",
-							"column-gap": "30px",
-							"column-rule": "1px dotted #e7e7e7",
-							"column-width": "16em",
-							"padding": "3rem",
-							"width": "auto"
-						});
-
-						$story.each(function () {
-							$(this).css("margin-left", $(window).width() - 100 / 2 - $(this).width() + "px");
-						});
-					}
-
-					if ($numWords >= 230) { // three columns
-						$story.css({
-							"column-fill": "auto",
-							"column-gap": "30px",
-							"column-rule": "1px dotted #e7e7e7",
-							"column-width": "16em",
-							"padding": "3rem"
-						});
-					}
-				};
-
-				var updatePreviews = function(text) {
-					livePreviewElem.html(text);
-					columnize();
-				}
-
-				var modal_input_01 = document.getElementById("modal-geotag-01");
-				var modal_input_02 = document.getElementById("modal-geotag-02");
-				new google.maps.places.Autocomplete(modal_input_01);
-				new google.maps.places.Autocomplete(modal_input_02);
-
-				$(".modal-description").simplyCountable({
-					counter: ".modal-counter",
-					maxCount: 300
-				});
-
-				var buttons = ["fontfamily", "fontcolor", "fontsize", "|", "formatting", "|", "bold", "italic", "deleted", "|", "alignment"];
-
-				$("#text-editor").redactor({
-					syncAfterCallback: function(html) {
-						$("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview").val(html);
-					},
-					buttons: buttons,
-					focus: true,
-					plugins: ["fontfamily", "fontsize"],
-					buttonsAdd: ["|", "fontfamily", "fontsize"],
-					initCallback: function() {
-						updatePreviews(this.get());
-					},
-					changeCallback: function(html) {
-						updatePreviews(this.get());
-					},
-					keyupCallback: function(e) {
-						window.PAGE_CHANGED = true;
-					}
-				});
+			$(".modal-description").simplyCountable({
+				counter: ".modal-counter",
+				maxCount: 300
 			});
 		</script>
 
 		{% block slow_scripts %}
 		{% endblock %}
-
-		<!--/
-		<script>
-			$(document).ready(hideLoadingDiv);
-		</script>
-		/-->
 
 	</body>
 

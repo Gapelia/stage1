@@ -213,7 +213,7 @@
 	window.changePosition = function(elem) {
 
 		var data, for_page, newPosition;
-		newPosition = elem.item.parent().children('li').index(elem.item);
+		newPosition = elem.item.parent().children("li").index(elem.item);
 
 		if (newPosition === 0) {
 			alert("Sorry. you cannot set cover page by dragging the position. You try setting cover-page in layout instead.");

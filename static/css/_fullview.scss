@@ -84,11 +84,19 @@
 
 	.cbp-spmenu {
 		z-index: 10002 !important; /* get page menu in front of the content window */
+	}
 
-		li.sortable-placeholder {
-			background-color: none;
-			border: 1px dashed $slate;
-		}
+	.sortable-dragging, .sortable-placeholder {
+	}
+
+	.sortable-dragging {
+		width: 100px; height: 100px;
+		display: inline-block;
+	}
+
+	.sortable-placeholder {
+		background-color: none;
+		border: 1px dashed $slate;
 	}
 
 	#photo-fullview-wrapper, #text-fullview-wrapper,
