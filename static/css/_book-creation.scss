@@ -24,10 +24,8 @@
 				z-index: 999;
 
 				.page-settings, .page-edit, .page-upload, .page-collab, .page-delete {
-					/* width: 48px; height: 48px; */
-					width: auto; height: auto;
+					width: auto; height: auto; /* 48px */
 
-					/* border: 1px solid rgba($black, 0.4); */
 					color: $white;
 					font-family: "entyporegular";
 					font-size: 4em;
@@ -50,8 +48,6 @@
 					}
 				}
 
-				/* .page-settings { background: url("../images/icon-settings.png") no-repeat center center; } */
-
 				.flyout-btn {
 					top: 0; right: 0;
 
@@ -60,16 +56,14 @@
 					transform: rotate(0deg);
 					transition: transform 0.4s ease;
 					z-index: 9999;
-
-					/* @include hide-text; */
 				}
 
 				.btn-rotate {
-					/* top: -1px; right: -1px; */
 					top: -2px; right: -1px;
 
 					text-shadow: 0 0 1px rgba($black, 0.4);
 					transform: rotate(-135deg);
+					vertical-align: top;
 				}
 
 				.page-edit {
@@ -77,10 +71,7 @@
 					height: 100px !important;
 
 					a {
-						span {
-							/* background: url("../images/icon-edit.png") no-repeat center center; */
-							transform: rotate(0deg);
-						}
+						span { transform: rotate(0deg); }
 					}
 				}
 
@@ -89,10 +80,7 @@
 					height: 100px !important;
 
 					a {
-						span {
-							/* background: url("../images/icon-collab.png") no-repeat center center; */
-							transform: rotate(85deg);
-						}
+						span { transform: rotate(85deg); }
 					}
 				}
 
@@ -101,10 +89,7 @@
 					height: 100px !important;
 
 					a {
-						span {
-							/* background: url("../images/icon-trash.png") no-repeat center center; */
-							transform: rotate(180deg);
-						}
+						span { transform: rotate(180deg); }
 					}
 				}
 
@@ -127,87 +112,8 @@
 					100% { top: 150px; };
 				}
 
-				/* animation/click */
-				@keyframes clicked {
-					0% {
-						opacity: 1;
-						top: 10px;
-						transform: scale(1);
-					}
-
-					90% { top: 10px; }
-
-					99% {
-						opacity: 0;
-						top: 150px;
-						transform: scale(6);
-					}
-
-					100% { transform: scale(0); };
-				}
-
-				/* animation/fade */
-				@keyframes fade {
-					0% {
-						opacity: 1;
-						transform: scale(1);
-						top: 10px;
-					}
-
-					90% {
-						opacity: 0;
-						top: 10px;
-					}
-
-					99% {
-						transform: scale(0);
-						top: 150px;
-					}
-
-					100% { transform: scale(0); };
-				}
-
-				/* animation/expand */
-				@keyframes spin1-expand {
-					0% { transform: rotate(0deg); }
-					60% { transform: rotate(-360deg); }
-					100% { transform: rotate(-360deg); };
-				}
-
-				@keyframes spin2-expand {
-					0% { transform: rotate(-36deg); }
-					60% { transform: rotate(-396deg); }
-					100% { transform: rotate(-396deg); };
-				}
-
-				@keyframes spin3-expand {
-					0% { transform: rotate(-90deg); }
-					60% { transform: rotate(-450deg); }
-					100% { transform: rotate(-450deg); };
-				}
-
-				/* animation/spin */
-				@keyframes spin1-contract {
-					0% { transform: rotate(0deg); }
-					50% { transform: rotate(360deg); }
-					100% { transform: rotate(360deg); };
-				}
-
-				@keyframes spin2-contract {
-					0% { transform: rotate(-36deg); }
-					50% { transform: rotate(360deg); }
-					100% { transform: rotate(360deg); };
-				}
-
-				@keyframes spin3-contract {
-					0% { transform: rotate(-90deg); }
-					50% { transform: rotate(360deg); }
-					100% { transform: rotate(360deg); };
-				}
-
 				.flyout {
-					/* top: -140px; right: 0; */
-					top: -114px; right: 8px;
+					top: -114px; /* -140 */ right: 8px; /* 0 */
 
 					line-height: 0;
 					margin: 0;
@@ -219,9 +125,9 @@
 						position: absolute;
 						transform-origin: 0 bottom; /* 12px */
 
-						&:nth-of-type(1) { transform: rotate(180deg); } /* 0 */
-						&:nth-of-type(2) { transform: rotate(-130deg); } /* 45 */
-						&:nth-of-type(3) { transform: rotate(-90deg); } /* 90 */
+						&:nth-of-type(1) { transform: rotate(180deg); }
+						&:nth-of-type(2) { transform: rotate(-130deg); }
+						&:nth-of-type(3) { transform: rotate(-90deg); }
 					}
 				}
 
@@ -229,12 +135,10 @@
 					li { display: none; }
 				}
 
-				/*
 				.expand {
 					opacity: 1;
 					transition: all 0.2s;
 				}
-				*/
 
 				.flyout.expand li a {
 					animation: expand 0.6s ease 1 backwards;
@@ -262,99 +166,13 @@
 				.flyout li:nth-of-type(2) a { animation-delay: 0.1s; }
 				.flyout li:nth-of-type(3) a { animation-delay: 0; }
 
-				.flyout li:nth-of-type(1) a:not(.clicked), .flyout li:nth-of-type(2) a:not(.clicked), .flyout li:nth-of-type(3) a:not(.clicked) {
-					animation: spin1-contract 0.9s ease-out 1 backwards;
-				}
-
 				.flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
 				.flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
 				.flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
 
-				.flyout.expand li:nth-of-type(1) a {
-					animation: spin1-expand 0.6s ease-out 1 backwards;
-					transform: rotate(0deg);
-				}
-
-				.flyout.expand li:nth-of-type(2) a {
-					animation: spin3-expand 0.6s ease-out 1 backwards;
-					transform: rotate(45deg); /* -45 */
-				}
-
-				.flyout.expand li:nth-of-type(3) a {
-					animation: spin6-expand .6s ease-out 1 backwards;
-					transform: rotate(90deg); /* -90 */
-				}
-
-				.flyout.fade li:nth-of-type(1) a.clicked { transform: rotate(0deg); }
-				.flyout.fade li:nth-of-type(2) a.clicked { transform: rotate(-45deg); }
-				.flyout.fade li:nth-of-type(3) a.clicked { transform: rotate(-90deg); }
-
-				.ani-expand 0 { top: 150px; }
-				.ani-expand 50% { top: -10px; }
-				.ani-expand 70% { top: 15px; }
-				.ani-expand 100% { top: 10px; }
-
-				.ani-contract 0 { top: 10px; }
-				.ani-contract 40% { top: -25px; }
-				.ani-contract 100% { top: 150px; }
-
-				.ani-clicked 0 {
-					opacity: 1;
-					transform: scale(1);
-				}
-
-				.ani-clicked 100% {
-					opacity: 0;
-					transform: scale(5);
-				}
-
-				.ani-spin1-expand 0 { transform: rotate(0deg); }
-				.ani-spin1-expand 60% { transform: rotate(-360deg); }
-				.ani-spin1-expand 100% { transform: rotate(-360deg); }
-
-				.ani-spin2-expand 0 { transform: rotate(-18deg); }
-				.ani-spin2-expand 60% { transform: rotate(-378deg); }
-				.ani-spin2-expand 100% { transform: rotate(-378deg); }
-
-				.ani-spin3-expand 0 { transform: rotate(-36deg); }
-				.ani-spin3-expand 60% { transform: rotate(-396deg); }
-				.ani-spin3-expand 100% { transform: rotate(-396deg); }
-
-				.ani-spin4-expand 0 { transform: rotate(-54deg); }
-				.ani-spin4-expand 60% { transform: rotate(-414deg); }
-				.ani-spin4-expand 100% { transform: rotate(-414deg); }
-
-				.ani-spin5-expand 0 { transform: rotate(-72deg); }
-				.ani-spin5-expand 60% { transform: rotate(-432deg); }
-				.ani-spin5-expand 100% { transform: rotate(-432deg); }
-
-				.ani-spin6-expand 0 { transform: rotate(-90deg); }
-				.ani-spin6-expand 60% { transform: rotate(-450deg); }
-				.ani-spin6-expand 100% { transform: rotate(-450deg); }
-
-				.ani-spin1-contract 0 { transform: rotate(0deg); }
-				.ani-spin1-contract 50% { transform: rotate(360deg); }
-				.ani-spin1-contract 100% { transform: rotate(360deg); }
-
-				.ani-spin2-contract 0 { transform: rotate(-18deg); }
-				.ani-spin2-contract 50% { transform: rotate(360deg); }
-				.ani-spin2-contract 100% { transform: rotate(360deg); }
-
-				.ani-spin3-contract 0 { transform: rotate(-36deg); }
-				.ani-spin3-contract 50% { transform: rotate(360deg); }
-				.ani-spin3-contract 100% { transform: rotate(360deg); }
-
-				.ani-spin4-contract 0 { transform: rotate(-54deg); }
-				.ani-spin4-contract 50% { transform: rotate(360deg); }
-				.ani-spin4-contract 100% { transform: rotate(360deg); }
-
-				.ani-spin5-contract 0 { transform: rotate(-72deg); }
-				.ani-spin5-contract 50% { transform: rotate(360deg); }
-				.ani-spin5-contract 100% { transform: rotate(360deg); }
-
-				.ani-spin6-contract 0 { transform: rotate(-90deg); }
-				.ani-spin6-contract 50% { transform: rotate(360deg); }
-				.ani-spin6-contract 100% { transform: rotate(360deg); }
+				.flyout.expand li:nth-of-type(1) a { transform: rotate(0deg); }
+				.flyout.expand li:nth-of-type(2) a { transform: rotate(45deg); }
+				.flyout.expand li:nth-of-type(3) a { transform: rotate(90deg); }
 			}
 
 			#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper,

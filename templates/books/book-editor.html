@@ -203,16 +203,7 @@
 					{% for page in pages %}
 					<li class="page" id="mini-page-{{ page.id }}">
 						<input name="" value="{{ page.id }}" type="checkbox" onclick="bookChecked(this)"/>
-						<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"
-						{% if page.media %}
-						{% if page.media.mimetype == "video/embed" %}
-						src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"
-						{% elif "image" in page.media.mimetype %}
-						src="{{ page.media.url }}/convert?w=150&amp;h=150"
-						{% endif %}
-						{% else %}
-						src="{{STATIC_URL}}images/book-text.jpg"
-						{% endif %}/>
+						<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"{% if page.media %}{% if page.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"{% elif "image" in page.media.mimetype %}src="{{ page.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
 					</li>
 					{% endfor %}
 				</ul>

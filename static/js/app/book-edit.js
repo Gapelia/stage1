@@ -19,7 +19,7 @@
 
 	window.PAGE_CHANGED = false;
 
-	all_layouts = $('[id*="preview-wrapper-"]');
+	all_layouts = $("[id*='preview-wrapper-']");
 	all_layouts.hide();
 
 	$("#preview-wrapper-" + LAYOUT_FRONT_COVER).show();
@@ -137,6 +137,12 @@
 
 	switchToPage(true, CURRENT_PAGE_ID);
 
+	/*
+	$(switchToPage).click(function() {
+		$(".page img").css("border", "3px solid #70a1b1");
+	});
+	*/
+
 	window.changeLicense = function(license_number) {
 		return window.CURRENT_PAGE_LICENSE = license_number;
 	};
@@ -240,6 +246,14 @@
 			page = pages_json[_i];
 			pages_dict[page.id] = page;
 		}
+
+		// $(".page img").css("border", "3px solid #70a1b1");
+
+		/*
+		$(switchToPage).click(function() {
+			$(".page img").css("border", "3px solid #70a1b1");
+		});
+		*/
 
 		$("input").click(function() {
 			return window.PAGE_CHANGED = true;

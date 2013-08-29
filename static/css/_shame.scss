@@ -395,23 +395,8 @@
 			.flyout-wrap {
 				.page-settings, .page-edit, .page-upload, .page-collab, .page-delete { -webkit-transition: all 0.2s; }
 
-				.page-upload, .page-edit {
-					a {
-						span { -webkit-transform: rotate(0deg); }
-					}
-				}
-
-				.page-collab {
-					a {
-						span { -webkit-transform: rotate(85deg); }
-					}
-				}
-
-				.page-delete {
-					a {
-						span { -webkit-transform: rotate(180deg); }
-					}
-				}
+				.flyout-btn { transition: -webkit-transform 0.4s ease; }
+				.btn-rotate { -webkit-transform: rotate(-135deg); }
 
 				@-webkit-keyframes expand {
 					0% { top: 150px; }
@@ -426,90 +411,6 @@
 					100% { top: 150px; };
 				}
 
-				@-webkit-keyframes clicked {
-					0% { -webkit-transform: scale(1); }
-					99% { -webkit-transform: scale(6); }
-					100% { -webkit-transform: scale(0); };
-				}
-
-				@-webkit-keyframes fade {
-					0% { -webkit-transform: scale(1); }
-					99% { -webkit-transform: scale(0); }
-					100% { -webkit-transform: scale(0); };
-				}
-
-				@-webkit-keyframes spin1-expand {
-					0% { -webkit-transform: rotate(0deg); }
-					60% { -webkit-transform: rotate(-360deg); }
-					100% { -webkit-transform: rotate(-360deg); };
-				}
-
-				@-webkit-keyframes spin2-expand {
-					0% { -webkit-transform: rotate(-18deg); }
-					60% { -webkit-transform: rotate(-378deg); }
-					100% { -webkit-transform: rotate(-378deg); };
-				}
-
-				@-webkit-keyframes spin3-expand {
-					0% { -webkit-transform: rotate(-36deg); }
-					60% { -webkit-transform: rotate(-396deg); }
-					100% { -webkit-transform: rotate(-396deg); };
-				}
-
-				@-webkit-keyframes spin4-expand {
-					0% { -webkit-transform: rotate(-54deg); }
-					60% { -webkit-transform: rotate(-414deg); }
-					100% { -webkit-transform: rotate(-414deg); };
-				}
-
-				@-webkit-keyframes spin5-expand {
-					0% { -webkit-transform: rotate(-72deg); }
-					60% { -webkit-transform: rotate(-432deg); }
-					100% { -webkit-transform: rotate(-432deg); };
-				}
-
-				@-webkit-keyframes spin6-expand {
-					0% { -webkit-transform: rotate(-90deg); }
-					60% { -webkit-transform: rotate(-450deg); }
-					100% { -webkit-transform: rotate(-450deg); };
-				}
-
-				@-webkit-keyframes spin1-contract {
-					0% { -webkit-transform: rotate(0deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
-				@-webkit-keyframes spin2-contract {
-					0% { -webkit-transform: rotate(-18deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
-				@-webkit-keyframes spin3-contract {
-					0% { -webkit-transform: rotate(-36deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
-				@-webkit-keyframes spin4-contract {
-					0% { -webkit-transform: rotate(-54deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
-				@-webkit-keyframes spin5-contract {
-					0% { -webkit-transform: rotate(-72deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
-				@-webkit-keyframes spin6-contract {
-					0% { -webkit-transform: rotate(-90deg); }
-					50% { -webkit-transform: rotate(360deg); }
-					100% { -webkit-transform: rotate(360deg); };
-				}
-
 				.flyout {
 					li {
 						-webkit-transform-origin: 0 bottom;
@@ -522,109 +423,19 @@
 
 				.flyout.expand li a { -webkit-animation: expand 0.6s ease 1 backwards; }
 				.flyout li a { -webkit-animation: contract 0.35s ease-out 1 backwards; }
-				.flyout.fade li a.clicked { -webkit-animation: clicked 0.5s ease-out 1 forwards; }
-
-				.flyout.fade li a:not(.clicked) {
-					-webkit-animation: fade 0.5s ease-out 1 forwards;
-					-webkit-transition: opacity 0.3s ease;
-				}
 
 				.flyout li:nth-of-type(1) a { animation-delay: 0.2s; }
 				.flyout li:nth-of-type(2) a { animation-delay: 0.10s; }
 				.flyout li:nth-of-type(3) a { animation-delay: 0; }
 
-				.flyout li:nth-of-type(1) a:not(.clicked), .flyout li:nth-of-type(2) a:not(.clicked), .flyout li:nth-of-type(3) a:not(.clicked) {
-					-webkit-animation: spin6-contract 0.9s ease-out 1 backwards;
-				}
-
 				.flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
 				.flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
 				.flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
 
-				.flyout.expand li:nth-of-type(1) a {
-					-webkit-animation: spin1-expand 0.6s ease-out 1 backwards;
-					-webkit-transform: rotate(0deg);
-				}
-
-				.flyout.expand li:nth-of-type(2) a {
-					-webkit-animation: spin3-expand 0.6s ease-out 1 backwards;
-					-webkit-transform: rotate(45deg);
-				}
-
-				.flyout.expand li:nth-of-type(3) a {
-					-webkit-animation: spin6-expand 0.6s ease-out 1 backwards;
-					-webkit-transform: rotate(90deg);
-				}
-
-				.flyout.fade li:nth-of-type(1) a.clicked { -webkit-transform: rotate(0deg); }
-				.flyout.fade li:nth-of-type(2) a.clicked { -webkit-transform: rotate(-45deg); }
-				.flyout.fade li:nth-of-type(3) a.clicked { -webkit-transform: rotate(-90deg); }
-
-				.flyout-btn { transition: -webkit-transform 0.4s ease; }
-
-				.btn-rotate { -webkit-transform: rotate(-135deg); }
-
-				.ani-clicked 0 { -webkit-transform: scale(1); }
-				.ani-clicked 100% { -webkit-transform: scale(5); }
-
-				.ani-spin1-expand 0 { -webkit-transform: rotate(0deg); }
-				.ani-spin1-expand 60% { -webkit-transform: rotate(-360deg); }
-				.ani-spin1-expand 100% { -webkit-transform: rotate(-360deg); }
-
-				.ani-spin2-expand 0 { -webkit-transform: rotate(-18deg); }
-				.ani-spin2-expand 60% { -webkit-transform: rotate(-378deg); }
-				.ani-spin2-expand 100% { -webkit-transform: rotate(-378deg); }
-
-				.ani-spin3-expand 0 { -webkit-transform: rotate(-36deg); }
-				.ani-spin3-expand 60% { -webkit-transform: rotate(-396deg); }
-				.ani-spin3-expand 100% { -webkit-transform: rotate(-396deg); }
-
-				.ani-spin4-expand 0 { -webkit-transform: rotate(-54deg); }
-				.ani-spin4-expand 60% { -webkit-transform: rotate(-414deg); }
-				.ani-spin4-expand 100% { -webkit-transform: rotate(-414deg); }
-
-				.ani-spin5-expand 0 { -webkit-transform: rotate(-72deg); }
-				.ani-spin5-expand 60% { -webkit-transform: rotate(-432deg); }
-				.ani-spin5-expand 100% { -webkit-transform: rotate(-432deg); }
-
-				.ani-spin6-expand 0 { -webkit-transform: rotate(-90deg); }
-				.ani-spin6-expand 60% { -webkit-transform: rotate(-450deg); }
-				.ani-spin6-expand 100% { -webkit-transform: rotate(-450deg); }
-
-				.ani-spin1-contract 0 { -webkit-transform: rotate(0deg); }
-				.ani-spin1-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin1-contract 100% { -webkit-transform: rotate(360deg); }
-
-				.ani-spin2-contract 0 { -webkit-transform: rotate(-18deg); }
-				.ani-spin2-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin2-contract 100% { -webkit-transform: rotate(360deg); }
-
-				.ani-spin3-contract 0 { -webkit-transform: rotate(-36deg); }
-				.ani-spin3-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin3-contract 100% { -webkit-transform: rotate(360deg); }
-
-				.ani-spin4-contract 0 { -webkit-transform: rotate(-54deg); }
-				.ani-spin4-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin4-contract 100% { -webkit-transform: rotate(360deg); }
-
-				.ani-spin5-contract 0 { -webkit-transform: rotate(-72deg); }
-				.ani-spin5-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin5-contract 100% { -webkit-transform: rotate(360deg); }
-
-				.ani-spin6-contract 0 { -webkit-transform: rotate(-90deg); }
-				.ani-spin6-contract 50% { -webkit-transform: rotate(360deg); }
-				.ani-spin6-contract 100% { -webkit-transform: rotate(360deg); }
+				.flyout.expand li:nth-of-type(1) a { -webkit-transform: rotate(0deg); }
+				.flyout.expand li:nth-of-type(2) a { -webkit-transform: rotate(45deg); }
+				.flyout.expand li:nth-of-type(3) a { -webkit-transform: rotate(90deg); }
 			}
-
-			/*
-			#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper,
-			#phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper,
-			#book-creation-wrapper,
-			.frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper,
-			.phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper,
-			.book-creation-wrapper {
-			}
-			*/
 		}
 	}
 }

@@ -889,65 +889,35 @@ footer ul li:last-child:after { content: ""; }
 #book-creation-wrapper #create-book { clear: left; height: 100%; overflow: hidden; }
 #book-creation-wrapper #create-book #create-content, #book-creation-wrapper #create-book #create-sidebar { float: left; }
 #book-creation-wrapper #create-book #create-content { background-color: #585959; position: relative; width: 67.4%; /* to do: change to "horizontal" */ /* to do: change to "integrated */ }
-#book-creation-wrapper #create-book #create-content .flyout-wrap { width: 150px; /**/ height: 191px; top: 1rem; right: 1rem; position: absolute; z-index: 999; /* .page-settings { background: url("../images/icon-settings.png") no-repeat center center; } */ /* animation/expand */ @keyframes expand { 0% { top: 150px; }
+#book-creation-wrapper #create-book #create-content .flyout-wrap { width: 150px; /**/ height: 191px; top: 1rem; right: 1rem; position: absolute; z-index: 999; /* animation/expand */ @keyframes expand { 0% { top: 150px; }
   50% { top: -10px; }
   70% { top: 15px; }
   100% { top: 10px; } }
  /* animation/contract */ @keyframes contract { 0% { top: 10px; }
   40% { top: -25px; }
   100% { top: 150px; } }
- /* animation/click */ @keyframes clicked { 0% { opacity: 1; top: 10px; transform: scale(1); }
-  90% { top: 10px; }
-  99% { opacity: 0; top: 150px; transform: scale(6); }
-  100% { transform: scale(0); } }
- /* animation/fade */ @keyframes fade { 0% { opacity: 1; transform: scale(1); top: 10px; }
-  90% { opacity: 0; top: 10px; }
-  99% { transform: scale(0); top: 150px; }
-  100% { transform: scale(0); } }
- /* animation/expand */ @keyframes spin1-expand { 0% { transform: rotate(0deg); }
-  60% { transform: rotate(-360deg); }
-  100% { transform: rotate(-360deg); } }
- @keyframes spin2-expand { 0% { transform: rotate(-36deg); }
-  60% { transform: rotate(-396deg); }
-  100% { transform: rotate(-396deg); } }
- @keyframes spin3-expand { 0% { transform: rotate(-90deg); }
-  60% { transform: rotate(-450deg); }
-  100% { transform: rotate(-450deg); } }
- /* animation/spin */ @keyframes spin1-contract { 0% { transform: rotate(0deg); }
-  50% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); } }
- @keyframes spin2-contract { 0% { transform: rotate(-36deg); }
-  50% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); } }
- @keyframes spin3-contract { 0% { transform: rotate(-90deg); }
-  50% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); } }
- /*
-.expand {
-	opacity: 1;
-	transition: all 0.2s;
-}
-*/ }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete { /* width: 48px; height: 48px; */ width: auto; height: auto; /* border: 1px solid rgba($black, 0.4); */ color: #fefefe; font-family: "entyporegular"; font-size: 4em; text-shadow: 0 0 1px rgba(25, 25, 25, 0.4); transition: all 0.2s; }
+ }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete { width: auto; height: auto; /* 48px */ color: #fefefe; font-family: "entyporegular"; font-size: 4em; text-shadow: 0 0 1px rgba(25, 25, 25, 0.4); transition: all 0.2s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings:hover, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit:hover, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload:hover, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab:hover, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete:hover { opacity: 0.7; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete span { color: #fefefe; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab a, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete a { width: auto; height: auto; display: block; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete span { /* width: 32px !important; height: 32px !important; */ display: inline-block; text-align: center; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout-btn { top: 0; right: 0; overflow: hidden; position: absolute; transform: rotate(0deg); transition: transform 0.4s ease; z-index: 9999; /* @include hide-text; */ }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .btn-rotate { /* top: -1px; right: -1px; */ top: -2px; right: -1px; text-shadow: 0 0 1px rgba(25, 25, 25, 0.4); transform: rotate(-135deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout-btn { top: 0; right: 0; overflow: hidden; position: absolute; transform: rotate(0deg); transition: transform 0.4s ease; z-index: 9999; }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .btn-rotate { top: -2px; right: -1px; text-shadow: 0 0 1px rgba(25, 25, 25, 0.4); transform: rotate(-135deg); vertical-align: top; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit { top: 57px; /* top: 71px; */ right: -99px; height: 100px !important; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit a span { /* background: url("../images/icon-edit.png") no-repeat center center; */ transform: rotate(0deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit a span { transform: rotate(0deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab { top: 64px; right: -32px; height: 100px !important; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab a span { /* background: url("../images/icon-collab.png") no-repeat center center; */ transform: rotate(85deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab a span { transform: rotate(85deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete { top: 40px; right: -32px; height: 100px !important; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete a span { /* background: url("../images/icon-trash.png") no-repeat center center; */ transform: rotate(180deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete a span { transform: rotate(180deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .expand .page-upload, #book-creation-wrapper #create-book #create-content .flyout-wrap .expand .page-edit { right: -32px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout { /* top: -140px; right: 0; */ top: -114px; right: 8px; line-height: 0; margin: 0; position: absolute; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li { display: block; height: 170px; position: absolute; transform-origin: 0 bottom; /* 12px */ /* 0 */ /* 45 */ /* 90 */ }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout { top: -114px; /* -140 */ right: 8px; /* 0 */ line-height: 0; margin: 0; position: absolute; }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li { display: block; height: 170px; position: absolute; transform-origin: 0 bottom; /* 12px */ }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) { transform: rotate(180deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) { transform: rotate(-130deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) { transform: rotate(-90deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout-init li { display: none; }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .expand { opacity: 1; transition: all 0.2s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li a { animation: expand 0.6s ease 1 backwards; top: 10px; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li a { animation: contract 0.35s ease-out 1 backwards; top: 150px; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li a.clicked { animation: clicked 0.5s ease-out 1 forwards; top: 10px; }
@@ -955,61 +925,12 @@ footer ul li:last-child:after { content: ""; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) a { animation-delay: 0.2s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) a { animation-delay: 0.1s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) a { animation-delay: 0; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) a:not(.clicked), #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) a:not(.clicked), #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) a:not(.clicked) { animation: spin1-contract 0.9s ease-out 1 backwards; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { animation: spin1-expand 0.6s ease-out 1 backwards; transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { animation: spin3-expand 0.6s ease-out 1 backwards; transform: rotate(45deg); /* -45 */ }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { animation: spin6-expand .6s ease-out 1 backwards; transform: rotate(90deg); /* -90 */ }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(1) a.clicked { transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(2) a.clicked { transform: rotate(-45deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(3) a.clicked { transform: rotate(-90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-expand 0  { top: 150px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-expand 50%  { top: -10px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-expand 70%  { top: 15px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-expand 100%  { top: 10px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-contract 0  { top: 10px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-contract 40%  { top: -25px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-contract 100%  { top: 150px; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-clicked 0  { opacity: 1; transform: scale(1); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-clicked 100%  { opacity: 0; transform: scale(5); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 0  { transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 60%  { transform: rotate(-360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 100%  { transform: rotate(-360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 0  { transform: rotate(-18deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 60%  { transform: rotate(-378deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 100%  { transform: rotate(-378deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 0  { transform: rotate(-36deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 60%  { transform: rotate(-396deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 100%  { transform: rotate(-396deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 0  { transform: rotate(-54deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 60%  { transform: rotate(-414deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 100%  { transform: rotate(-414deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 0  { transform: rotate(-72deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 60%  { transform: rotate(-432deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 100%  { transform: rotate(-432deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 0  { transform: rotate(-90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 60%  { transform: rotate(-450deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 100%  { transform: rotate(-450deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 0  { transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 100%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 0  { transform: rotate(-18deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 100%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 0  { transform: rotate(-36deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 100%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 0  { transform: rotate(-54deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 100%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 0  { transform: rotate(-72deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 100%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 0  { transform: rotate(-90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 50%  { transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 100%  { transform: rotate(360deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { transform: rotate(0deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { transform: rotate(45deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { transform: rotate(90deg); }
 #book-creation-wrapper #create-book #create-content #frontcover-preview-wrapper, #book-creation-wrapper #create-book #create-content #photo-preview-wrapper, #book-creation-wrapper #create-book #create-content #text-preview-wrapper, #book-creation-wrapper #create-book #create-content #integrated-preview-wrapper, #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper, #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper, #book-creation-wrapper #create-book #create-content #video-preview-wrapper, #book-creation-wrapper #create-book #create-content #book-creation-wrapper, #book-creation-wrapper #create-book #create-content .blank-preview-wrapper, #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper, #book-creation-wrapper #create-book #create-content .photo-preview-wrapper, #book-creation-wrapper #create-book #create-content .text-preview-wrapper, #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper, #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper, #book-creation-wrapper #create-book #create-content .phototext-ii-preview-wrapper, #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper, #book-creation-wrapper #create-book #create-content .video-preview-wrapper, #book-creation-wrapper #create-book #create-content .book-creation-wrapper { width: 100%; height: 100%; overflow: hidden; position: relative; }
 #book-creation-wrapper #create-book #create-content #frontcover-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #photo-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #text-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #integrated-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #video-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content #book-creation-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .phototext-ii-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-bg, #book-creation-wrapper #create-book #create-content .book-creation-wrapper .page-bg { width: 100%; /* 67.4% */ height: auto; margin-top: -2%; }
 #book-creation-wrapper #create-book #create-content #frontcover-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #frontcover-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #frontcover-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #photo-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #photo-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #photo-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #text-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #text-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #text-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #integrated-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #integrated-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #integrated-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #phototext-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #phototext-ii-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #video-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #video-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #video-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content #book-creation-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content #book-creation-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content #book-creation-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .phototext-ii-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .phototext-ii-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .phototext-ii-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc, #book-creation-wrapper #create-book #create-content .book-creation-wrapper .page-title-elem, #book-creation-wrapper #create-book #create-content .book-creation-wrapper .page-geotag-elem, #book-creation-wrapper #create-book #create-content .book-creation-wrapper .page-desc { display: block; }
@@ -2003,15 +1924,6 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
 100% { -webkit-transform: scale(0, 0); }
 
 /************************************************************************************** FLYOUT MENU **/
-#book-creation-wrapper #create-book #create-content { /*
-#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper,
-#phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper,
-#book-creation-wrapper,
-.frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper,
-.phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper,
-.book-creation-wrapper {
-}
-*/ }
 #book-creation-wrapper #create-book #create-content .flyout-wrap { @-webkit-keyframes expand { 0% { top: 150px; }
   50% { top: -10px; }
   70% { top: 15px; }
@@ -2019,111 +1931,22 @@ body .redactor_air .redactor_toolbar { padding-right: 2px !important; }
  @-webkit-keyframes contract { 0% { top: 10px; }
   40% { top: -25px; }
   100% { top: 150px; } }
- @-webkit-keyframes clicked { 0% { -webkit-transform: scale(1); }
-  99% { -webkit-transform: scale(6); }
-  100% { -webkit-transform: scale(0); } }
- @-webkit-keyframes fade { 0% { -webkit-transform: scale(1); }
-  99% { -webkit-transform: scale(0); }
-  100% { -webkit-transform: scale(0); } }
- @-webkit-keyframes spin1-expand { 0% { -webkit-transform: rotate(0deg); }
-  60% { -webkit-transform: rotate(-360deg); }
-  100% { -webkit-transform: rotate(-360deg); } }
- @-webkit-keyframes spin2-expand { 0% { -webkit-transform: rotate(-18deg); }
-  60% { -webkit-transform: rotate(-378deg); }
-  100% { -webkit-transform: rotate(-378deg); } }
- @-webkit-keyframes spin3-expand { 0% { -webkit-transform: rotate(-36deg); }
-  60% { -webkit-transform: rotate(-396deg); }
-  100% { -webkit-transform: rotate(-396deg); } }
- @-webkit-keyframes spin4-expand { 0% { -webkit-transform: rotate(-54deg); }
-  60% { -webkit-transform: rotate(-414deg); }
-  100% { -webkit-transform: rotate(-414deg); } }
- @-webkit-keyframes spin5-expand { 0% { -webkit-transform: rotate(-72deg); }
-  60% { -webkit-transform: rotate(-432deg); }
-  100% { -webkit-transform: rotate(-432deg); } }
- @-webkit-keyframes spin6-expand { 0% { -webkit-transform: rotate(-90deg); }
-  60% { -webkit-transform: rotate(-450deg); }
-  100% { -webkit-transform: rotate(-450deg); } }
- @-webkit-keyframes spin1-contract { 0% { -webkit-transform: rotate(0deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
- @-webkit-keyframes spin2-contract { 0% { -webkit-transform: rotate(-18deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
- @-webkit-keyframes spin3-contract { 0% { -webkit-transform: rotate(-36deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
- @-webkit-keyframes spin4-contract { 0% { -webkit-transform: rotate(-54deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
- @-webkit-keyframes spin5-contract { 0% { -webkit-transform: rotate(-72deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
- @-webkit-keyframes spin6-contract { 0% { -webkit-transform: rotate(-90deg); }
-  50% { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(360deg); } }
  }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .page-settings, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete { -webkit-transition: all 0.2s; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-upload a span, #book-creation-wrapper #create-book #create-content .flyout-wrap .page-edit a span { -webkit-transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-collab a span { -webkit-transform: rotate(85deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .page-delete a span { -webkit-transform: rotate(180deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li { -webkit-transform-origin: 0 bottom; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) { -webkit-transform: rotate(180deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) { -webkit-transform: rotate(-130deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) { -webkit-transform: rotate(-90deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li a { -webkit-animation: expand 0.6s ease 1 backwards; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li a { -webkit-animation: contract 0.35s ease-out 1 backwards; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li a.clicked { -webkit-animation: clicked 0.5s ease-out 1 forwards; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li a:not(.clicked) { -webkit-animation: fade 0.5s ease-out 1 forwards; -webkit-transition: opacity 0.3s ease; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) a { animation-delay: 0.2s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) a { animation-delay: 0.10s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) a { animation-delay: 0; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(1) a:not(.clicked), #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(2) a:not(.clicked), #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout li:nth-of-type(3) a:not(.clicked) { -webkit-animation: spin6-contract 0.9s ease-out 1 backwards; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { -webkit-animation: spin1-expand 0.6s ease-out 1 backwards; -webkit-transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { -webkit-animation: spin3-expand 0.6s ease-out 1 backwards; -webkit-transform: rotate(45deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { -webkit-animation: spin6-expand 0.6s ease-out 1 backwards; -webkit-transform: rotate(90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(1) a.clicked { -webkit-transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(2) a.clicked { -webkit-transform: rotate(-45deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.fade li:nth-of-type(3) a.clicked { -webkit-transform: rotate(-90deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(1) a { -webkit-transform: rotate(0deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(2) a { -webkit-transform: rotate(45deg); }
+#book-creation-wrapper #create-book #create-content .flyout-wrap .flyout.expand li:nth-of-type(3) a { -webkit-transform: rotate(90deg); }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .flyout-btn { transition: -webkit-transform 0.4s ease; }
 #book-creation-wrapper #create-book #create-content .flyout-wrap .btn-rotate { -webkit-transform: rotate(-135deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-clicked 0  { -webkit-transform: scale(1); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-clicked 100%  { -webkit-transform: scale(5); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 0  { -webkit-transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 60%  { -webkit-transform: rotate(-360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-expand 100%  { -webkit-transform: rotate(-360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 0  { -webkit-transform: rotate(-18deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 60%  { -webkit-transform: rotate(-378deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-expand 100%  { -webkit-transform: rotate(-378deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 0  { -webkit-transform: rotate(-36deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 60%  { -webkit-transform: rotate(-396deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-expand 100%  { -webkit-transform: rotate(-396deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 0  { -webkit-transform: rotate(-54deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 60%  { -webkit-transform: rotate(-414deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-expand 100%  { -webkit-transform: rotate(-414deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 0  { -webkit-transform: rotate(-72deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 60%  { -webkit-transform: rotate(-432deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-expand 100%  { -webkit-transform: rotate(-432deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 0  { -webkit-transform: rotate(-90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 60%  { -webkit-transform: rotate(-450deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-expand 100%  { -webkit-transform: rotate(-450deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 0  { -webkit-transform: rotate(0deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin1-contract 100%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 0  { -webkit-transform: rotate(-18deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin2-contract 100%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 0  { -webkit-transform: rotate(-36deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin3-contract 100%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 0  { -webkit-transform: rotate(-54deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin4-contract 100%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 0  { -webkit-transform: rotate(-72deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin5-contract 100%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 0  { -webkit-transform: rotate(-90deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 50%  { -webkit-transform: rotate(360deg); }
-#book-creation-wrapper #create-book #create-content .flyout-wrap .ani-spin6-contract 100%  { -webkit-transform: rotate(360deg); }
