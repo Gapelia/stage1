@@ -1,4 +1,3 @@
-
 /************************************************************************************ FULL-VIEW/SCSS **/
 
 .preview, .book {
@@ -17,15 +16,12 @@
 		width: 100%; height: 50px;
 		top: 0; left: 0;
 
-		/* background-color: $gray-i; */
 		background-color: rgba($gray-ii, 0.4);
-		transition: all 0.2s;
-
 		position: absolute;
+		transition: all 0.2s;
 		z-index: 1;
 
-		#back, #title, #finish,
-		#page-actions {
+		#back, #title, #finish, #page-actions {
 			display: inline-block;
 			vertical-align: middle;
 			width: 33%;
@@ -44,7 +40,6 @@
 			font-family: "OpenSansLight";
 			font-size: 1.5em;
 			line-height: 2.2em;
-			/* overflow: hidden; */
 			text-align: center;
 
 			#book-title {
@@ -115,7 +110,7 @@
 			transition: all 0.5s;
 
 			span {
-				margin: 0 0 0.12rem 0; /* margin: -11px 0 0 0; */ padding: 1rem;
+				margin: 0 0 0.12rem 0; padding: 1rem;
 
 				bottom: 0;
 				color: $white;
@@ -164,23 +159,8 @@
 	}
 
 	#frontcover-fullview-wrapper {
-		/*
-		#quote {
-			display: block !important;
-			font-size: 350%;
-			text-align: center !important;
-
-			span {
-				display: block;
-				font-family: Georgia, serif;
-				font-style: italic;
-				text-align: left;
-			}
-		}
-		*/
-
 		#story-content {
-			width: auto; /* 100% */ height: auto;
+			width: auto; height: auto;
 			margin: 0; padding: 0;
 
 			box-sizing: border-box;
@@ -189,9 +169,9 @@
 			text-overflow: ellipsis;
 
 			#story-wrapper {
-				margin: 0 auto !important; /* margin: 5% auto 0; */
+				margin: 0 auto !important;
 				position: relative;
-				width: 100%; /* width: 65%; */
+				width: 100%;
 
 				#story {
 					background-color: rgba($black, 0.5);
@@ -252,17 +232,12 @@
 		.page-title-elem {
 			margin: 0 0 0.5rem 0; padding: 1rem 0 0 0;
 
-			/*
-			font-size: 1.5em;
-			line-height: inherit;
-			*/
 			font-size: 35px;
 			line-height: 40px;
 		}
 
 		.page-geotag-elem {
 			font-size: 17px;
-			/* font-size: 1.2em; */
 			line-height: 24px;
 			text-transform: uppercase;
 		}
@@ -296,7 +271,6 @@
 			padding: 1rem 2rem;
 
 			.page-title-elem, .page-geotag-elem, .page-desc p { text-align: center; }
-
 			.page-title-elem { padding: 0; }
 
 			.page-desc {
@@ -381,14 +355,13 @@
 
 		#vertical-bg {
 			width: auto; height: 100%;
-			/* margin: 0 0 0 10%; */
 		}
 	}
 
 	#video-fullview-wrapper {
 		iframe {
-			width: 100%; height: 84.9%; /* width: 92.8%; height: 78.3%; */
-			top: 0; left: 0; /* top: 6.6%; left: 3.6%; */
+			width: 100%; height: 84.9%;
+			top: 0; left: 0;
 
 			display: inline-block;
 			position: fixed;
@@ -396,10 +369,6 @@
 		}
 
 		#information {
-			/*
-			height: 15.3%;
-			padding: 1.5rem 4.5rem 0;
-			*/
 		}
 	}
 
@@ -407,7 +376,6 @@
 		#story-content {
 			margin: 0 0 0 50px; padding: 0 5%;
 
-			/* background-color: rgba(#07d0eb, 0.2); */
 			box-sizing: border-box;
 			overflow: hidden;
 			position: relative;
@@ -450,7 +418,7 @@
 		}
 
 		#story-content {
-			width: auto; /* 100% */ height: auto;
+			width: auto; height: auto;
 			margin: 0; padding: 0;
 
 			box-sizing: border-box;
@@ -474,37 +442,6 @@
 				text-transform: uppercase;
 				user-select: none;
 				width: 100%;
-			}
-
-			.handle-ii {
-				width: 6px; height: 6px;
-
-				background-color: $gray-ii;
-				position: absolute;
-			}
-
-			.NW, .NN, .NE {
-				display: none;
-				top: 0;
-			}
-
-			.NE, .EE, .SE { right: 0; }
-			.SW, .SS, .SE { bottom: 0; }
-			.NW, .WW, .SW { left: 0; }
-
-			.SE, .NW { cursor: nw-resize; }
-			.SW, .NE { cursor: ne-resize; }
-
-			.NN, .SS {
-				cursor: n-resize;
-				left: 50%;
-				margin-left: -4px;
-			}
-
-			.EE, .WW {
-				cursor: e-resize;
-				margin-top: -4px;
-				top: 50%;
 			}
 
 			#story {
@@ -580,167 +517,6 @@
 			}
 		}
 	}
-
-	/* .draggable-window { display: none !important; } */
-
-	#draggable {
-		width: 400px; height: 450px;
-		top: 5rem; right: 5rem;
-
-		background-color: $gray-ii;
-		display: none;
-		position: fixed;
-		z-index: 2000;
-
-		nav {
-			display: inline-block;
-			height: 3.313em;
-			overflow: hidden;
-			position: absolute;
-			width: 100%;
-			z-index: 1000;
-
-			a {
-				border-right: 1px solid $gray-ii;
-				border-bottom: 1px solid $gray-ii;
-				display: block;
-				float: left;
-				font-family: "OpenSansLight";
-				padding: 0.5rem;
-				text-align: center;
-				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-				width: 25%;
-
-				&:first-child {
-					border-left: 1px solid $gray-ii;
-					&:hover { border-left: 1px solid $gray-i; }
-				}
-
-				&:last-child {
-					border-left: 0;
-					border-right: 1px solid $gray-ii;
-				}
-
-				&:hover { background-color: $white; }
-			}
-
-			a.rc-active {
-				background-color: $white;
-				border-bottom: 1px solid $white;
-
-				&:first-child { border-left: 1px solid $gray-i; }
-				&:last-child { border-right: 1px solid $gray-i; }
-			}
-		}
-
-		/*
-		.cbp-contentslider {
-			width: 100%; height: 100%;
-			position: relative;
-
-			#sidebar-content {
-				width: 100%; height: 100%;
-				margin: 0; padding: 0;
-
-				border: 1px solid $gray-i;
-				border-top: none;
-				list-style: none;
-				overflow: hidden;
-				position: relative;
-
-				#tab-content, #tab-tags, #tab-snippets, #tab-settings {
-					width: 100%; height: 100%;
-					top: 2rem; left: 0;
-
-					background-color: $white;
-					display: table;
-					overflow-x: hidden;
-					overflow-y: auto;
-					padding: 1rem;
-					position: absolute;
-					user-select: text !important;
-
-					::selection {
-						background-color: $gray-ii;
-						color: $black;
-					}
-
-					button, input[type="text"], input[type="password"], input[type="email"] {
-						margin: 0 auto 1rem; padding: 0;
-
-						border-radius: 0;
-						display: block;
-						font-size: 16px;
-						text-align: left;
-					}
-				}
-
-				.redactor_box {
-					.redactor_toolbar { width: 100%; }
-
-					.redactor_editor {
-						height: 300px;
-						z-index: 1;
-					}
-				}
-
-				#view-mode {
-					margin: 1rem 0 0 0;
-
-					p, input, label {
-						float: left;
-						vertical-align: middle;
-					}
-
-					p, label { margin: 0 1rem 0 0; }
-					input { margin: 0 0.2rem 0 0; }
-				}
-
-				.tag-input {
-					border-bottom: 1px solid $gray-ii;
-					clear: both;
-					padding: 1.8rem 1rem;
-
-					label, input {
-						display: inline;
-						vertical-align: middle;
-						width: 50%;
-					}
-
-					label { font-size: 14px; }
-
-					input {
-						background-color: $white;
-						border: 1px solid $gray-ii;
-						float: right;
-						font-size: 12px;
-						height: 20px;
-						margin: 0 0 3px 0;
-					}
-
-					.hint {
-						float: right;
-						font-size: 10px;
-						font-style: italic;
-						text-align: right;
-						width: 100%;
-					}
-
-					&:first-child { padding-top: 0; }
-				}
-
-				#snippet-preview {
-					img {
-						width: 300px; height: auto;
-
-						display: table;
-						margin: 0 auto;
-					}
-				}
-			}
-		}
-		*/
-	}
 }
 
 .fv-frontcover {
@@ -756,7 +532,6 @@
 			width: 100% !important;
 
 			span {
-				/* float: left; */
 				margin: 0 auto !important;
 
 				&:after { content: " | " !important; }
@@ -816,7 +591,7 @@
 .fv-integrated {
 }
 
-/** WINDOW STYLING ************************************************************************************/
+/** Dream Editor **************************************************************************************/
 
 .wm-window {
 	min-width: 400px !important; max-width: 400px !important; max-height: 500px;
@@ -824,7 +599,6 @@
 
 .wm-content {
 	overflow-x: hidden;
-	/* z-index: 2000; */
 
 	nav {
 		display: inline-block;
@@ -882,7 +656,7 @@
 			position: relative;
 
 			#tab-layout, #tab-content, #tab-tags, #tab-snippets, #tab-settings {
-				width: 100%; height: 100%; /* height: 555px !important; */
+				width: 100%; height: 100%;
 				top: 2rem; left: 0;
 
 				background-color: $white;
@@ -947,7 +721,6 @@
 					&:last-child { margin: 0; }
 
 					.view-style {
-						/* display: inline-block; */
 						float: left;
 						margin: 0 1rem 1rem 0;
 						text-align: center;
@@ -965,20 +738,6 @@
 					z-index: 1;
 				}
 			}
-
-			/*
-			#view-mode {
-				margin: 1rem 0 0 0;
-
-				p, input, label {
-					float: left;
-					vertical-align: middle;
-				}
-
-				p, label { margin: 0 1rem 0 0; }
-				input { margin: 0 0.2rem 0 0; }
-			}
-			*/
 
 			/* Tags Tab */
 			.tag-input {
@@ -1076,7 +835,7 @@
 
 .fv-phototext-ii {
 	#vertical-bg, #story-content {
-		/* width: auto !important; */ max-width: 500px !important; height: 100%;
+		max-width: 500px !important; height: 100%;
 		top: auto !important; right: auto !important;
 
 		display: inline-block !important;
@@ -1088,4 +847,3 @@
 		height: auto !important;
 	}
 }
-

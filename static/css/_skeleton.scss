@@ -1,8 +1,7 @@
-
 /************************************************************************************* SKELETON/SCSS **/
 /********************************************************************************************* V 1.2 **/
 
-/** [-] TABLE OF CONTENTS *****************************************************************************/
+/** [-] Table of Contents *****************************************************************************/
 /****** [+] Base 960 Grid
         [+] Tablet in 768-width portrait view
         [+] Mobile in 320-width portrait view
@@ -219,18 +218,22 @@
         <div class="row"/>
 *******************************************************************************************************/
 
-.clearfix:before, .clearfix:after,
-.row:before, .row:after {
-  width: 0; height: 0;
+.row, .clearfix { zoom: 1; }
 
-  content: "\0020";
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
+.clearfix, .row {
+	&:before, &:after {
+		width: 0; height: 0;
+
+		content: "\0020";
+		display: block;
+		overflow: hidden;
+		visibility: hidden;
+	}
 }
 
-.row:after, .clearfix:after { clear: both; }
-.row, .clearfix { zoom: 1; }
+.clearfix, .row {
+	&:after { clear: both; }
+}
 
 /** [-] NOTE ******************************************************************************************/
 /****** You can also use <br class="clear"/> to clear columns *****************************************/

@@ -1,4 +1,3 @@
-
 /******************************************************************************** BOOK-CREATION/SCSS **/
 
 #book-creation-wrapper {
@@ -17,22 +16,20 @@
 			width: 67.4%;
 
 			.flyout-wrap {
-				width: 150px; /**/ height: 191px;
+				width: 150px; height: 191px;
 				top: 1rem; right: 1rem;
 
 				position: absolute;
 				z-index: 999;
 
 				.page-settings, .page-edit, .page-upload, .page-collab, .page-delete {
-					width: auto; height: auto; /* 48px */
+					width: auto; height: auto;
 
 					color: $white;
 					font-family: "entyporegular";
 					font-size: 4em;
 					text-shadow: 0 0 1px rgba($black, 0.4);
 					transition: all 0.2s;
-
-					&:hover { opacity: 0.7; }
 
 					a, span { color: $white; }
 
@@ -46,6 +43,8 @@
 						display: inline-block;
 						text-align: center;
 					}
+
+					&:hover { opacity: 0.7; }
 				}
 
 				.flyout-btn {
@@ -67,7 +66,7 @@
 				}
 
 				.page-edit {
-					top: 57px; /* top: 71px; */ right: -99px;
+					top: 57px; right: -99px;
 					height: 100px !important;
 
 					a {
@@ -113,7 +112,7 @@
 				}
 
 				.flyout {
-					top: -114px; /* -140 */ right: 8px; /* 0 */
+					top: -114px; right: 8px;
 
 					line-height: 0;
 					margin: 0;
@@ -123,7 +122,7 @@
 						display: block;
 						height: 170px;
 						position: absolute;
-						transform-origin: 0 bottom; /* 12px */
+						transform-origin: 0 bottom;
 
 						&:nth-of-type(1) { transform: rotate(180deg); }
 						&:nth-of-type(2) { transform: rotate(-130deg); }
@@ -187,17 +186,12 @@
 				position: relative;
 
 				.page-bg {
-					width: 100%; /* 67.4% */ height: auto;
+					width: 100%; height: auto;
 					margin-top: -2%;
 				}
 
-				.page-title-elem, .page-geotag-elem, .page-desc {
-					display: block;
-				}
-
-				.page-title-elem, .page-geotag-elem {
-					margin: 0 0 0.5rem 0;
-				}
+				.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
+				.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
 
 				.page-title-elem {
 					font-family: "OpenSansLight";
@@ -219,11 +213,6 @@
 						margin: 0; padding: 0;
 					}
 				}
-			}
-
-			li.sortable-placeholder {
-				background-color: none;
-				border: 1px dashed #ccc;
 			}
 
 			#photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper,
@@ -555,12 +544,10 @@
 					padding: 0.5rem;
 					text-align: center;
 					transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-					width: 25%; /* width: 20%; height: 100%; */
+					width: 25%;
 
 					&:hover { background-color: $white; }
 					&:last-child { border-right: 0; }
-
-					/* span { display: block; } */
 				}
 
 				a.rc-active {
@@ -570,7 +557,7 @@
 			}
 
 			.cbp-contentslider {
-				width: 100%; height: 500px; /* height: 70%; */
+				width: 100%; height: 500px;
 				position: relative;
 
 				#sidebar-content {
@@ -582,7 +569,7 @@
 					position: relative;
 
 					#tab-layout, #tab-content, #tab-tags, #tab-snippets, #tab-settings {
-						width: 100%; height: 100%; /* height: 555px !important; */
+						width: 100%; height: 100%;
 						top: 2rem; left: 0;
 
 						background-color: $white;
@@ -601,12 +588,8 @@
 					#view-mode {
 						margin: 1rem 0 0 0;
 
-						p, input, label {
-							/* float: left; */
-							text-align: center;
-						}
+						p, input, label { text-align: center; }
 
-						/* input[type="radio"]:checked + label */
 						label + input[type="radio"]:checked { background-color: $gray-i; }
 
 						label {
@@ -645,14 +628,10 @@
 					}
 
 					.redactor_box {
-						/* max-width: 515px !important; */
-						textarea {
-						}
-
 						.redactor_toolbar { width: 100%; }
 
 						.redactor_editor {
-							/* min-width: 515px !important; width: 515px  !important; max-width: 515px !important; */ height: 300px;
+							height: 300px;
 							resize: none !important;
 							z-index: 1;
 						}

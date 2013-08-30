@@ -1,4 +1,3 @@
-
 /******************************************************************************** VERT-RESPONSE/SCSS **/
 
 @media only screen and (min-height: 654px) and (max-height: 677px) {
@@ -150,27 +149,6 @@
 	}
 
 	/** [-] Small Scroller ******************************************************************************/
-
-	/*
-	#small-scroller-wrapper {
-		#prev-small, #next-small { padding: 4rem 0; }
-	}
-	*/
-
-	/*
-	#small-scroller, #gapelian-scroller {
-		.user-book, .user {
-			width: 360px; height: 144px;
-
-			.cover {
-				width: 144px; height: 144px;
-			}
-		}
-
-		.user { width: 144px; }
-	}
-	*/
-
 	/** [-] Dimensions **********************************************************************************/
 
 	.art, .flow, .life, .pulse, .wonder, .wow {
@@ -196,7 +174,6 @@
 
 				/* Content Tab */
 				.redactor_box {
-					/* max-width: 39% !important; */
 					.redactor_editor { height: 230px !important; }
 				}
 			}
