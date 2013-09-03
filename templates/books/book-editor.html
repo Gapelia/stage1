@@ -65,7 +65,14 @@
 			<div id="book-creation-wrapper">
 				<div id="create-book">
 					<div id="layout-scroller">
-						Something
+						<ul>
+							<li>01</li>
+							<li>02</li>
+							<li>03</li>
+							<li>04</li>
+							<li>05</li>
+							<li>06</li>
+						</ul>
 					</div>
 
 					<div id="create-content">
@@ -285,6 +292,16 @@
 		</script>
 		
 		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
+
+		<!--/ scripts/layout-scroller /-->
+		<script src="{{ STATIC_URL }}scripts/mousewheel.js"></script>
+		<script src="{{ STATIC_URL }}scripts/scrollpanel.js"></script>
+
+		<script>
+			$("#layout-scroller").scrollpanel();
+		</script>
+
+		<!--/ scripts/page-sorter /-->
 		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
 		<script>
