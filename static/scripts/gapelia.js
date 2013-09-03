@@ -92,7 +92,13 @@ $(document).ready(function() {
 	var viewportWidth = $(window).width();
 	var smallBookScroller = viewportWidth - 203;
 
+	var bcViewportHeight = $(window).height();
+	var bcH = bcViewportHeight - 180;
+
 	$(".small-book-scroller nav").width(smallBookScroller);
+	$("#create-book").height(bcH);
+
+	$(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(bcH);
 });
 
 // RESPONSIVE VERTICAL HEIGHT. HOLLAAAAA! /////////////////////////////////////////////////////////////
@@ -104,18 +110,18 @@ $(document).ready(function() {
 	var w = viewportWidth;
 	var h = viewportHeight - 208;
 
-	$("#main-content, #user-content").width(w).height(h);
+	// $("#main-content, #user-content").width(w).height(h);
 
 	// BOOK CREATION ////////////////////////////////////////////////////////////////////////////////////
 
-	$("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").height(h);
+	// $("#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper, #phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper").height(h);
 
-	$(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(h);
+	// $(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(h);
 
 	// $(".page-bg").height(h);
 
-	$("#tab-layout, #tab-content, #tab-tags, #tab-settings").height(h);
-	$("#big-scroller-wrapper, .caroufredsel_wrapper, #big-scroller, .dimension-book").height(h);
+	// $("#tab-layout, #tab-content, #tab-tags, #tab-settings").height(h);
+	// $("#big-scroller-wrapper, .caroufredsel_wrapper, #big-scroller, .dimension-book").height(h);
 });
 
 // MAIN SCROLLER //////////////////////////////////////////////////////////////////////////////////////

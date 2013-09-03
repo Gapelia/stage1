@@ -1,365 +1,435 @@
-{% extends 'books/books_base.html' %}
 {% load content_tags %}
-{% block main_content %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block head_scripts %}
-		<script src="{{ STATIC_URL }}js/app/video_url_parser.js"></script>
-{% endblock %}
+	<head>
 
-			<section id="breadcrumbs">
-				<a href="{% url 'books' %}">Home</a> > <a href="" class="current">Create a new book</a>
-			</section>
+		<meta charset="utf-8"/>
+		<title>Create a book | Gapelia</title>
 
-			<!--/ main-content /-->
+		<meta name="description" content=""/>
+		<meta name="keywords" content=""/>
+		<meta name="author" content="Gapelia"/>
 
-			<section id="main-content">
-				{% if not pages %}
-				<!--/ preview/blank-page /-->
+		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
+		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
 
-				<section class="blank-preview-wrapper">
-					<div id="blank-preview">
-						<div class="cover-info">
-							<h1>{{ book.title }}</h1>
-							<h5>has been created. Add pages to it!</h5>
-						</div>
-					</div>
-				</section>
-				{% else %}
+		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/jquery-ui.css" rel="stylesheet"/>					/-->
+		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/osmplayer_default.css" rel="stylesheet"/>	/-->
 
-				<div id="book-creation-wrapper">
-					<div id="create-book">
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-						<div id="create-content">
-							<div class="flyout-wrap">
-								<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
+		<!--/ scripts/enablers /-->
+		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
+		<script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script>
+		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
 
-								<ul class="flyout flyout-init">
-									<li class="page-delete"><a title="Delete" class="md-trigger" href="JavaScript:$('#delete-modal').addClass('md-show')"><span>u</span></a></li>
-									<li class="page-collab"><a title="Collab" href="#"><span>,</span></a></li>
-									<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
-								</ul>
-							</div>
+	</head>
 
-							<!--/ preview/front-cover /-->
+	<body class="book-creation">
 
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.FRONT_COVER }}" class="frontcover-preview-wrapper">
-								<div id="frontcover-preview">
-									<div class="cover-info">
-										<h1 class="page-title-elem">{{ first_page.title }}</h1>
-										<h5>by <span>{{ first_page.created_by.get_full_name}}</span></h5>
+		<header>
+			<div id="back">
+				<!--/ <a href="{% url "book" book.slug %}" onclick="if(PAGE_CHANGED) savePageChanges();">&#11013;</a> /-->
+				<a href="{% url 'books' %}" onclick="if(PAGE_CHANGED) savePageChanges();">&#11013;</a>
+			</div>
 
-										<ul class="cover-lifestyle">
-											{% if first_page.location %}<li class="page-geotag-elem">{{ first_page|get_page_location }}</li>{% endif %}
-											{% for tagged_item in first_page.tagged_items %}
-											<li>{{ tagged_item.tag.name|title }}</li>
-											{% endfor %}
-										</ul>
+			<div id="title">
+				<span id="book-title">{{ book.title }}</span><!--/ by <span id="book-author">{{ book.created_by.get_full_name }} /--></span>
+			</div>
 
-										<div class="page-desc">{{ first_page.description|safe }}</div>
-									</div>
-								</div>
+			<div id="finish">
+				<a href="#">Preview</a> | <a href="#">Publish</a>
+				<!--/ <a href="#">Publish</a> | <a onclick="savePageChanges(this, false); location.reload();">Save</a> /-->
+			</div>
+		</header>
 
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-							</section>
+		<!--/ main-content /-->
 
-							<!--/ preview/photo /-->
+		<section id="main-content">
+			{% if not pages %}
+			<!--/ preview/blank-page /-->
 
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTO }}" class="photo-preview-wrapper">
-								<div id="photo-preview">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc">{{ first_page.description|safe }}</div>
-								</div>
-
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-							</section>
-
-							<!--/ preview/text /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.TEXT }}" class="text-preview-wrapper">
-								<div id="text-preview">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc columnize">{{ first_page.description|safe }}</div>
-								</div>
-
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-							</section>
-
-							<!--/ preview/integrated-i /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.HORIZONTAL }}" class="integrated-preview-wrapper">
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-
-								<div id="integrated-preview">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc">{{ first_page.description|safe }}</div>
-								</div>
-							</section>
-
-							<!--/ preview/photo-text-i /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.OVERLAY }}" class="phototext-preview-wrapper">
-								<div id="phototext-preview">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc">{{ first_page.description|safe }}</div>
-								</div>
-
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-							</section>
-
-							<!--/ preview/photo-text-ii /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTOTEXT }}" class="phototext-ii-preview-wrapper">
-								<img src="{{ first_page.media.url }}" alt="" id="horizontal-bg" class="page-bg"/>
-								<!--/ <img src="{{ first_page.media.url }}" alt="" id="vertical-bg" class="page-bg"/> /-->
-
-								<div id="phototext-ii-preview">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc">{{ first_page.description|safe }}</div>
-								</div>
-							</section>
-
-							<!--/ preview/integrated-ii /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.INTEGRATED }}" class="integrated-ii-preview-wrapper">
-								<div id="integrated-ii-preview">
-									<div class="small-wrapper">
-										<div class="handle">Click &amp; drag to position this</div>
-
-										<span class="page-title-elem">{{ page.title }}</span>
-										<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-										<div class="page-desc">{{ first_page.description|safe }}</div>
-									</div>
-								</div>
-
-								<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
-							</section>
-
-							<!--/ preview/video /-->
-
-							<section id="preview-wrapper-{{ PAGE_LAYOUTS.VIDEO }}" class="video-preview-wrapper">
-								<div id="video-preview" style="position: relative;">
-									<span class="page-title-elem">{{ page.title }}</span>
-									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
-
-									<div class="page-desc">{{ first_page.description|safe }}</div>
-									<div id="video-player-container"></div>
-								</div>
-							</section>
-						</div>
-
-						<!--/ sidebar /-->
-
-						<div id="create-sidebar">
-							<ul id="sidebar-actions">
-								<li><a href="JavaScript:openFullView()">Fullview</a></li>
-								<li><a onclick="publishBook(this)" class="md-trigger" data-modal="publish-book-modal">Publish</a></li>
-								<li><a onclick="savePageChanges(this, true)" class="md-trigger" data-modal="save-book-modal" id="save-page-btn">Save</a></li>
-							</ul>
-
-							<div id="sidebar-wrapper">
-								{% include "books/tab-editor.html" %}
-							</div>
-						</div>
+			<section class="blank-preview-wrapper">
+				<div id="blank-preview">
+					<div class="cover-info">
+						<h1>{{ book.title }}</h1>
+						<h5>has been created. Add pages to it!</h5>
 					</div>
 				</div>
-				{% endif %}
 			</section>
+			{% else %}
 
-			<!--/ page-scroller /-->
+			<div id="book-creation-wrapper">
+				<div id="create-book">
+					<div id="layout-scroller">
+						Something
+					</div>
 
-			<section id="small-switcher">Your Pages</section>
+					<div id="create-content">
+						<div class="flyout-wrap">
+							<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
 
-			<div id="page-scroller-wrapper" class="small-book-scroller">
+							<ul class="flyout flyout-init">
+								<li class="page-delete"><a title="Delete" class="md-trigger" href="JavaScript:$('#delete-modal').addClass('md-show')"><span>u</span></a></li>
+								<li class="page-collab"><a title="Collab" href="#"><span>,</span></a></li>
+								<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
+							</ul>
+						</div>
 
-				<!--/ new-pages /-->
+						<!--/ preview/front-cover /-->
 
-				<ul id="new-pages">
-					<li id="new-text">
-						<img src="{{ STATIC_URL }}images/bc-new-text.jpg" onclick="JavaScript:createTextPage()" class="cover" alt=""/>
-					</li>
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.FRONT_COVER }}" class="frontcover-preview-wrapper">
+							<div id="frontcover-preview">
+								<div class="cover-info">
+									<h1 class="page-title-elem">{{ first_page.title }}</h1>
+									<h5>by <span>{{ first_page.created_by.get_full_name}}</span></h5>
 
-					<li id="new-page">
-						<img src="{{ STATIC_URL }}images/bc-new-page.jpg" class="cover" onclick="uploadNewPage()" alt=""/>
-					</li>
-				</ul>
+									<ul class="cover-lifestyle">
+										{% if first_page.location %}<li class="page-geotag-elem">{{ first_page|get_page_location }}</li>{% endif %}
+										{% for tagged_item in first_page.tagged_items %}
+										<li>{{ tagged_item.tag.name|title }}</li>
+										{% endfor %}
+									</ul>
 
-				<nav>
-					<a id="prev-small" class="prev" href="#">&#9664;</a>
-					<a id="next-small" class="next" href="#">&#9654;</a>
-				</nav>
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+								</div>
+							</div>
 
-				<ul id="page-scroller">
-					{% for page in pages %}
-					<li class="page" id="mini-page-{{ page.id }}">
-						<input name="" value="{{ page.id }}" type="checkbox" onclick="bookChecked(this)"/>
-						<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"{% if page.media %}{% if page.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"{% elif "image" in page.media.mimetype %}src="{{ page.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
-					</li>
-					{% endfor %}
-				</ul>
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+						</section>
+
+						<!--/ preview/photo /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTO }}" class="photo-preview-wrapper">
+							<div id="photo-preview">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc">{{ first_page.description|safe }}</div>
+							</div>
+
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+						</section>
+
+						<!--/ preview/text /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.TEXT }}" class="text-preview-wrapper">
+							<div id="text-preview">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc columnize">{{ first_page.description|safe }}</div>
+							</div>
+
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+						</section>
+
+						<!--/ preview/integrated-i /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.HORIZONTAL }}" class="integrated-preview-wrapper">
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+
+							<div id="integrated-preview">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc">{{ first_page.description|safe }}</div>
+							</div>
+						</section>
+
+						<!--/ preview/photo-text-i /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.OVERLAY }}" class="phototext-preview-wrapper">
+							<div id="phototext-preview">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc">{{ first_page.description|safe }}</div>
+							</div>
+
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+						</section>
+
+						<!--/ preview/photo-text-ii /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTOTEXT }}" class="phototext-ii-preview-wrapper">
+							<img src="{{ first_page.media.url }}" alt="" id="horizontal-bg" class="page-bg"/>
+							<!--/ <img src="{{ first_page.media.url }}" alt="" id="vertical-bg" class="page-bg"/> /-->
+
+							<div id="phototext-ii-preview">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc">{{ first_page.description|safe }}</div>
+							</div>
+						</section>
+
+						<!--/ preview/integrated-ii /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.INTEGRATED }}" class="integrated-ii-preview-wrapper">
+							<div id="integrated-ii-preview">
+								<div class="small-wrapper">
+									<div class="handle">Click &amp; drag to position this</div>
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+								</div>
+							</div>
+
+							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+						</section>
+
+						<!--/ preview/video /-->
+
+						<section id="preview-wrapper-{{ PAGE_LAYOUTS.VIDEO }}" class="video-preview-wrapper">
+							<div id="video-preview" style="position: relative;">
+								<span class="page-title-elem">{{ page.title }}</span>
+								<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+								<div class="page-desc">{{ first_page.description|safe }}</div>
+								<div id="video-player-container"></div>
+							</div>
+						</section>
+					</div>
+
+					<!--/ sidebar /-->
+
+					<!--/
+					<div id="create-sidebar">
+						<ul id="sidebar-actions">
+							<li><a href="JavaScript:openFullView()">Fullview</a></li>
+							<li><a onclick="publishBook(this)" class="md-trigger" data-modal="publish-book-modal">Publish</a></li>
+							<li><a onclick="savePageChanges(this, true)" class="md-trigger" data-modal="save-book-modal" id="save-page-btn">Save</a></li>
+						</ul>
+
+						<div id="sidebar-wrapper">books/tab-editor</div>
+					</div>
+					/-->
+				</div>
 			</div>
-			{% endblock %}
+			{% endif %}
+		</section>
 
-			{% block script_constants %}
-			<script>
-				var IS_FULL_PAGE_VIEW = false;
-				var CURRENT_BOOK_SLUG = "{{ book.slug }}";
-				{% if pages %}
-				var pages_json = {{pages | dump | safe}};
-				var CURRENT_PAGE_ID = {{ first_page.id }};
-				var CURRENT_PAGE_LAYOUT = {{first_page.layout}};
-				var FIRST_PAGE_ID = {{first_page.id}};
-				{% else %}
-				var pages_json = {};
-				var CURRENT_PAGE_ID = 0;
-				var CURRENT_PAGE_LAYOUT = 0;
-				{% endif %}
-				var CURRENT_PAGE_LICENSE = 0;
-				var LAYOUT_FRONT_COVER = {{ PAGE_LAYOUTS.FRONT_COVER }};
-				var LAYOUT_PHOTO = {{ PAGE_LAYOUTS.PHOTO }};
-				var LAYOUT_TEXT = {{ PAGE_LAYOUTS.TEXT }};
-				var LAYOUT_INTEGRATED_1 = {{ PAGE_LAYOUTS.HORIZONTAL }};
-				var LAYOUT_PHOTO_TEXT_1 = {{ PAGE_LAYOUTS.OVERLAY }};
-				var LAYOUT_PHOTO_TEXT_2 = {{ PAGE_LAYOUTS.PHOTOTEXT }};
-				var LAYOUT_INTEGRATED_2 = {{ PAGE_LAYOUTS.INTEGRATED }};
-				var LAYOUT_VIDEO = {{ PAGE_LAYOUTS.VIDEO }};
-				var PAGES_CHECKED = [];
-			</script>
+		<!--/ page-scroller /-->
 
-			<script>
-				$(document).ready(function() {
-					$(".flyout-btn").click(function (e) {
-						$(".flyout-btn").toggleClass("btn-rotate");
-						$(".flyout").toggleClass("flyout-init").toggleClass("expand");
-						e.preventDefault();
-					});
+		<section id="small-switcher">Your Pages</section>
+
+		<div id="page-scroller-wrapper" class="small-book-scroller">
+
+			<!--/ new-pages /-->
+
+			<ul id="new-pages">
+				<li id="new-text">
+					<img src="{{ STATIC_URL }}images/bc-new-text.jpg" onclick="JavaScript:createTextPage()" class="cover" alt=""/>
+				</li>
+
+				<li id="new-page">
+					<img src="{{ STATIC_URL }}images/bc-new-page.jpg" class="cover" onclick="uploadNewPage()" alt=""/>
+				</li>
+			</ul>
+
+			<nav>
+				<a id="prev-small" class="prev" href="#">&#9664;</a>
+				<a id="next-small" class="next" href="#">&#9654;</a>
+			</nav>
+
+			<ul id="page-scroller">
+				{% for page in pages %}
+				<li class="page" id="mini-page-{{ page.id }}">
+					<!--/ <input name="" value="{{ page.id }}" type="checkbox" onclick="bookChecked(this)"/> /-->
+					<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"{% if page.media %}{% if page.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"{% elif "image" in page.media.mimetype %}src="{{ page.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<!--/ scripts /-->
+		<script>
+			var IS_FULL_PAGE_VIEW = false;
+			var CURRENT_BOOK_SLUG = "{{ book.slug }}";
+			{% if pages %}
+			var pages_json = {{pages | dump | safe}};
+			var CURRENT_PAGE_ID = {{ first_page.id }};
+			var CURRENT_PAGE_LAYOUT = {{first_page.layout}};
+			var FIRST_PAGE_ID = {{first_page.id}};
+			{% else %}
+			var pages_json = {};
+			var CURRENT_PAGE_ID = 0;
+			var CURRENT_PAGE_LAYOUT = 0;
+			{% endif %}
+			var CURRENT_PAGE_LICENSE = 0;
+			var LAYOUT_FRONT_COVER = {{ PAGE_LAYOUTS.FRONT_COVER }};
+			var LAYOUT_PHOTO = {{ PAGE_LAYOUTS.PHOTO }};
+			var LAYOUT_TEXT = {{ PAGE_LAYOUTS.TEXT }};
+			var LAYOUT_INTEGRATED_1 = {{ PAGE_LAYOUTS.HORIZONTAL }};
+			var LAYOUT_PHOTO_TEXT_1 = {{ PAGE_LAYOUTS.OVERLAY }};
+			var LAYOUT_PHOTO_TEXT_2 = {{ PAGE_LAYOUTS.PHOTOTEXT }};
+			var LAYOUT_INTEGRATED_2 = {{ PAGE_LAYOUTS.INTEGRATED }};
+			var LAYOUT_VIDEO = {{ PAGE_LAYOUTS.VIDEO }};
+			var PAGES_CHECKED = [];
+		</script>
+
+		<script>
+			$(document).ready(function() {
+				$(".flyout-btn").click(function (e) {
+					$(".flyout-btn").toggleClass("btn-rotate");
+					$(".flyout").toggleClass("flyout-init").toggleClass("expand");
+					e.preventDefault();
 				});
-			</script>
+			});
+		</script>
+		
+		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
+		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
-			<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
-
-			<script>
-				$(function() {
-					$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
-						changePosition(ui);
-					});
+		<script>
+			$(function() {
+				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
+					changePosition(ui);
 				});
-			</script>
+			});
+		</script>
 
-			<!--/ photo+column /-->
-			<script>
-				$(document).ready(function() {
-					var $vbg = $("#vertical-bg");
-					var $hbg = $("#horizontal-bg");
-					var $p2p = $("#phototext-ii-preview");
+		<!--/ photo+column /-->
+		<script>
+			$(document).ready(function() {
+				var $vbg = $("#vertical-bg");
+				var $hbg = $("#horizontal-bg");
+				var $p2p = $("#phototext-ii-preview");
 
-					$(function () {
-						$vbg.css("margin-left", $vbg.width() + $p2p.width() - $(".phototext-ii-preview-wrapper").width() / 2 + 65 + "px");
-						// $hbg.css("margin-top", $(".phototext-ii-preview-wrapper").height() - $hbg.height() / 2 + "px");
-					});
+				$(function () {
+					$vbg.css("margin-left", $vbg.width() + $p2p.width() - $(".phototext-ii-preview-wrapper").width() / 2 + 65 + "px");
+					// $hbg.css("margin-top", $(".phototext-ii-preview-wrapper").height() - $hbg.height() / 2 + "px");
 				});
-			</script>
+			});
+		</script>
 
-			<!--/
-			<script src="{{ STATIC_URL }}scripts/imgLiquid.min.js"></script>
+		<!--/
+		<script src="{{ STATIC_URL }}scripts/imgLiquid.min.js"></script>
 
-			<script>
-				$(function() {
-					$(".frontcover-preview-wrapper, .photo-preview-wrapper, .phototext-preview-wrapper, .integrated-ii-preview-wrapper").imgLiquid({ fill: true });
-					// $(".imgLiquidNoFill").imgLiquid({ fill: false });
+		<script>
+			$(function() {
+				$(".frontcover-preview-wrapper, .photo-preview-wrapper, .phototext-preview-wrapper, .integrated-ii-preview-wrapper").imgLiquid({ fill: true });
+				// $(".imgLiquidNoFill").imgLiquid({ fill: false });
+			});
+		</script>
+		/-->
+
+		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
+		<script src="{{ STATIC_URL }}scripts/draggabilly.min.js"></script>
+
+		<script>
+			window.onload = function() {
+
+				var ex1 = document.getElementById("integrated-ii-preview");
+				var drag1 = new Draggabilly(ex1);
+
+				var ex2 = document.getElementById("ex2");
+				var drag2 = new Draggabilly(ex2);
+
+				drag2.on("dragStart", function(instance, event, pointer) {
+					console.log("dragStart", instance.position.x, instance.position.y, event.type, pointer.pageX, pointer.pageY);
 				});
-			</script>
-			/-->
-			{% endblock %}
 
-			{% block scripts %}
-			<script src="{{ STATIC_URL }}scripts/livepreview.js"></script>
-			<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
-			<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
+				drag2.on("dragMove", function(instance, event, pointer) {
+					console.log("dragMove", instance.position.x, instance.position.y, event.type, pointer.pageX, pointer.pageY);
+				});
 
-			<script src="{{ STATIC_URL }}scripts/draggabilly.min.js"></script>
+				drag2.on("dragEnd", function(instance, event, pointer) {
+					console.log("dragEnd", instance.position.x, instance.position.y, event && event.type, pointer && pointer.pageX, pointer && pointer.pageY);
+				});
 
-			<script>
-				window.onload = function() {
+				var container1Draggers = [];
+				var dragger;
 
-					var ex1 = document.getElementById("integrated-ii-preview");
-					var drag1 = new Draggabilly(ex1);
+				var elems = document.querySelectorAll("#container1 .box");
 
-					var ex2 = document.getElementById("ex2");
-					var drag2 = new Draggabilly(ex2);
-
-					drag2.on("dragStart", function(instance, event, pointer) {
-						console.log("dragStart", instance.position.x, instance.position.y, event.type, pointer.pageX, pointer.pageY);
-					});
-
-					drag2.on("dragMove", function(instance, event, pointer) {
-						console.log("dragMove", instance.position.x, instance.position.y, event.type, pointer.pageX, pointer.pageY);
-					});
-
-					drag2.on("dragEnd", function(instance, event, pointer) {
-						console.log("dragEnd", instance.position.x, instance.position.y, event && event.type, pointer && pointer.pageX, pointer && pointer.pageY);
-					});
-
-					var container1Draggers = [];
-					var dragger;
-
-					var elems = document.querySelectorAll("#container1 .box");
-
-					function handleDraggerEvent(instance, event, pointer) {
-						console.log(event.type, instance.position.x, instance.position.y);
-					}
-
-					for (var i=0, len = elems.length; i < len; i++) {
-						dragger = new Draggabilly(elems[i], {
-							containment: true
-						});
-
-						dragger.on("dragStart", handleDraggerEvent);
-						dragger.on("dragEnd", handleDraggerEvent);
-					}
-
-					(function() {
-						var elem = document.querySelector("#kitten");
-						new Draggabilly(elem);
-					})();
-
-					(function() {
-						var elem = document.querySelector("#kitties");
-						new Draggabilly(elem);
-					})();
-
-				};
-			</script>
-			{% endblock %}
-
-			{% block slow_scripts %}
-			<script>
-				var input = document.getElementById("bc-geotag");
-				new google.maps.places.Autocomplete(input);
-
-				// Not sure why the following lines are requied here. It also gives an error.
-				// var input2 = document.getElementsByClassName("geocode");
-				// new google.maps.places.Autocomplete(input2);
-
-				// Cache the images.
-				var img, page, _i, _len;
-				window.images = [];
-
-				for (_i = 0, _len = pages_json.length; _i < _len; _i++) {
-					page = pages_json[_i];
-					img = new Image();
-					img.src = page.url;
-					window.images.push(img);
+				function handleDraggerEvent(instance, event, pointer) {
+					console.log(event.type, instance.position.x, instance.position.y);
 				}
-			</script>
-			{% endblock %}
+
+				for (var i=0, len = elems.length; i < len; i++) {
+					dragger = new Draggabilly(elems[i], {
+						containment: true
+					});
+
+					dragger.on("dragStart", handleDraggerEvent);
+					dragger.on("dragEnd", handleDraggerEvent);
+				}
+
+				(function() {
+					var elem = document.querySelector("#kitten");
+					new Draggabilly(elem);
+				})();
+
+				(function() {
+					var elem = document.querySelector("#kitties");
+					new Draggabilly(elem);
+				})();
+
+			};
+		</script>
+
+		<!--/
+		<script src="{{ STATIC_URL }}scripts/redactor.js"></script>
+		<script src="{{ STATIC_URL }}scripts/fontfamily.js"></script>
+		<script src="{{ STATIC_URL }}scripts/fontsize.js"></script>
+
+		<script>
+			var buttons = ["fontfamily", "fontcolor", "fontsize", "|", "formatting", "|", "bold", "italic", "deleted", "|", "alignment"];
+
+			$("#text-editor").redactor({
+				syncAfterCallback: function(html) {
+					$("#live-preview, #default-preview, #photo-preview, #text-preview, #phototext-preview, #integrated-preview").val(html);
+				},
+				buttons: buttons,
+				focus: true,
+				plugins: ["fontfamily", "fontsize"],
+				buttonsAdd: ["|", "fontfamily", "fontsize"],
+				initCallback: function() {
+					updatePreviews(this.get());
+				},
+				changeCallback: function(html) {
+					updatePreviews(this.get());
+				},
+				keyupCallback: function(e) {
+					window.PAGE_CHANGED = true;
+				}
+			});
+		</script>
+
+		<script src="{{ STATIC_URL }}scripts/livepreview.js"></script>
+		/-->
+
+		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
+
+		{% block slow_scripts %}
+		<script>
+			var input = document.getElementById("bc-geotag");
+			new google.maps.places.Autocomplete(input);
+
+			// Not sure why the following lines are requied here. It also gives an error.
+			// var input2 = document.getElementsByClassName("geocode");
+			// new google.maps.places.Autocomplete(input2);
+
+			// Cache the images.
+			var img, page, _i, _len;
+			window.images = [];
+
+			for (_i = 0, _len = pages_json.length; _i < _len; _i++) {
+				page = pages_json[_i];
+				img = new Image();
+				img.src = page.url;
+				window.images.push(img);
+			}
+		</script>
+		{% endblock %}
+
+	</body>
+
+</html>
