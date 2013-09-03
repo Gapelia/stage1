@@ -23,7 +23,7 @@
 
 		<!--/ scripts/enablers /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
-		<script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script>
+		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
 
 	</head>
@@ -240,19 +240,20 @@
 				</li>
 			</ul>
 
+			<!--/
 			<nav>
 				<a id="prev-small" class="prev" href="#">&#9664;</a>
 				<a id="next-small" class="next" href="#">&#9654;</a>
 			</nav>
+			/-->
 
-			<ul id="page-scroller">
+			<div id="page-scroller" class="owl-carousel">
 				{% for page in pages %}
-				<li class="page" id="mini-page-{{ page.id }}">
-					<!--/ <input name="" value="{{ page.id }}" type="checkbox" onclick="bookChecked(this)"/> /-->
+				<div class="page item" id="mini-page-{{ page.id }}">
 					<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"{% if page.media %}{% if page.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"{% elif "image" in page.media.mimetype %}src="{{ page.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
-				</li>
+				</div>
 				{% endfor %}
-			</ul>
+			</div>
 		</div>
 
 		<!--/ scripts /-->
@@ -301,7 +302,22 @@
 			$("#layout-scroller").scrollpanel();
 		</script>
 
+		<!--/ scripts/carousel /-->
+		<script src="{{ STATIC_URL }}scripts/owl.carousel.js"></script>
+
+		<script>
+			$(document).ready(function() {
+
+				$("#page-scroller").owlCarousel({
+					navigation: true,
+					navigationText : ["prev","next"]
+				});
+			 
+			});
+		</script>
+
 		<!--/ scripts/page-sorter /-->
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
 		<script>
@@ -311,6 +327,7 @@
 				});
 			});
 		</script>
+		/-->
 
 		<!--/ photo+column /-->
 		<script>
@@ -337,6 +354,7 @@
 		</script>
 		/-->
 
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
 		<script src="{{ STATIC_URL }}scripts/draggabilly.min.js"></script>
 
@@ -391,6 +409,7 @@
 
 			};
 		</script>
+		/-->
 
 		<!--/
 		<script src="{{ STATIC_URL }}scripts/redactor.js"></script>
@@ -425,14 +444,10 @@
 
 		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
 
-		{% block slow_scripts %}
+		<!--/
 		<script>
 			var input = document.getElementById("bc-geotag");
 			new google.maps.places.Autocomplete(input);
-
-			// Not sure why the following lines are requied here. It also gives an error.
-			// var input2 = document.getElementsByClassName("geocode");
-			// new google.maps.places.Autocomplete(input2);
 
 			// Cache the images.
 			var img, page, _i, _len;
@@ -445,7 +460,7 @@
 				window.images.push(img);
 			}
 		</script>
-		{% endblock %}
+		/-->
 
 	</body>
 

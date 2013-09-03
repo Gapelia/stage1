@@ -115,7 +115,7 @@
 			description = "";
 		}
 
-		$("#text-editor").redactor("set", description);
+		// $("#text-editor").redactor("set", description);
 		$("#title-editor").val(page_json.title);
 
 		if (LAYOUT_VIDEO === parseInt(page_json.layout)) {

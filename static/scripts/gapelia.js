@@ -16,74 +16,6 @@ $(function () {
 		$("#action-user ul").hide();
 	});
 
-	/*
-	if ($("#action-user ul").is(":visible")) {
-		$("#action-user").click(function(um) {
-			$("#action-user ul").css("display", "none");
-			um.preventDefault();
-			um.stopPropagation();
-		});
-	} else {
-		$("#action-user").click(function(um) {
-			$("#action-user ul").css("display", "block");
-			um.preventDefault();
-			um.stopPropagation();
-		});
-	}
-	*/
-
-	/*
-	$(document).click(function() {
-		$("#action-user ul").hide();
-	});
-	*/
-
-	/*
-	$("#action-user a").click(function(um) {
-		$("#action-user ul").css("display", "block");
-		um.preventDefault();
-		um.stopPropagation();
-	}).click(function(un) {
-		$("#action-user ul").css("display", "none");
-		un.preventDefault();
-		un.stopPropagation();
-	});
-	*/
-
-	/*
-	$(document).click(function() {
-		$("#action-user ul:visible").hide();
-	});
-	*/
-
-	/*
-	$("#action-user a").click(function (e) {
-		$("#action-user ul").css("display", "block");
-		e.preventDefault();
-		e.stopPropagation();
-	});
-	*/
-
-	/*
-	$("#action-user a").on("click", function(e) {
-		$("#action-user ul").css("display", "block");
-		e.preventDefault();
-		e.stopPropagation();
-	}).on("click", function(e) {
-		$("#action-user ul").css("display", "none");
-		e.preventDefault();
-		e.stopPropagation();
-	});
-	*/
-
-	/*
-	$(".flyout-btn").click(function (e) {
-		$(".flyout-btn").toggleClass("btn-rotate");
-		$(".flyout").toggleClass("flyout-init").toggleClass("expand");
-		e.preventDefault();
-	});
-	*/
-
 });
 
 ////////////////////////////////////////////////////////////////////////////////////// BOOK CREATION //
@@ -129,6 +61,7 @@ $(document).ready(function() {
 $(function() {
 
 	// default top scroller
+	/*
 	$("#big-scroller, #dimension-scroller").carouFredSel({
 		auto: false,
 		responsive: true,
@@ -177,8 +110,10 @@ $(function() {
 		},
 		mousewheel: true
 	});
+	*/
 
 	// page scroller
+	/*
 	$("#page-scroller").carouFredSel({
 		auto: false,
 		responsive: true,
@@ -192,67 +127,14 @@ $(function() {
 		},
 		mousewheel: true
 	});
+	*/
 
 });
 
 // MISCELLANEOUS //////////////////////////////////////////////////////////////////////////////////////
 
-$(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
-// $(".dimension-book .lifestyle li").squishy();
-$("#small-scroller .book-title").squishy({ maxSize: 14 });
-
-// EXPAND USERS IN SMALL SCROLLER /////////////////////////////////////////////////////////////////////
-// NEED TO FIND BETTER IMPLEMENTATION /////////////////////////////////////////////////////////////////
-
-$(function() {
-
-	$(document).ready(function() {
-
-		var isOpen = false;
-
-		$(".user .cover").click(function() {
-			isOpen = !isOpen;
-
-			if(isOpen) {
-				$("#gapelian-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-small",
-					next: "#next-small",
-					items: {
-						width: 360,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 2, max: 10 }
-					},
-					mousewheel: true
-				});
-			}
-
-			else { // .animate({ width: "160px" }, 500)
-				$("#gapelian-scroller").carouFredSel({
-					auto: false,
-					responsive: true,
-					width: "100%",
-					scroll: 1,
-					prev: "#prev-small",
-					next: "#next-small",
-					items: {
-						width: 160,
-						// height: "30%", // optionally resize item-height
-						visible: { min: 7, max: 10 }
-					},
-					mousewheel: true
-				});
-			}
-
-			event.preventDefault();
-		});
-
-	});
-
-});
+// $(".dimension-book .book-title").squishy({ maxSize: 23 }); // maxSize is really for short titles
+// $("#small-scroller .book-title").squishy({ maxSize: 14 });
 
 // ADD BOOK TO COLLECTION /////////////////////////////////////////////////////////////////////////////
 
@@ -427,7 +309,7 @@ $(function() {
 
 //////////////////////////////////////////////////////////////////////////// VERTICAL RESPONSIVENESS //
 // CHANGE WIDTH OF BOOKS IN SCROLLER, BASED ON WINDOW HEIGHT //////////////////////////////////////////
-
+/*
 $(window).load(function () {
 
 	if ($(window).height() <= 677) {
@@ -491,3 +373,4 @@ $(window).load(function () {
 	}
 
 });
+*/
