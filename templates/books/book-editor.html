@@ -291,7 +291,7 @@
 				});
 			});
 		</script>
-		
+
 		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
 
 		<!--/ scripts/layout-scroller /-->
@@ -310,7 +310,11 @@
 
 				$("#page-scroller").owlCarousel({
 					navigation: true,
-					navigationText : ["prev","next"]
+					navigationText : ["<", ">"],
+					pagination: false,
+					responsive: true,
+					itemsDesktop: [1366, 12]
+					//items : 20
 				});
 			 
 			});

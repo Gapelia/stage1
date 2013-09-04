@@ -840,195 +840,7 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation header #title #book-title { font-family: "OpenSansSemibold"; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .book-creation header #finish { text-align: right; }
 .book-creation #book-creation-wrapper { width: 100%; height: auto; }
-.book-creation #book-creation-wrapper #create-book { clear: left; height: 100%; overflow: hidden; 			/*
-			#create-sidebar {
-				width: 32.6%;
-
-				#sidebar-wrapper {
-				}
-
-				#sidebar-actions, #sidebar-nav {
-					display: inline-block;
-					width: 100%;
-
-					li {
-						border-right: 1px solid $gray-ii;
-						float: left;
-						text-align: center;
-
-						&:last-child { border-right: 0; }
-					}
-
-					a { color: $gray-v; }
-				}
-
-				#sidebar-actions {
-					border-bottom: 1px solid $gray-ii;
-
-					li {
-						font-size: 20px;
-						padding: 0.5rem;
-						width: 33.3%;
-					}
-				}
-
-				nav {
-					display: inline-block;
-					height: 3.313em;
-					overflow: hidden;
-					position: absolute;
-					width: 100%;
-					z-index: 1000;
-
-					a {
-						border-right: 1px solid $gray-ii;
-						border-bottom: 1px solid $gray-ii;
-						display: block;
-						float: left;
-						font-family: "OpenSansLight";
-						padding: 0.5rem;
-						text-align: center;
-						transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-						width: 25%;
-
-						&:hover { background-color: $white; }
-						&:last-child { border-right: 0; }
-					}
-
-					a.rc-active {
-						background-color: $white;
-						border-bottom: 1px solid $white;
-					}
-				}
-
-				.cbp-contentslider {
-					width: 100%; height: 500px;
-					position: relative;
-
-					#sidebar-content {
-						width: 100%; height: 100%;
-						margin: 0; padding: 0;
-
-						list-style: none;
-						overflow: hidden;
-						position: relative;
-
-						#tab-layout, #tab-content, #tab-tags, #tab-snippets, #tab-settings {
-							width: 100%; height: 100%;
-							top: 2rem; left: 0;
-
-							background-color: $white;
-							display: table;
-							overflow-x: hidden;
-							overflow-y: auto;
-							padding: 1rem;
-							position: absolute;
-
-							&:target { z-index: 100; } // Without JS, we use :target
-						}
-
-						#tab-layout { z-index: 100; }
-
-						// Layout Tab
-						#view-mode {
-							margin: 1rem 0 0 0;
-
-							p, input, label { text-align: center; }
-
-							label + input[type="radio"]:checked { background-color: $gray-i; }
-
-							label {
-								display: block;
-								font-size: 0.7em;
-								margin: 0 0 0.4rem 0; padding: 0.3rem;
-
-								span { display: block; }
-							}
-
-							input {
-								display: block;
-								margin: 0 auto;
-							}
-
-							section {
-								display: inline-block;
-								margin: 0 0 1rem 0;
-
-								&:last-child { margin: 0; }
-
-								.view-style {
-									display: inline-block;
-									margin: 0 1rem 1rem 0;
-								}
-							}
-						}
-
-						// Content Tab
-						#title-editor {
-							width: 100%; height: auto;
-							margin: 0 0 1rem 0; padding: 0.3rem;
-
-							border: 1px solid $gray-ii;
-							font-size: 90%;
-						}
-
-						.redactor_box {
-							.redactor_toolbar { width: 100%; }
-
-							.redactor_editor {
-								height: 300px;
-								resize: none !important;
-								z-index: 1;
-							}
-						}
-
-						// Tags Tab
-						.tag-input {
-							border-bottom: 1px solid $gray-ii;
-							clear: both;
-							padding: 1.8rem 1rem;
-
-							label, input {
-								display: inline;
-								vertical-align: middle;
-								width: 50%;
-							}
-
-							label { font-size: 14px; }
-
-							input {
-								background-color: $white;
-								border: 1px solid $gray-ii;
-								float: right;
-								font-size: 12px;
-								height: 20px;
-								margin: 0 0 3px 0;
-							}
-
-							.hint {
-								float: right;
-								font-size: 10px;
-								font-style: italic;
-								text-align: right;
-								width: 100%;
-							}
-
-							&:first-child { padding-top: 0; }
-						}
-
-						// Snippets Tab
-						#snippet-preview {
-							img {
-								width: 300px; height: auto;
-
-								display: table;
-								margin: 0 auto;
-							}
-						}
-					}
-				}
-			}
-			*/ }
+.book-creation #book-creation-wrapper #create-book { clear: left; height: 100%; overflow: hidden; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller, .book-creation #book-creation-wrapper #create-book #create-content { float: left; position: relative; vertical-align: top; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller { width: 15%; height: 100%; background-color: #70a1b1; /* overflow-y: scroll; */ 				/*
 				.sp-scrollbar {
@@ -1137,15 +949,6 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .small-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .small-wrapper .page-title-elem { padding: 1rem 0 0 0; }
 .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .small-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .small-wrapper .page-desc { padding: 0 1rem; }
 .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .handle, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .handle { margin: 0 !important; padding: 2px 0; background-color: rgba(25, 25, 25, 0.4); color: #fefefe; cursor: move; font-family: "OpenSansSemibold"; font-size: 10px; line-height: 10px; opacity: 0.7; text-align: center; text-transform: uppercase; user-select: none; width: 100%; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .handle-ii, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .handle-ii { width: 6px; height: 6px; background-color: #cfcfcf; position: absolute; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NW, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NN, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NN, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NE { display: none; top: 0; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NE, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .EE, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .EE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SE { right: 0; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SW, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SS, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SS, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SE { bottom: 0; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NW, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .WW, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .WW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SW { left: 0; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SE, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NW { cursor: nw-resize; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SW, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NE { cursor: ne-resize; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .NN, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .SS, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .NN, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .SS { cursor: n-resize; left: 50%; margin-left: -4px; }
-.book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .EE, .book-creation #book-creation-wrapper #create-book #create-content #integrated-ii-preview-wrapper .WW, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .EE, .book-creation #book-creation-wrapper #create-book #create-content .integrated-ii-preview-wrapper .WW { cursor: e-resize; margin-top: -4px; top: 50%; }
 .book-creation #book-creation-wrapper #create-book #create-content #video-preview-wrapper iframe, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper iframe { width: 100%; height: 70%; margin: 0; padding: 0; top: 0; left: 0; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content #video-preview-wrapper #video-preview, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper #video-preview { max-height: 30%; }
 .book-creation #book-creation-wrapper #create-book #create-content .imgLiquid_bgSize { /* .imgLiquid_ready */ background-position: 0% 50% !important; }
@@ -1154,28 +957,46 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #page-scroller-wrapper #new-pages { border-left: 3px solid #70a1b1; position: absolute; right: 0; width: 203px; z-index: 99999; }
 .book-creation #page-scroller-wrapper #new-pages li { cursor: pointer; float: left; }
 .book-creation #page-scroller-wrapper #page-scroller { height: 100px; overflow: hidden; /**/ }
+.book-creation #page-scroller-wrapper #page-scroller nav { width: 100%; height: 100%; bottom: 0; left: 0; position: absolute; }
+.book-creation #page-scroller-wrapper #page-scroller nav .owl-prev, .book-creation #page-scroller-wrapper #page-scroller nav .owl-next { width: 50px; height: 100px; background-color: rgba(25, 25, 25, 0.7); color: #fefefe; display: inline-block; padding: 2.7rem 1.3rem; }
+.book-creation #page-scroller-wrapper #page-scroller nav .owl-prev { float: left; }
+.book-creation #page-scroller-wrapper #page-scroller nav .owl-next { float: right; }
+.book-creation #page-scroller-wrapper #page-scroller nav .disabled { display: none; }
 .book-creation #page-scroller-wrapper #page-scroller .page { width: 100px !important; height: 100px !important; counter-increment: section; counter-reset: sub-section; float: left; position: relative; }
 .book-creation #page-scroller-wrapper #page-scroller .page:before { top: 3px; left: 3px; background-color: rgba(25, 25, 25, 0.8); color: #fefefe; content: counter(section) " "; padding: 5px; position: absolute; }
 .book-creation #page-scroller-wrapper #page-scroller .page input { bottom: 3px; right: 3px; background-color: rgba(25, 25, 25, 0.8); padding: 8px; position: absolute; }
 .book-creation #page-scroller-wrapper #page-scroller .page img { width: 100px; height: 100px; }
 .book-creation #page-scroller-wrapper #page-scroller .page a { width: 100px; height: 100px; overflow: hidden; }
 .book-creation #page-scroller-wrapper #page-scroller .page a img { width: auto; height: 100%; }
-.book-creation .owl-carousel { display: none; position: relative; width: 100%; -ms-touch-action: pan-y; }
+.book-creation .owl-carousel { display: none; opacity: 1 !important; position: relative; width: 100%; -ms-touch-action: pan-y; }
 .book-creation .owl-carousel .owl-wrapper-outer { overflow: hidden; position: relative; width: 100%; }
 .book-creation .owl-carousel .owl-wrapper { display: none; position: relative; -webkit-perspective: 1000; -webkit-transform: translate3d(0, 0, 0); }
 .book-creation .owl-carousel .owl-wrapper:after { clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden; }
 .book-creation .owl-carousel .owl-item { float: left; }
-.book-creation .owl-controls .owl-page, .book-creation .owl-controls .owl-buttons div { cursor: pointer; }
 .book-creation .owl-controls { user-select: none; -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+.book-creation .owl-controls .owl-page div, .book-creation .owl-controls .owl-buttons div { cursor: pointer; }
 .book-creation .grabbing { cursor: url("../images/grabbing.png") 8 8, move; }
 .book-creation .owl-carousel .owl-wrapper, .book-creation .owl-carousel .owl-item { -ms-backface-visibility: hidden; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.book-creation .owl-theme .owl-controls { margin-top: 10px; text-align: center; /* Styling Pagination */ }
-.book-creation .owl-theme .owl-controls .owl-buttons div { /* Styling Next and Prev buttons */ margin: 5px; padding: 3px 10px; background-color: #869791; border-radius: 30px; color: #fefefe; display: inline-block; font-size: 12px; opacity: 0.5; zoom: 1; /* fixes hover issues on touch devices */ }
+.book-creation .owl-theme .owl-controls { /*
+margin-top: 10px;
+text-align: center;
+*/ /* Styling Pagination */ }
+.book-creation .owl-theme .owl-controls .owl-buttons div { /* Styling Next and Prev buttons */ 				/*
+				margin: 5px; padding: 3px 10px;
+
+				background-color: #869791;
+				border-radius: 30px;
+				color: $white;
+				display: inline-block;
+				font-size: 12px;
+				opacity: 0.5;
+				zoom: 1;
+				*/ /* fixes hover issues on touch devices */ }
 .book-creation .owl-theme .owl-controls .owl-buttons div:hover { opacity: 1; text-decoration: none; }
 .book-creation .owl-theme .owl-controls .owl-page { display: inline-block; zoom: 1; /* If PaginationNumbers is true */ }
 .book-creation .owl-theme .owl-controls .owl-page span { width: 12px; height: 12px; background-color: #869791; border-radius: 20px; display: block; margin: 5px 7px; opacity: 0.5; }
 .book-creation .owl-theme .owl-controls .owl-page span.owl-numbers { width: auto; height: auto; border-radius: 30px; color: #fefefe; font-size: 12px; padding: 2px 10px; }
-.book-creation .owl-theme .owl-controlls .owl-page.active span, .book-creation .owl-theme .owl-controlls.clickable .owl-page:hover span { opacity: 1; }
+.book-creation .owl-theme .owl-controls .owl-page.active span, .book-creation .owl-theme .owl-controls.clickable .owl-page:hover span { opacity: 1; }
 
 /************************************************************************************ FULL-VIEW/SCSS **/
 .preview, .book { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #fefefe; box-sizing: border-box; font-family: "OpenSansRegular"; overflow: hidden; user-select: none; }

@@ -27,7 +27,7 @@ $(document).ready(function() {
 	var bcViewportHeight = $(window).height();
 	var bcH = bcViewportHeight - 180;
 
-	$(".small-book-scroller nav").width(smallBookScroller);
+	$(".owl-carousel").width(smallBookScroller);
 	$("#create-book").height(bcH);
 
 	$(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(bcH);

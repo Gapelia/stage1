@@ -542,37 +542,6 @@
 						user-select: none;
 						width: 100%;
 					}
-
-					.handle-ii {
-						width: 6px; height: 6px;
-
-						background-color: $gray-ii;
-						position: absolute;
-					}
-
-					.NW, .NN, .NE {
-						display: none;
-						top: 0;
-					}
-
-					.NE, .EE, .SE { right: 0; }
-					.SW, .SS, .SE { bottom: 0; }
-					.NW, .WW, .SW { left: 0; }
-
-					.SE, .NW { cursor: nw-resize; }
-					.SW, .NE { cursor: ne-resize; }
-
-					.NN, .SS {
-						cursor: n-resize;
-						left: 50%;
-						margin-left: -4px;
-					}
-
-					.EE, .WW {
-						cursor: e-resize;
-						margin-top: -4px;
-						top: 50%;
-					}
 				}
 
 				#video-preview-wrapper, .video-preview-wrapper {
@@ -591,196 +560,6 @@
 					background-position: 0% 50% !important;
 				}
 			}
-
-			/*
-			#create-sidebar {
-				width: 32.6%;
-
-				#sidebar-wrapper {
-				}
-
-				#sidebar-actions, #sidebar-nav {
-					display: inline-block;
-					width: 100%;
-
-					li {
-						border-right: 1px solid $gray-ii;
-						float: left;
-						text-align: center;
-
-						&:last-child { border-right: 0; }
-					}
-
-					a { color: $gray-v; }
-				}
-
-				#sidebar-actions {
-					border-bottom: 1px solid $gray-ii;
-
-					li {
-						font-size: 20px;
-						padding: 0.5rem;
-						width: 33.3%;
-					}
-				}
-
-				nav {
-					display: inline-block;
-					height: 3.313em;
-					overflow: hidden;
-					position: absolute;
-					width: 100%;
-					z-index: 1000;
-
-					a {
-						border-right: 1px solid $gray-ii;
-						border-bottom: 1px solid $gray-ii;
-						display: block;
-						float: left;
-						font-family: "OpenSansLight";
-						padding: 0.5rem;
-						text-align: center;
-						transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-						width: 25%;
-
-						&:hover { background-color: $white; }
-						&:last-child { border-right: 0; }
-					}
-
-					a.rc-active {
-						background-color: $white;
-						border-bottom: 1px solid $white;
-					}
-				}
-
-				.cbp-contentslider {
-					width: 100%; height: 500px;
-					position: relative;
-
-					#sidebar-content {
-						width: 100%; height: 100%;
-						margin: 0; padding: 0;
-
-						list-style: none;
-						overflow: hidden;
-						position: relative;
-
-						#tab-layout, #tab-content, #tab-tags, #tab-snippets, #tab-settings {
-							width: 100%; height: 100%;
-							top: 2rem; left: 0;
-
-							background-color: $white;
-							display: table;
-							overflow-x: hidden;
-							overflow-y: auto;
-							padding: 1rem;
-							position: absolute;
-
-							&:target { z-index: 100; } // Without JS, we use :target
-						}
-
-						#tab-layout { z-index: 100; }
-
-						// Layout Tab
-						#view-mode {
-							margin: 1rem 0 0 0;
-
-							p, input, label { text-align: center; }
-
-							label + input[type="radio"]:checked { background-color: $gray-i; }
-
-							label {
-								display: block;
-								font-size: 0.7em;
-								margin: 0 0 0.4rem 0; padding: 0.3rem;
-
-								span { display: block; }
-							}
-
-							input {
-								display: block;
-								margin: 0 auto;
-							}
-
-							section {
-								display: inline-block;
-								margin: 0 0 1rem 0;
-
-								&:last-child { margin: 0; }
-
-								.view-style {
-									display: inline-block;
-									margin: 0 1rem 1rem 0;
-								}
-							}
-						}
-
-						// Content Tab
-						#title-editor {
-							width: 100%; height: auto;
-							margin: 0 0 1rem 0; padding: 0.3rem;
-
-							border: 1px solid $gray-ii;
-							font-size: 90%;
-						}
-
-						.redactor_box {
-							.redactor_toolbar { width: 100%; }
-
-							.redactor_editor {
-								height: 300px;
-								resize: none !important;
-								z-index: 1;
-							}
-						}
-
-						// Tags Tab
-						.tag-input {
-							border-bottom: 1px solid $gray-ii;
-							clear: both;
-							padding: 1.8rem 1rem;
-
-							label, input {
-								display: inline;
-								vertical-align: middle;
-								width: 50%;
-							}
-
-							label { font-size: 14px; }
-
-							input {
-								background-color: $white;
-								border: 1px solid $gray-ii;
-								float: right;
-								font-size: 12px;
-								height: 20px;
-								margin: 0 0 3px 0;
-							}
-
-							.hint {
-								float: right;
-								font-size: 10px;
-								font-style: italic;
-								text-align: right;
-								width: 100%;
-							}
-
-							&:first-child { padding-top: 0; }
-						}
-
-						// Snippets Tab
-						#snippet-preview {
-							img {
-								width: 300px; height: auto;
-
-								display: table;
-								margin: 0 auto;
-							}
-						}
-					}
-				}
-			}
-			*/
 		}
 	}
 
@@ -810,6 +589,32 @@
 		#page-scroller {
 			height: 100px;
 			overflow: hidden; /**/
+
+			nav {
+				width: 100%; height: 100%;
+				bottom: 0; left: 0;
+
+				position: absolute;
+
+				.owl-prev, .owl-next {
+					width: 50px; height: 100px;
+
+					background-color: rgba($black, 0.7);
+					color: $white;
+					display: inline-block;
+					padding: 2.7rem 1.3rem;
+				}
+
+				.owl-prev {
+					float: left;
+				}
+
+				.owl-next {
+					float: right;
+				}
+
+				.disabled { display: none; }
+			}
 
 			.page {
 				width: 100px !important; height: 100px !important;
@@ -857,6 +662,7 @@
 
 .owl-carousel {
 	display: none;
+	opacity: 1 !important;
 	position: relative;
 	width: 100%;
 
@@ -888,13 +694,12 @@
 	.owl-item { float: left; }
 }
 
-.owl-controls .owl-page,
-.owl-controls .owl-buttons div{
-	cursor: pointer;
-}
-
 .owl-controls {
 	user-select: none;
+	
+	.owl-page, .owl-buttons {
+		div { cursor: pointer; }
+	}
 
 	-ms-user-select: none;
 	-moz-user-select: none;
@@ -915,12 +720,15 @@
 
 .owl-theme {
 	.owl-controls {
+		/*
 		margin-top: 10px;
 		text-align: center;
+		*/
 
 		.owl-buttons {
 			div {
 				/* Styling Next and Prev buttons */
+				/*
 				margin: 5px; padding: 3px 10px;
 
 				background-color: #869791;
@@ -930,6 +738,7 @@
 				font-size: 12px;
 				opacity: 0.5;
 				zoom: 1;
+				*/
 
 				/* fixes hover issues on touch devices */
 				&:hover {
@@ -967,8 +776,8 @@
 	}
 }
 
-.owl-theme .owl-controlls .owl-page.active span,
-.owl-theme .owl-controlls.clickable .owl-page:hover span{
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
 	opacity: 1;
 }
 
