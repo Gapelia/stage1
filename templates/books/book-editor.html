@@ -66,12 +66,45 @@
 				<div id="create-book">
 					<div id="layout-scroller">
 						<ul>
-							<li>01</li>
-							<li>02</li>
-							<li>03</li>
-							<li>04</li>
-							<li>05</li>
-							<li>06</li>
+							<li id="select-frontcover-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/01.png" alt=""/>
+								<span>Front Cover</span>
+							</li>
+
+							<li id="select-photo-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/02.png" alt=""/>
+								<span>Photo</span>
+							</li>
+
+							<li id="select-text-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/03.png" alt=""/>
+								<span>Text</span>
+							</li>
+
+							<li id="select-horizontal-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/04.png" alt=""/>
+								<span>Horizontal</span>
+							</li>
+
+							<li id="select-overlay-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/05.png" alt=""/>
+								<span>Overlay</span>
+							</li>
+
+							<li id="select-phototext-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/06.png" alt=""/>
+								<span>Photo/Text</span>
+							</li>
+
+							<li id="select-integrated-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/07.png" alt=""/>
+								<span>Integrated</span>
+							</li>
+
+							<li id="select-video-layout">
+								<img src="{{ STATIC_URL }}images/view-modes/08.png" alt=""/>
+								<span>Video</span>
+							</li>
 						</ul>
 					</div>
 
@@ -203,20 +236,6 @@
 							</div>
 						</section>
 					</div>
-
-					<!--/ sidebar /-->
-
-					<!--/
-					<div id="create-sidebar">
-						<ul id="sidebar-actions">
-							<li><a href="JavaScript:openFullView()">Fullview</a></li>
-							<li><a onclick="publishBook(this)" class="md-trigger" data-modal="publish-book-modal">Publish</a></li>
-							<li><a onclick="savePageChanges(this, true)" class="md-trigger" data-modal="save-book-modal" id="save-page-btn">Save</a></li>
-						</ul>
-
-						<div id="sidebar-wrapper">books/tab-editor</div>
-					</div>
-					/-->
 				</div>
 			</div>
 			{% endif %}
@@ -312,9 +331,9 @@
 					navigation: true,
 					navigationText : ["<", ">"],
 					pagination: false,
-					responsive: true,
-					itemsDesktop: [1366, 12]
-					//items : 20
+					// responsive: true,
+					itemsDesktop: [1366, 12],
+					items : 12
 				});
 			 
 			});

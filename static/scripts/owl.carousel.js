@@ -43,7 +43,7 @@ if (typeof Object.create !== "function") {
 			var base = this;
 
 			base.baseClass();
-			base.$elem.css({opacity: 0});
+			base.$elem.css({ opacity: 0 });
 
 			base.checkTouch();
 			base.support3d();
@@ -93,7 +93,7 @@ if (typeof Object.create !== "function") {
 			} else {
 				setTimeout(function () {
 					// base.calculateAll();
-					base.$elem.animate({opacity: 1}, 200);
+					base.$elem.animate({ opacity: 1 }, 200);
 				}, 10);
 			}
 
@@ -130,7 +130,7 @@ if (typeof Object.create !== "function") {
 			clearInterval(base.checkVisible);
 
 			if (!base.$elem.is(":visible")) {
-				base.$elem.css({opacity: 0});
+				base.$elem.css({ opacity: 0 });
 				clearInterval(base.autplaySpeed); // stop autoplay if not visible
 			} else {
 				return false;
@@ -141,7 +141,7 @@ if (typeof Object.create !== "function") {
 			base.checkVisible = setInterval(function () {
 				if (base.$elem.is(":visible")) {
 					base.reload();
-					base.$elem.animate({opacity: 1}, 200);
+					base.$elem.animate({ opacity: 1 }, 200);
 					clearInterval(base.checkVisible);
 				}
 			}, 500);
@@ -236,7 +236,7 @@ if (typeof Object.create !== "function") {
 
 				smallDelay = setTimeout(function () {
 					base.updateVars();
-				},200);
+				}, 200);
 
 			})
 
@@ -297,7 +297,7 @@ if (typeof Object.create !== "function") {
 			var width = base.owlItems.length * base.itemWidth;
 
 			base.owlWrapper.css({
-				"width": width*2,
+				"width": width * 2,
 				"left": 0
 			});
 
@@ -318,7 +318,7 @@ if (typeof Object.create !== "function") {
 		calculateWidth : function () {
 
 			var base = this;
-			base.itemWidth = Math.round(base.$elem.width()/base.options.items)
+			base.itemWidth = Math.round(base.$elem.width() / base.options.items)
 
 		},
 
@@ -353,6 +353,7 @@ if (typeof Object.create !== "function") {
 
 		},
 
+		/*
 		buildControls : function () {
 
 			var base = this;
@@ -376,6 +377,65 @@ if (typeof Object.create !== "function") {
 			var base = this;
 			var buttonsWrapper = $("<div class=\"owl-buttons\"/>")
 			base.owlControls.append(buttonsWrapper)
+
+			base.buttonPrev = $("<div/>", {
+				"class" : "owl-prev",
+				"text" : base.options.navigationText[0] || ""
+			});
+
+			base.buttonNext = $("<div/>", {
+				"class" : "owl-next",
+				"text" : base.options.navigationText[1] || ""
+			});
+
+			buttonsWrapper.append(base.buttonPrev).append(base.buttonNext);
+
+			buttonsWrapper.on(base.getEvent(), "div[class^=\"owl\"]", function (event) {
+
+				event.preventDefault();
+
+				if ($(this).hasClass("owl-next")) {
+					base.next();
+				} else{
+					base.prev();
+				}
+
+			})
+
+		},
+		*/
+
+		buildControls : function () {
+
+			var base = this;
+
+			if (base.options.navigation === true || base.options.pagination === true) {
+				base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
+			}
+
+			if (base.options.pagination === true) {
+				base.buildPagination();
+			}
+
+			if (base.options.navigation === true) {
+				base.buildButtons();
+			}
+
+		},
+
+		buildButtons : function () {
+
+			var base = this;
+			var buttonsWrapper = $("<div class=\"owl-buttons\"/>")
+			// $("#page-scroller").owlControls.append(buttonsWrapper)
+			base.owlControls.append(buttonsWrapper)
+
+			/*
+			var base = this;
+			base.userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
+			base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");
+			base.$elem.css("display", "block");
+			*/
 
 			base.buttonPrev = $("<div/>", {
 				"class" : "owl-prev",
