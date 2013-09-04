@@ -844,11 +844,13 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #book-creation-wrapper #create-book #layout-scroller, .book-creation #book-creation-wrapper #create-book #create-content { float: left; position: relative; vertical-align: top; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller { width: 15%; height: 100%; background-color: #ccc; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller ul { /* border-top: 1px solid $gray-i; */ }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li { width: 100%; height: auto; background-color: #fefefe; border-top: 1px solid #e7e7e7; padding: 1rem; }
+.book-creation #book-creation-wrapper #create-book #layout-scroller ul li { width: 100%; height: auto; background-color: #fefefe; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
+.book-creation #book-creation-wrapper #create-book #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller ul li:last-child { border-bottom: none; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller ul li img, .book-creation #book-creation-wrapper #create-book #layout-scroller ul li span { display: block; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
+.book-creation #book-creation-wrapper #create-book #layout-scroller ul .selected-layout { background-color: #e7e7e7; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }

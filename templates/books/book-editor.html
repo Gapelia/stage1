@@ -66,7 +66,7 @@
 				<div id="create-book">
 					<div id="layout-scroller">
 						<ul>
-							<li id="select-frontcover-layout">
+							<li id="select-frontcover-layout" class="selected-layout">
 								<img src="{{ STATIC_URL }}images/view-modes/01.png" alt=""/>
 								<span>Front Cover</span>
 							</li>
@@ -333,6 +333,7 @@
 					pagination: false,
 					// responsive: true,
 					itemsDesktop: [1366, 12],
+					// itemsDesktop: [1366, 11.6], // 11.6 makes items 100px wide on1366px wide displays
 					items : 12
 				});
 			 

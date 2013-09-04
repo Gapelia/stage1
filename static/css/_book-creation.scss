@@ -73,7 +73,13 @@
 
 						background-color: $white;
 						border-top: 1px solid $gray-i;
+						cursor: pointer;
 						padding: 1rem;
+
+						&:hover {
+							background-color: $gray-i;
+							opacity: 0.7;
+						}
 
 						&:last-child { border-bottom: none; }
 
@@ -90,6 +96,10 @@
 							width: 100%; height: auto;
 							text-align: center;
 						}
+					}
+
+					.selected-layout {
+						background-color: $gray-i;
 					}
 				}
 
