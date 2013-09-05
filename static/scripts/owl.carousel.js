@@ -91,10 +91,12 @@ if (typeof Object.create !== "function") {
 			if (!base.$elem.is(":visible")) {
 				base.watchVisibility();
 			} else {
+				/*
 				setTimeout(function () {
 					// base.calculateAll();
 					base.$elem.animate({ opacity: 1 }, 200);
 				}, 10);
+				*/
 			}
 
 			base.onstartup = false;

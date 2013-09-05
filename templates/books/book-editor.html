@@ -25,6 +25,16 @@
 		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
+		<script src="{{ STATIC_URL }}scripts/bg-resize.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$(".frontcover-preview-wrapper").bgResize({
+					// img: "{% block section_image %}{% endblock %}"
+					img: "{{ STATIC_URL }}images/tokyo2610-by-tokyo-form.jpg"
+				});
+			});
+		</script>
 
 	</head>
 
@@ -109,6 +119,22 @@
 					</div>
 
 					<div id="create-content">
+						<div class="text-menu hide">
+							<div class="options">
+								<span class="no-overflow">
+									<span class="ui-inputs">
+										<button class="bold">B</button>
+										<button class="italic">i</button>
+										<button class="header1">h1</button>
+										<button class="header2">h2</button>
+										<button class="quote">&rdquo;</button>
+										<button class="url useicons">&#xe001;</button>
+										<input class="url-input" type="text" placeholder="Paste or type a link"/>
+									</span>
+								</span>
+							</div>
+						</div>
+
 						<div class="flyout-wrap">
 							<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
 
@@ -123,7 +149,7 @@
 
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.FRONT_COVER }}" class="frontcover-preview-wrapper">
 							<div id="frontcover-preview">
-								<div class="cover-info">
+								<article contenteditable="true" class="cover-info">
 									<h1 class="page-title-elem">{{ first_page.title }}</h1>
 									<h5>by <span>{{ first_page.created_by.get_full_name}}</span></h5>
 
@@ -135,10 +161,10 @@
 									</ul>
 
 									<div class="page-desc">{{ first_page.description|safe }}</div>
-								</div>
+								</article>
 							</div>
 
-							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
+							<!--/ <img src="{{ first_page.media.url }}" alt="" class="page-bg"/> /-->
 						</section>
 
 						<!--/ preview/photo /-->
@@ -311,6 +337,9 @@
 			});
 		</script>
 
+		<script src="{{ STATIC_URL }}scripts/grande.js"></script>
+		<script>grande.bind();</script>
+
 		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
 
 		<!--/ scripts/layout-scroller /-->
@@ -466,6 +495,7 @@
 		<script src="{{ STATIC_URL }}scripts/livepreview.js"></script>
 		/-->
 
+		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
 		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
 
 		<!--/

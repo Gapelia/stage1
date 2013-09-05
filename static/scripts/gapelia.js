@@ -25,7 +25,7 @@ $(document).ready(function() {
 	var smallBookScroller = viewportWidth - 203;
 
 	var bcViewportHeight = $(window).height();
-	var bcH = bcViewportHeight - 180;
+	var bcH = bcViewportHeight - 180 + 1; /* fixes 1px discrepancy */
 
 	$(".owl-carousel").width(smallBookScroller);
 	$("#create-book").height(bcH);
