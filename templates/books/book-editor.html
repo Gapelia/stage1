@@ -38,7 +38,7 @@
 
 	</head>
 
-	<body class="book-creation">
+	<body class="book-creation g-body">
 
 		<header>
 			<div id="back">
@@ -74,49 +74,53 @@
 
 			<div id="book-creation-wrapper">
 				<div id="create-book">
-					<div id="layout-scroller">
-						<ul>
-							<li id="select-frontcover-layout" class="selected-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/01.png" alt=""/>
-								<span>Front Cover</span>
-							</li>
+					<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s3">
+						<div id="layout-toggle">Layout Menu</div>
 
-							<li id="select-photo-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/02.png" alt=""/>
-								<span>Photo</span>
-							</li>
+						<div id="layout-scroller">
+							<ul>
+								<li id="select-frontcover-layout" class="selected-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/01.png" alt=""/>
+									<span>Front Cover</span>
+								</li>
 
-							<li id="select-text-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/03.png" alt=""/>
-								<span>Text</span>
-							</li>
+								<li id="select-photo-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/02.png" alt=""/>
+									<span>Photo</span>
+								</li>
 
-							<li id="select-horizontal-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/04.png" alt=""/>
-								<span>Horizontal</span>
-							</li>
+								<li id="select-text-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/03.png" alt=""/>
+									<span>Text</span>
+								</li>
 
-							<li id="select-overlay-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/05.png" alt=""/>
-								<span>Overlay</span>
-							</li>
+								<li id="select-horizontal-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/04.png" alt=""/>
+									<span>Horizontal</span>
+								</li>
 
-							<li id="select-phototext-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/06.png" alt=""/>
-								<span>Photo/Text</span>
-							</li>
+								<li id="select-overlay-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/05.png" alt=""/>
+									<span>Overlay</span>
+								</li>
 
-							<li id="select-integrated-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/07.png" alt=""/>
-								<span>Integrated</span>
-							</li>
+								<li id="select-phototext-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/06.png" alt=""/>
+									<span>Photo/Text</span>
+								</li>
 
-							<li id="select-video-layout">
-								<img src="{{ STATIC_URL }}images/view-modes/08.png" alt=""/>
-								<span>Video</span>
-							</li>
-						</ul>
-					</div>
+								<li id="select-integrated-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/07.png" alt=""/>
+									<span>Integrated</span>
+								</li>
+
+								<li id="select-video-layout">
+									<img src="{{ STATIC_URL }}images/view-modes/08.png" alt=""/>
+									<span>Video</span>
+								</li>
+							</ul>
+						</div>
+					</section>
 
 					<div id="create-content">
 						<div class="text-menu hide">
@@ -269,11 +273,10 @@
 
 		<!--/ page-scroller /-->
 
+		<!--/
 		<section id="small-switcher">Your Pages</section>
 
 		<div id="page-scroller-wrapper" class="small-book-scroller">
-
-			<!--/ new-pages /-->
 
 			<ul id="new-pages">
 				<li id="new-text">
@@ -285,13 +288,6 @@
 				</li>
 			</ul>
 
-			<!--/
-			<nav>
-				<a id="prev-small" class="prev" href="#">&#9664;</a>
-				<a id="next-small" class="next" href="#">&#9654;</a>
-			</nav>
-			/-->
-
 			<div id="page-scroller" class="owl-carousel">
 				{% for page in pages %}
 				<div class="page item" id="mini-page-{{ page.id }}">
@@ -300,6 +296,166 @@
 				{% endfor %}
 			</div>
 		</div>
+		/-->
+
+		<section class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<div id="menu-toggle">Page Menu</div>
+
+			<div id="page-scroller-wrapper">
+				<nav>
+					<a id="prev-small" class="prev" href="#">&#9664;</a>
+					<a id="next-small" class="next" href="#">&#9654;</a>
+				</nav>
+
+				<ul id="page-scroller">
+
+					<!--/ page 01 /-->
+
+					<li class="page current-thumbnail">
+						<a href="01-frontcover.html">
+							<img src="../images/book-front.jpg" id="page-01" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 02 /-->
+
+					<li class="page">
+						<a href="02.html">
+							<img src="images/bath-02.jpg" id="page-02" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 03 /-->
+
+					<li class="page">
+						<a href="03.html">
+							<img src="images/boardwalk.jpg" id="page-03" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 04 /-->
+
+					<li class="page">
+						<a href="04.html">
+							<img src="images/city-from-river.jpg" id="page-04" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 05 /-->
+
+					<li class="page">
+						<a href="05.html">
+							<img src="images/kids.jpg" id="page-05" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 06 /-->
+
+					<li class="page">
+						<a href="06.html">
+							<img src="../images/book-video.jpg" id="page-06" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 07 /-->
+
+					<li class="page">
+						<a href="07.html">
+							<img src="images/market.jpg" id="page-07" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 08 /-->
+
+					<li class="page">
+						<a href="08.html">
+							<img src="images/old-town-food.jpg" id="page-08" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 09 /-->
+
+					<li class="page">
+						<a href="09.html">
+							<img src="images/river-boats.jpg" id="page-09" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 10 /-->
+
+					<li class="page">
+						<a href="10.html">
+							<img src="images/sadhus.jpg" id="page-10" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 11 /-->
+
+					<li class="page">
+						<a href="11.html">
+							<img src="../images/book-text.jpg" id="page-11" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 12 /-->
+
+					<li class="page">
+						<a href="12.html">
+							<img src="images/sleeping.jpg" id="page-12" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 13 /-->
+
+					<li class="page">
+						<a href="13.html">
+							<img src="images/streets-02.jpg" id="page-13" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 14 /-->
+
+					<li class="page">
+						<a href="14.html">
+							<img src="images/temple.jpg" id="page-14" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 15 /-->
+
+					<li class="page">
+						<a href="15.html">
+							<img src="images/traffic.jpg" id="page-15" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 16 /-->
+
+					<li class="page">
+						<a href="16.html">
+							<img src="images/kids+buffalos.jpg" id="page-16" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 17 /-->
+
+					<li class="page">
+						<a href="17.html">
+							<img src="images/silk.jpg" id="page-17" class="cover" alt=""/>
+						</a>
+					</li>
+
+					<!--/ page 18 /-->
+
+					<li class="page">
+						<a href="18.html">
+							<img src="../images/book-back.jpg" id="page-18" class="cover" alt=""/>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</section>
 
 		<!--/ scripts /-->
 		<script>
@@ -367,6 +523,24 @@
 				});
 			 
 			});
+		</script>
+
+		<!--/ scripts/menu-slider /-->
+		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
+
+		<script>
+			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), body = document.body;
+			var menuLeft = document.getElementById("cbp-spmenu-s3"), showLeft = document.getElementById("layout-toggle"), body = document.body;
+
+			showBottom.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuBottom, "cbp-spmenu-open");
+			};
+
+			showLeft.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuLeft, "cbp-spmenu-open");
+			};
 		</script>
 
 		<!--/ scripts/page-sorter /-->

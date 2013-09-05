@@ -93,6 +93,18 @@ $blue:			rgba(0, 205, 231, 1);		// #00cbe7;
 }
 
 @font-face {
+	font-family: "icomoon";
+	font-style: normal;
+	font-weight: 400;
+
+	src: local("☺"), url("../font-face/icomoon.svg#icomoon") format("svg");
+	src: url("../font-face/icomoon.eot"),
+			 url("../font-face/icomoon.eot?#iefix") format("embedded-opentype"),
+			 url("../font-face/icomoon.ttf") format("truetype"),
+			 url("../font-face/icomoon.woff") format("woff");
+}
+
+@font-face {
 	font-family: "OpenSansLight";
 	font-style: normal;
 	font-weight: 300;
