@@ -181,6 +181,8 @@
 							<div id="frontcover-preview">
 								<article contenteditable="true" class="cover-info">
 
+									<center>FRONT COVER</center>
+
 									<h1 class="page-title-elem">{{ first_page.title }}</h1>
 									<h5>by <span>{{ first_page.created_by.get_full_name}}</span></h5>
 
@@ -201,6 +203,8 @@
 							<div id="photo-preview">
 								<article contenteditable="true">
 
+									<center>PHOTO</center>
+
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
 
@@ -213,6 +217,8 @@
 						<section id="" class="test-text-preview-wrapper">
 							<div id="text-preview">
 								<article contenteditable="true">
+
+									<center>TEXT</center>
 
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
@@ -227,6 +233,8 @@
 							<div id="horizontal-preview">
 								<article contenteditable="true">
 
+									<center>HORIZONTAL</center>
+
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
 
@@ -240,6 +248,8 @@
 							<div id="overlay-preview">
 								<article contenteditable="true">
 
+									<center>OVERLAY</center>
+
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
 
@@ -250,11 +260,13 @@
 						</section>
 
 						<section id="" class="test-phototext-preview-wrapper">
-							<!--/ <img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="horizontal-bg"/> /-->
-							<img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="vertical-bg"/>
+							<img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="horizontal-bg"/>
+							<!--/ <img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="vertical-bg"/> /-->
 
 							<div id="phototext-preview">
 								<article contenteditable="true">
+
+									<center>PHOTO/TEXT</center>
 
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
@@ -264,11 +276,12 @@
 								</article>
 							</div>
 						</section>
-						</section>
 
 						<section id="" class="test-integrated-preview-wrapper">
 							<div id="integrated-preview">
 								<article contenteditable="true">
+
+									<center>INTEGRATED</center>
 
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
@@ -282,6 +295,8 @@
 						<section id="" class="test-video-preview-wrapper">
 							<div id="video-preview" style="position: relative;">
 								<article contenteditable="true">
+
+									<center>VIDEO</center>
 
 									<span class="page-title-elem">{{ page.title }}</span>
 									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
