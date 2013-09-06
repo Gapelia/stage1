@@ -6,8 +6,8 @@
 		width: 100%; height: 50px;
 		top: 0; left: 0;
 
-		/* background-color: rgba($gray-ii, 0.4); */
-		background-color: $white;
+		background-color: rgba($gray-ii, 0.4);
+		/* background-color: $white; */
 		/* border: 1px solid $gray-i; */
 		position: relative;
 		transition: all 0.2s;
@@ -44,19 +44,178 @@
 
 		#finish { text-align: right; }
 
-		/* &:hover { background-color: $gray-ii; } */
+		&:hover { background-color: $gray-ii; }
 	}
 
 	#book-creation-wrapper {
-		width: 100%; height: auto;
+		width: 100%; height: 100%;
 
 		#create-book {
-			clear: left;
-			height: 100%;
+			width: 100%; height: 100%;
 			overflow: hidden;
 
+			.flyout-wrap {
+				width: 150px; height: 191px;
+				top: 1rem; right: 1rem;
+
+				margin: 50px 0 0 0;
+				position: fixed;
+				z-index: 999;
+
+				.page-settings, .page-edit, .page-upload, .page-collab, .page-delete {
+					width: auto; height: auto;
+
+					color: $white;
+					font-family: "entyporegular";
+					font-size: 4em;
+					text-shadow: 0 0 1px rgba($black, 0.4);
+					transition: all 0.2s;
+
+					a, span { color: $white; }
+
+					a {
+						width: auto; height: auto;
+						display: block;
+					}
+
+					span {
+						/* width: 32px !important; height: 32px !important; */
+						display: inline-block;
+						text-align: center;
+					}
+
+					&:hover { opacity: 0.7; }
+				}
+
+				.flyout-btn {
+					top: 0; right: 0;
+
+					overflow: hidden;
+					position: absolute;
+					transform: rotate(0deg);
+					transition: transform 0.4s ease;
+					z-index: 9999;
+				}
+
+				.btn-rotate {
+					top: -2px; right: -1px;
+
+					text-shadow: 0 0 1px rgba($black, 0.4);
+					transform: rotate(-135deg);
+					vertical-align: top;
+				}
+
+				.page-edit {
+					top: 57px; right: -99px;
+					height: 100px !important;
+
+					a {
+						span { transform: rotate(0deg); }
+					}
+				}
+
+				.page-collab {
+					top: 64px; right: -32px;
+					height: 100px !important;
+
+					a {
+						span { transform: rotate(85deg); }
+					}
+				}
+
+				.page-delete {
+					top: 40px; right: -32px;
+					height: 100px !important;
+
+					a {
+						span { transform: rotate(180deg); }
+					}
+				}
+
+				.expand {
+					.page-upload, .page-edit { right: -32px; }
+				}
+
+				/* animation/expand */
+				@keyframes expand {
+					0% { top: 150px; }
+					50% { top: -10px; }
+					70% { top: 15px; }
+					100% { top: 10px; };
+				}
+
+				/* animation/contract */
+				@keyframes contract {
+					0% { top: 10px; }
+					40% { top: -25px; }
+					100% { top: 150px; };
+				}
+
+				.flyout {
+					top: -114px; right: 8px;
+
+					line-height: 0;
+					margin: 0;
+					position: absolute;
+
+					li {
+						display: block;
+						height: 170px;
+						position: absolute;
+						transform-origin: 0 bottom;
+
+						&:nth-of-type(1) { transform: rotate(180deg); }
+						&:nth-of-type(2) { transform: rotate(-130deg); }
+						&:nth-of-type(3) { transform: rotate(-90deg); }
+					}
+				}
+
+				.flyout-init {
+					li { display: none; }
+				}
+
+				.expand {
+					opacity: 1;
+					transition: all 0.2s;
+				}
+
+				.flyout.expand li a {
+					animation: expand 0.6s ease 1 backwards;
+					top: 10px;
+				}
+
+				.flyout li a {
+					animation: contract 0.35s ease-out 1 backwards;
+					top: 150px;
+				}
+
+				.flyout.fade li a.clicked {
+					animation: clicked 0.5s ease-out 1 forwards;
+					top: 10px;
+				}
+
+				.flyout.fade li a:not(.clicked) {
+					animation: fade 0.5s ease-out 1 forwards;
+					opacity: 0.1;
+					top: 10px;
+					transition: opacity 0.3s ease;
+				}
+
+				.flyout li:nth-of-type(1) a { animation-delay: 0.2s; }
+				.flyout li:nth-of-type(2) a { animation-delay: 0.1s; }
+				.flyout li:nth-of-type(3) a { animation-delay: 0; }
+
+				.flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
+				.flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
+				.flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
+
+				.flyout.expand li:nth-of-type(1) a { transform: rotate(0deg); }
+				.flyout.expand li:nth-of-type(2) a { transform: rotate(45deg); }
+				.flyout.expand li:nth-of-type(3) a { transform: rotate(90deg); }
+			}
+
 			#layout-scroller, #create-content {
-				float: left;
+				/* float: left; */
 				position: relative;
 				vertical-align: top;
 			}
@@ -116,167 +275,8 @@
 			}
 
 			#create-content {
-				/* background-color: $gray-v; */
-				width: 85%; /* 67.4 */
-
-				.flyout-wrap {
-					width: 150px; height: 191px;
-					top: 1rem; right: 1rem;
-
-					position: absolute;
-					z-index: 999;
-
-					.page-settings, .page-edit, .page-upload, .page-collab, .page-delete {
-						width: auto; height: auto;
-
-						color: $white;
-						font-family: "entyporegular";
-						font-size: 4em;
-						text-shadow: 0 0 1px rgba($black, 0.4);
-						transition: all 0.2s;
-
-						a, span { color: $white; }
-
-						a {
-							width: auto; height: auto;
-							display: block;
-						}
-
-						span {
-							/* width: 32px !important; height: 32px !important; */
-							display: inline-block;
-							text-align: center;
-						}
-
-						&:hover { opacity: 0.7; }
-					}
-
-					.flyout-btn {
-						top: 0; right: 0;
-
-						overflow: hidden;
-						position: absolute;
-						transform: rotate(0deg);
-						transition: transform 0.4s ease;
-						z-index: 9999;
-					}
-
-					.btn-rotate {
-						top: -2px; right: -1px;
-
-						text-shadow: 0 0 1px rgba($black, 0.4);
-						transform: rotate(-135deg);
-						vertical-align: top;
-					}
-
-					.page-edit {
-						top: 57px; right: -99px;
-						height: 100px !important;
-
-						a {
-							span { transform: rotate(0deg); }
-						}
-					}
-
-					.page-collab {
-						top: 64px; right: -32px;
-						height: 100px !important;
-
-						a {
-							span { transform: rotate(85deg); }
-						}
-					}
-
-					.page-delete {
-						top: 40px; right: -32px;
-						height: 100px !important;
-
-						a {
-							span { transform: rotate(180deg); }
-						}
-					}
-
-					.expand {
-						.page-upload, .page-edit { right: -32px; }
-					}
-
-					/* animation/expand */
-					@keyframes expand {
-						0% { top: 150px; }
-						50% { top: -10px; }
-						70% { top: 15px; }
-						100% { top: 10px; };
-					}
-
-					/* animation/contract */
-					@keyframes contract {
-						0% { top: 10px; }
-						40% { top: -25px; }
-						100% { top: 150px; };
-					}
-
-					.flyout {
-						top: -114px; right: 8px;
-
-						line-height: 0;
-						margin: 0;
-						position: absolute;
-
-						li {
-							display: block;
-							height: 170px;
-							position: absolute;
-							transform-origin: 0 bottom;
-
-							&:nth-of-type(1) { transform: rotate(180deg); }
-							&:nth-of-type(2) { transform: rotate(-130deg); }
-							&:nth-of-type(3) { transform: rotate(-90deg); }
-						}
-					}
-
-					.flyout-init {
-						li { display: none; }
-					}
-
-					.expand {
-						opacity: 1;
-						transition: all 0.2s;
-					}
-
-					.flyout.expand li a {
-						animation: expand 0.6s ease 1 backwards;
-						top: 10px;
-					}
-
-					.flyout li a {
-						animation: contract 0.35s ease-out 1 backwards;
-						top: 150px;
-					}
-
-					.flyout.fade li a.clicked {
-						animation: clicked 0.5s ease-out 1 forwards;
-						top: 10px;
-					}
-
-					.flyout.fade li a:not(.clicked) {
-						animation: fade 0.5s ease-out 1 forwards;
-						opacity: 0.1;
-						top: 10px;
-						transition: opacity 0.3s ease;
-					}
-
-					.flyout li:nth-of-type(1) a { animation-delay: 0.2s; }
-					.flyout li:nth-of-type(2) a { animation-delay: 0.1s; }
-					.flyout li:nth-of-type(3) a { animation-delay: 0; }
-
-					.flyout.expand li:nth-of-type(1) a { animation-delay: 0; }
-					.flyout.expand li:nth-of-type(2) a { animation-delay: 0.1s; }
-					.flyout.expand li:nth-of-type(3) a { animation-delay: 0.2s; }
-
-					.flyout.expand li:nth-of-type(1) a { transform: rotate(0deg); }
-					.flyout.expand li:nth-of-type(2) a { transform: rotate(45deg); }
-					.flyout.expand li:nth-of-type(3) a { transform: rotate(90deg); }
-				}
+				width: 100%; height: 100%;
+				position: relative;
 
 				#frontcover-preview-wrapper, #photo-preview-wrapper, #text-preview-wrapper, #integrated-preview-wrapper,
 				#phototext-preview-wrapper, #phototext-ii-preview-wrapper, #integrated-ii-preview-wrapper, #video-preview-wrapper,
@@ -284,14 +284,13 @@
 				.blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper,
 				.phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper,
 				.book-creation-wrapper {
-					width: 100%; height: 100%;
+					width: 100%; height: 100% !important;
 
 					overflow: hidden;
-					position: relative;
+					position: fixed; /* fixed */
 
 					.page-bg {
 						width: 100%; height: auto;
-						/* margin-top: -2%; */
 					}
 
 					.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
@@ -609,6 +608,7 @@
 
 					background-color: rgba($black, 0.7);
 					color: $white;
+					cursor: pointer;
 					display: inline-block;
 					padding: 2.7rem 1.3rem;
 				}
@@ -782,11 +782,11 @@
 				}
 			}
 		}
-	}
 
-	.owl-theme .owl-controls .owl-page.active span,
-	.owl-theme .owl-controls.clickable .owl-page:hover span {
-		opacity: 1;
+		.owl-controls .owl-page.active span,
+		.owl-controls.clickable .owl-page:hover span {
+			opacity: 1;
+		}
 	}
 
 	/****************************************** grande ******************************************/
@@ -809,9 +809,9 @@
 			padding: 0 !important;
 			transition: opacity 400ms !important;
 		}
-	}
 
-	.active { color: #e67e22 !important; }
+		.active { color: #e67e22 !important; }
+	}
 
 	.text-menu.hide {
 		top: -999px; left: -999px;
@@ -907,5 +907,87 @@
 			width: 155px !important;
 		}
 	}
+
+	/******************************************* flip *******************************************/
+
+	.flipContainer {
+		perspective: 3000px;
+		position: relative;
+		user-select: none;
+
+		/* pager */
+		.pager {
+			text-align: center;
+			height: 24px;
+			line-height: 6px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			cursor: pointer;
+			font-size: 6px;
+			overflow: hidden;
+
+			span.dot {
+				/* background-image: url("images/pager6x6.png"); */
+				background-repeat: no-repeat;
+				background-position: 0 -6px;
+				display: inline-block;
+				margin: 8px 5px;
+				text-decoration: none;
+				width: 6px;
+			}
+
+			span.dot.current  { background-position: 0 0; }
+		}
+	}
+
+	.flipContent {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		display: none;
+		overflow: hidden;
+		position: absolute;
+	}
+
+	.flipContent.flipCurrent { display: block; }
+
+	.sliding, .slidingBg {
+		background-color: inherit;
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.flipping {
+		background-color: inherit;
+		backface-visibility: hidden;
+		transform: rotateY(0deg);
+		transform-style: preserve3d;
+	}
+
+	.flipping.firstHalf { transform-origin: 100% 0; }
+	.flipping.secondHalf { transform-origin: 0 0; }
+
+	.backflipping {
+		background-color: inherit;
+		backface-visibility: hidden;
+		display: none;
+		transform: rotateY(180deg);
+		transform-style: flat;
+	}
+
+	.horizontalFlipping.firstHalf { transform-origin: 100% 0; }
+	.horizontalFlipping.secondHalf { transform-origin: 0 0; }
+
+	.verticalFlipping.firstHalf { transform-origin: 0 100%; }
+	.verticalFlipping.secondHalf { transform-origin: 0 0; }
+
+	.splitHalf {
+		overflow: hidden;
+		position: absolute;
+	}
+
+	.splitEmpty { background-color: #333; }
 
 }

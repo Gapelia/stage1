@@ -6,13 +6,15 @@ $(document).ready(function() {
 	var $storyFrontPage = $(".fv-frontcover #story-content");
 	var $story = $("#story-content");
 	var $wikiWindow = $("#wiki-window");
-	var $layoutMenu = $(".cbp-spmenu-vertical");
 
 	var $vb = $("#vertical-bg");
 	var $wide = $(".wide");
 
 	var $navPrev = $(".previous");
 	var $navNext = $(".next");
+
+	var $layoutMenu = $(".cbp-spmenu-vertical");
+	var $layoutTrigger = $("#layout-toggle");
 
 	$(function () {
 		// centering!
@@ -35,6 +37,7 @@ $(document).ready(function() {
 		$navNext.css("margin-top", $(window).height() / 2 - 50 + "px");
 
 		$layoutMenu.css("height", $(window).height() - 69 + "px").css("margin-top", 50 + "px");
+		$layoutTrigger.css("top", $(window).height() / 2 - 25 + "px");
 	});
 
 	$("#book-wiki").click(function (e) {

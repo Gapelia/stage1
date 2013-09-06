@@ -1,20 +1,15 @@
-(function() {
+(function () {
 
-	var root = this, // Root object, this is going to be the window for now
-	document = this.document, // Safely store a document here for us to use
-	editableNodes = document.querySelectorAll(".g-body article"),
-	textMenu = document.querySelectorAll(".g-body .text-menu")[0],
-	optionsNode = document.querySelectorAll(".g-body .text-menu .options")[0],
-	urlInput = document.querySelectorAll(".g-body .text-menu .url-input")[0],
+	"use strict";
 
-	previouslySelectedText,
-
-	grande = {
-		bind: function() {
+	var root = this, document = this.document, editableNodes = document.querySelectorAll(".g-body article"), textMenu = document.querySelectorAll(".g-body .text-menu")[0], optionsNode = document.querySelectorAll(".g-body .text-menu .options")[0], urlInput = document.querySelectorAll(".g-body .text-menu .url-input")[0], previouslySelectedText, grande = {
+		bind: function () {
+			var bindTextSelectionEvents, bindTextStylingEvents;
 			bindTextSelectionEvents();
 			bindTextStylingEvents();
 		},
-		select: function() {
+		select: function () {
+			var triggerTextSelection;
 			triggerTextSelection();
 		}
 	},
@@ -24,8 +19,8 @@
 		"i": "italic",
 		"h1": "header1",
 		"h2": "header2",
-		"a": "url",
-		"blockquote": "quote"
+		"blockquote": "quote",
+		"a": "url"
 	};
 
 	function bindTextSelectionEvents() {
@@ -36,9 +31,9 @@
 		// feels more instantaneously active
 		document.onmousedown = triggerTextSelection;
 
-		document.onmouseup = function(event) {
+		document.onmouseup = function (event) {
 
-			setTimeout(function() {
+			setTimeout(function () {
 				triggerTextSelection(event);
 			}, 1);
 
@@ -64,7 +59,7 @@
 		for (i = 0, len = textMenuButtons.length; i < len; i++) {
 			node = textMenuButtons[i];
 
-			(function(n) {
+			(function (n) {
 				callback(n);
 			})(node);
 		}
@@ -73,8 +68,8 @@
 
 	function bindTextStylingEvents() {
 
-		iterateTextMenuButtons(function(node) {
-			node.onmousedown = function(event) {
+		iterateTextMenuButtons(function (node) {
+			node.onmousedown = function (event) {
 				triggerTextStyling(node);
 			};
 		});
@@ -89,7 +84,7 @@
 
 		var className, focusNode = getFocusNode(), tagClass, reTag;
 
-		iterateTextMenuButtons(function(node) {
+		iterateTextMenuButtons(function (node) {
 
 			className = node.className;
 
@@ -191,7 +186,7 @@
 
 	function toggleUrlInput() {
 
-		setTimeout(function() {
+		setTimeout(function () {
 
 			var url = getParentHref(getFocusNode());
 

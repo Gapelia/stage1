@@ -17,6 +17,24 @@
 		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/jquery-ui.css" rel="stylesheet"/>					/-->
 		<!--/ <link href="{{ STATIC_URL }}scripts/osmplayer/osmplayer_default.css" rel="stylesheet"/>	/-->
 
+		<style>
+			.test-frontcover-preview-wrapper, .test-photo-preview-wrapper, .test-text-preview-wrapper, .test-horizontal-preview-wrapper, .test-overlay-preview-wrapper, .test-phototext-preview-wrapper, .test-integrated-preview-wrapper, .test-video-preview-wrapper {
+				width: 100%; height: 100%;
+
+				background-size: cover;
+				display: block;
+			}
+
+			.test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2651.jpg"); }
+			.test-photo-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2656.jpg"); }
+			.test-text-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2659.jpg"); }
+			.test-horizontal-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2664.jpg"); }
+			.test-overlay-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2665.jpg"); }
+			/* .test-phototext-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2671.jpg"); } */
+			.test-integrated-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2676.jpg"); }
+			.test-video-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2679.jpg"); }
+		</style>
+
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -25,16 +43,25 @@
 		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.min.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
+
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/bg-resize.js"></script>
 
 		<script>
 			$(document).ready(function() {
-				$(".frontcover-preview-wrapper").bgResize({
-					// img: "{% block section_image %}{% endblock %}"
-					img: "{{ STATIC_URL }}images/tokyo2610-by-tokyo-form.jpg"
-				});
+				$(".test-frontcover-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2651.jpg" });
+				$(".test-photo-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2656.jpg" });
+				$(".test-text-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2659.jpg" });
+				$(".test-horizontal-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2664.jpg" });
+				$(".test-overlay-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2665.jpg" });
+				$(".test-phototext-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2671.jpg" });
+				$(".test-integrated-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2676.jpg" });
+				$(".test-video-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2679.jpg" });
 			});
 		</script>
+		/-->
+
+		<script src="{{ STATIC_URL }}scripts/prefixfree.js"></script>
 
 	</head>
 
@@ -122,35 +149,154 @@
 						</div>
 					</section>
 
-					<div id="create-content">
-						<div class="text-menu hide">
-							<div class="options">
-								<span class="no-overflow">
-									<span class="ui-inputs">
-										<button class="bold">B</button>
-										<button class="italic">i</button>
-										<button class="header1">h1</button>
-										<button class="header2">h2</button>
-										<button class="quote">&rdquo;</button>
-										<button class="url useicons">&#xe001;</button>
-										<input class="url-input" type="text" placeholder="Paste or type a link"/>
-									</span>
+					<div class="text-menu hide">
+						<div class="options">
+							<span class="no-overflow">
+								<span class="ui-inputs">
+									<button class="bold">B</button>
+									<button class="italic">i</button>
+									<button class="header1">h1</button>
+									<button class="header2">h2</button>
+									<button class="quote">&rdquo;</button>
+									<button class="url useicons">&#xe001;</button>
+									<input class="url-input" type="text" placeholder="Paste or type a link"/>
 								</span>
+							</span>
+						</div>
+					</div>
+
+					<div class="flyout-wrap">
+						<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
+
+						<ul class="flyout flyout-init">
+							<li class="page-delete"><a title="Delete" class="md-trigger" href="JavaScript:$('#delete-modal').addClass('md-show')"><span>u</span></a></li>
+							<li class="page-collab"><a title="Collab" href="#"><span>,</span></a></li>
+							<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
+						</ul>
+					</div>
+
+					<div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol">
+
+						<section id="" class="test-frontcover-preview-wrapper">
+							<div id="frontcover-preview">
+								<article contenteditable="true" class="cover-info">
+
+									<h1 class="page-title-elem">{{ first_page.title }}</h1>
+									<h5>by <span>{{ first_page.created_by.get_full_name}}</span></h5>
+
+									<ul class="cover-lifestyle">
+										{% if first_page.location %}<li class="page-geotag-elem">{{ first_page|get_page_location }}</li>{% endif %}
+										{% for tagged_item in first_page.tagged_items %}
+										<li>{{ tagged_item.tag.name|title }}</li>
+										{% endfor %}
+									</ul>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
 							</div>
-						</div>
+						</section>
 
-						<div class="flyout-wrap">
-							<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
+						<section id="" class="test-photo-preview-wrapper">
+							<div id="photo-preview">
+								<article contenteditable="true">
 
-							<ul class="flyout flyout-init">
-								<li class="page-delete"><a title="Delete" class="md-trigger" href="JavaScript:$('#delete-modal').addClass('md-show')"><span>u</span></a></li>
-								<li class="page-collab"><a title="Collab" href="#"><span>,</span></a></li>
-								<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
-							</ul>
-						</div>
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
+							</div>
+						</section>
+
+						<section id="" class="test-text-preview-wrapper">
+							<div id="text-preview">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc columnize">{{ first_page.description|safe }}</div>
+
+								</article>
+							</div>
+						</section>
+
+						<section id="" class="test-horizontal-preview-wrapper">
+							<div id="horizontal-preview">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
+							</div>
+						</section>
+
+						<section id="" class="test-overlay-preview-wrapper">
+							<div id="overlay-preview">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
+							</div>
+						</section>
+
+						<section id="" class="test-phototext-preview-wrapper">
+							<!--/ <img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="horizontal-bg"/> /-->
+							<img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="vertical-bg"/>
+
+							<div id="phototext-preview">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
+							</div>
+						</section>
+						</section>
+
+						<section id="" class="test-integrated-preview-wrapper">
+							<div id="integrated-preview">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+									
+								</article>
+							</div>
+						</section>
+
+						<section id="" class="test-video-preview-wrapper">
+							<div id="video-preview" style="position: relative;">
+								<article contenteditable="true">
+
+									<span class="page-title-elem">{{ page.title }}</span>
+									<span class="page-geotag-elem">{{ first_page|get_page_location }}</span>
+
+									<div class="page-desc">{{ first_page.description|safe }}</div>
+
+								</article>
+
+								<div id="video-player-container"></div>
+							</div>
+						</section>
 
 						<!--/ preview/front-cover /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.FRONT_COVER }}" class="frontcover-preview-wrapper">
 							<div id="frontcover-preview">
 								<article contenteditable="true" class="cover-info">
@@ -167,12 +313,12 @@
 									<div class="page-desc">{{ first_page.description|safe }}</div>
 								</article>
 							</div>
-
-							<!--/ <img src="{{ first_page.media.url }}" alt="" class="page-bg"/> /-->
 						</section>
+						/-->
 
 						<!--/ preview/photo /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTO }}" class="photo-preview-wrapper">
 							<div id="photo-preview">
 								<span class="page-title-elem">{{ page.title }}</span>
@@ -183,9 +329,11 @@
 
 							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
 						</section>
+						/-->
 
 						<!--/ preview/text /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.TEXT }}" class="text-preview-wrapper">
 							<div id="text-preview">
 								<span class="page-title-elem">{{ page.title }}</span>
@@ -196,9 +344,11 @@
 
 							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
 						</section>
+						/-->
 
 						<!--/ preview/integrated-i /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.HORIZONTAL }}" class="integrated-preview-wrapper">
 							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
 
@@ -209,9 +359,11 @@
 								<div class="page-desc">{{ first_page.description|safe }}</div>
 							</div>
 						</section>
+						/-->
 
 						<!--/ preview/photo-text-i /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.OVERLAY }}" class="phototext-preview-wrapper">
 							<div id="phototext-preview">
 								<span class="page-title-elem">{{ page.title }}</span>
@@ -222,12 +374,14 @@
 
 							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
 						</section>
+						/-->
 
 						<!--/ preview/photo-text-ii /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.PHOTOTEXT }}" class="phototext-ii-preview-wrapper">
 							<img src="{{ first_page.media.url }}" alt="" id="horizontal-bg" class="page-bg"/>
-							<!--/ <img src="{{ first_page.media.url }}" alt="" id="vertical-bg" class="page-bg"/> /-->
+							<img src="{{ first_page.media.url }}" alt="" id="vertical-bg" class="page-bg"/>
 
 							<div id="phototext-ii-preview">
 								<span class="page-title-elem">{{ page.title }}</span>
@@ -236,9 +390,11 @@
 								<div class="page-desc">{{ first_page.description|safe }}</div>
 							</div>
 						</section>
+						/-->
 
 						<!--/ preview/integrated-ii /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.INTEGRATED }}" class="integrated-ii-preview-wrapper">
 							<div id="integrated-ii-preview">
 								<div class="small-wrapper">
@@ -253,9 +409,11 @@
 
 							<img src="{{ first_page.media.url }}" alt="" class="page-bg"/>
 						</section>
+						/-->
 
 						<!--/ preview/video /-->
 
+						<!--/
 						<section id="preview-wrapper-{{ PAGE_LAYOUTS.VIDEO }}" class="video-preview-wrapper">
 							<div id="video-preview" style="position: relative;">
 								<span class="page-title-elem">{{ page.title }}</span>
@@ -265,6 +423,7 @@
 								<div id="video-player-container"></div>
 							</div>
 						</section>
+						/-->
 					</div>
 				</div>
 			</div>
@@ -511,11 +670,24 @@
 			});
 		</script>
 
-		<script src="{{ STATIC_URL }}scripts/grande.js"></script>
+		<script src="{{ STATIC_URL }}scripts/grande2.js"></script>
 		<script>grande.bind();</script>
 
 		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
 		<script src="{{ STATIC_URL }}scripts/books.js"></script>
+
+		<script src="{{ STATIC_URL }}scripts/flip.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				$("#create-content").flip({
+					forwardDir: "rtol",
+					// height: "340px",
+					showpager: false,
+					loop: false
+				});
+			});
+		</script>
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="{{ STATIC_URL }}scripts/mousewheel.js"></script>
@@ -561,19 +733,6 @@
 			};
 		</script>
 
-		<!--/ scripts/page-sorter /-->
-		<!--/
-		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
-
-		<script>
-			$(function() {
-				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
-					changePosition(ui);
-				});
-			});
-		</script>
-		/-->
-
 		<!--/ photo+column /-->
 		<script>
 			$(document).ready(function() {
@@ -587,6 +746,22 @@
 				});
 			});
 		</script>
+
+		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
+		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
+
+		<!--/ scripts/page-sorter /-->
+		<!--/
+		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
+
+		<script>
+			$(function() {
+				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
+					changePosition(ui);
+				});
+			});
+		</script>
+		/-->
 
 		<!--/
 		<script src="{{ STATIC_URL }}scripts/imgLiquid.min.js"></script>
@@ -686,9 +861,6 @@
 
 		<script src="{{ STATIC_URL }}scripts/livepreview.js"></script>
 		/-->
-
-		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
-		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
 
 		<!--/
 		<script>

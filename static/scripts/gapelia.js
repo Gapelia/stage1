@@ -28,9 +28,9 @@ $(document).ready(function() {
 	var bcH = bcViewportHeight - 180 + 1; /* fixes 1px discrepancy */
 
 	$(".owl-carousel").width(smallBookScroller);
-	$("#create-book").height(bcH);
+	// $("#create-book").height(bcH);
 
-	$(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(bcH);
+	// $(".blank-preview-wrapper, .frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .integrated-preview-wrapper, .phototext-preview-wrapper, .phototext-ii-preview-wrapper, .integrated-ii-preview-wrapper, .video-preview-wrapper").height(bcH);
 });
 
 // RESPONSIVE VERTICAL HEIGHT. HOLLAAAAA! /////////////////////////////////////////////////////////////
