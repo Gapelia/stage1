@@ -5,7 +5,6 @@
 	position: fixed;
 
 	#menu-toggle, #layout-toggle {
-		background-color: $gray-ii;
 		color: $gray-v;
 		cursor: pointer;
 		font-size: 0.8em;
@@ -20,12 +19,15 @@
 		width: 100%; height: auto;
 		margin: 0; padding: 0.3rem 0;
 		bottom: 0; left: 0;
+
+		background-color: $gray-ii;
 	}
 
 	#layout-toggle {
 		width: 50px; height: 50px;
-		top: 50px; left: 0;
+		top: 0; left: 0;
 
+		background-color: $slate;
 		@include hide-text;
 	}
 
@@ -75,7 +77,16 @@
 
 .cbp-spmenu-left.cbp-spmenu-open {
 	left: 0;
-	#layout-toggle { left: 150px; }
+
+	#layout-toggle {
+		color: $white;
+		@include sans;
+		font-size: 100%;
+		left: 0;
+		line-height: 1rem;
+		padding: 1.1rem 0;
+		width: 150px;
+	}
 }
 
 /* Push classes applied to the body */
