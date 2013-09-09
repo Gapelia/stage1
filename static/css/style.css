@@ -1222,13 +1222,15 @@ margin-right: 1px;
 .cbp-spmenu { background-color: #e7e7e7; position: fixed; }
 .cbp-spmenu #menu-toggle, .cbp-spmenu #layout-toggle { color: #585959; cursor: pointer; font-size: 0.8em; position: fixed; text-align: center; text-transform: uppercase; transition: all 0.3s ease; z-index: 25 !important; }
 .cbp-spmenu #menu-toggle { width: 100%; height: auto; margin: 0; padding: 0.3rem 0; bottom: 0; left: 0; background-color: #cfcfcf; }
-.cbp-spmenu #layout-toggle { width: 50px; height: 50px; top: 0; left: 0; background-color: #70a1b1; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.cbp-spmenu #layout-toggle { width: 50px; height: 50px; top: 0; left: 0; background-color: #70a1b1; }
+.cbp-spmenu #layout-toggle .open { display: none; }
+.cbp-spmenu #layout-toggle .closed { color: #fefefe; font-family: "entyporegular"; font-size: 6em; line-height: 3.2rem; text-transform: lowercase; }
 .cbp-spmenu h3 { margin: 0; padding: 20px; font-size: 1.9em; font-weight: 300; }
 .cbp-spmenu a { display: block; font-size: 1.1em; font-weight: 300; }
 
 .cbp-spmenu-horizontal { width: 100%; height: 100px; left: 0; z-index: 1001; }
 
-.cbp-spmenu-vertical { width: 150px; /* 240px */ height: 100%; top: 0; z-index: 1000; }
+.cbp-spmenu-vertical { width: 150px; /* 240 */ height: 100%; top: 0; z-index: 1000; }
 
 /* Horizontal menu that slides from the top or bottom */
 .cbp-spmenu-top { top: -150px; }
@@ -1241,10 +1243,12 @@ margin-right: 1px;
 .cbp-spmenu-bottom.cbp-spmenu-open #menu-toggle { bottom: 100px; }
 
 /* Vertical menu that slides from the left or right */
-.cbp-spmenu-left { left: -150px; /* -240px */ }
+.cbp-spmenu-left { left: -150px; /* -240 */ }
 
 .cbp-spmenu-left.cbp-spmenu-open { left: 0; }
 .cbp-spmenu-left.cbp-spmenu-open #layout-toggle { color: #fefefe; font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; font-size: 100%; left: 0; line-height: 1rem; padding: 1.1rem 0; width: 150px; }
+.cbp-spmenu-left.cbp-spmenu-open #layout-toggle .open { display: block; }
+.cbp-spmenu-left.cbp-spmenu-open #layout-toggle .closed { display: none; }
 
 /* Push classes applied to the body */
 .cbp-spmenu-push { left: 0; overflow-x: hidden; position: relative; }

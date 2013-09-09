@@ -28,7 +28,16 @@
 		top: 0; left: 0;
 
 		background-color: $slate;
-		@include hide-text;
+
+		.open { display: none; }
+
+		.closed {
+			color: $white;
+			font-family: "entyporegular";
+			font-size: 6em;
+			line-height: 3.2rem;
+			text-transform: lowercase;
+		}
 	}
 
 	h3 {
@@ -53,7 +62,7 @@
 }
 
 .cbp-spmenu-vertical {
-	width: 150px; /* 240px */ height: 100%;
+	width: 150px; /* 240 */ height: 100%;
 
 	top: 0;
 	z-index: 1000;
@@ -73,7 +82,7 @@
 
 /* Vertical menu that slides from the left or right */
 
-.cbp-spmenu-left { left: -150px; /* -240px */ }
+.cbp-spmenu-left { left: -150px; /* -240 */ }
 
 .cbp-spmenu-left.cbp-spmenu-open {
 	left: 0;
@@ -86,6 +95,9 @@
 		line-height: 1rem;
 		padding: 1.1rem 0;
 		width: 150px;
+
+		.open { display: block; }
+		.closed { display: none; }
 	}
 }
 
