@@ -950,14 +950,17 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #book-creation-wrapper #create-book #create-content .imgLiquid_bgSize { /* .imgLiquid_ready */ background-position: 0% 50% !important; }
 .book-creation #small-switcher { z-index: 101; }
 .book-creation #page-scroller-wrapper { width: 100%; height: auto; bottom: 0; left: 0; overflow: hidden; position: absolute; z-index: 101; }
-.book-creation #page-scroller-wrapper nav { width: 100%; height: 100%; bottom: 0; left: 0; position: absolute; z-index: 9999; }
+.book-creation #page-scroller-wrapper nav { width: 100%; height: 50%; bottom: 0; left: 0; position: absolute; z-index: 1; }
 .book-creation #page-scroller-wrapper nav .owl-buttons div { position: absolute; top: 30px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 .book-creation #page-scroller-wrapper nav .owl-buttons div:before { box-shadow: -2px -2px 0 0 #70a1b1; content: ""; cursor: pointer; display: block; padding: 20px; transform: rotate(-45deg); transition: 0.3s ease; -webkit-transform: rotate(-45deg); -webkit-transition: 0.3s ease; }
-.book-creation #page-scroller-wrapper nav .owl-buttons div:hover:before { box-shadow: -2px -2px 0 0 #fcfcfc; }
+.book-creation #page-scroller-wrapper nav .owl-buttons div:hover { opacity: 0.5; /* &:before { box-shadow: -2px -2px 0 0 $white; } */ }
 .book-creation #page-scroller-wrapper nav .owl-prev { left: 1.5rem; }
-.book-creation #page-scroller-wrapper nav .owl-next { right: 1.5rem; }
+.book-creation #page-scroller-wrapper nav .owl-next { right: 1.5rem; /*
+&:hover {
+	&:before { box-shadow: 2px 2px 0 0 $white; }
+}
+*/ }
 .book-creation #page-scroller-wrapper nav .owl-next:before { box-shadow: 2px 2px 0 0 #70a1b1; transform: rotate(135deg) !important; }
-.book-creation #page-scroller-wrapper nav .owl-next:hover:before { box-shadow: 2px 2px 0 0 #fcfcfc; }
 .book-creation #page-scroller-wrapper nav .disabled { display: none; }
 .book-creation #page-scroller-wrapper #new-pages { border-left: 3px solid #70a1b1; position: absolute; right: 0; width: 203px; z-index: 99999; }
 .book-creation #page-scroller-wrapper #new-pages li { cursor: pointer; float: left; }

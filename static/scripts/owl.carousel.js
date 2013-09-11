@@ -152,14 +152,10 @@ if (typeof Object.create !== "function") {
 
 		wrapItems : function () {
 
-			// $("#page-scroller").owlControls.append(buttonsWrapper)
-
 			var base = this;
-			base.userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
+			base.userItems.wrapAll("<ul class=\"owl-wrapper\">").wrap("<li class=\"owl-item\"></li>");
 			base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");
 			base.$elem.css("display", "block");
-
-			// var base2 = $("#page-scroller-wrapper");
 
 		},
 
@@ -359,58 +355,6 @@ if (typeof Object.create !== "function") {
 
 		},
 
-		/*
-		buildControls : function () {
-
-			var base = this;
-
-			if (base.options.navigation === true || base.options.pagination === true) {
-				base.owlControls = $("<nav class=\"owl-controls\"/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
-			}
-
-			if (base.options.pagination === true) {
-				base.buildPagination();
-			}
-
-			if (base.options.navigation === true) {
-				base.buildButtons();
-			}
-
-		},
-
-		buildButtons : function () {
-
-			var base = this;
-			var buttonsWrapper = $("<div class=\"owl-buttons\"/>")
-			base.owlControls.append(buttonsWrapper)
-
-			base.buttonPrev = $("<div/>", {
-				"class" : "owl-prev",
-				"text" : base.options.navigationText[0] || ""
-			});
-
-			base.buttonNext = $("<div/>", {
-				"class" : "owl-next",
-				"text" : base.options.navigationText[1] || ""
-			});
-
-			buttonsWrapper.append(base.buttonPrev).append(base.buttonNext);
-
-			buttonsWrapper.on(base.getEvent(), "div[class^=\"owl\"]", function (event) {
-
-				event.preventDefault();
-
-				if ($(this).hasClass("owl-next")) {
-					base.next();
-				} else{
-					base.prev();
-				}
-
-			})
-
-		},
-		*/
-
 		buildControls : function () {
 
 			var base = this;
@@ -435,15 +379,7 @@ if (typeof Object.create !== "function") {
 
 			var base = this;
 			var buttonsWrapper = $("<div class=\"owl-buttons\"/>")
-			// $("#page-scroller").owlControls.append(buttonsWrapper)
 			base.owlControls.append(buttonsWrapper)
-
-			/*
-			var base = this;
-			base.userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
-			base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");
-			base.$elem.css("display", "block");
-			*/
 
 			base.buttonPrev = $("<div/>", {
 				"class" : "owl-prev",

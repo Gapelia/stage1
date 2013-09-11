@@ -175,7 +175,8 @@
 						</ul>
 					</div>
 
-					<div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol">
+					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
+					<div id="create-content">
 
 						<section id="" class="test-frontcover-preview-wrapper">
 							<div id="frontcover-preview">
@@ -199,7 +200,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-photo-preview-wrapper">
+						<section id="" class="test-photo-preview-wrapper" style="display: none;">
 							<div id="photo-preview">
 								<article contenteditable="true">
 
@@ -214,7 +215,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-text-preview-wrapper">
+						<section id="" class="test-text-preview-wrapper" style="display: none;">
 							<div id="text-preview">
 								<article contenteditable="true">
 
@@ -229,7 +230,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-horizontal-preview-wrapper">
+						<section id="" class="test-horizontal-preview-wrapper" style="display: none;">
 							<div id="horizontal-preview">
 								<article contenteditable="true">
 
@@ -244,7 +245,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-overlay-preview-wrapper">
+						<section id="" class="test-overlay-preview-wrapper" style="display: none;">
 							<div id="overlay-preview">
 								<article contenteditable="true">
 
@@ -259,7 +260,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-phototext-preview-wrapper">
+						<section id="" class="test-phototext-preview-wrapper" style="display: none;">
 							<img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="horizontal-bg"/>
 							<!--/ <img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="vertical-bg"/> /-->
 
@@ -277,7 +278,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-integrated-preview-wrapper">
+						<section id="" class="test-integrated-preview-wrapper" style="display: none;">
 							<div id="integrated-preview">
 								<article contenteditable="true">
 
@@ -292,7 +293,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-video-preview-wrapper">
+						<section id="" class="test-video-preview-wrapper" style="display: none;">
 							<div id="video-preview" style="position: relative;">
 								<article contenteditable="true">
 
@@ -447,36 +448,11 @@
 
 		<!--/ page-scroller /-->
 
-		<!--/
-		<section id="small-switcher">Your Pages</section>
-
-		<div id="page-scroller-wrapper" class="small-book-scroller">
-
-			<ul id="new-pages">
-				<li id="new-text">
-					<img src="{{ STATIC_URL }}images/bc-new-text.jpg" onclick="JavaScript:createTextPage()" class="cover" alt=""/>
-				</li>
-
-				<li id="new-page">
-					<img src="{{ STATIC_URL }}images/bc-new-page.jpg" class="cover" onclick="uploadNewPage()" alt=""/>
-				</li>
-			</ul>
-
-			<div id="page-scroller" class="owl-carousel">
-				{% for page in pages %}
-				<div class="page item" id="mini-page-{{ page.id }}">
-					<img for-page="{{ page.id }}" class="cover" alt="" onclick="switchToPage(this)"{% if page.media %}{% if page.media.mimetype == "video/embed" %}src="{{STATIC_URL}}images/grey-pixel.png" onload="this.onload=null; this.src=videoFetchThumbnailURL('{{ page.media.url }}')"{% elif "image" in page.media.mimetype %}src="{{ page.media.url }}/convert?w=150&amp;h=150"{% endif %}{% else %}src="{{STATIC_URL}}images/book-text.jpg"{% endif %}/>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		/-->
-
 		<section class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
 			<div id="menu-toggle">Page Menu</div>
 
 			<div id="page-scroller-wrapper">
-				<ul id="page-scroller">
+				<section id="page-scroller">
 
 					<li class="page current-thumbnail">
 						<a href="">
@@ -598,11 +574,12 @@
 						</a>
 					</li>
 
-				</ul>
+				</section>
 			</div>
 		</section>
 
 		<!--/ scripts /-->
+		<!--/
 		<script>
 			var IS_FULL_PAGE_VIEW = false;
 			var CURRENT_BOOK_SLUG = "{{ book.slug }}";
@@ -627,6 +604,7 @@
 			var LAYOUT_VIDEO = {{ PAGE_LAYOUTS.VIDEO }};
 			var PAGES_CHECKED = [];
 		</script>
+		/-->
 
 		<script>
 			$(document).ready(function() {
@@ -668,7 +646,7 @@
 		</script>
 
 		<!--/ scripts/carousel /-->
-		<script src="{{ STATIC_URL }}scripts/owl.carousel.js"></script>
+		<script src="{{ STATIC_URL }}scripts/owl.carousel2.js"></script>
 
 		<script>
 			$(document).ready(function() {
@@ -680,9 +658,21 @@
 					// responsive: true,
 					itemsDesktop: [1366, 12],
 					// itemsDesktop: [1366, 11.6], // 11.6 makes items 100px wide on 1366px wide displays
-					items : 12
+					items : 12,
+					mouseDraggable: false
 				});
 			 
+			});
+		</script>
+
+		<!--/ scripts/page-sorter /-->
+		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
+
+		<script>
+			$(function() {
+				// $("#page-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
+				// $(".owl-wrapper").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
+				$(".owl-wrapper").sortable().bind("sortupdate", function(e, ui) { changePosition(ui); });
 			});
 		</script>
 
@@ -719,17 +709,6 @@
 
 		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
 		<script src="{{ STATIC_URL }}js/app/book-edit.js"></script>
-
-		<!--/ scripts/page-sorter /-->
-		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
-
-		<script>
-			$(function() {
-				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) {
-					changePosition(ui);
-				});
-			});
-		</script>
 
 		<!--/
 		<script src="{{ STATIC_URL }}scripts/imgLiquid.min.js"></script>
