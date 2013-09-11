@@ -6,7 +6,7 @@
 		width: 100%; height: 50px;
 		top: 0; left: 0;
 
-		background-color: rgba($gray-ii, 0.4);
+		background-color: rgba($white, 0.8);
 		/* background-color: $white; */
 		/* border: 1px solid $gray-i; */
 		position: relative;
@@ -580,6 +580,81 @@
 		position: absolute;
 		z-index: 101;
 
+		nav {
+			width: 100%; height: 100%;
+			bottom: 0; left: 0;
+			position: absolute;
+			z-index: 9999;
+
+			.owl-buttons {
+				div {
+					&:before {
+						box-shadow: -2px -2px 0 0 $slate;
+						content: "";
+						cursor: pointer;
+						display: block;
+						padding: 20px;
+						transform: rotate(-45deg);
+						transition: 0.3s ease;
+
+						-webkit-transform: rotate(-45deg);
+						-webkit-transition: 0.3s ease;
+					}
+
+					position: absolute;
+					top: 30px;
+
+					@include hide-text;
+
+					&:hover {
+						&:before { box-shadow: -2px -2px 0 0 $white; }
+					}
+				}
+			}
+
+
+			.owl-prev {
+				left: 1.5rem;
+			}
+
+			.owl-next {
+				right: 1.5rem;
+
+				&:before {
+					box-shadow: 2px 2px 0 0 $slate;
+					transform: rotate(135deg) !important;
+				}
+
+				&:hover {
+					&:before { box-shadow: 2px 2px 0 0 $white; }
+				}
+			}
+
+			.disabled { display: none; }
+
+			.owl-prev, .owl-next {
+				/*
+				width: 50px; height: 100px;
+
+				background-color: rgba($black, 0.7);
+				color: $white;
+				cursor: pointer;
+				display: inline-block;
+				*/
+			}
+
+			/*
+			span {
+				width: 50px; height: 100px;
+
+				background-color: rgba($black, 0.7);
+				color: $white;
+				cursor: pointer;
+				display: inline-block;
+			}
+			*/
+		}
+
 		#new-pages {
 			border-left: 3px solid $slate;
 			position: absolute;
@@ -596,33 +671,6 @@
 		#page-scroller {
 			height: 100px;
 			overflow: hidden; /**/
-
-			nav {
-				width: 100%; height: 100%;
-				bottom: 0; left: 0;
-
-				position: absolute;
-
-				.owl-prev, .owl-next {
-					width: 50px; height: 100px;
-
-					background-color: rgba($black, 0.7);
-					color: $white;
-					cursor: pointer;
-					display: inline-block;
-					padding: 2.7rem 1.3rem;
-				}
-
-				.owl-prev {
-					float: left;
-				}
-
-				.owl-next {
-					float: right;
-				}
-
-				.disabled { display: none; }
-			}
 
 			.page {
 				width: 100px !important; height: 100px !important;
@@ -684,7 +732,9 @@
 
 		.owl-wrapper {
 			display: none;
+			perspective: 1000;
 			position: relative;
+			transform: translate3d(0, 0, 0);
 
 			-webkit-perspective: 1000;
 			-webkit-transform: translate3d(0, 0, 0);
@@ -704,7 +754,7 @@
 
 	.owl-controls {
 		user-select: none;
-		
+
 		.owl-page, .owl-buttons {
 			div { cursor: pointer; }
 		}
@@ -721,6 +771,8 @@
 
 	/* fix */
 	.owl-carousel  .owl-wrapper, .owl-carousel  .owl-item {
+		backface-visibility: hidden;
+		-o-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
 		-moz-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
@@ -914,6 +966,14 @@
 		perspective: 3000px;
 		position: relative;
 		user-select: none;
+
+		-webkit-perspective: 3000px;
+
+		-ms-user-select: none;
+		-moz-user-select: none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 		/* pager */
 		.pager {

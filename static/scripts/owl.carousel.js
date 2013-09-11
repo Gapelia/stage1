@@ -152,10 +152,14 @@ if (typeof Object.create !== "function") {
 
 		wrapItems : function () {
 
+			// $("#page-scroller").owlControls.append(buttonsWrapper)
+
 			var base = this;
 			base.userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
 			base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");
 			base.$elem.css("display", "block");
+
+			// var base2 = $("#page-scroller-wrapper");
 
 		},
 
@@ -410,9 +414,11 @@ if (typeof Object.create !== "function") {
 		buildControls : function () {
 
 			var base = this;
+			var base2 = $("#page-scroller-wrapper");
 
 			if (base.options.navigation === true || base.options.pagination === true) {
-				base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
+				// base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
+				base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).prependTo("#page-scroller-wrapper"); // custom Gapelia code
 			}
 
 			if (base.options.pagination === true) {
@@ -451,13 +457,18 @@ if (typeof Object.create !== "function") {
 
 			buttonsWrapper.append(base.buttonPrev).append(base.buttonNext);
 
+			// custom Gapelia code
+			// base.options.navigationText[0].wrap("<span></span>");
+			// base.options.navigationText[1].wrap("<span></span>");
+			//
+
 			buttonsWrapper.on(base.getEvent(), "div[class^=\"owl\"]", function (event) {
 
 				event.preventDefault();
 
 				if ($(this).hasClass("owl-next")) {
 					base.next();
-				} else{
+				} else {
 					base.prev();
 				}
 
