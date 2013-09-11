@@ -613,9 +613,7 @@
 			}
 
 
-			.owl-prev {
-				left: 1.5rem;
-			}
+			.owl-prev { left: 1.5rem; }
 
 			.owl-next {
 				right: 1.5rem;
@@ -631,28 +629,6 @@
 			}
 
 			.disabled { display: none; }
-
-			.owl-prev, .owl-next {
-				/*
-				width: 50px; height: 100px;
-
-				background-color: rgba($black, 0.7);
-				color: $white;
-				cursor: pointer;
-				display: inline-block;
-				*/
-			}
-
-			/*
-			span {
-				width: 50px; height: 100px;
-
-				background-color: rgba($black, 0.7);
-				color: $white;
-				cursor: pointer;
-				display: inline-block;
-			}
-			*/
 		}
 
 		#new-pages {
