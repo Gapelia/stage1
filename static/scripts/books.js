@@ -10,6 +10,8 @@ $(document).ready(function() {
 	var $vb = $("#vertical-bg");
 	var $wide = $(".wide");
 
+	var $coverInfo = $(".cover-info");
+
 	var $navPrev = $(".previous");
 	var $navNext = $(".next");
 
@@ -18,10 +20,10 @@ $(document).ready(function() {
 
 	$(function () {
 		// centering!
-		$storyFrontPage.css("marginLeft", -+$storyFrontPage.width() / 2);
-		$storyFrontPage.css("marginTop", -+$storyFrontPage.height() / 2);
+		$coverInfo.css("marginLeft", -+$coverInfo.width() / 2);
+		$coverInfo.css("marginTop", -+$coverInfo.height() / 2);
 
-		$storyFrontPage.css({
+		$coverInfo.css({
 			"top": "50%",
 			"left": "50%",
 			"position": "absolute"

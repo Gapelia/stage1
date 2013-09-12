@@ -355,27 +355,11 @@ if ( typeof Object.create !== "function" ) {
 			}
 		},
 
-		/*
-		buildControls : function(){
-			var base = this;
-			if(base.options.navigation === true || base.options.pagination === true){
-				base.owlControls = $("<div class=\"owl-controls\"/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
-			}
-			if(base.options.pagination === true){
-				base.buildPagination();
-			}
-			if(base.options.navigation === true){
-				base.buildButtons();
-			}
-		},
-		*/
-
 		buildControls : function () {
 
 			var base = this;
 
 			if (base.options.navigation === true || base.options.pagination === true) {
-				// base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).appendTo(base.$elem);
 				base.owlControls = $("<nav/>").toggleClass("clickable", !base.isTouch).prependTo("#page-scroller-wrapper"); // custom Gapelia code
 			}
 
