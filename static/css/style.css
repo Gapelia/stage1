@@ -878,8 +878,13 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info h1, .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info h5, .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section { text-align: center; width: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info h1 { font-size: 36px; line-height: 40px; margin: 0 0 0.5rem 0; }
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info h5 { margin: 0 0 0.5rem 0; text-transform: uppercase; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info h5 span:before { content: "by "; font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section { margin: 0 0 1rem 0; }
-.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem { margin: 0 auto 0.5rem; text-align: center; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem { appearance: textfield; background: transparent; color: #fcfcfc; margin: 0 auto 0.5rem; text-align: center; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem:input-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem:-ms-input-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem::-moz-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-geotag-elem::-webkit-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info section .page-feeling-elem:after { content: " |"; }
 .book-creation #book-creation-wrapper #create-book #create-content #frontcover-preview .cover-info p { margin: 0 auto; padding: 1rem 0; border-top: 1px solid #fcfcfc; border-bottom: 1px solid #fcfcfc; line-height: 1.2em; text-align: center; width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .integrated-preview-wrapper .page-bg { width: 100%; height: auto; margin: 0 !important; }

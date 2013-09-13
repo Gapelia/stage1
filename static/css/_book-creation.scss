@@ -224,14 +224,31 @@
 						h5 {
 							margin: 0 0 0.5rem 0;
 							text-transform: uppercase;
+
+							span {
+								&:before {
+									content: "by ";
+									font-family: Georgia, serif;
+									font-style: italic;
+									text-transform: lowercase;
+								}
+							}
 						}
 
 						section {
 							margin: 0 0 1rem 0;
 
 							.page-geotag-elem {
+								appearance: textfield;
+								background: transparent;
+								color: $white;
 								margin: 0 auto 0.5rem;
 								text-align: center;
+
+								&:input-placeholder { color: $white; }
+								&:-ms-input-placeholder { color: $white; }
+								&::-moz-placeholder { color: $white; }
+								&::-webkit-input-placeholder { color: $white; }
 							}
 
 							.page-feeling-elem {
