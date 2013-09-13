@@ -45,6 +45,23 @@
 		&:hover { background-color: $white; }
 	}
 
+	.pac-container {
+		border: none !important;
+		width: 100%;
+
+		.pac-item {
+			padding: 0.5rem;
+			text-align: center !important;
+
+			&:hover {
+				background-color: $slate;
+				color: $white;
+				font-family: Georgia, serif;
+				font-style: italic;
+			}
+		}
+	}
+
 	#book-creation-wrapper {
 		width: 100%; height: 100%;
 
