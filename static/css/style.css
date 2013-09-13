@@ -969,9 +969,19 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 			}
 		}
 		*/ }
-.book-creation #page-scroller-wrapper .carousel-prev, .book-creation #page-scroller-wrapper .carousel-next { width: auto; height: auto; bottom: 0; display: inline; position: absolute; z-index: 1; }
-.book-creation #page-scroller-wrapper .carousel-prev { left: 0; }
-.book-creation #page-scroller-wrapper .carousel-next { right: 0; }
+.book-creation #page-scroller-wrapper .carousel-prev, .book-creation #page-scroller-wrapper .carousel-next { 			/*
+			width: auto; height: auto;
+
+			bottom: 0;
+			display: inline;
+			position: absolute;
+			*/ position: absolute; top: 30px; z-index: 1; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.book-creation #page-scroller-wrapper .carousel-prev:before, .book-creation #page-scroller-wrapper .carousel-next:before { content: ""; cursor: pointer; display: block; padding: 20px; transition: 0.3s ease; -webkit-transition: 0.3s ease; }
+.book-creation #page-scroller-wrapper .carousel-prev:hover, .book-creation #page-scroller-wrapper .carousel-next:hover { opacity: 0.5; /* &:before { box-shadow: -2px -2px 0 0 $white; } */ }
+.book-creation #page-scroller-wrapper .carousel-prev { left: 1.5rem; }
+.book-creation #page-scroller-wrapper .carousel-prev:before { box-shadow: -2px -2px 0 0 #70a1b1; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); }
+.book-creation #page-scroller-wrapper .carousel-next { right: 1.5rem; /* 0 */ }
+.book-creation #page-scroller-wrapper .carousel-next:before { box-shadow: 2px 2px 0 0 #70a1b1; transform: rotate(315deg); /* 135 */ -webkit-transform: rotate(315deg); /* 135 */ }
 .book-creation #page-scroller-wrapper .placeHolder a, .book-creation #page-scroller-wrapper .placeHolder div { background-color: #fcfcfc !important; border: 1px dashed #cfcfcf !important; }
 .book-creation #page-scroller-wrapper nav { width: 10%; /* 100% */ height: 100%; bottom: 0; right: 0; /* left */ position: absolute; z-index: 1; }
 .book-creation #page-scroller-wrapper nav .owl-buttons div { position: absolute; top: 30px; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }

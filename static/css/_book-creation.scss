@@ -596,16 +596,57 @@
 		z-index: 101;
 
 		.carousel-prev, .carousel-next {
+			/*
 			width: auto; height: auto;
 
 			bottom: 0;
 			display: inline;
 			position: absolute;
+			*/
+
+			position: absolute;
+			top: 30px;
 			z-index: 1;
+
+			@include hide-text;
+
+			&:before {
+				content: "";
+				cursor: pointer;
+				display: block;
+				padding: 20px;
+				transition: 0.3s ease;
+
+				-webkit-transition: 0.3s ease;
+			}
+
+			&:hover {
+				opacity: 0.5;
+				/* &:before { box-shadow: -2px -2px 0 0 $white; } */
+			}
 		}
 
-		.carousel-prev { left: 0; }
-		.carousel-next { right: 0; }
+		.carousel-prev {
+			left: 1.5rem;
+
+			&:before {
+				box-shadow: -2px -2px 0 0 $slate;
+				transform: rotate(-45deg);
+
+				-webkit-transform: rotate(-45deg);
+			}
+		}
+
+		.carousel-next {
+			right: 1.5rem; /* 0 */
+
+			&:before {
+				box-shadow: 2px 2px 0 0 $slate;
+				transform: rotate(315deg); /* 135 */
+
+				-webkit-transform: rotate(315deg); /* 135 */
+			}
+		}
 
 		.placeHolder {
 			a, div {
@@ -647,7 +688,6 @@
 					}
 				}
 			}
-
 
 			.owl-prev { left: 1.5rem; }
 
