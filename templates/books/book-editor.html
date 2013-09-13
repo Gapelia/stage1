@@ -22,7 +22,7 @@
 				display: block;
 			}
 
-			.test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2651.jpg"); }
+			.test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2692.jpg"); }
 			.test-photo-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2656.jpg"); }
 			.test-text-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2659.jpg"); }
 			.test-horizontal-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2664.jpg"); }
@@ -178,11 +178,11 @@
 									<h1 class="page-title-elem">* Title *</h1>
 									<h5>by <span>* User *</span></h5>
 
-									<ul class="cover-lifestyle">
-										<li class="page-geotag-elem">* Location *</li><br/>
-										<li>* Feeling *</li>
-										<li>* Lifestyle *</li>
-									</ul>
+									<section>
+										<input id="geotag-01" class="page-geotag-elem" type="text" placeholder="* Location *"/>
+										<span class="page-feeling-elem">* Feeling *</span>
+										<span class="page-lifestyle-elem">* Lifestyle *</span>
+									</section>
 
 									<div class="page-desc"><p>* Description *</p></div>
 
@@ -539,7 +539,72 @@
 			});
 		</script>
 
-		<script src="{{ STATIC_URL }}scripts/filepicker.js"></script>
+		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyCMqYZrdDg5sNRysahSHZh6t400-BwJtig&amp;libraries=places&amp;sensor=false"></script> /-->
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+
+		<script>
+			var geotag01 = document.getElementById("geotag-01");
+			autocomplete = new google.maps.places.Autocomplete(geotag01);
+
+			var geotag02 = document.getElementById("geotag-02");
+			autocomplete = new google.maps.places.Autocomplete(geotag02);
+
+			var geotag03 = document.getElementById("geotag-03");
+			autocomplete = new google.maps.places.Autocomplete(geotag03);
+
+			var geotag04 = document.getElementById("geotag-04");
+			autocomplete = new google.maps.places.Autocomplete(geotag04);
+
+			var geotag05 = document.getElementById("geotag-05");
+			autocomplete = new google.maps.places.Autocomplete(geotag05);
+
+			var geotag06 = document.getElementById("geotag-06");
+			autocomplete = new google.maps.places.Autocomplete(geotag06);
+
+			var geotag07 = document.getElementById("geotag-07");
+			autocomplete = new google.maps.places.Autocomplete(geotag07);
+
+			var geotag08 = document.getElementById("geotag-08");
+			autocomplete = new google.maps.places.Autocomplete(geotag08);
+
+			var geotag09 = document.getElementById("geotag-09");
+			autocomplete = new google.maps.places.Autocomplete(geotag09);
+
+			var geotag10 = document.getElementById("geotag-10");
+			autocomplete = new google.maps.places.Autocomplete(geotag10);
+
+			var geotag11 = document.getElementById("geotag-11");
+			autocomplete = new google.maps.places.Autocomplete(geotag11);
+
+			var geotag12 = document.getElementById("geotag-12");
+			autocomplete = new google.maps.places.Autocomplete(geotag12);
+
+			var geotag13 = document.getElementById("geotag-13");
+			autocomplete = new google.maps.places.Autocomplete(geotag13);
+
+			var geotag14 = document.getElementById("geotag-14");
+			autocomplete = new google.maps.places.Autocomplete(geotag14);
+
+			var geotag15 = document.getElementById("geotag-15");
+			autocomplete = new google.maps.places.Autocomplete(geotag15);
+
+			var geotag16 = document.getElementById("geotag-16");
+			autocomplete = new google.maps.places.Autocomplete(geotag16);
+
+			var geotag17 = document.getElementById("geotag-17");
+			autocomplete = new google.maps.places.Autocomplete(geotag17);
+
+			var geotag18 = document.getElementById("geotag-18");
+			autocomplete = new google.maps.places.Autocomplete(geotag18);
+
+			var geotag19 = document.getElementById("geotag-19");
+			autocomplete = new google.maps.places.Autocomplete(geotag19);
+
+			var geotag20 = document.getElementById("geotag-20");
+			autocomplete = new google.maps.places.Autocomplete(geotag20);
+		</script>
+
+		<!--/ <script src="{{ STATIC_URL }}scripts/filepicker.js"></script> /-->
 		<!--/ <script src="{{ STATIC_URL }}js/app/book-edit.js"></script> /-->
 
 		<!--/
