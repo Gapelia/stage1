@@ -311,129 +311,134 @@
 			<div id="menu-toggle">Page Menu</div>
 
 			<div id="page-scroller-wrapper">
-				<section id="page-scroller">
+				<a class="carousel-prev" href="#">Previous</a><a class="carousel-next" href="#">Next</a>
 
-					<li class="page current-thumbnail">
+				<ul id="page-scroller" class="panes">
+					<!--/ current-thumbnail /-->
+
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-01-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
 						</a>
 					</li>
 
-					<li class="page">
+					<li class="page pane">
 						<a href="">
 							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
 						</a>
 					</li>
 
-				</section>
+				</ul>
+
+				<input name="pageSortOrder" type="hidden"/>
 			</div>
 		</section>
 
@@ -478,6 +483,7 @@
 		</script>
 
 		<!--/ scripts/carousel /-->
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/owl.carousel2.js"></script>
 
 		<script>
@@ -496,17 +502,48 @@
 			 
 			});
 		</script>
+		/-->
+
+		<script src="{{ STATIC_URL }}scripts/jcircular.js"></script>
+
+		<script>
+			$(function() {
+				$("#page-scroller-wrapper").carousel();
+			});
+		</script>
 
 		<!--/ scripts/page-sorter /-->
+		<script src="{{ STATIC_URL }}scripts/dragsort.js"></script>
+
+		<script>
+			// $("#page-scroller").dragsort();
+
+			$("#page-scroller").dragsort({
+				dragSelector: "a",
+				dragBetween: true,
+				dragEnd: saveOrder,
+				placeHolderTemplate: "<li class='placeHolder'><a></a></li>"
+			});
+
+			function saveOrder() {
+				var data = $("#list1 li").map(function() {
+					return $(this).children().html();
+				}).get();
+
+				$("input[name=pageSortOrder]").val(data.join("|"));
+			};
+		</script>
+
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
-				// $("#page-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
-				// $(".owl-wrapper").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
-				$(".owl-wrapper").sortable().bind("sortupdate", function() {});
+				$("#page-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
+				// $("#page-scroller").sortable().bind("sortupdate", function() {});
 			});
 		</script>
+		/-->
 
 		<!--/ scripts/menu-slider /-->
 		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
