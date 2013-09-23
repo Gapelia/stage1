@@ -1,17 +1,1 @@
-stage1 | phoenix
-======
-
-Code repository of Gapelia's first private beta version, codenamed stage1.
-
-## Set-up/Installation
-
-0. Dependencies are [Python](http://www.python.org) and [Django](https://www.djangoproject.com).
-1. Checkout to dev branch and pull the latest code.
-2. Set up python, virtualenv and pip. [Reference to set up on windows](http://www.tylerbutler.com/2012/05/how-to-install-python-pip-and-virtualenv-on-windows-with-powershell)
-3. Activate virtualenv - $ `source env/activate`
-4. Create a local_settings.py file within /gapelia/gapelia/ where settings.py is kept.
-5. Install dependencies: $ `./bin/pip install -r requirements.pip`
-6. Run syncdb - $ `python manage.py syncdb`
-7. Run local server - $ `python manage.py runserver`
-
-BOOM goes the dynamite: http://localhost:8000
+phoenix branch=All right, I'm writing this over from scratch because the previous instructions were asinine and left out a lot of key information. Here's what you need to do if you are on Windows:01. Dependencies are [Python](http://www.python.org), [Django](https://www.djangoproject.com), [Python Imaging Library](http://pythonware.com/products/pil), and [Graphviz](http://graphviz.org). Download the 32-bit installers if there is an option for x86/x64.02. Checkout to phoenix branch and pull latest code.03. Open terminal, CD into the requirements folder, and install everything. You will have to CD into the plugin subfolders too.04. Create a local_settings.py file within /gapelia/gapelia/ where settings.py is kept.05. Run dependency script: $ `./bin/pip install -r requirements.pip`06. Run syncdb: $ `python manage.py syncdb`07. Run local server: $`python manage.py runserver`BOOM goes the dynamite: http://localhost:8000Aside: If there any errors that say `command not found`, make sure your PATH is updated. Quickest way to access PATH on Windows 8 is to right-click `My Computer`, select `Properties`, click `Advanced System Settings`, click `Environment Variables`, and you will see it in the `System Variables` scroll menu.Any other errors pop up? Idk, troubleshoot and pray to the TRON gods.<small>Keeping old instructions, just in case...<br/>Code repository of Gapelia's first private beta version, codenamed stage1.0. Dependencies are [Python](http://www.python.org) and [Django](https://www.djangoproject.com).1. Checkout to dev branch and pull the latest code.2. Set up python, virtualenv and pip. [Reference to set up on windows](http://www.tylerbutler.com/2012/05/how-to-install-python-pip-and-virtualenv-on-windows-with-powershell)3. Activate virtualenv - $ `source env/activate`4. Create a local_settings.py file within /gapelia/gapelia/ where settings.py is kept.5. Install dependencies: $ `./bin/pip install -r requirements.pip`6. Run syncdb - $ `python manage.py syncdb`7. Run local server - $ `python manage.py runserver`BOOM goes the dynamite: http://localhost:8000</small>

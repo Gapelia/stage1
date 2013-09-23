@@ -74,7 +74,8 @@ $(function () {
 
 					$(".panes:not(:animated)", obj).animate({"left" : left_indent}, o.duration, o.easing, function () {
 
-						$(".pane:last-child", obj).after($(".pane:first-child", obj));
+						// $(".pane:last-child", obj).after($(".pane:first-child", obj));
+						$(".pane:last-child", obj).after($(obj));
 						$(".panes", obj).css({"left" : -item_width});
 						active.next().addClass("active");
 
