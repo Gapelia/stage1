@@ -38,7 +38,7 @@
 
 		<!--/ scripts/enablers /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
-		<script src="{{ STATIC_URL }}scripts/modernizr.full.js"></script>
+		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.full.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
 		<script src="{{ STATIC_URL }}scripts/prefixfree.js"></script>
 
@@ -66,7 +66,7 @@
 		<header>
 			<div id="back">
         <div id="pages-toggle"><a href="#" title="Add pages">Z</a></div>
-        <div id="layout-toggle"><a href="#layout-scroller" title="Layouts">k</a></div>
+        <div id="layout-toggle"><a href="#" title="Layouts">k</a></div>
         <div id="comments-toggle"><a href="#" title="Comments">:</a></div>
 			</div>
 
@@ -80,50 +80,6 @@
 		<!--/ main-content /-->
 
 		<section id="main-content">
-      <div id="layout-scroller">
-        <ul>
-          <li id="select-frontcover-layout" class="selected-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/front.png" alt=""/>
-            <span>Front Cover</span>
-          </li>
-
-          <li id="select-photo-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/photo.png" alt=""/>
-            <span>Photo</span>
-          </li>
-
-          <li id="select-text-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/text.png" alt=""/>
-            <span>Text</span>
-          </li>
-
-          <li id="select-horizontal-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/horizontal.png" alt=""/>
-            <span>Horizontal</span>
-          </li>
-
-          <li id="select-overlay-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/overlay.png" alt=""/>
-            <span>Overlay</span>
-          </li>
-
-          <li id="select-phototext-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/phototext.png" alt=""/>
-            <span>Photo/Text</span>
-          </li>
-
-          <li id="select-integrated-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/integrated.png" alt=""/>
-            <span>Integrated</span>
-          </li>
-
-          <li id="select-video-layout">
-            <img src="{{ STATIC_URL }}images/view-modes/video.png" alt=""/>
-            <span>Video</span>
-          </li>
-        </ul>
-      </div>
-
 			<!--/ preview/blank-page /-->
 
 			<!--/
@@ -138,6 +94,219 @@
 			/-->
 
 			<div id="book-creation-wrapper">
+				<div id="pages-scroller">
+					<ul id="page-scroller" class="panes">
+						<!--/ current-thumbnail /-->
+
+						<li class="page pane current-thumb">
+							<span>01</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-01-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>02</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>03</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>04</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>05</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>06</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>07</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>08</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>09</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>10</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>11</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>12</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>13</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>14</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>15</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>16</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>17</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>18</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>19</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
+							</a>
+						</li>
+
+						<li class="page pane">
+							<span>20</span>
+
+							<a href="">
+								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
+							</a>
+						</li>
+
+					</ul>
+
+					<input name="pageSortOrder" type="hidden"/>
+				</div>
+
+				<div id="layout-scroller">
+					<ul>
+						<li id="select-frontcover-layout" class="selected-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/front.png" alt=""/>
+							<span>Front Cover</span>
+						</li>
+
+						<li id="select-photo-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/photo.png" alt=""/>
+							<span>Photo</span>
+						</li>
+
+						<li id="select-text-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/text.png" alt=""/>
+							<span>Text</span>
+						</li>
+
+						<li id="select-horizontal-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/horizontal.png" alt=""/>
+							<span>Horizontal</span>
+						</li>
+
+						<li id="select-overlay-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/overlay.png" alt=""/>
+							<span>Overlay</span>
+						</li>
+
+						<li id="select-phototext-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/phototext.png" alt=""/>
+							<span>Photo/Text</span>
+						</li>
+
+						<li id="select-integrated-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/integrated.png" alt=""/>
+							<span>Integrated</span>
+						</li>
+
+						<li id="select-video-layout">
+							<img src="{{ STATIC_URL }}images/view-modes/video.png" alt=""/>
+							<span>Video</span>
+						</li>
+					</ul>
+				</div>
+
 				<div id="create-book">
           <!--/
 					<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s3">
@@ -352,183 +521,6 @@
 			</div>
 		</section>
 
-		<!--/ page-scroller /-->
-
-		<section class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-			<div id="menu-toggle">Page Menu</div>
-
-			<div id="page-scroller-wrapper">
-				<a class="carousel-prev" href="#">Previous</a><a class="carousel-next" href="#">Next</a>
-
-				<ul id="page-scroller" class="panes">
-					<!--/ current-thumbnail /-->
-
-					<li class="page pane current-thumb">
-						<span>01</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-01-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>02</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>03</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>04</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>05</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>06</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>07</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>08</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>09</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>10</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>11</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>12</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>13</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>14</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>15</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>16</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>17</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>18</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>19</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
-						</a>
-					</li>
-
-					<li class="page pane">
-						<span>20</span>
-
-						<a href="">
-							<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
-						</a>
-					</li>
-
-				</ul>
-
-				<input name="pageSortOrder" type="hidden"/>
-			</div>
-		</section>
-
 		<!--/ scripts /-->
     <!--/
 		<script>
@@ -568,6 +560,7 @@
 		<script src="{{ STATIC_URL }}scripts/scrollpanel.js"></script>
 
 		<script>
+			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
 		</script>
 
@@ -635,9 +628,20 @@
 		/-->
 
 		<!--/ scripts/menu-slider /-->
-    <!--/
+		<!--/
 		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
 
+		<script>
+			var menuLeft = document.getElementById("layout-scroller"), showLeft = document.getElementById("layout-toggle"), body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle(this, "active");
+				classie.toggle(menuLeft, "cbp-spmenu-open");
+			};
+		</script>
+		/-->
+
+		<!--/
 		<script>
 			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), menuLeft = document.getElementById("cbp-spmenu-s3"), showLeft = document.getElementById("layout-toggle"), body = document.body;
 

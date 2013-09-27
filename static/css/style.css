@@ -856,12 +856,15 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation header #back, .book-creation header #finish { display: inline-block; vertical-align: middle; }
 .book-creation header #back a, .book-creation header #finish a { color: #fcfcfc; }
 .book-creation header #back { float: left; font-family: "entyporegular"; font-size: 3em; /* padding: 0 0.8rem; */ }
-.book-creation header #back #pages-toggle, .book-creation header #back #layout-toggle, .book-creation header #back #comments-toggle { width: 3rem; height: auto; background-color: #70a1b1; display: inline-block; float: left; text-align: center; }
+.book-creation header #back #pages-toggle, .book-creation header #back #layout-toggle, .book-creation header #back #comments-toggle { width: 3.0947rem; height: auto; background-color: #70a1b1; display: inline-block; float: left; text-align: center; }
 .book-creation header #finish { float: right; font-size: 1em; text-align: right; }
 .book-creation header #finish #settings-button, .book-creation header #finish #publish-button, .book-creation header #finish #close-button { background-color: #70a1b1; display: inline-block; float: left; height: 45px; padding: 0.9rem; text-align: center; }
 .book-creation header #finish #settings-button { padding: 0.5rem 0.9rem; }
 .book-creation header:hover { background-color: #fcfcfc; }
-.book-creation #layout-scroller { width: 150px; height: 100%; top: 45px; left: 0; background-color: #e7e7e7; display: none; position: absolute; }
+.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller { width: 150px; height: 100%; top: 45px; left: 0; background-color: #e7e7e7; display: none; position: absolute; z-index: 1; }
+.book-creation #pages-scroller .sp-scrollbar, .book-creation #layout-scroller .sp-scrollbar, .book-creation #comments-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
+.book-creation #pages-scroller .sp-scrollbar .sp-thumb, .book-creation #layout-scroller .sp-scrollbar .sp-thumb, .book-creation #comments-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
+.book-creation #pages-scroller .sp-scrollbar.active .sp-thumb, .book-creation #layout-scroller .sp-scrollbar.active .sp-thumb, .book-creation #comments-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
 .book-creation #layout-scroller ul li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
 .book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
 .book-creation #layout-scroller ul li:last-child { border-bottom: none; }
@@ -869,9 +872,7 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
 .book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
 .book-creation #layout-scroller ul .selected-layout { background-color: #cfcfcf; }
-.book-creation #layout-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
-.book-creation #layout-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
-.book-creation #layout-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
+.book-creation .scroller-open { left: 0; display: inline-block; position: relative; }
 .book-creation .pac-container { border: none !important; width: 100%; }
 .book-creation .pac-container .pac-item { padding: 0.5rem; text-align: center !important; }
 .book-creation .pac-container .pac-item:hover { background-color: #70a1b1; color: #fcfcfc; font-family: Georgia, serif; font-style: italic; }

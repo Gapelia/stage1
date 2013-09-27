@@ -50,8 +50,27 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
+	/*
 	$("#layout-toggle").click(function (e) {
 		$("#layout-scroller").toggle();
+		e.preventDefault();
+	});
+	*/
+
+	// var menuLeft = document.getElementById("layout-scroller"), showLeft = document.getElementById("layout-toggle");
+
+	$("#pages-toggle").click(function (e) {
+		$("#pages-scroller").toggle();
+		e.preventDefault();
+	});
+
+	$("#layout-toggle").click(function (e) {
+		$("#layout-scroller").toggle();
+		e.preventDefault();
+	});
+
+	$("#comments-toggle").click(function (e) {
+		$("#comments-scroller").toggle();
 		e.preventDefault();
 	});
 

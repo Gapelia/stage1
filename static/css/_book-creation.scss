@@ -35,7 +35,7 @@
 			/* padding: 0 0.8rem; */
 
 			#pages-toggle, #layout-toggle, #comments-toggle {
-				width: 3rem; height: auto;
+				width: 3.0947rem; height: auto;
 
 				background-color: $slate;
 				display: inline-block;
@@ -64,14 +64,30 @@
 		&:hover { background-color: $white; }
 	}
 
-	#layout-scroller {
+	#pages-scroller, #layout-scroller, #comments-scroller {
 		width: 150px; height: 100%;
 		top: 45px; left: 0;
 
 		background-color: $gray-i;
 		display: none;
 		position: absolute;
+		z-index: 1;
 
+		.sp-scrollbar {
+			background-color: #ccc;
+			cursor: pointer;
+			width: 10px;
+
+			.sp-thumb {
+				background-color: #aaa;
+				transition: height 0.2s ease-in-out;
+			}
+		}
+
+		.sp-scrollbar.active .sp-thumb { background-color: #999; }
+	}
+
+	#layout-scroller {
 		ul {
 			li {
 				width: 100%; height: auto;
@@ -88,9 +104,7 @@
 
 				&:last-child { border-bottom: none; }
 
-				img, span {
-					display: block;
-				}
+				img, span { display: block; }
 
 				img {
 					width: auto; height: auto;
@@ -103,23 +117,14 @@
 				}
 			}
 
-			.selected-layout {
-				background-color: $gray-ii;
-			}
+			.selected-layout { background-color: $gray-ii; }
 		}
+	}
 
-		.sp-scrollbar {
-			background-color: #ccc;
-			cursor: pointer;
-			width: 10px;
-
-			.sp-thumb {
-				background-color: #aaa;
-				transition: height 0.2s ease-in-out;
-			}
-		}
-
-		.sp-scrollbar.active .sp-thumb { background-color: #999; }
+	.scroller-open {
+		left: 0;
+		display: inline-block;
+		position: relative;
 	}
 
 	.pac-container {
