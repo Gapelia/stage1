@@ -2,6 +2,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////// BOOKS.JS //
 
 $(document).ready(function() {
+
 	var $sidebar = $("#page-sidebar");
 	var $storyFrontPage = $(".fv-frontcover #story-content");
 	var $story = $("#story-content");
@@ -19,6 +20,7 @@ $(document).ready(function() {
 	// var $layoutTrigger = $("#layout-toggle");
 
 	$(function () {
+
 		// centering!
 		$coverInfo.css("marginLeft", -+$coverInfo.width() / 2);
 		$coverInfo.css("marginTop", -+$coverInfo.height() / 2);
@@ -40,10 +42,17 @@ $(document).ready(function() {
 
 		$layoutMenu.css("height", $(window).height() - 69 + "px").css("margin-top", 50 + "px");
 		// $layoutTrigger.css("top", $(window).height() / 2 - 25 + "px");
+
 	});
 
 	$("#book-wiki").click(function (e) {
 		$("#wiki-window").toggle();
 		e.preventDefault();
 	});
+
+	$("#layout-toggle").click(function (e) {
+		$("#layout-scroller").toggle();
+		e.preventDefault();
+	});
+
 });

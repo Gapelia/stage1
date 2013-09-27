@@ -65,20 +65,65 @@
 
 		<header>
 			<div id="back">
-			</div>
-
-			<div id="title">
-				<span id="book-title">{{ book.title }}</span></span>
+        <div id="pages-toggle"><a href="#" title="Add pages">Z</a></div>
+        <div id="layout-toggle"><a href="#layout-scroller" title="Layouts">k</a></div>
+        <div id="comments-toggle"><a href="#" title="Comments">:</a></div>
 			</div>
 
 			<div id="finish">
-				<a href="#">Preview</a> | <a href="#">Publish</a> | <a href="#">Save + Close</a>
+				<div id="settings-button"><a href="#" class="entypo" title="Settings">@</a></div>
+        <div id="publish-button"><a href="#" title="Publish">Publish</a></div>
+        <div id="close-button"><a href="#" title="Save and Close">Close</a></div>
 			</div>
 		</header>
 
 		<!--/ main-content /-->
 
 		<section id="main-content">
+      <div id="layout-scroller">
+        <ul>
+          <li id="select-frontcover-layout" class="selected-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/front.png" alt=""/>
+            <span>Front Cover</span>
+          </li>
+
+          <li id="select-photo-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/photo.png" alt=""/>
+            <span>Photo</span>
+          </li>
+
+          <li id="select-text-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/text.png" alt=""/>
+            <span>Text</span>
+          </li>
+
+          <li id="select-horizontal-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/horizontal.png" alt=""/>
+            <span>Horizontal</span>
+          </li>
+
+          <li id="select-overlay-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/overlay.png" alt=""/>
+            <span>Overlay</span>
+          </li>
+
+          <li id="select-phototext-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/phototext.png" alt=""/>
+            <span>Photo/Text</span>
+          </li>
+
+          <li id="select-integrated-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/integrated.png" alt=""/>
+            <span>Integrated</span>
+          </li>
+
+          <li id="select-video-layout">
+            <img src="{{ STATIC_URL }}images/view-modes/video.png" alt=""/>
+            <span>Video</span>
+          </li>
+        </ul>
+      </div>
+
 			<!--/ preview/blank-page /-->
 
 			<!--/
@@ -94,9 +139,8 @@
 
 			<div id="book-creation-wrapper">
 				<div id="create-book">
+          <!--/
 					<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s3">
-						<div id="layout-toggle"><span class="open">Layouts</span><span class="closed">k</span></div>
-
 						<div id="layout-scroller">
 							<ul>
 								<li id="select-frontcover-layout" class="selected-layout">
@@ -141,6 +185,7 @@
 							</ul>
 						</div>
 					</section>
+          /-->
 
 					<div class="text-menu hide">
 						<div class="options">
@@ -158,6 +203,7 @@
 						</div>
 					</div>
 
+          <!--/
 					<div class="flyout-wrap">
 						<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
 
@@ -167,6 +213,7 @@
 							<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
 						</ul>
 					</div>
+          /-->
 
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
@@ -483,6 +530,7 @@
 		</section>
 
 		<!--/ scripts /-->
+    <!--/
 		<script>
 			$(document).ready(function() {
 				$(".flyout-btn").click(function (e) {
@@ -492,6 +540,7 @@
 				});
 			});
 		</script>
+    /-->
 
 		<script src="{{ STATIC_URL }}scripts/grande.js"></script>
 		<script>grande.bind();</script>
@@ -586,6 +635,7 @@
 		/-->
 
 		<!--/ scripts/menu-slider /-->
+    <!--/
 		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
 
 		<script>
@@ -601,6 +651,7 @@
 				classie.toggle(menuLeft, "cbp-spmenu-open");
 			};
 		</script>
+    /-->
 
 		<!--/ photo+column /-->
 		<script>

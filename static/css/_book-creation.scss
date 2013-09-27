@@ -3,7 +3,7 @@
 .book-creation {
 
 	header {
-		width: 100%; height: 50px;
+		width: 100%; height: 45px;
 		top: 0; left: 0;
 
 		background-color: rgba($white, 0.3);
@@ -11,6 +11,7 @@
 		transition: all 0.2s;
 		z-index: 1;
 
+		/*
 		#back, #title, #finish, #page-actions {
 			display: inline-block;
 			vertical-align: middle;
@@ -18,31 +19,107 @@
 
 			a { color: $black; }
 		}
+		*/
 
-		#back {
-			font-family: "OpenSansBold";
-			font-size: 2em;
-			padding: 0 0.8rem;
+		#back, #finish {
+			display: inline-block;
+			vertical-align: middle;
+
+			a { color: $white; }
 		}
 
-		#title {
-			cursor: default;
-			font-family: "OpenSansLight";
-			font-size: 1.5em;
-			line-height: 2.2em;
-			text-align: center;
+		#back {
+			float: left;
+			font-family: "entyporegular";
+			font-size: 3em;
+			/* padding: 0 0.8rem; */
 
-			#book-title {
-				font-family: "OpenSansSemibold";
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+			#pages-toggle, #layout-toggle, #comments-toggle {
+				width: 3rem; height: auto;
+
+				background-color: $slate;
+				display: inline-block;
+				float: left;
+				text-align: center;
 			}
 		}
 
-		#finish { text-align: right; }
+		#finish {
+			float: right;
+			font-size: 1em;
+			text-align: right;
+
+			#settings-button, #publish-button, #close-button {
+				background-color: $slate;
+				display: inline-block;
+				float: left;
+				height: 45px;
+				padding: 0.9rem;
+				text-align: center;
+			}
+
+			#settings-button { padding: 0.5rem 0.9rem; }
+		}
 
 		&:hover { background-color: $white; }
+	}
+
+	#layout-scroller {
+		width: 150px; height: 100%;
+		top: 45px; left: 0;
+
+		background-color: $gray-i;
+		display: none;
+		position: absolute;
+
+		ul {
+			li {
+				width: 100%; height: auto;
+
+				background-color: $white;
+				border-top: 1px solid $gray-i;
+				cursor: pointer;
+				padding: 1rem;
+
+				&:hover {
+					background-color: $gray-i;
+					opacity: 0.7;
+				}
+
+				&:last-child { border-bottom: none; }
+
+				img, span {
+					display: block;
+				}
+
+				img {
+					width: auto; height: auto;
+					margin: 0 auto 1rem;
+				}
+
+				span {
+					width: 100%; height: auto;
+					text-align: center;
+				}
+			}
+
+			.selected-layout {
+				background-color: $gray-ii;
+			}
+		}
+
+		.sp-scrollbar {
+			background-color: #ccc;
+			cursor: pointer;
+			width: 10px;
+
+			.sp-thumb {
+				background-color: #aaa;
+				transition: height 0.2s ease-in-out;
+			}
+		}
+
+		.sp-scrollbar.active .sp-thumb { background-color: #999; }
 	}
 
 	.pac-container {
@@ -62,6 +139,10 @@
 		}
 	}
 
+	#layout-scroller, #book-creation-wrapper {
+		/* display: inline-block; */
+	}
+
 	#book-creation-wrapper {
 		width: 100%; height: 100%;
 
@@ -72,60 +153,6 @@
 			#layout-scroller, #create-content {
 				position: relative;
 				vertical-align: top;
-			}
-
-			#layout-scroller {
-				width: 150px; height: 100%;
-				background-color: $gray-i;
-
-				ul {
-					li {
-						width: 100%; height: auto;
-
-						background-color: $white;
-						border-top: 1px solid $gray-i;
-						cursor: pointer;
-						padding: 1rem;
-
-						&:hover {
-							background-color: $gray-i;
-							opacity: 0.7;
-						}
-
-						&:last-child { border-bottom: none; }
-
-						img, span {
-							display: block;
-						}
-
-						img {
-							width: auto; height: auto;
-							margin: 0 auto 1rem;
-						}
-
-						span {
-							width: 100%; height: auto;
-							text-align: center;
-						}
-					}
-
-					.selected-layout {
-						background-color: $gray-ii;
-					}
-				}
-
-				.sp-scrollbar {
-					background-color: #ccc;
-					cursor: pointer;
-					width: 10px;
-
-					.sp-thumb {
-						background-color: #aaa;
-						transition: height 0.2s ease-in-out;
-					}
-				}
-
-				.sp-scrollbar.active .sp-thumb { background-color: #999; }
 			}
 
 			#create-content {

@@ -181,6 +181,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 /** [-] @font-face ************************************************************************************/
 @font-face { font-family: "entyporegular"; font-style: normal; font-weight: 400; src: local("Γÿ║"), url("../font-face/Entypo.svg#entyporegular") format("svg"); src: url("../font-face/Entypo.eot"), url("../font-face/Entypo.eot?#iefix") format("embedded-opentype"), url("../font-face/Entypo.ttf") format("truetype"), url("../font-face/Entypo.woff") format("woff"); }
 
+.entypo { font-family: "entyporegular"; font-size: 2em; }
+
 @font-face { font-family: "icomoon"; font-style: normal; font-weight: 400; src: local("Γÿ║"), url("../font-face/icomoon.svg#icomoon") format("svg"); src: url("../font-face/icomoon.eot"), url("../font-face/icomoon.eot?#iefix") format("embedded-opentype"), url("../font-face/icomoon.ttf") format("truetype"), url("../font-face/icomoon.woff") format("woff"); }
 
 @font-face { font-family: "OpenSansLight"; font-style: normal; font-weight: 300; src: local("Γÿ║"), url("../font-face/OpenSans-Light.svg#OpenSansLight") format("svg"); src: url("../font-face/OpenSans-Light.eot"), url("../font-face/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../font-face/OpenSans-Light.ttf") format("truetype"), url("../font-face/OpenSans-Light.woff") format("woff"); }
@@ -256,9 +258,16 @@ ol { list-style: decimal; }
 hr { border: 1px solid #ddd; clear: both; height: 0; margin: 10px 0 30px; }
 
 /** [-] Quotes ****************************************************************************************/
-blockquote { margin: 1.5em 10px; padding: 0.5em 10px; background-color: #f4f4f4; border-left: 10px solid #e7e7e7; line-height: 25px; quotes: "\201C" "\201D" "\2018" "\2019"; }
-blockquote:before { color: #e7e7e7; content: open-quote; font-size: 4em; line-height: 0.1em; margin: 0 0.25em 0 0; vertical-align: -0.4em; }
+/*
+blockquote {
+	margin: 1.5em 10px; padding: 0.5em 10px;
 
+	background-color: $l-gray;
+	border-left: 10px solid $gray-i; line-height: 25px;
+	quotes: "\201C""\201D""\2018""\2019";
+ &:before { color: $gray-i; content: open-quote; font-size: 4em; line-height: 0.1em; margin: 0 0.25em 0 0; vertical-align: -0.4em; }
+}
+*/
 /** [-] Video *****************************************************************************************/
 .video-container { margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; position: relative; }
 .video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
@@ -835,31 +844,41 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 
 /******************************************************************************** BOOK-CREATION/SCSS **/
 .book-creation { /* #small-switcher { z-index: 101; } */ /******************************************* flip *******************************************/ }
-.book-creation header { width: 100%; height: 50px; top: 0; left: 0; background-color: rgba(252, 252, 252, 0.3); position: fixed; /**/ transition: all 0.2s; z-index: 1; }
-.book-creation header #back, .book-creation header #title, .book-creation header #finish, .book-creation header #page-actions { display: inline-block; vertical-align: middle; width: 33%; }
-.book-creation header #back a, .book-creation header #title a, .book-creation header #finish a, .book-creation header #page-actions a { color: #191919; }
-.book-creation header #back { font-family: "OpenSansBold"; font-size: 2em; padding: 0 0.8rem; }
-.book-creation header #title { cursor: default; font-family: "OpenSansLight"; font-size: 1.5em; line-height: 2.2em; text-align: center; }
-.book-creation header #title #book-title { font-family: "OpenSansSemibold"; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.book-creation header #finish { text-align: right; }
+.book-creation header { width: 100%; height: 45px; top: 0; left: 0; background-color: rgba(252, 252, 252, 0.3); position: fixed; /**/ transition: all 0.2s; z-index: 1; 		/*
+		#back, #title, #finish, #page-actions {
+			display: inline-block;
+			vertical-align: middle;
+			width: 33%;
+
+			a { color: $black; }
+		}
+		*/ }
+.book-creation header #back, .book-creation header #finish { display: inline-block; vertical-align: middle; }
+.book-creation header #back a, .book-creation header #finish a { color: #fcfcfc; }
+.book-creation header #back { float: left; font-family: "entyporegular"; font-size: 3em; /* padding: 0 0.8rem; */ }
+.book-creation header #back #pages-toggle, .book-creation header #back #layout-toggle, .book-creation header #back #comments-toggle { width: 3rem; height: auto; background-color: #70a1b1; display: inline-block; float: left; text-align: center; }
+.book-creation header #finish { float: right; font-size: 1em; text-align: right; }
+.book-creation header #finish #settings-button, .book-creation header #finish #publish-button, .book-creation header #finish #close-button { background-color: #70a1b1; display: inline-block; float: left; height: 45px; padding: 0.9rem; text-align: center; }
+.book-creation header #finish #settings-button { padding: 0.5rem 0.9rem; }
 .book-creation header:hover { background-color: #fcfcfc; }
+.book-creation #layout-scroller { width: 150px; height: 100%; top: 45px; left: 0; background-color: #e7e7e7; display: none; position: absolute; }
+.book-creation #layout-scroller ul li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
+.book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
+.book-creation #layout-scroller ul li:last-child { border-bottom: none; }
+.book-creation #layout-scroller ul li img, .book-creation #layout-scroller ul li span { display: block; }
+.book-creation #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
+.book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
+.book-creation #layout-scroller ul .selected-layout { background-color: #cfcfcf; }
+.book-creation #layout-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
+.book-creation #layout-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
+.book-creation #layout-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
 .book-creation .pac-container { border: none !important; width: 100%; }
 .book-creation .pac-container .pac-item { padding: 0.5rem; text-align: center !important; }
 .book-creation .pac-container .pac-item:hover { background-color: #70a1b1; color: #fcfcfc; font-family: Georgia, serif; font-style: italic; }
+.book-creation #layout-scroller, .book-creation #book-creation-wrapper { /* display: inline-block; */ }
 .book-creation #book-creation-wrapper { width: 100%; height: 100%; }
 .book-creation #book-creation-wrapper #create-book { width: 100%; height: 100%; overflow: hidden; }
 .book-creation #book-creation-wrapper #create-book #layout-scroller, .book-creation #book-creation-wrapper #create-book #create-content { position: relative; vertical-align: top; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller { width: 150px; height: 100%; background-color: #e7e7e7; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li:last-child { border-bottom: none; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li img, .book-creation #book-creation-wrapper #create-book #layout-scroller ul li span { display: block; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller ul .selected-layout { background-color: #cfcfcf; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
 .book-creation #book-creation-wrapper #create-book #create-content { width: 100%; height: 100%; position: relative; /* to do: change to "horizontal" */ /* to do: change to "integrated */ /*
 .imgLiquid_bgSize { // .imgLiquid_ready
 	background-position: 0% 50% !important;

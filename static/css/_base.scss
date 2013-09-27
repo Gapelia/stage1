@@ -93,6 +93,11 @@ $blue:			rgba(0, 205, 231, 1);		// #00cbe7;
 			 url("../font-face/Entypo.woff") format("woff");
 }
 
+.entypo {
+  font-family: "entyporegular";
+  font-size: 2em;
+}
+
 @font-face {
 	font-family: "icomoon";
 	font-style: normal;
@@ -330,7 +335,7 @@ hr {
 }
 
 /** [-] Quotes ****************************************************************************************/
-
+/*
 blockquote {
 	margin: 1.5em 10px; padding: 0.5em 10px;
 
@@ -348,7 +353,7 @@ blockquote {
     vertical-align: -0.4em;
   }
 }
-
+*/
 /** [-] Video *****************************************************************************************/
 
 .video-container {
