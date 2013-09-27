@@ -50,14 +50,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	/*
-	$("#layout-toggle").click(function (e) {
-		$("#layout-scroller").toggle();
-		e.preventDefault();
-	});
-	*/
-
-	// var menuLeft = document.getElementById("layout-scroller"), showLeft = document.getElementById("layout-toggle");
+	/////
 
 	$("#pages-toggle").click(function (e) {
 		$("#pages-scroller").toggle();
@@ -71,6 +64,141 @@ $(document).ready(function() {
 
 	$("#comments-toggle").click(function (e) {
 		$("#comments-scroller").toggle();
+		e.preventDefault();
+	});
+
+	// clicking on a page opens layout menu
+	$("#pages-scroller ul li").click(function (e) {
+		$("#pages-scroller").toggle();
+		$("#layout-scroller").toggle();
+		e.preventDefault();
+	});
+
+	/*
+	// show pohelp
+	$("#pohelplink, #pohelp").mouseenter(function () {
+		$("#pohelplink").css({ "z-index": "1110" });
+		$("#pohelp").fadeIn();
+	});
+
+	// hide pohelp on mouse out from pohelp
+	$("#pohelp").mouseleave(function() {
+		$("#pohelp").fadeOut();
+		$("#pohelplink").css({ "z-index": "1095" });
+	});
+	*/
+
+	$("#pages-scroller").mouseleave(function() {
+		$("#pages-scroller").fadeOut(850);
+	});
+
+	$("#layout-scroller").mouseleave(function() {
+		$("#layout-scroller").fadeOut(850);
+	});
+
+	$("#comments-scroller").mouseleave(function() {
+		$("#comments-scroller").fadeOut(850);
+	});
+
+	// set menu height
+	$("#pages-scroller").css("height", $(window).height() - 45 + "px");
+	$("#layout-scroller").css("height", $(window).height() - 45 + "px");
+	$("#comments-scroller").css("height", $(window).height() - 45 + "px");
+
+	// toggle layout switcher
+	$("#select-frontcover-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-photo-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-text-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-horizontal-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-overlay-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-phototext-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-integrated-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
+		e.preventDefault();
+	});
+
+	$("#select-video-layout").click(function (e) {
+		$("#test-frontcover").toggle();
+		$("#test-photo").toggle();
+		$("#test-text").toggle();
+		$("#test-horizontal").toggle();
+		$("#test-overlay").toggle();
+		$("#test-phototext").toggle();
+		$("#test-integrated").toggle();
+		$("#test-video").toggle();
 		e.preventDefault();
 	});
 

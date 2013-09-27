@@ -22,14 +22,15 @@
 				display: block;
 			}
 
-			.test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2692.jpg"); }
-			.test-photo-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2656.jpg"); }
-			.test-text-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2659.jpg"); }
-			.test-horizontal-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2664.jpg"); }
-			.test-overlay-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2665.jpg"); }
-			/* .test-phototext-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2671.jpg"); } */
-			.test-integrated-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2676.jpg"); }
-			.test-video-preview-wrapper { background-image: url("{{ STATIC_URL }}images/text-book/2679.jpg"); }
+			/* .test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2692.jpg"); } */
+			.test-frontcover-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/blank.png"); }
+			.test-photo-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2656.jpg"); }
+			.test-text-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2659.jpg"); }
+			.test-horizontal-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2664.jpg"); }
+			.test-overlay-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2665.jpg"); }
+			/* .test-phototext-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2671.jpg"); } */
+			.test-integrated-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
+			.test-video-preview-wrapper { background-image: url("{{ STATIC_URL }}images/test-book/2679.jpg"); }
 		</style>
 
 		<!--* if lt IE 9 *>
@@ -47,14 +48,14 @@
 
 		<script>
 			$(document).ready(function() {
-				$(".test-frontcover-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2651.jpg" });
-				$(".test-photo-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2656.jpg" });
-				$(".test-text-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2659.jpg" });
-				$(".test-horizontal-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2664.jpg" });
-				$(".test-overlay-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2665.jpg" });
-				$(".test-phototext-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2671.jpg" });
-				$(".test-integrated-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2676.jpg" });
-				$(".test-video-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/text-book/2679.jpg" });
+				$(".test-frontcover-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2651.jpg" });
+				$(".test-photo-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2656.jpg" });
+				$(".test-text-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2659.jpg" });
+				$(".test-horizontal-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2664.jpg" });
+				$(".test-overlay-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2665.jpg" });
+				$(".test-phototext-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2671.jpg" });
+				$(".test-integrated-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2676.jpg" });
+				$(".test-video-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2679.jpg" });
 			});
 		</script>
 		/-->
@@ -95,166 +96,145 @@
 
 			<div id="book-creation-wrapper">
 				<div id="pages-scroller">
-					<ul id="page-scroller" class="panes">
-						<!--/ current-thumbnail /-->
+					<ul>
 
-						<li class="page pane current-thumb">
-							<span>01</span>
-
-							<a href="">
+						<li class="current-thumb">
+							<a href="#layout-scroller">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-01-thumb" alt=""/>
+								<span>01</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>02</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
+								<span>02</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>03</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
+								<span>03</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>04</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
+								<span>04</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>05</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
+								<span>05</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>06</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
+								<span>06</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>07</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
+								<span>07</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>08</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
+								<span>08</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>09</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
+								<span>09</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>10</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
+								<span>10</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>11</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
+								<span>11</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>12</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
+								<span>12</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>13</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
+								<span>13</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>14</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
+								<span>14</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>15</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
+								<span>15</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>16</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
+								<span>16</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>17</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
+								<span>17</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>18</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
+								<span>18</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>19</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
+								<span>19</span>
 							</a>
 						</li>
 
 						<li class="page pane">
-							<span>20</span>
-
 							<a href="">
 								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
+								<span>20</span>
 							</a>
 						</li>
 
@@ -387,18 +367,12 @@
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 
-						<section id="" class="test-frontcover-preview-wrapper">
+						<section id="test-frontcover" class="test-frontcover-preview-wrapper">
 							<div id="frontcover-preview">
 								<article contenteditable="true" class="cover-info">
 
-									<h1 class="page-title-elem">* Title *</h1>
-									<h5><span>* User *</span></h5>
-
-									<section>
-										<input id="geotag-01" class="page-geotag-elem" type="text" placeholder="* Location *"/>
-										<span class="page-feeling-elem">* Feeling *</span>
-										<span class="page-lifestyle-elem">* Lifestyle *</span>
-									</section>
+									<h1 class="page-title-elem">Type your title here</h1>
+									<h5><span>* Author *</span></h5>
 
 									<div class="page-desc"><p>* Description *</p></div>
 
@@ -406,7 +380,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-photo-preview-wrapper" style="display: none;">
+						<section id="test-photo" class="test-photo-preview-wrapper" style="display: none;">
 							<div id="photo-preview">
 								<article contenteditable="true">
 
@@ -421,7 +395,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-text-preview-wrapper" style="display: none;">
+						<section id="test-text" class="test-text-preview-wrapper" style="display: none;">
 							<div id="text-preview">
 								<article contenteditable="true">
 
@@ -436,7 +410,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-horizontal-preview-wrapper" style="display: none;">
+						<section id="test-horizontal" class="test-horizontal-preview-wrapper" style="display: none;">
 							<div id="horizontal-preview">
 								<article contenteditable="true">
 
@@ -451,7 +425,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-overlay-preview-wrapper" style="display: none;">
+						<section id="test-overlay" class="test-overlay-preview-wrapper" style="display: none;">
 							<div id="overlay-preview">
 								<article contenteditable="true">
 
@@ -466,9 +440,9 @@
 							</div>
 						</section>
 
-						<section id="" class="test-phototext-preview-wrapper" style="display: none;">
-							<img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="horizontal-bg"/>
-							<!--/ <img src="{{ STATIC_URL }}images/text-book/2671.jpg" alt="" class="vertical-bg"/> /-->
+						<section id="test-phototext" class="test-phototext-preview-wrapper" style="display: none;">
+							<img src="{{ STATIC_URL }}images/test-book/2671.jpg" alt="" class="horizontal-bg"/>
+							<!--/ <img src="{{ STATIC_URL }}images/test-book/2671.jpg" alt="" class="vertical-bg"/> /-->
 
 							<div id="phototext-preview">
 								<article contenteditable="true">
@@ -484,7 +458,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-integrated-preview-wrapper" style="display: none;">
+						<section id="test-integrated" class="test-integrated-preview-wrapper" style="display: none;">
 							<div id="integrated-preview">
 								<article contenteditable="true">
 
@@ -499,7 +473,7 @@
 							</div>
 						</section>
 
-						<section id="" class="test-video-preview-wrapper" style="display: none;">
+						<section id="test-video" class="test-video-preview-wrapper" style="display: none;">
 							<div id="video-preview" style="position: relative;">
 								<article contenteditable="true">
 
@@ -564,36 +538,6 @@
 			$("#layout-scroller").scrollpanel();
 		</script>
 
-		<!--/ scripts/carousel /-->
-		<!--/
-		<script src="{{ STATIC_URL }}scripts/owl.carousel2.js"></script>
-
-		<script>
-			$(document).ready(function() {
-
-				$("#page-scroller").owlCarousel({
-					navigation: true,
-					navigationText : ["<", ">"],
-					pagination: false,
-					// responsive: true,
-					itemsDesktop: [1366, 12],
-					// itemsDesktop: [1366, 11.6], // 11.6 makes items 100px wide on 1366px wide displays
-					items : 12,
-					mouseDraggable: false
-				});
-			 
-			});
-		</script>
-		/-->
-
-		<script src="{{ STATIC_URL }}scripts/jcircular.js"></script>
-
-		<script>
-			$(function() {
-				$("#page-scroller-wrapper").carousel();
-			});
-		</script>
-
 		<!--/ scripts/page-sorter /-->
 		<script src="{{ STATIC_URL }}scripts/dragsort.js"></script>
 
@@ -626,36 +570,6 @@
 			});
 		</script>
 		/-->
-
-		<!--/ scripts/menu-slider /-->
-		<!--/
-		<script src="{{ STATIC_URL }}scripts/modal/classie.js"></script>
-
-		<script>
-			var menuLeft = document.getElementById("layout-scroller"), showLeft = document.getElementById("layout-toggle"), body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle(this, "active");
-				classie.toggle(menuLeft, "cbp-spmenu-open");
-			};
-		</script>
-		/-->
-
-		<!--/
-		<script>
-			var menuBottom = document.getElementById("cbp-spmenu-s4"), showBottom = document.getElementById("menu-toggle"), menuLeft = document.getElementById("cbp-spmenu-s3"), showLeft = document.getElementById("layout-toggle"), body = document.body;
-
-			showBottom.onclick = function() {
-				classie.toggle(this, "active");
-				classie.toggle(menuBottom, "cbp-spmenu-open");
-			};
-
-			showLeft.onclick = function() {
-				classie.toggle(this, "active");
-				classie.toggle(menuLeft, "cbp-spmenu-open");
-			};
-		</script>
-    /-->
 
 		<!--/ photo+column /-->
 		<script>
