@@ -373,12 +373,12 @@
 
 						<section id="test-frontcover" class="frontcover-preview-wrapper">
 							<div id="frontcover-preview">
-								<article contenteditable="true" class="cover-info">
+								<article class="cover-info"><!--/ contenteditable="true" /-->
 
-									<h1 class="page-title-elem">Type your title here</h1>
+									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
 
-									<div class="page-desc"><p>Type your description here.</p></div>
+									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
 								</article>
 							</div>
@@ -526,8 +526,6 @@
 		</section>
 
 		<!--/ scripts /-->
-    <script src="{{ STATIC_URL }}scripts/mousestop.js"></script>
-
 		<script src="{{ STATIC_URL }}scripts/grande.js"></script>
 		<script>grande.bind();</script>
 

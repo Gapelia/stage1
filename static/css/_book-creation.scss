@@ -180,12 +180,15 @@
 						width: 100%; height: auto;
 					}
 
+					.placeholder { color: $gray-ii; }
+
 					.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
 					.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
 
 					.page-title-elem {
 						font-family: "OpenSansLight";
 						font-size: 1.5em;
+						text-transform: capitalize;
 					}
 
 					.page-geotag-elem {
@@ -198,10 +201,13 @@
 						font-size: 1em;
 						line-height: 1.4em;
 						margin: 1rem 0 0 0;
+						text-align: center;
 
+						/*
 						p {
 							margin: 0; padding: 0;
 						}
+						*/
 					}
 				}
 

@@ -215,4 +215,13 @@ $(document).ready(function() {
 		$("#back, #finish").fadeIn("fast");
 	};
 
+	// Hide Placeholders When Typing
+	$(".page-title-elem").keydown(function (e) {
+		$(".page-title-elem .placeholder").hide();
+	});
+
+	$(".page-desc").keydown(function (e) {
+		$(".page-desc .placeholder").hide();
+	});
+
 });
