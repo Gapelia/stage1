@@ -113,7 +113,7 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -125,7 +125,7 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -137,7 +137,7 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -149,7 +149,7 @@ $(document).ready(function() {
 		$("#test-horizontal").toggle();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -161,7 +161,7 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").toggle();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -173,19 +173,19 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").toggle();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
 
-	$("#select-integrated-layout").click(function (e) {
+	$("#select-vertical-layout").click(function (e) {
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").toggle();
+		$("#test-vertical").toggle();
 		$("#test-video").hide();
 		e.preventDefault();
 	});
@@ -197,7 +197,7 @@ $(document).ready(function() {
 		$("#test-horizontal").hide();
 		$("#test-overlay").hide();
 		$("#test-phototext").hide();
-		$("#test-integrated").hide();
+		$("#test-vertical").hide();
 		$("#test-video").toggle();
 		e.preventDefault();
 	});

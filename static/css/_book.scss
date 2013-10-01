@@ -1,6 +1,97 @@
 /**************************************************************************************** BOOK/SCSS **/
 
 .book {
+
+	/* Start flip code */
+	.flipContainer {
+		perspective: 3000px;
+		position: relative;
+		user-select: none;
+
+		-webkit-perspective: 3000px;
+
+		-ms-user-select: none;
+		-moz-user-select: none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+		/* pager */
+		.pager {
+			text-align: center;
+			height: 24px;
+			line-height: 6px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			cursor: pointer;
+			font-size: 6px;
+			overflow: hidden;
+
+			span.dot {
+				/* background-image: url("images/pager6x6.png"); */
+				background-repeat: no-repeat;
+				background-position: 0 -6px;
+				display: inline-block;
+				margin: 8px 5px;
+				text-decoration: none;
+				width: 6px;
+			}
+
+			span.dot.current  { background-position: 0 0; }
+		}
+	}
+
+	.flipContent {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		display: none;
+		overflow: hidden;
+		position: absolute;
+	}
+
+	.flipContent.flipCurrent { display: block; }
+
+	.sliding, .slidingBg {
+		background-color: inherit;
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.flipping {
+		background-color: inherit;
+		backface-visibility: hidden;
+		transform: rotateY(0deg);
+		transform-style: preserve3d;
+	}
+
+	.flipping.firstHalf { transform-origin: 100% 0; }
+	.flipping.secondHalf { transform-origin: 0 0; }
+
+	.backflipping {
+		background-color: inherit;
+		backface-visibility: hidden;
+		display: none;
+		transform: rotateY(180deg);
+		transform-style: flat;
+	}
+
+	.horizontalFlipping.firstHalf { transform-origin: 100% 0; }
+	.horizontalFlipping.secondHalf { transform-origin: 0 0; }
+
+	.verticalFlipping.firstHalf { transform-origin: 0 100%; }
+	.verticalFlipping.secondHalf { transform-origin: 0 0; }
+
+	.splitHalf {
+		overflow: hidden;
+		position: absolute;
+	}
+
+	.splitEmpty { background-color: #333; }
+	/* End flip code */
+
 	#photo-fullview-wrapper, #text-fullview-wrapper,
 	#integrated-fullview-wrapper, #phototext-fullview-wrapper,
 	#frontcover-fullview-wrapper, #video-fullview-wrapper,
