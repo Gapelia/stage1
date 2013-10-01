@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8"/>
+		<title>jQuery Mousestop Event - Richard Scarrott</title>
+
+		<style>
+			body {
+				background: #DDD;
+				font-family: Arial, sans-serif;
+				font-size: 81.25%;
+				margin: 16px;
+			}
+
+			.box {
+				width: 100px; height: 100px;
+
+				background-color: #1788D7;
+				color: #FFF;
+				float: left;
+				margin: 0 20px 0 0;
+				text-align: center;
+			}
+		</style>
+
+		<script src="jquery-1.10.2.js"></script>
+		<script src="jquery.event.mousestop.js"></script>
+
+		<script>
+			jQuery(document).ready(function($) {
+				$("#box-1").mouseenter(function() {
+					// console.log("mouse entered");
+					$("#box-1").html("entered");
+				});
+
+				$("#box-2").mousestop(function() {
+					// console.log("mouse stopped");
+					$("#box-2").html("stopped");
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="box-1" class="box">mouseenter</div>
+		<div id="box-2" class="box">mousestop</div>
+
+	</body>
+
+</html>

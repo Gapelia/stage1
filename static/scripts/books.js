@@ -108,98 +108,205 @@ $(document).ready(function() {
 	// toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
 		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-photo").hide();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-photo-layout").click(function (e) {
-		$("#test-frontcover").toggle();
+		$("#test-frontcover").hide();
 		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-text-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
 		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-horizontal-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
+		$("#test-text").hide();
 		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-overlay-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
 		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-phototext-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
 		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-integrated").hide();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-integrated-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
 		$("#test-integrated").toggle();
-		$("#test-video").toggle();
+		$("#test-video").hide();
 		e.preventDefault();
 	});
 
 	$("#select-video-layout").click(function (e) {
-		$("#test-frontcover").toggle();
-		$("#test-photo").toggle();
-		$("#test-text").toggle();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").toggle();
-		$("#test-phototext").toggle();
-		$("#test-integrated").toggle();
+		$("#test-frontcover").hide();
+		$("#test-photo").hide();
+		$("#test-text").hide();
+		$("#test-horizontal").hide();
+		$("#test-overlay").hide();
+		$("#test-phototext").hide();
+		$("#test-integrated").hide();
 		$("#test-video").toggle();
 		e.preventDefault();
 	});
+
+	/*
+	$("body").stop(function() {
+		$(".book-creation header").fadeOut(850);
+	});
+	*/
+
+	/*
+	var hideThis = setTimeout(function() {
+		hideNav();
+	}, 2000);
+	*/
+
+	/*
+	function hideNav() {
+		$("body").stop().fadeOut(1000);
+		var headerControls = $(".book-creation header");
+
+		if (headerControls.length) {
+			headerControls.fadeOut(1000);
+		}
+	}
+
+	function showNav() {
+		$("body").stop().fadeIn(1000);
+		var headerControls = $(".book-creation header");
+
+		if (headerControls.length) {
+			headerControls.fadeIn(1000);
+		}
+	}
+
+	$("body").mousemove(function() {
+		clearTimeout(hideThis);
+
+		var hideThis = setTimeout(function() {
+			hideNav();
+		}, 2000);
+
+		showNav();
+	});
+	*/
+
+	// $("#menu").hide();
+	/*
+	var i = null;
+
+	$("body").mousemove(function() {
+		clearTimeout(i);
+		$(".book-creation header").show();
+		i = setTimeout('$(".book-creation header").hide();', 10000);
+	}).mouseleave(function() {
+		clearTimeout(i);
+		$(".book-creation header").hide();
+	});
+	*/
+
+	/*
+	var hideTimer = null;
+
+	$(".book-creation header").bind("mouseleave", function() {
+		hideTimer = setTimeout(function() {
+			// Code to hide menu goes here
+			$(".book-creation header").hide();
+		}, 1000);
+	});
+
+	$(".book-creation header").bind("mouseenter", function() {
+		if (hideTimer !== null) {
+			clearTimeout(hideTimer);
+		}
+	});
+	*/
+
+	/*
+	$("body").mousemove(function() {
+		$("#back, #finish").show();
+	}).mousestop(function() {
+		$("#back, #finish").fadeOut(850);
+	});
+	*/
+
+	$("body").mousemove(function(e) {
+		// $("#back, #finish").fadeIn(0);
+		$("#back, #finish").show(0);
+	});
+
+	$("body").mousestop(function(e) {
+		// $("#back, #finish").fadeOut(0);
+		$("#back, #finish").hide(0);
+	});
+
+	/*
+	$(".book-creation header").mouseleave(function() {
+		$("#back, #finish").fadeOut(850);
+	});
+
+	$(".book-creation header").mouseenter(function() {
+		$("#back, #finish").fadeIn(250);
+		// $("#pages-scroller, #layout-scroller, #comments-scroller").fadeIn(0);
+	});
+
+	/*
+	$("#back").mouseenter(function() {
+		$("#pages-scroller, #layout-scroller, #comments-scroller").fadeIn(0);
+	});
+	*/
 
 });
