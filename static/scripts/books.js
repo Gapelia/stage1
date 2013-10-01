@@ -127,6 +127,9 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		e.preventDefault();
 	});
 
@@ -139,6 +142,9 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
 	});
 
@@ -151,6 +157,10 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		// $(".pac-item").css("text-align", "center");
 		e.preventDefault();
 	});
 
@@ -163,6 +173,9 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
 	});
 
@@ -175,6 +188,9 @@ $(document).ready(function() {
 		$("#test-phototext").toggle();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
 	});
 
@@ -187,6 +203,9 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").toggle();
 		$("#test-video").hide();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
 	});
 
@@ -199,6 +218,9 @@ $(document).ready(function() {
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").toggle();
+
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
 	});
 

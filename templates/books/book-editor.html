@@ -24,7 +24,7 @@
 			}
 
 			.frontcover-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/blank.png"); } /* blank.png */
-			.photo-preview-wrapper			{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2656 */
+			/* .photo-preview-wrapper			{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2656 */
 			.horizontal-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2664 */
 			.overlay-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2665 */
 			.phototext-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2671 */
@@ -386,12 +386,12 @@
 
 						<!--/ Photo /-->
 
-						<section id="test-photo" class="photo-preview-wrapper" style="display: none;">
+						<section id="test-photo" class="photo-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;"><!--/ style="background:url('http://pipsum.com/640x480.jpg')" /-->
 							<div class="photo-preview">
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-01" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -406,8 +406,7 @@
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<!--/ <span class="page-geotag-elem">Anytown, USA</span> /-->
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-02" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true">
 										<!--/ <span class="placeholder">Type your description here.</span> /-->
@@ -444,7 +443,7 @@
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-03" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -459,7 +458,7 @@
 								<article>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-04" class="page-geotag-elem" placeholder="Select your location here"/>
 
 								</article>
 							</div>
@@ -468,14 +467,11 @@
 						<!--/ Photo/Text /-->
 
 						<section id="test-phototext" class="phototext-preview-wrapper" style="display: none;">
-							<!--/ <img src="{{ STATIC_URL }}images/test-book/2671.jpg" alt="" class="horizontal-bg"/> /-->
-							<!--/ <img src="{{ STATIC_URL }}images/test-book/2671.jpg" alt="" class="vertical-bg"/> /-->
-
 							<div class="phototext-preview">
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-04" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -490,7 +486,7 @@
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-05" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 									
@@ -505,7 +501,7 @@
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<span class="page-geotag-elem">Type your location here</span>
+									<input id="geotag-06" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -545,6 +541,14 @@
 			});
 		</script>
 		/-->
+
+		<script src="{{ STATIC_URL }}scripts/draggable_background.js"></script>
+
+		<script>
+			$(function() {
+				$(".photo-preview-wrapper").backgroundDraggable();
+			});
+		</script>
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="{{ STATIC_URL }}scripts/mousewheel.js"></script>

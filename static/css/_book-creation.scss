@@ -116,13 +116,11 @@
 	}
 
 	/* Google Autocomplete */
+	/*
 	.pac-container {
-		border: none !important;
-		width: 100%;
-
 		.pac-item {
 			padding: 0.5rem;
-			text-align: center !important;
+			text-align: center;
 
 			&:hover {
 				background-color: $slate;
@@ -132,6 +130,93 @@
 			}
 		}
 	}
+	*/
+
+	.pac-container {
+		border: none !important;
+		overflow: hidden;
+		width: 100%;
+		/*
+		position: absolute !important;
+		margin-top: -210px !important;
+		*/
+
+		&:after {
+			/* background-image: url("http://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png"); */
+			background-image: none;
+			background-position: right;
+			background-repeat: no-repeat;
+			background-size: 104px 16px;
+			content: "";
+			display: block;
+			font-size: 0;
+			height: 16px;
+			padding-top: 3px;
+			text-align: right;
+		}
+	}
+
+	.pac-item {
+		cursor: pointer;
+		overflow: hidden;
+		padding: 0 4px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&:hover { background-color: #f0f0ff; }
+	}
+
+	.pac-item-refresh {
+		border-top: 1px solid #e6e6e6;
+		cursor: default;
+		font-family: Roboto, Arial, sans-serif;
+		line-height: 30px;
+		overflow: hidden;
+		padding: 0 4px;
+		text-align: left;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&:hover {
+			background-color: $slate;
+			color: $white;
+		}
+	}
+
+	.pac-item-bold { font-weight: 700; }
+
+	.pac-item-query {
+		font-size: 13px;
+		margin-right: 3px;
+	}
+
+	.pac-item-location {
+		color: #999;
+		font-size: 11px;
+	}
+
+	.pac-icon-container {
+		width: 15px; height: 20px;
+
+		background-image: url("https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png");
+		display: inline-block;
+		margin-top: 6px 7px 0 0;
+		vertical-align: top;
+	}
+
+	.pac-icon-search {
+		background-position: -1px -1px;
+		&:hover { background-position: -18px -1px; }
+	}
+
+	.pac-icon-location {
+		background-position: -1px -161px;
+		&:hover { background-position: -18px -161px; }
+	}
+
+	.pac-item-selected { background-color: #ebf2fe; }
+
+	.pac-placeholder { color: gray; }
 
 	#book-creation-wrapper {
 		width: 100%; height: 100%;
@@ -160,11 +245,15 @@
 					overflow: hidden;
 					position: fixed;
 
+					::-webkit-input-placeholder	{ color: $black; }
+					::-moz-placeholder					{ color: $black; }
+					:-ms-input-placeholder			{ color: $black; }
+
 					.page-bg {
 						width: 100%; height: auto;
 					}
 
-					.placeholder { color: $gray-ii; }
+					.placeholder { color: $gray-iv; }
 
 					.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
 					.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
@@ -176,9 +265,13 @@
 					}
 
 					.page-geotag-elem {
+						background-color: transparent;
+						border: 0;
+						color: $white;
 						font-family: "OpenSansSemibold";
 						font-size: 1em;
 						text-transform: uppercase;
+						width: 100%;
 
 						&:before {
 							content: "in ";
@@ -287,6 +380,7 @@
 
 				.photo-preview-wrapper {
 					.photo-preview {
+						width: 100%; height: auto; max-height: 30%;
 						bottom: 0; left: 0;
 
 						background: linear-gradient(to top, $black 0, rgba($black, 0.2) 80%, rgba($white, 0) 100%) transparent;
@@ -295,23 +389,12 @@
 						height: auto;
 						padding: 1rem 2rem;
 						position: absolute;
-						
-						.page-desc {
-							text-align: left;
-						}
 
-						/*
-						.title {
-							font-size: 2.3em;
-							line-height: 1.3em;
-							margin: 0 0 0.2rem 0;
-						}
+						::-webkit-input-placeholder	{ color: $white; }
+						::-moz-placeholder					{ color: $white; }
+						:-ms-input-placeholder			{ color: $white; }
 
-						.geocode {
-							font-size: 1.2em;
-							line-height: 1.2em;
-						}
-						*/
+						.page-desc { text-align: left; }
 					}
 				}
 
@@ -324,6 +407,8 @@
 						line-height: 2.5em;
 						overflow-y: scroll;
 						padding: 5% 15rem;
+
+						.page-geotag-elem { color: $black; }
 
 						.page-desc {
 							font-family: "Hoefler Text", Georgia, serif;
@@ -344,6 +429,11 @@
 						padding: 1rem 2rem;
 						position: absolute;
 						text-align: center;
+
+						.page-geotag-elem {
+							color: $black;
+							text-align: center;
+						}
 					}
 				}
 				
@@ -370,6 +460,11 @@
 							font-size: 36px;
 							line-height: 40px;
 						}
+
+						.page-geotag-elem {
+							color: $white;
+							text-align: center;
+						}
 					}
 				}
 
@@ -385,6 +480,8 @@
 
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+
+							color: $white;
 							border-bottom: 1px dotted $white;
 						}
 
@@ -485,6 +582,7 @@
 					}
 
 					.page-title-elem { padding: 0.5rem 0.5rem 0 1rem; }
+					.page-geotag-elem { color: $black; }
 					.page-desc { padding: 0 0.5rem 0.5rem 1rem; }
 
 					.play-video {
