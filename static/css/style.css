@@ -123,7 +123,159 @@
 @keyframes fade-back-out { 0% { -webkit-transform: translateY(0) scale(1); -moz-transform: translateY(0) scale(1); -o-transform: translateY(0) scale(1); transform: translateY(0) scale(1); filter: alpha(opacity=100); -khtml-opacity: 1; -moz-opacity: 1; opacity: 1; }
   100% { -webkit-transform: translateY(-10%) scale(0.8); -moz-transform: translateY(-10%) scale(0.8); -o-transform: translateY(-10%) scale(0.8); transform: translateY(-10%) scale(0.8); filter: alpha(opacity=0); -khtml-opacity: 0; -moz-opacity: 0; opacity: 0; } }
 
-/* @import "skeleton"; */
+/************************************************************************************* SKELETON/SCSS **/
+/********************************************************************************************* V 1.2 **/
+/** [-] Table of Contents *****************************************************************************/
+/****** [+] Base 960 Grid [+] Tablet in 768-width portrait view [+] Mobile in 320-width portrait view [+] Mobile in 480-width landscape view [+] Clearing
+*******************************************************************************************************/
+/********************************************************************************* [+] BASE 960 GRID **/
+.container { margin: 0 auto; padding: 0; position: relative; width: 960px; }
+
+.container .column, .container .columns { margin-left: 10px; margin-right: 10px; box-sizing: border-box; display: inline; float: left; }
+
+.row { margin-bottom: 20px; }
+
+/** [-] NESTED COLUMN CLASSES *************************************************************************/
+.column.alpha, .columns.alpha { margin-left: 0; }
+
+.column.omega, .columns.omega { margin-right: 0; }
+
+/** [-] BASE GRID *************************************************************************************/
+/****** [*] [***********] ONE // ELEVEN [**] [**********] TWO // TEN [***] [*********] THREE // NINE [****] [********] FOUR // EIGHT [*****] [*******] FIVE // SEVEN [******] [******] SIX // SIX [*******] [*****] SEVEN // FIVE [********] [****] EIGHT // FOUR [*********] [***] NINE // THREE [**********] [**] TEN // TWO [***********] [*] ELEVEN // ONE
+*******************************************************************************************************/
+.container .one.column { width: 40px; }
+
+.container .two.columns { width: 100px; }
+
+.container .three.columns { width: 160px; }
+
+.container .four.columns { width: 220px; }
+
+.container .five.columns { width: 280px; }
+
+.container .six.columns { width: 340px; }
+
+.container .seven.columns { width: 400px; }
+
+.container .eight.columns { width: 460px; }
+
+.container .nine.columns { width: 520px; }
+
+.container .ten.columns { width: 580px; }
+
+.container .eleven.columns { width: 640px; }
+
+.container .twelve.columns { width: 700px; }
+
+.container .thirteen.columns { width: 760px; }
+
+.container .fourteen.columns { width: 820px; }
+
+.container .fifteen.columns { width: 880px; }
+
+.container .sixteen.columns { width: 940px; }
+
+.container .one-third.column { width: 300px; }
+
+.container .two-thirds.column { width: 620px; }
+
+/** [-] OFFSETS ***************************************************************************************/
+.container .offset-by-one { padding-left: 60px; }
+
+.container .offset-by-two { padding-left: 120px; }
+
+.container .offset-by-three { padding-left: 180px; }
+
+.container .offset-by-four { padding-left: 240px; }
+
+.container .offset-by-five { padding-left: 300px; }
+
+.container .offset-by-six { padding-left: 360px; }
+
+.container .offset-by-seven { padding-left: 420px; }
+
+.container .offset-by-eight { padding-left: 480px; }
+
+.container .offset-by-nine { padding-left: 540px; }
+
+.container .offset-by-ten { padding-left: 600px; }
+
+.container .offset-by-eleven { padding-left: 660px; }
+
+.container .offset-by-twelve { padding-left: 720px; }
+
+.container .offset-by-thirteen { padding-left: 780px; }
+
+.container .offset-by-fourteen { padding-left: 840px; }
+
+.container .offset-by-fifteen { padding-left: 900px; }
+
+/************************************************************* [+] TABLET IN 768-WIDTH PORTRAIT VIEW **/
+@media only screen and (min-width: 768px) and (max-width: 959px) { .container { width: 768px; }
+  .container .column, v.container .columns { margin-left: 10px; margin-right: 10px; }
+  .column.alpha, .columns.alpha { margin-left: 0; margin-right: 10px; }
+  .column.omega, .columns.omega { margin-right: 0; margin-left: 10px; }
+  .alpha.omega { margin-left: 0; margin-right: 0; }
+  .container .one.column { width: 28px; }
+  .container .two.columns { width: 76px; }
+  .container .three.columns { width: 124px; }
+  .container .four.columns { width: 172px; }
+  .container .five.columns { width: 220px; }
+  .container .six.columns { width: 268px; }
+  .container .seven.columns { width: 316px; }
+  .container .eight.columns { width: 364px; }
+  .container .nine.columns { width: 412px; }
+  .container .ten.columns { width: 460px; }
+  .container .eleven.columns { width: 508px; }
+  .container .twelve.columns { width: 556px; }
+  .container .thirteen.columns { width: 604px; }
+  .container .fourteen.columns { width: 652px; }
+  .container .fifteen.columns { width: 700px; }
+  .container .sixteen.columns { width: 748px; }
+  .container .one-third.column { width: 236px; }
+  .container .two-thirds.column { width: 492px; }
+  /** [-] OFFSETS *************************************************************************************/
+  .container .offset-by-one { padding-left: 48px; }
+  .container .offset-by-two { padding-left: 96px; }
+  .container .offset-by-three { padding-left: 144px; }
+  .container .offset-by-four { padding-left: 192px; }
+  .container .offset-by-five { padding-left: 240px; }
+  .container .offset-by-six { padding-left: 288px; }
+  .container .offset-by-seven { padding-left: 336px; }
+  .container .offset-by-eight { padding-left: 384px; }
+  .container .offset-by-nine { padding-left: 432px; }
+  .container .offset-by-ten { padding-left: 480px; }
+  .container .offset-by-eleven { padding-left: 528px; }
+  .container .offset-by-twelve { padding-left: 576px; }
+  .container .offset-by-thirteen { padding-left: 624px; }
+  .container .offset-by-fourteen { padding-left: 672px; }
+  .container .offset-by-fifteen { padding-left: 720px; } }
+/************************************************************* [+] MOBILE IN 320-WIDTH PORTRAIT VIEW **/
+@media only screen and (max-width: 767px) { .container { box-sizing: border-box; padding: 0 1rem; width: 300px; }
+  .container .columns, .container .column { margin: 0; }
+  .container .one.column, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns, .container .thirteen.columns, .container .fourteen.columns, .container .fifteen.columns, .container .sixteen.columns, .container .one-third.column, .container .two-thirds.column { padding: 0 1rem; width: 300px; }
+  /** [-] OFFSETS *************************************************************************************/
+  .container .offset-by-one, .container .offset-by-two, .container .offset-by-three, .container .offset-by-four, .container .offset-by-five, .container .offset-by-six, .container .offset-by-seven, .container .offset-by-eight, .container .offset-by-nine, .container .offset-by-ten, .container .offset-by-eleven, .container .offset-by-twelve, .container .offset-by-thirteen, .container .offset-by-fourteen, .container .offset-by-fifteen { padding-left: 0; } }
+/*********************************************************** [+] MOBILE IN 480-WIDTH LANDSCAPE VIEW **/
+@media only screen and (min-width: 480px) and (max-width: 767px) { .container { width: 420px; }
+  .container .columns, .container .column { margin: 0; }
+  .container .one.column, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns, .container .thirteen.columns, .container .fourteen.columns, .container .fifteen.columns, .container .sixteen.columns, .container .one-third.column, .container .two-thirds.column { width: 420px; } }
+/************************************************************************************** [+] CLEARING **/
+.container:after { clear: both; content: "\0020"; display: block; height: 0; visibility: hidden; }
+
+/** [-] NOTE ******************************************************************************************/
+/****** Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row"/>
+*******************************************************************************************************/
+.row, .clearfix { zoom: 1; }
+
+.clearfix:before, .clearfix:after, .row:before, .row:after { width: 0; height: 0; content: "\0020"; display: block; overflow: hidden; visibility: hidden; }
+
+.clearfix:after, .row:after { clear: both; }
+
+/** [-] NOTE ******************************************************************************************/
+/****** You can also use <br class="clear"/> to clear columns *****************************************/
+.clear { width: 0; height: 0; clear: both; display: block; overflow: hidden; visibility: hidden; }
+
 /***************************************************************************************** BASE/SCSS **/
 /** [-] Reset *****************************************************************************************/
 * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
@@ -815,33 +967,30 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 #settings-wrapper #settings-content .btn-save:hover { opacity: 0.7; }
 
 /******************************************************************************** BOOK-CREATION/SCSS **/
-.book-creation { /* Google Autocomplete */ 	/*
-	.pac-container {
-		.pac-item {
-			padding: 0.5rem;
-			text-align: center;
-
-			&:hover {
-				background-color: $slate;
-				color: $white;
-				font-family: Georgia, serif;
-				font-style: italic;
-			}
-		}
-	}
-	*/ }
+.book-creation { /*
+.scroller-open {
+	display: inline-block;
+	left: 0;
+	position: relative;
+}
+*/ /* Google Autocomplete */ }
 .book-creation header { width: 100%; height: 45px; top: 0; left: 0; background-color: transparent; position: fixed; z-index: 1; }
 .book-creation header #back, .book-creation header #finish { display: inline-block; vertical-align: middle; }
 .book-creation header #back a, .book-creation header #finish a { color: #fcfcfc; }
 .book-creation header #back { float: left; font-family: "entyporegular"; font-size: 3em; }
 .book-creation header #back #pages-toggle, .book-creation header #back #layout-toggle, .book-creation header #back #comments-toggle { width: 3.0947rem; height: auto; background-color: #70a1b1; display: inline-block; float: left; text-align: center; }
-.book-creation header #finish { float: right; font-size: 1em; text-align: right; }
-.book-creation header #finish #settings-button, .book-creation header #finish #publish-button, .book-creation header #finish #close-button { background-color: #70a1b1; display: inline-block; float: left; height: 45px; padding: 0.9rem; text-align: center; }
+.book-creation header #finish { background-color: #70a1b1; float: right; font-size: 1em; text-align: right; width: 200px; }
+.book-creation header #finish #settings-button, .book-creation header #finish #publish-toggle, .book-creation header #finish #close-button { display: inline-block; float: left; height: 45px; padding: 0.9rem; text-align: center; }
 .book-creation header #finish #settings-button { padding: 0.5rem 0.9rem; }
-.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller { width: 150px; height: 100%; top: 45px; left: 0; background-color: #e7e7e7; display: none; position: absolute; z-index: 1; }
-.book-creation #pages-scroller .sp-scrollbar, .book-creation #layout-scroller .sp-scrollbar, .book-creation #comments-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
-.book-creation #pages-scroller .sp-scrollbar .sp-thumb, .book-creation #layout-scroller .sp-scrollbar .sp-thumb, .book-creation #comments-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
-.book-creation #pages-scroller .sp-scrollbar.active .sp-thumb, .book-creation #layout-scroller .sp-scrollbar.active .sp-thumb, .book-creation #comments-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
+.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller, .book-creation #publish-scroller { background-color: #e7e7e7; display: none; height: 100%; position: absolute; top: 45px; z-index: 1; }
+.book-creation #pages-scroller .sp-scrollbar, .book-creation #layout-scroller .sp-scrollbar, .book-creation #comments-scroller .sp-scrollbar, .book-creation #publish-scroller .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
+.book-creation #pages-scroller .sp-scrollbar .sp-thumb, .book-creation #layout-scroller .sp-scrollbar .sp-thumb, .book-creation #comments-scroller .sp-scrollbar .sp-thumb, .book-creation #publish-scroller .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
+.book-creation #pages-scroller .sp-scrollbar.active .sp-thumb, .book-creation #layout-scroller .sp-scrollbar.active .sp-thumb, .book-creation #comments-scroller .sp-scrollbar.active .sp-thumb, .book-creation #publish-scroller .sp-scrollbar.active .sp-thumb { background-color: #999; }
+.book-creation #ccc .sp-scrollbar { background-color: #ccc; cursor: pointer; width: 10px; }
+.book-creation #ccc .sp-scrollbar .sp-thumb { background-color: #aaa; transition: height 0.2s ease-in-out; }
+.book-creation #ccc .sp-viewport { min-height: 600px; }
+.book-creation #ccc .sp-scrollbar.active .sp-thumb { background-color: #999; }
+.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller { left: 0; width: 150px; }
 .book-creation #pages-scroller ul li, .book-creation #layout-scroller ul li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
 .book-creation #pages-scroller ul li:hover, .book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
 .book-creation #pages-scroller ul li:last-child, .book-creation #layout-scroller ul li:last-child { border-bottom: none; }
@@ -849,29 +998,41 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #pages-scroller ul li img, .book-creation #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
 .book-creation #pages-scroller ul li span, .book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
 .book-creation #layout-scroller .selected-layout { background-color: #cfcfcf; }
-.book-creation .scroller-open { display: inline-block; left: 0; position: relative; }
-.book-creation .pac-container { border: none !important; overflow: hidden; width: 100%; /*
-position: absolute !important;
-margin-top: -210px !important;
-*/ }
+.book-creation #publish-scroller { right: 0; width: 200px; }
+.book-creation #publish-scroller #publish-header { background-color: #fcfcfc; height: 200px; padding: 0 1rem; position: fixed; }
+.book-creation #publish-scroller #publish-header button, .book-creation #publish-scroller #publish-header select, .book-creation #publish-scroller #publish-header input { width: 100%; height: 2rem; margin: 0 0 1rem 0; padding: 0 0 1rem 0; background-color: transparent; border: 0; border-bottom: 1px dotted #191919; font-size: 1em; text-align: center; }
+.book-creation #publish-scroller #publish-header button { margin-top: 1rem; }
+.book-creation #publish-scroller #publish-header select option { text-align: center; width: 100%; }
+.book-creation #publish-scroller .collected-book-list { margin: 200px 0 0 0; }
+.book-creation #publish-scroller .collected-book-list .collected-book { width: 100%; height: 100px; background-color: #fcfcfc; padding: 0 0.5rem; }
+.book-creation #publish-scroller .collected-book-list .collected-book img, .book-creation #publish-scroller .collected-book-list .collected-book .collected-book-details { float: left; }
+.book-creation #publish-scroller .collected-book-list .collected-book img { width: 50px; height: auto; }
+.book-creation #publish-scroller .collected-book-list .collected-book .collected-book-details { background-color: #70a1b1; margin: 0 0 0 0.5rem; width: 60%; }
+.book-creation #publish-scroller .collected-book-list .collected-book .collected-book-title, .book-creation #publish-scroller .collected-book-list .collected-book .collected-book-desc { display: block; }
+.book-creation .pac-container { border: none !important; overflow: hidden; width: 100%; }
 .book-creation .pac-container:after { /* background-image: url("http://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png"); */ background-image: none; background-position: right; background-repeat: no-repeat; background-size: 104px 16px; content: ""; display: block; font-size: 0; height: 16px; padding-top: 3px; text-align: right; }
 .book-creation .pac-item { cursor: pointer; overflow: hidden; padding: 0 4px; text-overflow: ellipsis; white-space: nowrap; }
-.book-creation .pac-item:hover { background-color: #f0f0ff; }
+.book-creation .pac-item:hover { background-color: #70a1b1; }
 .book-creation .pac-item-refresh { border-top: 1px solid #e6e6e6; cursor: default; font-family: Roboto, Arial, sans-serif; line-height: 30px; overflow: hidden; padding: 0 4px; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
 .book-creation .pac-item-refresh:hover { background-color: #70a1b1; color: #fcfcfc; }
 .book-creation .pac-item-bold { font-weight: 700; }
 .book-creation .pac-item-query { font-size: 13px; margin-right: 3px; }
-.book-creation .pac-item-location { color: #999; font-size: 11px; }
+.book-creation .pac-item-location { color: #191919; font-size: 11px; }
 .book-creation .pac-icon-container { width: 15px; height: 20px; background-image: url("https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png"); display: inline-block; margin-top: 6px 7px 0 0; vertical-align: top; }
 .book-creation .pac-icon-search { background-position: -1px -1px; }
 .book-creation .pac-icon-search:hover { background-position: -18px -1px; }
 .book-creation .pac-icon-location { background-position: -1px -161px; }
 .book-creation .pac-icon-location:hover { background-position: -18px -161px; }
-.book-creation .pac-item-selected { background-color: #ebf2fe; }
-.book-creation .pac-placeholder { color: gray; }
+.book-creation .pac-item-selected { background-color: #70a1b1; }
+.book-creation .pac-placeholder { color: #585959; }
+.book-creation .pac-placeholder:hover { color: #fcfcfc; }
 .book-creation #book-creation-wrapper { width: 100%; height: 100%; }
-.book-creation #book-creation-wrapper #create-book { width: 100%; height: 100%; overflow: hidden; }
-.book-creation #book-creation-wrapper #create-book #layout-scroller, .book-creation #book-creation-wrapper #create-book #create-content { position: relative; vertical-align: top; }
+.book-creation #book-creation-wrapper #create-book { width: 100%; height: 100%; overflow: hidden; /*
+#layout-scroller, #create-content {
+	position: relative;
+	vertical-align: top;
+}
+*/ }
 .book-creation #book-creation-wrapper #create-book #create-content { width: 100%; height: 100%; position: relative; 				/*
 				.phototext-ii-preview-wrapper {
 					background-color: $white;
@@ -956,8 +1117,14 @@ margin-top: -210px !important;
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview article { margin: 15% auto; padding: 2rem; position: relative; text-align: center; width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-desc { margin: 0 0 0.5rem 0; padding: 0; font-size: 36px; line-height: 40px; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview ::-webkit-input-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview ::-moz-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview :-ms-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-geotag-elem { color: #fcfcfc; text-align: center; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview { width: 30%; height: 100%; top: 0; right: 0; background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; padding: 4rem 2rem 2rem 2rem; position: absolute; }
+.book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview ::-webkit-input-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview ::-moz-placeholder { color: #fcfcfc; }
+.book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview :-ms-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-geotag-elem { margin: 0 0 1rem 0; padding: 0 0 1rem 0; color: #fcfcfc; border-bottom: 1px dotted #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-desc { text-align: left; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview { width: 70%; height: 100%; top: 0; right: 0; background-color: #fcfcfc; color: #191919; padding: 4rem 2rem 2rem 2rem; position: absolute; }

@@ -67,26 +67,17 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
+	$("#publish-toggle").click(function (e) {
+		$("#publish-scroller").toggle();
+		e.preventDefault();
+	});
+
 	// clicking on a page opens layout menu
 	$("#pages-scroller ul li").click(function (e) {
 		$("#pages-scroller").toggle();
 		$("#layout-scroller").toggle();
 		e.preventDefault();
 	});
-
-	/*
-	// show pohelp
-	$("#pohelplink, #pohelp").mouseenter(function () {
-		$("#pohelplink").css({ "z-index": "1110" });
-		$("#pohelp").fadeIn();
-	});
-
-	// hide pohelp on mouse out from pohelp
-	$("#pohelp").mouseleave(function() {
-		$("#pohelp").fadeOut();
-		$("#pohelplink").css({ "z-index": "1095" });
-	});
-	*/
 
 	$("#pages-scroller").mouseleave(function() {
 		$("#pages-scroller").fadeOut(850);

@@ -15,6 +15,7 @@
 		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
 
 		<style>
+			/*
 			.frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
 				width: 100%; height: 100%;
 
@@ -23,16 +24,12 @@
 				display: block;
 			}
 
-			.frontcover-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/blank.png"); } /* blank.png */
-			/* .photo-preview-wrapper			{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2656 */
-			.horizontal-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2664 */
-			.overlay-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2665 */
-			.phototext-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); } /* 2671 */
+			.frontcover-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/blank.png"); }
+			.horizontal-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
+			.overlay-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
+			.phototext-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
 			.vertical-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
-
-			/* .frontcover-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2692.jpg"); } */
-			/* .text-preview-wrapper				{ background-image: url("{{ STATIC_URL }}images/test-book/2659.jpg"); } */
-			/* .video-preview-wrapper				{ background-image: url("{{ STATIC_URL }}images/test-book/2679.jpg"); } */
+			*/
 		</style>
 
 		<!--* if lt IE 9 *>
@@ -75,7 +72,7 @@
 
 			<div id="finish">
 				<div id="settings-button"><a href="#" class="entypo" title="Settings">@</a></div>
-        <div id="publish-button"><a href="#" title="Publish">Publish</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish">Publish</a></div>
         <div id="close-button"><a href="#" title="Save and Close">Close</a></div>
 			</div>
 		</header>
@@ -289,55 +286,136 @@
 					</ul>
 				</div>
 
+				<div id="publish-scroller">
+					<div id="publish-header">
+						<button>Publish</button>
+
+						<select id="book-dimension-picker">
+							<option value="0">Choose a dimension</option>
+							<option value="1">Pulse</option>
+							<option value="2">Wow</option>
+							<option value="3">Life</option>
+							<option value="4">Wonder</option>
+							<option value="5">Art</option>
+							<option value="6">Flow</option>
+						</select>
+
+						<input type="text" placeholder="Add tags to your book"/>
+						<input type="search" name="s" placeholder="Add book to library"/>
+					</div>
+
+					<ul id="ccc" class="collected-book-list">
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+
+						<li class="collected-book">
+							<img src="{{ STATIC_URL }}images/space-bb-small.JPG" alt=""/>
+
+							<div class="collected-book-details">
+								<span class="collected-book-title">Title</span>
+								<span class="collected-book-desc">Description</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+
 				<div id="create-book">
-          <!--/
-					<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s3">
-						<div id="layout-scroller">
-							<ul>
-								<li id="select-frontcover-layout" class="selected-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/front.png" alt=""/>
-									<span>Front Cover</span>
-								</li>
-
-								<li id="select-photo-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/photo.png" alt=""/>
-									<span>Photo</span>
-								</li>
-
-								<li id="select-text-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/text.png" alt=""/>
-									<span>Text</span>
-								</li>
-
-								<li id="select-horizontal-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/horizontal.png" alt=""/>
-									<span>Horizontal</span>
-								</li>
-
-								<li id="select-overlay-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/overlay.png" alt=""/>
-									<span>Overlay</span>
-								</li>
-
-								<li id="select-phototext-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/phototext.png" alt=""/>
-									<span>Photo/Text</span>
-								</li>
-
-								<li id="select-integrated-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/integrated.png" alt=""/>
-									<span>Integrated</span>
-								</li>
-
-								<li id="select-video-layout">
-									<img src="{{ STATIC_URL }}images/view-modes/video.png" alt=""/>
-									<span>Video</span>
-								</li>
-							</ul>
-						</div>
-					</section>
-          /-->
-
 					<div class="text-menu hide">
 						<div class="options">
 							<span class="no-overflow">
@@ -354,24 +432,12 @@
 						</div>
 					</div>
 
-          <!--/
-					<div class="flyout-wrap">
-						<a class="flyout-btn page-settings" href="#" title="Settings">@</a>
-
-						<ul class="flyout flyout-init">
-							<li class="page-delete"><a title="Delete" class="md-trigger" href="JavaScript:$('#delete-modal').addClass('md-show')"><span>u</span></a></li>
-							<li class="page-collab"><a title="Collab" href="#"><span>,</span></a></li>
-							<li class="page-edit"><a title="Edit" class="md-trigger" href="#"><span>&amp;</span></a></li>
-						</ul>
-					</div>
-          /-->
-
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 
 						<!--/ Front Cover /-->
 
-						<section id="test-frontcover" class="frontcover-preview-wrapper">
+						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
@@ -386,7 +452,7 @@
 
 						<!--/ Photo /-->
 
-						<section id="test-photo" class="photo-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;"><!--/ style="background:url('http://pipsum.com/640x480.jpg')" /-->
+						<section id="test-photo" class="photo-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="photo-preview">
 								<article>
 
@@ -438,7 +504,7 @@
 
 						<!--/ Horizontal /-->
 
-						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
+						<section id="test-horizontal" class="horizontal-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="horizontal-preview">
 								<article>
 
@@ -453,7 +519,7 @@
 
 						<!--/ Overlay /-->
 
-						<section id="test-overlay" class="overlay-preview-wrapper" style="display: none;">
+						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="overlay-preview">
 								<article>
 
@@ -466,12 +532,12 @@
 
 						<!--/ Photo/Text /-->
 
-						<section id="test-phototext" class="phototext-preview-wrapper" style="display: none;">
+						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="phototext-preview">
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<input id="geotag-04" class="page-geotag-elem" placeholder="Select your location here"/>
+									<input id="geotag-05" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -481,12 +547,12 @@
 
 						<!--/ Vertical /-->
 
-						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
+						<section id="test-vertical" class="vertical-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="vertical-preview">
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<input id="geotag-05" class="page-geotag-elem" placeholder="Select your location here"/>
+									<input id="geotag-06" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 									
@@ -501,7 +567,7 @@
 								<article>
 
 									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Type your title here</span></h1>
-									<input id="geotag-06" class="page-geotag-elem" placeholder="Select your location here"/>
+									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location here"/>
 
 									<div class="page-desc" contenteditable="true"><span class="placeholder">Type your description here.</span></div>
 
@@ -545,9 +611,12 @@
 		<script src="{{ STATIC_URL }}scripts/draggable_background.js"></script>
 
 		<script>
-			$(function() {
-				$(".photo-preview-wrapper").backgroundDraggable();
-			});
+			$(function() { $(".frontcover-preview-wrapper").backgroundDraggable(); });
+			$(function() { $(".photo-preview-wrapper").backgroundDraggable(); });
+			$(function() { $(".horizontal-preview-wrapper").backgroundDraggable(); });
+			$(function() { $(".phototext-preview-wrapper").backgroundDraggable(); });
+			$(function() { $(".overlay-preview-wrapper").backgroundDraggable(); });
+			$(function() { $(".vertical-preview-wrapper").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
@@ -557,6 +626,8 @@
 		<script>
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
+
+			$("#publish-scroller").scrollpanel();
 		</script>
 
 		<!--/ scripts/page-sorter /-->

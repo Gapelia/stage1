@@ -33,12 +33,13 @@
 		}
 
 		#finish {
+			background-color: $slate;
 			float: right;
 			font-size: 1em;
 			text-align: right;
+			width: 200px;
 
-			#settings-button, #publish-button, #close-button {
-				background-color: $slate;
+			#settings-button, #publish-toggle, #close-button {
 				display: inline-block;
 				float: left;
 				height: 45px;
@@ -50,13 +51,12 @@
 		}
 	}
 
-	#pages-scroller, #layout-scroller, #comments-scroller {
-		width: 150px; height: 100%;
-		top: 45px; left: 0;
-
+	#pages-scroller, #layout-scroller, #comments-scroller, #publish-scroller {
 		background-color: $gray-i;
 		display: none;
+		height: 100%;
 		position: absolute;
+		top: 45px;
 		z-index: 1;
 
 		.sp-scrollbar {
@@ -71,6 +71,30 @@
 		}
 
 		.sp-scrollbar.active .sp-thumb { background-color: #999; }
+	}
+
+	#ccc {
+		.sp-scrollbar {
+			background-color: #ccc;
+			cursor: pointer;
+			width: 10px;
+
+			.sp-thumb {
+				background-color: #aaa;
+				transition: height 0.2s ease-in-out;
+			}
+		}
+
+		.sp-viewport {
+			min-height: 600px;
+		}
+
+		.sp-scrollbar.active .sp-thumb { background-color: #999; }
+	}
+
+	#pages-scroller, #layout-scroller, #comments-scroller {
+		left: 0;
+		width: 150px;
 	}
 
 	#pages-scroller, #layout-scroller {
@@ -109,37 +133,79 @@
 		.selected-layout { background-color: $gray-ii; }
 	}
 
+	#publish-scroller {
+		right: 0;
+		width: 200px;
+
+		#publish-header {
+			background-color: $white;
+			height: 200px;
+			padding: 0 1rem;
+			position: fixed;
+
+			button, select, input {
+				width: 100%; height: 2rem;
+				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+
+				background-color: transparent;
+				border: 0;
+				border-bottom: 1px dotted $black;
+				font-size: 1em;
+				text-align: center;
+			}
+
+			button { margin-top: 1rem; }
+
+			select {
+				option {
+					text-align: center;
+					width: 100%;
+				}
+			}
+		}
+
+		.collected-book-list {
+			margin: 200px 0 0 0;
+
+			.collected-book {
+				width: 100%; height: 100px;
+				background-color: $white;
+				padding: 0 0.5rem;
+
+				img, .collected-book-details {
+					float: left;
+				}
+
+				img {
+					width: 50px; height: auto;
+				}
+
+				.collected-book-details {
+					background-color: $slate;
+					margin: 0 0 0 0.5rem;
+					width: 60%;
+				}
+
+				.collected-book-title, .collected-book-desc {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/*
 	.scroller-open {
 		display: inline-block;
 		left: 0;
 		position: relative;
 	}
-
-	/* Google Autocomplete */
-	/*
-	.pac-container {
-		.pac-item {
-			padding: 0.5rem;
-			text-align: center;
-
-			&:hover {
-				background-color: $slate;
-				color: $white;
-				font-family: Georgia, serif;
-				font-style: italic;
-			}
-		}
-	}
 	*/
 
+	/* Google Autocomplete */
 	.pac-container {
 		border: none !important;
 		overflow: hidden;
 		width: 100%;
-		/*
-		position: absolute !important;
-		margin-top: -210px !important;
-		*/
 
 		&:after {
 			/* background-image: url("http://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png"); */
@@ -163,7 +229,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&:hover { background-color: #f0f0ff; }
+		&:hover { background-color: $slate; }
 	}
 
 	.pac-item-refresh {
@@ -191,7 +257,7 @@
 	}
 
 	.pac-item-location {
-		color: #999;
+		color: $black;
 		font-size: 11px;
 	}
 
@@ -214,9 +280,12 @@
 		&:hover { background-position: -18px -161px; }
 	}
 
-	.pac-item-selected { background-color: #ebf2fe; }
+	.pac-item-selected { background-color: $slate; }
 
-	.pac-placeholder { color: gray; }
+	.pac-placeholder {
+		color: $gray-v;
+		&:hover { color: $white; }
+	}
 
 	#book-creation-wrapper {
 		width: 100%; height: 100%;
@@ -225,10 +294,12 @@
 			width: 100%; height: 100%;
 			overflow: hidden;
 
+			/*
 			#layout-scroller, #create-content {
 				position: relative;
 				vertical-align: top;
 			}
+			*/
 
 			#create-content {
 				width: 100%; height: 100%;
@@ -461,6 +532,10 @@
 							line-height: 40px;
 						}
 
+						::-webkit-input-placeholder	{ color: $white; }
+						::-moz-placeholder					{ color: $white; }
+						:-ms-input-placeholder			{ color: $white; }
+
 						.page-geotag-elem {
 							color: $white;
 							text-align: center;
@@ -477,6 +552,10 @@
 						color: $white;
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
+
+						::-webkit-input-placeholder	{ color: $white; }
+						::-moz-placeholder					{ color: $white; }
+						:-ms-input-placeholder			{ color: $white; }
 
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
