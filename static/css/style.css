@@ -991,12 +991,17 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #ccc .sp-viewport { min-height: 600px; }
 .book-creation #ccc .sp-scrollbar.active .sp-thumb { background-color: #999; }
 .book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller { left: 0; width: 150px; }
-.book-creation #pages-scroller ul li, .book-creation #layout-scroller ul li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; padding: 1rem; }
-.book-creation #pages-scroller ul li:hover, .book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
-.book-creation #pages-scroller ul li:last-child, .book-creation #layout-scroller ul li:last-child { border-bottom: none; }
-.book-creation #pages-scroller ul li img, .book-creation #pages-scroller ul li span, .book-creation #layout-scroller ul li img, .book-creation #layout-scroller ul li span { display: block; }
-.book-creation #pages-scroller ul li img, .book-creation #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
-.book-creation #pages-scroller ul li span, .book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
+.book-creation #pages-scroller li, .book-creation #layout-scroller li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; }
+.book-creation #pages-scroller li:last-child, .book-creation #layout-scroller li:last-child { border-bottom: none; }
+.book-creation #pages-scroller li, .book-creation #pages-scroller section { position: relative; }
+.book-creation #pages-scroller img { width: 100%; height: auto; display: block; }
+.book-creation #pages-scroller .entypo { width: auto; height: auto; top: 1rem; left: 1rem; color: #191919; font-size: 3.5em; line-height: 0.5em; position: absolute; text-align: center; }
+.book-creation #pages-scroller span { bottom: 0; left: 0; background-color: rgba(252, 252, 252, 0.7); padding: 0.5rem; position: absolute; z-index: 1; }
+.book-creation #layout-scroller ul li { padding: 1rem; }
+.book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
+.book-creation #layout-scroller ul li img, .book-creation #layout-scroller ul li span { display: block; }
+.book-creation #layout-scroller ul li img { width: auto; height: auto; margin: 0 auto 1rem; }
+.book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
 .book-creation #layout-scroller .selected-layout { background-color: #cfcfcf; }
 .book-creation #publish-scroller { right: 0; width: 200px; }
 .book-creation #publish-scroller #publish-header { background-color: #fcfcfc; height: 200px; padding: 0 1rem; position: fixed; }
@@ -1108,7 +1113,7 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview ::-webkit-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview ::-moz-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview :-ms-input-placeholder { color: #fcfcfc; }
-.book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview .page-desc { text-align: left; }
+.book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview .page-desc { text-align: center; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .text-preview { width: 100%; height: 100%; background-color: #fcfcfc; font-size: 1.5em; line-height: 2.5em; overflow-y: scroll; padding: 5% 15rem; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .text-preview .page-geotag-elem { color: #191919; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .text-preview .page-desc { font-family: "Hoefler Text", Georgia, serif; margin: 0 0 1rem 0; text-align: left; }
