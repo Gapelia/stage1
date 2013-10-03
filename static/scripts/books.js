@@ -11,7 +11,7 @@ $(document).ready(function() {
 	var $vb = $("#vertical-bg");
 	var $wide = $(".wide");
 
-	var $coverInfo = $(".cover-info");
+	// var $coverInfo = $(".cover-info");
 
 	var $navPrev = $(".previous");
 	var $navNext = $(".next");
@@ -22,14 +22,16 @@ $(document).ready(function() {
 	$(function () {
 
 		// centering!
-		$coverInfo.css("marginLeft", -+$coverInfo.width() / 2);
-		$coverInfo.css("marginTop", -+$coverInfo.height() / 2);
+		// $coverInfo.css("marginLeft", -+$coverInfo.width() / 2);
+		// $coverInfo.css("marginTop", -+$coverInfo.height() / 2);
 
+		/*
 		$coverInfo.css({
 			"top": "50%",
 			"left": "50%",
 			"position": "absolute"
 		});
+		*/
 
 		$sidebar.css("top", $(window).height() / 2.5 + "px");
 		$wikiWindow.css("height", $(window).height() - 70 + "px");
@@ -235,6 +237,16 @@ $(document).ready(function() {
 
 	$(".page-desc").keydown(function (e) {
 		$(".page-desc .placeholder").hide();
+	});
+
+	$(".video-preview input").keydown(function () {
+		// this.style.width = ((this.value.length + 8) * 8) + "px";
+		// this.style.width = .pac-item, .pac-item-refresh
+
+		// this.style.width = $().width();
+		this.css("width", $(".pac-item").width() + "px");
+
+		// $navNext.css("margin-top", $(window).height() / 2 - 50 + "px");
 	});
 
 });

@@ -248,17 +248,10 @@
 		}
 	}
 
-	/*
-	.scroller-open {
-		display: inline-block;
-		left: 0;
-		position: relative;
-	}
-	*/
-
 	/* Google Autocomplete */
 	.pac-container {
 		border: none !important;
+		display: table; /**/
 		overflow: hidden;
 		width: 100%;
 
@@ -277,8 +270,7 @@
 		}
 	}
 
-	.pac-item {
-		cursor: pointer;
+	.pac-item, .pac-item-refresh {
 		overflow: hidden;
 		padding: 0 4px;
 		text-overflow: ellipsis;
@@ -287,21 +279,21 @@
 		&:hover { background-color: $slate; }
 	}
 
+	.pac-item {
+		cursor: pointer;
+		display: table;
+		padding: 0 4px;
+		text-overflow: ellipsis;
+	}
+
 	.pac-item-refresh {
 		border-top: 1px solid #e6e6e6;
 		cursor: default;
 		font-family: Roboto, Arial, sans-serif;
 		line-height: 30px;
-		overflow: hidden;
-		padding: 0 4px;
 		text-align: left;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 
-		&:hover {
-			background-color: $slate;
-			color: $white;
-		}
+		&:hover { color: $white; }
 	}
 
 	.pac-item-bold { font-weight: 700; }
@@ -349,13 +341,6 @@
 			width: 100%; height: 100%;
 			overflow: hidden;
 
-			/*
-			#layout-scroller, #create-content {
-				position: relative;
-				vertical-align: top;
-			}
-			*/
-
 			#create-content {
 				width: 100%; height: 100%;
 				position: relative;
@@ -385,7 +370,7 @@
 					button {
 						margin: 0 auto; padding: 0.5rem;
 
-						background-color: transparent;
+						background-color: rgba($white, 0.3);
 						border: 3px solid $black;
 						color: $black;
 						cursor: pointer;
@@ -458,15 +443,18 @@
 
 				.frontcover-preview-wrapper {
 					.frontcover-preview {
+						width: 100%; height: auto;
+						top: 30%; left: 0;
+
 						color: $black;
-						/* padding: 0; */
+						position: absolute;
 
 						article {
 							margin: 0 auto; padding: 2rem;
 
 							box-sizing: border-box;
 							background-color: rgba($white, 0.7);
-							position: absolute;
+							/* position: absolute; */
 							width: 60%;
 						}
 
@@ -708,12 +696,23 @@
 						margin: 0; padding: 0 0 0 1rem;
 
 						background-color: $white;
+						display: table-cell;
+						margin: 0 0 0.5rem 0;
 						text-align: left;
 						width: auto;
+
+						&:before, &:after {
+							content: "";
+						}
 					}
 
 					.page-title-elem { padding: 0.5rem 0.5rem 0 1rem; }
-					.page-geotag-elem { color: $black; }
+
+					.page-geotag-elem {
+						color: $black;
+						min-width: 100px;
+					}
+
 					.page-desc { padding: 0 0.5rem 0.5rem 1rem; }
 
 					.play-video {
