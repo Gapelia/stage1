@@ -992,8 +992,10 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #ccc .sp-scrollbar.active .sp-thumb { background-color: #999; }
 .book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller { left: 0; width: 150px; }
 .book-creation #pages-scroller li, .book-creation #layout-scroller li { width: 100%; height: auto; background-color: #fcfcfc; border-top: 1px solid #e7e7e7; cursor: pointer; }
-.book-creation #pages-scroller li:last-child, .book-creation #layout-scroller li:last-child { border-bottom: none; }
+.book-creation #pages-scroller li:first-child, .book-creation #layout-scroller li:first-child { border-top: none; }
 .book-creation #pages-scroller li, .book-creation #pages-scroller section { position: relative; }
+.book-creation #pages-scroller .new-thumb { padding: 1rem; text-align: center; }
+.book-creation #pages-scroller .new-thumb a { color: #191919; font-size: 5em; }
 .book-creation #pages-scroller img { width: 100%; height: auto; display: block; }
 .book-creation #pages-scroller .entypo { width: auto; height: auto; top: 1rem; left: 1rem; color: #fcfcfc; font-size: 3.5em; line-height: 0.5em; position: absolute; text-align: center; text-shadow: 0 0 1px #191919; /* creates outline */ z-index: 1; }
 .book-creation #pages-scroller .entypo:hover { color: #df151a; opacity: 1; }

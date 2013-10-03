@@ -105,12 +105,22 @@
 			border-top: 1px solid $gray-i;
 			cursor: pointer;
 
-			&:last-child { border-bottom: none; }
+			&:first-child { border-top: none; }
 		}
 	}
 
 	#pages-scroller {
 		li, section { position: relative; }
+
+		.new-thumb {
+			padding: 1rem;
+			text-align: center;
+
+			a {
+				color: $black;
+				font-size: 5em;
+			}
+		}
 
 		img {
 			width: 100%; height: auto;
