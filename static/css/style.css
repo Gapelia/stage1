@@ -996,6 +996,7 @@ body.first footer ul li:last-child:after, body.second footer ul li:last-child:af
 .book-creation #pages-scroller li, .book-creation #pages-scroller section { position: relative; }
 .book-creation #pages-scroller img { width: 100%; height: auto; display: block; }
 .book-creation #pages-scroller .entypo { width: auto; height: auto; top: 1rem; left: 1rem; color: #fcfcfc; font-size: 3.5em; line-height: 0.5em; position: absolute; text-align: center; text-shadow: 0 0 1px #191919; /* creates outline */ z-index: 1; }
+.book-creation #pages-scroller .entypo:hover { color: #df151a; opacity: 1; }
 .book-creation #pages-scroller span { bottom: 0; left: 0; background-color: rgba(252, 252, 252, 0.7); font-size: 0.7em; padding: 0.5rem; position: absolute; width: 100%; z-index: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .book-creation #layout-scroller ul li { padding: 1rem; }
 .book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
