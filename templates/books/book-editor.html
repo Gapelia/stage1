@@ -478,6 +478,10 @@
 						<!--/ Front Cover /-->
 
 						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
+							<div class="button-wrapper">
+								<button class="photo-picker">Change Photo</button>
+							</div>
+
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
@@ -493,6 +497,10 @@
 						<!--/ Photo /-->
 
 						<section id="test-photo" class="photo-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
+							<div class="button-wrapper">
+								<button class="photo-picker">Change Photo</button>
+							</div>
+
 							<div class="photo-preview">
 								<article>
 
@@ -544,7 +552,13 @@
 
 						<!--/ Horizontal /-->
 
-						<section id="test-horizontal" class="horizontal-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
+						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
+							<section class="draggable-placeholder"  style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
+								<div class="button-wrapper">
+									<button class="photo-picker">Change Photo</button>
+								</div>
+							</section>
+
 							<div class="horizontal-preview">
 								<article>
 
@@ -560,6 +574,10 @@
 						<!--/ Overlay /-->
 
 						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
+							<div class="button-wrapper">
+								<button class="photo-picker">Change Photo</button>
+							</div>
+
 							<div class="overlay-preview">
 								<article>
 
@@ -573,6 +591,10 @@
 						<!--/ Photo/Text /-->
 
 						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
+							<div class="button-wrapper">
+								<button class="photo-picker">Change Photo</button>
+							</div>
+
 							<div class="phototext-preview">
 								<article>
 
@@ -587,7 +609,13 @@
 
 						<!--/ Vertical /-->
 
-						<section id="test-vertical" class="vertical-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
+						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
+							<section class="draggable-placeholder"  style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
+								<div class="button-wrapper">
+									<button class="photo-picker">Change Photo</button>
+								</div>
+							</section>
+
 							<div class="vertical-preview">
 								<article>
 
@@ -651,12 +679,16 @@
 		<script src="{{ STATIC_URL }}scripts/draggable_background.js"></script>
 
 		<script>
+			/*
 			$(function() { $(".frontcover-preview-wrapper").backgroundDraggable(); });
 			$(function() { $(".photo-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".horizontal-preview-wrapper").backgroundDraggable(); });
 			$(function() { $(".phototext-preview-wrapper").backgroundDraggable(); });
 			$(function() { $(".overlay-preview-wrapper").backgroundDraggable(); });
 			$(function() { $(".vertical-preview-wrapper").backgroundDraggable(); });
+			*/
+
+			// Horizontal and Vertical layouts
+			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
