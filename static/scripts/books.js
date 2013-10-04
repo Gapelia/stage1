@@ -56,11 +56,15 @@ $(document).ready(function() {
 
 	$("#pages-toggle").click(function (e) {
 		$("#pages-scroller").toggle();
+		$("#layout-scroller").hide();
+		$("#comments-scroller").hide();
 		e.preventDefault();
 	});
 
 	$("#layout-toggle").click(function (e) {
 		$("#layout-scroller").toggle();
+		$("#pages-scroller").hide();
+		$("#comments-scroller").hide();
 		e.preventDefault();
 	});
 
@@ -71,6 +75,8 @@ $(document).ready(function() {
 
 	$("#publish-toggle").click(function (e) {
 		$("#publish-scroller").toggle();
+		$("#pages-scroller").hide();
+		$("#layout-scroller").hide();
 		e.preventDefault();
 	});
 
@@ -94,9 +100,9 @@ $(document).ready(function() {
 	});
 
 	// set menu height
-	$("#pages-scroller").css("height", $(window).height() - 45 + "px");
-	$("#layout-scroller").css("height", $(window).height() - 45 + "px");
-	$("#comments-scroller").css("height", $(window).height() - 45 + "px");
+	$("#pages-scroller").css("height", $(window).height() - 51 + "px");
+	$("#layout-scroller").css("height", $(window).height() - 51 + "px");
+	$("#comments-scroller").css("height", $(window).height() - 51 + "px");
 
 	// toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
@@ -238,64 +244,6 @@ $(document).ready(function() {
 	$(".page-desc").keydown(function (e) {
 		$(".page-desc .placeholder").hide();
 	});
-
-	// $("button.photo-picker").html().text("Change Photo");
-
-	(function () {
-		// document.getElementByClassName("photo-picker").innerHTML+=("Change Video");
-
-		var d = function (d) { document.getElementByClassName("photo-picker").innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video"; };
-		var e = function (d) { document.getElementByClassName("photo-picker").innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video"; };
-	})();
-
-	$(function () {
-		// $(".frontcover-preview-wrapper button").innerHTML+=("Change Video");
-
-		/*
-		function reactieID(a,b,c,d) {
-			document.getElementById('myModal').innerHTML+=('<div class="subtitel">Reactie</div>');
-			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="a" type="text" value="'+a+'" />');
-			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="b" type="text" value="'+b+'" />');
-			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="c" type="text" value="'+c+'" />');
-			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="d" type="text" value="'+d+'" />');
-			document.getElementById('myModal').innerHTML+=('<input size="80" name="reactie" type="text" class="textfield" />');
-			document.getElementById('myModal').innerHTML+=('<input type="submit" value="Toevoegen" />');
-			document.getElementById('myModal').innerHTML+=('<a class="close-reveal-modal">&#215;</a>');
-		}
-		*/
-
-		/*
-		filepicker.extend("widgets", function () {
-
-			var d = function (d) {
-				e.innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video";
-			}
-
-			var e = function (d) {
-				i.innerHTML = d.getAttribute("data-fp-button-text") || "Change Video";
-			}
-
-		});
-		*/
-	});
-
-	/*
-	$(".video-preview input").keydown(function () {
-		var $listItem = $(".pac-item");
-		this.style.width = (($listItem.value.length + 8) * 8) + "px";
-
-		// this.style.width = ((this.value.length + 8) * 8) + "px";
-		// this.style.width = .pac-item, .pac-item-refresh
-
-		// this.style.width = $().width();
-		// this.css("min-width", $(".pac-item").width() + "px");
-		// this.css("min-width", $(".pac-item").value.length() + "px");
-
-		// $navNext.css("margin-top", $(window).height() / 2 - 50 + "px");
-	});
-	*/
-
-	// $(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
 
 	$(".video-preview input").keydown(function (e) {
 		setTimeout(function() {

@@ -80,25 +80,6 @@
 		.sp-scrollbar.active .sp-thumb { background-color: #999; }
 	}
 
-	#ccc {
-		.sp-scrollbar {
-			background-color: #ccc;
-			cursor: pointer;
-			width: 10px;
-
-			.sp-thumb {
-				background-color: #aaa;
-				transition: height 0.2s ease-in-out;
-			}
-		}
-
-		.sp-viewport {
-			min-height: 600px;
-		}
-
-		.sp-scrollbar.active .sp-thumb { background-color: #999; }
-	}
-
 	#pages-scroller, #layout-scroller, #comments-scroller {
 		left: 0;
 		width: 150px;
@@ -147,8 +128,8 @@
 			z-index: 1;
 
 			&:hover {
-				color: $red;
 				opacity: 1;
+				text-shadow: 0 0 3px $red;
 			}
 		}
 
@@ -196,6 +177,7 @@
 	}
 
 	#publish-scroller {
+		border-left: 1px solid $gray-i;
 		right: 0;
 		width: 200px;
 

@@ -12,6 +12,7 @@
 		<meta name="author" content="Gapelia"/>
 
 		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
+		<link href="{{ STATIC_URL }}css/selectize.default.css" rel="stylesheet"/>
 		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
 
 		<!--* if lt IE 9 *>
@@ -23,6 +24,21 @@
 		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.full.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
 		<script src="{{ STATIC_URL }}scripts/prefixfree.js"></script>
+
+		<script src="{{ STATIC_URL }}scripts/selectize.min.js"></script>
+
+		<script>
+			$("#input-tags").selectize({
+				delimiter: ",",
+				persist: false,
+				create: function(input) {
+					return {
+						value: input,
+						text: input
+					}
+				}
+			});
+		</script>
 
 	</head>
 
@@ -299,7 +315,8 @@
 							<option value="6">Flow</option>
 						</select>
 
-						<input type="text" placeholder="Add tags to your book"/>
+						<!--/ <input type="text" placeholder="Add tags to your book"/> /-->
+						<input type="text" id="input-tags" class="demo-default" value="awesome,neat"/>
 						<input type="search" name="s" placeholder="Add book to library"/>
 					</div>
 
