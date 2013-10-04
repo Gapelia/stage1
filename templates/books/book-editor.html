@@ -14,24 +14,6 @@
 		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
 		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			/*
-			.frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
-				width: 100%; height: 100%;
-
-				background-color: #fcfcfc;
-				background-size: cover;
-				display: block;
-			}
-
-			.frontcover-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/blank.png"); }
-			.horizontal-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
-			.overlay-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
-			.phototext-preview-wrapper	{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
-			.vertical-preview-wrapper		{ background-image: url("{{ STATIC_URL }}images/test-book/2676.jpg"); }
-			*/
-		</style>
-
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
@@ -41,23 +23,6 @@
 		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.full.js"></script> /-->
 		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
 		<script src="{{ STATIC_URL }}scripts/prefixfree.js"></script>
-
-		<!--/
-		<script src="{{ STATIC_URL }}scripts/bg-resize.js"></script>
-
-		<script>
-			$(document).ready(function() {
-				$("frontcover-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2651.jpg" });
-				$("photo-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2656.jpg" });
-				$("text-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2659.jpg" });
-				$("horizontal-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2664.jpg" });
-				$("overlay-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2665.jpg" });
-				$("phototext-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2671.jpg" });
-				$("integrated-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2676.jpg" });
-				$("video-preview-wrapper").bgResize({ img: "{{ STATIC_URL }}images/test-book/2679.jpg" });
-			});
-		</script>
-		/-->
 
 	</head>
 
@@ -71,28 +36,15 @@
 			</div>
 
 			<div id="finish">
-				<div id="settings-button"><a href="#" class="entypo" title="Settings">@</a></div>
-        <div id="publish-toggle"><a href="#" title="Publish">Publish</a></div>
-        <div id="close-button"><a href="#" title="Save and Close">Close</a></div>
+				<div id="settings-button"><a href="#" title="Settings">@</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish">z</a></div><!--/ z,/,n /-->
+        <div id="close-button"><a href="#" title="Save and Close">[</a></div>
 			</div>
 		</header>
 
 		<!--/ main-content /-->
 
 		<section id="main-content">
-			<!--/ preview/blank-page /-->
-
-			<!--/
-			<section class="blank-preview-wrapper">
-				<div id="blank-preview">
-					<div class="cover-info">
-						<h1>* book title *</h1>
-						<h5>has been created. Add pages to it!</h5>
-					</div>
-				</div>
-			</section>
-			/-->
-
 			<div id="book-creation-wrapper">
 				<div id="pages-scroller">
 					<ul>
@@ -291,12 +243,10 @@
 
 				<div id="layout-scroller">
 					<ul>
-						<!--/
 						<li id="select-frontcover-layout" class="selected-layout">
 							<img src="{{ STATIC_URL }}images/view-modes/front.png" alt=""/>
 							<span>Front Cover</span>
 						</li>
-						/-->
 
 						<li id="select-photo-layout">
 							<img src="{{ STATIC_URL }}images/view-modes/photo.png" alt=""/>
@@ -483,12 +433,30 @@
 
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
+						<!--/ New Page /-->
+
+						<section id="test-blank" class="blank-preview-wrapper">
+							<div class="button-wrapper">
+								<!--/ <button class="photo-picker">Change Photo</button> /-->
+								<!--/
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+								/-->
+							</div>
+
+							<div class="blank-preview">
+								<article>
+
+									Your book has been created.<br/><br/>Choose a layout from the <span class="entypo">k</span> menu to get started!
+
+								</article>
+							</div>
+						</section>
 
 						<!--/ Front Cover /-->
 
-						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
+						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none">
 							<div class="button-wrapper">
-								<button class="photo-picker">Change Photo</button>
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
 
 							<div class="frontcover-preview">
@@ -507,7 +475,8 @@
 
 						<section id="test-photo" class="photo-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
-								<button class="photo-picker">Change Photo</button>
+								<!--/ <button class="photo-picker">Change Photo</button> /-->
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
 
 							<div class="photo-preview">
@@ -532,8 +501,6 @@
 									<input id="geotag-02" class="page-geotag-elem" placeholder="Select your location"/>
 
 									<div class="page-desc" contenteditable="true">
-										<!--/ <span class="placeholder">Write your description here.</span> /-->
-
 										<span class="placeholder">Start writing your story here.</span>
 									</div>
 
@@ -546,7 +513,8 @@
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
 								<div class="button-wrapper">
-									<button class="photo-picker">Change Photo</button>
+									<!--/ <button class="photo-picker">Change Photo</button> /-->
+									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 								</div>
 							</section>
 
@@ -566,7 +534,8 @@
 
 						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
-								<button class="photo-picker">Change Photo</button>
+								<!--/ <button class="photo-picker">Change Photo</button> /-->
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
 
 							<div class="overlay-preview">
@@ -583,7 +552,8 @@
 
 						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('{{ STATIC_URL }}images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
-								<button class="photo-picker">Change Photo</button>
+								<!--/ <button class="photo-picker">Change Photo</button> /-->
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
 
 							<div class="phototext-preview">
@@ -603,7 +573,8 @@
 						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('{{ STATIC_URL }}images/space-bb.jpg');">
 								<div class="button-wrapper">
-									<button class="photo-picker">Change Photo</button>
+									<!--/ <button class="photo-picker">Change Photo</button> /-->
+									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 								</div>
 							</section>
 
@@ -622,6 +593,11 @@
 						<!--/ Video / -->
 
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
+							<div class="button-wrapper">
+								<button class="photo-picker">Change Video</button>
+								<!--/ <input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="video/*" data-fp-container="modal" data-fp-services="COMPUTER,URL,VIDEO" onchange="alert(event.fpfile.url)"> /-->
+							</div>
+
 							<div class="video-preview">
 								<article>
 
@@ -650,6 +626,7 @@
 		<script>grande.bind();</script>
 
 		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
+		<script src="{{ STATIC_URL }}scripts/filepicker2.js"></script>
 		<script src="{{ STATIC_URL }}scripts/books.js"></script>
 
 		<!--/ Save this for the actual book! (:
@@ -694,29 +671,6 @@
 		</script>
 
 		<!--/ scripts/page-sorter /-->
-		<!--/
-		<script src="{{ STATIC_URL }}scripts/dragsort.js"></script>
-
-		<script>
-			// $("#pages-scroller").dragsort();
-
-			$("#pages-scroller").dragsort({
-				dragSelector: "li",
-				dragBetween: true,
-				dragEnd: saveOrder,
-				placeHolderTemplate: "<li class='placeHolder'><a></a></li>"
-			});
-
-			function saveOrder() {
-				var data = $("#pages-scroller").map(function() {
-					return $(this).children().html();
-				}).get();
-
-				$("input[name=pageSortOrder]").val(data.join("|"));
-			};
-		</script>
-		/-->
-
 		<script src="{{ STATIC_URL }}scripts/sortable.js"></script>
 
 		<script>
@@ -790,7 +744,41 @@
 			autocomplete = new google.maps.places.Autocomplete(geotag20);
 		</script>
 
-		<!--/ <script src="{{ STATIC_URL }}scripts/filepicker.js"></script> /-->
+		<!--/
+		<script>
+			// Non-blocking Filepicker
+			(function (a) {
+
+				if (window.filepicker) { return }
+
+				var b = a.createElement("script");
+				b.type = "text/javascript";
+				b.async = !0;
+				b.src = ("https:" === a.location.protocol ? "https:" : "http:") + "//api.filepicker.io/v1/filepicker.js";
+
+				var c = a.getElementsByTagName("script")[0];
+				c.parentNode.insertBefore(b, c);
+
+				var d = {};
+				d._queue = [];
+
+				var e = "pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");
+				var f = function (a, b) {
+					return function () {
+						b.push([a, arguments])
+					}
+				};
+
+				for (var g = 0; g < e.length; g++) {
+					d[e[g]] = f(e[g], d._queue)
+				}
+
+				window.filepicker = d
+
+			})(document);
+		</script>
+		/-->
+
 		<!--/ <script src="{{ STATIC_URL }}js/app/book-edit.js"></script> /-->
 
 		<!--/

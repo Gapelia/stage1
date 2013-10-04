@@ -11,43 +11,50 @@
 		z-index: 1;
 
 		#back, #finish {
+			background-color: $slate;
 			display: inline-block;
+			font-family: "entyporegular";
+			font-size: 3.4em;
+			text-align: center;
 			vertical-align: middle;
+			
+			div {
+				width: 33%; height: auto;
 
-			a { color: $white; }
+				display: inline-block;
+				float: left;
+				text-align: center;
+
+				a {
+					color: $white;
+					&:hover { opacity: 1; }
+				}
+
+				&:hover {
+					background-color: $white;
+					transition: all 0.2s ease;
+
+					a { color: $slate; }
+				}
+
+				&:last-child { width: 34%; }
+			}
 		}
 
 		#back {
 			float: left;
-			font-family: "entyporegular";
-			font-size: 3em;
+			width: 150px;
 
 			#pages-toggle, #layout-toggle, #comments-toggle {
-				width: 3.0947rem; height: auto;
-
-				background-color: $slate;
-				display: inline-block;
-				float: left;
-				text-align: center;
 			}
 		}
 
 		#finish {
-			background-color: $slate;
 			float: right;
-			font-size: 1em;
-			text-align: right;
 			width: 200px;
 
 			#settings-button, #publish-toggle, #close-button {
-				display: inline-block;
-				float: left;
-				height: 45px;
-				padding: 0.9rem;
-				text-align: center;
 			}
-
-			#settings-button { padding: 0.5rem 0.9rem; }
 		}
 	}
 
@@ -56,7 +63,7 @@
 		display: none;
 		height: 100%;
 		position: absolute;
-		top: 45px;
+		top: 51px;
 		z-index: 1;
 
 		.sp-scrollbar {
@@ -426,18 +433,25 @@
 				}
 
 				.blank-preview-wrapper {
-					width: 100%; height: 100%;
-
-					background-color: $gray-iii;
-					display: block;
-
-					#blank-preview {
+					.blank-preview {
 						width: 100%; height: 100%;
+						top: 0; left: 0;
 
-						display: block;
-						margin: 20% 0;
+						background-color: $white;
+						color: $gray-iv;
+						position: absolute;
 
-						h1, h5 { text-align: center; }
+						article {
+							margin: 15% auto; padding: 2rem;
+
+							font-size: 36px;
+							line-height: 40px;
+							position: relative;
+							text-align: center;
+							width: 60%;
+						}
+
+						.entypo { font-size: 1.5em; }
 					}
 				}
 
@@ -670,6 +684,8 @@
 				}
 
 				.video-preview-wrapper {
+					.button-wrapper { bottom: 30%; }
+
 					.video-preview {
 						width: 100%; height: 100%;
 					}
@@ -697,7 +713,6 @@
 
 						background-color: $white;
 						display: table-cell;
-						margin: 0 0 0.5rem 0;
 						text-align: left;
 						width: auto;
 
@@ -710,6 +725,7 @@
 
 					.page-geotag-elem {
 						color: $black;
+						margin: 0.5rem 0;
 						min-width: 100px;
 					}
 

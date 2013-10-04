@@ -217,7 +217,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	// Hide Editor Controls When Typing, Show When Mouse Moves
+	// Hide editor controls when typing, show when mouse moves
 	var interval = window.setInterval(function () {
 	}, 1000);
 
@@ -239,14 +239,70 @@ $(document).ready(function() {
 		$(".page-desc .placeholder").hide();
 	});
 
+	// $("button.photo-picker").html().text("Change Photo");
+
+	(function () {
+		// document.getElementByClassName("photo-picker").innerHTML+=("Change Video");
+
+		var d = function (d) { document.getElementByClassName("photo-picker").innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video"; };
+		var e = function (d) { document.getElementByClassName("photo-picker").innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video"; };
+	})();
+
+	$(function () {
+		// $(".frontcover-preview-wrapper button").innerHTML+=("Change Video");
+
+		/*
+		function reactieID(a,b,c,d) {
+			document.getElementById('myModal').innerHTML+=('<div class="subtitel">Reactie</div>');
+			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="a" type="text" value="'+a+'" />');
+			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="b" type="text" value="'+b+'" />');
+			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="c" type="text" value="'+c+'" />');
+			document.getElementById('myModal').innerHTML+=('<input hidden="hidden" name="d" type="text" value="'+d+'" />');
+			document.getElementById('myModal').innerHTML+=('<input size="80" name="reactie" type="text" class="textfield" />');
+			document.getElementById('myModal').innerHTML+=('<input type="submit" value="Toevoegen" />');
+			document.getElementById('myModal').innerHTML+=('<a class="close-reveal-modal">&#215;</a>');
+		}
+		*/
+
+		/*
+		filepicker.extend("widgets", function () {
+
+			var d = function (d) {
+				e.innerHTML = d.getAttribute("data-fp-button-text") || d.getAttribute("data-fp-text") || "Change Video";
+			}
+
+			var e = function (d) {
+				i.innerHTML = d.getAttribute("data-fp-button-text") || "Change Video";
+			}
+
+		});
+		*/
+	});
+
+	/*
 	$(".video-preview input").keydown(function () {
+		var $listItem = $(".pac-item");
+		this.style.width = (($listItem.value.length + 8) * 8) + "px";
+
 		// this.style.width = ((this.value.length + 8) * 8) + "px";
 		// this.style.width = .pac-item, .pac-item-refresh
 
 		// this.style.width = $().width();
-		this.css("width", $(".pac-item").width() + "px");
+		// this.css("min-width", $(".pac-item").width() + "px");
+		// this.css("min-width", $(".pac-item").value.length() + "px");
 
 		// $navNext.css("margin-top", $(window).height() / 2 - 50 + "px");
+	});
+	*/
+
+	// $(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
+
+	$(".video-preview input").keydown(function (e) {
+		setTimeout(function() {
+			$(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
+		}, 1000);
+
+		if (e.which == 13 && $(".pac-container:visible").length) return false;
 	});
 
 });
