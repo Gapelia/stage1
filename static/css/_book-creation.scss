@@ -177,30 +177,39 @@
 	}
 
 	#publish-scroller {
-		border-left: 1px solid $gray-i;
+		/* border-left: 1px solid $gray-i; */
+		background-color: $white;
 		right: 0;
 		width: 200px;
 
 		#publish-header {
 			background-color: $white;
 			height: 200px;
-			padding: 0 1rem;
+			/* padding: 0 1rem; */
 			position: fixed;
 
 			button, select, input {
-				width: 100%; height: 2rem;
+				width: 100%; /* height: 2rem; */
 				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
 
 				background-color: transparent;
 				border: 0;
-				border-bottom: 1px dotted $black;
 				font-size: 1em;
 				text-align: center;
 			}
 
-			button { margin-top: 1rem; }
+			select, input { border-bottom: 1px dotted $black; }
+
+			button {
+				background-color: $green;
+				border-left: 1px solid $green;
+				color: $white;
+				padding: 1rem 0;
+			}
 
 			select {
+				padding: 0 1rem 1rem 1rem;
+
 				option {
 					text-align: center;
 					width: 100%;
@@ -209,12 +218,16 @@
 		}
 
 		.collected-book-list {
+			border-left: 1px solid $gray-i;
 			margin: 200px 0 0 0;
 
 			.collected-book {
 				width: 100%; height: 100px;
-				background-color: $white;
+
+				border-bottom: 1px solid $gray-i;
 				padding: 0 0.5rem;
+
+				&:last-child { border-bottom: 0; }
 
 				img, .collected-book-details {
 					float: left;
@@ -225,14 +238,12 @@
 				}
 
 				.collected-book-details {
-					background-color: $slate;
+					/* background-color: $slate; */
 					margin: 0 0 0 0.5rem;
 					width: 60%;
 				}
 
-				.collected-book-title, .collected-book-desc {
-					display: block;
-				}
+				.collected-book-title, .collected-book-desc { display: block; }
 			}
 		}
 	}
