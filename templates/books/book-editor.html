@@ -12,7 +12,7 @@
 		<meta name="author" content="Gapelia"/>
 
 		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
-		<link href="{{ STATIC_URL }}css/selectize.default.css" rel="stylesheet"/>
+		<link href="{{ STATIC_URL }}css/selectize.css" rel="stylesheet"/>
 		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
 
 		<!--* if lt IE 9 *>
@@ -22,21 +22,26 @@
 		<!--/ scripts/enablers /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/vendor/modernizr-ii.js"></script> /-->
 		<!--/ <script src="{{ STATIC_URL }}scripts/modernizr.full.js"></script> /-->
-		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
-		<script src="{{ STATIC_URL }}scripts/prefixfree.js"></script>
+		<!--/ <script src="{{ STATIC_URL }}scripts/prefixfree.js"></script> /-->
 
-		<script src="{{ STATIC_URL }}scripts/selectize.min.js"></script>
+		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
+		<script src="{{ STATIC_URL }}scripts/selectize.js"></script>
 
 		<script>
-			$("#input-tags").selectize({
-				delimiter: ",",
-				persist: false,
-				create: function(input) {
-					return {
-						value: input,
-						text: input
+			$(function() {
+				$("#input-tags").selectize({
+					delimiter: ",",
+					maxItems: 3,
+					persist: false,
+					create: function(input) {
+						return {
+							value: input,
+							text: input
+						}
 					}
-				}
+				});
+
+				$("#book-dimension-picker").selectize();
 			});
 		</script>
 
@@ -305,18 +310,18 @@
 					<div id="publish-header">
 						<button>Publish</button>
 
-						<select id="book-dimension-picker">
-							<option value="0">Choose a dimension</option>
-							<option value="1">Pulse</option>
-							<option value="2">Wow</option>
-							<option value="3">Life</option>
-							<option value="4">Wonder</option>
-							<option value="5">Art</option>
-							<option value="6">Flow</option>
+						<select id="book-dimension-picker" placeholder="Choose a dimension">
+							<option value="">Choose a dimension</option>
+							<option value="PULSE">Pulse</option>
+							<option value="WOW">Wow</option>
+							<option value="LIFE">Life</option>
+							<option value="WONDER">Wonder</option>
+							<option value="ART">Art</option>
+							<option value="FLOW">Flow</option>
 						</select>
 
-						<!--/ <input type="text" placeholder="Add tags to your book"/> /-->
-						<input type="text" id="input-tags" class="demo-default" value="photography,exuberance,Iceland"/>
+						<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
+
 						<input type="search" name="s" placeholder="Add book to library"/>
 					</div>
 
