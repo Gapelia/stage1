@@ -117,7 +117,7 @@
 
 	#book-scroller {
 		/* background-color: $gray-ii; */
-		padding: 0 0 0 1rem;
+		/* padding: 0 0 0 1rem; */
 		width: 75%;
 	}
 
@@ -132,15 +132,13 @@
 	}
 
 	#book-nav {
-		margin: 0 0 1rem 0; padding: 1rem 0 0 0;
+		margin: 0 0 1rem 1rem; padding: 1rem 0 0 0;
 
 		border-bottom: 1px solid $gray-i;
 		font-family: "OpenSansBold";
-		width: 98%;
+		width: 97%;
 
-		li {
-			margin: 0 1rem 0 0;
-		}
+		li { margin: 0 1rem 0 0; }
 
 		a { color: $gray-iii; }
 
@@ -161,10 +159,15 @@
 	}
 
 	.book {
-		width: 400px; height: 100%; min-height: 500px;
-		margin: 0 1rem 0 0; padding: 0;
+		width: 400px; height: auto; /* min-height: 500px; */
+		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: #07d0eb;
+		overflow: hidden;
+
+		img {
+			width: 100%; height: 100%;
+		}
 	}
 
 }

@@ -119,6 +119,35 @@ blockquote {
 .video-container { margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; position: relative; }
 .video-container iframe, .video-container object, .video-container embed { width: 100%; height: 100%; top: 0; left: 0; border: none; clear: left; position: absolute; }
 
+/*************************************************************************************** LOADER/SCSS **/
+/* Make clicks pass-through */
+#nprogress { pointer-events: none; -webkit-pointer-events: none; }
+
+#nprogress .bar { background: #29d; position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 2px; }
+
+/* Fancy blur effect */
+#nprogress .peg { display: block; position: absolute; right: 0px; width: 100px; height: 100%; box-shadow: 0 0 10px #29d, 0 0 5px #29d; opacity: 1.0; -webkit-transform: rotate(3deg) translate(0px, -4px); -moz-transform: rotate(3deg) translate(0px, -4px); -ms-transform: rotate(3deg) translate(0px, -4px); -o-transform: rotate(3deg) translate(0px, -4px); transform: rotate(3deg) translate(0px, -4px); }
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner { display: block; position: fixed; z-index: 100; top: 15px; right: 15px; }
+
+#nprogress .spinner-icon { width: 14px; height: 14px; border: solid 2px transparent; border-top-color: #29d; border-left-color: #29d; border-radius: 10px; -webkit-animation: nprogress-spinner 400ms linear infinite; -moz-animation: nprogress-spinner 400ms linear infinite; -ms-animation: nprogress-spinner 400ms linear infinite; -o-animation: nprogress-spinner 400ms linear infinite; animation: nprogress-spinner 400ms linear infinite; }
+
+@-webkit-keyframes nprogress-spinner { 0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+
+@-moz-keyframes nprogress-spinner { 0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); } }
+
+@-o-keyframes nprogress-spinner { 0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); } }
+
+@-ms-keyframes nprogress-spinner { 0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); } }
+
+@keyframes nprogress-spinner { 0% { transform: rotate(0deg); transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); } }
+
 /************************************************************************************ SCROLLBAR/SCSS **/
 /* basic scrollbar styling */
 /* vertical scrollbar */
@@ -126,7 +155,7 @@ blockquote {
 .mCSB_container .mCS_no_scrollbar { margin-right: 0; }
 
 .mCSB_horizontal { /**/ }
-.mCSB_horizontal .mCSB_scrollTools { width: 98% !important; }
+.mCSB_horizontal .mCSB_scrollTools { margin: 0 0 0 1rem; width: 97% !important; }
 
 .mCS_disabled .mCustomScrollBox .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCustomScrollBox .mCSB_container.mCS_no_scrollbar { margin-right: 30px; }
 .mCS_disabled .mCSB_horizontal .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCSB_horizontal .mCSB_container.mCS_no_scrollbar { margin-right: 0; margin-bottom: 30px; }
@@ -289,16 +318,17 @@ blockquote {
 .profile .user-data span { margin: 0 0 1rem 0; padding: 0 1rem; display: block; }
 .profile .user-data button { margin: 0 auto; padding: 0.5rem 1rem; background-color: #70a1b1; border: 0; border-radius: 300rem; color: #fcfcfc; cursor: pointer; font-family: "OpenSansLight"; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
 .profile .user-data button:hover { padding: 0.5rem 1.5rem; }
-.profile #book-scroller { /* background-color: $gray-ii; */ padding: 0 0 0 1rem; width: 75%; }
+.profile #book-scroller { /* background-color: $gray-ii; */ /* padding: 0 0 0 1rem; */ width: 75%; }
 .profile #book-nav, .profile #user-book-list { height: auto; /* padding: 0 0 0 1rem; */ }
 .profile #book-nav li, .profile #user-book-list li { display: inline-block; /* float: left; */ }
-.profile #book-nav { margin: 0 0 1rem 0; padding: 1rem 0 0 0; border-bottom: 1px solid #e7e7e7; font-family: "OpenSansBold"; width: 98%; }
+.profile #book-nav { margin: 0 0 1rem 1rem; padding: 1rem 0 0 0; border-bottom: 1px solid #e7e7e7; font-family: "OpenSansBold"; width: 97%; }
 .profile #book-nav li { margin: 0 1rem 0 0; }
 .profile #book-nav a { color: #bebebe; }
 .profile #book-nav .current { padding: 0 0 1rem 0; }
 .profile #book-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.75rem 0; }
 .profile #user-book-list { /* overflow-x: scroll; */ width: 100%; }
-.profile .book { width: 400px; height: 100%; min-height: 500px; margin: 0 1rem 0 0; padding: 0; background-color: #07d0eb; }
+.profile .book { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: #07d0eb; overflow: hidden; }
+.profile .book img { width: 100%; height: 100%; }
 
 /************************************************************************************* SETTINGS/SCSS **/
 #settings-wrapper { width: 100%; height: 100%; background-color: #e7e7e7; }

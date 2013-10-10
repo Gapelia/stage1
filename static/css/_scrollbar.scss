@@ -12,7 +12,10 @@
 }
 
 .mCSB_horizontal {
-	.mCSB_scrollTools { width: 98% !important; } /**/
+	.mCSB_scrollTools {
+		margin: 0 0 0 1rem;
+		width: 97% !important;
+	} /**/
 }
 
 .mCS_disabled, .mCS_destroyed {
