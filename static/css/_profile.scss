@@ -1,312 +1,170 @@
 /************************************************************************************** PROFILE/SCSS **/
 
-#profile-preview {
-	#action-bar {
-		height: 50px;
-		padding: 0 1rem;
+.profile {
+	width: 100%; height: 100%;
 
-		#preview-nav {
-			margin: 0 auto;
-			text-align: center;
-			text-transform: uppercase;
-			width: 100%;
+	background-color: $white;
+	clear: left;
+	font-family: "OpenSansRegular";
+	overflow-y: hidden;
+
+	.wrapper {
+		text-align: center;
+		width: 100%;
+	}
+
+	#user-panel, #book-scroller {
+		float: left;
+		height: 100%;
+		position: relative;
+	}
+
+	/* Start User Code */
+
+	#user-panel {
+		background-color: $slate;
+		overflow: hidden;
+		width: 25%;
+	}
+
+	.user-bg, .user-data {
+	}
+
+	.user-bg {
+		width: auto; height: 60%;
+		overflow: hidden;
+
+		img {
+			width: auto; height: 100%;
+		}
+	}
+
+	.user-avatar {
+		width: 100%; height: auto;
+		bottom: 210px; left: 0;
+
+		overflow: hidden;
+		position: absolute;
+		text-align: center;
+		z-index: 1;
+
+		img {
+			width: 150px; height: 150px;
+
+			border: 6px solid $white;
+			border-radius: 300rem;
+		}
+	}
+
+	.user-data {
+		width: 100%; height: 280px; /* 40% */
+		bottom: 0; left: 0;
+
+		background-color: $white;
+		border-right: 1px solid $gray-i;
+		position: absolute;
+
+		h2, ul, span { text-align: center; }
+
+		ul, span {
+		}
+
+		h2 {
+			margin: 23% 0 0 0;
+		}
+
+		ul {
+			margin: 1rem 0;
 
 			li {
-				width: auto; height: 50px;
-
-				border: 0;
 				display: inline-block;
-				padding: 1rem 0;
 
-				&:first-child {
-					float: left;
-					font-size: 40px;
-					padding: 0;
+				&:after {
+					content: " |";
 				}
 
 				&:last-child {
-					float: right;
-					font-size: 20px;
-					padding: 1rem 0;
+					&:after { content: ""; }
 				}
 			}
 		}
-	}
 
-	#book-count, #gapelian-count, #user-rating {
-		font-size: 36px;
-		text-align: left;
-
-		span { display: inline-block !important; }
-	}
-
-	#gapelian-count { margin: 0 0 1rem 0; }
-
-	#user-rating {
-		img {
-			width: 50px; height: auto;
-		}
-
-		img, span { vertical-align: middle; }
-	}
-}
-
-/** [-] Action Bar ************************************************************************************/
-
-#action-bar, #breadcrumbs, #small-switcher {
-	background-color: $gray-i;
-	border-bottom: 1px solid $gray-ii;
-	width: 100%;
-}
-
-#breadcrumbs, #small-switcher {
-	font-family: "OpenSansLight";
-	font-size: 14px;
-	height: 29px;
-	padding: 0.4rem 2rem;
-
-	.selected, .current {
-		color: $gray-v;
-		font-family: "OpenSansBold";
-	}
-
-	a { color: $gray-v; }
-}
-
-#small-switcher {
-	bottom: 100px;
-	position: absolute;
-}
-
-/** [-] Shared User + Main Content Styles *************************************************************/
-
-#user-content, #main-content {
-	width: 100%; height: 100%;
-	overflow: hidden;
-
-	input[type="text"], input[type="password"], input[type="email"] {
-		margin: 0; padding: 0;
-
-		border: 0;
-		border-radius: 0;
-		color: #191919;
-		display: block;
-		font-size: 16px;
-		text-align: left;
-		width: auto;
-	}
-}
-
-/** [-] User Content Area *****************************************************************************/
-
-#user-content {
-	background-image: url("../images/spacecakes.jpg");
-	background-position: top left;
-	background-repeat: no-repeat;
-	background-size: cover;
-	overflow: hidden;
-	padding: 2rem;
-
-	#details-left, #details-right {
-		color: $white;
-		display: inline-block;
-		font-family: "OpenSansBold";
-		text-shadow: 0 1px 3px transparentize($black, 0.3);
-		width: 45%;
-
-		span { display: block; }
-
-		.editable, .btn-edit {
-			display: inline-block;
-			vertical-align: middle;
-		}
-
-		.editable {
-		}
-
-		.btn-edit {
-			width: 20px; height: 19px;
-
-			background-color: transparent;
-			background-image: url("../images/edit-icon-black.png");
-			background-repeat: none;
-			background-size: 20px 19px;
-			border: 0;
-			cursor: pointer;
-			opacity: 0.5;
-
-			@include hide-text;
-
-			&:hover { opacity: 1; }
-		}
-	}
-
-	#details-left {
-		#social-edit { margin: 0 0 2rem 0; }
-
-		#facebook-edit, #twitter-edit, #tumblr-edit {
-			display: inline-block;
-			float: left;
-			margin: 0 1rem 0 0;
-
-			.link {
-				width: 80px; height: 80px;
-
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: 50px;
-				border-radius: 500px;
-				box-shadow: 0 1px 3px transparentize($black, 0.3);
-				display: block;
-
-				@include hide-text;
-			}
-		}
-
-		#facebook-edit {
-			.link {
-				background-color: rgba(#3b5998, 0.8);
-				background-image: url("../images/social-facebook.png");
-				border: 3px solid darken(#3b5998, 10%);
-			}
-		}
-
-		#twitter-edit {
-			.link {
-				background-color: rgba(#00acee, 0.8);
-				background-image: url("../images/social-twitter.png");
-				border: 3px solid darken(#00acee, 10%);
-			}
-		}
-
-		#tumblr-edit {
-			.link {
-				background-color: rgba(#34526f, 0.8);
-				background-image: url("../images/social-tumblr.png");
-				border: 3px solid darken(#34526f, 10%);
-			}
-		}
-	}
-
-	#username-edit, #lifestyle-title {
-		font-size: 56px;
-		margin: 0 0 2rem 0;
-	}
-
-	#location-edit {
-		font-size: 36px;
-		margin: 0 0 2rem 0;
-	}
-
-	#social-edit {
-		li { display: inline-block; }
-	}
-
-	#lifestyle-title, #details-right {
-		float: right;
-
-		.editable {
-			&:before { content: url("../images/edit-icon-black.png"); }
-		}
-	}
-
-	#lifestyle-edit {
-		float: right;
-		font-size: 16px;
-		line-height: 1.5;
-		text-align: right;
-		text-shadow: none;
-		width: 80%;
-
-		input { display: block; }
-
-		#form-description {
-			float: right;
-			text-align: right;
-			text-shadow: 0 1px 3px transparentize($black, 0.3);
-			width: 70%;
-		}
-
-		ul { text-shadow: 0 1px 3px transparentize($black, 0.3); }
-	}
-
-	#cover-form {
-		bottom: 5rem; right: 2rem;
-		position: fixed;
-
-		span { padding: 1rem 0; }
-		#cover-upload { display: block; }
-
-		input.file-upload {
-			margin: 0; padding: 0;
-			top: 0; right: 0;
-
-			border: 0;
-			cursor: pointer;
-			height: 3.5rem;
-			opacity: 0;
-			position: absolute;
-		}
-	}
-
-	/** [-] Tags ****************************************************************************************/
-
-	div.tagsinput {
-		width: auto !important; height: auto !important;
-
-		background-color: transparent;
-		border: 0;
-		color: $white;
-		float: right;
-		overflow-y: auto;
-
-		span.tag {
-			margin: 0 5px 5px 0; padding: 5px;
-
-			background: #cde69c;
-			border: 1px solid #a5d24a;
-			color: #638421;
+		span {
+			margin: 0 0 1rem 0; padding: 0 1rem;
 			display: block;
-			float: right;
-			font-size: 13px;
-			text-decoration: none;
+		}
+
+		button {
+			margin: 0 auto; padding: 0.5rem 1rem;
+
+			background-color: $slate;
+			border: 0;
+			border-radius: 300rem;
+			color: $white;
+			cursor: pointer;
+			font-family: "OpenSansLight";
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			transition: all 0.2s ease;
+
+			&:hover {
+				padding: 0.5rem 1.5rem;
+			}
+		}
+	}
+
+	/* End User Code */
+
+	#book-scroller {
+		/* background-color: $gray-ii; */
+		padding: 0 0 0 1rem;
+		width: 75%;
+	}
+
+	#book-nav, #user-book-list {
+		height: auto;
+		/* padding: 0 0 0 1rem; */
+
+		li {
+			display: inline-block;
+			/* float: left; */
+		}
+	}
+
+	#book-nav {
+		margin: 0 0 1rem 0; padding: 1rem 0 0 0;
+
+		border-bottom: 1px solid $gray-i;
+		font-family: "OpenSansBold";
+		width: 98%;
+
+		li {
+			margin: 0 1rem 0 0;
+		}
+
+		a { color: $gray-iii; }
+
+		.current {
+			padding: 0 0 1rem 0;
 
 			a {
-				color: #82ad2b;
-				font-size: 11px;
-				font-weight: 700;
-				text-decoration: none;
+				border-bottom: 3px solid $slate;
+				color: $slate;
+				padding: 0 0 0.75rem 0;
 			}
-
-			span {
-				display: inline-block !important;
-			}
-		}
-
-		input {
-			margin: 0 5px 5px 0; padding: 5px;
-
-			background: transparent;
-			border: 1px solid rgba($black, 0.1);
-			color: $black !important;
-			font-size: 13px;
-			outline: 0;
-			width: 100%;
-		}
-
-		div {
-			display: inline-block;
-			float: right;
-		}
-
-		.tags_clear {
-			width: 100%; height: 0;
-			clear: both;
-		}
-
-		.not_valid {
-			background: #fbd8db !important;
-			color: #90111a !important;
 		}
 	}
+
+	#user-book-list {
+		/* overflow-x: scroll; */
+		width: 100%;
+	}
+
+	.book {
+		width: 400px; height: 100%; min-height: 500px;
+		margin: 0 1rem 0 0; padding: 0;
+
+		background-color: #07d0eb;
+	}
+
 }

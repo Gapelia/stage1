@@ -1,97 +1,134 @@
-{% extends 'books/books_base.html' %}
 {% load content_tags %}
-{% block main_content %}
-<section id="breadcrumbs">
-	<a href="">Home</a> > <a href="" class="current">Books</a>
-</section>
+<!DOCTYPE html>
+<html lang="en">
 
-<!--/ main-content /-->
-<section id="main-content">
-	<div id="big-scroller-wrapper">
-		<nav>
-			<a id="prev-big" class="prev" href="#">&#9664;</a>
-			<a id="next-big" class="next" href="#">&#9654;</a>
-		</nav>
-		<ul id="big-scroller" style="background-image:url(' ');">
-			<!--/ dimension book /-->
-			{% for book in books %}
-			<li class="dimension-book">
-				<ul class="edit-delete">
-					<li class="edit"><a href="{% url 'book' book.slug %}">Edit</a></li>
-					<li class="delete"><a href="JavaScript:confirmDeleteBook('{{book.slug}}')">Delete</a></li>
+	<head>
+
+		<meta charset="utf-8"/>
+		<title>[username]'s Library | Gapelia</title>
+
+		<!--/
+			 ______   ______   ______  ______   __       __   ______    
+			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
+			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
+			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+
+				01000111011000010111000001100101011011000110100101100001
+
+		/-->
+
+		<meta name="author" content="Gapelia"/>
+		<meta name="copyright" content="Gapelia"/>
+		<meta name="description" content="The stand for the world's greatest stories"/>
+		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
+
+		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
+		<link href="{{ STATIC_URL }}images/favicon.png" rel="shortcut icon"/>
+
+		<!--* if lt IE 9 *>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<!* endif *-->
+
+		<script src="{{ STATIC_URL }}scripts/jquery-1.10.2.js"></script>
+
+	</head>
+
+	<body class="profile">
+
+		<div id="user-panel">
+			<div class="user-avatar">
+				<img src="{{ STATIC_URL }}images/users/01.jpg"/>
+			</div>
+
+			<div class="user-bg">
+				<img src="{{ STATIC_URL }}images/space-bb.jpg"/>
+			</div>
+
+			<div class="user-data">
+				<h2>Paul Anthony Webb</h2>
+
+				<ul>
+					<li>Surfing</li>
+					<li>Hawaii</li>
+					<li>Fun</li>
 				</ul>
 
-				<div class="book-info">
-					<div class="book-title">{{ book.title }}</div>
+				<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 
-					<ul class="lifestyle">
-						{% if book.location %}<li>{{ book.get_first_page|get_page_location }}</li>{% endif %}
-						{% for tagged_item in book.get_first_page.tagged_items %}
-						<li>{{ tagged_item.tag.name|title }}</li>
-						{% endfor %}
-					</ul>
-
-					<a class="explore-book" href="">Explore</a>
-					<div class="photo-credit">Photo by <a href="">{{book.created_by.get_full_name}}</a></div>
-				</div>
-
-				<div class="book-cover" style="background:url('{{ book.cover_image.url }}')"></div>
-			</li>
-			{% endfor %}
-
-			<!--/ new dimension book /-->
-			<li class="dimension-book new-book">
-				<div class="book-info">
-					<div class="add-new-book"><a class="md-trigger" data-modal="modal-1" onclick="showNiftyModals(this)">+</a></div>
-				</div>
-			</li>
-		</ul>
-	</div>
-</section>
-
-<!--/ bottom-scroller /-->
-<section id="small-switcher">
-	<a href="JavaScript:showAllBooks(true)" class="selected">Books</a> | <a href="">Collections</a> | <a href="JavaScript:showAllBooks(false)">Drafts</a>
-</section>
-
-<div id="small-scroller-wrapper">
-	<nav>
-		<a id="prev-small" class="prev" href="#">&#9664;</a>
-		<a id="next-small" class="next" href="#">&#9654;</a>
-	</nav>
-
-	<ul id="small-scroller" class="all-book-list">
-		<!--/ user book /-->
-		{% for book in books %}
-		<li class="user-book{% if book.published %} published-book{%endif%}">
-			<img src="{{ book.cover_image.url }}/convert?w=150&amp;h=150" class="cover" alt=""/>
-
-			<div class="book-info">
-				<div class="book-title">{{ book.title }}</div>
-				<div class="book-author">by {{ book.created_by.get_full_name }}</div>
-
-				<ul class="book-dimensions">
-					{% if book.location %}<li>{{ book|get_page_location }}</li>{% endif %}
-					{% for tagged_item in book.tagged_items %}
-					<li>{{ tagged_item.tag.name }}</li>
-					{% endfor %}
-				</ul>
-
-				<div class="light-rating">
-					<img src="{{ STATIC_URL }}images/rating-light.png" alt=""/>
-					<span class="count">60</span>
-				</div>
-
-				<div class="love-rating">
-					<img src="{{ STATIC_URL }}images/rating-love.png" alt=""/>
-					<span class="count">128</span>
+				<div class="wrapper">
+					<button>Edit Profile</button>
 				</div>
 			</div>
-		</li>
-		{% endfor %}
-	</ul>
-</div>
-{% endblock %}
+		</div>
 
-{% block scripts %}
-{% endblock %}
+		<div id="book-scroller">
+			<ul id="book-nav">
+				<li class="current"><a href="">Books</a></li>
+				<li><a href="">Collections</a></li>
+				<li><a href="">Libraries</a></li>
+			</ul>
+
+			<div class="user-book-list-wrapper">
+				<ul id="user-book-list">
+					<li class="book">Book 01</li>
+					<li class="book">Book 02</li>
+					<li class="book">Book 03</li>
+					<li class="book">Book 04</li>
+					<li class="book">Book 05</li>
+					<li class="book">Book 06</li>
+					<li class="book">Book 07</li>
+					<li class="book">Book 08</li>
+					<li class="book">Book 09</li>
+					<li class="book">Book 10</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--/ main-content /-->
+		<!--/
+		<section id="main-content">
+		</section>
+		/-->
+
+		<!--/ scripts /-->
+		<script src="{{ STATIC_URL }}scripts/gapelia.js"></script>
+		<script src="{{ STATIC_URL }}scripts/books.js"></script>
+
+		<!--/ scripts/layout-scroller /-->
+		<script src="{{ STATIC_URL }}scripts/jquery.mousewheel.js"></script>
+		<script src="{{ STATIC_URL }}scripts/jquery.mCustomScrollbar.js"></script>
+
+		<script>
+			(function($){
+				$(window).load(function() {
+					$("#user-book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+					});
+				});
+			})(jQuery);
+		</script>
+
+		<!--/
+		<script src="{{ STATIC_URL }}scripts/mousewheel.js"></script>
+		<script src="{{ STATIC_URL }}scripts/scrollpanel.horiz.js"></script>
+
+		<script>
+			$(".user-book-list-wrapper").scrollpanel();
+		</script>
+
+		<script src="scripts/scroll.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$(".main").onepage_scroll({ sectionContainer: "section" });
+			});
+		</script>
+		/-->
+
+	</body>
+
+</html>
