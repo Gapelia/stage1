@@ -19,12 +19,41 @@
 		position: relative;
 	}
 
+	#disappear {
+		width: 10px; height: 100%;
+		top: 0; left: 300px;
+
+		/* background: linear-gradient(to right, $white 0, rgba($white, 0.2) 80%, rgba($white, 0) 100%) transparent; */
+		box-shadow: 0 5px 1.5em rgba($black, 0.7);
+		display: none;
+		position: absolute;
+	}
+
 	/* Start User Code */
 
 	#user-panel {
 		background-color: $slate;
 		overflow: hidden;
 		width: 25%;
+	}
+
+	#g-menu-trigger {
+		width: 60px; height: 60px;
+		top: 1rem; left: 1rem;
+
+		background-color: transparent;
+		background-image: url("../images/logo-menu-alt.png");
+		background-size: 60px;
+		border-radius: 300rem;
+		cursor: pointer;
+		opacity: 0.7;
+		position: absolute;
+		transition: all 0.2s ease;
+		z-index: 1;
+
+		@include hide-text;
+
+		&:hover { opacity: 1; }
 	}
 
 	.user-bg, .user-data {
@@ -46,7 +75,7 @@
 		overflow: hidden;
 		position: absolute;
 		text-align: center;
-		z-index: 1;
+		/* z-index: 1; */
 
 		img {
 			width: 150px; height: 150px;
@@ -116,19 +145,13 @@
 	/* End User Code */
 
 	#book-scroller {
-		/* background-color: $gray-ii; */
-		/* padding: 0 0 0 1rem; */
+		overflow: hidden; /* bookmark positioning/animation */
 		width: 75%;
 	}
 
 	#book-nav, #user-book-list {
 		height: auto;
-		/* padding: 0 0 0 1rem; */
-
-		li {
-			display: inline-block;
-			/* float: left; */
-		}
+		li { display: inline-block; }
 	}
 
 	#book-nav {
@@ -139,8 +162,25 @@
 		width: 97%;
 
 		li { margin: 0 1rem 0 0; }
-
 		a { color: $gray-iii; }
+
+		#nav-bookmarks {
+			top: -24px; right: -20px;
+
+			font-family: "entyporegular";
+			font-size: 6em;
+			margin: 0;
+			position: absolute;
+			transform: rotate(90deg);
+			transition: all 0.2s ease;
+
+			a { color: $slate; }
+
+			&:hover { right: 0; }
+
+			-moz-transform: rotate(90deg);
+			-webkit-transform: rotate(90deg);
+		}
 
 		.current {
 			padding: 0 0 1rem 0;
@@ -153,21 +193,136 @@
 		}
 	}
 
-	#user-book-list {
-		/* overflow-x: scroll; */
-		width: 100%;
-	}
+	#user-book-list, #user-collection-list, #user-library-list { width: 100%; }
 
 	.book {
 		width: 400px; height: auto; /* min-height: 500px; */
 		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: #07d0eb;
+		display: inline-block;
 		overflow: hidden;
+		position: relative;
 
 		img {
-			width: 100%; height: 100%;
+			/* width: 100%; height: 100%; */
 		}
+	}
+
+	.book-info, .collection-new {
+		color: $white;
+		padding: 0 1rem;
+		position: absolute;
+		text-align: center;
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 35%;
+		width: 100%;
+
+		.book-title, .collect-title {
+			font-family: "OpenSansBold";
+			font-size: 150%;
+			margin: 0 0 0.5rem 0;
+		}
+
+		.lifestyle {
+			font-size: 68%;
+
+			li {
+				float: left;
+
+				&:after { content: "\00a0 |\00a0"; }
+				&:last-child {
+					&:after { content: ""; }
+				}
+			}
+		}
+
+		.explore-book, .collect-close {
+			margin: 1rem auto; padding: 0.5rem;
+
+			background-color: $white;
+			color: $black;
+			display: block;
+			font-size: 70%;
+			text-shadow: none;
+			text-transform: uppercase;
+			transition: visibility 0.1s ease-in-out;
+			visibility: hidden;
+			width: 50%;
+
+			&:hover { opacity: 0.7; }
+		}
+
+		.book-author {
+			font-family: "OpenSansLight";
+			font-size: 85%;
+			margin: 0 0 1rem 0;
+
+			span { font-family: "OpenSansBold"; }
+		}
+
+		.photo-credit {
+			font-family: "OpenSansLight";
+			font-size: 70%;
+
+			a {
+				color: $white;
+				font-family: "OpenSansExtraBold";
+			}
+		}
+	}
+
+	.triangle-bg {
+		width: 0; height: 0;
+		top: 0; right: 0;
+
+		border-top: 100px solid rgba($black, 0.7);
+		border-left: 100px solid transparent;
+		position: absolute;
+	}
+
+	.like-collect, .edit-delete {
+		margin: 0; padding: 0 0.7rem;
+		top: 0; right: 0;
+
+		/* background-color: rgba($black, 0.7); */
+		position: absolute;
+
+		li {
+			/* width: 32px; height: 32px; */
+
+			color: $white;
+			display: inline-block;
+			font-family: "entyporegular";
+			font-size: 3.4em;
+			/* opacity: 0.7; */
+			text-align: center;
+
+			/* &:hover { opacity: 1; } */
+
+			a {
+				width: 100%; height: 100%;
+
+				color: $white;
+				display: block;
+			}
+		}
+
+		.edit, .delete {
+			line-height: 0.1em;
+			position: absolute;
+		}
+
+		.edit {
+			top: 0; right: 30px;
+		}
+
+		.delete {
+			top: 30px; right: 0;
+		}
+
+		/* .like, .edit { margin: 0 0.5rem 0 0; } */
 	}
 
 }
