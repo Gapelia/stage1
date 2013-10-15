@@ -26,6 +26,7 @@ urlpatterns += patterns(
     url(r'^tags/', include('tagging.urls')),
     url(r'^services/', include('services.urls')),
     url(r'^books/', include(book_patterns)),
+		url(r'^featured/', include(book_patterns)),
 
     # Django URLs
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',

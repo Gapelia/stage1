@@ -37,7 +37,7 @@
 		width: 25%;
 	}
 
-	#g-menu-trigger {
+	#g-menu-toggle {
 		width: 60px; height: 60px;
 		top: 1rem; left: 1rem;
 
@@ -164,19 +164,19 @@
 		li { margin: 0 1rem 0 0; }
 		a { color: $gray-iii; }
 
-		#nav-bookmarks {
-			top: -24px; right: -20px;
+		#nav-bookmarks-toggle {
+			top: -56px; right: -32px;
 
 			font-family: "entyporegular";
-			font-size: 6em;
+			font-size: 10em;
 			margin: 0;
 			position: absolute;
 			transform: rotate(90deg);
-			transition: all 0.2s ease;
+			transition: all 0.5s ease;
 
-			a { color: $slate; }
+			a { color: $red; }
 
-			&:hover { right: 0; }
+			/* &:hover { right: 0; } */
 
 			-moz-transform: rotate(90deg);
 			-webkit-transform: rotate(90deg);
@@ -193,7 +193,11 @@
 		}
 	}
 
-	#user-book-list, #user-collection-list, #user-library-list { width: 100%; }
+	#user-book-list, #user-collection-list, #user-library-list {
+		display: none;
+		transition: all 0.5s ease;
+		width: 100%;
+	}
 
 	.book {
 		width: 400px; height: auto; /* min-height: 500px; */

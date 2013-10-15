@@ -29,7 +29,7 @@
 	top: 0; left: 0;
 
 	background-color: $slate;
-	position: absolute; /* we can't use fixed here :( */
+	position: absolute;
 	transform: translate3d(-100%, 0, 0);
 	z-index: 2 !important;
 
@@ -39,9 +39,8 @@
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
-		/* background: #336ca6; */
-		transform: translate3d(-100%, 0, 0);
 		position: absolute;
+		transform: translate3d(-100%, 0, 0);
 
 		-moz-transform: translate3d(-100%, 0, 0);
 		-webkit-transform: translate3d(-100%, 0, 0);
@@ -107,110 +106,177 @@
 }
 
 /* First level */
-.mp-menu > .mp-level, .mp-menu > .mp-level.mp-level-open, .mp-menu.mp-overlap > .mp-level, .mp-menu.mp-overlap > .mp-level.mp-level-open {
-	box-shadow: none;
-	transform: translate3d(0, 0, 0);
+.mp-menu, .mp-menu.mp-overlap {
+	.mp-level, .mp-level.mp-level-open {
+		box-shadow: none;
+		transform: translate3d(0, 0, 0);
 
-	-moz-transform: translate3d(0, 0, 0);
-	-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+	}
 }
 
 /* cover */
-.mp-cover .mp-level.mp-level-open {
-	transform: translate3d(0, 0, 0);
+.mp-cover {
+	.mp-level.mp-level-open {
+		transform: translate3d(0, 0, 0);
 
-	-moz-transform: translate3d(0, 0, 0);
-	-webkit-transform: translate3d(0, 0, 0);
-}
+		ul {
+			li {
+				.mp-level {
+					&:not(.mp-level-open) {
+						transform: translate3d(-100%, 0, 0);
 
-.mp-cover .mp-level.mp-level-open > ul > li > .mp-level:not(.mp-level-open) {
-	transform: translate3d(-100%, 0, 0);
+						-moz-transform: translate3d(-100%, 0, 0);
+						-webkit-transform: translate3d(-100%, 0, 0);
+					}
+				}
+			}
+		}
 
-	-moz-transform: translate3d(-100%, 0, 0);
-	-webkit-transform: translate3d(-100%, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+	}
 }
 
 /* content style */
-.mp-menu ul {
-	margin: 0; padding: 0;
-	list-style: none;
+.mp-menu {
+	ul {
+		margin: 0; padding: 0;
+		list-style: none;
+	}
+
+	li a { padding: 0 0 0 1em; }
+
+	h2 {
+		margin: 0; padding: 1em;
+
+		color: rgba($white, 0.4);
+		font-size: 2em;
+		font-weight: 300;
+		text-shadow: 0 0 1px rgba($black, 0.1);
+	}
 }
 
-.mp-menu h2 {
-	margin: 0; padding: 1em;
+.mp-menu.mp-overlap {
+	h2 {
+		&:before {
+			top: 0; right: 0;
 
-	color: rgba($white, 0.4);
-	font-size: 2em;
-	font-weight: 300;
-	text-shadow: 0 0 1px rgba($black, 0.1);
+			font-size: 75%;
+			line-height: 1.8;
+			margin-right: 8px;
+			opacity: 0;
+			position: absolute;
+			transform: translateX(-100%);
+			transition: opacity 0.3s, transform 0.1s 0.3s;
+
+			-moz-transform: translateX(-100%);
+			-moz-transition: opacity 0.3s, -moz-transform 0.1s 0.3s;
+			-webkit-transform: translateX(-100%);
+			-webkit-transition: opacity 0.3s, -webkit-transform 0.1s 0.3s;
+		}
+	}
 }
 
-.mp-menu li a { padding: 0 0 0 1em; }
-
-.mp-menu.mp-overlap h2::before {
-	top: 0; right: 0;
-
-	font-size: 75%;
-	line-height: 1.8;
-	margin-right: 8px;
-	opacity: 0;
-	position: absolute;
-	transform: translateX(-100%);
-	transition: opacity 0.3s, transform 0.1s 0.3s;
-
-	-moz-transform: translateX(-100%);
-	-moz-transition: opacity 0.3s, -moz-transform 0.1s 0.3s;
-	-webkit-transform: translateX(-100%);
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.1s 0.3s;
+.mp-menu.mp-cover {
+	h2 {
+		font-size: 1em;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
 }
 
-.mp-menu.mp-cover h2 {
-	font-size: 1em;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+.mp-overlap {
+	.mp-level.mp-level-overlay {
+		h2 {
+			&:before {
+				opacity: 1;
+				transform: translateX(0);
+				transition: transform 0.3s, opacity 0.3s;
+
+				-moz-transform: translateX(0);
+				-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+				-webkit-transform: translateX(0);
+				-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+			}
+		}
+	}
 }
 
-.mp-overlap .mp-level.mp-level-overlay > h2::before {
-	opacity: 1;
-	transform: translateX(0);
-	transition: transform 0.3s, opacity 0.3s;
+.mp-menu {
+	ul {
+		li {
+			&:before {
+				color: rgba($black, 0.2);
+				left: 10px;
+				line-height: 3.5;
+				position: absolute;
+				z-index: -1;
+			}
 
-	-moz-transform: translateX(0);
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	-webkit-transform: translateX(0);
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+			a {
+				box-shadow: inset 0 -1px rgba($black, 0.2);
+				display: block;
+				font-size: 1.4em;
+				outline: none;
+				padding: 0.7em 1em 0.7em 1.5em;
+				text-shadow: 0 0 1px rgba($white, 0.1);
+				transition: background 0.3s, box-shadow 0.3s;
+				
+				&:hover {
+					background-color: rgba($black, 0.2);
+					box-shadow: inset 0 -1px rgba($black, 0);
+				}
+
+				-moz-transition: background 0.3s, box-shadow 0.3s;
+				-webkit-transition: background 0.3s, box-shadow 0.3s;
+			}
+		}
+	}
+
+	.mp-level.mp-level-overlay {
+		ul {
+			li {
+				a { box-shadow: inset 0 -1px rgba($black, 0); }
+			}
+		}
+
+		.mp-back, .mp-back:after {
+			background-color: transparent;
+			box-shadow: none;
+			color: transparent;
+		}
+	}
 }
 
-.mp-menu ul li > a {
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
-	display: block;
-	font-size: 1.4em;
-	outline: none;
-	padding: 0.7em 1em 0.7em 1.5em;
-	text-shadow: 0 0 1px rgba(255,255,255,0.1);
-	transition: background 0.3s, box-shadow 0.3s;
+.mp-level {
+	ul {
+		li {
+			&:first-child {
+				a {
+					box-shadow: inset 0 -1px rgba($black, 0.2), inset 0 1px rgba($black, 0.2);
 
-	-moz-transition: background 0.3s, box-shadow 0.3s;
-	-webkit-transition: background 0.3s, box-shadow 0.3s;
+					&:hover {
+						background-color: rgba($black, 0.2);
+						box-shadow: inset 0 -1px rgba($black, 0);
+					}
+				}
+			}
+		}
+	}
 }
 
-.mp-menu ul li::before {
-	color: rgba($black, 0.2);
-	left: 10px;
-	line-height: 3.5;
-	position: absolute;
-	z-index: -1;
+.mp-level.mp-level-overlay {
+	ul {
+		li {
+			&:first-child {
+				a { box-shadow: inset 0 -1px rgba($black, 0); }
+			}
+		}
+	}
 }
-
-.mp-level > ul > li:first-child > a { box-shadow: inset 0 -1px rgba($black, 0.2), inset 0 1px rgba($black, 0.2); }
-
-.mp-menu ul li a:hover, .mp-level > ul > li:first-child > a:hover {
-	background-color: rgba($black, 0.2);
-	box-shadow: inset 0 -1px rgba($black, 0);
-}
-
-.mp-menu .mp-level.mp-level-overlay > ul > li > a, .mp-level.mp-level-overlay > ul > li:first-child > a { box-shadow: inset 0 -1px rgba($black, 0); }
 
 .mp-back {
 	background-color: rgba($black, 0.1);
@@ -226,27 +292,27 @@
 	text-transform: uppercase;
 	transition: background 0.3s;
 
+	&:after {
+		color: rgba($black, 0.3);
+		content: "\e037";
+		font-family: "linecons";
+		font-size: 1.3em;
+		position: absolute;
+		right: 10px;
+	}
+
 	-moz-transition: background 0.3s;
 	-webkit-transition: background 0.3s;
 }
 
-.mp-back::after {
-	color: rgba($black, 0.3);
-	content: "\e037";
-	font-family: "linecons";
-	font-size: 1.3em;
-	position: absolute;
-	right: 10px;
-}
-
-.mp-menu .mp-level.mp-level-overlay > .mp-back, .mp-menu .mp-level.mp-level-overlay > .mp-back::after {
-	background-color: transparent;
-	box-shadow: none;
-	color: transparent;
-}
-
 /* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
 /* We'll show the first level only */
-.no-csstransforms3d .super-wrapper, .no-js .super-wrapper { padding-left: 300px; }
-.no-csstransforms3d .mp-menu .mp-level, .no-js .mp-menu .mp-level { display: none; }
-.no-csstransforms3d .mp-menu > .mp-level, .no-js .mp-menu > .mp-level { display: block; }
+
+.no-csstransforms3d, .no-js {
+	.super-wrapper { padding-left: 300px; }
+
+	.mp-menu {
+		.mp-level { display: none; }
+		> .mp-level { display: block; }
+	}
+}

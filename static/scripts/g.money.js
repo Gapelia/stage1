@@ -20,8 +20,6 @@ $(document).ready(function() {
 
 	$(".super-wrapper").css("height", $vH + "px");
 
-	$(".mp-pushed #g-menu-trigger").css("opacity", "1");
-
 	// Resize Image to Parent Container by Christian Varga
 	jQuery.fn.resizeToParent = function(options) {
 
@@ -74,22 +72,36 @@ $(document).ready(function() {
 
 	};
 
+	// Bookmark Logic
+	$("#nav-bookmarks-toggle").click(function (e) {
+		// $("#bookmarks-scroller").toggle();
+		$("#nav-bookmarks-toggle").css("right", "250px");
+		$("#bookmarks-scroller").css("right", "0");
+		e.preventDefault();
+	});
+
+	$("#bookmarks-scroller").mouseleave(function() {
+		// $("#bookmarks-scroller").fadeOut(850);
+		$("#nav-bookmarks-toggle").css("right", "-32px");
+		$("#bookmarks-scroller").css("right", "-300px");
+	});
+
+	$("#bookmarks-scroller").css("height", $vH + "px");
+
+	//
+
 	/*
-	$(function() {
-
-		$('.image').resizeToParent();
-
-		$('#showOverflow').click(function(e) {
-			e.preventDefault();
-			$('.imageContainer').css({'overflow': 'visible'});
-		});
-
-		$('#hideOverflow').click(function(e) {
-			e.preventDefault();
-			$('.imageContainer').css({'overflow': 'hidden'});
-		});
-
+	$("<span/>", {
+		id: someID,
+		className: "foobar",
+		html: 32
 	});
 	*/
+
+	$("#bm-notifications span").html("14");
+	$("#bm-books span").html("8");
+	$("#bm-collections span").html("32");
+	$("#bm-libraries span").html("10");
+	$("#bm-drafts span").html("3");
 
 });

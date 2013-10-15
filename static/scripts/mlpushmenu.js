@@ -97,8 +97,10 @@
 			// overlap: there will be a gap between open levels
 			// cover: the open levels will be on top of any previous open level
 			type: "overlap", // overlap || cover
+
 			// space between each overlaped level
 			levelSpacing: 40,
+
 			// classname for the element (if any) that when clicked closes the current level
 			backClass: "mp-back"
 		},
@@ -111,29 +113,29 @@
 			this.level = 0;
 
 			// the moving wrapper
-			this.wrapper = document.getElementById('mp-pusher');
+			this.wrapper = document.getElementById("mp-pusher");
 
 			// the mp-level elements
-			this.levels = Array.prototype.slice.call(this.el.querySelectorAll('div.mp-level'));
+			this.levels = Array.prototype.slice.call(this.el.querySelectorAll("div.mp-level"));
 
 			// save the depth of each of these mp-level elements
 			var self = this;
 
 			this.levels.forEach(function (el, i) {
-				el.setAttribute('data-level', getLevelDepth(el, self.el.id, 'mp-level'));
+				el.setAttribute("data-level", getLevelDepth(el, self.el.id, "mp-level"));
 			});
 
 			// the menu items
-			this.menuItems = Array.prototype.slice.call(this.el.querySelectorAll('li'));
+			this.menuItems = Array.prototype.slice.call(this.el.querySelectorAll("li"));
 
 			// if type == "cover" these will serve as hooks to move back to the previous level
-			this.levelBack = Array.prototype.slice.call(this.el.querySelectorAll('.' + this.options.backClass));
+			this.levelBack = Array.prototype.slice.call(this.el.querySelectorAll("." + this.options.backClass));
 
 			// event type (if mobile use touch events)
-			this.eventtype = mobilecheck() ? 'touchstart' : 'click';
+			this.eventtype = mobilecheck() ? "touchstart" : "click";
 
 			// add the class mp-overlap or mp-cover to the main element depending on options.type
-			classie.add(this.el, 'mp-' + this.options.type);
+			classie.add(this.el, "mp-" + this.options.type);
 
 			// initialize / bind the necessary events
 			this._initEvents();
@@ -173,17 +175,17 @@
 			this.menuItems.forEach(function (el, i) {
 
 				// check if it has a sub level
-				var subLevel = el.querySelector('div.mp-level');
+				var subLevel = el.querySelector("div.mp-level");
 
 				if (subLevel) {
-					el.querySelector('a').addEventListener(self.eventtype, function (ev) {
+					el.querySelector("a").addEventListener(self.eventtype, function (ev) {
 
 						ev.preventDefault();
-						var level = closest(el, 'mp-level').getAttribute('data-level');
+						var level = closest(el, "mp-level").getAttribute("data-level");
 
 						if (self.level <= level) {
 							ev.stopPropagation();
-							classie.add(closest(el, 'mp-level'), 'mp-level-overlay');
+							classie.add(closest(el, "mp-level"), "mp-level-overlay");
 							self._openMenu(subLevel);
 						}
 
@@ -199,7 +201,7 @@
 				el.addEventListener(self.eventtype, function (ev) {
 
 					ev.stopPropagation();
-					var level = el.getAttribute('data-level');
+					var level = el.getAttribute("data-level");
 
 					if (self.level > level) {
 						self.level = level;
@@ -216,11 +218,11 @@
 				el.addEventListener(self.eventtype, function (ev) {
 
 					ev.preventDefault();
-					var level = closest(el, 'mp-level').getAttribute('data-level');
+					var level = closest(el, "mp-level").getAttribute("data-level");
 
 					if (self.level <= level) {
 						ev.stopPropagation();
-						self.level = closest(el, 'mp-level').getAttribute('data-level') - 1;
+						self.level = closest(el, "mp-level").getAttribute("data-level") - 1;
 						self.level === 0 ? self._resetMenu() : self._closeMenu();
 					}
 
@@ -234,48 +236,48 @@
 			++this.level;
 
 			// move the main wrapper
-			var levelFactor = (this.level - 1) * this.options.levelSpacing, translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
-			this._setTransform('translate3d(' + translateVal + 'px,0,0)');
+			var levelFactor = (this.level - 1) * this.options.levelSpacing, translateVal = this.options.type === "overlap" ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
+			this._setTransform("translate3d(" + translateVal + "px,0,0)");
 
 			if (subLevel) {
 				// reset transform for sublevel
-				this._setTransform('', subLevel);
+				this._setTransform("", subLevel);
 
 				// need to reset the translate value for the level menus that have the same level depth and are not open
 				for (var i = 0, len = this.levels.length; i < len; ++i) {
 					var levelEl = this.levels[i];
 
-					if (levelEl != subLevel && !classie.has(levelEl, 'mp-level-open')) {
-						this._setTransform('translate3d(-100%,0,0) translate3d(' + -1 * levelFactor + 'px,0,0)', levelEl);
+					if (levelEl != subLevel && !classie.has(levelEl, "mp-level-open")) {
+						this._setTransform("translate3d(-100%,0,0) translate3d(" + -1 * levelFactor + "px,0,0)", levelEl);
 					}
 				}
 			}
 
 			// add class mp-pushed to main wrapper if opening the first time
 			if (this.level === 1) {
-				classie.add(this.wrapper, 'mp-pushed');
+				classie.add(this.wrapper, "mp-pushed");
 				this.open = true;
 			}
 
 			// add class mp-level-open to the opening level element
-			classie.add(subLevel || this.levels[0], 'mp-level-open');
+			classie.add(subLevel || this.levels[0], "mp-level-open");
 		},
 		// close the menu
 		_resetMenu: function () {
 
-			this._setTransform('translate3d(0,0,0)');
+			this._setTransform("translate3d(0,0,0)");
 			this.level = 0;
 
 			// remove class mp-pushed from main wrapper
-			classie.remove(this.wrapper, 'mp-pushed');
+			classie.remove(this.wrapper, "mp-pushed");
 			this._toggleLevels();
 			this.open = false;
 
 		},
 		// close sub menus
 		_closeMenu: function () {
-			var translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + (this.level - 1) * this.options.levelSpacing : this.el.offsetWidth;
-			this._setTransform('translate3d(' + translateVal + 'px,0,0)');
+			var translateVal = this.options.type === "overlap" ? this.el.offsetWidth + (this.level - 1) * this.options.levelSpacing : this.el.offsetWidth;
+			this._setTransform("translate3d(" + translateVal + "px,0,0)");
 			this._toggleLevels();
 		},
 		// translate the el
@@ -287,15 +289,18 @@
 		},
 		// removes classes mp-level-open from closing levels
 		_toggleLevels: function () {
+
 			for (var i = 0, len = this.levels.length; i < len; ++i) {
 				var levelEl = this.levels[i];
-				if (levelEl.getAttribute('data-level') >= this.level + 1) {
-					classie.remove(levelEl, 'mp-level-open');
-					classie.remove(levelEl, 'mp-level-overlay');
-				} else if (Number(levelEl.getAttribute('data-level')) == this.level) {
-					classie.remove(levelEl, 'mp-level-overlay');
+
+				if (levelEl.getAttribute("data-level") >= this.level + 1) {
+					classie.remove(levelEl, "mp-level-open");
+					classie.remove(levelEl, "mp-level-overlay");
+				} else if (Number(levelEl.getAttribute("data-level")) == this.level) {
+					classie.remove(levelEl, "mp-level-overlay");
 				}
 			}
+
 		}
 	};
 
