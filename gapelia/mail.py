@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template import Context, Template
 
-EMAIL_TEMPLATES = {'password-reset': (settings.FORGOT_PASSWORD, 'Password reset on Gapelia'),
+EMAIL_TEMPLATES = {'password-reset': (settings.FORGOT_PASSWORD, 'Reset Gapelia password'),
                    'signup-invitation': (settings.SIGNUP_INVITATION, 'Welcome to Gapelia!'),
                    }
 

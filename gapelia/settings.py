@@ -3,7 +3,8 @@ import os
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-ALLOWED_HOSTS = ['gapelia.launchyard.com']
+# ALLOWED_HOSTS = ['gapelia.launchyard.com']
+ALLOWED_HOSTS = ['']
 
 try:
     from local_settings import DEBUG
@@ -13,7 +14,8 @@ except ImportError:
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Atif Haider', 'atif@launchyard.com'),
+    # ('Atif Haider', 'atif@launchyard.com'),
+		('Paul Anthony Webb', 'paul@dsgn.pw-software.com'),
 )
 
 MANAGERS = ADMINS
@@ -183,11 +185,12 @@ SIGNUP_INVITATION = PROJECT_PATH + \
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'no-reply@launchyard.com'
+# EMAIL_HOST_USER = 'no-reply@launchyard.com'
+EMAIL_HOST_USER = 'no-reply@gapelia.com'
 EMAIL_HOST_PASSWORD = 'testing1'
 EMAIL_USE_TLS = True
 EMAIL_FROM_NAME = 'Gapelia'
-DEFAULT_FROM_EMAIL = 'Gapelia <no-reply@launchyard.com>'
+DEFAULT_FROM_EMAIL = 'Gapelia <no-reply@gapelia.com>'
 
 FACEBOOK_APP_ID = '521376384578891'
 FACEBOOK_APP_SECRET = '090b401b64a576f075f879b979dfaebe'
