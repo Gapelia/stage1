@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 #
-# Copyright © 2013 dhilipsiva <dhilipsiva@dhilipsivas-MacBook-Pro.local>
+# Copyright © 2013 Gapelia
 #
 # Distributed under terms of the MIT license.
 

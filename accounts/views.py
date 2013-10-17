@@ -41,7 +41,7 @@ def signup(request, code=None):
     """A view to signup for an account.
     """
     if request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('books'))
+        return HttpResponseRedirect(reverse('me'))
 
     if code:
         inv_obj = get_object_or_404(inv_dbapi.Invitee, code=code, status='0')
@@ -59,7 +59,7 @@ def signup(request, code=None):
                 username=obj.email, password=form.cleaned_data['password'])
             auth.login(request, user)
             # send_acknowledgment(request, 'signup-successful')
-            return HttpResponseRedirect(reverse('books'))
+            return HttpResponseRedirect(reverse('me'))
         else:
             context['errors'] = form.errors
         context['form'] = form
@@ -71,7 +71,7 @@ def signin(request):
     """A view to signin for an account.
     """
     if request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('books'))
+        return HttpResponseRedirect(reverse('me'))
 
     context = RequestContext(request)
     request.session['next'] = request.GET.get('next') if \
@@ -98,7 +98,7 @@ def signin(request):
 
 def facebook_authentication(request):
     if request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('books'))
+        return HttpResponseRedirect(reverse('me'))
 
     request.session['next_url'] = request.GET.get('next', '/')
     redirect_url = auth_url(
@@ -123,6 +123,7 @@ def facebook_callback(request):
     except:
         send_acknowledgment(request, 'fb-error')
         return HttpResponseRedirect(reverse('home'))
+        # return redirect('/')
     graph = GraphAPI(access_token)
     profile = graph.get_object('me', fields=settings.FACEBOOK_FIELDS)
     user_profile = acc_dbapi.get_social_signup(
@@ -158,12 +159,12 @@ def facebook_callback(request):
     if not user_profile.user.is_active:
         acc_dbapi.update_user(user_profile.user.id, **{'is_active': True})
     auth.login(request, user_profile.user)
-    return HttpResponseRedirect(reverse('books'))
+    return HttpResponseRedirect(reverse('me'))
 
 
 def google_authentication(request):
     if request.user and request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('books'))
+        return HttpResponseRedirect(reverse('me'))
 
     request.session['next_url'] = request.GET.get('next', '/')
     client = GoogleClient(
@@ -217,7 +218,7 @@ def google_callback(request):
     if not user_profile.user.is_active:
         acc_dbapi.update_user(user_profile.user.id, **{'is_active': True})
     auth.login(request, user_profile.user)
-    return HttpResponseRedirect(reverse('books'))
+    return HttpResponseRedirect(reverse('me'))
 
 
 PROFILE_FIELD_NAME_MAP = (('facebook', 'facebook_profile'),

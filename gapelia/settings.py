@@ -192,9 +192,12 @@ EMAIL_USE_TLS = True
 EMAIL_FROM_NAME = 'Gapelia'
 DEFAULT_FROM_EMAIL = 'Gapelia <no-reply@gapelia.com>'
 
-FACEBOOK_APP_ID = '521376384578891'
-FACEBOOK_APP_SECRET = '090b401b64a576f075f879b979dfaebe'
+# FACEBOOK_APP_ID = '521376384578891'
+# FACEBOOK_APP_SECRET = '090b401b64a576f075f879b979dfaebe'
+FACEBOOK_APP_ID = '256426991173100'
+FACEBOOK_APP_SECRET = '728fb8501ab04da9eab22fbf0b8befad'
 FACEBOOK_REDIRECT_URL = BASE_URL + '/accounts/facebook/callback'
+# FACEBOOK_REDIRECT_URL = BASE_URL + '/me'
 FACEBOOK_FIELDS = 'id,name,email,first_name,last_name,picture,bio,username,\
         location,hometown'
 FACEBOOK_PERMS = ['email', 'user_about_me', 'user_location', 'user_hometown']

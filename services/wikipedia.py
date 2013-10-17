@@ -9,8 +9,8 @@ def wiki_article(title):
         res = article.summary
     else:
         res = """
-            Sorry, The wikipedia entry for the given entry could not be found.
-            Please verify that you have entered a valid place with
-            correct spellings.
+            Sorry, we couldn't find the wikipedia entry.
+            Please verify that you have entered a valid
+						place with correct spelling.
             """
     return res

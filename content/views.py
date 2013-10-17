@@ -281,3 +281,14 @@ class FullView(View):
         return render_to_response(
             'books/full-view/{0}.html'.format(page.layout),
             context_instance=context)
+
+
+class MeView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['me'] = user
+        return render_to_response('me/index.html', context_instance=context)
