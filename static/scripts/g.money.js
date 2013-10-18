@@ -15,15 +15,15 @@ $(document).ready(function() {
 
 	// Set height of books in feed
 	$("#user-book-list .book").css("height", $vH - 97 + "px"); // 100
-	$("#user-collection-list .book").css("height", $vH - 97 + "px");
-	$("#user-library-list .book").css("height", $vH - 97 + "px");
+	$("#user-collection-list .collection").css("height", $vH - 97 + "px");
+	$("#user-library-list .library").css("height", $vH - 97 + "px");
 
 	$(".super-wrapper").css("height", $vH + "px");
 
 	// Resize Image to Parent Container by Christian Varga
 	jQuery.fn.resizeToParent = function(options) {
 
-		var defaults = { parent: ".book" };
+		var defaults = { parent: ".book, .collection, .library" };
 		var options = jQuery.extend(defaults, options);
 
 		return this.each(function() {

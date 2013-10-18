@@ -867,6 +867,7 @@ $blue:			rgba(0, 205, 231, 1);		// #00cbe7;
 @mixin unicode { font-family: Arial, Verdana, Geneva, sans-serif; }
 @mixin mono { font-family: Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
 @mixin sans { font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; }
+@mixin serif { font-family: "Hoefler Text", Georgia, serif; }
 
 @mixin hide-text {
   border: 0;

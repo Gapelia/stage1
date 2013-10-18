@@ -110,6 +110,8 @@ def facebook_authentication(request):
 def facebook_callback(request):
     code = request.GET.get('code', None)
     error = request.GET.get('error', None)
+		# format = request.GET.get('format', None)
+
     if code is None:
         ack_key = 'fb-denied' if \
             error and error == 'access_denied' else 'fb-error'
@@ -124,6 +126,7 @@ def facebook_callback(request):
         send_acknowledgment(request, 'fb-error')
         return HttpResponseRedirect(reverse('home'))
         # return redirect('/')
+
     graph = GraphAPI(access_token)
     profile = graph.get_object('me', fields=settings.FACEBOOK_FIELDS)
     user_profile = acc_dbapi.get_social_signup(

@@ -13,5 +13,7 @@ RESPONSE_MESSAGES = {'signup-successful':  'Awesome, you have signed up successf
 
 
 def send_acknowledgment(request, message_key, data={}):
-    message_str = RESPONSE_MESSAGES.get(message_key)
-    messages.success(request, message_str.format(**data))
+	# format = None
+	message_str = RESPONSE_MESSAGES.get(message_key)
+	messages.success(request, message_str.format(**data))
+	# messages.success(request, message_str(**data))

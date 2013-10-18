@@ -357,7 +357,7 @@ blockquote {
 .mCS-dark-thin .mCSB_horizontal .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width: 100%; height: 2px; margin: 7px auto; }
 
 /****************************************************************************************** APP/SCSS **/
-.app { font-family: "OpenSansRegular"; overflow: hidden; position: relative; }
+.app { font-family: "OpenSansRegular"; overflow: hidden; position: relative; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(112, 161, 177, 0.3); }
 .app #mp-menu #account-links { width: 100%; height: auto; bottom: 1.5rem; left: 0; font-family: "OpenSansLight"; position: absolute; text-align: center; }
 .app #mp-menu #account-links a:first-child { /* nbsp and middot */ }
 .app #mp-menu #account-links a:first-child:after { content: "\00a0\00b7"; }
@@ -402,27 +402,24 @@ blockquote {
 .profile #book-nav .current { padding: 0 0 1rem 0; }
 .profile #book-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.75rem 0; }
 .profile #user-book-list, .profile #user-collection-list, .profile #user-library-list { display: none; transition: all 0.5s ease; width: 100%; }
-.profile .book { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: #07d0eb; display: inline-block; overflow: hidden; position: relative; }
-.profile .book img { /* width: 100%; height: 100%; */ }
-.profile .book-info, .profile .collection-new { color: #fcfcfc; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); transition: text-shadow 0.2s ease-in-out; top: 35%; width: 100%; }
-.profile .book-info .book-title, .profile .book-info .collect-title, .profile .collection-new .book-title, .profile .collection-new .collect-title { font-family: "OpenSansBold"; font-size: 150%; margin: 0 0 0.5rem 0; }
-.profile .book-info .lifestyle, .profile .collection-new .lifestyle { font-size: 68%; }
-.profile .book-info .lifestyle li, .profile .collection-new .lifestyle li { float: left; }
-.profile .book-info .lifestyle li:after, .profile .collection-new .lifestyle li:after { content: "\00a0 |\00a0"; }
-.profile .book-info .lifestyle li:last-child:after, .profile .collection-new .lifestyle li:last-child:after { content: ""; }
-.profile .book-info .explore-book, .profile .book-info .collect-close, .profile .collection-new .explore-book, .profile .collection-new .collect-close { margin: 1rem auto; padding: 0.5rem; background-color: #fcfcfc; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; transition: visibility 0.1s ease-in-out; visibility: hidden; width: 50%; }
-.profile .book-info .explore-book:hover, .profile .book-info .collect-close:hover, .profile .collection-new .explore-book:hover, .profile .collection-new .collect-close:hover { opacity: 0.7; }
-.profile .book-info .book-author, .profile .collection-new .book-author { font-family: "OpenSansLight"; font-size: 85%; margin: 0 0 1rem 0; }
-.profile .book-info .book-author span, .profile .collection-new .book-author span { font-family: "OpenSansBold"; }
-.profile .book-info .photo-credit, .profile .collection-new .photo-credit { font-family: "OpenSansLight"; font-size: 70%; }
-.profile .book-info .photo-credit a, .profile .collection-new .photo-credit a { color: #fcfcfc; font-family: "OpenSansExtraBold"; }
-.profile .triangle-bg { width: 0; height: 0; top: 0; right: 0; border-top: 100px solid rgba(25, 25, 25, 0.7); border-left: 100px solid transparent; position: absolute; }
-.profile .like-collect, .profile .edit-delete { margin: 0; padding: 0 0.7rem; top: 0; right: 0; /* background-color: rgba($black, 0.7); */ position: absolute; /* .like, .edit { margin: 0 0.5rem 0 0; } */ }
-.profile .like-collect li, .profile .edit-delete li { /* width: 32px; height: 32px; */ color: #fcfcfc; display: inline-block; font-family: "entyporegular"; font-size: 3.4em; /* opacity: 0.7; */ text-align: center; /* &:hover { opacity: 1; } */ }
+.profile .book, .profile .collection, .profile .library { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; }
+.profile .book .image-overlay, .profile .collection .image-overlay, .profile .library .image-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.3); display: block; position: absolute; }
+.profile .book-info, .profile .collection-info, .profile .library-info { color: #fcfcfc; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); transition: text-shadow 0.2s ease-in-out; top: 35%; width: 100%; z-index: 1; }
+.profile .book-info .title, .profile .collection-info .title, .profile .library-info .title { font-family: "OpenSansLight"; font-size: 200%; margin: 0 0 1rem 0; }
+.profile .book-info .title a, .profile .collection-info .title a, .profile .library-info .title a { color: #fcfcfc; }
+.profile .book-info .explore-book, .profile .book-info .collect-close, .profile .collection-info .explore-book, .profile .collection-info .collect-close, .profile .library-info .explore-book, .profile .library-info .collect-close { margin: 1rem auto; padding: 0.5rem; background-color: #fcfcfc; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; transition: visibility 0.1s ease-in-out; visibility: hidden; width: 50%; }
+.profile .book-info .explore-book:hover, .profile .book-info .collect-close:hover, .profile .collection-info .explore-book:hover, .profile .collection-info .collect-close:hover, .profile .library-info .explore-book:hover, .profile .library-info .collect-close:hover { opacity: 0.7; }
+.profile .book-info .author-name, .profile .book-info .library-location, .profile .collection-info .author-name, .profile .collection-info .library-location, .profile .library-info .author-name, .profile .library-info .library-location { font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
+.profile .book-info .author-name a, .profile .book-info .library-location a, .profile .collection-info .author-name a, .profile .collection-info .library-location a, .profile .library-info .author-name a, .profile .library-info .library-location a { color: #fcfcfc; font-family: "OpenSansSemibold"; font-style: normal; text-transform: none; }
+.profile .book-info .author-name, .profile .collection-info .author-name, .profile .library-info .author-name { margin: 0 0 1rem 0; padding: 0 0 1rem 0; border-bottom: 1px solid rgba(252, 252, 252, 0.7); font-size: 85%; }
+.profile .book-info .library-location, .profile .collection-info .library-location, .profile .library-info .library-location { font-size: 70%; }
+.profile .collection-pages, .profile .collection-contributors, .profile .library-books, .profile .library-contributors { display: inline-block; font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
+.profile .collection-pages span, .profile .collection-contributors span, .profile .library-books span, .profile .library-contributors span { font-style: normal; text-transform: none; }
+.profile .collection-pages:after, .profile .library-books:after { content: "\00a0\00b7"; font-family: "OpenSansBold"; }
+.profile .like-collect, .profile .edit-delete { width: 100%; height: auto; margin: 0; padding: 1rem; bottom: 3rem; right: 0; background-color: rgba(25, 25, 25, 0.5); position: absolute; text-align: center; z-index: 1; }
+.profile .like-collect li, .profile .edit-delete li { color: #fcfcfc; display: inline-block; font-family: "entyporegular"; font-size: 3.4em; line-height: 0; margin: 0 1rem 0 0; text-align: center; }
+.profile .like-collect li:last-child, .profile .edit-delete li:last-child { margin: 0; }
 .profile .like-collect li a, .profile .edit-delete li a { width: 100%; height: 100%; color: #fcfcfc; display: block; }
-.profile .like-collect .edit, .profile .like-collect .delete, .profile .edit-delete .edit, .profile .edit-delete .delete { line-height: 0.1em; position: absolute; }
-.profile .like-collect .edit, .profile .edit-delete .edit { top: 0; right: 30px; }
-.profile .like-collect .delete, .profile .edit-delete .delete { top: 30px; right: 0; }
 
 /************************************************************************************* SETTINGS/SCSS **/
 #settings-wrapper { width: 100%; height: 100%; background-color: #e7e7e7; }
@@ -448,10 +445,10 @@ blockquote {
 #settings-wrapper #settings-content .btn-save:hover { opacity: 0.7; }
 
 /******************************************************************************** BOOK-CREATION/SCSS **/
-.book-creation { font-family: "OpenSansRegular"; /* Google Autocomplete */ }
-.book-creation header { width: 100%; height: 45px; top: 0; left: 0; background-color: transparent; position: fixed; z-index: 1; }
-.book-creation header #back, .book-creation header #finish { background-color: #70a1b1; display: inline-block; font-family: "entyporegular"; font-size: 3.4em; text-align: center; vertical-align: middle; }
-.book-creation header #back div, .book-creation header #finish div { width: 33%; height: auto; display: inline-block; float: left; text-align: center; }
+.book-creation { font-family: "OpenSansRegular"; overflow: hidden; /* Google Autocomplete */ }
+.book-creation header { width: 100%; height: auto; top: 0; left: 0; background-color: transparent; position: fixed; z-index: 1; }
+.book-creation header #back, .book-creation header #finish { background-color: #70a1b1; display: inline-block; font-family: "entyporegular"; font-size: 3.4em; line-height: 0.4; text-align: center; vertical-align: middle; }
+.book-creation header #back div, .book-creation header #finish div { width: 33%; height: 50px; display: inline-block; float: left; text-align: center; }
 .book-creation header #back div a, .book-creation header #finish div a { color: #fcfcfc; }
 .book-creation header #back div a:hover, .book-creation header #finish div a:hover { opacity: 1; }
 .book-creation header #back div:hover, .book-creation header #finish div:hover { background-color: #fcfcfc; transition: all 0.2s ease; }
@@ -528,7 +525,7 @@ blockquote {
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .horizontal-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-geotag-elem, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-geotag-elem { background-color: transparent; border: 0; color: #fcfcfc; font-family: "OpenSansSemibold"; font-size: 1em; text-transform: uppercase; width: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .horizontal-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-geotag-elem:before, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-geotag-elem:before { content: "in "; font-family: "Hoefler Text", Georgia, serif; font-style: italic; text-transform: lowercase; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .horizontal-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc { font-size: 1em; line-height: 1.4em; margin: 1rem 0 0 0; text-align: center; }
-.book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview { width: 100%; height: 100%; top: 0; left: 0; background-color: #fcfcfc; color: #999999; position: absolute; }
+.book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview { width: 100%; height: 100%; top: 0; left: 0; background-color: #e7e7e7; background-image: url("../images/texture/vintage-speckles-alt.png"); /* background-size: 800px 600px; */ color: #999999; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview article { margin: 15% auto; padding: 2rem; font-size: 36px; line-height: 40px; position: relative; text-align: center; width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview .entypo { font-size: 1.5em; }
 .book-creation #book-creation-wrapper #create-book #create-content .frontcover-preview-wrapper .frontcover-preview { width: 100%; height: auto; top: 30%; left: 0; color: #191919; position: absolute; }

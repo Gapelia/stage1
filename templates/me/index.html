@@ -175,164 +175,515 @@
 				</div>
 			</div>
 
-			<div id="disappear">
-				&nbsp;
-			</div>
-
 			<div id="book-scroller">
 				<ul id="book-nav">
-					<li id="nav-books" class="current"><a href="#">Books</a></li>
-					<li id="nav-collections"><a href="#">Collections</a></li>
-					<li id="nav-libraries"><a href="#">Libraries</a></li>
+					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
+					<li id="nav-collections"><a href="#">Scrapbook</a></li>
+					<li id="nav-libraries"><a href="#">Library</a></li>
 					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
 				</ul>
 
+				<!--/ User's Books /-->
 				<div class="user-book-list-wrapper">
 					<ul id="user-book-list">
 
+						{% for book in books %}
 						<li class="book">
-							<span class="triangle-bg"></span>
-
 							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998; <!--/ & /--></a></li>
-								<li class="delete"><a href="#">&#9749;<!--/ u /--></a></li>
+								<li class="edit"><a href="{% url 'book' book.slug %}">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
 
 							<div class="book-info">
-								<div class="book-title">Japanimation</div>
-								<div class="photo-credit">Published by <a href="#">Spaceman Fresh</a></div><hr/>
-								<div class="photo-credit">Found in <a href="#">Camp Awesome</a></div>
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-01.jpg" alt=""/>
 						</li>
+						{% endfor %}
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-02.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-03.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-04.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-05.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-06.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-07.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-08.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-09.jpg" alt=""/>
 						</li>
 
 						<li class="book">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="book-info">
+								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-10.jpg" alt=""/>
 						</li>
 
 					</ul>
 				</div>
-				
+				<!--//User's Books /-->
+
+				<!--/ User's Collections /-->
 				<div class="user-collection-list-wrapper">
 					<ul id="user-collection-list">
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-11.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-12.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-13.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-01.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-02.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-03.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-04.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-05.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="collection">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="collection-pages"><span>10</span> pages</div>
+								<div class="collection-contributors"><span>3</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-06.jpg" alt=""/>
 						</li>
 					</ul>
 				</div>
-				
+				<!--//User's Collections /-->
+
+				<!--/ User's Libraries /-->
 				<div class="user-library-list-wrapper">
 					<ul id="user-library-list">
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-07.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-08.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-09.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-10.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-11.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-12.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-13.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-01.jpg" alt=""/>
 						</li>
 
-						<li class="book">
+						<li class="library">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="library-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="library-books"><span>25</span> books</div>
+								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-02.jpg" alt=""/>
 						</li>
 					</ul>
 				</div>
+				<!--//User's Libraries /-->
 			</div>
 
 		</div>
@@ -345,6 +696,11 @@
 
 		<script>
 			new mlPushMenu(document.getElementById("mp-menu"), document.getElementById("g-menu-toggle"));
+
+			$(".mp-pushed").ready(function() {
+				$("#book-scroller").css("z-index", "0");
+				// $("#g-menu-toggle").css("opacity", "1");
+			});
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
