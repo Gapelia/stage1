@@ -187,10 +187,9 @@
 				<div class="user-book-list-wrapper">
 					<ul id="user-book-list">
 
-						{% for book in books %}
 						<li class="book">
 							<ul class="edit-delete">
-								<li class="edit"><a href="{% url 'book' book.slug %}">&#9998;</a></li>
+								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
 
@@ -203,7 +202,6 @@
 							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-01.jpg" alt=""/>
 						</li>
-						{% endfor %}
 
 						<li class="book">
 							<ul class="edit-delete">
