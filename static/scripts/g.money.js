@@ -104,4 +104,63 @@ $(document).ready(function() {
 	$("#bm-libraries span").html("10");
 	$("#bm-drafts span").html("3");
 
+	/*
+	var $allTitles = $("dd");
+
+	$("#bm-wrapper").delegate("dl", "click", function () {
+		$allTitles = $("dd").not(this);
+		$allTitle.hide();
+	});
+	*/
+
+	$("#bm-notifications").click(function (e) {
+		$("#bm-notifications dd").toggle();
+		e.preventDefault();
+
+		$("#bm-books dd").hide();
+		$("#bm-collections dd").hide();
+		$("#bm-libraries dd").hide();
+		$("#bm-drafts dd").hide();
+	});
+
+	$("#bm-books").click(function (e) {
+		$("#bm-books dd").toggle();
+		e.preventDefault();
+
+		$("#bm-notifications dd").hide();
+		$("#bm-collections dd").hide();
+		$("#bm-libraries dd").hide();
+		$("#bm-drafts dd").hide();
+	});
+
+	$("#bm-collections").click(function (e) {
+		$("#bm-collections dd").toggle();
+		e.preventDefault();
+
+		$("#bm-books dd").hide();
+		$("#bm-notifications dd").hide();
+		$("#bm-libraries dd").hide();
+		$("#bm-drafts dd").hide();
+	});
+
+	$("#bm-libraries").click(function (e) {
+		$("#bm-libraries dd").toggle();
+		e.preventDefault();
+
+		$("#bm-books dd").hide();
+		$("#bm-collections dd").hide();
+		$("#bm-notifications dd").hide();
+		$("#bm-drafts dd").hide();
+	});
+
+	$("#bm-drafts").click(function (e) {
+		$("#bm-drafts dd").toggle();
+		e.preventDefault();
+
+		$("#bm-books dd").hide();
+		$("#bm-collections dd").hide();
+		$("#bm-libraries dd").hide();
+		$("#bm-notifications dd").hide();
+	});
+
 });

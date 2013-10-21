@@ -364,9 +364,20 @@ blockquote {
 .app #bookmarks-scroller { width: 300px; height: 100%; top: 0; right: -300px; background-color: #fcfcfc; border-left: 1px solid #e7e7e7; color: #191919; /* display: none; */ position: absolute; transition: all 0.5s ease; z-index: 1; }
 .app #bookmarks-header { width: 100%; height: 49px; top: 0; right: 0; background-color: #fcfcfc; border-bottom: 1px solid #e7e7e7; position: absolute; text-align: center; }
 .app #bookmarks-header h3 { margin: 7px 0 0 0; }
-.app #bm-wrapper { margin: 50px 0 0 0; }
-.app #bm-notifications, .app #bm-books, .app #bm-collections, .app #bm-libraries, .app #bm-drafts { display: block; margin: 0 0 1rem 0; }
-.app #bm-notifications span, .app #bm-books span, .app #bm-collections span, .app #bm-libraries span, .app #bm-drafts span { width: auto; height: auto; display: inline-block; font-family: "OpenSansSemibold"; margin: 0 1rem 0 0; }
+.app #bm-wrapper { margin: 4rem 0 0 0; /* 50 */ }
+.app #bm-wrapper dl dt span { width: 50px; height: auto; display: inline-block; font-family: "OpenSansSemibold"; overflow: hidden; text-align: center; }
+.app #bm-wrapper dl dd { display: none; font-size: 80%; margin: 0.5rem 0 0 50px; transition: all 0.2s ease; }
+.app #bm-wrapper dl dd li { margin: 0 0 0.5rem 0; }
+.app #bm-wrapper dl dd li:last-child { margin: 0; }
+.app #bm-notifications, .app #bm-books, .app #bm-collections, .app #bm-libraries, .app #bm-drafts { display: block; margin: 0 0 1rem 0; 		/*
+		span {
+			width: auto; height: auto;
+
+			display: inline-block;
+			font-family: "OpenSansSemibold";
+			margin: 0 1rem 0 0;
+		}
+		*/ }
 .app .bm-section-title { font-family: "OpenSansLight"; font-size: 1.3em; }
 
 /************************************************************************************** PROFILE/SCSS **/
