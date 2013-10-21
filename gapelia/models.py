@@ -55,4 +55,3 @@ class BaseEntity(models.Model, object):
     class Meta:
         abstract = True
         ordering = ['-created_on']
-

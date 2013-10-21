@@ -35,7 +35,8 @@ DIMENSION_CHOICES = (
     ('LIFE', 'life'),
     ('PULSE', 'pulse'),
     ('WOW', 'wow'),
-    ('WONDER', 'wonder'), )
+    ('WONDER', 'wonder')
+)
 
 PAGE_LAYOUT_CHOICES = (
     (PAGE_LAYOUTS.FRONT_COVER, 'Front Cover'),
@@ -45,7 +46,8 @@ PAGE_LAYOUT_CHOICES = (
     (PAGE_LAYOUTS.OVERLAY, 'Overlay'),
     (PAGE_LAYOUTS.PHOTOTEXT, 'Photo/Text'),
     (PAGE_LAYOUTS.INTEGRATED, 'Integrated'),
-    (PAGE_LAYOUTS.VIDEO, 'Video'))
+    (PAGE_LAYOUTS.VIDEO, 'Video')
+)
 
 PAGE_LICENSE_CHOICES = (
     ('0', 'CC BY'),
@@ -63,7 +65,6 @@ class ContentMedia(models.Model):
 
     def __unicode__(self):
         return self.url
-
 
 class Book(BaseEntity, DeletableEntity):
     """A model to hold the book information.

@@ -412,9 +412,11 @@ blockquote {
 .profile #book-nav #nav-bookmarks-toggle a { color: #df151a; }
 .profile #book-nav .current { padding: 0 0 1rem 0; }
 .profile #book-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.75rem 0; }
-.profile #user-book-list, .profile #user-collection-list, .profile #user-library-list { display: none; transition: all 0.5s ease; width: 100%; }
-.profile .book, .profile .collection, .profile .library { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; }
+.profile #user-book-list, .profile #user-collection-list, .profile #user-library-list { display: none; transition: all 0.5s ease; width: 100%; /* .mCSB_horizontal .mCSB_container { padding: 0.3rem 0 0 0; } */ }
+.profile .book, .profile .collection, .profile .library { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; transition: box-shadow 0.2s ease; }
 .profile .book .image-overlay, .profile .collection .image-overlay, .profile .library .image-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.3); display: block; position: absolute; }
+.profile .book:hover, .profile .collection:hover, .profile .library:hover { /* ooh factor */ /* box-shadow: 0 0 6px rgba($black, 0.6); */ }
+.profile .book:hover .book-info, .profile .book:hover .collection-info, .profile .book:hover .library-info, .profile .collection:hover .book-info, .profile .collection:hover .collection-info, .profile .collection:hover .library-info, .profile .library:hover .book-info, .profile .library:hover .collection-info, .profile .library:hover .library-info { text-shadow: 0 3px 6px #191919; }
 .profile .book-info, .profile .collection-info, .profile .library-info { color: #fcfcfc; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); transition: text-shadow 0.2s ease-in-out; top: 35%; width: 100%; z-index: 1; }
 .profile .book-info .title, .profile .collection-info .title, .profile .library-info .title { font-family: "OpenSansLight"; font-size: 200%; margin: 0 0 1rem 0; }
 .profile .book-info .title a, .profile .collection-info .title a, .profile .library-info .title a { color: #fcfcfc; }

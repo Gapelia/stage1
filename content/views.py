@@ -15,7 +15,6 @@ from django.shortcuts import render_to_response
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
-
 class BookView(View):
     POST_PARAMS = ('title', 'description', 'dimension',)
 
@@ -262,7 +261,6 @@ class PageView(View):
         con_dbapi.update_page(page, updated_by=request.user, deleted=True)
         return succeeded({})
 
-
 class FullView(View):
 
     @method_decorator(login_required)
@@ -282,6 +280,15 @@ class FullView(View):
             'books/full-view/{0}.html'.format(page.layout),
             context_instance=context)
 
+class CreateView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['create'] = user
+        return render_to_response('create/index.html', context_instance=context)
 
 class MeView(View):
 
@@ -292,3 +299,23 @@ class MeView(View):
 
         context['me'] = user
         return render_to_response('me/index.html', context_instance=context)
+
+class FeaturedView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['featured'] = user
+        return render_to_response('featured/index.html', context_instance=context)
+
+class DraftsView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['drafts'] = user
+        return render_to_response('drafts/index.html', context_instance=context)

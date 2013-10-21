@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 
 from accounts.views import get_user_profile
 from gapelia.settings import STATIC_ROOT, MEDIA_ROOT, DEBUG
-from content.urls import book_patterns, me_patterns
+from content.urls import create_patterns, me_patterns, featured_patterns, drafts_patterns, book_patterns
 
 admin.autodiscover()
 
@@ -22,7 +22,10 @@ urlpatterns += patterns(
 
 	# App URLs
 	url(r'^$', 'gapelia.views.home', name='home'),
+	url(r'^create/', include(create_patterns)),
 	url(r'^me/', include(me_patterns)),
+	url(r'^featured/', include(featured_patterns)),
+	url(r'^drafts/', include(drafts_patterns)),
 	url(r'^staff/', include(admin.site.urls)),
 	url(r'^accounts/', include('accounts.urls')),
 	url(r'^tags/', include('tagging.urls')),

@@ -1,9 +1,24 @@
 from django.conf.urls import patterns, url
-from content.views import MeView, BookView, PageView, FullView
+from content.views import CreateView, MeView, FeaturedView, DraftsView, BookView, PageView, FullView
+
+create_patterns = patterns(
+	'',
+	url(r'^$', CreateView.as_view(), name='create')
+)
 
 me_patterns = patterns(
 	'',
 	url(r'^$', MeView.as_view(), name='me')
+)
+
+featured_patterns = patterns(
+	'',
+	url(r'^$', FeaturedView.as_view(), name='featured')
+)
+
+drafts_patterns = patterns(
+	'',
+	url(r'^$', DraftsView.as_view(), name='drafts')
 )
 
 book_patterns = patterns(
