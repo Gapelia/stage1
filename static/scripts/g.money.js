@@ -19,6 +19,7 @@ $(document).ready(function() {
 	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
 
 	// Set height of dimension portals in feed
+	// $("#dimensions-landing-bg").css("height", $vH + "px");
 	$("#dimension-list .portal").css("height", $vH - 97 + "px");
 	$("#dimension-list canvas").css("height", $vH - 97 + "px");
 	// $("#dimension-list canvas").css({ width: $pW + "px", height: $vH - 97 + "px" });

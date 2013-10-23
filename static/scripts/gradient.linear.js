@@ -379,6 +379,67 @@ function drawWonder() {
 
 }
 
+/*
+ _____    __   __    __   ______   __   __   ______   __   ______   __   __   ______    
+/\  __-. /\ \ /\ "-./  \ /\  ___\ /\ "-.\ \ /\  ___\ /\ \ /\  __ \ /\ "-.\ \ /\  ___\   
+\ \ \/\ \\ \ \\ \ \-./\ \\ \  __\ \ \ \-.  \\ \___  \\ \ \\ \ \/\ \\ \ \-.  \\ \___  \  
+ \ \____- \ \_\\ \_\ \ \_\\ \_____\\ \_\\"\_\\/\_____\\ \_\\ \_____\\ \_\\"\_\\/\_____\ 
+  \/____/  \/_/ \/_/  \/_/ \/_____/ \/_/ \/_/ \/_____/ \/_/ \/_____/ \/_/ \/_/ \/_____/ 
+*/
+
+var dimensions01 = [176, 235, 254, 255];
+var dimensions02 = [112, 161, 177, 255];
+var dimensions03 = [231, 231, 231, 255];
+
+var dimensionsColors = [{ orig: dimensions01, val: dimensions01, next: 1 }, { orig: dimensions02, val: dimensions02, next: 2 }, { orig: dimensions03, val: dimensions03, next: 0 }];
+
+function shiftDimensionsChannel(ca, cb) {
+
+	if (ca > cb) { return ca - 1; } else if (ca < cb) { return ca + 1; }
+	return ca;
+
+}
+
+function shiftDimensionsColor(ca, cb) {
+
+	var red		= shiftDimensionsChannel(ca[0], cb[0]);
+	var green	= shiftDimensionsChannel(ca[1], cb[1]);
+	var blue	= shiftDimensionsChannel(ca[2], cb[2]);
+	var alpha	= shiftDimensionsChannel(ca[3], cb[3]);
+
+	return [red, green, blue, alpha];
+
+}
+
+function drawDimensions() {
+
+	var canvas = document.getElementById("dimensions-landing-bg");
+	var ctx = canvas.getContext("2d");
+
+	var gradient = canvas.getContext("2d").createLinearGradient(0, 0, 1, 500);
+
+	dimensionsColors[0].val = shiftDimensionsColor(dimensionsColors[0].val, dimensionsColors[dimensionsColors[0].next].orig);
+	dimensionsColors[1].val = shiftDimensionsColor(dimensionsColors[1].val, dimensionsColors[dimensionsColors[1].next].orig);
+	dimensionsColors[2].val = shiftDimensionsColor(dimensionsColors[2].val, dimensionsColors[dimensionsColors[2].next].orig);
+
+	if (dimensionsColors[0].val.join() === dimensionsColors[dimensionsColors[0].next].orig.join() && dimensionsColors[1].val.join() === dimensionsColors[dimensionsColors[1].next].orig.join() && dimensionsColors[2].val.join() === dimensionsColors[dimensionsColors[2].next].orig.join()) {
+		dimensionsColors[0].next = (dimensionsColors[0].next + 1) % dimensionsColors.length;
+		dimensionsColors[1].next = (dimensionsColors[1].next + 1) % dimensionsColors.length;
+		dimensionsColors[2].next = (dimensionsColors[2].next + 1) % dimensionsColors.length;
+	}
+
+	gradient.addColorStop(0.0, "rgba(" + dimensionsColors[0].val[0] + ", " + dimensionsColors[0].val[1] + ", " + dimensionsColors[0].val[2] + ", 1.0)");
+	gradient.addColorStop(0.2, "rgba(" + dimensionsColors[0].val[0] + ", " + dimensionsColors[0].val[1] + ", " + dimensionsColors[0].val[2] + ", 1.0)");
+	gradient.addColorStop(0.4, "rgba(" + dimensionsColors[1].val[0] + ", " + dimensionsColors[1].val[1] + ", " + dimensionsColors[1].val[2] + ", 1.0)");
+	gradient.addColorStop(0.6, "rgba(" + dimensionsColors[1].val[0] + ", " + dimensionsColors[1].val[1] + ", " + dimensionsColors[1].val[2] + ", 1.0)");
+	gradient.addColorStop(0.8, "rgba(" + dimensionsColors[2].val[0] + ", " + dimensionsColors[2].val[1] + ", " + dimensionsColors[2].val[2] + ", 1.0)");
+	gradient.addColorStop(1.0, "rgba(" + dimensionsColors[2].val[0] + ", " + dimensionsColors[2].val[1] + ", " + dimensionsColors[2].val[2] + ", 1.0)");
+
+	ctx.fillStyle = gradient;
+	ctx.fillRect(0, 0, 300, 700); // set width and height of canvas
+
+}
+
 // Animate
 window.setInterval(drawPulse, 100);
 window.setInterval(drawArt, 100);
@@ -386,3 +447,5 @@ window.setInterval(drawWow, 100);
 window.setInterval(drawLife, 100);
 window.setInterval(drawFlow, 100);
 window.setInterval(drawWonder, 100);
+
+window.setInterval(drawDimensions, 100);

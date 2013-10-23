@@ -365,6 +365,7 @@ blockquote {
 
 /****************************************************************************************** APP/SCSS **/
 .app { width: 100%; height: 100%; background-color: #fcfcfc; clear: left; font-family: "OpenSansRegular"; overflow: hidden; position: relative; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(112, 161, 177, 0.3); }
+.app #site-menu { /* box-shadow: inset -1px 0 4px rgba($black, 0.3); */ }
 .app #site-menu #account-links { width: 100%; height: auto; bottom: 1.5rem; left: 0; font-family: "OpenSansLight"; position: absolute; text-align: center; }
 .app #site-menu #account-links a:first-child { /* nbsp and middot */ }
 .app #site-menu #account-links a:first-child:after { content: "\00a0\00b7"; }
@@ -412,6 +413,29 @@ blockquote {
 		}
 		*/ }
 .app .bm-section-title { font-family: "OpenSansLight"; font-size: 1.3em; }
+
+/*********************************************************************************** DIMENSIONS/SCSS **/
+#dimension-panel #g-menu-toggle { z-index: 2; }
+#dimension-panel canvas { opacity: 0.7; z-index: 1; }
+#dimension-panel canvas, #dimension-panel img { top: 0; left: 0; position: absolute; }
+#dimension-panel .dimension-info { width: 100%; height: auto; top: 40%; left: 0; position: absolute; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); z-index: 2; }
+#dimension-panel h2, #dimension-panel p { color: #fcfcfc; padding: 0 2rem; }
+#dimension-panel h2 { font-family: "OpenSansSemibold"; }
+#dimension-panel p { line-height: 1.2em; }
+
+#dimensions-landing-bg { background-color: #70a1b1; }
+
+#pulse-portal-bg { background-color: #ff3b30; }
+
+#art-portal-bg { background-color: #ff9500; }
+
+#wow-portal-bg { background-color: #ffcc00; }
+
+#life-portal-bg { background-color: #4cd964; }
+
+#flow-portal-bg { background-color: #007aff; }
+
+#wonder-portal-bg { background-color: #b356d6; }
 
 /************************************************************************************** PROFILE/SCSS **/
 .profile { /* Start User Code */ /* End User Code */ }

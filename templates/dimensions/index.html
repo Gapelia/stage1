@@ -40,8 +40,10 @@
 			$(document).ready(function() {
 
 				var $vW = $(window).width(), $vH = $(window).height(), $dW = $("#dimension-panel").width();
-				$("#myCanvas").css({ width: $dW + "px", height: $vH + "px" });
 
+				$("#dimensions-landing-bg").css({ width: $dW + "px", height: $vH + "px" });
+
+				/*
 				var canvas = document.getElementById("myCanvas");
 				var ctx = canvas.getContext("2d");
 
@@ -54,6 +56,7 @@
 				ctx.fillStyle = gradient;
 				ctx.fillRect(0, 0, canvas.width, canvas.height);
 				ctx.restore();
+				*/
 
 				/*
 				// Radial gradient | static
@@ -181,11 +184,17 @@
 			<div id="dimension-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
-        <canvas id="myCanvas">
-					<!-- Insert fallback content here -->
+				<div class="dimension-info">
+					<h2>Gapelia</h2>
+					<p>A better place for collaborative blogging.</p>
+				</div>
+
+        <canvas id="dimensions-landing-bg">
+					<!--/ fallback is the Gapelia slate color /-->
         </canvas>
 
-				Cool dimension stuff here
+				<img src="{{ STATIC_URL }}images/book-thumb-12.jpg" alt=""/>
+
 				<!--/
 				<div class="user-bg">
 					<img src="{{ STATIC_URL }}images/space-bb.jpg"/>
