@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from content.views import CreateView, MeView, FeaturedView, DraftsView, BookView, PageView, FullView
+from content.views import CreateView, MeView, FeaturedView, DraftsView, BookView, PageView, FullView, DimensionsView, PulseView, ArtView, WowView, LifeView, FlowView, WonderView
 
 create_patterns = patterns(
 	'',
@@ -20,6 +20,43 @@ drafts_patterns = patterns(
 	'',
 	url(r'^$', DraftsView.as_view(), name='drafts')
 )
+
+dimensions_patterns = patterns(
+	'',
+	url(r'^$', DimensionsView.as_view(), name='dimensions')
+)
+
+pulse_patterns = patterns(
+	'',
+	url(r'^$', PulseView.as_view(), name='pulse')
+)
+
+art_patterns = patterns(
+	'',
+	url(r'^$', ArtView.as_view(), name='art')
+)
+
+wow_patterns = patterns(
+	'',
+	url(r'^$', WowView.as_view(), name='wow')
+)
+
+life_patterns = patterns(
+	'',
+	url(r'^$', LifeView.as_view(), name='life')
+)
+
+flow_patterns = patterns(
+	'',
+	url(r'^$', FlowView.as_view(), name='flow')
+)
+
+wonder_patterns = patterns(
+	'',
+	url(r'^$', WonderView.as_view(), name='wonder')
+)
+
+
 
 book_patterns = patterns(
 	'',

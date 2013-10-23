@@ -20,7 +20,7 @@
 
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
-		<meta name="description" content="The stand for the world's greatest stories"/>
+		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
 		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"/>
@@ -40,10 +40,10 @@
 	
 		<div id="mp-pusher" class="super-wrapper">
 
-			<!--/ mp-menu /-->
-			<nav id="mp-menu" class="mp-menu">
+			<!--/ site-menu /-->
+			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class="">Gapelia</h2>
+					<h2 class=""><a class="" href="{% url 'dimensions' %}">Gapelia</a></h2>
 
 					<ul>
 						<li><a class="" href="{% url 'featured' %}">Featured</a></li>
@@ -67,52 +67,12 @@
 
 				</div>
 			</nav>
-			<!--//mp-menu /-->
+			<!--//site-menu /-->
 
 			<div id="bookmarks-scroller">
 				<div id="bookmarks-header">
 					<h3>Paul Anthony Webb</h3>
 				</div>
-
-				<!--/
-				<dl>
-					<dt>Super Power</dt>
-
-					<dd>
-						<a href="http://css-tricks.com">Consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-
-					<dt>Costume</dt>
-
-					<dd>
-						Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-
-					<dt>Morality</dt>
-
-					<dd>
-						Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-
-					<dt>Sidekicks</dt>
-
-					<dd>
-						Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-
-					<dt>Vehicles</dt>
-
-					<dd>
-						Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-
-					<dt>Weaknesses</dt>
-
-					<dd>
-						Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</dd>
-				</dl>
-				/-->
 
 				<div id="bm-wrapper">
 					<dl id="bm-notifications">
@@ -123,10 +83,6 @@
 								<li>Alice liked Nature is Gaea</l1>
 								<li>Theo added Tokyo Drift to a collection</l1>
 								<li>+3 people want to collaborate</l1>
-								<!--/
-								<li>Something here</l1>
-								<li>Something here</l1>
-								/-->
 							</ul>
 						</dd>
 					</dl>
@@ -154,12 +110,6 @@
 						<dd>
 							<ul>
 								<li>Nature</l1>
-								<!--/
-								<li>Something here</l1>
-								<li>Something here</l1>
-								<li>Something here</l1>
-								<li>Something here</l1>
-								/-->
 							</ul>
 						</dd>
 					</dl>
@@ -397,13 +347,23 @@
 							<img src="{{ STATIC_URL }}images/book-thumb-10.jpg" alt=""/>
 						</li>
 
+						<li class="new">
+							<a class="new-inner-wrapper" href="{% url 'create' %}">
+								<span class="entypo">&#10133;</span>
+								<div>Create a new book</div>
+							</a>
+
+							<span class="image-overlay"></span>
+						</li>
+
 					</ul>
 				</div>
 				<!--//User's Books /-->
 
-				<!--/ User's Collections /-->
+				<!--/ User's Scrapbook /-->
 				<div class="user-collection-list-wrapper">
 					<ul id="user-collection-list">
+
 						<li class="collection">
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
@@ -563,13 +523,20 @@
 							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-06.jpg" alt=""/>
 						</li>
+
+						<li class="new">
+							<div class="book-info">Doesn't make sense to have this here.</div>
+							<span class="image-overlay"></span>
+						</li>
+
 					</ul>
 				</div>
-				<!--//User's Collections /-->
+				<!--//User's Scrapbook /-->
 
-				<!--/ User's Libraries /-->
+				<!--/ User's Library /-->
 				<div class="user-library-list-wrapper">
 					<ul id="user-library-list">
+
 						<li class="library">
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
@@ -729,9 +696,15 @@
 							<span class="image-overlay"></span>
 							<img src="{{ STATIC_URL }}images/book-thumb-02.jpg" alt=""/>
 						</li>
+
+						<li class="new">
+							<div class="book-info">Doesn't make sense to have this here.</div>
+							<span class="image-overlay"></span>
+						</li>
+
 					</ul>
 				</div>
-				<!--//User's Libraries /-->
+				<!--//User's Library /-->
 			</div>
 
 		</div>
@@ -743,11 +716,10 @@
 		<script src="{{ STATIC_URL }}scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("mp-menu"), document.getElementById("g-menu-toggle"));
+			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
 			$(".mp-pushed").ready(function() {
 				$("#book-scroller").css("z-index", "0");
-				// $("#g-menu-toggle").css("opacity", "1");
 			});
 		</script>
 

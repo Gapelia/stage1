@@ -2,6 +2,10 @@
 
 .app {
 
+	width: 100%; height: 100%;
+
+	background-color: $white;
+	clear: left;
 	font-family: "OpenSansRegular";
 	overflow: hidden;
 	position: relative;
@@ -9,7 +13,7 @@
 	-webkit-font-smoothing: antialiased;
 	-webkit-tap-highlight-color: rgba($slate, 0.3);
 
-	#mp-menu {
+	#site-menu {
 		#account-links {
 			width: 100%; height: auto;
 			bottom: 1.5rem; left: 0;
@@ -26,7 +30,180 @@
 			}
 		}
 	}
-	
+
+	#user-panel, #book-scroller,
+	#dimension-panel, #dimension-scroller {
+		float: left;
+		height: 100%;
+		position: relative;
+	}
+
+	#user-panel, #dimension-panel {
+		background-color: $gray-i;
+		overflow: hidden;
+		width: 25%;
+	}
+
+	#g-menu-toggle {
+		width: 60px; height: 60px;
+		top: 1rem; left: 1rem;
+
+		background-color: transparent;
+		background-image: url("../images/logo-menu-alt.png");
+		background-size: 60px;
+		border-radius: 300rem;
+		cursor: pointer;
+		opacity: 0.7;
+		position: absolute;
+		transition: all 0.2s ease;
+		z-index: 1;
+
+		@include hide-text;
+
+		&:hover { opacity: 1; }
+	}
+
+	#book-nav, #dimension-nav {
+		width: 97%; height: auto;
+		margin: 0 0 1rem 1rem; padding: 1rem 0 0 0;
+
+		border-bottom: 1px solid $gray-i;
+		font-family: "OpenSansBold";
+
+		li {
+			display: inline-block;
+			margin: 0 1rem 0 0;
+		}
+
+		a { color: $gray-iii; }
+
+		#nav-bookmarks-toggle {
+			top: -56px; right: -32px;
+
+			font-family: "entyporegular";
+			font-size: 10em;
+			margin: 0;
+			position: absolute;
+			transform: rotate(90deg);
+			transition: all 0.5s ease;
+
+			a { color: $red; }
+
+			/* &:hover { right: 0; } */
+
+			-moz-transform: rotate(90deg);
+			-webkit-transform: rotate(90deg);
+		}
+
+		.current {
+			padding: 0 0 1rem 0;
+
+			a {
+				border-bottom: 3px solid $slate;
+				color: $slate;
+				padding: 0 0 0.75rem 0;
+			}
+		}
+	}
+
+	#book-scroller, #dimension-scroller {
+		overflow: hidden; /* bookmark positioning/animation */
+		width: 75%;
+	}
+
+	#user-book-list, #user-collection-list, #user-library-list,
+	#dimension-list {
+		display: none;
+		transition: all 0.5s ease;
+		width: 100%;
+	}
+
+	.book, .collection, .library, .new,
+	.portal {
+		width: 400px; height: auto;
+		margin: 0 0 0 1rem; padding: 0;
+
+		background-color: rgba($gray-i, 0.4);
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		transition: box-shadow 0.2s ease;
+
+		.image-overlay {
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+
+			background-color: rgba($black, 0.3);
+			display: block;
+			position: absolute;
+		}
+
+		&:hover {
+			/* ooh factor */
+			/* box-shadow: 0 0 6px rgba($black, 0.6); */
+			.book-info, .collection-info, .library-info { text-shadow: 0 3px 6px $black; }
+		}
+	}
+
+	.book-info, .collection-info, .library-info, .new-inner-wrapper,
+	.portal-info {
+		color: $white;
+		padding: 0 1rem;
+		position: absolute;
+		text-align: center;
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 35%;
+		width: 100%;
+		z-index: 1;
+
+		.title {
+			font-family: "OpenSansLight";
+			font-size: 200%;
+			margin: 0 0 1rem 0;
+
+			a { color: $white; }
+		}
+
+		.explore-book, .collect-close {
+			margin: 1rem auto; padding: 0.5rem;
+
+			background-color: $white;
+			color: $black;
+			display: block;
+			font-size: 70%;
+			text-shadow: none;
+			text-transform: uppercase;
+			transition: visibility 0.1s ease-in-out;
+			visibility: hidden;
+			width: 50%;
+
+			&:hover { opacity: 0.7; }
+		}
+
+		.author-name, .library-location {
+			font-family: Georgia, serif;
+			font-style: italic;
+			text-transform: lowercase;
+
+			a {
+				color: $white;
+				font-family: "OpenSansSemibold";
+				font-style: normal;
+				text-transform: none;
+			}
+		}
+
+		.author-name {
+			margin: 0 0 1rem 0; padding: 0 0 1rem 0;
+
+			border-bottom: 1px solid rgba($white, 0.7);
+			font-size: 85%;
+		}
+
+		.library-location { font-size: 70%; }
+	}
+
 	#bookmarks-scroller {
 		width: 300px; height: 100%;
 		top: 0; right: -300px;
@@ -34,7 +211,6 @@
 		background-color: $white;
 		border-left: 1px solid $gray-i;
 		color: $black;
-		/* display: none; */
 		position: absolute;
 		transition: all 0.5s ease;
 		z-index: 1;

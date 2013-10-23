@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
 
-	var $vW = $(window).width(), $vH = $(window).height();
+	var $vW = $(window).width(), $vH = $(window).height(), $pW = $("#dimension-list .portal").width();
 
 	// Reload Gapelia when browser window resizing occurs
 	$(window).resize(function() {
@@ -14,16 +14,21 @@ $(document).ready(function() {
 	});
 
 	// Set height of books in feed
-	$("#user-book-list .book").css("height", $vH - 97 + "px"); // 100
-	$("#user-collection-list .collection").css("height", $vH - 97 + "px");
-	$("#user-library-list .library").css("height", $vH - 97 + "px");
+	$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
+	$("#user-collection-list .collection, #user-collection-list .new").css("height", $vH - 97 + "px");
+	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
+
+	// Set height of dimension portals in feed
+	$("#dimension-list .portal").css("height", $vH - 97 + "px");
+	$("#dimension-list canvas").css("height", $vH - 97 + "px");
+	// $("#dimension-list canvas").css({ width: $pW + "px", height: $vH - 97 + "px" });
 
 	$(".super-wrapper").css("height", $vH + "px");
 
 	// Resize Image to Parent Container by Christian Varga
 	jQuery.fn.resizeToParent = function(options) {
 
-		var defaults = { parent: ".book, .collection, .library" };
+		var defaults = { parent: ".book, .collection, .library, .portal" };
 		var options = jQuery.extend(defaults, options);
 
 		return this.each(function() {

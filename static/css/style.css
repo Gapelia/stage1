@@ -25,6 +25,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /** [-] Colours ***************************************************************************************/
 /* $white:     rgba(254, 254, 254, 1); // #fefefe; */
+/*
+$red:				rgba(223, 21, 26, 1);		// #df151a;
+$orange:		rbga(253, 134, 3, 1);		// #fd8603;
+$yellow:		rgba(244, 243, 40, 1);	// #f4f328;
+$green:			rgba(0, 218, 60, 1);		// #00da3c;
+$blue:			rgba(0, 205, 231, 1);		// #00cbe7;
+*/
 /** [-] @font-face ************************************************************************************/
 @font-face { font-family: "entyporegular"; font-style: normal; font-weight: 400;
   /* Base64 seems to be the best way for Entypo to work... :/ */
@@ -215,7 +222,7 @@ blockquote {
 .mCSB_container .mCS_no_scrollbar { margin-right: 0; }
 
 .mCSB_horizontal { /**/ }
-.mCSB_horizontal .mCSB_scrollTools { margin: 0 0 0 1rem; width: 97% !important; }
+.mCSB_horizontal .mCSB_scrollTools { bottom: 0.4rem !important; margin: 0 0 0 1rem; width: 97% !important; }
 
 .mCS_disabled .mCustomScrollBox .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCustomScrollBox .mCSB_container.mCS_no_scrollbar { margin-right: 30px; }
 .mCS_disabled .mCSB_horizontal .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCSB_horizontal .mCSB_container.mCS_no_scrollbar { margin-right: 0; margin-bottom: 30px; }
@@ -357,11 +364,37 @@ blockquote {
 .mCS-dark-thin .mCSB_horizontal .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width: 100%; height: 2px; margin: 7px auto; }
 
 /****************************************************************************************** APP/SCSS **/
-.app { font-family: "OpenSansRegular"; overflow: hidden; position: relative; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(112, 161, 177, 0.3); }
-.app #mp-menu #account-links { width: 100%; height: auto; bottom: 1.5rem; left: 0; font-family: "OpenSansLight"; position: absolute; text-align: center; }
-.app #mp-menu #account-links a:first-child { /* nbsp and middot */ }
-.app #mp-menu #account-links a:first-child:after { content: "\00a0\00b7"; }
-.app #bookmarks-scroller { width: 300px; height: 100%; top: 0; right: -300px; background-color: #fcfcfc; border-left: 1px solid #e7e7e7; color: #191919; /* display: none; */ position: absolute; transition: all 0.5s ease; z-index: 1; }
+.app { width: 100%; height: 100%; background-color: #fcfcfc; clear: left; font-family: "OpenSansRegular"; overflow: hidden; position: relative; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(112, 161, 177, 0.3); }
+.app #site-menu #account-links { width: 100%; height: auto; bottom: 1.5rem; left: 0; font-family: "OpenSansLight"; position: absolute; text-align: center; }
+.app #site-menu #account-links a:first-child { /* nbsp and middot */ }
+.app #site-menu #account-links a:first-child:after { content: "\00a0\00b7"; }
+.app #user-panel, .app #book-scroller, .app #dimension-panel, .app #dimension-scroller { float: left; height: 100%; position: relative; }
+.app #user-panel, .app #dimension-panel { background-color: #e7e7e7; overflow: hidden; width: 25%; }
+.app #g-menu-toggle { width: 60px; height: 60px; top: 1rem; left: 1rem; background-color: transparent; background-image: url("../images/logo-menu-alt.png"); background-size: 60px; border-radius: 300rem; cursor: pointer; opacity: 0.7; position: absolute; transition: all 0.2s ease; z-index: 1; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
+.app #g-menu-toggle:hover { opacity: 1; }
+.app #book-nav, .app #dimension-nav { width: 97%; height: auto; margin: 0 0 1rem 1rem; padding: 1rem 0 0 0; border-bottom: 1px solid #e7e7e7; font-family: "OpenSansBold"; }
+.app #book-nav li, .app #dimension-nav li { display: inline-block; margin: 0 1rem 0 0; }
+.app #book-nav a, .app #dimension-nav a { color: #bebebe; }
+.app #book-nav #nav-bookmarks-toggle, .app #dimension-nav #nav-bookmarks-toggle { top: -56px; right: -32px; font-family: "entyporegular"; font-size: 10em; margin: 0; position: absolute; transform: rotate(90deg); transition: all 0.5s ease; /* &:hover { right: 0; } */ -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+.app #book-nav #nav-bookmarks-toggle a, .app #dimension-nav #nav-bookmarks-toggle a { color: #ff3b30; }
+.app #book-nav .current, .app #dimension-nav .current { padding: 0 0 1rem 0; }
+.app #book-nav .current a, .app #dimension-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.75rem 0; }
+.app #book-scroller, .app #dimension-scroller { overflow: hidden; /* bookmark positioning/animation */ width: 75%; }
+.app #user-book-list, .app #user-collection-list, .app #user-library-list, .app #dimension-list { display: none; transition: all 0.5s ease; width: 100%; }
+.app .book, .app .collection, .app .library, .app .new, .app .portal { width: 400px; height: auto; margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; transition: box-shadow 0.2s ease; }
+.app .book .image-overlay, .app .collection .image-overlay, .app .library .image-overlay, .app .new .image-overlay, .app .portal .image-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.3); display: block; position: absolute; }
+.app .book:hover, .app .collection:hover, .app .library:hover, .app .new:hover, .app .portal:hover { /* ooh factor */ /* box-shadow: 0 0 6px rgba($black, 0.6); */ }
+.app .book:hover .book-info, .app .book:hover .collection-info, .app .book:hover .library-info, .app .collection:hover .book-info, .app .collection:hover .collection-info, .app .collection:hover .library-info, .app .library:hover .book-info, .app .library:hover .collection-info, .app .library:hover .library-info, .app .new:hover .book-info, .app .new:hover .collection-info, .app .new:hover .library-info, .app .portal:hover .book-info, .app .portal:hover .collection-info, .app .portal:hover .library-info { text-shadow: 0 3px 6px #191919; }
+.app .book-info, .app .collection-info, .app .library-info, .app .new-inner-wrapper, .app .portal-info { color: #fcfcfc; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); transition: text-shadow 0.2s ease-in-out; top: 35%; width: 100%; z-index: 1; }
+.app .book-info .title, .app .collection-info .title, .app .library-info .title, .app .new-inner-wrapper .title, .app .portal-info .title { font-family: "OpenSansLight"; font-size: 200%; margin: 0 0 1rem 0; }
+.app .book-info .title a, .app .collection-info .title a, .app .library-info .title a, .app .new-inner-wrapper .title a, .app .portal-info .title a { color: #fcfcfc; }
+.app .book-info .explore-book, .app .book-info .collect-close, .app .collection-info .explore-book, .app .collection-info .collect-close, .app .library-info .explore-book, .app .library-info .collect-close, .app .new-inner-wrapper .explore-book, .app .new-inner-wrapper .collect-close, .app .portal-info .explore-book, .app .portal-info .collect-close { margin: 1rem auto; padding: 0.5rem; background-color: #fcfcfc; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; transition: visibility 0.1s ease-in-out; visibility: hidden; width: 50%; }
+.app .book-info .explore-book:hover, .app .book-info .collect-close:hover, .app .collection-info .explore-book:hover, .app .collection-info .collect-close:hover, .app .library-info .explore-book:hover, .app .library-info .collect-close:hover, .app .new-inner-wrapper .explore-book:hover, .app .new-inner-wrapper .collect-close:hover, .app .portal-info .explore-book:hover, .app .portal-info .collect-close:hover { opacity: 0.7; }
+.app .book-info .author-name, .app .book-info .library-location, .app .collection-info .author-name, .app .collection-info .library-location, .app .library-info .author-name, .app .library-info .library-location, .app .new-inner-wrapper .author-name, .app .new-inner-wrapper .library-location, .app .portal-info .author-name, .app .portal-info .library-location { font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
+.app .book-info .author-name a, .app .book-info .library-location a, .app .collection-info .author-name a, .app .collection-info .library-location a, .app .library-info .author-name a, .app .library-info .library-location a, .app .new-inner-wrapper .author-name a, .app .new-inner-wrapper .library-location a, .app .portal-info .author-name a, .app .portal-info .library-location a { color: #fcfcfc; font-family: "OpenSansSemibold"; font-style: normal; text-transform: none; }
+.app .book-info .author-name, .app .collection-info .author-name, .app .library-info .author-name, .app .new-inner-wrapper .author-name, .app .portal-info .author-name { margin: 0 0 1rem 0; padding: 0 0 1rem 0; border-bottom: 1px solid rgba(252, 252, 252, 0.7); font-size: 85%; }
+.app .book-info .library-location, .app .collection-info .library-location, .app .library-info .library-location, .app .new-inner-wrapper .library-location, .app .portal-info .library-location { font-size: 70%; }
+.app #bookmarks-scroller { width: 300px; height: 100%; top: 0; right: -300px; background-color: #fcfcfc; border-left: 1px solid #e7e7e7; color: #191919; position: absolute; transition: all 0.5s ease; z-index: 1; }
 .app #bookmarks-header { width: 100%; height: 49px; top: 0; right: 0; background-color: #fcfcfc; border-bottom: 1px solid #e7e7e7; position: absolute; text-align: center; }
 .app #bookmarks-header h3 { margin: 7px 0 0 0; }
 .app #bm-wrapper { margin: 4rem 0 0 0; /* 50 */ }
@@ -381,13 +414,9 @@ blockquote {
 .app .bm-section-title { font-family: "OpenSansLight"; font-size: 1.3em; }
 
 /************************************************************************************** PROFILE/SCSS **/
-.profile { width: 100%; height: 100%; background-color: #fcfcfc; clear: left; font-family: "OpenSansRegular"; overflow-y: hidden; /* Start User Code */ /* End User Code */ }
+.profile { /* Start User Code */ /* End User Code */ }
 .profile .wrapper { text-align: center; width: 100%; }
-.profile #user-panel, .profile #book-scroller { float: left; height: 100%; position: relative; }
-.profile #disappear { width: 10px; height: 100%; top: 0; left: 300px; /* background: linear-gradient(to right, $white 0, rgba($white, 0.2) 80%, rgba($white, 0) 100%) transparent; */ box-shadow: 0 5px 1.5em rgba(25, 25, 25, 0.7); display: none; position: absolute; }
-.profile #user-panel { background-color: #70a1b1; overflow: hidden; width: 25%; }
-.profile #g-menu-toggle { width: 60px; height: 60px; top: 1rem; left: 1rem; background-color: transparent; background-image: url("../images/logo-menu-alt.png"); background-size: 60px; border-radius: 300rem; cursor: pointer; opacity: 0.7; position: absolute; transition: all 0.2s ease; z-index: 1; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-.profile #g-menu-toggle:hover { opacity: 1; }
+.profile #user-panel { /* background-color: $slate; */ }
 .profile .user-bg { width: auto; height: 60%; overflow: hidden; }
 .profile .user-bg img { width: auto; height: 100%; }
 .profile .user-avatar { width: 100%; height: auto; bottom: 210px; left: 0; overflow: hidden; position: absolute; text-align: center; /* z-index: 1; */ }
@@ -402,30 +431,9 @@ blockquote {
 .profile .user-data span { margin: 0 0 1rem 0; padding: 0 1rem; display: block; }
 .profile .user-data button { margin: 0 auto; padding: 0.5rem 1rem; background-color: #70a1b1; border: 0; border-radius: 300rem; color: #fcfcfc; cursor: pointer; font-family: "OpenSansLight"; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
 .profile .user-data button:hover { padding: 0.5rem 1.5rem; }
-.profile #book-scroller { overflow: hidden; /* bookmark positioning/animation */ width: 75%; }
-.profile #book-nav, .profile #user-book-list { height: auto; }
-.profile #book-nav li, .profile #user-book-list li { display: inline-block; }
-.profile #book-nav { margin: 0 0 1rem 1rem; padding: 1rem 0 0 0; border-bottom: 1px solid #e7e7e7; font-family: "OpenSansBold"; width: 97%; }
-.profile #book-nav li { margin: 0 1rem 0 0; }
-.profile #book-nav a { color: #bebebe; }
-.profile #book-nav #nav-bookmarks-toggle { top: -56px; right: -32px; font-family: "entyporegular"; font-size: 10em; margin: 0; position: absolute; transform: rotate(90deg); transition: all 0.5s ease; /* &:hover { right: 0; } */ -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); }
-.profile #book-nav #nav-bookmarks-toggle a { color: #df151a; }
-.profile #book-nav .current { padding: 0 0 1rem 0; }
-.profile #book-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.75rem 0; }
-.profile #user-book-list, .profile #user-collection-list, .profile #user-library-list { display: none; transition: all 0.5s ease; width: 100%; /* .mCSB_horizontal .mCSB_container { padding: 0.3rem 0 0 0; } */ }
-.profile .book, .profile .collection, .profile .library { width: 400px; height: auto; /* min-height: 500px; */ margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; transition: box-shadow 0.2s ease; }
-.profile .book .image-overlay, .profile .collection .image-overlay, .profile .library .image-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.3); display: block; position: absolute; }
-.profile .book:hover, .profile .collection:hover, .profile .library:hover { /* ooh factor */ /* box-shadow: 0 0 6px rgba($black, 0.6); */ }
-.profile .book:hover .book-info, .profile .book:hover .collection-info, .profile .book:hover .library-info, .profile .collection:hover .book-info, .profile .collection:hover .collection-info, .profile .collection:hover .library-info, .profile .library:hover .book-info, .profile .library:hover .collection-info, .profile .library:hover .library-info { text-shadow: 0 3px 6px #191919; }
-.profile .book-info, .profile .collection-info, .profile .library-info { color: #fcfcfc; padding: 0 1rem; position: absolute; text-align: center; text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7); transition: text-shadow 0.2s ease-in-out; top: 35%; width: 100%; z-index: 1; }
-.profile .book-info .title, .profile .collection-info .title, .profile .library-info .title { font-family: "OpenSansLight"; font-size: 200%; margin: 0 0 1rem 0; }
-.profile .book-info .title a, .profile .collection-info .title a, .profile .library-info .title a { color: #fcfcfc; }
-.profile .book-info .explore-book, .profile .book-info .collect-close, .profile .collection-info .explore-book, .profile .collection-info .collect-close, .profile .library-info .explore-book, .profile .library-info .collect-close { margin: 1rem auto; padding: 0.5rem; background-color: #fcfcfc; color: #191919; display: block; font-size: 70%; text-shadow: none; text-transform: uppercase; transition: visibility 0.1s ease-in-out; visibility: hidden; width: 50%; }
-.profile .book-info .explore-book:hover, .profile .book-info .collect-close:hover, .profile .collection-info .explore-book:hover, .profile .collection-info .collect-close:hover, .profile .library-info .explore-book:hover, .profile .library-info .collect-close:hover { opacity: 0.7; }
-.profile .book-info .author-name, .profile .book-info .library-location, .profile .collection-info .author-name, .profile .collection-info .library-location, .profile .library-info .author-name, .profile .library-info .library-location { font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
-.profile .book-info .author-name a, .profile .book-info .library-location a, .profile .collection-info .author-name a, .profile .collection-info .library-location a, .profile .library-info .author-name a, .profile .library-info .library-location a { color: #fcfcfc; font-family: "OpenSansSemibold"; font-style: normal; text-transform: none; }
-.profile .book-info .author-name, .profile .collection-info .author-name, .profile .library-info .author-name { margin: 0 0 1rem 0; padding: 0 0 1rem 0; border-bottom: 1px solid rgba(252, 252, 252, 0.7); font-size: 85%; }
-.profile .book-info .library-location, .profile .collection-info .library-location, .profile .library-info .library-location { font-size: 70%; }
+.profile .new-inner-wrapper { height: auto; top: 15%; }
+.profile .new-inner-wrapper .entypo { display: block; font-size: 20em; line-height: 0.6em; position: relative; }
+.profile .new-inner-wrapper div { display: block; margin: 4rem 0 0 0; }
 .profile .collection-pages, .profile .collection-contributors, .profile .library-books, .profile .library-contributors { display: inline-block; font-family: Georgia, serif; font-style: italic; text-transform: lowercase; }
 .profile .collection-pages span, .profile .collection-contributors span, .profile .library-books span, .profile .library-contributors span { font-style: normal; text-transform: none; }
 .profile .collection-pages:after, .profile .library-books:after { content: "\00a0\00b7"; font-family: "OpenSansBold"; }
@@ -481,7 +489,7 @@ blockquote {
 .book-creation #pages-scroller .new-thumb a { color: #191919; font-size: 5em; }
 .book-creation #pages-scroller img { width: 100%; height: auto; display: block; }
 .book-creation #pages-scroller .entypo { width: auto; height: auto; top: 1rem; left: 1rem; color: #fcfcfc; font-size: 3.5em; line-height: 0.5em; position: absolute; text-align: center; text-shadow: 0 0 1px #191919; /* creates outline */ z-index: 1; }
-.book-creation #pages-scroller .entypo:hover { opacity: 1; text-shadow: 0 0 3px #df151a; }
+.book-creation #pages-scroller .entypo:hover { opacity: 1; text-shadow: 0 0 3px #ff3b30; }
 .book-creation #pages-scroller span { bottom: 0; left: 0; background-color: rgba(252, 252, 252, 0.7); font-size: 0.7em; padding: 0.5rem; position: absolute; width: 100%; z-index: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .book-creation #layout-scroller ul li { padding: 1rem; }
 .book-creation #layout-scroller ul li:hover { background-color: #e7e7e7; opacity: 0.7; }
@@ -493,7 +501,7 @@ blockquote {
 .book-creation #publish-scroller #publish-header { background-color: #fcfcfc; height: 200px; /* padding: 0 1rem; */ position: fixed; }
 .book-creation #publish-scroller #publish-header button, .book-creation #publish-scroller #publish-header select, .book-creation #publish-scroller #publish-header input { width: 100%; /* height: 2rem; */ margin: 0 0 1rem 0; padding: 0 0 1rem 0; background-color: transparent; border: 0; font-size: 1em; text-align: center; }
 .book-creation #publish-scroller #publish-header select, .book-creation #publish-scroller #publish-header input { border-bottom: 1px dotted #191919; }
-.book-creation #publish-scroller #publish-header button { background-color: #00da3c; border-left: 1px solid #00da3c; color: #fcfcfc; padding: 1rem 0; }
+.book-creation #publish-scroller #publish-header button { background-color: #4cd964; border-left: 1px solid #4cd964; color: #fcfcfc; padding: 1rem 0; }
 .book-creation #publish-scroller #publish-header select { padding: 0 1rem 1rem 1rem; }
 .book-creation #publish-scroller #publish-header select option { text-align: center; width: 100%; }
 .book-creation #publish-scroller .collected-book-list { border-left: 1px solid #e7e7e7; margin: 200px 0 0 0; }
@@ -596,7 +604,7 @@ blockquote {
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem { padding: 0.5rem 0.5rem 0 1rem; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-geotag-elem { color: #191919; margin: 0.5rem 0; min-width: 100px; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc { padding: 0 0.5rem 0.5rem 1rem; }
-.book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .play-video { top: 50%; right: 15%; background-color: #00da3c; color: #fcfcfc; padding: 1rem; position: absolute; z-index: 1; }
+.book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .play-video { top: 50%; right: 15%; background-color: #4cd964; color: #fcfcfc; padding: 1rem; position: absolute; z-index: 1; }
 
 /******************************************************************************** IN-PLACE EDIT/SCSS **/
 .g-body #book-creation-wrapper .text-menu, .g-body .blank-preview-wrapper .text-menu, .g-body .frontcover-preview-wrapper .text-menu, .g-body .photo-preview-wrapper .text-menu, .g-body .text-preview-wrapper .text-menu, .g-body .integrated-preview-wrapper .text-menu, .g-body .phototext-preview-wrapper .text-menu, .g-body .phototext-ii-preview-wrapper .text-menu, .g-body .integrated-ii-preview-wrapper .text-menu, .g-body .video-preview-wrapper .text-menu, .g-body .book-creation-wrapper .text-menu { color: #fcfcfc; margin: -20px 0 0 -115px; position: absolute; transition: opacity 250ms, margin 250ms; -o-transition: opacity 250ms, margin 250ms; -ms-transition: opacity 250ms, margin 250ms; -moz-transition: opacity 250ms, margin 250ms; -webkit-transition: opacity 250ms, margin 250ms; }

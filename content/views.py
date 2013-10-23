@@ -280,6 +280,7 @@ class FullView(View):
             'books/full-view/{0}.html'.format(page.layout),
             context_instance=context)
 
+
 class CreateView(View):
 
     @method_decorator(login_required)
@@ -289,6 +290,7 @@ class CreateView(View):
 
         context['create'] = user
         return render_to_response('create/index.html', context_instance=context)
+
 
 class MeView(View):
 
@@ -300,6 +302,7 @@ class MeView(View):
         context['me'] = user
         return render_to_response('me/index.html', context_instance=context)
 
+
 class FeaturedView(View):
 
     @method_decorator(login_required)
@@ -310,6 +313,7 @@ class FeaturedView(View):
         context['featured'] = user
         return render_to_response('featured/index.html', context_instance=context)
 
+
 class DraftsView(View):
 
     @method_decorator(login_required)
@@ -319,3 +323,85 @@ class DraftsView(View):
 
         context['drafts'] = user
         return render_to_response('drafts/index.html', context_instance=context)
+
+
+class DimensionsView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['dimensions'] = user
+        return render_to_response('dimensions/index.html', context_instance=context)
+
+
+class PulseView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['pulse'] = user
+        return render_to_response('dimensions/pulse.html', context_instance=context)
+
+
+class ArtView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['art'] = user
+        return render_to_response('dimensions/art.html', context_instance=context)
+
+
+
+class WowView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['wow'] = user
+        return render_to_response('dimensions/wow.html', context_instance=context)
+
+
+
+class LifeView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['life'] = user
+        return render_to_response('dimensions/life.html', context_instance=context)
+
+
+
+class FlowView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['flow'] = user
+        return render_to_response('dimensions/flow.html', context_instance=context)
+
+
+
+class WonderView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        context = RequestContext(request)
+        user = request.user
+
+        context['wonder'] = user
+        return render_to_response('dimensions/wonder.html', context_instance=context)
+
