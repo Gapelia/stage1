@@ -63,7 +63,7 @@
         <to>/templates/books/books.jsp?id=$1&amp;name=$2</to>
     </rule>
     <outbound-rule>
-        <from>^/templates/books/books.jsp?id=([0-9]+)&amp;name=(.*)</from>
+        <from>^/templates/books/books.jsp?id=([0-9]+)&amp;name=(.*)$</from>
         <to>/book/$1/$2</to>
     </outbound-rule>
 
