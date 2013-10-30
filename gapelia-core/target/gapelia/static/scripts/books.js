@@ -1,59 +1,64 @@
-/////////////////////////////////////////////////////////////////////////////////////////// BOOKS.JS //
 
-$(document).ready(function() {
+	// Book Creation
+	// @Gapelia
+	// ====================================================================================
+	// Left Menus | Layout and page interaction | Right Menus | Content Creation
+
+	// Globals
+	var $vW = $(window).width(), $vH = $(window).height();
+
+	// Set menu height, necessary for scrollbar plugin
+	$("#pages-scroller").css("height", $vH - 52 + "px");
+	$("#layout-scroller").css("height", $vH - 52 + "px");
+	$("#comments-scroller").css("height", $vH - 52 + "px");
+
+	// Left Menus
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
 	$("#pages-toggle").click(function (e) {
-		$("#pages-scroller").toggle();
-		$("#layout-scroller").hide();
-		$("#comments-scroller").hide();
+		$("#pages-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#layout-toggle").click(function (e) {
-		$("#layout-scroller").toggle();
-		$("#pages-scroller").hide();
-		$("#comments-scroller").hide();
+		$("#layout-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#comments-toggle").click(function (e) {
-		$("#comments-scroller").toggle();
-		e.preventDefault();
-	});
-
-	$("#publish-toggle").click(function (e) {
-		$("#publish-scroller").toggle();
-		$("#pages-scroller").hide();
-		$("#layout-scroller").hide();
-		e.preventDefault();
-	});
-
-	// clicking on a page opens layout menu
-	$("#pages-scroller ul li").click(function (e) {
-		$("#pages-scroller").toggle();
-		$("#layout-scroller").toggle();
+		$("#comments-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#pages-scroller").mouseleave(function() {
-		$("#pages-scroller").fadeOut(850);
+		$("#pages-scroller").css("left", "-150px");
 	});
 
 	$("#layout-scroller").mouseleave(function() {
-		$("#layout-scroller").fadeOut(850);
+		$("#layout-scroller").css("left", "-150px");
 	});
 
 	$("#comments-scroller").mouseleave(function() {
-		$("#comments-scroller").fadeOut(850);
+		$("#comments-scroller").css("left", "-150px");
 	});
 
-	// set menu height
-	$("#pages-scroller").css("height", $(window).height() - 52 + "px");
-	$("#layout-scroller").css("height", $(window).height() - 52 + "px");
-	$("#comments-scroller").css("height", $(window).height() - 52 + "px");
+	// Layout and page interaction
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
-	// toggle layout switcher
+	// Clicking on a page in menu opens layout menu
+	$("#pages-scroller ul li").click(function (e) {
+
+		$("#pages-scroller").css("left", "-150px");
+		$("#layout-scroller").css("left", "0");
+		e.preventDefault();
+
+	});
+
+	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
+
 		$("#test-frontcover").toggle();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -63,9 +68,11 @@ $(document).ready(function() {
 		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
+
 	});
 
 	$("#select-photo-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").toggle();
 		$("#test-text").hide();
@@ -78,9 +85,11 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		e.preventDefault();
+
 	});
 
 	$("#select-text-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").toggle();
@@ -93,9 +102,11 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-horizontal-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -109,9 +120,11 @@ $(document).ready(function() {
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		// $(".pac-item").css("text-align", "center");
 		e.preventDefault();
+
 	});
 
 	$("#select-overlay-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -124,9 +137,11 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-phototext-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -139,9 +154,11 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-vertical-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -154,9 +171,11 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-video-layout").click(function (e) {
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -169,7 +188,25 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
+
+	// Right Menus
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
+
+	$("#publish-toggle").click(function (e) {
+		$("#publish-scroller").css("right", "0");
+		e.preventDefault();
+	});
+
+	$("#publish-scroller").mouseleave(function() {
+		$("#publish-scroller").css("right", "-200px");
+	});
+
+	// Content Creation
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
 	// Hide editor controls when typing, show when mouse moves
 	var interval = window.setInterval(function () {
@@ -179,7 +216,7 @@ $(document).ready(function() {
 		$("#back, #finish").fadeOut("fast");
 		window.clearInterval(interval);
 	};
-	
+
 	document.onmousemove = function () {
 		$("#back, #finish").fadeIn("fast");
 	};
@@ -200,5 +237,3 @@ $(document).ready(function() {
 
 		if (e.which == 13 && $(".pac-container:visible").length) return false;
 	});
-
-});

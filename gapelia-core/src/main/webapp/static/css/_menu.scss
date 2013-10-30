@@ -70,6 +70,20 @@
 
 .mp-level::after { z-index: -1; }
 
+.super-wrapper.mp-pushed {
+	#g-menu-toggle { opacity: 1; }
+
+	.book-info, .collection-info, .library-info, .new-inner-wrapper, .portal-info, canvas {
+		transition: all 0.2s ease;
+		z-index: 0 !important;
+	}
+
+	.featured-info {
+		opacity: 0.2;
+		transition: all 0.2s ease;
+	}
+}
+
 .super-wrapper.mp-pushed::after, .mp-level.mp-level-overlay::after {
 	width: 100%; height: 100%;
 

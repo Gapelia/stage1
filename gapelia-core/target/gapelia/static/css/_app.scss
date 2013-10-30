@@ -7,6 +7,7 @@
 	background-color: $white;
 	clear: left;
 	font-family: "OpenSansRegular";
+	font-size: 15px;
 	overflow: hidden;
 	position: relative;
 
@@ -39,16 +40,43 @@
 	}
 
 	#user-panel, #book-scroller,
-	#dimension-panel, #dimension-scroller {
+	#dimension-panel, #dimension-scroller,
+	#featured-panel, #featured-scroller {
 		float: left;
 		height: 100%;
 		position: relative;
 	}
 
-	#user-panel, #dimension-panel {
+	#user-panel,
+	#dimension-panel,
+	#featured-panel {
 		background-color: $gray-i;
 		overflow: hidden;
 		width: 25%;
+	}
+
+	#featured-panel {
+		.featured-info {
+			padding: 0 2rem;
+			text-align: left;
+			top: 38%;
+			z-index: 2;
+
+			p {
+				line-height: 1.3em;
+			}
+		}
+
+		canvas, img {
+			top: 0; left: 0;
+			position: absolute;
+		}
+
+		canvas {
+			opacity: 0.7;
+			/* transition: opacity 0.6s ease; */
+			z-index: 1;
+		}
 	}
 
 	#dimensions-landing-bg {
@@ -66,14 +94,14 @@
 		opacity: 0.7;
 		position: absolute;
 		transition: all 0.2s ease;
-		z-index: 1;
+		z-index: 2;
 
 		@include hide-text;
 
 		&:hover { opacity: 1; }
 	}
 
-	#book-nav, #dimension-nav {
+	#book-nav, #dimension-nav, #featured-nav {
 		width: 97%; height: auto;
 		margin: 0 0 1rem 1rem; padding: 1rem 0 0 0;
 
@@ -111,18 +139,18 @@
 			a {
 				border-bottom: 3px solid $slate;
 				color: $slate;
-				padding: 0 0 0.75rem 0;
+				padding: 0 0 0.74rem 0;
 			}
 		}
 	}
 
-	#book-scroller, #dimension-scroller {
+	#book-scroller, #dimension-scroller, #featured-scroller {
 		overflow: hidden; /* bookmark positioning/animation */
 		width: 75%;
 	}
 
 	#user-book-list, #user-collection-list, #user-library-list,
-	#dimension-list {
+	#book-list, #dimension-list, #library-list {
 		display: none;
 		transition: all 0.5s ease;
 		width: 100%;
@@ -156,7 +184,7 @@
 	}
 
 	.book-info, .collection-info, .library-info, .new-inner-wrapper,
-	.portal-info {
+	.portal-info, .featured-info {
 		color: $white;
 		padding: 0 1rem;
 		position: absolute;
@@ -223,7 +251,7 @@
 		color: $black;
 		position: absolute;
 		transition: all 0.5s ease;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	#bookmarks-header {

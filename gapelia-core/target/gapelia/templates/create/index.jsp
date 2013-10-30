@@ -70,8 +70,8 @@
 
 			<div id="finish">
 				<div id="settings-button"><a href="#" title="Settings">&#9998;</a></div>
-        <div id="publish-toggle"><a href="#" title="Publish">&#128213;</a></div>
-        <div id="close-button"><a href="{% url 'me' %}" title="Save and Close">&#10006;</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish">&nbsp;</a></div>
+        <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
 			</div>
 		</header>
 
@@ -337,6 +337,7 @@
 						<input type="search" name="s" placeholder="Add book to library"/>
 					</div>
 
+					<!--/
 					<ul id="ccc" class="collected-book-list">
 						<li class="collected-book">
 							<img src="/static/images/space-bb-small.JPG" alt=""/>
@@ -446,6 +447,7 @@
 							</div>
 						</li>
 					</ul>
+					/-->
 				</div>
 
 				<div id="create-book">
@@ -468,7 +470,6 @@
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
-
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -485,9 +486,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//New Page /-->
 
 						<!--/ Front Cover /-->
-
 						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none">
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
@@ -504,9 +505,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Front Cover /-->
 
 						<!--/ Photo /-->
-
 						<section id="test-photo" class="photo-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -524,9 +525,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Photo /-->
 
 						<!--/ Text /-->
-
 						<section id="test-text" class="text-preview-wrapper" style="display: none;">
 							<div class="text-preview">
 								<article>
@@ -541,9 +542,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Text /-->
 
 						<!--/ Horizontal /-->
-
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
 								<div class="button-wrapper">
@@ -563,9 +564,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Horizontal /-->
 
 						<!--/ Overlay /-->
-
 						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -581,9 +582,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Overlay /-->
 
 						<!--/ Photo/Text /-->
-
 						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -601,9 +602,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Photo/Text /-->
 
 						<!--/ Vertical /-->
-
 						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
 								<div class="button-wrapper">
@@ -623,9 +624,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Vertical /-->
 
 						<!--/ Video / -->
-
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
 							<div class="button-wrapper">
 								<button class="photo-picker">Change Video</button>
@@ -649,6 +650,7 @@
 								</div>
 							</div>
 						</section>
+						<!--//Video / -->
 
 					</div>
 				</div>
@@ -659,7 +661,6 @@
 		<script src="/static/scripts/grande.js"></script>
 		<script>grande.bind();</script>
 
-		<!--/ <script src="/static/scripts/gapelia.js"></script> /-->
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
@@ -681,20 +682,12 @@
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
-			/*
-			$(function() { $(".frontcover-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".photo-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".phototext-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".overlay-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".vertical-preview-wrapper").backgroundDraggable(); });
-			*/
-
 			// Horizontal and Vertical layouts
 			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/mousewheel.js"></script>
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
@@ -777,54 +770,7 @@
 			var geotag20 = document.getElementById("geotag-20");
 			autocomplete = new google.maps.places.Autocomplete(geotag20);
 		</script>
-
-		<!--/
-		<script>
-			// Non-blocking Filepicker
-			(function (a) {
-
-				if (window.filepicker) { return }
-
-				var b = a.createElement("script");
-				b.type = "text/javascript";
-				b.async = !0;
-				b.src = ("https:" === a.location.protocol ? "https:" : "http:") + "//api.filepicker.io/v1/filepicker.js";
-
-				var c = a.getElementsByTagName("script")[0];
-				c.parentNode.insertBefore(b, c);
-
-				var d = {};
-				d._queue = [];
-
-				var e = "pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");
-				var f = function (a, b) {
-					return function () {
-						b.push([a, arguments])
-					}
-				};
-
-				for (var g = 0; g < e.length; g++) {
-					d[e[g]] = f(e[g], d._queue)
-				}
-
-				window.filepicker = d
-
-			})(document);
-		</script>
-		/-->
-
-		<!--/ <script src="/static/js/app/book-edit.js"></script> /-->
-
-		<!--/
-		<script src="/static/scripts/imgLiquid.min.js"></script>
-
-		<script>
-			$(function() {
-				$(".frontcover-preview-wrapper, .photo-preview-wrapper, .phototext-preview-wrapper, .integrated-ii-preview-wrapper").imgLiquid({ fill: true });
-				// $(".imgLiquidNoFill").imgLiquid({ fill: false });
-			});
-		</script>
-		/-->
+		<!--//scripts /-->
 
 	</body>
 

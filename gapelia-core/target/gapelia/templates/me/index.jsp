@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>[username]'s Library | Gapelia</title>
+		<title>Your Library | Gapelia</title>
 
 		<!--/ ME VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -43,32 +43,24 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="{% url 'dimensions' %}">Gapelia</a></h2>
+					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a class="" href="{% url 'featured' %}">Featured</a></li>
-						<li><a class="" href="{% url 'me' %}">Me</a></li>
-						<li><a class="" href="{% url 'create' %}">New Book</a></li>
-						<li><a class="" href="{% url 'drafts' %}">Drafts</a></li>
+						<li><a class="" href="/me">Me</a></li>
+						<li><a class="" href="/create">New Book</a></li>
+						<li><a class="" href="/drafts">Drafts</a></li>
 					</ul>
 
 					<div id="account-links">
-						<!--/
-						<a href="#"><img src="{{ user|get_user_avatar }}"/></a>
-						<li><a href="{% url 'user-profile' user.username %}">View Profile</a></li>
-						<li><a href="{% url 'edit-profile' %}">Edit Profile</a></li>
-						<li><a href="{% url 'profile-settings' %}">Settings</a></li>
-						<li><a href="{% url 'signout' %}">Log Out</a></li>
-						/-->
-
-						<a href="{% url 'profile-settings' %}">Account</a>
-						<a href="{% url 'signout' %}">Sign Out</a>
+						<a href="/accounts">Account</a>
+						<a href="#">Sign Out</a>
 					</div>
 
 				</div>
 			</nav>
 			<!--//site-menu /-->
 
+			<!--/ bookmarks-menu /-->
 			<div id="bookmarks-scroller">
 				<div id="bookmarks-header">
 					<h3>Paul Anthony Webb</h3>
@@ -146,7 +138,9 @@
 					</dl>
 				</div>
 			</div>
+			<!--//bookmarks-menu /-->
 
+			<!--/ main-panel /-->
 			<div id="user-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
@@ -174,7 +168,9 @@
 					<img src="{{ user|get_user_avatar }}"/>
 				</div>
 			</div>
+			<!--//main-panel /-->
 
+			<!--/ main-scroller /-->
 			<div id="book-scroller">
 				<ul id="book-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
@@ -195,7 +191,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -211,7 +207,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -227,7 +223,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -243,7 +239,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -259,7 +255,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -275,7 +271,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -291,7 +287,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -307,7 +303,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -323,7 +319,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -339,7 +335,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<!--/ <div class="author-name">Published by <a href="#">Spaceman Fresh</a></div> /-->
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -706,6 +702,7 @@
 				</div>
 				<!--//User's Library /-->
 			</div>
+			<!--//main-scroller /-->
 
 		</div>
 
@@ -847,14 +844,6 @@
 					e.preventDefault();
 
 				});
-
-				/*
-				$("#bookmarks-scroller").mCustomScrollbar({
-					autoHideScrollbar: false,
-					horizontalScroll: false,
-					theme: "dark-thin"
-				});
-				*/
 
 			});
 		</script>
