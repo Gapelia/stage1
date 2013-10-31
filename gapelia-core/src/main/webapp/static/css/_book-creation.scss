@@ -63,7 +63,6 @@
 
 	#pages-scroller, #layout-scroller, #comments-scroller, #publish-scroller {
 		background-color: $gray-i;
-		/* display: none; */
 		height: 100%;
 		position: absolute;
 		top: 50px;
@@ -186,8 +185,10 @@
 		width: 200px;
 
 		#publish-header {
+			width: 100%; /* 200px */ height: 200px;
+
 			background-color: $white;
-			height: 200px;
+			padding: 0 1rem;
 			position: fixed;
 
 			button, select, input {

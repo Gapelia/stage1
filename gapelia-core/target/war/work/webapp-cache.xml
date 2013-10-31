@@ -331,6 +331,15 @@
           <string>static/scripts/. unused/jcircular.js</string>
           <string>static/scripts/. unused/jquery-1.9.1.js</string>
           <string>static/scripts/. unused/jquery-migrate-1.2.1.js</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/.gitattributes</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/.gitignore</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/bower.json</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/demo.html</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/jquery.placeholder.js</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/LICENSE-MIT.txt</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/README.md</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/tests/index.html</string>
+          <string>static/scripts/. unused/jquery-placeholder-master/tests/tests.js</string>
           <string>static/scripts/. unused/jquery-ui-1.10.3.custom.min.js</string>
           <string>static/scripts/. unused/jquery-ui.min.js</string>
           <string>static/scripts/. unused/jquery.resizeimagetoparent.js</string>
@@ -384,6 +393,8 @@
           <string>static/scripts/nprogress.js</string>
           <string>static/scripts/pace-jshint.js</string>
           <string>static/scripts/pace.js</string>
+          <string>static/scripts/placeholder.js</string>
+          <string>static/scripts/placeholders.js</string>
           <string>static/scripts/scrollpanel.js</string>
           <string>static/scripts/selectize.js</string>
           <string>static/scripts/sortable.js</string>

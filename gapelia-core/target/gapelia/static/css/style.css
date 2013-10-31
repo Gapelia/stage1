@@ -516,7 +516,7 @@ blockquote {
 .book-creation header #back div:last-child, .book-creation header #finish div:last-child { width: 34%; }
 .book-creation header #back { float: left; width: 150px; }
 .book-creation header #finish { float: right; width: 200px; }
-.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller, .book-creation #publish-scroller { background-color: #e7e7e7; /* display: none; */ height: 100%; position: absolute; top: 50px; transition: all 0.5s ease; z-index: 1; }
+.book-creation #pages-scroller, .book-creation #layout-scroller, .book-creation #comments-scroller, .book-creation #publish-scroller { background-color: #e7e7e7; height: 100%; position: absolute; top: 50px; transition: all 0.5s ease; z-index: 1; }
 .book-creation #pages-scroller .sp-scrollbar, .book-creation #layout-scroller .sp-scrollbar, .book-creation #comments-scroller .sp-scrollbar, .book-creation #publish-scroller .sp-scrollbar { background-color: #cfcfcf; cursor: pointer; width: 10px; }
 .book-creation #pages-scroller .sp-scrollbar .sp-thumb, .book-creation #layout-scroller .sp-scrollbar .sp-thumb, .book-creation #comments-scroller .sp-scrollbar .sp-thumb, .book-creation #publish-scroller .sp-scrollbar .sp-thumb { background-color: #bebebe; transition: height 0.2s ease-in-out; }
 .book-creation #pages-scroller .sp-scrollbar.active .sp-thumb, .book-creation #layout-scroller .sp-scrollbar.active .sp-thumb, .book-creation #comments-scroller .sp-scrollbar.active .sp-thumb, .book-creation #publish-scroller .sp-scrollbar.active .sp-thumb { background-color: #bebebe; }
@@ -537,7 +537,7 @@ blockquote {
 .book-creation #layout-scroller ul li span { width: 100%; height: auto; text-align: center; }
 .book-creation #layout-scroller .selected-layout { background-color: #cfcfcf; }
 .book-creation #publish-scroller { background-color: #fcfcfc; right: -200px; /* 0 */ width: 200px; }
-.book-creation #publish-scroller #publish-header { background-color: #fcfcfc; height: 200px; position: fixed; }
+.book-creation #publish-scroller #publish-header { width: 100%; /* 200px */ height: 200px; background-color: #fcfcfc; padding: 0 1rem; position: fixed; }
 .book-creation #publish-scroller #publish-header button, .book-creation #publish-scroller #publish-header select, .book-creation #publish-scroller #publish-header input { margin: 0 0 1rem 0; padding: 0 0 1rem 0; background-color: transparent; border: 0; font-size: 1em; text-align: center; width: 100%; }
 .book-creation #publish-scroller #publish-header select, .book-creation #publish-scroller #publish-header input { border-bottom: 1px dotted #191919; }
 .book-creation #publish-scroller #publish-header button { background-color: #4cd964; border-left: 1px solid #4cd964; color: #fcfcfc; padding: 1rem 0; }

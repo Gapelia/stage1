@@ -86,7 +86,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<section>
-								<img src="{{STATIC_URL}}images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
+								<img src="static/images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
 								<span>01 &middot; Front Cover</span>
 							</section>
 						</li>
@@ -95,7 +95,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-02-thumb" alt=""/>
 								<span>02 &middot; Beautiful Skyline in Tokyo Bay</span>
 							</a>
 						</li>
@@ -104,7 +104,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-03-thumb" alt=""/>
 								<span>03 &middot; Underground Passage</span>
 							</a>
 						</li>
@@ -113,7 +113,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-04-thumb" alt=""/>
 								<span>04 &middot; New Page</span>
 							</a>
 						</li>
@@ -128,7 +128,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-05-thumb" alt=""/>
 								<span>05 &middot; </span>
 							</a>
 						</li>
@@ -137,7 +137,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-06-thumb" alt=""/>
 								<span>06 &middot; </span>
 							</a>
 						</li>
@@ -146,7 +146,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-07-thumb" alt=""/>
 								<span>07 &middot; </span>
 							</a>
 						</li>
@@ -155,7 +155,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-08-thumb" alt=""/>
 								<span>08 &middot; </span>
 							</a>
 						</li>
@@ -164,7 +164,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-09-thumb" alt=""/>
 								<span>09 &middot; </span>
 							</a>
 						</li>
@@ -173,7 +173,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-10-thumb" alt=""/>
 								<span>10 &middot; </span>
 							</a>
 						</li>
@@ -182,7 +182,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-11-thumb" alt=""/>
 								<span>11 &middot; </span>
 							</a>
 						</li>
@@ -191,7 +191,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-12-thumb" alt=""/>
 								<span>12 &middot; </span>
 							</a>
 						</li>
@@ -200,7 +200,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-13-thumb" alt=""/>
 								<span>13 &middot; </span>
 							</a>
 						</li>
@@ -209,7 +209,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-14-thumb" alt=""/>
 								<span>14 &middot; </span>
 							</a>
 						</li>
@@ -218,7 +218,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-15-thumb" alt=""/>
 								<span>15 &middot; </span>
 							</a>
 						</li>
@@ -227,7 +227,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-16-thumb" alt=""/>
 								<span>16 &middot; </span>
 							</a>
 						</li>
@@ -236,7 +236,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-17-thumb" alt=""/>
 								<span>17 &middot; </span>
 							</a>
 						</li>
@@ -245,7 +245,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-18-thumb" alt=""/>
 								<span>18 &middot; </span>
 							</a>
 						</li>
@@ -254,7 +254,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-19-thumb" alt=""/>
 								<span>19 &middot; </span>
 							</a>
 						</li>
@@ -263,7 +263,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-20-thumb" alt=""/>
 								<span>20 &middot; </span>
 							</a>
 						</li>
@@ -497,10 +497,14 @@
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<!--/ <h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"><span class="placeholder">Write your title here</span></h1> /-->
+									<!--/ <input class="page-title-elem" contenteditable="true" placeholder="Write your title here"> /-->
+									<h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
 
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Write your description here.</span></div>
+									<!--/ <div class="page-desc" contenteditable="true" placeholder="Write your description here."><span class="placeholder">Write your description here.</span></div> /-->
+									<!--/ <input class="page-desc" contenteditable="true" placeholder="Write your description here."> /-->
+									<div class="page-desc" contenteditable="true" placeholder="Write your description here."></div>
 
 								</article>
 							</div>
@@ -664,6 +668,17 @@
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
+		<script src="/static/scripts/placeholder.js"></script>
+
+		<script>
+			$(function() {
+
+				// Invoke the plugin
+				// $("h1").placeholder();
+
+			});
+		</script>
+
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>
 
@@ -694,7 +709,7 @@
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
 
-			$("#publish-scroller").scrollpanel();
+			// $("#publish-scroller").scrollpanel();
 		</script>
 
 		<!--/ scripts/page-sorter /-->
