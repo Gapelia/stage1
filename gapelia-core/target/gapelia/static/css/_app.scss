@@ -149,14 +149,14 @@
 		width: 75%;
 	}
 
-	#user-book-list, #user-collection-list, #user-library-list,
+	#user-book-list, #user-collection-list, #user-library-list, #user-draft-list,
 	#book-list, #dimension-list, #library-list {
 		display: none;
 		transition: all 0.5s ease;
 		width: 100%;
 	}
 
-	.book, .collection, .library, .new,
+	.book, .collection, .library, .new, .draft,
 	.portal {
 		width: 400px; height: auto;
 		margin: 0 0 0 1rem; padding: 0;
@@ -179,11 +179,11 @@
 		&:hover {
 			/* ooh factor */
 			/* box-shadow: 0 0 6px rgba($black, 0.6); */
-			.book-info, .collection-info, .library-info { text-shadow: 0 3px 6px $black; }
+			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black; }
 		}
 	}
 
-	.book-info, .collection-info, .library-info, .new-inner-wrapper,
+	.book-info, .collection-info, .library-info, .new-inner-wrapper, .draft-info,
 	.portal-info, .featured-info {
 		color: $white;
 		padding: 0 1rem;

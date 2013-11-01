@@ -27,6 +27,7 @@ $(document).ready(function() {
 	$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 	$("#user-collection-list .collection, #user-collection-list .new").css("height", $vH - 97 + "px");
 	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
+	$("#user-draft-list .draft").css("height", $vH - 97 + "px");
 
 	// Set height of books in feed on "Featured" page
 	$("#book-list .book").css("height", $vH - 97 + "px");

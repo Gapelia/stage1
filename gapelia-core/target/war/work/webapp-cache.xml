@@ -39,6 +39,10 @@
           <string>static/font-face/Entypo.svg</string>
           <string>static/font-face/Entypo.ttf</string>
           <string>static/font-face/Entypo.woff</string>
+          <string>static/font-face/Entypo2.eot</string>
+          <string>static/font-face/Entypo2.svg</string>
+          <string>static/font-face/Entypo2.ttf</string>
+          <string>static/font-face/Entypo2.woff</string>
           <string>static/font-face/icomoon.eot</string>
           <string>static/font-face/icomoon.svg</string>
           <string>static/font-face/icomoon.ttf</string>
@@ -384,6 +388,7 @@
           <string>static/scripts/gradient.linear.js</string>
           <string>static/scripts/gradient.radial.js</string>
           <string>static/scripts/grande.js</string>
+          <string>static/scripts/grande.old.js</string>
           <string>static/scripts/jquery-1.10.2.js</string>
           <string>static/scripts/jquery-2.0.2.js</string>
           <string>static/scripts/jquery.mCustomScrollbar.js</string>

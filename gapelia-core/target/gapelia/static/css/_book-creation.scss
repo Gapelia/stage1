@@ -185,11 +185,13 @@
 		width: 200px;
 
 		#publish-header {
-			width: 100%; /* 200px */ height: 200px;
+			width: 200px; /* 200px */ height: 200px;
 
 			background-color: $white;
-			padding: 0 1rem;
+			padding: 0 0.5rem;
 			position: fixed;
+
+			.selectize-control { width: 100%; }
 
 			button, select, input {
 				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
@@ -197,7 +199,6 @@
 				background-color: transparent;
 				border: 0;
 				font-size: 1em;
-				text-align: center;
 				width: 100%;
 			}
 
@@ -208,10 +209,12 @@
 				border-left: 1px solid $green;
 				color: $white;
 				padding: 1rem 0;
+				text-align: center;
 			}
 
 			select {
 				padding: 0 1rem 1rem 1rem;
+				text-align: left;
 
 				option {
 					text-align: center;

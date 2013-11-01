@@ -41,6 +41,7 @@
 
 		<script>
 			$(function() {
+
 				$("#input-tags").selectize({
 					delimiter: ",",
 					maxItems: 3,
@@ -54,6 +55,13 @@
 				});
 
 				$("#book-dimension-picker").selectize();
+
+				$("#library-search").selectize({
+					create: true,
+					sortField: "text",
+					dropdownParent: "body"
+				});
+
 			});
 		</script>
 
@@ -70,13 +78,12 @@
 
 			<div id="finish">
 				<div id="settings-button"><a href="#" title="Settings">&#9998;</a></div>
-        <div id="publish-toggle"><a href="#" title="Publish">&nbsp;</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
         <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
 			</div>
 		</header>
 
 		<!--/ main-content /-->
-
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 				<div id="pages-scroller">
@@ -276,7 +283,7 @@
 
 				<div id="layout-scroller">
 					<ul>
-						<li id="select-frontcover-layout" class="selected-layout">
+						<li id="select-frontcover-layout">
 							<img src="/static/images/view-modes/front.png" alt=""/>
 							<span>Front Cover</span>
 						</li>
@@ -334,7 +341,25 @@
 
 						<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
 
-						<input type="search" name="s" placeholder="Add book to library"/>
+						<select id="library-search" class="demo-default" placeholder="Add book to library">
+							<option value="">Add book to library</option>
+							<option value="1">Architecture</option>
+							<option value="2">Biography</option>
+							<option value="3">Cuisine</option>
+							<option value="4">Era</option>
+							<option value="5">The Far East</option>
+							<option value="6">Fashionista</option>
+							<option value="7">Future</option>
+							<option value="8">Historian</option>
+							<option value="9">Into the Wild</option>
+							<option value="10">Manifesto</option>
+							<option value="11">Modernism</option>
+							<option value="12">Movie</option>
+							<option value="13">Museum</option>
+							<option value="14">On the Road</option>
+							<option value="15">Subculture</option>
+							<option value="16">Village</option>
+						</select>
 					</div>
 
 					<!--/
@@ -660,10 +685,11 @@
 				</div>
 			</div>
 		</section>
+		<!--//main-content /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/grande.js"></script>
-		<script>grande.bind();</script>
+		<script>grande.bind(document.querySelectorAll("article"));</script>
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>

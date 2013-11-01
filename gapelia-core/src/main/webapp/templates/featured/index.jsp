@@ -64,7 +64,7 @@
 					<ul>
 						<li><a class="" href="/me">Me</a></li>
 						<li><a class="" href="/create">New Book</a></li>
-						<li><a class="" href="/drafts">Drafts</a></li>
+						<!--/ <li><a class="" href="/drafts">Drafts</a></li> /-->
 					</ul>
 
 					<div id="account-links">
