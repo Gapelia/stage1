@@ -31,3 +31,21 @@
 		-webkit-transform: rotate(3deg) translate(0px, -4px);
 	}
 }
+
+.pace {
+	.pace-progress {
+		top: 0; left: 0;
+
+		background-color: $slate;
+		height: 2px;
+		position: fixed;
+		transition: width 1s;
+		z-index: 2000;
+
+		-o-transition: width 1s;
+		-moz-transition: width 1s;
+		-webkit-transition: width 1s;
+	}
+}
+
+.pace-inactive { display: none; }

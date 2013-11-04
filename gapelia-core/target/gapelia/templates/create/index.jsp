@@ -41,6 +41,7 @@
 
 		<script>
 			$(function() {
+
 				$("#input-tags").selectize({
 					delimiter: ",",
 					maxItems: 3,
@@ -54,6 +55,13 @@
 				});
 
 				$("#book-dimension-picker").selectize();
+
+				$("#library-search").selectize({
+					create: true,
+					sortField: "text",
+					dropdownParent: "body"
+				});
+
 			});
 		</script>
 
@@ -70,13 +78,12 @@
 
 			<div id="finish">
 				<div id="settings-button"><a href="#" title="Settings">&#9998;</a></div>
-        <div id="publish-toggle"><a href="#" title="Publish">&#128213;</a></div>
-        <div id="close-button"><a href="{% url 'me' %}" title="Save and Close">&#10006;</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
+        <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
 			</div>
 		</header>
 
 		<!--/ main-content /-->
-
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 				<div id="pages-scroller">
@@ -86,7 +93,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<section>
-								<img src="{{STATIC_URL}}images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
+								<img src="static/images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
 								<span>01 &middot; Front Cover</span>
 							</section>
 						</li>
@@ -95,7 +102,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-02-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-02-thumb" alt=""/>
 								<span>02 &middot; Beautiful Skyline in Tokyo Bay</span>
 							</a>
 						</li>
@@ -104,7 +111,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-03-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-03-thumb" alt=""/>
 								<span>03 &middot; Underground Passage</span>
 							</a>
 						</li>
@@ -113,7 +120,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-04-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-04-thumb" alt=""/>
 								<span>04 &middot; New Page</span>
 							</a>
 						</li>
@@ -128,7 +135,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-05-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-05-thumb" alt=""/>
 								<span>05 &middot; </span>
 							</a>
 						</li>
@@ -137,7 +144,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-06-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-06-thumb" alt=""/>
 								<span>06 &middot; </span>
 							</a>
 						</li>
@@ -146,7 +153,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-07-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-07-thumb" alt=""/>
 								<span>07 &middot; </span>
 							</a>
 						</li>
@@ -155,7 +162,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-08-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-08-thumb" alt=""/>
 								<span>08 &middot; </span>
 							</a>
 						</li>
@@ -164,7 +171,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-09-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-09-thumb" alt=""/>
 								<span>09 &middot; </span>
 							</a>
 						</li>
@@ -173,7 +180,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-10-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-10-thumb" alt=""/>
 								<span>10 &middot; </span>
 							</a>
 						</li>
@@ -182,7 +189,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-11-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-11-thumb" alt=""/>
 								<span>11 &middot; </span>
 							</a>
 						</li>
@@ -191,7 +198,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-12-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-12-thumb" alt=""/>
 								<span>12 &middot; </span>
 							</a>
 						</li>
@@ -200,7 +207,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-13-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-13-thumb" alt=""/>
 								<span>13 &middot; </span>
 							</a>
 						</li>
@@ -209,7 +216,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-14-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-14-thumb" alt=""/>
 								<span>14 &middot; </span>
 							</a>
 						</li>
@@ -218,7 +225,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-15-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-15-thumb" alt=""/>
 								<span>15 &middot; </span>
 							</a>
 						</li>
@@ -227,7 +234,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-16-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-16-thumb" alt=""/>
 								<span>16 &middot; </span>
 							</a>
 						</li>
@@ -236,7 +243,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-17-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-17-thumb" alt=""/>
 								<span>17 &middot; </span>
 							</a>
 						</li>
@@ -245,7 +252,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-18-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-18-thumb" alt=""/>
 								<span>18 &middot; </span>
 							</a>
 						</li>
@@ -254,7 +261,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-19-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-19-thumb" alt=""/>
 								<span>19 &middot; </span>
 							</a>
 						</li>
@@ -263,7 +270,7 @@
 							<a href="#" class="entypo">&#9749;</a>
 
 							<a href="">
-								<img src="{{STATIC_URL}}images/new-page-thumb.png" id="page-20-thumb" alt=""/>
+								<img src="static/images/new-page-thumb.png" id="page-20-thumb" alt=""/>
 								<span>20 &middot; </span>
 							</a>
 						</li>
@@ -276,7 +283,7 @@
 
 				<div id="layout-scroller">
 					<ul>
-						<li id="select-frontcover-layout" class="selected-layout">
+						<li id="select-frontcover-layout">
 							<img src="/static/images/view-modes/front.png" alt=""/>
 							<span>Front Cover</span>
 						</li>
@@ -334,9 +341,28 @@
 
 						<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
 
-						<input type="search" name="s" placeholder="Add book to library"/>
+						<select id="library-search" class="demo-default" placeholder="Add book to library">
+							<option value="">Add book to library</option>
+							<option value="1">Architecture</option>
+							<option value="2">Biography</option>
+							<option value="3">Cuisine</option>
+							<option value="4">Era</option>
+							<option value="5">The Far East</option>
+							<option value="6">Fashionista</option>
+							<option value="7">Future</option>
+							<option value="8">Historian</option>
+							<option value="9">Into the Wild</option>
+							<option value="10">Manifesto</option>
+							<option value="11">Modernism</option>
+							<option value="12">Movie</option>
+							<option value="13">Museum</option>
+							<option value="14">On the Road</option>
+							<option value="15">Subculture</option>
+							<option value="16">Village</option>
+						</select>
 					</div>
 
+					<!--/
 					<ul id="ccc" class="collected-book-list">
 						<li class="collected-book">
 							<img src="/static/images/space-bb-small.JPG" alt=""/>
@@ -446,6 +472,7 @@
 							</div>
 						</li>
 					</ul>
+					/-->
 				</div>
 
 				<div id="create-book">
@@ -468,7 +495,6 @@
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
-
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -485,9 +511,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//New Page /-->
 
 						<!--/ Front Cover /-->
-
 						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none">
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
@@ -496,17 +522,21 @@
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<!--/ <h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"><span class="placeholder">Write your title here</span></h1> /-->
+									<!--/ <input class="page-title-elem" contenteditable="true" placeholder="Write your title here"> /-->
+									<h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
 
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Write your description here.</span></div>
+									<!--/ <div class="page-desc" contenteditable="true" placeholder="Write your description here."><span class="placeholder">Write your description here.</span></div> /-->
+									<!--/ <input class="page-desc" contenteditable="true" placeholder="Write your description here."> /-->
+									<div class="page-desc" contenteditable="true" placeholder="Write your description here."></div>
 
 								</article>
 							</div>
 						</section>
+						<!--//Front Cover /-->
 
 						<!--/ Photo /-->
-
 						<section id="test-photo" class="photo-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -524,9 +554,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Photo /-->
 
 						<!--/ Text /-->
-
 						<section id="test-text" class="text-preview-wrapper" style="display: none;">
 							<div class="text-preview">
 								<article>
@@ -541,9 +571,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Text /-->
 
 						<!--/ Horizontal /-->
-
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
 								<div class="button-wrapper">
@@ -563,9 +593,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Horizontal /-->
 
 						<!--/ Overlay /-->
-
 						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -581,9 +611,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Overlay /-->
 
 						<!--/ Photo/Text /-->
-
 						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
 							<div class="button-wrapper">
 								<!--/ <button class="photo-picker">Change Photo</button> /-->
@@ -601,9 +631,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Photo/Text /-->
 
 						<!--/ Vertical /-->
-
 						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
 								<div class="button-wrapper">
@@ -623,9 +653,9 @@
 								</article>
 							</div>
 						</section>
+						<!--//Vertical /-->
 
 						<!--/ Video / -->
-
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
 							<div class="button-wrapper">
 								<button class="photo-picker">Change Video</button>
@@ -649,19 +679,31 @@
 								</div>
 							</div>
 						</section>
+						<!--//Video / -->
 
 					</div>
 				</div>
 			</div>
 		</section>
+		<!--//main-content /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/grande.js"></script>
-		<script>grande.bind();</script>
+		<script>grande.bind(document.querySelectorAll("article"));</script>
 
-		<!--/ <script src="/static/scripts/gapelia.js"></script> /-->
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
+
+		<script src="/static/scripts/placeholder.js"></script>
+
+		<script>
+			$(function() {
+
+				// Invoke the plugin
+				// $("h1").placeholder();
+
+			});
+		</script>
 
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>
@@ -681,27 +723,19 @@
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
-			/*
-			$(function() { $(".frontcover-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".photo-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".phototext-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".overlay-preview-wrapper").backgroundDraggable(); });
-			$(function() { $(".vertical-preview-wrapper").backgroundDraggable(); });
-			*/
-
 			// Horizontal and Vertical layouts
 			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/mousewheel.js"></script>
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
 
-			$("#publish-scroller").scrollpanel();
+			// $("#publish-scroller").scrollpanel();
 		</script>
 
 		<!--/ scripts/page-sorter /-->
@@ -777,54 +811,7 @@
 			var geotag20 = document.getElementById("geotag-20");
 			autocomplete = new google.maps.places.Autocomplete(geotag20);
 		</script>
-
-		<!--/
-		<script>
-			// Non-blocking Filepicker
-			(function (a) {
-
-				if (window.filepicker) { return }
-
-				var b = a.createElement("script");
-				b.type = "text/javascript";
-				b.async = !0;
-				b.src = ("https:" === a.location.protocol ? "https:" : "http:") + "//api.filepicker.io/v1/filepicker.js";
-
-				var c = a.getElementsByTagName("script")[0];
-				c.parentNode.insertBefore(b, c);
-
-				var d = {};
-				d._queue = [];
-
-				var e = "pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");
-				var f = function (a, b) {
-					return function () {
-						b.push([a, arguments])
-					}
-				};
-
-				for (var g = 0; g < e.length; g++) {
-					d[e[g]] = f(e[g], d._queue)
-				}
-
-				window.filepicker = d
-
-			})(document);
-		</script>
-		/-->
-
-		<!--/ <script src="/static/js/app/book-edit.js"></script> /-->
-
-		<!--/
-		<script src="/static/scripts/imgLiquid.min.js"></script>
-
-		<script>
-			$(function() {
-				$(".frontcover-preview-wrapper, .photo-preview-wrapper, .phototext-preview-wrapper, .integrated-ii-preview-wrapper").imgLiquid({ fill: true });
-				// $(".imgLiquidNoFill").imgLiquid({ fill: false });
-			});
-		</script>
-		/-->
+		<!--//scripts /-->
 
 	</body>
 

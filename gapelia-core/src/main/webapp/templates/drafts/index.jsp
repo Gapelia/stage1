@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>[username]'s Drafts | Gapelia</title>
+		<title>Your Drafts | Gapelia</title>
 
 		<!--/ DRAFTS VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -32,7 +32,6 @@
 
 		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/nprogress.js"></script>
 
 	</head>
 

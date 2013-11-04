@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>[username]'s Library | Gapelia</title>
+		<title>Your Library | Gapelia</title>
 
 		<!--/ ME VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -43,32 +43,24 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="{% url 'dimensions' %}">Gapelia</a></h2>
+					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a class="" href="{% url 'featured' %}">Featured</a></li>
-						<li><a class="" href="{% url 'me' %}">Me</a></li>
-						<li><a class="" href="{% url 'create' %}">New Book</a></li>
-						<li><a class="" href="{% url 'drafts' %}">Drafts</a></li>
+						<li><a class="" href="/me">Me</a></li>
+						<li><a class="" href="/create">New Book</a></li>
+						<!--/ <li><a class="" href="/drafts">Drafts</a></li> /-->
 					</ul>
 
 					<div id="account-links">
-						<!--/
-						<a href="#"><img src="{{ user|get_user_avatar }}"/></a>
-						<li><a href="{% url 'user-profile' user.username %}">View Profile</a></li>
-						<li><a href="{% url 'edit-profile' %}">Edit Profile</a></li>
-						<li><a href="{% url 'profile-settings' %}">Settings</a></li>
-						<li><a href="{% url 'signout' %}">Log Out</a></li>
-						/-->
-
-						<a href="{% url 'profile-settings' %}">Account</a>
-						<a href="{% url 'signout' %}">Sign Out</a>
+						<a href="/accounts">Account</a>
+						<a href="#">Sign Out</a>
 					</div>
 
 				</div>
 			</nav>
 			<!--//site-menu /-->
 
+			<!--/ bookmarks-menu /-->
 			<div id="bookmarks-scroller">
 				<div id="bookmarks-header">
 					<h3>Paul Anthony Webb</h3>
@@ -146,7 +138,9 @@
 					</dl>
 				</div>
 			</div>
+			<!--//bookmarks-menu /-->
 
+			<!--/ main-panel /-->
 			<div id="user-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
@@ -174,12 +168,15 @@
 					<img src="{{ user|get_user_avatar }}"/>
 				</div>
 			</div>
+			<!--//main-panel /-->
 
+			<!--/ main-scroller /-->
 			<div id="book-scroller">
 				<ul id="book-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
 					<li id="nav-collections"><a href="#">Scrapbook</a></li>
 					<li id="nav-libraries"><a href="#">Library</a></li>
+					<li id="nav-drafts"><a href="#">Drafts</a></li>
 					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
 				</ul>
 
@@ -195,7 +192,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -211,7 +207,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -227,7 +222,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -243,7 +237,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -259,7 +252,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -275,7 +267,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -291,7 +282,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -307,7 +297,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -323,7 +312,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -339,7 +327,6 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
 								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
 							</div>
 
@@ -705,7 +692,31 @@
 					</ul>
 				</div>
 				<!--//User's Library /-->
+
+				<!--/ User's Drafts /-->
+				<div class="user-draft-list-wrapper">
+					<ul id="user-draft-list">
+
+						<li class="draft">
+							<ul class="edit-delete">
+								<li class="edit"><a href="#">&#9998;</a></li>
+								<li class="delete"><a href="#">&#9749;</a></li>
+							</ul>
+
+							<div class="draft-info">
+								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="draft-pages"><span>7</span> pages</div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-07.jpg" alt=""/>
+						</li>
+
+					</ul>
+				</div>
+				<!--//User's Drafts /-->
 			</div>
+			<!--//main-scroller /-->
 
 		</div>
 
@@ -762,6 +773,7 @@
 						$("#user-book-list").show();
 						$("#user-collection-list").hide();
 						$("#user-library-list").hide();
+						$("#user-draft-list").hide();
 
 						$("#user-book-list").mCustomScrollbar({
 							autoHideScrollbar: false,
@@ -772,6 +784,7 @@
 
 						$("#user-collection-list").mCustomScrollbar("destroy");
 						$("#user-library-list").mCustomScrollbar("destroy");
+						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -780,6 +793,7 @@
 					$("#nav-books").addClass("current");
 					$("#nav-collections").removeClass("current");
 					$("#nav-libraries").removeClass("current");
+					$("#nav-drafts").removeClass("current");
 					e.preventDefault();
 
 				});
@@ -792,6 +806,7 @@
 					$("#user-book-list").hide();
 					$("#user-collection-list").show();
 					$("#user-library-list").hide();
+					$("#user-draft-list").hide();
 
 					setTimeout(function() {
 
@@ -804,6 +819,7 @@
 
 						$("#user-book-list").mCustomScrollbar("destroy");
 						$("#user-library-list").mCustomScrollbar("destroy");
+						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -812,6 +828,7 @@
 					$("#nav-books").removeClass("current");
 					$("#nav-collections").addClass("current");
 					$("#nav-libraries").removeClass("current");
+					$("#nav-drafts").removeClass("current");
 					e.preventDefault();
 
 				});
@@ -824,6 +841,7 @@
 					$("#user-book-list").hide();
 					$("#user-collection-list").hide();
 					$("#user-library-list").show();
+					$("#user-draft-list").hide();
 
 					setTimeout(function() {
 
@@ -836,6 +854,7 @@
 
 						$("#user-book-list").mCustomScrollbar("destroy");
 						$("#user-collection-list").mCustomScrollbar("destroy");
+						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -844,17 +863,45 @@
 					$("#nav-books").removeClass("current");
 					$("#nav-collections").removeClass("current");
 					$("#nav-libraries").addClass("current");
+					$("#nav-drafts").removeClass("current");
 					e.preventDefault();
 
 				});
 
-				/*
-				$("#bookmarks-scroller").mCustomScrollbar({
-					autoHideScrollbar: false,
-					horizontalScroll: false,
-					theme: "dark-thin"
+				// Click "Drafts"
+				$("#nav-drafts").click(function (e) {
+
+					NProgress.start();
+
+					$("#user-book-list").hide();
+					$("#user-collection-list").hide();
+					$("#user-library-list").hide();
+					$("#user-draft-list").show();
+
+					setTimeout(function() {
+
+						$("#user-draft-list").mCustomScrollbar({
+							autoHideScrollbar: false,
+							horizontalScroll: true,
+							theme: "dark-thin",
+							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+						});
+
+						$("#user-book-list").mCustomScrollbar("destroy");
+						$("#user-collection-list").mCustomScrollbar("destroy");
+						$("#user-library-list").mCustomScrollbar("destroy");
+
+						NProgress.done();
+
+					});
+
+					$("#nav-books").removeClass("current");
+					$("#nav-collections").removeClass("current");
+					$("#nav-libraries").removeClass("current");
+					$("#nav-drafts").addClass("current");
+					e.preventDefault();
+
 				});
-				*/
 
 			});
 		</script>

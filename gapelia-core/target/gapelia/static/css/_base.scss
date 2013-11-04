@@ -98,7 +98,14 @@ $purple:		rgba(179, 86, 214, 1);	// #b356d6;
 	font-style: normal;
 	font-weight: 400;
 
+	src: local("☺"), url("../font-face/Entypo.svg#Entypo") format("svg");
+	src: url("../font-face/Entypo.eot"),
+			 url("../font-face/Entypo.eot?#iefix") format("embedded-opentype"),
+			 url("../font-face/Entypo.ttf") format("truetype"),
+			 url("../font-face/Entypo.woff") format("woff");
+
 	/* Base64 seems to be the best way for Entypo to work... :/ */
+	/*
 	src: url("data:font/ttf;base64,AAEAAAANAIAAAwBQRkZUTV4w6g4AAIokAAAAHEdERUYAKQD4AACKBAAAAB5PUy8yK65QhQAAAVgA
 						AABgY21hcHW/5wMAAAWAAAAJjmdhc3D//wADAACJ/AAAAAhnbHlmafapiQAAEPgAAGtsaGVhZPrW
 						rZwAAADcAAAANmhoZWEFGAJTAAABFAAAACRobXR43j0ufAAAAbgAAAPIbG9jYQkE7m4AAA8QAAAB
@@ -720,6 +727,16 @@ $purple:		rgba(179, 86, 214, 1);	// #b356d6;
 						cmFuY2gJZmxvdy10cmVlCWZsb3ctbGluZQ1mbG93LXBhcmFsbGVsB2RiLWxvZ28IZGItc2hhcGUG
 						cm9ja2V0BWJsb2NrCHN1aXRjYXNlBWdhdWdlDHRyYWZmaWMtY29uZQAAAAAB//8AAgABAAAADAAA
 						ABYAAAACAAEAAwDxAAEABAAAAAIAAAAAAAAAAQAAAADE25TXAAAAAMyn3UQAAAAAzK138g==") format("truetype");
+	*/
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: "entyporegular";
+		src: url("../font-face/Entypo.svg") format("svg");
+		font-style: normal;
+		font-weight: 400;
+	}
 }
 
 .entypo {
@@ -926,7 +943,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2rem; /* 35px */
+	font-size: 28px; /* 2rem ~ 35px */
 	line-height: 40px;
 	margin: 0 0 10px 0;
 }

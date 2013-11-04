@@ -23,14 +23,21 @@ $(document).ready(function() {
 		}
 	});
 
-	// Set height of books in feed
+	// Set height of books in feed on "Me" page
 	$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 	$("#user-collection-list .collection, #user-collection-list .new").css("height", $vH - 97 + "px");
 	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
+	$("#user-draft-list .draft").css("height", $vH - 97 + "px");
+
+	// Set height of books in feed on "Featured" page
+	$("#book-list .book").css("height", $vH - 97 + "px");
+	$("#dimension-list .portal").css("height", $vH - 97 + "px");
+	$("#library-list .library").css("height", $vH - 97 + "px");
 
 	// Set height of dimension portals in feed
 	$("#dimensions-landing-bg").css({ width: $dW + "px", height: $vH + "px" });
 	$("#dimension-list .portal, #dimension-list canvas").css("height", $vH - 97 + "px");
+
 	// $("#dimensions-landing-bg").css("height", $vH + "px");
 	// $("#dimension-list canvas").css({ width: $pW + "px", height: $vH - 97 + "px" });
 
@@ -89,6 +96,8 @@ $(document).ready(function() {
 	};
 
 	// Bookmark Logic
+	// @Gapelia
+
 	$("#nav-bookmarks-toggle").click(function (e) {
 		// $("#bookmarks-scroller").toggle();
 		$("#nav-bookmarks-toggle").css("right", "250px");
@@ -103,16 +112,6 @@ $(document).ready(function() {
 	});
 
 	$("#bookmarks-scroller").css("height", $vH + "px");
-
-	//
-
-	/*
-	$("<span/>", {
-		id: someID,
-		className: "foobar",
-		html: 32
-	});
-	*/
 
 	$("#bm-notifications span").html("14");
 	$("#bm-books span").html("8");

@@ -1,59 +1,74 @@
-/////////////////////////////////////////////////////////////////////////////////////////// BOOKS.JS //
 
-$(document).ready(function() {
+	// Book Creation
+	// @Gapelia
+	// ====================================================================================
+	// Left Menus | Layout and page interaction | Right Menus | Content Creation
+
+	// Globals
+	var $vW = $(window).width(), $vH = $(window).height();
+
+	// Set menu height, necessary for scrollbar plugin
+	$("#pages-scroller").css("height", $vH - 52 + "px");
+	$("#layout-scroller").css("height", $vH - 52 + "px");
+	$("#comments-scroller").css("height", $vH - 52 + "px");
+
+	// Left Menus
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
 	$("#pages-toggle").click(function (e) {
-		$("#pages-scroller").toggle();
-		$("#layout-scroller").hide();
-		$("#comments-scroller").hide();
+		$("#pages-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#layout-toggle").click(function (e) {
-		$("#layout-scroller").toggle();
-		$("#pages-scroller").hide();
-		$("#comments-scroller").hide();
+		$("#layout-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#comments-toggle").click(function (e) {
-		$("#comments-scroller").toggle();
-		e.preventDefault();
-	});
-
-	$("#publish-toggle").click(function (e) {
-		$("#publish-scroller").toggle();
-		$("#pages-scroller").hide();
-		$("#layout-scroller").hide();
-		e.preventDefault();
-	});
-
-	// clicking on a page opens layout menu
-	$("#pages-scroller ul li").click(function (e) {
-		$("#pages-scroller").toggle();
-		$("#layout-scroller").toggle();
+		$("#comments-scroller").css("left", "0");
 		e.preventDefault();
 	});
 
 	$("#pages-scroller").mouseleave(function() {
-		$("#pages-scroller").fadeOut(850);
+		$("#pages-scroller").css("left", "-150px");
 	});
 
 	$("#layout-scroller").mouseleave(function() {
-		$("#layout-scroller").fadeOut(850);
+		$("#layout-scroller").css("left", "-150px");
 	});
 
 	$("#comments-scroller").mouseleave(function() {
-		$("#comments-scroller").fadeOut(850);
+		$("#comments-scroller").css("left", "-150px");
 	});
 
-	// set menu height
-	$("#pages-scroller").css("height", $(window).height() - 52 + "px");
-	$("#layout-scroller").css("height", $(window).height() - 52 + "px");
-	$("#comments-scroller").css("height", $(window).height() - 52 + "px");
+	// Layout and page interaction
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
-	// toggle layout switcher
+	// Clicking on a page in menu opens layout menu
+	$("#pages-scroller ul li").click(function (e) {
+
+		$("#pages-scroller").css("left", "-150px");
+		$("#layout-scroller").css("left", "0");
+		e.preventDefault();
+
+	});
+
+	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").toggle();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -63,9 +78,21 @@ $(document).ready(function() {
 		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
+
 	});
 
 	$("#select-photo-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").toggle();
 		$("#test-text").hide();
@@ -78,9 +105,21 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		e.preventDefault();
+
 	});
 
 	$("#select-text-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").toggle();
@@ -93,9 +132,21 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-horizontal-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -109,9 +160,21 @@ $(document).ready(function() {
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		// $(".pac-item").css("text-align", "center");
 		e.preventDefault();
+
 	});
 
 	$("#select-overlay-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -124,9 +187,21 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-phototext-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -139,9 +214,21 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-vertical-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-video-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -154,9 +241,21 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
 
 	$("#select-video-layout").click(function (e) {
+
+		$(this).addClass("selected-layout");
+
+		$("#select-frontcover-layout").removeClass("selected-layout");
+		$("#select-photo-layout").removeClass("selected-layout");
+		$("#select-text-layout").removeClass("selected-layout");
+		$("#select-horizontal-layout").removeClass("selected-layout");
+		$("#select-overlay-layout").removeClass("selected-layout");
+		$("#select-phototext-layout").removeClass("selected-layout");
+		$("#select-vertical-layout").removeClass("selected-layout");
+
 		$("#test-frontcover").hide();
 		$("#test-photo").hide();
 		$("#test-text").hide();
@@ -169,7 +268,31 @@ $(document).ready(function() {
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "0").css("position", "relative");
 		e.preventDefault();
+
 	});
+
+	// Right Menus
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
+
+	$("#publish-toggle").click(function (e) {
+
+		$("#publish-scroller").css("right", "0");
+		e.preventDefault();
+
+	});
+
+	$("#publish-scroller, .selectize-control").mouseleave(function() {
+		$("#publish-scroller").css("right", "-200px");
+	});
+
+	$("#publish-scroller .selectize-control .item").mouseover(function() {
+		// $("#publish-scroller").css("right", "0");
+	});
+
+	// Content Creation
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
 
 	// Hide editor controls when typing, show when mouse moves
 	var interval = window.setInterval(function () {
@@ -179,14 +302,114 @@ $(document).ready(function() {
 		$("#back, #finish").fadeOut("fast");
 		window.clearInterval(interval);
 	};
-	
+
 	document.onmousemove = function () {
 		$("#back, #finish").fadeIn("fast");
 	};
 
+	//
+	/*
+	(function ($) {
+
+		var map = new Array();
+
+		$.Watermark = {
+			ShowAll: function () {
+
+				for (var i = 0; i < map.length; i++) {
+					if (map[i].obj.val() === "") {
+						map[i].obj.val(map[i].text);
+						map[i].obj.css("color", map[i].WatermarkColor);
+					} else {
+						map[i].obj.css("color", map[i].DefaultColor);
+					}
+				}
+
+			},
+			HideAll: function () {
+
+				for (var i = 0; i < map.length; i++) {
+					if (map[i].obj.val() == map[i].text)
+						map[i].obj.val("");
+				}
+
+			}
+		};
+
+		$.fn.Watermark = function (text, color) {
+
+			if (!color)
+				color = "#191919";
+			return this.each(
+				function () {
+
+					var input = $(this);
+					var defaultColor = input.css("color");
+
+					map[map.length] = {
+						text: text,
+						obj: input,
+						DefaultColor: defaultColor,
+						WatermarkColor: color
+					};
+
+					function clearMessage() {
+
+						if (input.val() == text)
+							input.val("");
+						input.css("color", defaultColor);
+
+					}
+
+					function insertMessage() {
+
+						if (input.val().length === 0 || input.val() == text) {
+							input.val(text);
+							input.css("color", color);
+						} else
+							input.css("color", defaultColor);
+
+					}
+
+					input.focus(clearMessage);
+					input.blur(insertMessage);
+					input.change(insertMessage);
+
+					insertMessage();
+
+				}
+			);
+
+		};
+
+	})(jQuery);
+
+	jQuery(function($) {
+
+		jQuery.Watermark.ShowAll()
+		$(".page-title-elem").Watermark("Type your title here");
+		$(".page-desc").Watermark("Type your description here.");
+
+	});
+	*/
+
+  // $('form').find("input[type=textarea], input[type=password], textarea").each(function(ev) {
+
+	$("h1").each(function(ev) {
+
+		if(!$(this).val()) {
+			$(this).html("Type your title here");
+		}
+
+		$(this).keydown(function() {
+			$(this).html("");
+		});
+
+  });
+
 	// Hide Placeholders When Typing
 	$(".page-title-elem").keydown(function (e) {
-		$(".page-title-elem .placeholder").hide();
+		$(".page-title-elem .placeholder").remove();
 	});
 
 	$(".page-desc").keydown(function (e) {
@@ -200,5 +423,3 @@ $(document).ready(function() {
 
 		if (e.which == 13 && $(".pac-container:visible").length) return false;
 	});
-
-});
