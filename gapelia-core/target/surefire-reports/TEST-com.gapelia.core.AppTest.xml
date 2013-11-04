@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.019" errors="0" skipped="0" tests="1" name="com.gapelia.core.AppTest">
+<testsuite failures="0" time="0.012" errors="0" skipped="0" tests="1" name="com.gapelia.core.AppTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -22,7 +22,7 @@
     <property name="basedir" value="/Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefirebooter746620660987886200.jar"/>
+    <property name="surefire.real.class.path" value="/Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefirebooter2850672823300196273.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/lx/vtvvvbbs7lgbqqhqqncljdc40000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -46,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="/Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefirebooter746620660987886200.jar /Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefire5204037595849544775tmp /Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefire6949377061283240890tmp"/>
+    <property name="sun.java.command" value="/Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefirebooter2850672823300196273.jar /Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefire7550604868784255641tmp /Users/abhishektiwari/Work/Gapelia/stage1/gapelia-core/target/surefire/surefire7276129667867693717tmp"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -65,5 +65,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.004" classname="com.gapelia.core.AppTest" name="testApp"/>
+  <testcase time="0.001" classname="com.gapelia.core.AppTest" name="testApp"/>
 </testsuite>

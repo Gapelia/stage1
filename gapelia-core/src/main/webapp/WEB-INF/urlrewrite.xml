@@ -14,6 +14,15 @@
     </rule>
 
     <rule>
+        <from>^/misc$</from>
+        <to>/templates/etc/sample.jsp</to>
+    </rule>
+    <outbound-rule>
+        <from>^/templates/etc/sample.jsp$</from>
+        <to>/misc</to>
+    </outbound-rule>
+
+    <rule>
         <from>^/me$</from>
         <to>/templates/me/index.jsp</to>
     </rule>

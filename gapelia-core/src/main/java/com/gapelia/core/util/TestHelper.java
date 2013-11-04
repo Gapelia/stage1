@@ -18,8 +18,8 @@ public class TestHelper {
 		user.setEmail("atiwari@gapelia.com");
 		user.setFacebookUrl("http://www.facebook.com/abhishektiwari23");
 		user.setGooglePlusUrl("https://plus.google.com/u/0/105321590596140922599/posts/p/pub");
-		user.setLastLoggedIn(Date.valueOf("10-10-1986"));
-		user.setMemberSince(Date.valueOf("10-10-1986"));
+		user.setLastLoggedIn(Date.valueOf("1986-10-10"));
+		user.setMemberSince(Date.valueOf("1986-10-10"));
 		user.setName("Shit Teleported");
 		user.setPhotoUrl("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c119.50.621.621/s160x160/579824_10152695402665363_1810401541_n.jpg");
 		user.setReputation(100.0);
@@ -33,12 +33,12 @@ public class TestHelper {
 		
 		for (int i=0;i<4;i++) {
 			Library library = new Library();
-			library.setCreated(Date.valueOf("10-10-1986"));
+			library.setCreated(Date.valueOf("1986-10-10"));
 			library.setCreatedByUserId("11011");
 			library.setDescription("This is library number : " + i);
 			library.setDisabled(false);
 			library.setPrivate(false);
-			library.setLastEdited(Date.valueOf("10-10-1986"));
+			library.setLastEdited(Date.valueOf("1986-10-10"));
 			library.setTitle("A dummy library");
 			library.setReputation(95.0 + i);
 			library.setLibraryId("9812" + i);
@@ -55,14 +55,14 @@ public class TestHelper {
 			Book book = new Book();
 			book.setBookId("6778" + i);
 			book.setCreatedByUserIds(new String[] { "11011" });
-			book.setCreatedDate(Date.valueOf("10-10-1986"));
+			book.setCreatedDate(Date.valueOf("1986-10-10"));
 			book.setDimension("Pulse");
 			book.setLanguage("en-us");
 			book.setPublished(true);
 			book.setTags(new String[] { "joy", "love", "fun"});
-			book.setLastEditedDate(Date.valueOf("10-10-1986"));
+			book.setLastEditedDate(Date.valueOf("1986-10-10"));
 			book.setTitle("This is a book");
-			book.setPublishedDate(Date.valueOf("10-10-1986"));
+			book.setPublishedDate(Date.valueOf("1986-10-10"));
 			book.setPages(getDummyPages());
 			books[i] = book;
 		}
@@ -87,6 +87,7 @@ public class TestHelper {
 			page.setTitle("This is a page");
 			page.setVideoUrl("http://www.youtube.com/watch?v=85eKmdX7tmI");
 			page.setTemplateId("1");
+			pages[i] = page;
 		}
 		return pages;
 	}
@@ -94,7 +95,7 @@ public class TestHelper {
 	public static Photo getDummyPhoto() {
 		Photo photo = new Photo();
 		photo.setCreatedByUserId("11011");
-		photo.setCreatedDate(Date.valueOf("10-10-1986"));
+		photo.setCreatedDate(Date.valueOf("1986-10-10"));
 		photo.setDisabled(false);
 		photo.setPageId("1");
 		photo.setPhotoId("1");
@@ -110,7 +111,7 @@ public class TestHelper {
 			PhotoTag photoTag = new PhotoTag();
 			photoTag.setTag("This is a tag");
 			photoTag.setCreatedByUserId("11011");
-			photoTag.setCreatedDate(Date.valueOf("10-10-1986"));
+			photoTag.setCreatedDate(Date.valueOf("1986-10-10"));
 			photoTag.setDisabled(false);
 			photoTag.setPhotoId("1");
 			photoTag.setPhotoTagComments(getDummyPhotoTagComments());
@@ -128,7 +129,7 @@ public class TestHelper {
 		for(int i=0;i<4;i++) {
 			PhotoTagComment photoTagComment = new PhotoTagComment();
 			photoTagComment.setComment("This is a comment");
-			photoTagComment.setCommentedDate(Date.valueOf("10-10-1986"));
+			photoTagComment.setCommentedDate(Date.valueOf("1986-10-10"));
 			photoTagComment.setDisabled(false);
 			photoTagComment.setCommentId("1");
 			photoTagComment.setCreatedByUserId("11011");
@@ -144,7 +145,7 @@ public class TestHelper {
 		
 		for(int i=0;i<4;i++) {
 			Event event = new Event();
-			event.setCreatedDate(Date.valueOf("10-10-1986"));
+			event.setCreatedDate(Date.valueOf("1986-10-10"));
 			event.setMessage("Tommy likes it");
 			event.setRead(false);
 			event.setUserId("11011");
