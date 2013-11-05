@@ -190,7 +190,7 @@
 							<div class="book-info">
 								<div class="title"><a href="#">Wow Book #01</a></div>
 								<div class="author-name">Published by <a href="#">Paul Anthony Webb</a></div>
-								<!--/ <!--/ <div class="library-location">Found in <a href="#">Camp Awesome</a></div> /--> /-->
+								<!--/ <!--/ <div class="library-location">Found in <a href="#">Camp Awesome</a></div> /-->
 							</div>
 
 							<span class="image-overlay"></span>
