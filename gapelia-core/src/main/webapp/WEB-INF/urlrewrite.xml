@@ -1,108 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
-        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN" "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
 
-<!--
-    Configuration file for UrlRewriteFilter
-    http://www.tuckey.org/urlrewrite/
--->
+<!--/
+	Configuration file for UrlRewriteFilter
+	http://www.tuckey.org/urlrewrite
+/-->
+
 <urlrewrite>
-    <rule match-type="regex">
-        <note>Remove trailing slash</note>
-        <from>^(.*)/$</from>
-        <to type="redirect">$1</to>
-    </rule>
 
-    <rule>
-        <from>^/misc$</from>
-        <to>/templates/etc/sample.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/etc/sample.jsp$</from>
-        <to>/misc</to>
-    </outbound-rule>
+	<rule match-type="regex">
+		<note>Remove trailing slash</note>
+		<from>^(.*)/$</from>
+		<to type="redirect">$1</to>
+	</rule>
 
-    <rule>
-        <from>^/me$</from>
-        <to>/templates/me/index.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/me/index.jsp$</from>
-        <to>/me</to>
-    </outbound-rule>
+	<rule>
+		<from>^/misc$</from>
+		<to>/templates/etc/sample.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/etc/sample.jsp$</from>
+		<to>/misc</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/dimensions$</from>
-        <to>/templates/dimensions/index.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/dimensions/index.jsp$</from>
-        <to>/dimensions</to>
-    </outbound-rule>
+	<rule>
+		<from>^/featured$</from>
+		<to>/templates/featured/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/featured/index.jsp$</from>
+		<to>/featured</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/dimension/([a-z]+)$</from>
-        <to>/templates/dimensions/$1.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/dimensions/([a-z]+).jsp$</from>
-        <to>/dimension/$1</to>
-    </outbound-rule>
+	<rule>
+		<from>^/me$</from>
+		<to>/templates/me/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/me/index.jsp$</from>
+		<to>/me</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/create$</from>
-        <to>/templates/create/index.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/create/index.jsp$</from>
-        <to>/create</to>
-    </outbound-rule>
+	<rule>
+		<from>^/accounts$</from>
+		<to>/templates/accounts/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/accounts/index.jsp$</from>
+		<to>/accounts</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/drafts$</from>
-        <to>/templates/drafts/index.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/drafts/index.jsp$</from>
-        <to>/drafts</to>
-    </outbound-rule>
+	<rule>
+		<from>^/dimensions$</from>
+		<to>/templates/dimensions/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/dimensions/index.jsp$</from>
+		<to>/dimensions</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/book/([0-9]+)/(.*)$</from>
-        <to>/templates/books/books.jsp?id=$1&amp;name=$2</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/books/books.jsp?id=([0-9]+)&amp;name=(.*)$</from>
-        <to>/book/$1/$2</to>
-    </outbound-rule>
+	<rule>
+		<from>^/dimension/([a-z]+)$</from>
+		<to>/templates/dimensions/$1.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/dimensions/([a-z]+).jsp$</from>
+		<to>/dimension/$1</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/edit$</from>
-        <to>/templates/books/edit.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/books/edit.jsp$</from>
-        <to>/edit</to>
-    </outbound-rule>
+	<rule>
+		<from>^/create$</from>
+		<to>/templates/create/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/create/index.jsp$</from>
+		<to>/create</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/libraries$</from>
-        <to>/templates/libraries/index.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/libraries/index.jsp$</from>
-        <to>/libraries</to>
-    </outbound-rule>
+	<rule>
+		<from>^/drafts$</from>
+		<to>/templates/drafts/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/drafts/index.jsp$</from>
+		<to>/drafts</to>
+	</outbound-rule>
 
-    <rule>
-        <from>^/library/([0-9]+)/(.*)$</from>
-        <to>/templates/libraries/library.jsp?id=$1&amp;name=$2</to>
-    </rule>
-    <outbound-rule>
-        <from>^/templates/libraries/library.jsp?id=([0-9]+)&amp;name=(.*)$</from>
-        <to>/library/$1/$2</to>
-    </outbound-rule>
+	<rule>
+		<from>^/book/([0-9]+)/(.*)$</from>
+		<to>/templates/books/books.jsp?id=$1&amp;name=$2</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/books/books.jsp?id=([0-9]+)&amp;name=(.*)$</from>
+		<to>/book/$1/$2</to>
+	</outbound-rule>
 
+	<rule>
+		<from>^/edit$</from>
+		<to>/templates/books/edit.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/books/edit.jsp$</from>
+		<to>/edit</to>
+	</outbound-rule>
+
+	<rule>
+		<from>^/libraries$</from>
+		<to>/templates/libraries/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/libraries/index.jsp$</from>
+		<to>/libraries</to>
+	</outbound-rule>
+
+	<rule>
+		<from>^/library/([0-9]+)/(.*)$</from>
+		<!--/ <to>/templates/libraries/library.jsp?id=$1&amp;name=$2</to> /-->
+		<to>/templates/libraries/$1.jsp</to>
+	</rule>
+	<outbound-rule>
+		<!--/ <from>^/templates/libraries/library.jsp?id=([0-9]+)&amp;name=(.*)$</from> /-->
+		<from>^/templates/libraries/([a-z]+).jsp$</from>
+		<to>/library/$1</to>
+	</outbound-rule>
 
 </urlrewrite>
-
