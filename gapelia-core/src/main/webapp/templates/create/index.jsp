@@ -365,118 +365,6 @@
 							<option value="20">Subculture</option>
 						</select>
 					</div>
-
-					<!--/
-					<ul id="ccc" class="collected-book-list">
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-
-						<li class="collected-book">
-							<img src="/static/images/space-bb-small.JPG" alt=""/>
-
-							<div class="collected-book-details">
-								<span class="collected-book-title">Title</span>
-								<span class="collected-book-desc">Description</span>
-							</div>
-						</li>
-					</ul>
-					/-->
 				</div>
 
 				<div id="create-book">
@@ -526,14 +414,12 @@
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
-									<!--/ <h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"><span class="placeholder">Write your title here</span></h1> /-->
 									<!--/ <input class="page-title-elem" contenteditable="true" placeholder="Write your title here"> /-->
-									<h1 class="page-title-elem" contenteditable="true" placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-default-value="Write your title here"></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
 
-									<!--/ <div class="page-desc" contenteditable="true" placeholder="Write your description here."><span class="placeholder">Write your description here.</span></div> /-->
 									<!--/ <input class="page-desc" contenteditable="true" placeholder="Write your description here."> /-->
-									<div class="page-desc" contenteditable="true" placeholder="Write your description here."></div>
+									<div class="page-desc" contenteditable="true" data-default-value="Write your description here."><span class="placeholder">Write your description here.</span></div>
 
 								</article>
 							</div>
@@ -692,12 +578,15 @@
 		<!--//main-content /-->
 
 		<!--/ scripts /-->
+		<!--/
 		<script src="/static/scripts/grande.js"></script>
 		<script>grande.bind(document.querySelectorAll("article"));</script>
+		/-->
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
+		<!--/
 		<script src="/static/scripts/placeholder.js"></script>
 
 		<script>
@@ -708,6 +597,7 @@
 
 			});
 		</script>
+		/-->
 
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>

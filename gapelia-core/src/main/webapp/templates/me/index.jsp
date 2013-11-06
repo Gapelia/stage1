@@ -177,7 +177,13 @@
 					<li id="nav-collections"><a href="#">Scrapbook</a></li>
 					<li id="nav-libraries"><a href="#">Library</a></li>
 					<li id="nav-drafts"><a href="#">Drafts</a></li>
-					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
+
+					<li id="nav-bookmarks-toggle">
+						<span class="top-bm"></span>
+						<span class="bottom-bm"></span>
+						<span class="right-bm"></span>
+						<!--/ <a href="#">&#128278;</a> /-->
+					</li>
 				</ul>
 
 				<!--/ User's Books /-->

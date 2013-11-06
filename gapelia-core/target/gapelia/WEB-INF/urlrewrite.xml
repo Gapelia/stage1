@@ -115,12 +115,10 @@
 
 	<rule>
 		<from>^/library/([0-9]+)/(.*)$</from>
-		<!--/ <to>/templates/libraries/library.jsp?id=$1&amp;name=$2</to> /-->
-		<to>/templates/libraries/$1.jsp</to>
+		<to>/templates/libraries/library.jsp?id=$1&amp;name=$2</to>
 	</rule>
 	<outbound-rule>
-		<!--/ <from>^/templates/libraries/library.jsp?id=([0-9]+)&amp;name=(.*)$</from> /-->
-		<from>^/templates/libraries/([a-z]+).jsp$</from>
+		<from>^/templates/libraries/library.jsp?id=([0-9]+)&amp;name=(.*)$</from>
 		<to>/library/$1</to>
 	</outbound-rule>
 

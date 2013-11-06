@@ -101,14 +101,16 @@ $(document).ready(function() {
 
 	$("#nav-bookmarks-toggle").click(function (e) {
 		// $("#bookmarks-scroller").toggle();
-		$("#nav-bookmarks-toggle").css("right", "250px");
+		// $("#nav-bookmarks-toggle").css("right", "250px");
+		$("#nav-bookmarks-toggle").css("right", "280px");
 		$("#bookmarks-scroller").css("right", "0");
 		e.preventDefault();
 	});
 
 	$("#bookmarks-scroller").mouseleave(function() {
 		// $("#bookmarks-scroller").fadeOut(850);
-		$("#nav-bookmarks-toggle").css("right", "-32px");
+		// $("#nav-bookmarks-toggle").css("right", "-32px");
+		$("#nav-bookmarks-toggle").css("right", "0px");
 		$("#bookmarks-scroller").css("right", "-300px");
 	});
 

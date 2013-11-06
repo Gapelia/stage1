@@ -172,7 +172,7 @@ blockquote {
 .mp-level::after { z-index: -1; }
 
 .super-wrapper.mp-pushed #g-menu-toggle { opacity: 1; }
-.super-wrapper.mp-pushed .book-info, .super-wrapper.mp-pushed .collection-info, .super-wrapper.mp-pushed .library-info, .super-wrapper.mp-pushed .new-inner-wrapper, .super-wrapper.mp-pushed .portal-info, .super-wrapper.mp-pushed canvas { transition: all 0.2s ease; z-index: 0 !important; }
+.super-wrapper.mp-pushed .book-info, .super-wrapper.mp-pushed .collection-info, .super-wrapper.mp-pushed .library-info, .super-wrapper.mp-pushed .new-inner-wrapper, .super-wrapper.mp-pushed .portal-info, .super-wrapper.mp-pushed canvas, .super-wrapper.mp-pushed .add-this, .super-wrapper.mp-pushed .wrapper { transition: all 0.2s ease; z-index: 0 !important; }
 .super-wrapper.mp-pushed .featured-info { opacity: 0.2; transition: all 0.2s ease; }
 
 .super-wrapper.mp-pushed::after, .mp-level.mp-level-overlay::after { width: 100%; height: 100%; opacity: 1; transition: opacity 0.3s; -moz-transition: opacity 0.3s; -webkit-transition: opacity 0.3s; }
@@ -385,18 +385,46 @@ blockquote {
 .app #featured-panel .featured-info p { line-height: 1.3em; }
 .app #featured-panel canvas, .app #featured-panel img { top: 0; left: 0; position: absolute; }
 .app #featured-panel canvas { opacity: 0.7; /* transition: opacity 0.6s ease; */ z-index: 1; }
+.app #featured-panel img { width: auto; height: 100%; }
 .app #g-menu-toggle { width: 60px; height: 60px; top: 1rem; left: 1rem; background-color: transparent; background-image: url("../images/logo-menu-alt.png"); background-size: 60px; border-radius: 300rem; cursor: pointer; opacity: 0.7; position: absolute; transition: all 0.2s ease; z-index: 2; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
 .app #g-menu-toggle:hover { opacity: 1; }
 .app #book-nav, .app #dimension-nav, .app #featured-nav { width: 97%; height: auto; margin: 0 0 1rem 1rem; padding: 1rem 0 0 0; border-bottom: 1px solid #e7e7e7; font-family: "OpenSansBold"; }
 .app #book-nav li, .app #dimension-nav li, .app #featured-nav li { display: inline-block; margin: 0 1rem 0 0; }
 .app #book-nav a, .app #dimension-nav a, .app #featured-nav a { color: #bebebe; }
-.app #book-nav #nav-bookmarks-toggle, .app #dimension-nav #nav-bookmarks-toggle, .app #featured-nav #nav-bookmarks-toggle { top: -56px; right: -32px; font-family: "entyporegular"; font-size: 10em; margin: 0; position: absolute; transform: rotate(90deg); transition: all 0.5s ease; /* &:hover { right: 0; } */ -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); }
-.app #book-nav #nav-bookmarks-toggle a, .app #dimension-nav #nav-bookmarks-toggle a, .app #featured-nav #nav-bookmarks-toggle a { color: #ff3b30; }
+.app #book-nav #nav-bookmarks-toggle, .app #dimension-nav #nav-bookmarks-toggle, .app #featured-nav #nav-bookmarks-toggle { width: auto; height: auto; top: 1rem; right: 0; cursor: pointer; position: absolute; transition: all 0.5s ease; 			/*
+			top: -56px; right: -32px;
+
+			font-family: "entyporegular";
+			font-size: 10em;
+			margin: 0;
+			position: absolute;
+			transform: rotate(90deg);
+			transition: all 0.5s ease;
+
+			a { color: $red; }
+
+			-moz-transform: rotate(90deg);
+			-webkit-transform: rotate(90deg);
+			*/ }
+.app #book-nav #nav-bookmarks-toggle .top-bm, .app #book-nav #nav-bookmarks-toggle .bottom-bm, .app #dimension-nav #nav-bookmarks-toggle .top-bm, .app #dimension-nav #nav-bookmarks-toggle .bottom-bm, .app #featured-nav #nav-bookmarks-toggle .top-bm, .app #featured-nav #nav-bookmarks-toggle .bottom-bm { width: 0; height: 0; border-left: 20px solid transparent; right: 9px; position: absolute; }
+.app #book-nav #nav-bookmarks-toggle .top-bm, .app #dimension-nav #nav-bookmarks-toggle .top-bm, .app #featured-nav #nav-bookmarks-toggle .top-bm { border-top: 20px solid #ff3b30; bottom: -15px; }
+.app #book-nav #nav-bookmarks-toggle .bottom-bm, .app #dimension-nav #nav-bookmarks-toggle .bottom-bm, .app #featured-nav #nav-bookmarks-toggle .bottom-bm { border-bottom: 20px solid #ff3b30; }
+.app #book-nav #nav-bookmarks-toggle .right-bm, .app #dimension-nav #nav-bookmarks-toggle .right-bm, .app #featured-nav #nav-bookmarks-toggle .right-bm { width: 25px; height: 25px; top: -5px; right: -16px; background-color: #ff3b30; position: absolute; }
 .app #book-nav .current, .app #dimension-nav .current, .app #featured-nav .current { padding: 0 0 1rem 0; }
 .app #book-nav .current a, .app #dimension-nav .current a, .app #featured-nav .current a { border-bottom: 3px solid #70a1b1; color: #70a1b1; padding: 0 0 0.74rem 0; }
 .app #book-scroller, .app #dimension-scroller, .app #featured-scroller { overflow: hidden; /* bookmark positioning/animation */ width: 75%; }
 .app #user-book-list, .app #user-collection-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #dimension-list, .app #library-list { display: none; transition: all 0.5s ease; width: 100%; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft, .app .portal { width: 400px; height: auto; margin: 0 0 0 1rem; padding: 0; background-color: rgba(231, 231, 231, 0.4); display: inline-block; overflow: hidden; position: relative; transition: box-shadow 0.2s ease; }
+.app .book .add-this, .app .collection .add-this, .app .library .add-this, .app .new .add-this, .app .draft .add-this, .app .portal .add-this { width: 0; height: 0; top: 0; right: 0; border-top: 75px solid #70a1b1; border-left: 75px solid transparent; color: #fcfcfc; position: absolute; z-index: 1; }
+.app .book .add-this a, .app .collection .add-this a, .app .library .add-this a, .app .new .add-this a, .app .draft .add-this a, .app .portal .add-this a { top: -4.8rem; right: 0.6rem; color: #fcfcfc; font-family: "entyporegular"; font-size: 3em; position: absolute; }
+.app .book .add-this a:hover, .app .collection .add-this a:hover, .app .library .add-this a:hover, .app .new .add-this a:hover, .app .draft .add-this a:hover, .app .portal .add-this a:hover { opacity: 1; }
+.app .book .add-this a:hover span:nth-child(2), .app .collection .add-this a:hover span:nth-child(2), .app .library .add-this a:hover span:nth-child(2), .app .new .add-this a:hover span:nth-child(2), .app .draft .add-this a:hover span:nth-child(2), .app .portal .add-this a:hover span:nth-child(2) { right: 0; }
+.app .book .add-this a span, .app .collection .add-this a span, .app .library .add-this a span, .app .new .add-this a span, .app .draft .add-this a span, .app .portal .add-this a span { position: absolute; }
+.app .book .add-this a span:nth-child(1), .app .collection .add-this a span:nth-child(1), .app .library .add-this a span:nth-child(1), .app .new .add-this a span:nth-child(1), .app .draft .add-this a span:nth-child(1), .app .portal .add-this a span:nth-child(1) { top: 0.1rem; right: -0.1rem; z-index: 1; }
+.app .book .add-this a span:nth-child(2), .app .collection .add-this a span:nth-child(2), .app .library .add-this a span:nth-child(2), .app .new .add-this a span:nth-child(2), .app .draft .add-this a span:nth-child(2), .app .portal .add-this a span:nth-child(2) { width: 220px; height: auto; top: 0.9rem; right: -14rem; background-color: #70a1b1; display: inline-block; font-family: "OpenSansLight"; font-size: 0.4em !important; padding: 0.2rem 0.8rem; transition: all 0.4s ease; }
+.app .book .wrapper, .app .collection .wrapper, .app .library .wrapper, .app .new .wrapper, .app .draft .wrapper, .app .portal .wrapper { bottom: 6rem; left: 0; position: absolute; text-align: center; z-index: 1; }
+.app .book button, .app .collection button, .app .library button, .app .new button, .app .draft button, .app .portal button { margin: 0 auto; padding: 0.5rem 1rem; background-color: #70a1b1; border: 0; border-radius: 300rem; color: #fcfcfc; cursor: pointer; font-family: "OpenSansLight"; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
+.app .book button:hover, .app .collection button:hover, .app .library button:hover, .app .new button:hover, .app .draft button:hover, .app .portal button:hover { padding: 0.5rem 1.5rem; }
 .app .book .image-overlay, .app .collection .image-overlay, .app .library .image-overlay, .app .new .image-overlay, .app .draft .image-overlay, .app .portal .image-overlay { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.3); display: block; position: absolute; }
 .app .book img, .app .collection img, .app .library img, .app .new img, .app .draft img, .app .portal img { width: 100%; height: auto; }
 .app .book:hover, .app .collection:hover, .app .library:hover, .app .new:hover, .app .draft:hover, .app .portal:hover { /* ooh factor */ /* box-shadow: 0 0 6px rgba($black, 0.6); */ }

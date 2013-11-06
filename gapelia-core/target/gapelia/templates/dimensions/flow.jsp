@@ -48,7 +48,7 @@
 		/-->
 
 		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/gradient.linear.js"></script>
+		<script src="/static/scripts/gradient.landing-flow.js"></script>
 
 	</head>
 
@@ -179,7 +179,13 @@
 					<li id="nav-books" class="current"><a href="#">Share in one's unique journey of discovery</a></li>
 					<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li>
 					<li id="nav-libraries"><a href="#">Library</a></li> /-->
-					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
+
+					<li id="nav-bookmarks-toggle">
+						<span class="top-bm"></span>
+						<span class="bottom-bm"></span>
+						<span class="right-bm"></span>
+						<!--/ <a href="#">&#128278;</a> /-->
+					</li>
 				</ul>
 
 				<!--/ Flow Books /-->

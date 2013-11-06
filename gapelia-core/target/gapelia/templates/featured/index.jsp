@@ -179,7 +179,13 @@
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
 					<li id="nav-dimensions"><a href="#">Dimensions</a></li>
 					<li id="nav-libraries"><a href="#">Libraries</a></li>
-					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
+
+					<li id="nav-bookmarks-toggle">
+						<span class="top-bm"></span>
+						<span class="bottom-bm"></span>
+						<span class="right-bm"></span>
+						<!--/ <a href="#">&#128278;</a> /-->
+					</li>
 				</ul>
 
 				<!--/ Featured Books /-->
@@ -187,6 +193,13 @@
 					<ul id="book-list">
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -198,6 +211,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -209,6 +229,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -220,6 +247,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -231,6 +265,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -242,6 +283,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -253,6 +301,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -264,6 +319,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -275,6 +337,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -286,6 +355,13 @@
 						</li>
 
 						<li class="book">
+							<div class="add-this">
+								<a href="#">
+									<span><!--/ &oplus; /-->&#9733;</span>
+									<span>Add to your library</span>
+								</a>
+							</div>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
@@ -368,9 +444,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Architecture</a></div>
+								<div class="title"><a href="/library/001/architecture">Architecture</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -379,9 +459,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Biography</a></div>
+								<div class="title"><a href="/library/002/biography">Biography</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -390,9 +474,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Cinema</a></div>
+								<div class="title"><a href="/library/003/cinema">Cinema</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -401,9 +489,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Cuisine</a></div>
+								<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -412,9 +504,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Era</a></div>
+								<div class="title"><a href="/library/005/era">Era</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -423,9 +519,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">The Far East</a></div>
+								<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -434,9 +534,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Fashionista</a></div>
+								<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -445,9 +549,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Future</a></div>
+								<div class="title"><a href="/library/008/future">Future</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -456,9 +564,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Gapelians</a></div>
+								<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -467,9 +579,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Historian</a></div>
+								<div class="title"><a href="/library/010/historian">Historian</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -478,9 +594,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Into the Wild</a></div>
+								<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -489,9 +609,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Japanimation</a></div>
+								<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -500,9 +624,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Land of Kawaii</a></div>
+								<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -511,9 +639,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Manifesto</a></div>
+								<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -522,9 +654,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Modernism</a></div>
+								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -533,9 +669,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
+								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -544,9 +684,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Museum</a></div>
+								<div class="title"><a href="/library/017/museum">Museum</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -555,9 +699,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">On the Road</a></div>
+								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -566,9 +714,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Products of Tomorrow</a></div>
+								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -577,9 +729,13 @@
 
 						<li class="library">
 							<div class="library-info">
-								<div class="title"><a href="#">Subculture</a></div>
+								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
 								<div class="library-books"><span>25</span> books</div>
 								<div class="library-contributors"><span>14</span> contributors</div>
+							</div>
+
+							<div class="wrapper">
+								<button>Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>

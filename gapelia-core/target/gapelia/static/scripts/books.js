@@ -395,26 +395,84 @@
 
   // $('form').find("input[type=textarea], input[type=password], textarea").each(function(ev) {
 
-	$("h1").each(function(ev) {
-
-		if(!$(this).val()) {
-			$(this).html("Type your title here");
-		}
+	$("#test-frontcover .page-title-elem").each(function() {
 
 		$(this).keydown(function() {
-			$(this).html("");
+			// $(this).html("");
+			$(".page-title-elem .placeholder").remove();
 		});
+
+		if($(this).val() === '') {
+			$(this).html('<span class="placeholder">Write your title here</span>');
+		}
+
+		/*
+		if ($(this).val() === "")
+			$(this).val(placeholder);
+		*/
+
+		/*
+		// $(this).keyup(function() {
+		setTimeout(function() {
+			// if($.trim($(this).val()) == '') $(this).html('<span class="placeholder">Write your title here</span>');
+
+			if($(this).html()) {
+				$.trim($(this).html()) === "";
+				$(this).html('<span class="placeholder">Write your title here</span>');
+			}
+		}, 3000);
+		*/
+
+		// if($.trim($(this).val()) == '') $(this).html('<span class="placeholder">Write your title here</span>');
+
+		/*
+		if ($(this).html() == '') {
+			$(this).html('<span class="placeholder">Write your title here</span>');
+		}
+		*/
+
+		/*
+		if($(this).html()) {
+			$.trim($(this).html()) === "";
+			$(this).html('<span class="placeholder">Write your title here</span>');
+		}
+		*/
 
   });
 
+	// $(".page-title-elem").data('fileid');
+
 	// Hide Placeholders When Typing
 	$(".page-title-elem").keydown(function (e) {
-		$(".page-title-elem .placeholder").remove();
+		// $(".page-title-elem .placeholder").remove();
+		// $(".page-title-elem").html("");
+		// $(".page-title-elem").text(val);
 	});
 
 	$(".page-desc").keydown(function (e) {
 		$(".page-desc .placeholder").hide();
 	});
+
+	/*
+	var h1placeholder = $(".page-title-elem").data("default-value");
+	$(".page-title-elem").text(h1placeholder);
+
+	$(".page-title-elem").each(function () {
+
+		var search_type = $(this).attr("data-default-value");
+
+		$(this).keyup(function (e) {
+
+			var params = {
+				'search_type': search_type, 'q': $(this).val()
+			};
+
+			$('.page-title-elem').text(params.q);
+
+		});
+
+	});
+	*/
 
 	$(".video-preview input").keydown(function (e) {
 		setTimeout(function() {
