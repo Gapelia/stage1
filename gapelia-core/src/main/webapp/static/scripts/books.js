@@ -307,171 +307,61 @@
 		$("#back, #finish").fadeIn("fast");
 	};
 
-	//
-	/*
 	(function ($) {
-
-		var map = new Array();
-
-		$.Watermark = {
-			ShowAll: function () {
-
-				for (var i = 0; i < map.length; i++) {
-					if (map[i].obj.val() === "") {
-						map[i].obj.val(map[i].text);
-						map[i].obj.css("color", map[i].WatermarkColor);
-					} else {
-						map[i].obj.css("color", map[i].DefaultColor);
-					}
+		$(function () {
+			$('[contenteditable="true"]').blur(function () {
+				var text = $.trim($(this).text());
+				var ph = $('<span/>', {
+					'class': "placeholder"
+				})
+					.text($(this).data('placeholder') || '');
+				if (text === '') {
+					$(this).html(ph);
 				}
-
-			},
-			HideAll: function () {
-
-				for (var i = 0; i < map.length; i++) {
-					if (map[i].obj.val() == map[i].text)
-						map[i].obj.val("");
+			}).focus(function () {
+				if ($(this).children('.placeholder').length > 0) {
+					$(this).html('<span>&nbsp;</span>');
 				}
-
-			}
-		};
-
-		$.fn.Watermark = function (text, color) {
-
-			if (!color)
-				color = "#191919";
-			return this.each(
-				function () {
-
-					var input = $(this);
-					var defaultColor = input.css("color");
-
-					map[map.length] = {
-						text: text,
-						obj: input,
-						DefaultColor: defaultColor,
-						WatermarkColor: color
-					};
-
-					function clearMessage() {
-
-						if (input.val() == text)
-							input.val("");
-						input.css("color", defaultColor);
-
-					}
-
-					function insertMessage() {
-
-						if (input.val().length === 0 || input.val() == text) {
-							input.val(text);
-							input.css("color", color);
-						} else
-							input.css("color", defaultColor);
-
-					}
-
-					input.focus(clearMessage);
-					input.blur(insertMessage);
-					input.change(insertMessage);
-
-					insertMessage();
-
-				}
-			);
-
-		};
-
+			});
+		});
 	})(jQuery);
 
-	jQuery(function($) {
+	/*
+	$(".page-title-elem").each(function() {
 
-		jQuery.Watermark.ShowAll()
-		$(".page-title-elem").Watermark("Type your title here");
-		$(".page-desc").Watermark("Type your description here.");
+		$(this).html($(this).data('placeholder'));
 
-	});
-	*/
-
-  // $('form').find("input[type=textarea], input[type=password], textarea").each(function(ev) {
-
-	$("#test-frontcover .page-title-elem").each(function() {
-
-		$(this).keydown(function() {
-			// $(this).html("");
-			$(".page-title-elem .placeholder").remove();
-		});
-
-		if($(this).val() === '') {
-			$(this).html('<span class="placeholder">Write your title here</span>');
-		}
-
-		/*
-		if ($(this).val() === "")
-			$(this).val(placeholder);
-		*/
-
-		/*
-		// $(this).keyup(function() {
-		setTimeout(function() {
-			// if($.trim($(this).val()) == '') $(this).html('<span class="placeholder">Write your title here</span>');
-
-			if($(this).html()) {
-				$.trim($(this).html()) === "";
-				$(this).html('<span class="placeholder">Write your title here</span>');
+		$(this).keydown(function () {
+			if ($(this).html() == $(this).data('placeholder')) {
+				$(this).html('');
 			}
-		}, 3000);
-		*/
+		})
 
-		// if($.trim($(this).val()) == '') $(this).html('<span class="placeholder">Write your title here</span>');
-
-		/*
-		if ($(this).html() == '') {
-			$(this).html('<span class="placeholder">Write your title here</span>');
-		}
-		*/
-
-		/*
-		if($(this).html()) {
-			$.trim($(this).html()) === "";
-			$(this).html('<span class="placeholder">Write your title here</span>');
-		}
-		*/
+		 $(this).keyup(function () {
+			if ($(this).html() == '') {
+				$(this).html($(this).data('placeholder'));
+			}
+		})
 
   });
 
-	// $(".page-title-elem").data('fileid');
+	$(".page-desc").each(function() {
 
-	// Hide Placeholders When Typing
-	$(".page-title-elem").keydown(function (e) {
-		// $(".page-title-elem .placeholder").remove();
-		// $(".page-title-elem").html("");
-		// $(".page-title-elem").text(val);
-	});
+		$(this).html($(this).data('placeholder'));
 
-	$(".page-desc").keydown(function (e) {
-		$(".page-desc .placeholder").hide();
-	});
+		$(this).keydown(function () {
+			if ($(this).html() == $(this).data('placeholder')) {
+				$(this).html('');
+			}
+		})
 
-	/*
-	var h1placeholder = $(".page-title-elem").data("default-value");
-	$(".page-title-elem").text(h1placeholder);
+		 $(this).keyup(function () {
+			if ($(this).html() == '') {
+				$(this).html($(this).data('placeholder'));
+			}
+		})
 
-	$(".page-title-elem").each(function () {
-
-		var search_type = $(this).attr("data-default-value");
-
-		$(this).keyup(function (e) {
-
-			var params = {
-				'search_type': search_type, 'q': $(this).val()
-			};
-
-			$('.page-title-elem').text(params.q);
-
-		});
-
-	});
+  });
 	*/
 
 	$(".video-preview input").keydown(function (e) {

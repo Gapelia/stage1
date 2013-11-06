@@ -387,12 +387,8 @@
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
-						<section id="test-blank" class="blank-preview-wrapper">
+						<section id="test-blank" class="blank-preview-wrapper" style="display: none">
 							<div class="button-wrapper">
-								<!--/ <button class="photo-picker">Change Photo</button> /-->
-								<!--/
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
-								/-->
 							</div>
 
 							<div class="blank-preview">
@@ -406,7 +402,7 @@
 						<!--//New Page /-->
 
 						<!--/ Front Cover /-->
-						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none">
+						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg');"><!--/ display: none /-->
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
@@ -414,12 +410,9 @@
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
-									<!--/ <input class="page-title-elem" contenteditable="true" placeholder="Write your title here"> /-->
-									<h1 class="page-title-elem" contenteditable="true" data-default-value="Write your title here"></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
-
-									<!--/ <input class="page-desc" contenteditable="true" placeholder="Write your description here."> /-->
-									<div class="page-desc" contenteditable="true" data-default-value="Write your description here."><span class="placeholder">Write your description here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Write your description here."></div>
 
 								</article>
 							</div>
@@ -436,10 +429,9 @@
 							<div class="photo-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<input id="geotag-01" class="page-geotag-elem" placeholder="Select your location"/>
-
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Write your description here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Write your description here."></div>
 
 								</article>
 							</div>
@@ -451,12 +443,9 @@
 							<div class="text-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<input id="geotag-02" class="page-geotag-elem" placeholder="Select your location"/>
-
-									<div class="page-desc" contenteditable="true">
-										<span class="placeholder">Start writing your story here.</span>
-									</div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -475,10 +464,9 @@
 							<div class="horizontal-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<input id="geotag-03" class="page-geotag-elem" placeholder="Select your location"/>
-
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Write your description here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -495,7 +483,7 @@
 							<div class="overlay-preview">
 								<article>
 
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Start writing your story here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
 									<input id="geotag-04" class="page-geotag-elem" placeholder="Select your location"/>
 
 								</article>
@@ -513,10 +501,9 @@
 							<div class="phototext-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<input id="geotag-05" class="page-geotag-elem" placeholder="Select your location"/>
-
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Start writing your story here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -535,17 +522,16 @@
 							<div class="vertical-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
 									<input id="geotag-06" class="page-geotag-elem" placeholder="Select your location"/>
-
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Start writing your story here.</span></div>
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
 									
 								</article>
 							</div>
 						</section>
 						<!--//Vertical /-->
 
-						<!--/ Video / -->
+						<!--/ Video / --><!--/ phototext /-->
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
 							<div class="button-wrapper">
 								<button class="photo-picker">Change Video</button>
@@ -553,20 +539,19 @@
 							</div>
 
 							<div class="video-preview">
-								<article>
-
-									<h1 class="page-title-elem" contenteditable="true"><span class="placeholder">Write your title here</span></h1>
-									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location"/><!--/ onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" /-->
-
-									<div class="page-desc" contenteditable="true"><span class="placeholder">Write your description here.</span></div>
-
-								</article>
-
 								<span class="play-video">Play</span>
 
 								<div class="video-player-container">
 									<iframe src="http://player.vimeo.com/video/28379417?title=0&amp;byline=0&amp;portrait=0&amp;color=b83564"></iframe>
 								</div>
+
+								<article>
+
+									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location"/><!--/ onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" /-->
+									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+
+								</article>
 							</div>
 						</section>
 						<!--//Video / -->
