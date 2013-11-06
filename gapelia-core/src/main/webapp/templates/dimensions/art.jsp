@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
+
 		<meta charset="utf-8"/>
 		<title>Gapelian Dimension | Art</title>
+
 		<!--/ DIMENSIONS VIEW
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
@@ -12,30 +15,39 @@
 
 				01000111011000010111000001100101011011000110100101100001
 		/-->
+
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
+
 		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/jquery.mCustomScrollbar.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
-		<link href="/static/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+
 		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
+
 	</head>
+
 	<body class="app">
+
 		<div id="mp-pusher" class="super-wrapper">
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
 					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
+
 					<ul>
 						<li><a class="" href="/me">Me</a></li>
 						<li><a class="" href="/create">New Book</a></li>
 						<!--/ <li><a class="" href="/drafts">Drafts</a></li> /-->
 					</ul>
+
 					<div id="account-links">
 						<a href="/accounts">Account</a>
 						<a href="#">Sign Out</a>
@@ -43,6 +55,7 @@
 				</div>
 			</nav>
 			<!--//site-menu /-->
+
 			<!--/ bookmarks-menu /-->
 			<div id="bookmarks-scroller">
 				<div id="bookmarks-header">
@@ -52,6 +65,7 @@
 				<div id="bm-wrapper">
 					<dl id="bm-notifications">
 						<dt><span></span><a class="bm-section-title" href="#">Notifications</a></dt>
+
 						<dd>
 							<ul>
 								<li>Alice liked Nature is Gaea</l1>
@@ -60,8 +74,10 @@
 							</ul>
 						</dd>
 					</dl>
+
 					<dl id="bm-books">
 						<dt><span></span><a class="bm-section-title" href="#">Bookshelf</a></dt>
+
 						<dd>
 							<ul>
 								<li>Fantasia</l1>
@@ -75,16 +91,20 @@
 							</ul>
 						</dd>
 					</dl>
+
 					<dl id="bm-collections">
 						<dt><span></span><a class="bm-section-title" href="#">Scrapbook</a></dt>
+
 						<dd>
 							<ul>
 								<li>Nature</l1>
 							</ul>
 						</dd>
 					</dl>
+
 					<dl id="bm-libraries">
 						<dt><span></span><a class="bm-section-title" href="#">Library</a></dt>
+
 						<dd>
 							<ul>
 								<li>Swiss Interiors</l1>
@@ -100,8 +120,10 @@
 							</ul>
 						</dd>
 					</dl>
+
 					<dl id="bm-drafts">
 						<dt><span></span><a class="bm-section-title" href="#">Drafts</a></dt>
+
 						<dd>
 							<ul>
 								<li>Travel Book #01</l1>
@@ -113,23 +135,28 @@
 				</div>
 			</div>
 			<!--//bookmarks-menu /-->
+
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+
 				<div class="featured-info">
 					<h2>Art</h2>
 					<p></p>
 				</div>
-        		<canvas id="art-landing-bg"></canvas>
+
+				<canvas id="art-landing-bg"></canvas>
 				<img src="/static/images/book-thumb-12.jpg" alt=""/>
 			</div>
 			<!--//main-panel /-->
+
 			<!--/ main-content /-->
 			<div id="featured-scroller">
 				<ul id="featured-nav">
 					<li id="nav-books" class="current"><a href="#">Emotions expressed through the endless mediums that art allows</a></li>
 					<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li>
 					<li id="nav-libraries"><a href="#">Library</a></li> /-->
+
 					<li id="nav-bookmarks-toggle">
 						<span class="top-bm"></span>
 						<span class="bottom-bm"></span>
@@ -137,14 +164,17 @@
 						<!--/ <a href="#">&#128278;</a> /-->
 					</li>
 				</ul>
+
 				<!--/ Art Books /-->
 				<div class="book-list-wrapper">
 					<ul id="book-list">
 					</ul>
 				</div>
 				<!--//Art Books /-->
+
 			</div>
 		</div>
+
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/gradient.landing-art.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
@@ -152,34 +182,42 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+
 		<script>
 			$(document).ready(function() {
+
 				var sId = "1234567";
+
 				$.ajax({
-					url: "http://localhost:8080/api/dimension/getAllBooks", 
-	                contentType: "application/x-www-form-urlencoded;charset=utf-8",
-	                type: "POST",
-	                data: {
-	        	        sessionId: sId,
-	            	    dimension: 'Flow'
-	                },
+					url: "http://localhost:8080/api/dimension/getAllBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Flow'
+					},
 					success: function(data) {
-	                    var parsedHtml = parseJsonToStringForBooks(data);
-	                    $(".book-list-wrapper").html(parsedHtml);
-	                    addScroll();
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".book-list-wrapper").html(parsedHtml);
+						addScroll();
 					},
 					error: function(q, status, err) {
-	                    if(status == "timeout"){
-	                    	alert("Request timed out");
-	                    } else {
-	                        alert("Some issue happened with your request: " + err);
-	                    }
-	                }
+						if(status == "timeout"){
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
 				});
+
 			});
+
 			function parseJsonToStringForBooks(books) {
+
 				var html="<ul id=\"book-list\">";
+
 				$.each(books, function () {
+
 					html+="<li class='book'  bookid=\""+this['bookId']+"\">\n";
 					html+="<div class='book-info'>";
 					html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
@@ -187,26 +225,41 @@
 					html+="<span class=\"image-overlay\"></span>";
 					html+="<img src=\""+this.pages[0].photo.photoUrl+"\" alt=''/>";
 					html+="</li>";
+
 				});
+
 				html+="</ul>"
 				
 				return html;
+
 			}
+
 			function addScroll() {
+
 				NProgress.start();
+
 				setTimeout(function() {
+
 					$("#book-list").css("opacity", "0").show();
+
 					$("#book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
 						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 					});
+
 					NProgress.done();
+
 					$("#book-list").css("opacity", "1");
+
 				});
+
 				$("#nav-books").addClass("current");
+
 			}
 		</script>
+
 	</body>
+
 </html>
