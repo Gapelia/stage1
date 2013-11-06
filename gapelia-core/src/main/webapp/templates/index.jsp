@@ -7,7 +7,7 @@
 		<meta charset="utf-8"/>
 		<title>Featured on Gapelia</title>
 
-		<!--/ FEATURED VIEW
+		<!--/ FEATURED VIEW /////
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
