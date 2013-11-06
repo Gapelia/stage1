@@ -176,6 +176,10 @@
           <string>static/images/covers/cinema-matrix.jpg</string>
           <string>static/images/covers/cuisine-traceysculinaryadventures.jpg</string>
           <string>static/images/covers/era-akasped.jpg</string>
+          <string>static/images/covers/library-bauhaus.jpg</string>
+          <string>static/images/covers/library-hayao-miyazaki.jpg</string>
+          <string>static/images/covers/library-integalactic-fortress.jpg</string>
+          <string>static/images/covers/library-performance.jpg</string>
           <string>static/images/cowbird.png</string>
           <string>static/images/dimension-art.png</string>
           <string>static/images/dimension-flow.png</string>
@@ -390,11 +394,18 @@
           <string>static/scripts/filepicker2.js</string>
           <string>static/scripts/flip.js</string>
           <string>static/scripts/g.money.js</string>
+          <string>static/scripts/gradient.landing-art.js</string>
+          <string>static/scripts/gradient.landing-flow.js</string>
+          <string>static/scripts/gradient.landing-life.js</string>
+          <string>static/scripts/gradient.landing-pulse.js</string>
+          <string>static/scripts/gradient.landing-wonder.js</string>
+          <string>static/scripts/gradient.landing-wow.js</string>
           <string>static/scripts/gradient.linear.backup.js</string>
           <string>static/scripts/gradient.linear.js</string>
           <string>static/scripts/gradient.radial.js</string>
           <string>static/scripts/grande.js</string>
           <string>static/scripts/grande.old.js</string>
+          <string>static/scripts/html5placeholder.js</string>
           <string>static/scripts/jquery-1.10.2.js</string>
           <string>static/scripts/jquery-2.0.2.js</string>
           <string>static/scripts/jquery.mCustomScrollbar.js</string>
@@ -446,7 +457,7 @@
           <string>templates/etc/sample.jsp</string>
           <string>templates/featured/index.jsp</string>
           <string>templates/index.jsp</string>
-          <string>templates/libraries/architecture.jsp</string>
+          <string>templates/libraries/library.jsp</string>
           <string>templates/me/index.jsp</string>
           <string>templates/notifications/password-reset.jsp</string>
           <string>templates/notifications/signup-invitation.jsp</string>
