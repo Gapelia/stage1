@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +15,7 @@
 				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
+
 		/-->
 
 		<meta name="author" content="Gapelia"/>
@@ -25,18 +27,19 @@
 		<link href="/static/css/jquery.mCustomScrollbar.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
-		<script src="/static/scripts/modernizr.custom.js"></script>
-
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
+
+		<script src="/static/scripts/jquery-1.10.2.js"></script>
+		<script src="/static/scripts/modernizr.custom.js"></script>
 
 	</head>
 
 	<body class="app">
 
 		<div id="mp-pusher" class="super-wrapper">
+
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
@@ -145,7 +148,10 @@
 					<p></p>
 				</div>
 
-				<canvas id="art-landing-bg"></canvas>
+        <canvas id="art-landing-bg">
+					<!--/ fallback is the Gapelia slate color /-->
+        </canvas>
+
 				<img src="/static/images/book-thumb-12.jpg" alt=""/>
 			</div>
 			<!--//main-panel /-->
@@ -171,19 +177,108 @@
 					</ul>
 				</div>
 				<!--//Art Books /-->
-
 			</div>
+			<!--//main-content /-->
 		</div>
 
+		<!--/ scripts /-->
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/gradient.landing-art.js"></script>
+
 		<script src="/static/scripts/g.money.js"></script>
+
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/jquery.mCustomScrollbar.concat.min.js"></script>
 
 		<script>
+			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+			$(".mp-pushed").ready(function() {
+				$("#book-scroller").css("z-index", "0");
+			});
+		</script>
+
+		<!--/ scripts/layout-scroller /-->
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
+		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
+		<!--/ <script src="/static/scripts/jquery.mCustomScrollbar.concat.min.js"></script> /-->
+
+		<script>
+			$(document).ready(function() {
+
+				var
+				sId = "1234567",
+				html="<ul id=\"book-list\">",
+				$vH = $(window).height();
+
+				// Load Gapelia
+				NProgress.start();
+
+				function parseJsonToStringForBooks(books) {
+
+					$.each(books, function () {
+
+						html+="<li class='book' bookid=\""+this['bookId']+"\">\n";
+						html+="<div class='book-info'>";
+						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
+						html+="<div class='author-name'>Published by <a href='#'>"+this['createdByUserIds']+"</a></div></div>";
+						html+="<span class=\"image-overlay\"></span>";
+						html+="<img src=\""+this.pages[0].photo.photoUrl+"\" alt=''/>";
+						html+="</li>";
+
+					});
+
+					html+="</ul>";
+					
+					return html;
+
+				}
+
+				$.ajax({
+					url: "http://localhost:8080/api/dimension/getAllBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Art'
+					},
+					success: function(data) {
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".book-list-wrapper").html(parsedHtml);
+						// addScroll();
+					},
+					error: function(q, status, err) {
+						if(status == "timeout"){
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+
+				setTimeout(function() {
+
+					$("#book-list").css("opacity", "0").show();
+
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+					});
+
+					NProgress.done();
+
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+
+				});
+
+				$("#nav-books").addClass("current");
+
+			});
+
+			/*
 			$(document).ready(function() {
 
 				var sId = "1234567";
@@ -211,7 +306,9 @@
 				});
 
 			});
+			*/
 
+			/*
 			function parseJsonToStringForBooks(books) {
 
 				var html="<ul id=\"book-list\">";
@@ -233,7 +330,9 @@
 				return html;
 
 			}
+			*/
 
+			/*
 			function addScroll() {
 
 				NProgress.start();
@@ -258,6 +357,7 @@
 				$("#nav-books").addClass("current");
 
 			}
+			*/
 		</script>
 
 	</body>

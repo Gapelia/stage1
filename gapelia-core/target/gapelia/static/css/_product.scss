@@ -1,0 +1,406 @@
+/************************************************************************************** PRODUCT/SCSS **/
+
+/** [-] Big + Small Scroller Shared Styles ************************************************************/
+
+#big-scroller-wrapper, #small-scroller-wrapper,
+#page-scroller-wrapper {
+	overflow: hidden;
+	position: relative;
+
+	nav {
+		width: 100%; height: 100%;
+		position: absolute;
+	}
+
+	#prev-big, #next-big,
+	#prev-small, #next-small {
+		width: 50px; height: 100%;
+
+		background-color: rgba($black, 0.7);
+		color: $white;
+		opacity: 0.3;
+		position: relative;
+		text-align: center;
+		z-index: 9999999;
+
+		&:hover { opacity: 1; }
+	}
+
+	#small-scroller, #page-scroller {
+		&:hover {
+			#prev-small, #next-small { opacity: 1; }
+		}
+	}
+
+	#prev-big, #prev-small { float: left; }
+	#next-big, #next-small { float: right; }
+}
+
+/** [-] Big Scroller **********************************************************************************/
+
+#big-scroller-wrapper {
+	#prev-big, #next-big { padding: 12.1rem 0; }
+
+	#small-profile {
+		width: 150px; height: 100%;
+
+		background-color: $white;
+		color: $gray-v;
+		font-size: 85%;
+		position: absolute;
+		left: 50px;
+		z-index: 100;
+
+		a	{ color: $gray-v; }
+		.active { font-family: "OpenSansBold"; }
+
+		img {
+			width: 150px; height: 150px;
+		}
+
+		ul {
+			width: 100%; height: 183px;
+			overflow-y: auto;
+
+			li {
+				padding: 0.3rem 0.6rem;
+
+				&:hover {
+					background-color: rgba($gray-v, 0.7);
+					a	{ color: $white; }
+				}
+			}
+		}
+
+		#profile-name, #profile-switcher, #profile-visit {
+			padding: 0.3rem 0.6rem;
+			width: 100%;
+		}
+
+		#profile-name, #profile-switcher { border-bottom: 1px solid $gray-v; }
+
+		#profile-name {
+		}
+
+		#profile-switcher {
+		}
+
+		#profile-visit {
+			background-color: $white;
+			border-top: 1px solid $gray-v;
+			bottom: 0;
+			position: absolute;
+		}
+	}
+
+	#small-profile-wrapper { height: 100%; }
+}
+
+#big-scroller, #dimension-scroller {
+	overflow-y: auto;
+	width: auto;
+
+	.dimension-book {
+		width: 250px; height: 400px;
+
+		background-color: $gray-v;
+		display: table;
+		float: left;
+		margin: 0 0.5rem 0 0;
+		position: relative;
+
+		.mark-wrapper {
+			width: 100%; height: 100%;
+			position: absolute;
+		}
+
+		.mark {
+			position: absolute;
+			width: 150px;
+		}
+
+		&:hover {
+			.book-info {
+				text-shadow: 0 3px 4px transparentize($black, 0);
+
+				.explore-book {
+					box-shadow: 0 3px 4px transparentize($black, 0.3);
+					visibility: visible;
+				}
+			}
+		}
+
+		.book-info, .collection-new {
+			color: $white;
+			padding: 0 1rem;
+			position: absolute;
+			text-align: center;
+			text-shadow: 0 1px 3px transparentize($black, 0.3);
+			transition: text-shadow 0.2s ease-in-out;
+			top: 35%;
+			width: 100%;
+
+			.book-title, .collect-title {
+				font-family: "OpenSansBold";
+				font-size: 150%;
+				margin: 0 0 0.5rem 0;
+			}
+
+			.lifestyle {
+				display: inline-block;
+				font-size: 68%;
+
+				li {
+					float: left;
+
+					&:after { content: "\00a0 |\00a0"; }
+					&:last-child {
+						&:after { content: ""; }
+					}
+				}
+			}
+
+			.explore-book, .collect-close {
+				margin: 1rem auto; padding: 0.5rem;
+
+				background-color: $white;
+				color: $black;
+				display: block;
+				font-size: 70%;
+				text-shadow: none;
+				text-transform: uppercase;
+				transition: visibility 0.1s ease-in-out;
+				visibility: hidden;
+				width: 50%;
+
+				&:hover { opacity: 0.7; }
+			}
+
+			.book-author {
+				font-family: "OpenSansLight";
+				font-size: 85%;
+				margin: 0 0 1rem 0;
+
+				span { font-family: "OpenSansBold"; }
+			}
+
+			.photo-credit {
+				font-family: "OpenSansLight";
+				font-size: 70%;
+
+				a {
+					color: $white;
+					font-family: "OpenSansExtraBold";
+				}
+			}
+		}
+
+		#collect-001, #collect-002, #collect-003, #collect-004, #collect-005, #collect-006,
+		#collect-007, #collect-008, #collect-009, #collect-010, #collect-011 {
+			display: none;
+			.collect-close { visibility: visible; }
+		}
+	}
+
+	.new-book {
+		background-color: $gray-ii;
+		text-shadow: 0 !important;
+
+		.book-info {
+			color: $gray-v;
+			text-shadow: none !important;
+			transition: color 0.2s ease-in-out;
+
+			.add-new-book {
+				cursor: pointer;
+				font-size: 10em;
+			}
+		}
+
+		&:hover {
+			.book-info { color: $white; }
+		}
+	}
+
+	.book-cover {
+		width: 100%; height: 100%;
+
+		background-size: 250% !important;
+		display: table-cell;
+	}
+
+	.book-cover { background-image: url("../images/book-thumb.jpg"); }
+
+	.b-01 { background-image: url("../images/book-thumb-01.jpg"); }
+	.b-02 { background-image: url("../images/book-thumb-02.jpg"); }
+	.b-03 { background-image: url("../images/book-thumb-03.jpg"); }
+	.b-04 { background-image: url("../images/book-thumb-04.jpg"); }
+	.b-05 { background-image: url("../images/book-thumb-05.jpg"); }
+	.b-06 { background-image: url("../images/book-thumb-06.jpg"); }
+	.b-07 { background-image: url("../images/book-thumb-07.jpg"); }
+	.b-08 { background-image: url("../images/book-thumb-08.jpg"); }
+	.b-09 { background-image: url("../images/book-thumb-09.jpg"); }
+	.b-10 { background-image: url("../images/book-thumb-10.jpg"); }
+	.b-11 { background-image: url("../images/book-thumb-11.jpg"); }
+	.b-12 { background-image: url("../images/book-thumb-12.jpg"); }
+	.b-13 { background-image: url("../images/book-thumb-13.jpg"); }
+
+	.like-collect, .edit-delete {
+		top: 0; right: 0;
+
+		margin: 0 0.7rem 0 0;
+		position: absolute;
+
+		li {
+			width: 24px; height: 24px;
+
+			background-repeat: no-repeat;
+			background-size: 24px;
+			display: inline-block;
+			opacity: 0.7;
+			text-align: center;
+
+			@include hide-text;
+			&:hover { opacity: 1; }
+
+			a {
+				width: 100%; height: 100%;
+				display: block;
+			}
+		}
+
+		.like, .edit { margin: 0 0.5rem 0 0; }
+
+		.like {
+			background-image: url("../images/like.png");
+			background-position: 0 0;
+			background-size: 24px 48px;
+
+			&:hover { background-position: 0 -24px; }
+		}
+
+		.collect { background-image: url("../images/collect.png"); }
+		.edit { background-image: url("../images/icon-edit.png"); }
+		.delete { background-image: url("../images/icon-trash.png"); }
+	}
+}
+
+/** [-] Small Scroller ********************************************************************************/
+
+#small-scroller-wrapper {
+	width: 100%; height: auto;
+	bottom: 0; left: 0;
+
+	overflow: hidden;
+	position: absolute;
+
+	#prev-small, #next-small { padding: 2.7rem 0; }
+}
+
+#small-scroller, #gapelian-scroller {
+	overflow-y: scroll !important;
+	width: auto;
+
+	.user-book, .user {
+		width: 300px; height: 100px; /* width is overridden by JS */
+
+		background-color: $gray-i;
+		float: left;
+		margin: 0 0.5rem 0 0;
+
+		.cover, .book-info, .user-info {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.cover {
+			width: 100px; height: 100px;
+		}
+
+		.book-info, .user-info {
+			font-size: 80%;
+			padding: 1rem 0.4rem;
+
+			.book-title, .book-author, .book-dimensions { margin: 0 0 0.5rem 0; }
+
+			.book-title {
+				font-family: "OpenSansExtraBold";
+				font-size: 15px;
+			}
+
+			.book-author {
+			}
+
+			.book-dimensions {
+				display: none; /**/
+
+				li {
+					float: left;
+
+					&:after { content: "\00a0 |\00a0"; }
+
+					&:last-child {
+						&:after { content: ""; }
+					}
+				}
+			}
+
+			.light-rating, .love-rating {
+				float: left;
+
+				span, img { vertical-align: middle; }
+				span { margin: 0 0 0 0.2rem; }
+
+				img {
+					width: 30px; height: auto;
+				}
+			}
+
+			.light-rating { margin: 0 1rem 0 0; }
+
+			.love-rating {
+			}
+		}
+	}
+
+	.user { /* width: 131px; */ width: 100px; }
+	.user-info { transition: width 0.2s ease-in-out; }
+}
+
+/** [-] Dimensions ************************************************************************************/
+
+.art, .flow, .life, .pulse, .wonder, .wow {
+	.mask {
+		width: 100%; height: 100%;
+
+		background-color: transparent;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 150px;
+		display: table-cell;
+	}
+}
+
+.art {
+	.mask { background-image: url("../images/svg/dimension-art.svg"); }
+}
+
+.flow {
+	.mask { background-image: url("../images/svg/dimension-flow.svg"); }
+}
+
+.life {
+	.mask { background-image: url("../images/svg/dimension-life.svg"); }
+}
+
+.pulse {
+	.mask { background-image: url("../images/svg/dimension-pulse.svg"); }
+}
+
+.wonder {
+	.mask { background-image: url("../images/svg/dimension-wonder.svg"); }
+}
+
+.wow {
+	.mask { background-image: url("../images/svg/dimension-wow.svg"); }
+}
