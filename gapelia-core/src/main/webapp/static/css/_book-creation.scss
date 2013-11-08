@@ -65,18 +65,18 @@
 	#pages-scroller, #layout-scroller, #comments-scroller, #publish-scroller {
 		background-color: $gray-i;
 		height: 100%;
-		position: absolute;
+		position: fixed; /* absolute */
 		top: 50px;
 		transition: all 0.5s ease;
 		z-index: 1;
 
 		.sp-scrollbar {
-			background-color: $gray-ii;
+			background-color: $gray-i;
 			cursor: pointer;
 			width: 10px;
 
 			.sp-thumb {
-				background-color: $gray-iii;
+				background-color: $gray-iv;
 				transition: height 0.2s ease-in-out;
 			}
 		}
@@ -269,7 +269,7 @@
 			background-repeat: no-repeat;
 			background-size: 104px 16px;
 			content: "";
-			display: block;
+			display: none; /* block */
 			font-size: 0;
 			height: 16px;
 			padding-top: 3px;
@@ -282,8 +282,12 @@
 		padding: 0 4px;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		width: 100%;
 
-		&:hover { background-color: $slate; }
+		&:hover {
+			background-color: $slate;
+			color: $white;
+		}
 	}
 
 	.pac-item {
@@ -299,8 +303,6 @@
 		font-family: Roboto, Arial, sans-serif;
 		line-height: 30px;
 		text-align: left;
-
-		&:hover { color: $white; }
 	}
 
 	.pac-item-bold { font-weight: 700; }
@@ -320,7 +322,7 @@
 
 		background-image: url("https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png");
 		display: inline-block;
-		margin-top: 6px 7px 0 0;
+		margin: 0;
 		vertical-align: top;
 	}
 
@@ -361,7 +363,7 @@
 					width: 100%; height: 100% !important;
 
 					overflow: hidden;
-					position: fixed;
+					position: fixed !important;
 
 					::-webkit-input-placeholder	{ color: $black; }
 					::-moz-placeholder					{ color: $black; }
@@ -406,6 +408,7 @@
 						/* font-family: "OpenSansLight"; */
 						font-family: "SourceSansProLight";
 						font-size: 1.5em;
+						line-height: 1.2;
 						text-transform: capitalize;
 
 						&:empty:after {
@@ -451,17 +454,22 @@
 					}
 
 					.sp-scrollbar {
-						background-color: $gray-ii;
+						background-color: $gray-i;
 						cursor: pointer;
 						width: 10px;
 
 						.sp-thumb {
-							background-color: $gray-iii;
+							background-color: $gray-iv;
 							transition: height 0.2s ease-in-out;
 						}
 					}
 
 					.sp-scrollbar.active .sp-thumb { background-color: $gray-iii; }
+				}
+
+				.frontcover-preview, .photo-preview, .text-preview, .horizontal-preview,
+				.overlay-preview, .phototext-preview, .vertical-preview, .video-preview {
+					/* position: fixed !important; */
 				}
 
 				.blank-preview-wrapper {
@@ -596,14 +604,18 @@
 						line-height: 2.5em;
 						/* overflow-y: scroll; */
 						padding: 5% 15rem;
+						position: fixed; /**/
 
 						.page-geotag-elem { color: $black; }
 
 						.page-desc {
+							margin: 0 0 1rem 0; padding: 0 0 2rem 0;
+
 							font-family: "Hoefler Text", Georgia, serif !important;
-							margin: 0 0 1rem 0;
 							text-align: left;
 						}
+
+						.sp-scrollbar { margin: 0 -1rem 0 0; }
 					}
 				}
 
@@ -710,7 +722,9 @@
 
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-							border-bottom: 1px dotted $white;
+
+							border-bottom: 1px dotted $black;
+							color: $black;
 						}
 
 						.page-desc { text-align: left; }
@@ -739,7 +753,7 @@
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
 
-							color: $white;
+							color: $black;
 							border-bottom: 1px dotted $black;
 						}
 

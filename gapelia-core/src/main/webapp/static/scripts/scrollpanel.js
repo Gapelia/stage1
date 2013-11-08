@@ -1,89 +1,285 @@
 /*! jQuery.scrollpanel 0.1 - //larsjung.de/scrollpanel - MIT License */
 
-(function (a) {
+(function ($) {
 
 	"use strict";
 
-	var b = a(window), c = "scrollpanel", d = {
+	var
+	$window = $(window),
+	name = "scrollpanel",
+	defaults = {
 		prefix: "sp-"
-	}, e = function (b, c) {
+	},
 
-		var e = this;
-		e.$el = a(b), e.settings = a.extend({}, d, c);
+	// Scrollpanel
+	// ===========
+	ScrollPanel = function (element, options) {
 
-		var f = e.settings.prefix;
-		e.mouseOffsetY = 0, e.updateId = 0, e.scrollProxy = a.proxy(e.scroll, e), (!e.$el.css("position") || e.$el.css("position") === "static") && e.$el.css("position", "relative"), e.$scrollbar = a('<div class="' + f + 'scrollbar"/>'), e.$thumb = a('<div class="' + f + 'thumb"/>').appendTo(e.$scrollbar), e.$el.addClass(f + "host").wrapInner('<div class="' + f + 'viewport"><div class="' + f + 'container"/></div>').append(e.$scrollbar), e.$viewport = e.$el.find("> ." + f + "viewport"), e.$container = e.$viewport.find("> ." + f + "container"), e.$el.on("mousewheel", function (a, b, c, d) {
-			e.$viewport.scrollTop(e.$viewport.scrollTop() - 50 * d), e.update(), a.preventDefault(), a.stopPropagation();
-		}).on("scroll", function () {
-			e.update();
-		}), e.$viewport.css({
-			paddingRight: e.$scrollbar.outerWidth(!0),
-			height: e.$el.height(),
+		var self = this;
+
+		// Main reference.
+		self.$el = $(element);
+
+		self.settings = $.extend({}, defaults, options);
+		var prefix = self.settings.prefix;
+
+		// Mouse offset on drag start.
+		self.mouseOffsetY = 0;
+
+		// Interval ID for automatic scrollbar updates.
+		self.updateId = 0;
+
+		// Proxy to easily bind and unbind this method.
+		self.scrollProxy = $.proxy(self.scroll, self);
+
+		// Make content space relative, if not already.
+		if (!self.$el.css("position") || self.$el.css("position") === "static") {
+			self.$el.css("position", "relative");
+		}
+
+		// Create scrollbar.
+		self.$scrollbar = $('<div class="' + prefix + 'scrollbar" />');
+		self.$thumb = $('<div class="' + prefix + 'thumb" />').appendTo(self.$scrollbar);
+
+		// Wrap element's content and add scrollbar.
+		self.$el
+			.addClass(prefix + "host")
+			.wrapInner('<div class="' + prefix + 'viewport"><div class="' + prefix + 'container" /></div>')
+			.append(self.$scrollbar);
+
+		// Get references.
+		self.$viewport = self.$el.find("> ." + prefix + "viewport");
+		self.$container = self.$viewport.find("> ." + prefix + "container");
+
+		// Host
+		// ----
+		self.$el
+
+		// Handle mouse wheel.
+		.on("mousewheel", function (event, delta, deltaX, deltaY) {
+
+			self.$viewport.scrollTop(self.$viewport.scrollTop() - 50 * deltaY);
+			self.update();
+			event.preventDefault();
+			event.stopPropagation();
+
+		})
+
+		// Handle scrolling.
+		.on("scroll", function () {
+			self.update();
+		});
+
+		// Viewport
+		// --------
+		self.$viewport
+
+		// Basic styling.
+		.css({
+			paddingRight: self.$scrollbar.outerWidth(true),
+			height: self.$el.height(),
 			overflow: "hidden"
-		}), e.$container.css({
+		});
+
+		// Container
+		// ---------
+		self.$container
+
+		// Basic styling.
+		.css({
 			overflow: "hidden"
-		}), e.$scrollbar.css({
+		});
+
+		// Srollbar
+		// --------
+		self.$scrollbar
+
+		// Basic styling.
+		.css({
 			position: "absolute",
 			top: 0,
 			right: 0,
 			overflow: "hidden"
-		}).on("mousedown", function (a) {
-			e.mouseOffsetY = e.$thumb.outerHeight() / 2, e.onMousedown(a);
-		}).each(function () {
-			e.onselectstart = function () {
-				return !1;
+		})
+
+		// Handle mouse buttons.
+		.on("mousedown", function (event) {
+
+			self.mouseOffsetY = self.$thumb.outerHeight() / 2;
+			self.onMousedown(event);
+
+		})
+
+		// Disable selection.
+		.each(function () {
+			self.onselectstart = function () {
+				return false;
 			};
-		}), e.$thumb.css({
+		});
+
+		// Scrollbar Thumb
+		// ---------------
+		self.$thumb
+
+		// Basic styling.
+		.css({
 			position: "absolute",
 			left: 0,
 			width: "100%"
-		}).on("mousedown", function (a) {
-			e.mouseOffsetY = a.pageY - e.$thumb.offset().top, e.onMousedown(a);
-		}), e.update();
+		})
 
-	};
+		// Handle mouse buttons.
+		.on("mousedown", function (event) {
 
-	a.extend(e.prototype, {
-		update: function (a) {
-
-			var b = this;
-			b.updateId && !a ? (clearInterval(b.updateId), b.updateId = 0) : !b.updateId && a && (b.updateId = setInterval(function () {
-				b.update(!0);
-			}, 50)), b.$viewport.css("height", b.$el.height());
-
-			var c = b.$el.height(), d = b.$container.outerHeight(), e = b.$viewport.scrollTop(), f = e / d, g = Math.min(c / d, 1), h = b.$scrollbar.height();
-
-			g < 1 ? (b.$scrollbar.css({
-				height: b.$el.innerHeight() + h - b.$scrollbar.outerHeight(!0)
-			}).fadeIn(50), b.$thumb.css({
-				top: h * f,
-				height: h * g
-			})) : b.$scrollbar.fadeOut(50);
-
-		},
-		scroll: function (a) {
-
-			var b = this, c = (a.pageY - b.$scrollbar.offset().top - b.mouseOffsetY) / b.$scrollbar.height();
-			b.$viewport.scrollTop(b.$container.outerHeight() * c), b.update(), a.preventDefault(), a.stopPropagation();
-
-		},
-		onMousedown: function (a) {
-
-			var c = this;
-			c.scroll(a), c.$scrollbar.addClass("active"), b.on("mousemove", c.scrollProxy).one("mouseup", function (a) {
-				c.$scrollbar.removeClass("active"), b.off("mousemove", c.scrollProxy), c.scroll(a);
-			});
-
-		}
-	}), a.fn[c] = function (b, d) {
-
-		return this.each(function () {
-
-			var f = a(this), g = f.data(c);
-			g || (g = new e(this, b), g.update(), f.data(c, g)), b === "update" && g.update(d);
+			self.mouseOffsetY = event.pageY - self.$thumb.offset().top;
+			self.onMousedown(event);
 
 		});
 
+		// Initial update.
+		self.update();
+
 	};
 
-})(jQuery);
+	// Scrollpanel methods
+	// ===================
+	$.extend(ScrollPanel.prototype, {
+		// Rerender scrollbar.
+		update: function (repeat) {
+
+			var self = this;
+
+			if (self.updateId && !repeat) {
+				clearInterval(self.updateId);
+				self.updateId = 0;
+			} else if (!self.updateId && repeat) {
+				self.updateId = setInterval(function () {
+					self.update(true);
+				}, 50);
+			}
+
+			self.$viewport.css("height", self.$el.height());
+
+			var
+			visibleHeight = self.$el.height(),
+			contentHeight = self.$container.outerHeight(),
+			scrollTop = self.$viewport.scrollTop(),
+			scrollTopFrac = scrollTop / contentHeight,
+			visVertFrac = Math.min(visibleHeight / contentHeight, 1),
+			scrollbarHeight = self.$scrollbar.height();
+
+			if (visVertFrac < 1) {
+				self.$scrollbar
+					.css({
+						height: self.$el.innerHeight() + scrollbarHeight - self.$scrollbar.outerHeight(true)
+					})
+					.fadeIn(50);
+				self.$thumb
+					.css({
+						top: scrollbarHeight * scrollTopFrac,
+						height: scrollbarHeight * visVertFrac
+					});
+			} else {
+				self.$scrollbar.fadeOut(50);
+			}
+
+		},
+
+		// Scroll content according to mouse position.
+		scroll: function (event) {
+
+			var
+			self = this,
+			clickFrac = (event.pageY - self.$scrollbar.offset().top - self.mouseOffsetY) / self.$scrollbar.height();
+
+			self.$viewport.scrollTop(self.$container.outerHeight() * clickFrac);
+			self.update();
+
+			event.preventDefault();
+			event.stopPropagation();
+
+		},
+
+		// Handle mousedown events on scrollbar.
+		onMousedown: function (event) {
+
+			var self = this;
+
+			self.scroll(event);
+			self.$scrollbar.addClass("active");
+			$window
+				.on("mousemove", self.scrollProxy)
+				.one("mouseup", function (event) {
+
+					self.$scrollbar.removeClass("active");
+					$window.off("mousemove", self.scrollProxy);
+					self.scroll(event);
+				});
+
+		}
+	});
+
+	// Register the plug in
+	// --------------------
+	$.fn[name] = function (options, options2) {
+		return this.each(function () {
+
+			var
+			$this = $(this),
+			scrollpanel = $this.data(name);
+
+			if (!scrollpanel) {
+				scrollpanel = new ScrollPanel(this, options);
+				scrollpanel.update();
+				$this.data(name, scrollpanel);
+			}
+
+			if (options === "update") {
+				scrollpanel.update(options2);
+			}
+
+		});
+	};
+
+}(jQuery));
+
+/*
+(function($) {
+
+	'use strict';
+
+	var
+	generateContent = function () {
+		$('.scrollpanel').each(function () {
+			var $this = $(this);
+		});
+	},
+
+	updateContent = function () {
+
+		var
+		$panel = $('.text-preview .page-desc'),
+		$panelContent = $('.text-preview .page-desc > .sp-viewport > .sp-container'),
+		length = $panelContent.children().length;
+
+		if (length <= 0) {
+		} else if (length >= 10) {
+		}
+
+		$panel.scrollpanel('update');
+
+	},
+
+	init = function () {
+
+		generateContent();
+		$('.scrollpanel').scrollpanel();
+
+		setInterval(updateContent, 1000);
+
+	};
+
+	$(init);
+
+}(jQuery));
+*/

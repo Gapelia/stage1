@@ -3,6 +3,7 @@
 	// @Gapelia
 	// ====================================================================================
 	// Left Menus | Layout and page interaction | Right Menus | Content Creation
+	// Live Preview
 
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
@@ -13,10 +14,10 @@
 	// $("#comments-scroller").css("height", $vH - 52 + "px");
 
 	// will need to check/change these heights later
-	$(".text-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
-	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
-	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
-	$(".video-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
+	$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
+	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
+	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
+	$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 	// Left Menus
 	// @Gapelia
@@ -329,7 +330,6 @@
 	// .css("color", "#999")
 	// .css("color", "#191919")
 
-	/*
 	(function ($) {
 		$(function () {
 
@@ -355,8 +355,8 @@
 
 		});
 	})(jQuery);
-	*/
 
+	/*
 	$(".page-title-elem").each(function() {
 
 		$(this).html($(this).data('placeholder'));
@@ -392,6 +392,7 @@
 		})
 
   });
+	*/
 
 	$(".video-preview input").keydown(function (e) {
 		setTimeout(function() {
@@ -399,4 +400,17 @@
 		}, 1000);
 
 		if (e.which == 13 && $(".pac-container:visible").length) return false;
+	});
+
+	// Live Preview
+	// @Gapelia
+	// ------------------------------------------------------------------------------------
+
+	$(document).ready(function() {
+
+		// h1 = page-title-elem // span = livepreview-thing in page thumb
+		$('.page-title-elem').keypress(function() {
+			$('.livepreview-thing').text($(this).text());
+		});
+
 	});

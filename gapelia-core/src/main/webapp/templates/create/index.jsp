@@ -36,7 +36,7 @@
 		<!--/ <script src="/static/scripts/modernizr.full.js"></script> /-->
 		<!--/ <script src="/static/scripts/prefixfree.js"></script> /-->
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
 		<script>
@@ -94,7 +94,7 @@
 
 							<section>
 								<img src="static/images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
-								<span>01 &middot; Front Cover</span>
+								<span class="livepreview-thing">01 &middot; Front Cover</span>
 							</section>
 						</li>
 
@@ -388,7 +388,8 @@
 						<!--/ Front Cover /-->
 						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg');" style="display: none">
 							<div class="button-wrapper">
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="$('frontcover-preview-wrapper').css('background', 'event.fpfile.url')">
+								<!--/ alert(event.fpfile.url) /-->
 							</div>
 
 							<div class="frontcover-preview">
@@ -556,6 +557,24 @@
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
+		<script>
+			/*
+			$(function() {
+
+				// window.livePreviewElem = $(".page-desc");
+				// livePreviewElem.html(text);
+
+				$('.frontcover-preview .page-title-elem').livePreview({
+					previewElement: $('.livepreview-thing'),
+					allowedTags: ['p', 'strong', 'br', 'em', 'strike'],
+					interval: 20
+				});
+				
+				$('.livepreview-thing').html(text);
+			});
+			*/
+		</script>
+
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>
 
@@ -586,8 +605,12 @@
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
 
-			$(".text-preview-wrapper .page-desc, .phototext-preview-wrapper .page-desc, .vertical-preview-wrapper .page-desc, .video-preview-wrapper .page-desc").scrollpanel();
 			// $("#publish-scroller").scrollpanel();
+
+			$(".text-preview-wrapper .page-desc").scrollpanel();
+			$(".phototext-preview-wrapper .page-desc").scrollpanel();
+			$(".vertical-preview-wrapper .page-desc").scrollpanel();
+			$(".video-preview-wrapper .page-desc").scrollpanel();
 		</script>
 
 		<!--/ scripts/page-sorter /-->
