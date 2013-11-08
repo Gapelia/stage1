@@ -10,7 +10,13 @@
 	// Set menu height, necessary for scrollbar plugin
 	$("#pages-scroller").css("height", $vH - 52 + "px");
 	$("#layout-scroller").css("height", $vH - 52 + "px");
-	$("#comments-scroller").css("height", $vH - 52 + "px");
+	// $("#comments-scroller").css("height", $vH - 52 + "px");
+
+	// will need to check/change these heights later
+	$(".text-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
+	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
+	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
+	$(".video-preview-wrapper .page-desc").css("height", $vH - 52 + "px");
 
 	// Left Menus
 	// @Gapelia
@@ -295,38 +301,62 @@
 	// ------------------------------------------------------------------------------------
 
 	// Hide editor controls when typing, show when mouse moves
+	/*
 	var interval = window.setInterval(function () {
 	}, 1000);
 
 	document.onkeypress = function () {
 		$("#back, #finish").fadeOut("fast");
-		window.clearInterval(interval);
 	};
 
 	document.onmousemove = function () {
 		$("#back, #finish").fadeIn("fast");
+		window.clearInterval(interval);
 	};
+	*/
 
+	$("article").keyup(function () {
+		setTimeout(function() {
+			$("#back, #finish").fadeOut("slow");
+		}, 1000);
+	});
+
+	$("body").on("mousemove", function () {
+		$("#back, #finish").fadeIn("fast");
+	});
+
+	////
+	// .css("color", "#999")
+	// .css("color", "#191919")
+
+	/*
 	(function ($) {
 		$(function () {
+
 			$('[contenteditable="true"]').blur(function () {
+
 				var text = $.trim($(this).text());
+
 				var ph = $('<span/>', {
 					'class': "placeholder"
-				})
-					.text($(this).data('placeholder') || '');
+				}).text($(this).data('placeholder') || '');
+
 				if (text === '') {
 					$(this).html(ph);
 				}
+
 			}).focus(function () {
+
 				if ($(this).children('.placeholder').length > 0) {
 					$(this).html('<span>&nbsp;</span>');
 				}
+
 			});
+
 		});
 	})(jQuery);
+	*/
 
-	/*
 	$(".page-title-elem").each(function() {
 
 		$(this).html($(this).data('placeholder'));
@@ -337,7 +367,7 @@
 			}
 		})
 
-		 $(this).keyup(function () {
+		$(this).keyup(function () {
 			if ($(this).html() == '') {
 				$(this).html($(this).data('placeholder'));
 			}
@@ -362,7 +392,6 @@
 		})
 
   });
-	*/
 
 	$(".video-preview input").keydown(function (e) {
 		setTimeout(function() {

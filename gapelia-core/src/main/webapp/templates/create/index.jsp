@@ -368,33 +368,17 @@
 				</div>
 
 				<div id="create-book">
-					<div class="text-menu hide">
-						<div class="options">
-							<span class="no-overflow">
-								<span class="ui-inputs">
-									<button class="bold">B</button>
-									<button class="italic">i</button>
-									<button class="header1">h1</button>
-									<button class="header2">h2</button>
-									<button class="quote">&rdquo;</button>
-									<button class="url useicons">&#xe001;</button>
-									<input class="url-input" type="text" placeholder="Paste or type a link"/>
-								</span>
-							</span>
-						</div>
-					</div>
-
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
-						<section id="test-blank" class="blank-preview-wrapper" style="display: none">
+						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="button-wrapper">
 							</div>
 
 							<div class="blank-preview">
 								<article>
 
-									Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!
+									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!</p>
 
 								</article>
 							</div>
@@ -402,7 +386,7 @@
 						<!--//New Page /-->
 
 						<!--/ Front Cover /-->
-						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg');"><!--/ display: none /-->
+						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg');" style="display: none">
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
 							</div>
@@ -410,9 +394,9 @@
 							<div class="frontcover-preview">
 								<article class="cover-info">
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<h5 contenteditable="false"><span>* Author *</span></h5>
-									<div class="page-desc" contenteditable="true" data-placeholder="Write your description here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -429,9 +413,9 @@
 							<div class="photo-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<input id="geotag-01" class="page-geotag-elem" placeholder="Select your location"/>
-									<div class="page-desc" contenteditable="true" data-placeholder="Write your description here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -443,9 +427,9 @@
 							<div class="text-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<input id="geotag-02" class="page-geotag-elem" placeholder="Select your location"/>
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -454,7 +438,7 @@
 
 						<!--/ Horizontal /-->
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
-							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
+							<section class="draggable-placeholder" style="background: url('/static/images/space-bb.jpg');">
 								<div class="button-wrapper">
 									<!--/ <button class="photo-picker">Change Photo</button> /-->
 									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
@@ -464,9 +448,9 @@
 							<div class="horizontal-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<input id="geotag-03" class="page-geotag-elem" placeholder="Select your location"/>
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -483,7 +467,7 @@
 							<div class="overlay-preview">
 								<article>
 
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 									<input id="geotag-04" class="page-geotag-elem" placeholder="Select your location"/>
 
 								</article>
@@ -501,9 +485,9 @@
 							<div class="phototext-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem"  data-placeholder="Write your title here"></h1>
 									<input id="geotag-05" class="page-geotag-elem" placeholder="Select your location"/>
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -522,16 +506,16 @@
 							<div class="vertical-preview">
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<input id="geotag-06" class="page-geotag-elem" placeholder="Select your location"/>
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 									
 								</article>
 							</div>
 						</section>
 						<!--//Vertical /-->
 
-						<!--/ Video / --><!--/ phototext /-->
+						<!--/ Video / -->
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
 							<div class="button-wrapper">
 								<button class="photo-picker">Change Video</button>
@@ -547,9 +531,9 @@
 
 								<article>
 
-									<h1 class="page-title-elem" contenteditable="true" data-placeholder="Write your title here"></h1>
+									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
 									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location"/><!--/ onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" /-->
-									<div class="page-desc" contenteditable="true" data-placeholder="Start writing your story here."></div>
+									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>
 							</div>
@@ -563,26 +547,14 @@
 		<!--//main-content /-->
 
 		<!--/ scripts /-->
-		<!--/
 		<script src="/static/scripts/grande.js"></script>
-		<script>grande.bind(document.querySelectorAll("article"));</script>
-		/-->
+		<script>
+			grande.bind(document.querySelectorAll(".page-title-elem"));
+			grande.bind(document.querySelectorAll(".page-desc"));
+		</script>
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
-
-		<!--/
-		<script src="/static/scripts/placeholder.js"></script>
-
-		<script>
-			$(function() {
-
-				// Invoke the plugin
-				// $("h1").placeholder();
-
-			});
-		</script>
-		/-->
 
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>
@@ -614,6 +586,7 @@
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
 
+			$(".text-preview-wrapper .page-desc, .phototext-preview-wrapper .page-desc, .vertical-preview-wrapper .page-desc, .video-preview-wrapper .page-desc").scrollpanel();
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
