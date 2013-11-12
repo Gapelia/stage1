@@ -141,13 +141,17 @@
 			this._initEvents();
 
 		},
+
 		_initEvents: function () {
+
 			var self = this;
 
 			// the menu should close if clicking somewhere on the body
 			var bodyClickFn = function (el) {
+
 				self._resetMenu();
 				el.removeEventListener(self.eventtype, bodyClickFn);
+
 			};
 
 			// open (or close) the menu
@@ -194,7 +198,7 @@
 
 			});
 
-			// closing the sub levels :
+			// closing the sub levels:
 			// by clicking on the visible part of the level element
 			this.levels.forEach(function (el, i) {
 
@@ -229,7 +233,9 @@
 				});
 
 			});
+
 		},
+
 		_openMenu: function (subLevel) {
 
 			// increment level depth

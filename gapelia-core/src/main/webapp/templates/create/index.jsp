@@ -20,7 +20,7 @@
 
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
-		<meta name="description" content="The stand for the world's greatest stories"/>
+		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
@@ -36,7 +36,7 @@
 		<!--/ <script src="/static/scripts/modernizr.full.js"></script> /-->
 		<!--/ <script src="/static/scripts/prefixfree.js"></script> /-->
 
-		<script src="/static/scripts/jquery-2.0.3.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
 		<script>
@@ -386,10 +386,11 @@
 						<!--//New Page /-->
 
 						<!--/ Front Cover /-->
-						<section id="test-frontcover" class="frontcover-preview-wrapper" style="background: url('/static/images/space-bb.jpg');" style="display: none">
+						<section id="test-frontcover" class="frontcover-preview-wrapper" style="display: none;">
+							<img id="page-01-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 							<div class="button-wrapper">
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="$('frontcover-preview-wrapper').css('background', 'event.fpfile.url')">
-								<!--/ alert(event.fpfile.url) /-->
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);">
 							</div>
 
 							<div class="frontcover-preview">
@@ -405,10 +406,11 @@
 						<!--//Front Cover /-->
 
 						<!--/ Photo /-->
-						<section id="test-photo" class="photo-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
+						<section id="test-photo" class="photo-preview-wrapper" style="display: none;">
+							<img id="page-02-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 							<div class="button-wrapper">
-								<!--/ <button class="photo-picker">Change Photo</button> /-->
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-02-placeholder').attr('src', url);">
 							</div>
 
 							<div class="photo-preview">
@@ -439,10 +441,11 @@
 
 						<!--/ Horizontal /-->
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
-							<section class="draggable-placeholder" style="background: url('/static/images/space-bb.jpg');">
+							<section class="draggable-placeholder"><!--/ style="background: url('/static/images/space-bb.jpg');" /-->
+								<img id="page-03-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 								<div class="button-wrapper">
-									<!--/ <button class="photo-picker">Change Photo</button> /-->
-									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-03-placeholder').attr('src', url);">
 								</div>
 							</section>
 
@@ -459,10 +462,11 @@
 						<!--//Horizontal /-->
 
 						<!--/ Overlay /-->
-						<section id="test-overlay" class="overlay-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
+						<section id="test-overlay" class="overlay-preview-wrapper" style="display: none;">
+							<img id="page-04-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 							<div class="button-wrapper">
-								<!--/ <button class="photo-picker">Change Photo</button> /-->
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-04-placeholder').attr('src', url);">
 							</div>
 
 							<div class="overlay-preview">
@@ -477,10 +481,11 @@
 						<!--//Overlay /-->
 
 						<!--/ Photo/Text /-->
-						<section id="test-phototext" class="phototext-preview-wrapper" style="background: url('/static/images/space-bb.jpg'); display: none;">
+						<section id="test-phototext" class="phototext-preview-wrapper" style="display: none;">
+							<img id="page-05-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 							<div class="button-wrapper">
-								<!--/ <button class="photo-picker">Change Photo</button> /-->
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-05-placeholder').attr('src', url);">
 							</div>
 
 							<div class="phototext-preview">
@@ -497,10 +502,11 @@
 
 						<!--/ Vertical /-->
 						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
-							<section class="draggable-placeholder"  style="background: url('/static/images/space-bb.jpg');">
+							<section class="draggable-placeholder"><!--/ style="background: url('/static/images/space-bb.jpg');" /-->
+								<img id="page-06-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+
 								<div class="button-wrapper">
-									<!--/ <button class="photo-picker">Change Photo</button> /-->
-									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="alert(event.fpfile.url)">
+									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-06-placeholder').attr('src', url);">
 								</div>
 							</section>
 
@@ -520,20 +526,55 @@
 						<section id="test-video" class="video-preview-wrapper" style="display: none;">
 							<div class="button-wrapper">
 								<button class="photo-picker">Change Video</button>
-								<!--/ <input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="video/*" data-fp-container="modal" data-fp-services="COMPUTER,URL,VIDEO" onchange="alert(event.fpfile.url)"> /-->
+								<input class="video-picker" type="text" placeholder="Input video URL here" style="display: none;"/>
+
+								<script>
+									$("#test-video .photo-picker").click(function () {
+
+										$(this).hide();
+										$("#test-video .video-picker").show();
+
+									});
+
+									function getVimeoId(url) {
+
+										var match = /vimeo.*\/(\d+)/i.exec(url);
+
+										// if the match isn't null (i.e. it matched)
+										if (match) {
+											// the grouped/matched digits from the regex
+											return match[1];
+										}
+
+									}
+
+									$(".video-picker").keypress(function (e) {
+
+										var videoURL = 'http://player.vimeo.com/video/' + getVimeoId($(this).val()) + '?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1';
+
+										if (e.which == 13) {
+											$('.video-player-container iframe').attr('src', videoURL);
+											$("#test-video .video-picker").hide();
+											$("#test-video .photo-picker").show();
+											return false;
+										}
+
+									});
+								</script>
+
 							</div>
 
 							<div class="video-preview">
 								<span class="play-video">Play</span>
 
 								<div class="video-player-container">
-									<iframe src="http://player.vimeo.com/video/28379417?title=0&amp;byline=0&amp;portrait=0&amp;color=b83564"></iframe>
+									<iframe src=""></iframe>
 								</div>
 
 								<article>
 
 									<h1 class="page-title-elem" data-placeholder="Write your title here"></h1>
-									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location"/><!--/ onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" /-->
+									<input id="geotag-07" class="page-geotag-elem" placeholder="Select your location"/>
 									<div class="page-desc" data-placeholder="Start writing your story here."></div>
 
 								</article>

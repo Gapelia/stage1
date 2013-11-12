@@ -343,6 +343,10 @@
 		&:hover { color: $white; }
 	}
 
+	.page-bg {
+		width: 100%; height: auto;
+	}
+
 	#book-creation-wrapper {
 		width: 100%; height: 100%;
 
@@ -631,7 +635,7 @@
 						bottom: 0; left: 0;
 
 						background-color: $white;
-						border-right: 1px solid $gray-i;
+						border-top: 1px solid $gray-ii;
 						color: $black;
 						padding: 1rem 2rem;
 						position: absolute;
@@ -711,11 +715,16 @@
 						width: 25%; height: 100%;
 					}
 
+					.page-bg {
+						width: auto; height: 100%;
+					}
+
 					.vertical-preview {
 						width: 75%; height: 100%;
 						top: 0; right: 0;
 
 						background-color: $white;
+						border-left: 1px solid $gray-ii;
 						color: $black;
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
@@ -734,6 +743,7 @@
 				.video-preview-wrapper {
 					.video-preview {
 						width: 100%; height: 100%;
+
 						background-color: $white;
 						position: absolute;
 					}
@@ -742,6 +752,7 @@
 						width: 30%; height: 100%;
 						top: 0; right: 0;
 
+						border-left: 1px solid $gray-ii;
 						color: $black;
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
@@ -770,12 +781,38 @@
 
 						iframe {
 							width: 100%; height: 100%;
+							background-color: $gray-i;
 						}
 					}
 
 					.button-wrapper {
 						bottom: 10%;
 						width: 70%;
+						z-index: 1;
+
+						input {
+							margin: 0 auto; padding: 0.5rem;
+
+							background-color: rgba($white, 0.3);
+							border: 3px solid $black;
+							color: $black;
+							/* cursor: pointer; */
+							/* font-family: "OpenSansBold"; */
+							font-family: "SourceSansProBold";
+							/* opacity: 0.7; */
+							position: relative;
+							text-transform: uppercase;
+							transition: all 0.2s ease;
+							z-index: 2;
+
+							/*
+							&:hover {
+								border: 3px solid $white;
+								color: $white;
+								opacity: 1;
+							}
+							*/
+						}
 					}
 
 					/*
