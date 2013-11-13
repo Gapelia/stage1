@@ -1,0 +1,10 @@
+
+.fade {
+	width: 101%; height: 129px;
+	bottom: -1px; left: -1px;
+
+	background: transparent url('http://static.tumblr.com/i21wc39/iD2mb8r15/fade_03.png') repeat-x left top;
+	opacity: 0.3;
+	position: absolute;
+	z-index: 4;
+}
