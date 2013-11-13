@@ -55,7 +55,7 @@
 	// ------------------------------------------------------------------------------------
 
 	// Clicking on a page in menu opens layout menu
-	$("#pages-scroller ul li").click(function (e) {
+	$("#pages-scroller ul li img").click(function (e) {
 
 		$("#pages-scroller").css("left", "-150px");
 		$("#layout-scroller").css("left", "0");

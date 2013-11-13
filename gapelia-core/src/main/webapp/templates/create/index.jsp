@@ -90,7 +90,7 @@
 					<ul>
 
 						<li class="current-thumb disable-sort">
-							<a href="#" class="entypo">&#9749;</a>
+							<a class="delete-page entypo">&#9749;</a>
 
 							<section>
 								<img src="static/images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
@@ -98,8 +98,8 @@
 							</section>
 						</li>
 
-						<li>
-							<a href="#" class="entypo">&#9749;</a>
+						<li class="page-delete-demo"><!--//-->
+							<a class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-02-thumb" alt=""/>
@@ -108,7 +108,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-03-thumb" alt=""/>
@@ -117,7 +117,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-04-thumb" alt=""/>
@@ -132,7 +132,7 @@
 
 						<!--/
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-05-thumb" alt=""/>
@@ -141,7 +141,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-06-thumb" alt=""/>
@@ -150,7 +150,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-07-thumb" alt=""/>
@@ -159,7 +159,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-08-thumb" alt=""/>
@@ -168,7 +168,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-09-thumb" alt=""/>
@@ -177,7 +177,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-10-thumb" alt=""/>
@@ -186,7 +186,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-11-thumb" alt=""/>
@@ -195,7 +195,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-12-thumb" alt=""/>
@@ -204,7 +204,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-13-thumb" alt=""/>
@@ -213,7 +213,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-14-thumb" alt=""/>
@@ -222,7 +222,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-15-thumb" alt=""/>
@@ -231,7 +231,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-16-thumb" alt=""/>
@@ -240,7 +240,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-17-thumb" alt=""/>
@@ -249,7 +249,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-18-thumb" alt=""/>
@@ -258,7 +258,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-19-thumb" alt=""/>
@@ -267,7 +267,7 @@
 						</li>
 
 						<li>
-							<a href="#" class="entypo">&#9749;</a>
+							<a href="#" class="delete-page entypo">&#9749;</a>
 
 							<a href="">
 								<img src="static/images/new-page-thumb.png" id="page-20-thumb" alt=""/>
@@ -327,7 +327,7 @@
 
 				<div id="publish-scroller">
 					<div id="publish-header">
-						<button>Publish</button>
+						<button id="publish-book">Publish</button>
 
 						<select id="book-dimension-picker" placeholder="Choose a dimension">
 							<option value="">Choose a dimension</option>
@@ -587,6 +587,48 @@
 			</div>
 		</section>
 		<!--//main-content /-->
+		
+		<!--/ dialog-windows /-->
+		<div class="modal-delete-page" style="display: none;">
+			<div>
+				<h1>Hold up</h1>
+
+				<div class="reveal">
+					<p>Are you sure you want to delete this page?</p>
+
+					<a id="confirm-delete">Yes</a>
+					<button>No</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-delete-book" style="display: none;">
+			<div>
+				<h1>Hold up</h1>
+
+				<div class="reveal">
+					<p>Are you sure you want to delete this book?</p>
+
+					<button>Yes</button>
+					<button>No</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-publish-book" style="display: none;">
+			<div>
+				<h1>Sweet</h1>
+
+				<div class="reveal">
+					<p>Your book has been published!</p>
+					<button>Okay</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="stack"></div>
+		<div style="-webkit-transform: translateZ(0)"></div>
+		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/grande.js"></script>
@@ -726,6 +768,144 @@
 
 			var geotag20 = document.getElementById("geotag-20");
 			autocomplete = new google.maps.places.Autocomplete(geotag20);
+		</script>
+		
+		<!--/ scripts/dialog /-->
+		<script src="/static/scripts/vex.js"></script>
+		<script src="/static/scripts/vex.dialog.js"></script>
+
+		<script>
+			var modal = {};
+			modal.className = "vex-theme-wireframe";
+
+			vex.defaultOptions.className = "vex-theme-wireframe";
+			vex.dialog.defaultOptions.showCloseButton = false;
+
+			// Modal / Delete Page
+			modal.deletePage = function () {
+
+				modal.deletePageClassName = "vex-theme-wireframe";
+
+				for (var i = 0; i > -1; i--) {
+					vex.dialog.alert({
+						appendLocation: ".stack",
+						message: $(".modal-delete-page > div:nth-child(" + (i + 1) + ")").html(),
+						className: modal.deletePageClassName,
+						buttons: [
+							$.extend({}, vex.dialog.buttons.YES, {
+								text: "Skip"
+							})
+						],
+						callback: function (value) {
+							setTimeout(function () {
+								modal.deletePageFn();
+							}, 0);
+						}
+					});
+				}
+
+				modal.deletePageFn();
+
+			};
+
+			modal.deletePageFn = function () {
+
+				var $remaining = $('.stack > .vex:not(".vex-closing")');
+				var $vW = $(window).width(), $vH = $(window).height();
+
+				$(".stack").show().css({
+					"width": $vW + "px",
+					"height": $vH + "px"
+				});
+
+				$("#g-menu-toggle").css("opacity", "0.3");
+
+				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
+					$(item).addClass("v" + i);
+				});
+
+				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
+
+				if ($remaining.length === 0) {
+					setTimeout(function () {
+						$(".stack").hide();
+					}, 600);
+				}
+
+				$("#confirm-delete").click(function () {
+					$(".page-delete-demo").remove();
+					$("body").removeClass("vex-open");
+				});
+
+			};
+
+			$(document).ready(function () {
+
+
+
+			});
+
+			// Modal / Publish Book
+			modal.publishBook = function () {
+
+				modal.publishBookClassName = "vex-theme-wireframe";
+
+				for (var i = 0; i > -1; i--) {
+					vex.dialog.alert({
+						appendLocation: ".stack",
+						message: $(".modal-publish-book > div:nth-child(" + (i + 1) + ")").html(),
+						className: modal.publishBookClassName,
+						buttons: [
+							$.extend({}, vex.dialog.buttons.YES, {
+								text: "Skip"
+							})
+						],
+						callback: function (value) {
+							setTimeout(function () {
+								modal.publishBookFn();
+							}, 0);
+						}
+					});
+				}
+
+				modal.publishBookFn();
+
+			};
+
+			modal.publishBookFn = function () {
+
+				var $remaining = $('.stack > .vex:not(".vex-closing")');
+				var $vW = $(window).width(), $vH = $(window).height();
+
+				$(".stack").show().css({
+					"width": $vW + "px",
+					"height": $vH + "px"
+				});
+
+				$("#g-menu-toggle").css("opacity", "0.3");
+
+				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
+					$(item).addClass("v" + i);
+				});
+
+				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
+
+				if ($remaining.length === 0) {
+					setTimeout(function () {
+						$(".stack").hide();
+					}, 600);
+				}
+
+			};
+
+			$(".delete-page").click(function () {
+				modal.deletePage();
+			});
+
+			$("#publish-book").click(function (e) {
+				modal.publishBook();
+				e.preventDefault;
+			});
 		</script>
 		<!--//scripts /-->
 

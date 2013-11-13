@@ -104,6 +104,7 @@
 			// classname for the element (if any) that when clicked closes the current level
 			backClass: "mp-back"
 		},
+
 		_init: function () {
 
 			// if menu is open or not
@@ -267,7 +268,9 @@
 
 			// add class mp-level-open to the opening level element
 			classie.add(subLevel || this.levels[0], "mp-level-open");
+
 		},
+
 		// close the menu
 		_resetMenu: function () {
 
@@ -280,19 +283,26 @@
 			this.open = false;
 
 		},
+
 		// close sub menus
 		_closeMenu: function () {
+
 			var translateVal = this.options.type === "overlap" ? this.el.offsetWidth + (this.level - 1) * this.options.levelSpacing : this.el.offsetWidth;
 			this._setTransform("translate3d(" + translateVal + "px,0,0)");
 			this._toggleLevels();
+
 		},
+
 		// translate the el
 		_setTransform: function (val, el) {
+
 			el = el || this.wrapper;
 			el.style.WebkitTransform = val;
 			el.style.MozTransform = val;
 			el.style.transform = val;
+
 		},
+
 		// removes classes mp-level-open from closing levels
 		_toggleLevels: function () {
 
@@ -309,6 +319,38 @@
 
 		}
 	};
+
+	/*
+	$(".vex-open").click(function () {
+		$("body #mp-pusher").addClass("mp-pushed").css("-webkit-transform", "translate3d(300px, 0, 0)");
+	});
+
+	$(".stack").click(function () {
+
+		// var this = $("mp-pusher");
+		// self._openMenu();
+		// classie.add(this.wrapper, "mp-pushed");
+
+		// $("#mp-pusher").addClass("mp-pushed").css("-webkit-transform", "translate3d(300px, 0, 0)");
+
+		// classie.add($("mp-pusher").wrapper, "mp-pushed");
+		// $("mp-pusher").open = true;
+
+	});
+
+	$(".vex-close").click(function () {
+
+		// self._closeMenu();
+		// bodyClickFn(this);
+		// self._resetMenu();
+		// fles._resetMenu();
+
+		// $("#mp-pusher").removeClass("mp-pushed").css("-webkit-transform", "translate3d(0, 0, 0)");
+		$(".vex-open").remove();
+		$(".mp-pushed").remove();
+
+	});
+	*/
 
 	// add to global namespace
 	window.mlPushMenu = mlPushMenu;
