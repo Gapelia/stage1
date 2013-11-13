@@ -1,0 +1,13 @@
+Akihabara ("Field of Autumn Leaves"), also known as Akihabara Electric Town, is a district of Tokyo, Japan. It is located less than five minutes by rail from Tokyo Station. Its name is frequently shortened to Akiba in Japan. While there is an official locality named Akibahara, nearby (as part of Taito-ku), the area known to most people as Akihabara (including the railway station of the same name) also include Soto-Kanda, a part of Chiyoda-ku.
+
+Akihabara is a major shopping area for electronic, computer, anime, games and otaku goods, including new and used items. New items are mostly to be found on the main street, Chuodori, with many kinds of used items found in the back streets of Soto Kanda 3-chome. New parts for PC-building are readily available from a variety of stores. Tools, electrical parts, wires, microsized cameras and similar items are found in the cramped passageways of Soto Kanda 1-chome (near the station). Foreign tourists tend to visit the big name shops like Laox or other speciality shops near the station, though there is more variety and lower prices at locales a little further away. Akihabara gained some fame through being home to one of the first stores devoted to personal robots and robotics.
+
+The area was just out of Sujikai-gomon city gate (present Mansei bridge) which was one of the city gates (Mitsuke) of old Edo (Tokyo). It was the gateway from inner Edo to northern and northwestern Japan and Kan’ei-ji temple in Ueno. Many dealers, craftsmen and relatively lower class samurai lived there.
+
+CSS3 Columns
+
+CSS3 columns take content and divide it into columns based on either the column-width or column-count CSS-properties. The former inserts content into a dynamic number of columns with the width you gave it. The latter distributes content in identical height to the number of columns you gave it.
+
+For articles, there's one viable option: column-width. If I used column-count, I would run into problems with longer text. It could force the reader to scroll up and down.
+
+Using column-width creates new columns to the right as content expands. Setting the height to something smaller than the screen height will remove the need for any up and down scrolling. Because the content expands horizontally, the only sensible solution for navigating is horizontal scrolling. This article uses a simple jQuery script to convert vertical mousewheel scrolling to horizontal.
