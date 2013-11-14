@@ -90,4 +90,44 @@ public class Libraries {
 			return gson.toJson("Failed");
 		}
 	}
+
+	@Path("subscribe")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String subscribe(@FormParam("sessionId") String sessionId,
+							@FormParam("libraryId") String libraryId
+	) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		try {
+			// Get UserId from SessionId
+			LOG.info("Trying to retrieve user id from session id");
+			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to subscribe");
+			return gson.toJson("Success");
+		} catch (Exception ex) {
+			LOG.error("Failed to subscribe", ex);
+			return gson.toJson("Failed");
+		}
+	}
+
+	@Path("unsubscribe")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String unsubscribe(@FormParam("sessionId") String sessionId,
+							@FormParam("libraryId") String libraryId
+	) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		try {
+			// Get UserId from SessionId
+			LOG.info("Trying to retrieve user id from session id");
+			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to unsubscribe");
+			return gson.toJson("Success");
+		} catch (Exception ex) {
+			LOG.error("Failed to unsubscribe", ex);
+			return gson.toJson("Failed");
+		}
+	}
 }
