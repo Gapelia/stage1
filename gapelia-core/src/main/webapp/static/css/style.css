@@ -850,7 +850,6 @@ body.demo-start .page, body.page-intro .page { opacity: 0; z-index: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .sp-scrollbar, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .sp-scrollbar, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .sp-scrollbar, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .sp-scrollbar { background-color: #e7e7e7; cursor: pointer; width: 10px; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .sp-scrollbar .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .sp-scrollbar .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .sp-scrollbar .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .sp-scrollbar .sp-thumb { background-color: #999999; transition: height 0.2s ease-in-out; }
 .book-creation #book-creation-wrapper #create-book #create-content .text-preview-wrapper .sp-scrollbar.active .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .sp-scrollbar.active .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .sp-scrollbar.active .sp-thumb, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .sp-scrollbar.active .sp-thumb { background-color: #bebebe; }
-.book-creation #book-creation-wrapper #create-book #create-content .frontcover-preview, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview, .book-creation #book-creation-wrapper #create-book #create-content .text-preview, .book-creation #book-creation-wrapper #create-book #create-content .horizontal-preview, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview, .book-creation #book-creation-wrapper #create-book #create-content .video-preview { /* position: fixed !important; */ }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview { width: 100%; height: 100%; top: 0; left: 0; background-color: #e7e7e7; background-image: url("../images/texture/vintage-speckles-alt.png"); /* background-size: 800px 600px; */ color: #999999; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview article { margin: 15% auto; padding: 2rem; font-size: 36px; line-height: 40px; position: relative; text-align: center; width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .blank-preview .entypo { font-size: 1.5em; }
@@ -902,63 +901,6 @@ body.demo-start .page, body.page-intro .page { opacity: 0; z-index: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview { width: 75%; height: 100%; top: 0; right: 0; background-color: #fcfcfc; border-left: 1px solid #cfcfcf; color: #191919; padding: 4rem 2rem 2rem 2rem; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview .page-geotag-elem { margin: 0 0 1rem 0; padding: 0 0 1rem 0; border-bottom: 1px dotted #191919; color: #191919; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview .page-desc { text-align: left; }
-.book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper { 					/*
-					.button-wrapper { bottom: 30%; }
-
-					.video-preview {
-						width: 100%; height: 100%;
-					}
-
-					.video-player-container, iframe {
-						width: 100%; height: 100%;
-						margin: 0; padding: 0;
-						top: 0; left: 0;
-
-						position: absolute;
-					}
-
-					article {
-						top: 20%; left: 0;
-
-						color: $black;
-						position: absolute;
-						width: auto;
-						z-index: 1;
-					}
-
-					.page-title-elem, .page-geotag-elem, .page-desc {
-						margin: 0; padding: 0 0 0 1rem;
-
-						background-color: $white;
-						display: table-cell;
-						text-align: left;
-						width: auto;
-
-						&:before, &:after {
-							content: "";
-						}
-					}
-
-					.page-title-elem { padding: 0.5rem 0.5rem 0 1rem; }
-
-					.page-geotag-elem {
-						color: $black;
-						margin: 0.5rem 0;
-						min-width: 100px;
-					}
-
-					.page-desc { padding: 0 0.5rem 0.5rem 1rem; }
-
-					.play-video {
-						top: 50%; right: 15%;
-
-						background-color: $green;
-						color: $white;
-						padding: 1rem;
-						position: absolute;
-						z-index: 1;
-					}
-					*/ }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .video-preview { width: 100%; height: 100%; background-color: #fcfcfc; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article { width: 30%; height: 100%; top: 0; right: 0; border-left: 1px solid #cfcfcf; color: #191919; padding: 4rem 2rem 2rem 2rem; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article ::-webkit-input-placeholder { color: #191919; }
@@ -970,13 +912,7 @@ body.demo-start .page, body.page-intro .page { opacity: 0; z-index: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .video-player-container { width: 70%; height: 100%; top: 0; left: 0; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .video-player-container iframe { width: 100%; height: 100%; background-color: #e7e7e7; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .button-wrapper { bottom: 10%; width: 70%; z-index: 1; }
-.book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .button-wrapper input { margin: 0 auto; padding: 0.5rem; background-color: rgba(252, 252, 252, 0.3); border: 3px solid #191919; color: #191919; /* cursor: pointer; */ /* font-family: "OpenSansBold"; */ font-family: "SourceSansProBold"; /* opacity: 0.7; */ position: relative; text-transform: uppercase; transition: all 0.2s ease; z-index: 2; /*
-&:hover {
-	border: 3px solid $white;
-	color: $white;
-	opacity: 1;
-}
-*/ }
+.book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .button-wrapper input { margin: 0 auto; padding: 0.5rem; background-color: rgba(252, 252, 252, 0.3); border: 3px solid #191919; color: #191919; font-family: "SourceSansProBold"; position: relative; text-transform: uppercase; transition: all 0.2s ease; z-index: 2; }
 
 /******************************************************************************** IN-PLACE EDIT/SCSS **/
 .g-body { @-webkit-keyframes pop-upwards { 0% { -webkit-transform: matrix(0.97, 0, 0, 1, 0, 12); transform: matrix(0.97, 0, 0, 1, 0, 12); opacity: 0; }
@@ -1204,60 +1140,124 @@ a {
 .g-body blockquote i { font-family: Georgia, serif; font-style: italic; }
 .g-body hr { border: 1px solid #dededc; display: block; margin: 30px auto 20px auto; width: 20%; }
 
-/**************************************************************************************** BOOK/SCSS **/
-.book { /* Start flip code */ /* End flip code */ }
-.book .flipContainer { perspective: 3000px; position: relative; user-select: none; -webkit-perspective: 3000px; -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* pager */ }
-.book .flipContainer .pager { text-align: center; height: 24px; line-height: 6px; position: absolute; bottom: 0; width: 100%; cursor: pointer; font-size: 6px; overflow: hidden; }
-.book .flipContainer .pager span.dot { /* background-image: url("images/pager6x6.png"); */ background-repeat: no-repeat; background-position: 0 -6px; display: inline-block; margin: 8px 5px; text-decoration: none; width: 6px; }
-.book .flipContainer .pager span.dot.current { background-position: 0 0; }
-.book .flipContent { width: 100%; height: 100%; top: 0; left: 0; display: none; overflow: hidden; position: absolute; }
-.book .flipContent.flipCurrent { display: block; }
-.book .sliding, .book .slidingBg { background-color: inherit; overflow: hidden; position: absolute; z-index: 1; }
-.book .flipping { background-color: inherit; backface-visibility: hidden; transform: rotateY(0deg); transform-style: preserve3d; }
-.book .flipping.firstHalf { transform-origin: 100% 0; }
-.book .flipping.secondHalf { transform-origin: 0 0; }
-.book .backflipping { background-color: inherit; backface-visibility: hidden; display: none; transform: rotateY(180deg); transform-style: flat; }
-.book .horizontalFlipping.firstHalf { transform-origin: 100% 0; }
-.book .horizontalFlipping.secondHalf { transform-origin: 0 0; }
-.book .verticalFlipping.firstHalf { transform-origin: 0 100%; }
-.book .verticalFlipping.secondHalf { transform-origin: 0 0; }
-.book .splitHalf { overflow: hidden; position: absolute; }
-.book .splitEmpty { background-color: #333; }
-.book #photo-fullview-wrapper #page-sidebar, .book #photo-fullview-wrapper #page-actions, .book #text-fullview-wrapper #page-sidebar, .book #text-fullview-wrapper #page-actions, .book #integrated-fullview-wrapper #page-sidebar, .book #integrated-fullview-wrapper #page-actions, .book #phototext-fullview-wrapper #page-sidebar, .book #phototext-fullview-wrapper #page-actions, .book #frontcover-fullview-wrapper #page-sidebar, .book #frontcover-fullview-wrapper #page-actions, .book #video-fullview-wrapper #page-sidebar, .book #video-fullview-wrapper #page-actions, .book #backcover-wrapper #page-sidebar, .book #backcover-wrapper #page-actions { margin: 0; position: absolute; z-index: 1; }
-.book #photo-fullview-wrapper #page-sidebar li, .book #photo-fullview-wrapper #page-actions li, .book #text-fullview-wrapper #page-sidebar li, .book #text-fullview-wrapper #page-actions li, .book #integrated-fullview-wrapper #page-sidebar li, .book #integrated-fullview-wrapper #page-actions li, .book #phototext-fullview-wrapper #page-sidebar li, .book #phototext-fullview-wrapper #page-actions li, .book #frontcover-fullview-wrapper #page-sidebar li, .book #frontcover-fullview-wrapper #page-actions li, .book #video-fullview-wrapper #page-sidebar li, .book #video-fullview-wrapper #page-actions li, .book #backcover-wrapper #page-sidebar li, .book #backcover-wrapper #page-actions li { width: 60px; height: 60px; background-size: 60px; transition: all 0.2s; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-.book #photo-fullview-wrapper #page-sidebar li a, .book #photo-fullview-wrapper #page-actions li a, .book #text-fullview-wrapper #page-sidebar li a, .book #text-fullview-wrapper #page-actions li a, .book #integrated-fullview-wrapper #page-sidebar li a, .book #integrated-fullview-wrapper #page-actions li a, .book #phototext-fullview-wrapper #page-sidebar li a, .book #phototext-fullview-wrapper #page-actions li a, .book #frontcover-fullview-wrapper #page-sidebar li a, .book #frontcover-fullview-wrapper #page-actions li a, .book #video-fullview-wrapper #page-sidebar li a, .book #video-fullview-wrapper #page-actions li a, .book #backcover-wrapper #page-sidebar li a, .book #backcover-wrapper #page-actions li a { width: 100%; height: 100%; display: block; }
-.book #photo-fullview-wrapper #page-sidebar li:hover, .book #photo-fullview-wrapper #page-actions li:hover, .book #text-fullview-wrapper #page-sidebar li:hover, .book #text-fullview-wrapper #page-actions li:hover, .book #integrated-fullview-wrapper #page-sidebar li:hover, .book #integrated-fullview-wrapper #page-actions li:hover, .book #phototext-fullview-wrapper #page-sidebar li:hover, .book #phototext-fullview-wrapper #page-actions li:hover, .book #frontcover-fullview-wrapper #page-sidebar li:hover, .book #frontcover-fullview-wrapper #page-actions li:hover, .book #video-fullview-wrapper #page-sidebar li:hover, .book #video-fullview-wrapper #page-actions li:hover, .book #backcover-wrapper #page-sidebar li:hover, .book #backcover-wrapper #page-actions li:hover { opacity: 0.7; }
-.book #photo-fullview-wrapper #page-sidebar, .book #text-fullview-wrapper #page-sidebar, .book #integrated-fullview-wrapper #page-sidebar, .book #phototext-fullview-wrapper #page-sidebar, .book #frontcover-fullview-wrapper #page-sidebar, .book #video-fullview-wrapper #page-sidebar, .book #backcover-wrapper #page-sidebar { width: auto; height: 50%; display: inherit; padding: 0 3rem; vertical-align: inherit; }
-.book #photo-fullview-wrapper #page-sidebar li, .book #text-fullview-wrapper #page-sidebar li, .book #integrated-fullview-wrapper #page-sidebar li, .book #phototext-fullview-wrapper #page-sidebar li, .book #frontcover-fullview-wrapper #page-sidebar li, .book #video-fullview-wrapper #page-sidebar li, .book #backcover-wrapper #page-sidebar li { margin: 0 0 1rem 0; }
-.book #photo-fullview-wrapper #page-sidebar li:last-child, .book #text-fullview-wrapper #page-sidebar li:last-child, .book #integrated-fullview-wrapper #page-sidebar li:last-child, .book #phototext-fullview-wrapper #page-sidebar li:last-child, .book #frontcover-fullview-wrapper #page-sidebar li:last-child, .book #video-fullview-wrapper #page-sidebar li:last-child, .book #backcover-wrapper #page-sidebar li:last-child { margin: 0; }
-.book #photo-fullview-wrapper #page-sidebar #book-wiki, .book #text-fullview-wrapper #page-sidebar #book-wiki, .book #integrated-fullview-wrapper #page-sidebar #book-wiki, .book #phototext-fullview-wrapper #page-sidebar #book-wiki, .book #frontcover-fullview-wrapper #page-sidebar #book-wiki, .book #video-fullview-wrapper #page-sidebar #book-wiki, .book #backcover-wrapper #page-sidebar #book-wiki { background-image: url("../images/book-wiki.png"); }
-.book #photo-fullview-wrapper #page-sidebar #book-r2r, .book #text-fullview-wrapper #page-sidebar #book-r2r, .book #integrated-fullview-wrapper #page-sidebar #book-r2r, .book #phototext-fullview-wrapper #page-sidebar #book-r2r, .book #frontcover-fullview-wrapper #page-sidebar #book-r2r, .book #video-fullview-wrapper #page-sidebar #book-r2r, .book #backcover-wrapper #page-sidebar #book-r2r { background-image: url("../images/book-r2r.png"); }
-.book .current-thumbnail a { border: 3px solid #70a1b1; }
-.book #page-scroller-wrapper #page-scroller .page a { width: 100px; height: 100px; overflow: hidden; }
-.book #page-scroller-wrapper #page-scroller .page a img { width: auto; height: 100%; }
-.book #wiki-window { width: 500px; height: 100%; margin: 50px 0 100px 0; padding: 2rem 2rem 3rem 2rem; top: 0; left: 10%; background-color: #fcfcfc; color: #191919; display: none; overflow-x: hidden; overflow-y: scroll; position: absolute; transition: all 0.2s; }
-.book #wiki-window .wiki-footer { cursor: default; float: right; font-family: Georgia, serif; font-size: 0.7em; font-style: italic; line-height: 20px; opacity: 0.3; padding: 0 0 2rem 0; transition: opacity 0.2s; }
-.book #wiki-window .wiki-footer span { width: 20px; height: 20px; background: url("../images/logo-wiki-w.png") no-repeat; background-size: 20px 20px; display: inline-block; margin: 0 0 0 0.1rem; vertical-align: top; border: 0; color: transparent; font: 0/0 a; text-shadow: none; }
-.book #wiki-window .wiki-footer:hover { opacity: 1; }
-.book #wiki-window p { font-size: 1em; line-height: 1.6em; text-align: justify; }
+/************************************************************************************ FULL-BOOK/SCSS **/
+.full-book { font-family: "SourceSansProRegular"; /* Start flip code */ /*
+.flipping.firstHalf { transform-origin: 100% 0; }
+.flipping.secondHalf { transform-origin: 0 0; }
+*/ 	/*
+	.horizontalFlipping.firstHalf { transform-origin: 100% 0; }
+	.horizontalFlipping.secondHalf { transform-origin: 0 0; }
 
-#backcover-wrapper { background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; }
-#backcover-wrapper #book-credits, #backcover-wrapper #book-comments { display: inline-block; vertical-align: top; }
-#backcover-wrapper #book-credits { width: 69.8%; height: 100%; padding: 4rem 0 0 6rem; }
-#backcover-wrapper #book-credits h2 { font-family: "OpenSansBold"; margin: 0 0 2rem 0; }
-#backcover-wrapper #book-credits #author-column, #backcover-wrapper #book-credits #story-column { display: inline-block; vertical-align: top; }
-#backcover-wrapper #book-credits #author-column { margin: 0 2rem 0 0; }
-#backcover-wrapper #book-credits #author-column #author-portrait { width: 150px; height: auto; }
-#backcover-wrapper #book-credits #author-column .profile-btn { margin: -2px 0 1rem 0; }
-#backcover-wrapper #book-credits #author-column button { width: 150px; height: auto; margin: 0; padding: 1rem 0; background-color: #70a1b1; border-radius: 0; color: #fcfcfc; display: block; font-size: 1em; margin: 0 0 1rem 0; text-align: center; text-shadow: none; }
-#backcover-wrapper #book-credits #story-column h5 { font-family: "OpenSansBold"; }
-#backcover-wrapper #book-credits #story-column ul, #backcover-wrapper #book-credits #story-column p { margin: 0 0 1rem 0; }
-#backcover-wrapper #book-credits #story-column a { color: inherit; }
-#backcover-wrapper #book-credits #story-column #story-stats li { float: left; }
-#backcover-wrapper #book-credits #story-column #story-contributors li { line-height: 1.6em; }
-#backcover-wrapper #book-comments { width: 30%; height: 100%; border-left: 1px solid #e7e7e7; padding: 1rem; position: relative; }
-#backcover-wrapper #book-comments #disqus_thread { width: 400px; height: 100%; top: 0; left: 0; background-color: rgba(112, 161, 177, 0.3); position: absolute; }
+	.verticalFlipping.firstHalf { transform-origin: 0 100%; }
+	.verticalFlipping.secondHalf { transform-origin: 0 0; }
+	*/ /* End flip code */ }
+.full-book #the-book { width: 100%; height: 100%; }
+.full-book .page { width: 100%; height: 100%; top: 0; left: 0; background-color: #fcfcfc; position: fixed; }
+.full-book .flipCurrent { z-index: 51; }
+.full-book .flipContainer { perspective: 3000px; position: relative; user-select: none; -webkit-perspective: 3000px; -webkit-tap-highlight-color: rgba(25, 25, 25, 0); -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; /* pager */ 		/*
+		.pager {
+			text-align: center;
+			height: 24px;
+			line-height: 6px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			cursor: pointer;
+			font-size: 6px;
+			overflow: hidden;
 
+			span.dot {
+				background-repeat: no-repeat;
+				background-position: 0 -6px;
+				display: inline-block;
+				margin: 8px 5px;
+				text-decoration: none;
+				width: 6px;
+			}
+
+			span.dot.current  { background-position: 0 0; }
+		}
+		*/ }
+.full-book .flipContent { width: 100%; height: 100%; top: 0; left: 0; display: none; overflow: hidden; position: absolute; }
+.full-book .flipContent.flipCurrent { display: block; }
+.full-book .sliding, .full-book .slidingBg { background-color: inherit; overflow: hidden; position: absolute; z-index: 1; }
+.full-book .flipping { background-color: inherit; backface-visibility: hidden; transform: rotateY(0deg); transform-style: preserve3d; }
+.full-book .backflipping { background-color: inherit; backface-visibility: hidden; display: none; transform: rotateY(0deg); transform-style: flat; }
+.full-book .splitHalf { overflow: hidden; position: absolute; }
+.full-book .splitEmpty { background-color: #333; }
+.full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper { width: 100%; height: 100% !important; overflow: hidden; /* position: fixed !important; */ }
+.full-book .frontcover-wrapper .page-bg, .full-book .photo-wrapper .page-bg, .full-book .text-wrapper .page-bg, .full-book .horizontal-wrapper .page-bg, .full-book .overlay-wrapper .page-bg, .full-book .phototext-wrapper .page-bg, .full-book .vertical-wrapper .page-bg, .full-book .video-wrapper .page-bg, .full-book .backcover-wrapper .page-bg { width: 100%; height: auto; }
+.full-book .frontcover-wrapper ::-webkit-input-placeholder, .full-book .photo-wrapper ::-webkit-input-placeholder, .full-book .text-wrapper ::-webkit-input-placeholder, .full-book .horizontal-wrapper ::-webkit-input-placeholder, .full-book .overlay-wrapper ::-webkit-input-placeholder, .full-book .phototext-wrapper ::-webkit-input-placeholder, .full-book .vertical-wrapper ::-webkit-input-placeholder, .full-book .video-wrapper ::-webkit-input-placeholder, .full-book .backcover-wrapper ::-webkit-input-placeholder { color: #191919; }
+.full-book .frontcover-wrapper ::-moz-placeholder, .full-book .photo-wrapper ::-moz-placeholder, .full-book .text-wrapper ::-moz-placeholder, .full-book .horizontal-wrapper ::-moz-placeholder, .full-book .overlay-wrapper ::-moz-placeholder, .full-book .phototext-wrapper ::-moz-placeholder, .full-book .vertical-wrapper ::-moz-placeholder, .full-book .video-wrapper ::-moz-placeholder, .full-book .backcover-wrapper ::-moz-placeholder { color: #191919; }
+.full-book .frontcover-wrapper :-ms-input-placeholder, .full-book .photo-wrapper :-ms-input-placeholder, .full-book .text-wrapper :-ms-input-placeholder, .full-book .horizontal-wrapper :-ms-input-placeholder, .full-book .overlay-wrapper :-ms-input-placeholder, .full-book .phototext-wrapper :-ms-input-placeholder, .full-book .vertical-wrapper :-ms-input-placeholder, .full-book .video-wrapper :-ms-input-placeholder, .full-book .backcover-wrapper :-ms-input-placeholder { color: #191919; }
+.full-book .frontcover-wrapper .page-title-elem, .full-book .frontcover-wrapper .page-geotag-elem, .full-book .frontcover-wrapper .page-desc, .full-book .photo-wrapper .page-title-elem, .full-book .photo-wrapper .page-geotag-elem, .full-book .photo-wrapper .page-desc, .full-book .text-wrapper .page-title-elem, .full-book .text-wrapper .page-geotag-elem, .full-book .text-wrapper .page-desc, .full-book .horizontal-wrapper .page-title-elem, .full-book .horizontal-wrapper .page-geotag-elem, .full-book .horizontal-wrapper .page-desc, .full-book .overlay-wrapper .page-title-elem, .full-book .overlay-wrapper .page-geotag-elem, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-title-elem, .full-book .phototext-wrapper .page-geotag-elem, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-title-elem, .full-book .vertical-wrapper .page-geotag-elem, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-title-elem, .full-book .video-wrapper .page-geotag-elem, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-title-elem, .full-book .backcover-wrapper .page-geotag-elem, .full-book .backcover-wrapper .page-desc { display: block; }
+.full-book .frontcover-wrapper .page-title-elem, .full-book .frontcover-wrapper .page-geotag-elem, .full-book .photo-wrapper .page-title-elem, .full-book .photo-wrapper .page-geotag-elem, .full-book .text-wrapper .page-title-elem, .full-book .text-wrapper .page-geotag-elem, .full-book .horizontal-wrapper .page-title-elem, .full-book .horizontal-wrapper .page-geotag-elem, .full-book .overlay-wrapper .page-title-elem, .full-book .overlay-wrapper .page-geotag-elem, .full-book .phototext-wrapper .page-title-elem, .full-book .phototext-wrapper .page-geotag-elem, .full-book .vertical-wrapper .page-title-elem, .full-book .vertical-wrapper .page-geotag-elem, .full-book .video-wrapper .page-title-elem, .full-book .video-wrapper .page-geotag-elem, .full-book .backcover-wrapper .page-title-elem, .full-book .backcover-wrapper .page-geotag-elem { margin: 0 0 0.5rem 0; }
+.full-book .frontcover-wrapper .page-title-elem, .full-book .photo-wrapper .page-title-elem, .full-book .text-wrapper .page-title-elem, .full-book .horizontal-wrapper .page-title-elem, .full-book .overlay-wrapper .page-title-elem, .full-book .phototext-wrapper .page-title-elem, .full-book .vertical-wrapper .page-title-elem, .full-book .video-wrapper .page-title-elem, .full-book .backcover-wrapper .page-title-elem { font-family: "SourceSansProLight"; font-size: 1.5em; line-height: 1.2; text-transform: capitalize; }
+.full-book .frontcover-wrapper .page-title-elem:empty:after, .full-book .photo-wrapper .page-title-elem:empty:after, .full-book .text-wrapper .page-title-elem:empty:after, .full-book .horizontal-wrapper .page-title-elem:empty:after, .full-book .overlay-wrapper .page-title-elem:empty:after, .full-book .phototext-wrapper .page-title-elem:empty:after, .full-book .vertical-wrapper .page-title-elem:empty:after, .full-book .video-wrapper .page-title-elem:empty:after, .full-book .backcover-wrapper .page-title-elem:empty:after { color: #999999; content: "Write your title here"; }
+.full-book .frontcover-wrapper .page-geotag-elem, .full-book .photo-wrapper .page-geotag-elem, .full-book .text-wrapper .page-geotag-elem, .full-book .horizontal-wrapper .page-geotag-elem, .full-book .overlay-wrapper .page-geotag-elem, .full-book .phototext-wrapper .page-geotag-elem, .full-book .vertical-wrapper .page-geotag-elem, .full-book .video-wrapper .page-geotag-elem, .full-book .backcover-wrapper .page-geotag-elem { background-color: transparent; border: 0; color: #fcfcfc; font-family: "SourceSansProSemibold"; font-size: 1em; text-transform: uppercase; width: 100%; }
+.full-book .frontcover-wrapper .page-geotag-elem:before, .full-book .photo-wrapper .page-geotag-elem:before, .full-book .text-wrapper .page-geotag-elem:before, .full-book .horizontal-wrapper .page-geotag-elem:before, .full-book .overlay-wrapper .page-geotag-elem:before, .full-book .phototext-wrapper .page-geotag-elem:before, .full-book .vertical-wrapper .page-geotag-elem:before, .full-book .video-wrapper .page-geotag-elem:before, .full-book .backcover-wrapper .page-geotag-elem:before { content: "in "; font-family: "Hoefler Text", Georgia, serif; font-style: italic; text-transform: lowercase; }
+.full-book .frontcover-wrapper .page-desc, .full-book .photo-wrapper .page-desc, .full-book .text-wrapper .page-desc, .full-book .horizontal-wrapper .page-desc, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-desc { font-size: 1em; line-height: 1.4em; margin: 1rem 0 0 0; text-align: center; }
+.full-book .frontcover-wrapper .page-desc:empty:after, .full-book .photo-wrapper .page-desc:empty:after, .full-book .text-wrapper .page-desc:empty:after, .full-book .horizontal-wrapper .page-desc:empty:after, .full-book .overlay-wrapper .page-desc:empty:after, .full-book .phototext-wrapper .page-desc:empty:after, .full-book .vertical-wrapper .page-desc:empty:after, .full-book .video-wrapper .page-desc:empty:after, .full-book .backcover-wrapper .page-desc:empty:after { color: #999999; content: "Start writing your story here."; }
+.full-book .text-wrapper .sp-scrollbar, .full-book .phototext-wrapper .sp-scrollbar, .full-book .vertical-wrapper .sp-scrollbar, .full-book .video-wrapper .sp-scrollbar { background-color: #e7e7e7; cursor: pointer; width: 10px; }
+.full-book .text-wrapper .sp-scrollbar .sp-thumb, .full-book .phototext-wrapper .sp-scrollbar .sp-thumb, .full-book .vertical-wrapper .sp-scrollbar .sp-thumb, .full-book .video-wrapper .sp-scrollbar .sp-thumb { background-color: #999999; transition: height 0.2s ease-in-out; }
+.full-book .text-wrapper .sp-scrollbar.active .sp-thumb, .full-book .phototext-wrapper .sp-scrollbar.active .sp-thumb, .full-book .vertical-wrapper .sp-scrollbar.active .sp-thumb, .full-book .video-wrapper .sp-scrollbar.active .sp-thumb { background-color: #bebebe; }
+.full-book .frontcover-wrapper .frontcover-preview { width: 100%; height: auto; top: 30%; left: 0; color: #191919; position: absolute; }
+.full-book .frontcover-wrapper .frontcover-preview article { margin: 0 auto; padding: 2rem; box-sizing: border-box; background-color: rgba(252, 252, 252, 0.7); width: 60%; }
+.full-book .frontcover-wrapper .frontcover-preview h1, .full-book .frontcover-wrapper .frontcover-preview h5, .full-book .frontcover-wrapper .frontcover-preview section { text-align: center; width: 100%; }
+.full-book .frontcover-wrapper .frontcover-preview h1 { font-size: 36px; line-height: 40px; margin: 0 0 0.5rem 0; }
+.full-book .frontcover-wrapper .frontcover-preview h5 { margin: 0 0 0.5rem 0; text-transform: uppercase; }
+.full-book .frontcover-wrapper .frontcover-preview h5 span:before { content: "by "; font-family: "Hoefler Text", Georgia, serif; font-style: italic; text-transform: lowercase; }
+.full-book .frontcover-wrapper .frontcover-preview section { margin: 0 0 1rem 0; }
+.full-book .frontcover-wrapper .frontcover-preview section .page-geotag-elem { appearance: textfield; background: transparent; color: #fcfcfc; margin: 0 auto 0.5rem; text-align: center; }
+.full-book .frontcover-wrapper .frontcover-preview section .page-feeling-elem:after { content: " |"; }
+.full-book .frontcover-wrapper .frontcover-preview p { margin: 0 auto; padding: 1rem 0; line-height: 1.2em; text-align: center; width: 60%; }
+.full-book .photo-wrapper .button-wrapper { bottom: 30%; }
+.full-book .photo-wrapper .photo-preview { width: 100%; height: auto; max-height: 30%; bottom: 0; left: 0; background: linear-gradient(to top, #191919 0, rgba(25, 25, 25, 0.2) 80%, rgba(252, 252, 252, 0) 100%) transparent; background-color: transparent; color: #fcfcfc; height: auto; padding: 1rem 2rem; position: absolute; }
+.full-book .photo-wrapper .photo-preview ::-webkit-input-placeholder { color: #fcfcfc; }
+.full-book .photo-wrapper .photo-preview ::-moz-placeholder { color: #fcfcfc; }
+.full-book .photo-wrapper .photo-preview :-ms-input-placeholder { color: #fcfcfc; }
+.full-book .photo-wrapper .photo-preview .page-title-elem, .full-book .photo-wrapper .photo-preview .page-geotag-elem, .full-book .photo-wrapper .photo-preview .page-desc { text-align: center; }
+.full-book .text-wrapper .text-preview { width: 100%; height: 100%; background-color: #fcfcfc; font-size: 1.5em; line-height: 2.5em; padding: 5% 15rem; position: fixed; /**/ }
+.full-book .text-wrapper .text-preview .page-geotag-elem { color: #191919; }
+.full-book .text-wrapper .text-preview .page-desc { margin: 0 0 1rem 0; padding: 0 0 2rem 0; font-family: "Hoefler Text", Georgia, serif !important; text-align: left; }
+.full-book .text-wrapper .text-preview .sp-scrollbar { margin: 0 -1rem 0 0; }
+.full-book .horizontal-wrapper .button-wrapper { bottom: 30%; }
+.full-book .horizontal-wrapper section { width: 100%; height: 75%; }
+.full-book .horizontal-wrapper .horizontal-preview { width: 100%; height: 25%; bottom: 0; left: 0; background-color: #fcfcfc; border-top: 1px solid #cfcfcf; color: #191919; padding: 1rem 2rem; position: absolute; text-align: center; }
+.full-book .horizontal-wrapper .horizontal-preview .page-geotag-elem { color: #191919; text-align: center; }
+.full-book .overlay-wrapper .overlay-preview { width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; position: absolute; }
+.full-book .overlay-wrapper .overlay-preview article { margin: 15% auto; padding: 2rem; position: relative; text-align: center; width: 60%; }
+.full-book .overlay-wrapper .overlay-preview .page-desc { margin: 0 0 0.5rem 0; padding: 0; font-size: 36px; line-height: 40px; }
+.full-book .overlay-wrapper .overlay-preview ::-webkit-input-placeholder { color: #fcfcfc; }
+.full-book .overlay-wrapper .overlay-preview ::-moz-placeholder { color: #fcfcfc; }
+.full-book .overlay-wrapper .overlay-preview :-ms-input-placeholder { color: #fcfcfc; }
+.full-book .overlay-wrapper .overlay-preview .page-geotag-elem { color: #fcfcfc; text-align: center; }
+.full-book .phototext-wrapper .phototext-preview { width: 30%; height: 100%; top: 0; right: 0; background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; padding: 4rem 2rem 2rem 2rem; position: absolute; }
+.full-book .phototext-wrapper .phototext-preview ::-webkit-input-placeholder { color: #fcfcfc; }
+.full-book .phototext-wrapper .phototext-preview ::-moz-placeholder { color: #fcfcfc; }
+.full-book .phototext-wrapper .phototext-preview :-ms-input-placeholder { color: #fcfcfc; }
+.full-book .phototext-wrapper .phototext-preview .page-geotag-elem { margin: 0 0 1rem 0; padding: 0 0 1rem 0; color: #fcfcfc; border-bottom: 1px dotted #fcfcfc; }
+.full-book .phototext-wrapper .phototext-preview .page-desc { text-align: left; }
+.full-book .vertical-wrapper .button-wrapper { width: 25%; }
+.full-book .vertical-wrapper section { width: 25%; height: 100%; }
+.full-book .vertical-wrapper .page-bg { width: auto; height: 100%; }
+.full-book .vertical-wrapper .vertical-preview { width: 75%; height: 100%; top: 0; right: 0; background-color: #fcfcfc; border-left: 1px solid #cfcfcf; color: #191919; padding: 4rem 2rem 2rem 2rem; position: absolute; }
+.full-book .vertical-wrapper .vertical-preview .page-geotag-elem { margin: 0 0 1rem 0; padding: 0 0 1rem 0; border-bottom: 1px dotted #191919; color: #191919; }
+.full-book .vertical-wrapper .vertical-preview .page-desc { text-align: left; }
+.full-book .video-wrapper .video-preview { width: 100%; height: 100%; background-color: #fcfcfc; position: absolute; }
+.full-book .video-wrapper article { width: 30%; height: 100%; top: 0; right: 0; border-left: 1px solid #cfcfcf; color: #191919; padding: 4rem 2rem 2rem 2rem; position: absolute; }
+.full-book .video-wrapper article ::-webkit-input-placeholder { color: #191919; }
+.full-book .video-wrapper article ::-moz-placeholder { color: #191919; }
+.full-book .video-wrapper article :-ms-input-placeholder { color: #191919; }
+.full-book .video-wrapper article .page-geotag-elem { margin: 0 0 1rem 0; padding: 0 0 1rem 0; color: #191919; border-bottom: 1px dotted #191919; }
+.full-book .video-wrapper article .page-desc { text-align: left; }
+.full-book .video-wrapper .play-video { display: none; }
+.full-book .video-wrapper .video-player-container { width: 70%; height: 100%; top: 0; left: 0; position: absolute; }
+.full-book .video-wrapper .video-player-container iframe { width: 100%; height: 100%; background-color: #e7e7e7; }
+.full-book .video-wrapper .button-wrapper { bottom: 10%; width: 70%; z-index: 1; }
+.full-book .video-wrapper .button-wrapper input { margin: 0 auto; padding: 0.5rem; background-color: rgba(252, 252, 252, 0.3); border: 3px solid #191919; color: #191919; font-family: "SourceSansProBold"; position: relative; text-transform: uppercase; transition: all 0.2s ease; z-index: 2; }
+
+/* @import "book"; */
 /*************************************************************************************** SHAME/SCSS **/
 /****************************** FOR THOSE BROWSERS THAT STILL NEED VENDOR PREFIXES TO WORK. PUSSIES **/
 /** Default modal styling ****************************************************************************/

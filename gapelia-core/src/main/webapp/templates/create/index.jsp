@@ -632,6 +632,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/grande.js"></script>
+
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
@@ -639,24 +640,6 @@
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/books.js"></script>
-
-		<script>
-			/*
-			$(function() {
-
-				// window.livePreviewElem = $(".page-desc");
-				// livePreviewElem.html(text);
-
-				$('.frontcover-preview .page-title-elem').livePreview({
-					previewElement: $('.livepreview-thing'),
-					allowedTags: ['p', 'strong', 'br', 'em', 'strike'],
-					interval: 20
-				});
-				
-				$('.livepreview-thing').html(text);
-			});
-			*/
-		</script>
 
 		<!--/ Save this for the actual book! (:
 		<script src="/static/scripts/flip.js"></script>

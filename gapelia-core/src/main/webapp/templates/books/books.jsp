@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>[username]'s Library | Gapelia</title>
+		<title>You are reading "Hayao Miyazaki" on Gapelia</title>
 
 		<!--/
 			 ______   ______   ______  ______   __       __   ______    
@@ -20,8 +20,8 @@
 
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
-		<meta name="description" content="The stand for the world's greatest stories"/>
-		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
+		<meta name="description" content="This should be a synopsis about the book"/>
+		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
@@ -34,19 +34,9 @@
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
-		<!--/
-		<script>
-			$(window).ready(function() {
-				$("#user-book-list").hide();
-				$("#user-collection-list").hide();
-				$("#user-library-list").hide();
-			});
-		</script>
-		/-->
-
 	</head>
 
-	<body class="app profile">
+	<body class="app full-book">
 	
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -66,266 +56,334 @@
 			</nav>
 			<!--//mp-menu /-->
 
-			<div id="bookmarks-scroller">
-				<div id="bookmarks-header">
-					<h3>Paul Anthony Webb</h3>
-				</div>
+			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
-				<ul id="bm-wrapper">
-					<li id="bm-notifications">
-						<span></span><a class="bm-section-title" href="#">Notifications</a>
+			<div id="the-book">
 
-						<ul class="list-expanded">
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-						</ul>
-					</li>
+				<!--/ page-01 /-->
+				<section class="page frontcover-wrapper">
+					<img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/>
 
-					<li id="bm-books">
-						<span></span><a class="bm-section-title" href="#">Books</a>
+					<div class="frontcover-preview">
+						<article class="cover-info">
 
-						<ul class="list-expanded">
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-						</ul>
-					</li>
+							<h1 class="page-title-elem">Hayao Miyazaki</h1>
+							<h5 contenteditable="false"><span>NetOperator Wibby</span></h5>
+							<div class="page-desc">I have always loved anime. I don't remember when I saw my first anime, but I am an avid fan of them today. Many directors have achieved widespread acclaim with classic anime films like Akira, Ghost in the Shell, &amp;c. One of these directors is Hayao Miyazaki, and this book is a collection of my favorite movies he's directed.</div>
 
-					<li id="bm-collections">
-						<span></span><a class="bm-section-title" href="#">Collections</a>
-
-						<ul class="list-expanded">
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-						</ul>
-					</li>
-
-					<li id="bm-libraries">
-						<span></span><a class="bm-section-title" href="#">Libraries</a>
-
-						<ul class="list-expanded">
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-						</ul>
-					</li>
-
-					<li id="bm-drafts">
-						<span></span><a class="bm-section-title" href="#">Drafts</a>
-
-						<ul class="list-expanded">
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-							<li>Something here</l1>
-						</ul>
-					</li>
-				</ul>
-			</div>
-
-			<div id="user-panel">
-				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
-
-				<div class="user-bg">
-					<img src="/static/images/space-bb.jpg"/>
-				</div>
-
-				<div class="user-data">
-					<h2>Paul Anthony Webb</h2>
-
-					<ul>
-						<li>Surfing</li>
-						<li>Hawaii</li>
-						<li>Fun</li>
-					</ul>
-
-					<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
-
-					<div class="wrapper">
-						<button>Edit Profile</button>
+						</article>
 					</div>
-				</div>
+				</section>
 
-				<div class="user-avatar">
-					<img src="/static/images/users/01.jpg"/>
-				</div>
-			</div>
+				<!--/ page-02 /-->
+				<section class="page photo-wrapper">
+					<img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/>
 
-			<div id="disappear">
-				&nbsp;
-			</div>
+					<div class="photo-preview">
+						<article>
 
-			<div id="book-scroller">
-				<ul id="book-nav">
-					<li id="nav-books" class="current"><a href="#">Books</a></li>
-					<li id="nav-collections"><a href="#">Collections</a></li>
-					<li id="nav-libraries"><a href="#">Libraries</a></li>
-					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
-				</ul>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-02" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-				<div class="user-book-list-wrapper">
-					<ul id="user-book-list">
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<span class="triangle-bg"></span>
+				<!--/ page-03 /-->
+				<section class="page photo-wrapper">
+					<img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/>
 
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998; <!--/ & /--></a></li>
-								<li class="delete"><a href="#">&#9749;<!--/ u /--></a></li>
-							</ul>
+					<div class="photo-preview">
+						<article>
 
-							<div class="book-info">
-								<div class="book-title">Japanimation</div>
-								<div class="photo-credit">Published by <a href="#">Spaceman Fresh</a></div><hr/>
-								<div class="photo-credit">Found in <a href="#">Camp Awesome</a></div>
-							</div>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-03" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
+				<!--/ page-04 /-->
+				<section class="page photo-wrapper">
+					<img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-04" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
+				<!--/ page-05 /-->
+				<section class="page photo-wrapper">
+					<img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-05" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
+				<!--/ page-06 /-->
+				<section class="page photo-wrapper">
+					<img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/>
 
-					</ul>
-				</div>
-				
-				<div class="user-collection-list-wrapper">
-					<ul id="user-collection-list">
-						<li class="book">
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-06" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb.jpg" alt=""/>
-						</li>
+				<!--/ page-07 /-->
+				<section class="page photo-wrapper">
+					<img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-07" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
+				<!--/ page-08 /-->
+				<section class="page photo-wrapper">
+					<img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-					</ul>
-				</div>
-				
-				<div class="user-library-list-wrapper">
-					<ul id="user-library-list">
-						<li class="book">
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-08" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
+				<!--/ page-09 /-->
+				<section class="page photo-wrapper">
+					<img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-09" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
+						</article>
+					</div>
+				</section>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
+				<!--/ page-10 /-->
+				<section class="page photo-wrapper">
+					<img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/>
 
-						<li class="book">
-							<img src="/static/images/book-thumb.jpg" alt=""/>
-						</li>
+					<div class="photo-preview">
+						<article>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-10" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
 
-						<li class="book">
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-					</ul>
-				</div>
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-11 /-->
+				<section class="page photo-wrapper">
+					<img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-11" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-12 /-->
+				<section class="page photo-wrapper">
+					<img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-12" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-13 /-->
+				<section class="page photo-wrapper">
+					<img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-13" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-14 /-->
+				<section class="page photo-wrapper">
+					<img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-14" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-15 /-->
+				<section class="page photo-wrapper">
+					<img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-15" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-16 /-->
+				<section class="page photo-wrapper">
+					<img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-16" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-17 /-->
+				<section class="page photo-wrapper">
+					<img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-17" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-18 /-->
+				<section class="page photo-wrapper">
+					<img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-18" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-19 /-->
+				<section class="page photo-wrapper">
+					<img id="page-19-placeholder" class="page-bg" src="/static/images/test-book/19.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-19" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-20 /-->
+				<section class="page photo-wrapper">
+					<img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-20" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+				</section>
+
+				<!--/ page-21 /-->
+				<section class="page backcover-wrapper">
+					<img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+
+					<!--/
+					<div class="photo-preview">
+						<article>
+
+							<h1 class="page-title-elem">This is a title</h1>
+							<div id="geotag-01" class="page-geotag-elem">Location</div>
+							<div class="page-desc">This is a description.</div>
+
+						</article>
+					</div>
+					/-->
+				</section>
+
 			</div>
 
 		</div>
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
+		<script src="/static/scripts/books.js"></script>
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
@@ -338,6 +396,20 @@
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
+		<!--/ scripts/page-flip /-->
+		<script src="/static/scripts/flip.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				$("#the-book").flip({
+					forwardDir: "rtol",
+					// height: "340px",
+					showpager: false,
+					loop: false
+				});
+			});
+		</script>
+
 		<script>
 			$(document).ready(function() {
 
@@ -346,24 +418,27 @@
 
 				setTimeout(function() {
 
-					$("#user-book-list").css("opacity", "0").show();
+					// $("#user-book-list").css("opacity", "0").show();
 
+					/*
 					$("#user-book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
 						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 					});
+					*/
 
 					NProgress.done();
 
-					$("#user-book-list").css("opacity", "1");
+					// $("#user-book-list").css("opacity", "1");
 
 				});
 
-				$("#nav-books").addClass("current");
+				// $("#nav-books").addClass("current");
 
 				// Click "Books"
+				/*
 				$("#nav-books").click(function (e) {
 
 					NProgress.start();
@@ -394,8 +469,10 @@
 					e.preventDefault();
 
 				});
+				*/
 
 				// Click "Collections"
+				/*
 				$("#nav-collections").click(function (e) {
 
 					NProgress.start();
@@ -426,8 +503,10 @@
 					e.preventDefault();
 
 				});
+				*/
 
 				// Click "Libraries"
+				/*
 				$("#nav-libraries").click(function (e) {
 
 					NProgress.start();
@@ -457,13 +536,6 @@
 					$("#nav-libraries").addClass("current");
 					e.preventDefault();
 
-				});
-
-				/*
-				$("#bookmarks-scroller").mCustomScrollbar({
-					autoHideScrollbar: false,
-					horizontalScroll: false,
-					theme: "dark-thin"
 				});
 				*/
 

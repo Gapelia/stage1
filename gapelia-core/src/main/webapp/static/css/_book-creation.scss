@@ -453,10 +453,6 @@
 				}
 
 				.text-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
-					.page-desc {
-					
-					}
-
 					.sp-scrollbar {
 						background-color: $gray-i;
 						cursor: pointer;
@@ -469,11 +465,6 @@
 					}
 
 					.sp-scrollbar.active .sp-thumb { background-color: $gray-iii; }
-				}
-
-				.frontcover-preview, .photo-preview, .text-preview, .horizontal-preview,
-				.overlay-preview, .phototext-preview, .vertical-preview, .video-preview {
-					/* position: fixed !important; */
 				}
 
 				.blank-preview-wrapper {
@@ -796,82 +787,13 @@
 							background-color: rgba($white, 0.3);
 							border: 3px solid $black;
 							color: $black;
-							/* cursor: pointer; */
-							/* font-family: "OpenSansBold"; */
 							font-family: "SourceSansProBold";
-							/* opacity: 0.7; */
 							position: relative;
 							text-transform: uppercase;
 							transition: all 0.2s ease;
 							z-index: 2;
-
-							/*
-							&:hover {
-								border: 3px solid $white;
-								color: $white;
-								opacity: 1;
-							}
-							*/
 						}
 					}
-
-					/*
-					.button-wrapper { bottom: 30%; }
-
-					.video-preview {
-						width: 100%; height: 100%;
-					}
-
-					.video-player-container, iframe {
-						width: 100%; height: 100%;
-						margin: 0; padding: 0;
-						top: 0; left: 0;
-
-						position: absolute;
-					}
-
-					article {
-						top: 20%; left: 0;
-
-						color: $black;
-						position: absolute;
-						width: auto;
-						z-index: 1;
-					}
-
-					.page-title-elem, .page-geotag-elem, .page-desc {
-						margin: 0; padding: 0 0 0 1rem;
-
-						background-color: $white;
-						display: table-cell;
-						text-align: left;
-						width: auto;
-
-						&:before, &:after {
-							content: "";
-						}
-					}
-
-					.page-title-elem { padding: 0.5rem 0.5rem 0 1rem; }
-
-					.page-geotag-elem {
-						color: $black;
-						margin: 0.5rem 0;
-						min-width: 100px;
-					}
-
-					.page-desc { padding: 0 0.5rem 0.5rem 1rem; }
-
-					.play-video {
-						top: 50%; right: 15%;
-
-						background-color: $green;
-						color: $white;
-						padding: 1rem;
-						position: absolute;
-						z-index: 1;
-					}
-					*/
 				}
 			}
 		}
