@@ -18,20 +18,27 @@
 
 		/-->
 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/bookblock.css" rel="stylesheet"/>
+		<link href="/static/css/demo4.css" rel="stylesheet"/>
+
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.js"></script>
+		<!--/ <script src="/static/scripts/modernizr.custom.js"></script> /-->
 		<script src="/static/scripts/nprogress.js"></script>
 
 	</head>
@@ -40,346 +47,495 @@
 	
 		<div id="mp-pusher" class="super-wrapper">
 
-			<!--/ mp-menu /-->
-			<nav id="mp-menu" class="mp-menu">
+			<!--/ site-menu /-->
+			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class="">Gapelia</h2>
+					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a class="" href="#">Featured</a></li>
-						<li><a class="" href="#">Me</a></li>
-						<li><a class="" href="#">New Book</a></li>
-						<li><a class="" href="#">Drafts</a></li>
+						<li><a class="" href="/me">Me</a></li>
+						<li><a class="demo-link">New Book</a></li>
 					</ul>
+
+					<div id="account-links">
+						<a href="/accounts">Account</a>
+						<a href="#">Sign Out</a>
+					</div>
 
 				</div>
 			</nav>
-			<!--//mp-menu /-->
+			<!--//site-menu /-->
 
 			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
-			<div id="the-book">
+			<!--/ div id="the-book" /-->
+			<div id="the-book" class="bb-custom-wrapper">
+				<div id="bb-bookblock" class="bb-bookblock">
 
-				<!--/ page-01 /-->
-				<section class="page frontcover-wrapper">
-					<img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/>
+					<!--/ page-01 /-->
+					<div class="bb-item" id="item1">
+						<div class="content">
 
-					<div class="frontcover-preview">
-						<article class="cover-info">
+							<section class="frontcover-wrapper">
+								<img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/>
 
-							<h1 class="page-title-elem">Hayao Miyazaki</h1>
-							<h5 contenteditable="false"><span>NetOperator Wibby</span></h5>
-							<div class="page-desc">I have always loved anime. I don't remember when I saw my first anime, but I am an avid fan of them today. Many directors have achieved widespread acclaim with classic anime films like Akira, Ghost in the Shell, &amp;c. One of these directors is Hayao Miyazaki, and this book is a collection of my favorite movies he's directed.</div>
+								<div class="frontcover-preview">
+									<article class="cover-info">
 
-						</article>
+										<h1 class="page-title-elem">Hayao Miyazaki</h1>
+										<h5 contenteditable="false"><span>NetOperator Wibby</span></h5>
+										<div class="page-desc">I have always loved anime. I don't remember when I saw my first anime, but I am an avid fan of them today. Many directors have achieved widespread acclaim with classic anime films like Akira, Ghost in the Shell, &amp;c. One of these directors is Hayao Miyazaki, and this book is a collection of my favorite movies he's directed.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-02 /-->
-				<section class="page photo-wrapper">
-					<img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/>
+					<!--/ page-02 /-->
+					<div class="bb-item" id="item2">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="phototext-wrapper">
+								<img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-02" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="phototext-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-02" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-03 /-->
-				<section class="page photo-wrapper">
-					<img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/>
+					<!--/ page-03 /-->
+					<div class="bb-item" id="item3">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="horizontal-wrapper">
+								<img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-03" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="horizontal-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-03" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-04 /-->
-				<section class="page photo-wrapper">
-					<img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/>
+					<!--/ page-04 /-->
+					<div class="bb-item" id="item4">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="overlay-wrapper">
+								<img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-04" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="overlay-preview">
+									<article>
 
-						</article>
+										<div class="page-desc">This is a description.</div>
+										<div id="geotag-04" class="page-geotag-elem">Location</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-05 /-->
-				<section class="page photo-wrapper">
-					<img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/>
+					<!--/ page-05 /-->
+					<div class="bb-item" id="item5">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-05" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-05" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-06 /-->
-				<section class="page photo-wrapper">
-					<img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/>
+					<!--/ page-06 /-->
+					<div class="bb-item" id="item6">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-06" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-07 /-->
-				<section class="page photo-wrapper">
-					<img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/>
+					<!--/ page-07 /-->
+					<div class="bb-item" id="item7">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-07" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-07" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-08 /-->
-				<section class="page photo-wrapper">
-					<img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/>
+					<!--/ page-08 /-->
+					<div class="bb-item" id="item8">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-08" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-08" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-09 /-->
-				<section class="page photo-wrapper">
-					<img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/>
+					<!--/ page-09 /-->
+					<div class="bb-item" id="item9">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="horizontal-wrapper">
+								<img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-09" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="horizontal-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-09" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-10 /-->
-				<section class="page photo-wrapper">
-					<img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/>
+					<!--/ page-10 /-->
+					<div class="bb-item" id="item10">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-10" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-10" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-11 /-->
-				<section class="page photo-wrapper">
-					<img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/>
+					<!--/ page-11 /-->
+					<div class="bb-item" id="item11">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-11" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-11" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-12 /-->
-				<section class="page photo-wrapper">
-					<img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/>
+					<!--/ page-12 /-->
+					<div class="bb-item" id="item12">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="phototext-wrapper">
+								<img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-12" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="phototext-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-12" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-13 /-->
-				<section class="page photo-wrapper">
-					<img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/>
+					<!--/ page-13 /-->
+					<div class="bb-item" id="item13">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="vertical-wrapper">
+								<img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-13" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="vertical-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-13" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-14 /-->
-				<section class="page photo-wrapper">
-					<img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/>
+					<!--/ page-14 /-->
+					<div class="bb-item" id="item14">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-14" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-14" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-15 /-->
-				<section class="page photo-wrapper">
-					<img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/>
+					<!--/ page-15 /-->
+					<div class="bb-item" id="item15">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="phototext-wrapper">
+								<img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-15" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="phototext-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-15" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-16 /-->
-				<section class="page photo-wrapper">
-					<img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/>
+					<!--/ page-16 /-->
+					<div class="bb-item" id="item16">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-16" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-16" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-17 /-->
-				<section class="page photo-wrapper">
-					<img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/>
+					<!--/ page-17 /-->
+					<div class="bb-item" id="item17">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="overlay-wrapper">
+								<img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-17" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="overlay-preview">
+									<article>
 
-						</article>
+										<div class="page-desc">This is a description.</div>
+										<div id="geotag-17" class="page-geotag-elem">Location</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-18 /-->
-				<section class="page photo-wrapper">
-					<img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/>
+					<!--/ page-18 /-->
+					<div class="bb-item" id="item18">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-18" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-18" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-19 /-->
-				<section class="page photo-wrapper">
-					<img id="page-19-placeholder" class="page-bg" src="/static/images/test-book/19.jpg"/>
+					<!--/ page-19 /-->
+					<div class="bb-item" id="item19">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-19-placeholder" class="page-bg" src="/static/images/test-book/19.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-19" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-19" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-20 /-->
-				<section class="page photo-wrapper">
-					<img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+					<!--/ page-20 /-->
+					<div class="bb-item" id="item20">
+						<div class="content">
 
-					<div class="photo-preview">
-						<article>
+							<section class="photo-wrapper">
+								<img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-20" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-20" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+
+						</div>
 					</div>
-				</section>
 
-				<!--/ page-21 /-->
-				<section class="page backcover-wrapper">
-					<img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+					<!--/ page-21 /-->
+					<div class="bb-item" id="item21">
+						<div class="content">
 
-					<!--/
-					<div class="photo-preview">
-						<article>
+							<section class="backcover-wrapper">
+								<img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
 
-							<h1 class="page-title-elem">This is a title</h1>
-							<div id="geotag-01" class="page-geotag-elem">Location</div>
-							<div class="page-desc">This is a description.</div>
+								<!--/
+								<div class="photo-preview">
+									<article>
 
-						</article>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-01" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+								/-->
+							</section>
+
+						</div>
 					</div>
-					/-->
-				</section>
 
+				</div>
 			</div>
 
 		</div>
+
+		<!--/ dialog-windows /-->
+		<div class="modal-book-creation" style="display: none">
+			<div>
+				<h1>They say two minds are better than one</h1>
+
+				<div class="reveal">
+					<p>Invite others to collaborate on your story:</p>
+					<select id="user-search" class="movies" placeholder="Search for a user"></select>
+					<p>Or, invite via <a href="">email</a></p>
+
+					<p><a href="/create">SKIP</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="stack"></div>
+		<div style="-webkit-transform: translateZ(0)"></div>
+		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
@@ -389,7 +545,7 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("mp-menu"), document.getElementById("g-menu-toggle"));
+			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
@@ -397,9 +553,16 @@
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
 		<!--/ scripts/page-flip /-->
-		<script src="/static/scripts/flip.js"></script>
+		<!--/
+		<script src="/static/scripts/jquerypp.custom.js"></script>
+		<script src="/static/scripts/bookblock.js"></script>
+		<script src="/static/scripts/page.js"></script>
+		/-->
+
+		<!--/ <script src="/static/scripts/flip.js"></script> /-->
 
 		<script>
+			/*
 			$(document).ready(function () {
 				$("#the-book").flip({
 					forwardDir: "rtol",
@@ -408,6 +571,7 @@
 					loop: false
 				});
 			});
+			*/
 		</script>
 
 		<script>
@@ -417,6 +581,8 @@
 				NProgress.start();
 
 				setTimeout(function() {
+
+					// Page.init();
 
 					// $("#user-book-list").css("opacity", "0").show();
 
@@ -435,107 +601,233 @@
 
 				});
 
-				// $("#nav-books").addClass("current");
+			});
+		</script>
+		
+		<script src="/static/scripts/jquerypp.custom.js"></script>
+		<script src="/static/scripts/jquery.bookblock.js"></script>
 
-				// Click "Books"
-				/*
-				$("#nav-books").click(function (e) {
+		<script>
+			var Page = (function () {
 
-					NProgress.start();
+				var config = {
+					$bookBlock: $('#bb-bookblock'),
+					$navNext: $('#bb-nav-next'),
+					$navPrev: $('#bb-nav-prev'),
+					$navFirst: $('#bb-nav-first'),
+					$navLast: $('#bb-nav-last')
+				},
 
-					setTimeout(function() {
-
-						$("#user-book-list").show();
-						$("#user-collection-list").hide();
-						$("#user-library-list").hide();
-
-						$("#user-book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-						});
-
-						$("#user-collection-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
+				init = function () {
+					config.$bookBlock.bookblock({
+						speed: 1000,
+						shadowSides: 0.8,
+						shadowFlip: 0.4
 					});
 
-					$("#nav-books").addClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").removeClass("current");
-					e.preventDefault();
+					initEvents();
+				},
 
+				initEvents = function () {
+
+					var $slides = config.$bookBlock.children();
+
+					// add navigation events
+					config.$navNext.on('click touchstart', function () {
+						config.$bookBlock.bookblock('next');
+						return false;
+					});
+
+					config.$navPrev.on('click touchstart', function () {
+						config.$bookBlock.bookblock('prev');
+						return false;
+					});
+
+					config.$navFirst.on('click touchstart', function () {
+						config.$bookBlock.bookblock('first');
+						return false;
+					});
+
+					config.$navLast.on('click touchstart', function () {
+						config.$bookBlock.bookblock('last');
+						return false;
+					});
+
+					// add swipe events
+					$slides.on({
+						'swipeleft': function (event) {
+							config.$bookBlock.bookblock('next');
+							return false;
+						},
+						'swiperight': function (event) {
+							config.$bookBlock.bookblock('prev');
+							return false;
+						}
+					});
+
+					// add keyboard events
+					$(document).keydown(function (e) {
+
+						var
+						keyCode = e.keyCode || e.which,
+						arrow = {
+							left: 37,
+							up: 38,
+							right: 39,
+							down: 40
+						};
+
+						switch (keyCode) {
+							case arrow.left:
+								config.$bookBlock.bookblock('prev');
+								break;
+							case arrow.right:
+								config.$bookBlock.bookblock('next');
+								break;
+						}
+
+					});
+				};
+
+				return {
+					init: init
+				};
+
+			})();
+		</script>
+
+		<script>
+			Page.init();
+		</script>
+
+		<!--/ scripts/dialog /-->
+		<script src="/static/scripts/vex.js"></script>
+		<script src="/static/scripts/vex.dialog.js"></script>
+		
+		<script>
+			var demo = {};
+			demo.className = "vex-theme-wireframe";
+
+			vex.defaultOptions.className = "vex-theme-wireframe";
+			vex.dialog.defaultOptions.showCloseButton = true;
+
+			demo.loadInitialDialogs = function () {
+
+				$("body").addClass("page-intro");
+
+				demo.initialDialogsClassName = "vex-theme-wireframe";
+
+				for (var i = 0; i > -1; i--) {
+					vex.dialog.alert({
+						appendLocation: ".stack",
+						message: $(".modal-book-creation > div:nth-child(" + (i + 1) + ")").html(),
+						className: demo.initialDialogsClassName,
+						buttons: [
+							$.extend({}, vex.dialog.buttons.YES, {
+								text: "Skip"
+							})
+						],
+						callback: function (value) {
+							setTimeout(function () {
+								demo.advanceDemoDialogs();
+							}, 0);
+						}
+					});
+				}
+
+				demo.advanceDemoDialogs();
+
+			};
+
+			demo.advanceDemoDialogs = function () {
+
+				var $remaining = $('.stack > .vex:not(".vex-closing")');
+				var $vW = $(window).width(), $vH = $(window).height();
+
+				$(".stack").show();
+
+				$(".stack").css({
+					"width": $vW + "px",
+					"height": $vH + "px"
 				});
-				*/
 
-				// Click "Collections"
-				/*
-				$("#nav-collections").click(function (e) {
+				$("#g-menu-toggle").css("opacity", "0.3");
 
-					NProgress.start();
-
-					$("#user-book-list").hide();
-					$("#user-collection-list").show();
-					$("#user-library-list").hide();
-
-					setTimeout(function() {
-
-						$("#user-collection-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-						});
-
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").addClass("current");
-					$("#nav-libraries").removeClass("current");
-					e.preventDefault();
-
+				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
+					$(item).addClass("v" + i);
 				});
-				*/
 
-				// Click "Libraries"
-				/*
-				$("#nav-libraries").click(function (e) {
+				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
 
-					NProgress.start();
+				if ($remaining.length === 0) {
+					$("body").removeClass("page-intro");
 
-					$("#user-book-list").hide();
-					$("#user-collection-list").hide();
-					$("#user-library-list").show();
+					setTimeout(function () {
+						$(".stack").hide();
+					}, 600);
+				}
 
-					setTimeout(function() {
+			};
 
-						$("#user-library-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+			$(".demo-link").click(function () {
+				demo.loadInitialDialogs();
+			});
+		</script>
+
+		<script>
+			$(function() {
+
+				$("#user-search").selectize({
+					valueField: 'title',
+					labelField: 'title',
+					searchField: 'title',
+					options: [],
+					create: false,
+					render: {
+						option: function (item, escape) {
+							var actors = [];
+
+							for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
+								actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
+							}
+
+							return '<div>' +
+								'<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
+								'<span class="title">' +
+								'<span class="name">' + escape(item.title) + '</span>' +
+								'</span>' +
+								'<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
+								'<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
+								'</div>';
+						}
+					},
+					load: function (query, callback) {
+
+						if (!query.length) return callback();
+
+						$.ajax({
+							url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
+							type: 'GET',
+							dataType: 'jsonp',
+							data: {
+								q: query,
+								page_limit: 10,
+								apikey: '3qqmdwbuswut94jv4eua3j85'
+							},
+							error: function () { callback(); },
+							success: function (res) { callback(res.movies); }
 						});
 
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-collection-list").mCustomScrollbar("destroy");
+					}
+				});
 
-						NProgress.done();
+				// $("#book-dimension-picker").selectize();
 
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").addClass("current");
-					e.preventDefault();
-
+				/*
+				$("#user-search").selectize({
+					create: true,
+					sortField: "text",
+					dropdownParent: "body"
 				});
 				*/
 

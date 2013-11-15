@@ -419,7 +419,12 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	$("#the-book").css("height", $vH + "px");
+	// $("#the-book").css("height", $vH + "px");
+
+	$(".content").css({
+		"width": $vW + "px",
+		"height": $vH + "px"
+	});
 
 	$(document).ready(function() {
 		

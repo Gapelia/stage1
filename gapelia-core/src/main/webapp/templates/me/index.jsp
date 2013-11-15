@@ -50,8 +50,6 @@
 					<ul>
 						<li><a class="" href="/me">Me</a></li>
 						<li><a class="demo-link">New Book</a></li>
-						<!--/ <li class="demo-link"><a class="current-page" href="#">New Book</a></li> /-->
-						<!--/ <li><a class="" href="/drafts">Drafts</a></li> /-->
 					</ul>
 
 					<div id="account-links">
@@ -736,49 +734,9 @@
 
 				<div class="reveal">
 					<p>Invite others to collaborate on your story:</p>
-
 					<select id="user-search" class="movies" placeholder="Search for a user"></select>
-
-					<!--/
-					<select id="user-search" placeholder="Search for a user">
-						<option value="">Search for a user</option>
-						<option value="1">Architecture</option>
-						<option value="2">Biography</option>
-						<option value="3">Cinema</option>
-						<option value="4">Cuisine</option>
-						<option value="5">Era</option>
-						<option value="6">The Far East</option>
-						<option value="7">Fashionista</option>
-						<option value="8">Future</option>
-						<option value="9">Gapelians</option>
-						<option value="10">Historian</option>
-						<option value="11">Into the Wild</option>
-						<option value="12">Japanimation</option>
-						<option value="13">Land of Kawaii</option>
-						<option value="14">Manifesto</option>
-						<option value="15">Modernism</option>
-						<option value="16">Mother Gaea</option>
-						<option value="17">Museum</option>
-						<option value="18">On the Road</option>
-						<option value="19">Products of Tomorrow</option>
-						<option value="20">Subculture</option>
-					</select>
-					/-->
-
-					<!--/
-					<select id="book-dimension-picker" placeholder="Choose a dimension">
-						<option value="">Choose a dimension</option>
-						<option value="PULSE">Pulse</option>
-						<option value="WOW">Wow</option>
-						<option value="LIFE">Life</option>
-						<option value="WONDER">Wonder</option>
-						<option value="ART">Art</option>
-						<option value="FLOW">Flow</option>
-					</select>
-					/-->
-
 					<p>Or, invite via <a href="">email</a></p>
-					
+
 					<p><a href="/create">SKIP</a></p>
 				</div>
 			</div>

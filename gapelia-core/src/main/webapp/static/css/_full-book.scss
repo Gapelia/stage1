@@ -2,116 +2,31 @@
 
 .full-book {
 
+	width: 100%; height: 100%;
+
 	font-family: "SourceSansProRegular";
+	overflow: hidden;
+
+	#g-menu-toggle { z-index: 101; }
 
 	#the-book {
 		width: 100%; height: 100%;
 	}
 
 	.page {
+		/*
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
 		background-color: $white;
 		position: fixed;
-	}
-
-	.flipCurrent { z-index: 51; }
-
-	/* Start flip code */
-	.flipContainer {
-		perspective: 3000px;
-		position: relative;
-		user-select: none;
-
-		-webkit-perspective: 3000px;
-		-webkit-tap-highlight-color: rgba($black, 0);
-
-		-ms-user-select: none;
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		-webkit-user-select: none;
-
-		/* pager */
-		/*
-		.pager {
-			text-align: center;
-			height: 24px;
-			line-height: 6px;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			cursor: pointer;
-			font-size: 6px;
-			overflow: hidden;
-
-			span.dot {
-				background-repeat: no-repeat;
-				background-position: 0 -6px;
-				display: inline-block;
-				margin: 8px 5px;
-				text-decoration: none;
-				width: 6px;
-			}
-
-			span.dot.current  { background-position: 0 0; }
-		}
 		*/
 	}
 
-	.flipContent {
-		width: 100%; height: 100%;
-		top: 0; left: 0;
-
-		display: none;
-		overflow: hidden;
-		position: absolute;
-	}
-
-	.flipContent.flipCurrent { display: block; }
-
-	.sliding, .slidingBg {
-		background-color: inherit;
-		overflow: hidden;
-		position: absolute;
-		z-index: 1;
-	}
-
-	.flipping {
-		background-color: inherit;
-		backface-visibility: hidden;
-		transform: rotateY(0deg);
-		transform-style: preserve3d;
-	}
-
-	/*
-	.flipping.firstHalf { transform-origin: 100% 0; }
-	.flipping.secondHalf { transform-origin: 0 0; }
-	*/
-
-	.backflipping {
-		background-color: inherit;
-		backface-visibility: hidden;
-		display: none;
-		transform: rotateY(0deg);
-		transform-style: flat;
-	}
-
-	/*
-	.horizontalFlipping.firstHalf { transform-origin: 100% 0; }
-	.horizontalFlipping.secondHalf { transform-origin: 0 0; }
-
-	.verticalFlipping.firstHalf { transform-origin: 0 100%; }
-	.verticalFlipping.secondHalf { transform-origin: 0 0; }
-	*/
-
-	.splitHalf {
-		overflow: hidden;
-		position: absolute;
-	}
-
-	.splitEmpty { background-color: #333; }
+	/* Start flip code */
 	/* End flip code */
+
+	/*******************************************************************************************/
 
 	.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 	.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
@@ -479,5 +394,163 @@
 			}
 		}
 	}
+
+	/* Start flip code */
+	/*
+	.bb-bookblock {
+		width: 100%; height: 100%;
+
+		background: $white;
+		position: relative;
+		z-index: 100;
+	}
+
+	.bb-page {
+		width: 50%; height: 100%;
+
+		left: 50%;
+		position: absolute;
+		transform-origin: left center;
+		transform-style: preserve-3d;
+
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+
+		-ms-transform-origin: left center;
+		-o-transform-origin: left center;
+		-moz-transform-origin: left center;
+		-webkit-transform-origin: left center;
+	}
+
+	.bb-page > div, .bb-outer, .bb-content {
+		top: 0; left: 0;
+
+		height: 100%;
+		position: absolute;
+	}
+
+	.bb-content { background: $white; }
+
+	.bb-inner {
+		width: 100%; height: 100%;
+		position: relative;
+	}
+
+	.bb-overlay, .bb-outer {
+		backface-visibility: hidden;
+
+		-o-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.bb-page > div {
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+		width: 100%;
+
+		-o-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;	
+	}
+
+	.bb-back {
+		transform: rotateY(-180deg);
+
+		-o-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-moz-transform: rotateY(-180deg);
+		-webkit-transform: rotateY(-180deg);
+	}
+
+	.bb-outer {
+		overflow: hidden;
+		width: 100%;
+		z-index: 999;
+	}
+
+	.bb-overlay, .bb-flipoverlay {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background-color: rgba($black, 0.7);
+		opacity: 0;
+		position: absolute;
+		z-index: 1000;
+	}
+
+	.bb-flipoverlay { background-color: rgba($black, 0.2); }
+
+	.bb-bookblock > div.bb-page:first-child,
+	.bb-bookblock > div.bb-page:first-child .bb-back {
+		transform: rotateY(180deg);
+
+		-o-transform: rotateY(180deg);
+		-ms-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+	}
+
+	.bb-item {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background: $white;
+		display: none;
+		position: absolute;
+	}
+
+	.content {
+		top: 0; left: 0;
+
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+
+		-webkit-font-smoothing: subpixel-antialiased;
+
+		&:before, &:after {
+			width: 100%; height: 20px;
+			top: 0; left: 0;
+
+			background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			content: "";
+			pointer-events: none;
+			position: absolute;
+			z-index: 100;
+
+			background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+		}
+
+		&:after {
+			top: auto; bottom: 0;
+			background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+
+			background: -o-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+		}
+	}
+	*/
+
+	/*
+	.page-bg, iframe {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		position: absolute;
+	}
+	*/
 
 }

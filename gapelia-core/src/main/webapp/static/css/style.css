@@ -604,9 +604,9 @@ body.vex-open { overflow: hidden; }
 .vex-loading-spinner.vex-theme-wireframe { width: 2.5em; height: 2.5em; }
 
 /** Default Styling **********************************************************************************/
-body.demo-start .page, body.page-intro .page { opacity: 0; z-index: 0; }
+body.demo-start .page-vex, body.page-intro .page-vex { opacity: 0; z-index: 0; }
 
-.page { width: 40em; max-width: 100%; height: 36em; top: 0; left: 0; bottom: 0; right: 0; margin: auto; position: fixed; text-align: center; transition: opacity 1s; z-index: 50; -webkit-transition: opacity 1s; 	/*
+.page-vex { width: 40em; max-width: 100%; height: 36em; top: 0; left: 0; bottom: 0; right: 0; margin: auto; position: fixed; text-align: center; transition: opacity 1s; z-index: 50; -webkit-transition: opacity 1s; 	/*
 	h1 {
 		font-size: 110px;
 		font-weight: 100;
@@ -636,7 +636,7 @@ body.demo-start .page, body.page-intro .page { opacity: 0; z-index: 0; }
 	}
 	*/ }
 
-.stack { width: 640px; max-width: 100%; height: 850px; top: 0; left: 0; bottom: 0; right: 0; color: #191919; margin: 0 auto; position: absolute; text-align: center; transition: opacity 1s; -webkit-perspective: 700px; -webkit-perspective-origin: 320px 700px; -o-transition: opacity 1s; -moz-transition: opacity 1s; -webkit-transition: opacity 1s; }
+.stack { width: 640px; max-width: 100%; height: 850px; top: 0; left: 0; bottom: 0; right: 0; color: #191919; display: none; margin: 0 auto; position: absolute; text-align: center; transition: opacity 1s; -webkit-perspective: 700px; -webkit-perspective-origin: 320px 700px; -o-transition: opacity 1s; -moz-transition: opacity 1s; -webkit-transition: opacity 1s; }
 
 @-moz-document url-prefix() { .stack { height: 640px; } }
 
@@ -1141,50 +1141,169 @@ a {
 .g-body hr { border: 1px solid #dededc; display: block; margin: 30px auto 20px auto; width: 20%; }
 
 /************************************************************************************ FULL-BOOK/SCSS **/
-.full-book { font-family: "SourceSansProRegular"; /* Start flip code */ /*
-.flipping.firstHalf { transform-origin: 100% 0; }
-.flipping.secondHalf { transform-origin: 0 0; }
-*/ 	/*
-	.horizontalFlipping.firstHalf { transform-origin: 100% 0; }
-	.horizontalFlipping.secondHalf { transform-origin: 0 0; }
+.full-book { width: 100%; height: 100%; font-family: "SourceSansProRegular"; overflow: hidden; /* Start flip code */ /* End flip code */ /*******************************************************************************************/ /* Start flip code */ 	/*
+	.bb-bookblock {
+		width: 100%; height: 100%;
 
-	.verticalFlipping.firstHalf { transform-origin: 0 100%; }
-	.verticalFlipping.secondHalf { transform-origin: 0 0; }
-	*/ /* End flip code */ }
-.full-book #the-book { width: 100%; height: 100%; }
-.full-book .page { width: 100%; height: 100%; top: 0; left: 0; background-color: #fcfcfc; position: fixed; }
-.full-book .flipCurrent { z-index: 51; }
-.full-book .flipContainer { perspective: 3000px; position: relative; user-select: none; -webkit-perspective: 3000px; -webkit-tap-highlight-color: rgba(25, 25, 25, 0); -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; /* pager */ 		/*
-		.pager {
-			text-align: center;
-			height: 24px;
-			line-height: 6px;
+		background: $white;
+		position: relative;
+		z-index: 100;
+	}
+
+	.bb-page {
+		width: 50%; height: 100%;
+
+		left: 50%;
+		position: absolute;
+		transform-origin: left center;
+		transform-style: preserve-3d;
+
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+
+		-ms-transform-origin: left center;
+		-o-transform-origin: left center;
+		-moz-transform-origin: left center;
+		-webkit-transform-origin: left center;
+	}
+
+	.bb-page > div, .bb-outer, .bb-content {
+		top: 0; left: 0;
+
+		height: 100%;
+		position: absolute;
+	}
+
+	.bb-content { background: $white; }
+
+	.bb-inner {
+		width: 100%; height: 100%;
+		position: relative;
+	}
+
+	.bb-overlay, .bb-outer {
+		backface-visibility: hidden;
+
+		-o-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.bb-page > div {
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+		width: 100%;
+
+		-o-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;	
+	}
+
+	.bb-back {
+		transform: rotateY(-180deg);
+
+		-o-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-moz-transform: rotateY(-180deg);
+		-webkit-transform: rotateY(-180deg);
+	}
+
+	.bb-outer {
+		overflow: hidden;
+		width: 100%;
+		z-index: 999;
+	}
+
+	.bb-overlay, .bb-flipoverlay {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background-color: rgba($black, 0.7);
+		opacity: 0;
+		position: absolute;
+		z-index: 1000;
+	}
+
+	.bb-flipoverlay { background-color: rgba($black, 0.2); }
+
+	.bb-bookblock > div.bb-page:first-child,
+	.bb-bookblock > div.bb-page:first-child .bb-back {
+		transform: rotateY(180deg);
+
+		-o-transform: rotateY(180deg);
+		-ms-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+	}
+
+	.bb-item {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background: $white;
+		display: none;
+		position: absolute;
+	}
+
+	.content {
+		top: 0; left: 0;
+
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+
+		-webkit-font-smoothing: subpixel-antialiased;
+
+		&:before, &:after {
+			width: 100%; height: 20px;
+			top: 0; left: 0;
+
+			background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			content: "";
+			pointer-events: none;
 			position: absolute;
-			bottom: 0;
-			width: 100%;
-			cursor: pointer;
-			font-size: 6px;
-			overflow: hidden;
+			z-index: 100;
 
-			span.dot {
-				background-repeat: no-repeat;
-				background-position: 0 -6px;
-				display: inline-block;
-				margin: 8px 5px;
-				text-decoration: none;
-				width: 6px;
-			}
-
-			span.dot.current  { background-position: 0 0; }
+			background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
 		}
+
+		&:after {
+			top: auto; bottom: 0;
+			background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+
+			background: -o-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+			background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+		}
+	}
+	*/ 	/*
+	.page-bg, iframe {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		position: absolute;
+	}
+	*/ }
+.full-book #g-menu-toggle { z-index: 101; }
+.full-book #the-book { width: 100%; height: 100%; }
+.full-book .page { 		/*
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background-color: $white;
+		position: fixed;
 		*/ }
-.full-book .flipContent { width: 100%; height: 100%; top: 0; left: 0; display: none; overflow: hidden; position: absolute; }
-.full-book .flipContent.flipCurrent { display: block; }
-.full-book .sliding, .full-book .slidingBg { background-color: inherit; overflow: hidden; position: absolute; z-index: 1; }
-.full-book .flipping { background-color: inherit; backface-visibility: hidden; transform: rotateY(0deg); transform-style: preserve3d; }
-.full-book .backflipping { background-color: inherit; backface-visibility: hidden; display: none; transform: rotateY(0deg); transform-style: flat; }
-.full-book .splitHalf { overflow: hidden; position: absolute; }
-.full-book .splitEmpty { background-color: #333; }
 .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper { width: 100%; height: 100% !important; overflow: hidden; /* position: fixed !important; */ }
 .full-book .frontcover-wrapper .page-bg, .full-book .photo-wrapper .page-bg, .full-book .text-wrapper .page-bg, .full-book .horizontal-wrapper .page-bg, .full-book .overlay-wrapper .page-bg, .full-book .phototext-wrapper .page-bg, .full-book .vertical-wrapper .page-bg, .full-book .video-wrapper .page-bg, .full-book .backcover-wrapper .page-bg { width: 100%; height: auto; }
 .full-book .frontcover-wrapper ::-webkit-input-placeholder, .full-book .photo-wrapper ::-webkit-input-placeholder, .full-book .text-wrapper ::-webkit-input-placeholder, .full-book .horizontal-wrapper ::-webkit-input-placeholder, .full-book .overlay-wrapper ::-webkit-input-placeholder, .full-book .phototext-wrapper ::-webkit-input-placeholder, .full-book .vertical-wrapper ::-webkit-input-placeholder, .full-book .video-wrapper ::-webkit-input-placeholder, .full-book .backcover-wrapper ::-webkit-input-placeholder { color: #191919; }
