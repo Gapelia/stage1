@@ -26,6 +26,7 @@
 	-webkit-transition-property: -webkit-transform;
 }
 
+/*
 .bb-vertical .bb-page {
 	width: 50%; height: 100%;
 
@@ -34,6 +35,17 @@
 
 	-moz-transform-origin: left center;
 	-webkit-transform-origin: left center;
+}
+*/
+
+.bb-vertical .bb-page {
+	width: 100%; height: 100%;
+
+	right: -50%;
+	transform-origin: left;
+
+	-moz-transform-origin: left;
+	-webkit-transform-origin: left;
 }
 
 .bb-horizontal .bb-page {

@@ -27,8 +27,10 @@
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
+		<!--/
 		<link href="/static/css/bookblock.css" rel="stylesheet"/>
 		<link href="/static/css/demo4.css" rel="stylesheet"/>
+		/-->
 
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
@@ -73,11 +75,11 @@
 				<div id="bb-bookblock" class="bb-bookblock">
 
 					<!--/ page-01 /-->
-					<div class="bb-item" id="item1">
+					<div class="bb-item" id="page1">
 						<div class="content">
 
-							<section class="frontcover-wrapper">
-								<img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/>
+							<section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/01.jpg')">
+								<!--/ <img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/> /-->
 
 								<div class="frontcover-preview">
 									<article class="cover-info">
@@ -94,11 +96,11 @@
 					</div>
 
 					<!--/ page-02 /-->
-					<div class="bb-item" id="item2">
+					<div class="bb-item" id="page2">
 						<div class="content">
 
-							<section class="phototext-wrapper">
-								<img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/>
+							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/02.jpg')">
+								<!--/ <img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/> /-->
 
 								<div class="phototext-preview">
 									<article>
@@ -115,11 +117,11 @@
 					</div>
 
 					<!--/ page-03 /-->
-					<div class="bb-item" id="item3">
+					<div class="bb-item" id="page3">
 						<div class="content">
 
-							<section class="horizontal-wrapper">
-								<img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/>
+							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/03.jpg')">
+								<!--/ <img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/> /-->
 
 								<div class="horizontal-preview">
 									<article>
@@ -136,11 +138,11 @@
 					</div>
 
 					<!--/ page-04 /-->
-					<div class="bb-item" id="item4">
+					<div class="bb-item" id="page4">
 						<div class="content">
 
-							<section class="overlay-wrapper">
-								<img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/>
+							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/04.jpg')">
+								<!--/ <img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/> /-->
 
 								<div class="overlay-preview">
 									<article>
@@ -156,11 +158,11 @@
 					</div>
 
 					<!--/ page-05 /-->
-					<div class="bb-item" id="item5">
+					<div class="bb-item" id="page5">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/05.jpg')">
+								<!--/ <img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -177,11 +179,11 @@
 					</div>
 
 					<!--/ page-06 /-->
-					<div class="bb-item" id="item6">
+					<div class="bb-item" id="page6">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/06.jpg')">
+								<!--/ <img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -198,11 +200,11 @@
 					</div>
 
 					<!--/ page-07 /-->
-					<div class="bb-item" id="item7">
+					<div class="bb-item" id="page7">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/07.jpg')">
+								<!--/ <img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -219,11 +221,11 @@
 					</div>
 
 					<!--/ page-08 /-->
-					<div class="bb-item" id="item8">
+					<div class="bb-item" id="page8">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/08.jpg')">
+								<!--/ <img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -240,11 +242,11 @@
 					</div>
 
 					<!--/ page-09 /-->
-					<div class="bb-item" id="item9">
+					<div class="bb-item" id="page9">
 						<div class="content">
 
-							<section class="horizontal-wrapper">
-								<img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/>
+							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/09.jpg')">
+								<!--/ <img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/> /-->
 
 								<div class="horizontal-preview">
 									<article>
@@ -261,11 +263,11 @@
 					</div>
 
 					<!--/ page-10 /-->
-					<div class="bb-item" id="item10">
+					<div class="bb-item" id="page10">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/10.jpg')">
+								<!--/ <img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -282,11 +284,11 @@
 					</div>
 
 					<!--/ page-11 /-->
-					<div class="bb-item" id="item11">
+					<div class="bb-item" id="page11">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/11.jpg')">
+								<!--/ <img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -303,11 +305,11 @@
 					</div>
 
 					<!--/ page-12 /-->
-					<div class="bb-item" id="item12">
+					<div class="bb-item" id="page12">
 						<div class="content">
 
-							<section class="phototext-wrapper">
-								<img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/>
+							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/12.jpg')">
+								<!--/ <img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/> /-->
 
 								<div class="phototext-preview">
 									<article>
@@ -324,11 +326,11 @@
 					</div>
 
 					<!--/ page-13 /-->
-					<div class="bb-item" id="item13">
+					<div class="bb-item" id="page13">
 						<div class="content">
 
-							<section class="vertical-wrapper">
-								<img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/>
+							<section class="vertical-wrapper" style="background-image:url('/static/images/test-book/13.jpg')">
+								<!--/ <img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/> /-->
 
 								<div class="vertical-preview">
 									<article>
@@ -345,11 +347,11 @@
 					</div>
 
 					<!--/ page-14 /-->
-					<div class="bb-item" id="item14">
+					<div class="bb-item" id="page14">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/14.jpg')">
+								<!--/ <img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -366,11 +368,11 @@
 					</div>
 
 					<!--/ page-15 /-->
-					<div class="bb-item" id="item15">
+					<div class="bb-item" id="page15">
 						<div class="content">
 
-							<section class="phototext-wrapper">
-								<img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/>
+							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/15.jpg')">
+								<!--/ <img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/> /-->
 
 								<div class="phototext-preview">
 									<article>
@@ -387,11 +389,11 @@
 					</div>
 
 					<!--/ page-16 /-->
-					<div class="bb-item" id="item16">
+					<div class="bb-item" id="page16">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/16.jpg')">
+								<!--/ <img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -408,11 +410,11 @@
 					</div>
 
 					<!--/ page-17 /-->
-					<div class="bb-item" id="item17">
+					<div class="bb-item" id="page17">
 						<div class="content">
 
-							<section class="overlay-wrapper">
-								<img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/>
+							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/17.jpg')">
+								<!--/ <img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/> /-->
 
 								<div class="overlay-preview">
 									<article>
@@ -428,11 +430,11 @@
 					</div>
 
 					<!--/ page-18 /-->
-					<div class="bb-item" id="item18">
+					<div class="bb-item" id="page18">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/18.jpg')">
+								<!--/ <img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -449,13 +451,33 @@
 					</div>
 
 					<!--/ page-19 /-->
-					<div class="bb-item" id="item19">
+					<div class="bb-item" id="page19">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-19-placeholder" class="page-bg" src="/static/images/test-book/19.jpg"/>
+							<!--/ <iframe src="http://player.vimeo.com/video/26666315?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe> /-->
 
+							<!--/
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/19.jpg')">
 								<div class="photo-preview">
+									<article>
+
+										<h1 class="page-title-elem">This is a title</h1>
+										<div id="geotag-19" class="page-geotag-elem">Location</div>
+										<div class="page-desc">This is a description.</div>
+
+									</article>
+								</div>
+							</section>
+							/-->
+
+							<section class="video-wrapper">
+								<div class="video-preview">
+									<span class="play-video">Play</span>
+
+									<div class="video-player-container">
+										<iframe src="http://player.vimeo.com/video/26666315?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
+									</div>
+
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
@@ -470,11 +492,11 @@
 					</div>
 
 					<!--/ page-20 /-->
-					<div class="bb-item" id="item20">
+					<div class="bb-item" id="page20">
 						<div class="content">
 
-							<section class="photo-wrapper">
-								<img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/20.jpg')">
+								<!--/ <img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/> /-->
 
 								<div class="photo-preview">
 									<article>
@@ -491,11 +513,11 @@
 					</div>
 
 					<!--/ page-21 /-->
-					<div class="bb-item" id="item21">
+					<div class="bb-item" id="page21">
 						<div class="content">
 
-							<section class="backcover-wrapper">
-								<img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/>
+							<section class="backcover-wrapper" style="background-image:url('/static/images/test-book/20.jpg')">
+								<!--/ <img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/> /-->
 
 								<!--/
 								<div class="photo-preview">
@@ -556,13 +578,12 @@
 		<!--/
 		<script src="/static/scripts/jquerypp.custom.js"></script>
 		<script src="/static/scripts/bookblock.js"></script>
-		<script src="/static/scripts/page.js"></script>
 		/-->
 
 		<!--/ <script src="/static/scripts/flip.js"></script> /-->
 
+		<!--/
 		<script>
-			/*
 			$(document).ready(function () {
 				$("#the-book").flip({
 					forwardDir: "rtol",
@@ -571,8 +592,8 @@
 					loop: false
 				});
 			});
-			*/
 		</script>
+		/-->
 
 		<script>
 			$(document).ready(function() {
@@ -603,7 +624,7 @@
 
 			});
 		</script>
-		
+
 		<script src="/static/scripts/jquerypp.custom.js"></script>
 		<script src="/static/scripts/jquery.bookblock.js"></script>
 
@@ -619,6 +640,7 @@
 				},
 
 				init = function () {
+
 					config.$bookBlock.bookblock({
 						speed: 1000,
 						shadowSides: 0.8,
@@ -626,6 +648,7 @@
 					});
 
 					initEvents();
+
 				},
 
 				initEvents = function () {
@@ -659,6 +682,7 @@
 							config.$bookBlock.bookblock('next');
 							return false;
 						},
+
 						'swiperight': function (event) {
 							config.$bookBlock.bookblock('prev');
 							return false;
@@ -681,12 +705,14 @@
 							case arrow.left:
 								config.$bookBlock.bookblock('prev');
 								break;
+
 							case arrow.right:
 								config.$bookBlock.bookblock('next');
 								break;
 						}
 
 					});
+
 				};
 
 				return {
@@ -701,6 +727,7 @@
 		</script>
 
 		<!--/ scripts/dialog /-->
+		<!--/
 		<script src="/static/scripts/vex.js"></script>
 		<script src="/static/scripts/vex.dialog.js"></script>
 		
@@ -823,16 +850,9 @@
 
 				// $("#book-dimension-picker").selectize();
 
-				/*
-				$("#user-search").selectize({
-					create: true,
-					sortField: "text",
-					dropdownParent: "body"
-				});
-				*/
-
 			});
 		</script>
+		/-->
 
 	</body>
 

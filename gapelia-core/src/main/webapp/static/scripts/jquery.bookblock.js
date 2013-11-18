@@ -112,7 +112,7 @@
 		speed: 1000,
 
 		// easing for the flip transition
-		easing: "ease-in-out",
+		easing: "ease-in", // ease-in-out
 
 		// if set to true, both the flipping page and the sides will have an overlay to simulate shadows
 		shadows: true,
@@ -324,6 +324,7 @@
 				transitionDuration: speed + "ms",
 				transitionTimingFunction: this.options.easing
 			}).on(this.transEndEventName, function (event) {
+
 				if ($(event.target).hasClass("bb-page")) {
 					self.$el.children(".bb-page").remove();
 					self.$nextItem.show();
@@ -334,6 +335,7 @@
 					// callback trigger
 					self.options.onEndFlip(self.previous, self.current, isLimit);
 				}
+
 			});
 
 			if (dir === "prev") {
@@ -343,7 +345,8 @@
 			// overlays
 			if (this.options.shadows && !this.end) {
 
-				var o_left_style = (dir === 'next') ? {
+				var
+				o_left_style = (dir === 'next') ? {
 					transition: 'opacity ' + this.options.speed / 2 + 'ms ' + 'linear' + ' ' + this.options.speed / 2 + 'ms'
 				} : {
 					transition: 'opacity ' + this.options.speed / 2 + 'ms ' + 'linear',
@@ -569,5 +572,11 @@
 		return this;
 
 	};
+
+	/*
+	$('.page3').click(function() {
+		config.bb.bookblock('jump', 3);
+	});
+	*/
 
 })(jQuery, window);

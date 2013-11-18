@@ -1,0 +1,25 @@
+.container,
+.bb-custom-wrapper,
+.bb-bookblock {
+	width: 100%; height: 100%;
+}
+
+.container {
+	left: 0;
+	position: relative;
+	transition: left 0.3s ease-in-out;
+}
+
+.content {
+	top: 60px; left: 0; bottom: 50px;
+
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+.page-bg, iframe {
+	width: 100%; height: auto;
+}
