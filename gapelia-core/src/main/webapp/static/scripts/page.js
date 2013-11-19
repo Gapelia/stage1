@@ -25,18 +25,21 @@ var Page = (function () {
 
 		}
 	}),
-	$navNext = $('#bb-nav-next'),
-	$navPrev = $('#bb-nav-prev').hide(),
-	$menuItems = $container.find('ul.menu-toc > li'),
-	$tblcontents = $('#tblcontents'),
+
+	$navNext = $("#bb-nav-next"),
+	$navPrev = $("#bb-nav-prev").hide(),
+	$menuItems = $container.find("ul.menu-toc > li"),
+	$tblcontents = $("#tblcontents"),
+
 	transEndEventNames = {
-		'WebkitTransition': 'webkitTransitionEnd',
-		'MozTransition': 'transitionend',
-		'OTransition': 'oTransitionEnd',
-		'msTransition': 'MSTransitionEnd',
-		'transition': 'transitionend'
+		"transition": "transitionend",
+		"OTransition": "oTransitionEnd",
+		"msTransition": "MSTransitionEnd",
+		"MozTransition": "transitionend",
+		"WebkitTransition": "webkitTransitionEnd"
 	},
-	transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+
+	transEndEventName = transEndEventNames[Modernizr.prefixed("transition")],
 	supportTransitions = Modernizr.csstransitions;
 
 	function init() {
@@ -50,29 +53,30 @@ var Page = (function () {
 	function initEvents() {
 
 		// add navigation events
-		$navNext.on('click', function () {
+		$navNext.on("click", function () {
 			bb.next();
 			return false;
 		});
 
-		$navPrev.on('click', function () {
+		$navPrev.on("click", function () {
 			bb.prev();
 			return false;
 		});
 
 		// add swipe events
 		$items.on({
-			'swipeleft': function (event) {
+			"swipeleft": function (event) {
 
-				if ($container.data('opened')) { return false; }
+				if ($container.data("opened")) { return false; }
 				bb.next();
 
 				return false;
 
 			},
-			'swiperight': function (event) {
 
-				if ($container.data('opened')) { return false; }
+			"swiperight": function (event) {
+
+				if ($container.data("opened")) { return false; }
 				bb.prev();
 
 				return false;
@@ -81,10 +85,10 @@ var Page = (function () {
 		});
 
 		// show table of contents
-		$tblcontents.on('click', toggleTOC);
+		$tblcontents.on("click", toggleTOC);
 
 		// click a menu item
-		$menuItems.on('click', function () {
+		$menuItems.on("click", function () {
 
 			var
 			$el = $(this),
@@ -99,7 +103,7 @@ var Page = (function () {
 		});
 
 		// reinit jScrollPane on window resize
-		$(window).on('debouncedresize', function () {
+		$(window).on("debouncedresize", function () {
 
 			// reinitialise jScrollPane on the content div
 			// setJSP('reinit');
@@ -132,7 +136,7 @@ var Page = (function () {
 	*/
 
 	function updateTOC() {
-		$menuItems.removeClass('menu-toc-current').eq(current).addClass('menu-toc-current');
+		$menuItems.removeClass("menu-toc-current").eq(current).addClass("menu-toc-current");
 	}
 
 	function updateNavigation(isLastPage) {
@@ -151,7 +155,7 @@ var Page = (function () {
 	}
 
 	function toggleTOC() {
-		var opened = $container.data('opened');
+		var opened = $container.data("opened");
 		opened ? closeTOC() : openTOC();
 	}
 
@@ -159,14 +163,14 @@ var Page = (function () {
 
 		$navNext.hide();
 		$navPrev.hide();
-		$container.addClass('slideRight').data('opened', true);
+		$container.addClass("slideRight").data("opened", true);
 
 	}
 
 	function closeTOC(callback) {
 
 		updateNavigation(current === itemsCount - 1);
-		$container.removeClass('slideRight').data('opened', false);
+		$container.removeClass("slideRight").data("opened", false);
 
 		if (callback) {
 			if (supportTransitions) {

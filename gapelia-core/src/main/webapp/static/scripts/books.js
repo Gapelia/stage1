@@ -409,8 +409,8 @@
 	$(document).ready(function() {
 
 		// h1 = page-title-elem // span = livepreview-thing in page thumb
-		$('.page-title-elem').keypress(function() {
-			$('.livepreview-thing').text($(this).text());
+		$(".page-title-elem").keypress(function() {
+			$(".livepreview-thing").text($(this).text());
 		});
 
 	});
@@ -426,6 +426,23 @@
 		"height": $vH + "px"
 	});
 
-	$(document).ready(function() {
-		
+	$(".phototext-wrapper .page-desc").css("height", $vH - 185 + "px");
+	$(".text-wrapper .page-desc").css("height", $vH - 165 + "px");
+	$(".vertical-wrapper .page-desc").css("height", $vH - 185 + "px");
+	$(".video-wrapper .page-desc").css("height", $vH - 185 + "px");
+
+	$(".phototext-wrapper .page-desc, .text-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc").ready(function() {
+		$(".sp-scrollbar").css({
+			"display": "block",
+			"height": 100 + "%"
+		});
 	});
+
+	$(".phototext-wrapper .page-desc, .text-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc").ready(function() {
+		$(".sp-thumb").css("height", 10 + "px");
+	});
+
+	// Calculate half of viewport height minus half the height of the prev/next buttons
+	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
+
+

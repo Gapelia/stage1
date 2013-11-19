@@ -18,6 +18,9 @@
 
 		/-->
 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
@@ -30,11 +33,6 @@
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
-
-		<!--/ scripts/enablers /-->
-		<!--/ <script src="/static/scripts/vendor/modernizr-ii.js"></script> /-->
-		<!--/ <script src="/static/scripts/modernizr.full.js"></script> /-->
-		<!--/ <script src="/static/scripts/prefixfree.js"></script> /-->
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
@@ -821,12 +819,6 @@
 				});
 
 			};
-
-			$(document).ready(function () {
-
-
-
-			});
 
 			// Modal / Publish Book
 			modal.publishBook = function () {

@@ -2,7 +2,7 @@
 Name:					malihu jquery custom scrollbars plugin
 Version:			2.8.2 
 Author:				malihu (http://manos.malihu.gr) 
-Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller 
+Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 */
 
 (function ($) {
@@ -251,6 +251,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 			});
 
 		},
+
 		update: function () {
 
 			var $this = $(this), mCustomScrollBox = $this.children(".mCustomScrollBox"), mCSB_container = mCustomScrollBox.children(".mCSB_container");
@@ -376,9 +377,13 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 					"bindEvent_focusin": false
 				});
 			}
+
 		},
+
 		scrolling: function (mCustomScrollBox, mCSB_container, mCSB_draggerContainer, mCSB_dragger, mCSB_buttonUp, mCSB_buttonDown, mCSB_buttonLeft, mCSB_buttonRight) {
+
 			var $this = $(this);
+
 			/*scrollbar drag scrolling*/
 			if (!$this.data("bindEvent_scrollbar_drag")) {
 				var mCSB_draggerDragY, mCSB_draggerDragX;
@@ -771,8 +776,11 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 					});
 				}
 			}
+
 		},
+
 		scrollTo: function (scrollTo, options) {
+
 			var $this = $(this),
 				defaults = {
 					moveDragger: false,
@@ -1001,15 +1009,21 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 					break;
 				}
 			}
+
 		},
+
 		stop: function () {
+
 			var $this = $(this),
 				mCSB_container = $this.children().children(".mCSB_container"),
 				mCSB_dragger = $this.children().children().children().children(".mCSB_dragger");
 			functions.mTweenAxisStop.call(this, mCSB_container[0]);
 			functions.mTweenAxisStop.call(this, mCSB_dragger[0]);
+
 		},
+
 		disable: function (resetScroll) {
+
 			var $this = $(this),
 				mCustomScrollBox = $this.children(".mCustomScrollBox"),
 				mCSB_container = mCustomScrollBox.children(".mCSB_container"),
@@ -1032,165 +1046,103 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 				"bindEvent_content_touch": false,
 				"bindEvent_autoHideScrollbar": false
 			}).addClass("mCS_disabled");
+
 		},
+
 		destroy: function () {
+
 			var $this = $(this);
 			$this.removeClass("mCustomScrollbar _mCS_" + $this.data("mCustomScrollbarIndex")).addClass("mCS_destroyed").children().children(".mCSB_container").unwrap().children().unwrap().siblings(".mCSB_scrollTools").remove();
 			$(document).unbind("mousemove." + $this.data("mCustomScrollbarIndex") + " mouseup." + $this.data("mCustomScrollbarIndex") + " MSPointerMove." + $this.data("mCustomScrollbarIndex") + " MSPointerUp." + $this.data("mCustomScrollbarIndex"));
 			$(window).unbind("resize." + $this.data("mCustomScrollbarIndex"));
+
 		}
 	},
-		functions = {
-			/*hide/show scrollbar*/
-			showScrollbar: function () {
-				this.stop().animate({
-					opacity: 1
-				}, "fast");
-			},
-			hideScrollbar: function () {
-				this.stop().animate({
-					opacity: 0
-				}, "fast");
-			},
-			/*js animation tween*/
-			mTweenAxis: function (el, prop, to, duration, easing, callbacks) {
-				var callbacks = callbacks || {},
-					onStart = callbacks.onStart || function () {}, onUpdate = callbacks.onUpdate || function () {}, onComplete = callbacks.onComplete || function () {};
-				var startTime = _getTime(),
-					_delay, progress = 0,
-					from = el.offsetTop,
-					elStyle = el.style;
-				if (prop === "left") {
-					from = el.offsetLeft;
-				}
-				var diff = to - from;
-				_cancelTween();
-				_startTween();
 
-				function _getTime() {
-					if (window.performance && window.performance.now) {
-						return window.performance.now();
+	functions = {
+
+		/*hide/show scrollbar*/
+		showScrollbar: function () {
+			this.stop().animate({
+				opacity: 1
+			}, "fast");
+		},
+		hideScrollbar: function () {
+			this.stop().animate({
+				opacity: 0
+			}, "fast");
+		},
+		/*js animation tween*/
+		mTweenAxis: function (el, prop, to, duration, easing, callbacks) {
+			var callbacks = callbacks || {},
+				onStart = callbacks.onStart || function () {}, onUpdate = callbacks.onUpdate || function () {}, onComplete = callbacks.onComplete || function () {};
+			var startTime = _getTime(),
+				_delay, progress = 0,
+				from = el.offsetTop,
+				elStyle = el.style;
+			if (prop === "left") {
+				from = el.offsetLeft;
+			}
+			var diff = to - from;
+			_cancelTween();
+			_startTween();
+
+			function _getTime() {
+				if (window.performance && window.performance.now) {
+					return window.performance.now();
+				} else {
+					if (window.performance && window.performance.webkitNow) {
+						return window.performance.webkitNow();
 					} else {
-						if (window.performance && window.performance.webkitNow) {
-							return window.performance.webkitNow();
+						if (Date.now) {
+							return Date.now();
 						} else {
-							if (Date.now) {
-								return Date.now();
-							} else {
-								return new Date().getTime();
-							}
+							return new Date().getTime();
 						}
 					}
 				}
+			}
 
-				function _step() {
-					if (!progress) {
-						onStart.call();
-					}
-					progress = _getTime() - startTime;
-					_tween();
-					if (progress >= el._time) {
-						el._time = (progress > el._time) ? progress + _delay - (progress - el._time) : progress + _delay - 1;
-						if (el._time < progress + 1) {
-							el._time = progress + 1;
-						}
-					}
-					if (el._time < duration) {
-						el._id = _request(_step);
-					} else {
-						onComplete.call();
+			function _step() {
+				if (!progress) {
+					onStart.call();
+				}
+				progress = _getTime() - startTime;
+				_tween();
+				if (progress >= el._time) {
+					el._time = (progress > el._time) ? progress + _delay - (progress - el._time) : progress + _delay - 1;
+					if (el._time < progress + 1) {
+						el._time = progress + 1;
 					}
 				}
-
-				function _tween() {
-					if (duration > 0) {
-						el.currVal = _ease(el._time, from, diff, duration, easing);
-						elStyle[prop] = Math.round(el.currVal) + "px";
-					} else {
-						elStyle[prop] = to + "px";
-					}
-					onUpdate.call();
-				}
-
-				function _startTween() {
-					_delay = 1000 / 60;
-					el._time = progress + _delay;
-					_request = (!window.requestAnimationFrame) ? function (f) {
-						_tween();
-						return setTimeout(f, 0.01);
-					} : window.requestAnimationFrame;
+				if (el._time < duration) {
 					el._id = _request(_step);
+				} else {
+					onComplete.call();
 				}
+			}
 
-				function _cancelTween() {
-					if (el._id == null) {
-						return;
-					}
-					if (!window.requestAnimationFrame) {
-						clearTimeout(el._id);
-					} else {
-						window.cancelAnimationFrame(el._id);
-					}
-					el._id = null;
+			function _tween() {
+				if (duration > 0) {
+					el.currVal = _ease(el._time, from, diff, duration, easing);
+					elStyle[prop] = Math.round(el.currVal) + "px";
+				} else {
+					elStyle[prop] = to + "px";
 				}
+				onUpdate.call();
+			}
 
-				function _ease(t, b, c, d, type) {
-					switch (type) {
-					case "linear":
-						return c * t / d + b;
-						break;
-					case "easeOutQuad":
-						t /= d;
-						return -c * t * (t - 2) + b;
-						break;
-					case "easeInOutQuad":
-						t /= d / 2;
-						if (t < 1) return c / 2 * t * t + b;
-						t--;
-						return -c / 2 * (t * (t - 2) - 1) + b;
-						break;
-					case "easeOutCubic":
-						t /= d;
-						t--;
-						return c * (t * t * t + 1) + b;
-						break;
-					case "easeOutQuart":
-						t /= d;
-						t--;
-						return -c * (t * t * t * t - 1) + b;
-						break;
-					case "easeOutQuint":
-						t /= d;
-						t--;
-						return c * (t * t * t * t * t + 1) + b;
-						break;
-					case "easeOutCirc":
-						t /= d;
-						t--;
-						return c * Math.sqrt(1 - t * t) + b;
-						break;
-					case "easeOutSine":
-						return c * Math.sin(t / d * (Math.PI / 2)) + b;
-						break;
-					case "easeOutExpo":
-						return c * (-Math.pow(2, -10 * t / d) + 1) + b;
-						break;
-					case "mcsEaseOut":
-						var ts = (t /= d) * t,
-							tc = ts * t;
-						return b + c * (0.499999999999997 * tc * ts + -2.5 * ts * ts + 5.5 * tc + -6.5 * ts + 4 * t);
-						break;
-					case "draggerRailEase":
-						t /= d / 2;
-						if (t < 1) return c / 2 * t * t * t + b;
-						t -= 2;
-						return c / 2 * (t * t * t + 2) + b;
-						break;
-					}
-				}
-			},
-			/*stop js animation tweens*/
-			mTweenAxisStop: function (el) {
+			function _startTween() {
+				_delay = 1000 / 60;
+				el._time = progress + _delay;
+				_request = (!window.requestAnimationFrame) ? function (f) {
+					_tween();
+					return setTimeout(f, 0.01);
+				} : window.requestAnimationFrame;
+				el._id = _request(_step);
+			}
+
+			function _cancelTween() {
 				if (el._id == null) {
 					return;
 				}
@@ -1200,26 +1152,99 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 					window.cancelAnimationFrame(el._id);
 				}
 				el._id = null;
-			},
-			/*detect requestAnimationFrame and polyfill*/
-			rafPolyfill: function () {
-				var pfx = ["ms", "moz", "webkit", "o"],
-					i = pfx.length;
-				while (--i > -1 && !window.requestAnimationFrame) {
-					window.requestAnimationFrame = window[pfx[i] + "RequestAnimationFrame"];
-					window.cancelAnimationFrame = window[pfx[i] + "CancelAnimationFrame"] || window[pfx[i] + "CancelRequestAnimationFrame"];
+			}
+
+			function _ease(t, b, c, d, type) {
+				switch (type) {
+				case "linear":
+					return c * t / d + b;
+					break;
+				case "easeOutQuad":
+					t /= d;
+					return -c * t * (t - 2) + b;
+					break;
+				case "easeInOutQuad":
+					t /= d / 2;
+					if (t < 1) return c / 2 * t * t + b;
+					t--;
+					return -c / 2 * (t * (t - 2) - 1) + b;
+					break;
+				case "easeOutCubic":
+					t /= d;
+					t--;
+					return c * (t * t * t + 1) + b;
+					break;
+				case "easeOutQuart":
+					t /= d;
+					t--;
+					return -c * (t * t * t * t - 1) + b;
+					break;
+				case "easeOutQuint":
+					t /= d;
+					t--;
+					return c * (t * t * t * t * t + 1) + b;
+					break;
+				case "easeOutCirc":
+					t /= d;
+					t--;
+					return c * Math.sqrt(1 - t * t) + b;
+					break;
+				case "easeOutSine":
+					return c * Math.sin(t / d * (Math.PI / 2)) + b;
+					break;
+				case "easeOutExpo":
+					return c * (-Math.pow(2, -10 * t / d) + 1) + b;
+					break;
+				case "mcsEaseOut":
+					var ts = (t /= d) * t,
+						tc = ts * t;
+					return b + c * (0.499999999999997 * tc * ts + -2.5 * ts * ts + 5.5 * tc + -6.5 * ts + 4 * t);
+					break;
+				case "draggerRailEase":
+					t /= d / 2;
+					if (t < 1) return c / 2 * t * t * t + b;
+					t -= 2;
+					return c / 2 * (t * t * t + 2) + b;
+					break;
 				}
 			}
+		},
+		/*stop js animation tweens*/
+		mTweenAxisStop: function (el) {
+			if (el._id == null) {
+				return;
+			}
+			if (!window.requestAnimationFrame) {
+				clearTimeout(el._id);
+			} else {
+				window.cancelAnimationFrame(el._id);
+			}
+			el._id = null;
+		},
+		/*detect requestAnimationFrame and polyfill*/
+		rafPolyfill: function () {
+			var pfx = ["ms", "moz", "webkit", "o"],
+				i = pfx.length;
+			while (--i > -1 && !window.requestAnimationFrame) {
+				window.requestAnimationFrame = window[pfx[i] + "RequestAnimationFrame"];
+				window.cancelAnimationFrame = window[pfx[i] + "CancelAnimationFrame"] || window[pfx[i] + "CancelRequestAnimationFrame"];
+			}
 		}
-		/*detect features*/
-		functions.rafPolyfill.call(); /*requestAnimationFrame*/
+	}
+
+	/*detect features*/
+	functions.rafPolyfill.call(); /*requestAnimationFrame*/
+
 	$.support.touch = !! ('ontouchstart' in window); /*touch*/
 	$.support.msPointer = window.navigator.msPointerEnabled; /*MSPointer support*/
+
 	/*plugin dependencies*/
 	var _dlp = ("https:" == document.location.protocol) ? "https:" : "http:";
 	$.event.special.mousewheel || document.write('<script src="' + _dlp + '//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.0.6/jquery.mousewheel.min.js"><\/script>');
+
 	/*plugin fn*/
 	$.fn.mCustomScrollbar = function (method) {
+
 		if (methods[method]) {
 			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
 		} else if (typeof method === "object" || !method) {
@@ -1227,6 +1252,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 		} else {
 			$.error("Method " + method + " does not exist");
 		}
+
 	};
 
 })(jQuery);
