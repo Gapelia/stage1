@@ -1,12 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
-
 		<meta charset="utf-8"/>
 		<title>Featured on Gapelia</title>
-
 		<!--/ FEATURED VIEW
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
@@ -17,12 +13,10 @@
 				01000111011000010111000001100101011011000110100101100001
 
 		/-->
-
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
-
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
@@ -190,196 +184,11 @@
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
-					<ul id="book-list">
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
-							</div>
-
-							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
-					</ul>
 				</div>
 				<!--//Featured Books /-->
-
 				<!--/ Gapelian Dimensions /-->
 				<div class="dimension-list-wrapper">
 					<ul id="dimension-list">
-
 						<li class="portal">
 							<div class="portal-info">
 								<div class="title"><a href="/dimension/pulse">Pulse</a></div>
@@ -440,322 +249,16 @@
 
 				<!--/ Featured Libraries /-->
 				<div class="library-list-wrapper">
-					<ul id="library-list">
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/001/architecture">Architecture</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/002/biography">Biography</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/003/cinema">Cinema</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cinema-matrix.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cuisine-traceysculinaryadventures.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/005/era">Era</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/era-akasped.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/008/future">Future</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/010/historian">Historian</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/017/museum">Museum</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<div class="wrapper">
-								<button>Subscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-					</ul>
 				</div>
 				<!--//Featured Libraries /-->
 			</div>
 			<!--//main-content /-->
 
 		</div>
-
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
-
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
-
 		<script>
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
@@ -763,11 +266,122 @@
 				$("#book-scroller").css("z-index", "0");
 			});
 		</script>
-
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-
+		<script>
+			$(document).ready(function() {
+				var sId = "1234567",
+				html="<ul id=\"book-list\">",
+				$vH = $(window).height();
+				NProgress.start();
+				function parseJsonToStringForBooks(books) {
+						$.each(books, function () {
+						html+="<li class='library' libraryId=\""+this['libraryiD']+"\">";
+						html+="<div class='library-info>";
+						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
+						html+="<div class='library-books'><span>" + this['librarySize']+"</span>books</div>";
+						html+="div class=\"library-contributors\"><span>"+this['libraryContributosSize']+"</span>contributors</div>";
+						html+="<div class=\"wrapper\"><button>Suscribe</button></div>"
+						html+="<span class=\"image-overlay\"></span>";
+						html+="<img src=\""+this['coverPhoto']+"\" alt=''/>";
+						html+="</li>";
+					});
+					html+="</ul>";
+					return html;
+				}
+				$.ajax({
+					url: "http://localhost:8080/api/Libraries/getLibrary",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Art'
+					},
+					success: function(data) {
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".library-list-wrapper").html(parsedHtml);
+						resize(); 
+					},
+					error: function(q, status, err) {
+						if(status == "timeout"){
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+				function resize() {
+					$("#library-list").css("opacity", "0").show();
+					$("#library-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+					});
+					NProgress.done();
+					$("#library-list .book").css("height", $vH - 97 + "px");
+					$("#library-list").css("opacity", "1");
+				}
+				$("#nav-library").addClass("current");
+			});
+		</script>
+		<script>
+			$(document).ready(function() {
+				var sId = "1234567",
+				html="<ul id=\"book-list\">",
+				$vH = $(window).height();
+				NProgress.start();
+				function parseJsonToStringForBooks(books) {
+						$.each(books, function () {
+						html+="<li class='book' bookid=\""+this['bookId']+"\">";
+						html+="<div class=\"add-this\"><a href=\"#\"><span><!--/&oplus;/-->&#9733;</span><span>Add to your library</span></a>
+							</div><<div class='book-info'>";
+						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
+						html+="<div class='author-name'>Published by <a href='#'>"+this['createdByUserIds']+"</a></div><div class=\"library-location\">Found in<a href=\"#\">"+this['libraryId']+"</a></div></div>";
+						html+="<span class=\"image-overlay\"></span>";
+						html+="<img src=\""+this.pages[0].photo.photoUrl+"\" alt=''/>";
+						html+="</li>";
+					});
+					html+="</ul>";
+					return html;
+				}
+				$.ajax({
+					url: "http://localhost:8080/api/Libraries/getAllBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Art'
+					},
+					success: function(data) {
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".book-list-wrapper").html(parsedHtml);
+						resize(); 
+					},
+					error: function(q, status, err) {
+						if(status == "timeout"){
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+				function resize() {
+					$("#book-list").css("opacity", "0").show();
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+					});
+					NProgress.done();
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+				}
+				$("#nav-books").addClass("current");
+			});
+		</script>
 		<script>
 			$(document).ready(function() {
 
