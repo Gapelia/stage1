@@ -272,17 +272,17 @@
 		<script>
 			$(document).ready(function() {
 				var sId = "1234567",
-				html="<ul id=\"book-list\">",
+				html="<ul id=\"library-list\">",
 				$vH = $(window).height();
 				NProgress.start();
 				function parseJsonToStringForBooks(books) {
-						$.each(books, function () {
-						html+="<li class='library' libraryId=\""+this['libraryiD']+"\">";
+					$.each(books, function () {
+						html+="<li class='library' libraryId=\""+this['libraryId']+"\">";
 						html+="<div class='library-info>";
 						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
 						html+="<div class='library-books'><span>" + this['librarySize']+"</span>books</div>";
-						html+="div class=\"library-contributors\"><span>"+this['libraryContributosSize']+"</span>contributors</div>";
-						html+="<div class=\"wrapper\"><button>Suscribe</button></div>"
+						html+="<div class=\"library-contributors\"><span>"+this['libraryContributosSize']+"</span>contributors</div>";
+						html+="<div class=\"wrapper\"><button>Suscribe</button></div>";
 						html+="<span class=\"image-overlay\"></span>";
 						html+="<img src=\""+this['coverPhoto']+"\" alt=''/>";
 						html+="</li>";
@@ -291,7 +291,7 @@
 					return html;
 				}
 				$.ajax({
-					url: "http://localhost:8080/api/Libraries/getLibrary",
+					url: "http://localhost:8080/api/libraries/getLibrary",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {
@@ -301,7 +301,6 @@
 					success: function(data) {
 						var parsedHtml = parseJsonToStringForBooks(data);
 						$(".library-list-wrapper").html(parsedHtml);
-						resize(); 
 					},
 					error: function(q, status, err) {
 						if(status == "timeout"){
@@ -311,19 +310,6 @@
 						}
 					}
 				});
-				function resize() {
-					$("#library-list").css("opacity", "0").show();
-					$("#library-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-					});
-					NProgress.done();
-					$("#library-list .book").css("height", $vH - 97 + "px");
-					$("#library-list").css("opacity", "1");
-				}
-				$("#nav-library").addClass("current");
 			});
 		</script>
 		<script>
@@ -335,9 +321,8 @@
 				function parseJsonToStringForBooks(books) {
 						$.each(books, function () {
 						html+="<li class='book' bookid=\""+this['bookId']+"\">";
-						html+="<div class=\"add-this\"><a href=\"#\"><span><!--/&oplus;/-->&#9733;</span><span>Add to your library</span></a>
-							</div><<div class='book-info'>";
-						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
+						html+="<div class=\"add-this\"><a href=\"#\"><span><!--/&oplus;/-->&#9733;</span><span>Add to your library</span></a></div>";
+						html+="<div class='book-info'><div class='title'><a href='#'>"+this['title']+"</a></div>";
 						html+="<div class='author-name'>Published by <a href='#'>"+this['createdByUserIds']+"</a></div><div class=\"library-location\">Found in<a href=\"#\">"+this['libraryId']+"</a></div></div>";
 						html+="<span class=\"image-overlay\"></span>";
 						html+="<img src=\""+this.pages[0].photo.photoUrl+"\" alt=''/>";
@@ -347,7 +332,7 @@
 					return html;
 				}
 				$.ajax({
-					url: "http://localhost:8080/api/Libraries/getAllBooks",
+					url: "http://localhost:8080/api/libraries/getAllBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {
@@ -384,10 +369,7 @@
 		</script>
 		<script>
 			$(document).ready(function() {
-
-				// Load Gapelia
 				NProgress.start();
-
 				setTimeout(function() {
 
 					$("#book-list").css("opacity", "0").show();
