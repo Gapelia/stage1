@@ -197,39 +197,26 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-
 		<script>
 			$(document).ready(function() {
-
-				var
-				sId = "1234567",
+				var sId = "1234567",
 				html="<ul id=\"book-list\">",
-				// html="<div class=\"book-list-wrapper\"><ul id=\"featured-nav\"><li id=\"nav-books\" class=\"current\"><a href=\"#\">Share in one's unique journey of discovery</a></li><li id=\"nav-bookmarks-toggle\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></li></ul><ul id=\"book-list\">",
 				$vH = $(window).height();
-
-				// Load Gapelia
 				NProgress.start();
-
 				function parseJsonToStringForBooks(books) {
-
-					$.each(books, function () {
-
-						html+="<li class='book' bookid=\""+this['bookId']+"\">\n";
-						html+="<div class='book-info'>";
+						$.each(books, function () {
+						html+="<li class='book' bookid=\""+this['bookId']+"\">";
+						html+="<div class=\"add-this\"><a href=\"#\"><span><!--/&oplus;/-->&#9733;</span><span>Add to your library</span></a>
+							</div><<div class='book-info'>";
 						html+="<div class='title'><a href='#'>"+this['title']+"</a></div>";
-						html+="<div class='author-name'>Published by <a href='#'>"+this['createdByUserIds']+"</a></div></div>";
+						html+="<div class='author-name'>Published by <a href='#'>"+this['createdByUserIds']+"</a></div><div class=\"library-location\">Found in<a href=\"#\">"+this['libraryId']+"</a></div></div>";
 						html+="<span class=\"image-overlay\"></span>";
 						html+="<img src=\""+this.pages[0].photo.photoUrl+"\" alt=''/>";
 						html+="</li>";
-
 					});
-
 					html+="</ul>";
-					
 					return html;
-
 				}
-
 				$.ajax({
 					url: "http://localhost:8080/api/dimension/getAllBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -241,8 +228,7 @@
 					success: function(data) {
 						var parsedHtml = parseJsonToStringForBooks(data);
 						$(".book-list-wrapper").html(parsedHtml);
-						// $("#featured-scroller").html(parsedHtml); //
-						resize(); //
+						resize(); 
 					},
 					error: function(q, status, err) {
 						if(status == "timeout"){
@@ -252,49 +238,20 @@
 						}
 					}
 				});
-
-				/*
-				setTimeout(function() {
-
-					$("#book-list").css("opacity", "0").show();
-
-					$("#book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-					});
-
-					NProgress.done();
-
-					$("#book-list .book").css("height", $vH - 97 + "px");
-					$("#book-list").css("opacity", "1");
-
-				});
-				*/
-
 				function resize() {
 					$("#book-list").css("opacity", "0").show();
-
 					$("#book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
 						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 					});
-
 					NProgress.done();
-
 					$("#book-list .book").css("height", $vH - 97 + "px");
 					$("#book-list").css("opacity", "1");
-
 				}
-
 				$("#nav-books").addClass("current");
-
 			});
 		</script>
-
 	</body>
-
 </html>
