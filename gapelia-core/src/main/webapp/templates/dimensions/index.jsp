@@ -31,82 +31,11 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
-		<script>
-			/*
-			paceOptions = {
-				restartOnPushState: false,
-				restartOnRequestAfter: false
-			};
-			*/
-
-			// $("#dimension-panel").hide();
-
-			function load(time) {
-
-				var x = new XMLHttpRequest();
-				x.open('GET', "{% url 'dimensions' %}" + time, true);
-				x.send();
-
-				// $(".super-wrapper").show();
-
-			};
-		</script>
-
-		<!--/ <script src="/static/scripts/nprogress.js"></script> /-->
-		<script src="/static/scripts/pace.js"></script>
+		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/gradient.linear.js"></script>
-
-		<script>
-			/*
-			$(window).ready(function () {
-				$(".super-wrapper").hide();
-				Pace.start();
-
-				Pace.stop();
-				$(".super-wrapper").show();
-			});
-			*/
-
-			/*
-			Pace.start = function(_options) {
-			};
-			*/
-
-			/*
-			$(document).ready(function() {
-
-				var canvas = document.getElementById("myCanvas");
-				var ctx = canvas.getContext("2d");
-
-				// Vertical gradient | static
-				var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-				gradient.addColorStop(0, "rgb(255, 255, 255)");
-				gradient.addColorStop(1, "rgb(0, 0, 0)");
-
-				ctx.save();
-				ctx.fillStyle = gradient;
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
-				ctx.restore();
-
-				// Radial gradient | static
-				var canvasCentreX = canvas.width/2;
-				var canvasCentreY = canvas.height/2;
-
-				var gradient = ctx.createRadialGradient(canvasCentreX, canvasCentreY, 250, canvasCentreX, canvasCentreY, 0);
-				gradient.addColorStop(0, "rgb(0, 0, 0)");
-				gradient.addColorStop(1, "rgb(125, 125, 125)");
-
-				ctx.save();
-				ctx.fillStyle = gradient;
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
-				ctx.restore();
-
-			});
-			*/
-		</script>
 
 	</head>
 
@@ -117,24 +46,23 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="{% url 'dimensions' %}">Gapelia</a></h2>
+					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<!--/ <li><a class="" href="{% url 'featured' %}">Featured</a></li> /-->
-						<li><a class="" href="{% url 'me' %}">Me</a></li>
-						<li><a class="" href="{% url 'create' %}">New Book</a></li>
-						<li><a class="" href="{% url 'drafts' %}">Drafts</a></li>
+						<li><a class="" href="/me">Me</a></li>
+						<li><a class="" href="/create">New Book</a></li>
 					</ul>
 
 					<div id="account-links">
-						<a href="{% url 'profile-settings' %}">Account</a>
-						<a href="{% url 'signout' %}">Sign Out</a>
+						<a href="/accounts">Account</a>
+						<a href="#">Sign Out</a>
 					</div>
 
 				</div>
 			</nav>
 			<!--//site-menu /-->
 
+			<!--/ bookmarks-menu /-->
 			<div id="bookmarks-scroller">
 				<div id="bookmarks-header">
 					<h3>Paul Anthony Webb</h3>
@@ -212,13 +140,15 @@
 					</dl>
 				</div>
 			</div>
+			<!--//bookmarks-menu /-->
 
-			<div id="dimension-panel">
+			<!--/ main-panel /-->
+			<div id="featured-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
-				<div class="dimension-info">
+				<div class="featured-info">
 					<h2>Gapelia</h2>
-					<p>A better place for collaborative blogging.</p>
+					<p>A better place for collaborative blogging. Explore our users' featured books and libraries.</p>
 				</div>
 
         <canvas id="dimensions-landing-bg">
@@ -226,49 +156,34 @@
         </canvas>
 
 				<img src="/static/images/book-thumb-12.jpg" alt=""/>
-
-				<!--/
-				<div class="user-bg">
-					<img src="/static/images/space-bb.jpg"/>
-				</div>
-
-				<div class="user-data">
-					<h2>Paul Anthony Webb</h2>
-
-					<ul>
-						<li>Surfing</li>
-						<li>Hawaii</li>
-						<li>Fun</li>
-					</ul>
-
-					<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
-
-					<div class="wrapper">
-						<button>Edit Profile</button>
-					</div>
-				</div>
-
-				<div class="user-avatar">
-					<img src="{{ user|get_user_avatar }}"/>
-				</div>
-				/-->
 			</div>
+			<!--//main-panel /-->
 
-			<div id="dimension-scroller">
-				<ul id="dimension-nav">
+			<!--/ main-content /-->
+			<div id="featured-scroller">
+				<ul id="featured-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-					<li id="nav-collections"><a href="#">Scrapbook</a></li>
-					<li id="nav-libraries"><a href="#">Library</a></li>
-					<li id="nav-bookmarks-toggle"><a href="#">&#128278;</a></li>
+					<li id="nav-dimensions"><a href="#">Dimensions</a></li>
+					<li id="nav-libraries"><a href="#">Libraries</a></li>
+
+					<li id="nav-bookmarks-toggle">
+						<span class="top-bm"></span>
+						<span class="bottom-bm"></span>
+						<span class="right-bm"></span>
+						<!--/ <a href="#">&#128278;</a> /-->
+					</li>
 				</ul>
 
+				<!--/ Featured Books /-->
+				<div class="book-list-wrapper">
+				</div>
+				<!--//Featured Books /-->
 				<!--/ Gapelian Dimensions /-->
 				<div class="dimension-list-wrapper">
 					<ul id="dimension-list">
-
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'pulse' %}">Pulse</a></div>
+								<div class="title"><a href="/dimension/pulse">Pulse</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -277,7 +192,7 @@
 
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'art' %}">Art</a></div>
+								<div class="title"><a href="/dimension/art">Art</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -286,7 +201,7 @@
 
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'wow' %}">Wow</a></div>
+								<div class="title"><a href="/dimension/wow">Wow</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -295,7 +210,7 @@
 
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'life' %}">Life</a></div>
+								<div class="title"><a href="/dimension/life">Life</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -304,7 +219,7 @@
 
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'flow' %}">Flow</a></div>
+								<div class="title"><a href="/dimension/flow">Flow</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -313,7 +228,7 @@
 
 						<li class="portal">
 							<div class="portal-info">
-								<div class="title"><a href="{% url 'wonder' %}">Wonder</a></div>
+								<div class="title"><a href="/dimension/wonder">Wonder</a></div>
 							</div>
 
 							<!--/ <span class="image-overlay"></span> /-->
@@ -324,7 +239,12 @@
 				</div>
 				<!--//Gapelian Dimensions /-->
 
+				<!--/ Featured Libraries /-->
+				<div class="library-list-wrapper">
+				</div>
+				<!--//Featured Libraries /-->
 			</div>
+			<!--//main-content /-->
 
 		</div>
 
@@ -347,96 +267,158 @@
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function () {
 
-				$("#dimension-list").show();
+				var
+				sId = "1234567",
+				html = "<ul id=\"book-list\">",
+				$vH = $(window).height();
 
-				$("#dimension-list").mCustomScrollbar({
-					autoHideScrollbar: false,
-					horizontalScroll: true,
-					theme: "dark-thin",
-					advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+				NProgress.start();
+
+				function parseJsonToStringForBooks(books) {
+
+					$.each(books, function () {
+						html += "<li class='library' libraryId=\"" + this['libraryiD'] + "\">";
+						html += "<div class='library-info>";
+						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
+						html += "<div class='library-books'><span>" + this['librarySize'] + "</span>books</div>";
+						html += "div class=\"library-contributors\"><span>" + this['libraryContributosSize'] + "</span>contributors</div>";
+						html += "<div class=\"wrapper\"><button>Suscribe</button></div>";
+						html += "<span class=\"image-overlay\"></span>";
+						html += "<img src=\"" + this['coverPhoto'] + "\" alt=''/>";
+						html += "</li>";
+					});
+
+					html += "</ul>";
+					return html;
+
+				}
+
+				$.ajax({
+					url: "http://localhost:8080/api/Libraries/getLibrary",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Art'
+					},
+					success: function (data) {
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".library-list-wrapper").html(parsedHtml);
+						resize();
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
 				});
+
+				function resize() {
+
+					$("#library-list").css("opacity", "0").show();
+
+					$("#library-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+
+					NProgress.done();
+
+					$("#library-list .book").css("height", $vH - 97 + "px");
+					$("#library-list").css("opacity", "1");
+
+				}
+
+				$("#nav-library").addClass("current");
+
+			});
+		</script>
+
+		<script>
+			$(document).ready(function () {
+
+				var
+				Id = "1234567",
+				html = "<ul id=\"book-list\">",
+				$vH = $(window).height();
+
+				NProgress.start();
+
+				function parseJsonToStringForBooks(books) {
+
+					$.each(books, function () {
+						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
+						html += "<div class=\"add-this\"><a href=\"#\"><span>&#9733;</span><span>Add to your library</span></a></div><<div class='book-info'>";
+						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
+						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in<a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+						html += "<span class=\"image-overlay\"></span>";
+						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
+						html += "</li>";
+					});
+
+					html += "</ul>";
+					return html;
+
+				}
+
+				$.ajax({
+					url: "http://localhost:8080/api/Libraries/getAllBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension: 'Art'
+					},
+					success: function (data) {
+						var parsedHtml = parseJsonToStringForBooks(data);
+						$(".book-list-wrapper").html(parsedHtml);
+						resize();
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+
+				function resize() {
+
+					$("#book-list").css("opacity", "0").show();
+
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+
+					NProgress.done();
+
+				}
 
 				$("#nav-books").addClass("current");
 
-				// Click "Books"
-				/*
-				$("#nav-books").click(function (e) {
-
-					$("#user-book-list").show();
-					$("#user-collection-list").hide();
-					$("#user-library-list").hide();
-
-					$("#user-book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-					});
-
-					$("#user-collection-list").mCustomScrollbar("destroy");
-					$("#user-library-list").mCustomScrollbar("destroy");
-
-					$("#nav-books").addClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").removeClass("current");
-					e.preventDefault();
-
-				});
-
-				// Click "Collections"
-				$("#nav-collections").click(function (e) {
-
-					$("#user-book-list").hide();
-					$("#user-collection-list").show();
-					$("#user-library-list").hide();
-
-					$("#user-collection-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-					});
-
-					$("#user-book-list").mCustomScrollbar("destroy");
-					$("#user-library-list").mCustomScrollbar("destroy");
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").addClass("current");
-					$("#nav-libraries").removeClass("current");
-					e.preventDefault();
-
-				});
-
-				// Click "Libraries"
-				$("#nav-libraries").click(function (e) {
-
-					$("#user-book-list").hide();
-					$("#user-collection-list").hide();
-					$("#user-library-list").show();
-
-					$("#user-library-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-					});
-
-					$("#user-book-list").mCustomScrollbar("destroy");
-					$("#user-collection-list").mCustomScrollbar("destroy");
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").addClass("current");
-					e.preventDefault();
-
-				});
-				*/
-
 			});
+		</script>
 
-			/*
+		<script>
 			$(document).ready(function() {
 
 				// Load Gapelia
@@ -444,9 +426,9 @@
 
 				setTimeout(function() {
 
-					$("#dimension-list").css("opacity", "0").show();
+					$("#book-list").css("opacity", "0").show();
 
-					$("#dimension-list").mCustomScrollbar({
+					$("#book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
@@ -455,7 +437,7 @@
 
 					NProgress.done();
 
-					$("#dimension-list").css("opacity", "1");
+					$("#book-list").css("opacity", "1");
 
 				});
 
@@ -468,58 +450,58 @@
 
 					setTimeout(function() {
 
-						$("#user-book-list").show();
-						$("#user-collection-list").hide();
-						$("#user-library-list").hide();
+						$("#book-list").show();
+						$("#dimension-list").hide();
+						$("#library-list").hide();
 
-						$("#user-book-list").mCustomScrollbar({
+						$("#book-list").mCustomScrollbar({
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
 							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 						});
 
-						$("#user-collection-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
+						$("#dimension-list").mCustomScrollbar("destroy");
+						$("#library-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
 					});
 
 					$("#nav-books").addClass("current");
-					$("#nav-collections").removeClass("current");
+					$("#nav-dimensions").removeClass("current");
 					$("#nav-libraries").removeClass("current");
 					e.preventDefault();
 
 				});
 
-				// Click "Collections"
-				$("#nav-collections").click(function (e) {
+				// Click "Dimensions"
+				$("#nav-dimensions").click(function (e) {
 
 					NProgress.start();
 
-					$("#user-book-list").hide();
-					$("#user-collection-list").show();
-					$("#user-library-list").hide();
+					$("#book-list").hide();
+					$("#dimension-list").show();
+					$("#library-list").hide();
 
 					setTimeout(function() {
 
-						$("#user-collection-list").mCustomScrollbar({
+						$("#dimension-list").mCustomScrollbar({
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
 							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 						});
 
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
+						$("#book-list").mCustomScrollbar("destroy");
+						$("#library-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
 					});
 
 					$("#nav-books").removeClass("current");
-					$("#nav-collections").addClass("current");
+					$("#nav-dimensions").addClass("current");
 					$("#nav-libraries").removeClass("current");
 					e.preventDefault();
 
@@ -530,35 +512,34 @@
 
 					NProgress.start();
 
-					$("#user-book-list").hide();
-					$("#user-collection-list").hide();
-					$("#user-library-list").show();
+					$("#book-list").hide();
+					$("#dimension-list").hide();
+					$("#library-list").show();
 
 					setTimeout(function() {
 
-						$("#user-library-list").mCustomScrollbar({
+						$("#library-list").mCustomScrollbar({
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
 							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 						});
 
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-collection-list").mCustomScrollbar("destroy");
+						$("#book-list").mCustomScrollbar("destroy");
+						$("#dimension-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
 					});
 
 					$("#nav-books").removeClass("current");
-					$("#nav-collections").removeClass("current");
+					$("#nav-dimensions").removeClass("current");
 					$("#nav-libraries").addClass("current");
 					e.preventDefault();
 
 				});
 
 			});
-			*/
 		</script>
 
 	</body>

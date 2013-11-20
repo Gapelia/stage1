@@ -30,8 +30,8 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 	</head>
 

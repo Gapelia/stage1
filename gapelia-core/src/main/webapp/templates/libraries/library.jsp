@@ -30,22 +30,8 @@
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
 
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
-
-		<!--/
-		<script>
-			function load(time) {
-
-				var x = new XMLHttpRequest();
-				x.open('GET', "/featured" + time, true);
-				x.send();
-
-			};
-		</script>
-
-		<script src="/static/scripts/pace.js"></script>
-		/-->
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/gradient.linear.js"></script>

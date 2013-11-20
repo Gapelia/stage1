@@ -35,15 +35,6 @@
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-		
-		<style>
-			#turn-nav {
-				top: 0; right: 20rem;
-
-				position: fixed;
-				z-index: 2000;
-			}
-		</style>
 
 	</head>
 
