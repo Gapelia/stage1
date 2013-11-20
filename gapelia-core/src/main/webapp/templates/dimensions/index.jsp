@@ -357,9 +357,9 @@
 
 					$.each(books, function () {
 						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
-						html += "<div class=\"add-this\"><a href=\"#\"><span>&#9733;</span><span>Add to your library</span></a></div><<div class='book-info'>";
+						html += "<div class=\"add-this\"><a href=\"#\"><span>&#9733;</span><span>Add to your library</span></a></div><div class='book-info'>";
 						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
-						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in<a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
 						html += "<span class=\"image-overlay\"></span>";
 						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
 						html += "</li>";
