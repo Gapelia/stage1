@@ -27,13 +27,8 @@
 		padding: 0 2rem;
 	}
 
-	h2 {
-		font-family: "OpenSansSemibold";
-	}
-
-	p {
-		line-height: 1.2em;
-	}
+	h2 { font-weight: 600; }
+	p { line-height: 1.2em; }
 }
 
 #dimensions-landing-bg	{ background-color: $slate; }

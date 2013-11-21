@@ -88,14 +88,12 @@
 			border-radius: 300rem;
 			color: $white;
 			cursor: pointer;
-			font-family: "OpenSansLight";
+			font-weight: 300;
 			letter-spacing: 0.1em;
 			text-transform: uppercase;
 			transition: all 0.2s ease;
 
-			&:hover {
-				padding: 0.5rem 1.5rem;
-			}
+			&:hover { padding: 0.5rem 1.5rem; }
 		}
 	}
 
@@ -134,7 +132,7 @@
 	.collection-pages, .library-books {
 		&:after {
 			content: "\00a0\00b7";
-			font-family: "OpenSansBold";
+			font-weight: 700;
 		}
 	}
 

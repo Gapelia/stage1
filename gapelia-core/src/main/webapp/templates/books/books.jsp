@@ -74,10 +74,10 @@
 					<span id="header-author">Paul Anthony Webb</span>
 				</div>
 
-				<ul id="share-book">
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Twitter</a></li>
-					<li><a href="#">eMail</a></li>
+				<ul class="share-book">
+					<li class="facebook"><a href="#">Facebook</a></li>
+					<li class="twitter"><a href="#">Twitter</a></li>
+					<li class="email"><a href="#">eMail</a></li>
 				</ul>
 			</header>
 
@@ -89,7 +89,7 @@
 				<div id="bb-bookblock" class="bb-bookblock">
 
 					<!--/ page-01 /-->
-					<div class="bb-item" id="page1">
+					<div class="bb-item front-cover" id="page1">
 						<div class="content">
 
 							<section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/01.jpg')">
@@ -721,23 +721,62 @@
 					</div>
 
 					<!--/ page-21 /-->
-					<div class="bb-item" id="page21">
+					<div class="bb-item back-cover" id="page21">
 						<div class="content">
 
 							<section class="backcover-wrapper" style="background-image:url('/static/images/test-book/20.jpg')">
-								<!--/ <img id="page-21-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/> /-->
+								<div id="fin">
+									<h1>Hayao Miyazaki</h1>
+									<h5><a href="#">Animanga!</a></h5>
 
-								<!--/
-								<div class="photo-preview">
-									<article>
+									<div id="author-name">Paul Anthony Webb</div>
+									<div id="author-bio-blurb">Visual artist and short fiction contributor, tweeting <a href="http://twitter.com/NetOpWibby">@NetOpWibby</a>.</div>
 
-										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-01" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
+									<button>Vote</button>
 
-									</article>
+									<ul class="share-book">
+										<li class="facebook"><a href="#">Facebook</a></li>
+										<li class="twitter"><a href="#">Twitter</a></li>
+									</ul>
 								</div>
-								/-->
+
+								<div id="fin-next">
+									<section>
+										<h2>More from the author</h2>
+
+										<ul>
+											<li><a href="">Tokyo Form</a></li>
+											<li><a href="">Japanimation</a></li>
+										</ul>
+									</section>
+
+									<section>
+										<h2>Suggested reading</h2>
+
+										<ul>
+											<li>
+												<a href="">Coffee Culture</a>
+												<span>Tomas Eduardo</span>
+											</li>
+
+											<li>
+												<a href="">Roadtripping California</a>
+												<span>Diego Regules</span>
+											</li>
+										</ul>
+									</section>
+
+									<section>
+										<h2>Next book</h2>
+
+										<ul>
+											<li>
+												<a href="">Wandering in Florence</a>
+												<span>Daniel Campos</span>
+											</li>
+										</ul>
+									</section>
+								</div>
 							</section>
 
 						</div>
@@ -808,7 +847,8 @@
 							$navNext: $('#bb-nav-next'),
 							$navPrev: $('#bb-nav-prev'),
 							$navFirst: $('#bb-nav-first'),
-							$navLast: $('#bb-nav-last')
+							$navLast: $('#next-book-toggle')
+							// $navLast: $('#bb-nav-last')
 						},
 
 						init = function () {

@@ -22,11 +22,11 @@
 
 		a {
 			color: $gray-v;
-			font-family: "OpenSansLight";
+			font-weight: 300;
 		}
 
 		.active {
-			a { font-family: "OpenSansSemibold"; }
+			a { font-weight: 600; }
 		}
 	}
 
@@ -47,15 +47,15 @@
 
 			input {
 				border: 0;
-				font-family: "OpenSansSemibold";
+				font-weight: 600;
 				padding: 0;
 			}
 
 			.setting-name, .user-setting, .edit, .comment { display: inline-block; }
-			.user-setting, .edit, .comment { font-family: "OpenSansSemibold"; }
+			.user-setting, .edit, .comment { font-weight: 600; }
 
 			.setting-name {
-				font-family: "OpenSansLight";
+				font-weight: 300;
 				width: 30%;
 			}
 
@@ -85,8 +85,8 @@
 			border-radius: 0;
 			color: $white;
 			cursor: pointer;
-			font-family: "OpenSansLight";
 			font-size: 12px;
+			font-weight: 300;
 			width: auto;
 
 			&:hover { opacity: 0.7; }

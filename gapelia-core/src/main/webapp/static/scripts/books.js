@@ -491,4 +491,27 @@
 
 	});
 
+	// MUST FIX!!!
+	$(".back-cover").mousemove(function() {
+	// $(".back-cover").ready(function() {
 
+		if ($(".back-cover").css("display")) {
+			$("#header-toggle").css({
+				"opacity": "0",
+				"top": "-50px"
+			});
+
+			$("#next-book-toggle").css({
+				"opacity": "0",
+				"top": "-50px"
+			});
+
+			$("#bb-nav-next").css({
+				"opacity": "0",
+				"right": "-50px"
+			});
+		}
+
+		// if $('.back-cover').css('display');
+
+	});

@@ -36,6 +36,9 @@
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
 	</head>
 
 	<body class="app profile">
@@ -152,11 +155,13 @@
 				<div class="user-data">
 					<h2>Paul Anthony Webb</h2>
 
+					<!--/
 					<ul>
 						<li>Surfing</li>
 						<li>Hawaii</li>
 						<li>Fun</li>
 					</ul>
+					/-->
 
 					<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 
@@ -166,7 +171,7 @@
 				</div>
 
 				<div class="user-avatar">
-					<img src="{{ user|get_user_avatar }}"/>
+					<img src="/static/images/users/11.jpg"/>
 				</div>
 			</div>
 			<!--//main-panel /-->

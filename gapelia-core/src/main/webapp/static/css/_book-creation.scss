@@ -1,8 +1,7 @@
 /******************************************************************************** BOOK-CREATION/SCSS **/
 
 .book-creation {
-	/* font-family: "OpenSansRegular"; */
-	font-family: "SourceSansProRegular";
+	@include sans;
 	overflow: hidden;
 
 	header {
@@ -387,9 +386,7 @@
 						border: 3px solid $black;
 						color: $black;
 						cursor: pointer;
-						/* font-family: "OpenSansBold"; */
-						font-family: "SourceSansProBold";
-						/* opacity: 0.7; */
+						font-weight: 700;
 						position: relative;
 						text-transform: uppercase;
 						transition: all 0.2s ease;
@@ -409,9 +406,8 @@
 					.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
 
 					.page-title-elem {
-						/* font-family: "OpenSansLight"; */
-						font-family: "SourceSansProLight";
 						font-size: 1.5em;
+						font-weight: 300;
 						line-height: 1.2;
 						text-transform: capitalize;
 
@@ -425,15 +421,14 @@
 						background-color: transparent;
 						border: 0;
 						color: $white;
-						/* font-family: "OpenSansSemibold"; */
-						font-family: "SourceSansProSemibold";
 						font-size: 1em;
+						font-weight: 600;
 						text-transform: uppercase;
 						width: 100%;
 
 						&:before {
 							content: "in ";
-							font-family: "Hoefler Text", Georgia, serif;
+							@include serif;
 							font-style: italic;
 							text-transform: lowercase;
 						}
@@ -787,7 +782,7 @@
 							background-color: rgba($white, 0.3);
 							border: 3px solid $black;
 							color: $black;
-							font-family: "SourceSansProBold";
+							font-weight: 700;
 							position: relative;
 							text-transform: uppercase;
 							transition: all 0.2s ease;

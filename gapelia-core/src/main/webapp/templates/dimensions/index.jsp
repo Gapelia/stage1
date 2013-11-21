@@ -37,6 +37,9 @@
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/gradient.linear.js"></script>
 
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
 	</head>
 
 	<body class="app profile">

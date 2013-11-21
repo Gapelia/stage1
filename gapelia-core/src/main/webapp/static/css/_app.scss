@@ -6,8 +6,7 @@
 
 	background-color: $white;
 	clear: left;
-	/* font-family: "OpenSansRegular"; */
-	font-family: "SourceSansProRegular";
+	@include sans;
 	font-size: 15px;
 	overflow: hidden;
 	position: relative;
@@ -27,7 +26,7 @@
 			width: 100%; height: auto;
 			bottom: 1.5rem; left: 0;
 
-			font-family: "OpenSansLight";
+			font-weight: 300;
 			position: absolute;
 			text-align: center;
 
@@ -38,6 +37,22 @@
 				}
 			}
 		}
+	}
+
+	button {
+		margin: 0 auto; padding: 0.5rem 1rem;
+
+		background-color: $slate;
+		border: 0;
+		border-radius: 300rem;
+		color: $white;
+		cursor: pointer;
+		font-weight: 300;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: all 0.2s ease;
+
+		&:hover { padding: 0.5rem 1.5rem; }
 	}
 
 	#user-panel, #book-scroller,
@@ -111,7 +126,7 @@
 		margin: 0 0 1rem 1rem; padding: 1rem 0 0 0;
 
 		border-bottom: 1px solid $gray-i;
-		font-family: "OpenSansBold";
+		font-weight: 700;
 
 		li {
 			display: inline-block;
@@ -244,8 +259,8 @@
 
 						background-color: $slate;
 						display: inline-block;
-						font-family: "OpenSansLight";
 						font-size: 0.4em !important;
+						font-weight: 300;
 						padding: 0.2rem 0.8rem;
 						transition: all 0.4s ease;
 					}
@@ -259,22 +274,6 @@
 			position: absolute;
 			text-align: center;
 			z-index: 1;
-		}
-
-		button {
-			margin: 0 auto; padding: 0.5rem 1rem;
-
-			background-color: $slate;
-			border: 0;
-			border-radius: 300rem;
-			color: $white;
-			cursor: pointer;
-			font-family: "OpenSansLight";
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			transition: all 0.2s ease;
-
-			&:hover { padding: 0.5rem 1.5rem; }
 		}
 
 		.image-overlay {
@@ -310,7 +309,7 @@
 		z-index: 1;
 
 		.title {
-			font-family: "OpenSansLight";
+			font-weight: 300;
 			font-size: 200%;
 			margin: 0 0 1rem 0;
 
@@ -340,8 +339,8 @@
 
 			a {
 				color: $white;
-				font-family: "OpenSansSemibold";
 				font-style: normal;
+				font-weight: 600;
 				text-transform: none;
 			}
 		}
@@ -389,7 +388,7 @@
 					width: 50px; height: auto;
 
 					display: inline-block;
-					font-family: "OpenSansSemibold";
+					font-weight: 600;
 					overflow: hidden;
 					text-align: center;
 				}
@@ -413,21 +412,11 @@
 	#bm-notifications, #bm-books, #bm-collections, #bm-libraries, #bm-drafts {
 		display: block;
 		margin: 0 0 1rem 0;
-
-		/*
-		span {
-			width: auto; height: auto;
-
-			display: inline-block;
-			font-family: "OpenSansSemibold";
-			margin: 0 1rem 0 0;
-		}
-		*/
 	}
 
 	.bm-section-title {
-		font-family: "OpenSansLight";
 		font-size: 1.3em;
+		font-weight: 300;
 	}
 
 }

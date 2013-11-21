@@ -93,10 +93,11 @@ $purple:		rgba(179, 86, 214, 1);	// #b356d6;
 
 /** [-] Mixins ****************************************************************************************/
 
+@mixin sans { font-family: "adelle-sans", Arial, sans-serif; }
+@mixin serif { font-family: "skolar", Georgia, serif; }
+
 @mixin unicode { font-family: Arial, Verdana, Geneva, sans-serif; }
 @mixin mono { font-family: Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
-@mixin sans { font-family: "OpenSansRegular", "Open Sans", Arial, sans-serif; }
-@mixin serif { font-family: "Hoefler Text", Georgia, serif; }
 
 @mixin hide-text {
   border: 0;
@@ -119,34 +120,28 @@ p {
 }
 
 a {
+	color: inherit;
 	cursor: pointer;
-	font-color: inherit;
 	text-decoration: none;
 
 	&:hover { opacity: 0.7; }
 }
 
 em, i {
-	/* font-family: "OpenSansItalic"; */
-	font-family: "SourceSansProItalic";
+	@include serif;
 	font-style: italic;
 
 	strong, .strong, b {
-		/* font-family: "OpenSansBoldItalic"; */
-		font-family: "SourceSansProBoldItalic";
 		font-style: italic;
 		font-weight: 700;
 	}
 }
 
 strong, .strong, b {
-	/* font-family: "OpenSansBold"; */
-	font-family: "SourceSansProBold";
+	@include serif;
 	font-weight: 700;
 
 	em, i {
-		/* font-family: "OpenSansBoldItalic"; */
-		font-family: "SourceSansProBoldItalic";
 		font-style: italic;
 	}
 }
