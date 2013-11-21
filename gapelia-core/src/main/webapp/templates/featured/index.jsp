@@ -755,12 +755,20 @@
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
 		<script>
+<<<<<<< HEAD
 			/*
+=======
+/*$(document).ready(function() {
+				var sId = "1234567",
+				html="<ul id=\"library-list\">",
+
+>>>>>>> 508ab94998f12824360e44cd7dcb890ceb76304c
 			$(document).ready(function () {
 
 				var
 				sId = "1234567",
 				html = "<ul id=\"library-list\">",
+
 				$vH = $(window).height();
 
 				NProgress.start();
@@ -804,13 +812,19 @@
 						}
 					}
 				});
-
+			});*/
 			});
 			*/
 		</script>
 
 		<script>
+<<<<<<< HEAD
 			/*
+=======
+			/*$(document).ready(function() {
+				var sId = "1234567",
+				html="<ul id=\"book-list\">",
+>>>>>>> 508ab94998f12824360e44cd7dcb890ceb76304c
 			$(document).ready(function () {
 
 				var
@@ -831,6 +845,7 @@
 						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
 						html += "</li>";
 					});
+					html+="</ul>";
 
 					html += "</ul>";
 					return html;
@@ -882,8 +897,12 @@
 
 				$("#nav-books").addClass("current");
 
+<<<<<<< HEAD
 			});
 			*/
+=======
+			});*/
+>>>>>>> 508ab94998f12824360e44cd7dcb890ceb76304c
 		</script>
 
 		<script>
