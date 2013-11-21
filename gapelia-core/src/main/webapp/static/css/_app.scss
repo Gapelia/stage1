@@ -6,7 +6,8 @@
 
 	background-color: $white;
 	clear: left;
-	font-family: "OpenSansRegular";
+	/* font-family: "OpenSansRegular"; */
+	font-family: "SourceSansProRegular";
 	font-size: 15px;
 	overflow: hidden;
 	position: relative;
@@ -87,12 +88,12 @@
 	}
 
 	#g-menu-toggle {
-		width: 60px; height: 60px;
+		width: 61px; height: 61px;
 		top: 1rem; left: 1rem;
 
 		background-color: transparent;
-		background-image: url("../images/logo-menu-alt.png");
-		background-size: 60px;
+		background-image: url("../images/logo-menu-alt-ii.png");
+		background-size: 61px;
 		border-radius: 300rem;
 		cursor: pointer;
 		opacity: 0.7;

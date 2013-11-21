@@ -755,6 +755,7 @@
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
 		<script>
+			/*
 			$(document).ready(function () {
 
 				var
@@ -805,9 +806,11 @@
 				});
 
 			});
+			*/
 		</script>
 
 		<script>
+			/*
 			$(document).ready(function () {
 
 				var
@@ -880,6 +883,7 @@
 				$("#nav-books").addClass("current");
 
 			});
+			*/
 		</script>
 
 		<script>

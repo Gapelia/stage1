@@ -444,5 +444,51 @@
 
 	// Calculate half of viewport height minus half the height of the prev/next buttons
 	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
+	
+	$("#header-toggle").click(function () {
+
+		$(this).css({
+			"opacity": "0",
+			"top": "-50px"
+		});
+
+		$("#next-book-toggle").css({
+			"opacity": "0",
+			"top": "-50px"
+		});
+
+		$(".full-book header").css("top", "0");
+
+		$("#g-menu-toggle").css({
+			"width": "30px",
+			"height": "30px",
+			"background-size": "30px",
+			"top": "0.6rem"
+		});
+
+	});
+
+	$(".full-book header").mouseleave(function () {
+
+		$(this).css("top", "-50px");
+
+		$("#header-toggle").css({
+			"opacity": "1",
+			"top": "0"
+		});
+
+		$("#next-book-toggle").css({
+			"opacity": "1",
+			"top": "0"
+		});
+
+		$("#g-menu-toggle").css({
+			"width": "61px",
+			"height": "61px",
+			"background-size": "61px",
+			"top": "1rem"
+		});
+
+	});
 
 

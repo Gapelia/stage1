@@ -36,6 +36,9 @@
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
 	</head>
 
 	<body class="app full-book">
@@ -62,6 +65,21 @@
 			<!--//site-menu /-->
 
 			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+			<div id="header-toggle">&#9206;</div>
+			<div id="next-book-toggle">&#9197;</div>
+
+			<header>
+				<div id="header-info">
+					<span id="header-title">Hayao Miyazaki</span>
+					<span id="header-author">Paul Anthony Webb</span>
+				</div>
+
+				<ul id="share-book">
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">eMail</a></li>
+				</ul>
+			</header>
 
 			<div id="bb-nav-prev">&#59229;</div>
 			<div id="bb-nav-next">&#59230;</div>
