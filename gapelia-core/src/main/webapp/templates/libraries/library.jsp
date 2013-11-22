@@ -209,7 +209,7 @@
 							</div>
 
 							<div class="book-info">
-								<div class="title"><a href="/book/001/hayao-miyazaki">Hayao Miyazaki</a></div>
+								<div class="title"><a href="/book/001/hayao-miyazaki">Hello Techstars!</a></div>
 								<div class="author-name">Published by <a href="#">Nokadota Xialiu</a></div>
 							</div>
 

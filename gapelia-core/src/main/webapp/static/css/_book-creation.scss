@@ -601,7 +601,7 @@
 						.page-desc {
 							margin: 0 0 1rem 0; padding: 0 0 2rem 0;
 
-							font-family: "Hoefler Text", Georgia, serif !important;
+							@include serif;
 							text-align: left;
 						}
 
@@ -1035,18 +1035,17 @@
 		margin-left: -26px; padding-left: 20px;
 
 		border-left: 6px solid $slate;
-		font-family: Georgia, serif;
+		@include serif;
 		font-style: italic;
-		/* font-weight: 400; */
 
 		b {
-			font-family: Georgia, serif;
+			@include serif;
 			font-style: italic;
 			font-weight: 700;
 		}
 
 		i {
-			font-family: Georgia, serif;
+			@include serif;
 			font-style: italic;
 		}
 	}

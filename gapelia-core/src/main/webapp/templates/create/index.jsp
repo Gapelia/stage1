@@ -551,12 +551,13 @@
 
 									$(".video-picker").keypress(function (e) {
 
-										var videoURL = 'http://player.vimeo.com/video/' + getVimeoId($(this).val()) + '?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1';
+										var videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1";
 
 										if (e.which == 13) {
-											$('.video-player-container iframe').attr('src', videoURL);
+											$(".video-player-container iframe").attr("src", videoURL);
 											$("#test-video .video-picker").hide();
 											$("#test-video .photo-picker").show();
+
 											return false;
 										}
 

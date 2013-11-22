@@ -92,15 +92,14 @@
 					<div class="bb-item front-cover" id="page1">
 						<div class="content">
 
-							<section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/01.jpg')">
-								<!--/ <img id="page-01-placeholder" class="page-bg" src="/static/images/test-book/01.jpg"/> /-->
-
+							<!--/ <section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/01.jpg')"> /-->
+							<section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/team-cover.JPG')">
 								<div class="frontcover-preview">
 									<article class="cover-info">
 
-										<h1 class="page-title-elem">Hayao Miyazaki</h1>
+										<h1 class="page-title-elem">Hello Techstars!</h1>
 										<h5 contenteditable="false"><span>NetOperator Wibby</span></h5>
-										<div class="page-desc">I have always loved anime. I don't remember when I saw my first anime, but I am an avid fan of them today. Many directors have achieved widespread acclaim with classic anime films like Akira, Ghost in the Shell, &amp;c. One of these directors is Hayao Miyazaki, and this book is a collection of my favorite movies he's directed.</div>
+										<div class="page-desc">This is a sample book that shows part of our product, in progress. Pretty neat, eh? Not that you guys/gals would be Canadian or anything. Is it true Canadian money smells like maple syrup?</div>
 
 									</article>
 								</div>
@@ -113,18 +112,18 @@
 					<div class="bb-item" id="page2">
 						<div class="content">
 
-							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/02.jpg')">
-								<!--/ <img id="page-02-placeholder" class="page-bg" src="/static/images/test-book/02.jpg"/> /-->
-
+							<!--/ <section class="phototext-wrapper" style="background-image:url('/static/images/test-book/02.jpg')"> /-->
+							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/team-daniel.JPG')">
 								<div class="phototext-preview">
 									<article>
 
-										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-02" class="page-geotag-elem">Boston, MA</div>
+										<h1 class="page-title-elem">Life Lessons</h1>
+										<div id="geotag-02" class="page-geotag-elem">Lake Powell, Arizona</div>
 
 										<div class="page-desc">
-											<p>I love computers.</p>
+											<p>The problem with the world is that everyone is a few drinks behind.</p>
 
+											<!--/
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
 											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
@@ -154,6 +153,7 @@
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
 											<p>EDIT: Created a GitHub repo!</p>
+											/-->
 										</div>
 
 									</article>
@@ -167,15 +167,14 @@
 					<div class="bb-item" id="page3">
 						<div class="content">
 
-							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/03.jpg')">
-								<!--/ <img id="page-03-placeholder" class="page-bg" src="/static/images/test-book/03.jpg"/> /-->
-
+							<!--/ <section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/03.jpg')"> /-->
+							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/team-diego.JPG')">
 								<div class="horizontal-preview">
 									<article>
 
-										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-03" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
+										<h1 class="page-title-elem">Diego Regules</h1>
+										<div id="geotag-03" class="page-geotag-elem">Calamocha, Aragon, Spain</div>
+										<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars." </div>
 
 									</article>
 								</div>
@@ -188,14 +187,13 @@
 					<div class="bb-item" id="page4">
 						<div class="content">
 
-							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/04.jpg')">
-								<!--/ <img id="page-04-placeholder" class="page-bg" src="/static/images/test-book/04.jpg"/> /-->
-
+							<!--/ <section class="overlay-wrapper" style="background-image:url('/static/images/test-book/04.jpg')"> /-->
+							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/team-tommy.JPG')">
 								<div class="overlay-preview">
 									<article>
 
-										<div class="page-desc">This is a description.</div>
-										<div id="geotag-04" class="page-geotag-elem">Location</div>
+										<div class="page-desc"><blockquote>En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.</blockquote></div>
+										<div id="geotag-04" class="page-geotag-elem">Tapia de Casariego, Asturias, Spain</div>
 
 									</article>
 								</div>
@@ -647,10 +645,13 @@
 
 							<section class="video-wrapper">
 								<div class="video-preview">
-									<span class="play-video">Play</span>
+									<div class="button-wrapper">
+										<button class="play-video">Play Video</button>
+									</div>
 
 									<div class="video-player-container">
-										<iframe src="http://player.vimeo.com/video/26666315?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
+										<img src="http://placehold.it/640x360" data-vimeo-id="26666315" class="large"/>
+										<iframe src="http://player.vimeo.com/video/26666315?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=1" style="display: none";></iframe>
 									</div>
 
 									<article>
@@ -828,6 +829,9 @@
 			$(".vertical-wrapper .page-desc").scrollpanel();
 			$(".video-wrapper .page-desc").scrollpanel();
 		</script>
+
+		<script src="/static/scripts/vimeothumb.js"></script>
+		<script>$("img").VimeoThumb();</script>
 
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>

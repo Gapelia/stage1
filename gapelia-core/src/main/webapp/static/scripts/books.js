@@ -515,3 +515,11 @@
 		// if $('.back-cover').css('display');
 
 	});
+
+	$(".video-preview .play-video").click(function () {
+
+		$(this).hide();
+		$(".video-player-container img").hide();
+		$(".video-player-container iframe").show();
+
+	});
