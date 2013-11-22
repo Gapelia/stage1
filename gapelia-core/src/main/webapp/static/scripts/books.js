@@ -54,6 +54,20 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	$("#add-page").click(function (e) {
+
+		$(this).before($("<li draggable='true'></li>").html("<a href='#' class='delete-page entypo'>&#9749;</a><a href=''><img src='static/images/new-page-thumb.png' id='page-##-thumb' alt=''/><span>## &middot; New Page</span></a>"));
+		e.preventDefault();
+
+	});
+
+	$(".delete-page").click(function (e) {
+
+		$(this).closest("li").remove();
+		e.preventDefault();
+
+	});
+
 	// Clicking on a page in menu opens layout menu
 	$("#pages-scroller ul li img").click(function (e) {
 

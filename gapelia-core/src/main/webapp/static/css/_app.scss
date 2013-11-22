@@ -231,7 +231,6 @@
 				top: -4.8rem; right: 0.6rem;
 
 				color: $white;
-				font-family: "entyporegular";
 				font-size: 3em;
 				position: absolute;
 				
@@ -239,9 +238,7 @@
 					opacity: 1;
 
 					span {
-						&:nth-child(2) {
-							right: 0;
-						}
+						&:nth-child(2) { right: 0; }
 					}
 				}
 
@@ -249,7 +246,9 @@
 					position: absolute;
 
 					&:nth-child(1) {
-						top: 0.1rem; right: -0.1rem;;
+						top: 0.1rem; right: -0.1rem;
+
+						font-family: "entyporegular";
 						z-index: 1;
 					}
 
@@ -259,7 +258,8 @@
 
 						background-color: $slate;
 						display: inline-block;
-						font-size: 0.4em !important;
+						@include sans;
+						font-size: 0.1em !important;
 						font-weight: 300;
 						padding: 0.2rem 0.8rem;
 						transition: all 0.4s ease;

@@ -126,7 +126,7 @@
 							</a>
 						</li>
 
-						<li class="new-thumb disable-sort">
+						<li id="add-page" class="new-thumb disable-sort">
 							<a href="#">+</a>
 							<span>Add New Page</span>
 						</li>

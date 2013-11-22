@@ -34,7 +34,7 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/gradient.linear.js"></script>
+		<!--/ <script src="/static/scripts/gradient.linear.js"></script> /-->
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
@@ -578,7 +578,7 @@
 							</div>
 
 							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.jpg" alt=""/>
+							<img src="/static/images/book-thumb.JPG" alt=""/>
 						</li>
 
 						<li class="library">
