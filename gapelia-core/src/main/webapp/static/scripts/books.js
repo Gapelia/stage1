@@ -7,7 +7,19 @@
 
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
-
+		var author;
+	var pageNumber;
+	var geotag;
+	var text;
+	var imageURl;
+	var videoURL;
+	var templateId;
+	var title;
+	var index;
+	var pages;
+	var book;
+	var pages;
+	var one;
 	// Set menu height, necessary for scrollbar plugin
 	$("#pages-scroller").css("height", $vH - 52 + "px");
 	$("#layout-scroller").css("height", $vH - 52 + "px");
@@ -18,7 +30,28 @@
 	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-
+	$(document).ready(function () {
+		geotag = document.getElementById("geotag");
+		autocomplete = new google.maps.places.Autocomplete(geotag);
+ 		book = {"author":"AUTHOR","title":null,"library":"NULL","dimension":"NULL"};
+ 		pages = {"page":[{"pageNumber":0,"geotag":geotag,"templateId":"0","title":null,"text":null,"image":"/static/images/blank-bg.jpg","video":"NULL"}]};
+		index=0;
+		author=book.author;
+		pageNumber=pages.page[index].pageNumber;
+		text=pages.page[index].text;
+		imageURl=pages.page[index].image;
+		videoURL=pages.page[index].video;
+		templateId=pages.page[index].templateId;
+		title=pages.page[index].title;
+		pages=1;
+		one =1;
+		var information="";
+		information+="<section class=\"frontcover-preview-wrapper\">";
+		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\"></div>";
+		information+="<div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">"+title+"</h1>";
+		information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\">"+text+"</div></article></div></section>";
+	});
 	// Left Menus
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -79,9 +112,27 @@
 
 	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
-
+		console.log("CHANGING\n");
+		var information="";
+		information+="<section class=\"frontcover-preview-wrapper\">";
+		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\" style=\"display: none;\"><button type=\"button\" class=\"photo-picker\">Change Photo</button></div>";
+		if(title==null){
+			information+="<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			information+="<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+		}
+		if(text==null){
+			information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+		}
+		else{
+			information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(information);
+		
+		/*
 		$(this).addClass("selected-layout");
-
 		$("#select-photo-layout").removeClass("selected-layout");
 		$("#select-text-layout").removeClass("selected-layout");
 		$("#select-horizontal-layout").removeClass("selected-layout");
@@ -99,11 +150,33 @@
 		$("#test-vertical").hide();
 		$("#test-video").hide();
 		e.preventDefault();
+		*/
 
 	});
 
 	$("#select-photo-layout").click(function (e) {
+		console.log("CHANGING2\n");
+		var information="";
+		information+="<section class=\"photo-preview-wrapper\">";
+		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\" style=\"display: none;\"><button type=\"button\" class=\"photo-picker\">Change Photo</button></div>";
+		if(title==null){
+			information+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			information+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+		}
+		if(text==null){
+			information+="<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			information+="<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+			information+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		
+		$("#create-content").html(information);
 
+		/*
 		$(this).addClass("selected-layout");
 
 		$("#select-frontcover-layout").removeClass("selected-layout");
@@ -122,6 +195,7 @@
 		$("#test-phototext").hide();
 		$("#test-vertical").hide();
 		$("#test-video").hide();
+		*/
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");

@@ -130,153 +130,6 @@
 							<a href="#">+</a>
 							<span>Add New Page</span>
 						</li>
-
-						<!--/
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-05-thumb" alt=""/>
-								<span>05 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-06-thumb" alt=""/>
-								<span>06 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-07-thumb" alt=""/>
-								<span>07 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-08-thumb" alt=""/>
-								<span>08 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-09-thumb" alt=""/>
-								<span>09 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-10-thumb" alt=""/>
-								<span>10 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-11-thumb" alt=""/>
-								<span>11 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-12-thumb" alt=""/>
-								<span>12 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-13-thumb" alt=""/>
-								<span>13 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-14-thumb" alt=""/>
-								<span>14 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-15-thumb" alt=""/>
-								<span>15 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-16-thumb" alt=""/>
-								<span>16 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-17-thumb" alt=""/>
-								<span>17 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-18-thumb" alt=""/>
-								<span>18 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-19-thumb" alt=""/>
-								<span>19 &middot; </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-20-thumb" alt=""/>
-								<span>20 &middot; </span>
-							</a>
-						</li>
-						/-->
-
 					</ul>
 
 					<input name="pageSortOrder" type="hidden"/>
@@ -372,6 +225,7 @@
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
+						<div id="test-shix"
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="button-wrapper">
 							</div>
@@ -694,7 +548,7 @@
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
-			var geotag01 = document.getElementById("geotag-01");
+			var geotag = document.getElementById("geotag");
 			autocomplete = new google.maps.places.Autocomplete(geotag01);
 
 			var geotag02 = document.getElementById("geotag-02");
