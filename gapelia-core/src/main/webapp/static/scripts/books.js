@@ -1,10 +1,8 @@
-
 	// Book Creation
 	// @Gapelia
 	// ====================================================================================
 	// Left Menus | Layout and page interaction | Right Menus | Content Creation
 	// Live Preview
-
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
 		var author;
@@ -45,12 +43,6 @@
 		title=pages.page[index].title;
 		pages=1;
 		one =1;
-		var information="";
-		information+="<section class=\"frontcover-preview-wrapper\">";
-		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
-		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\"></div>";
-		information+="<div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">"+title+"</h1>";
-		information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\">"+text+"</div></article></div></section>";
 	});
 	// Left Menus
 	// @Gapelia
@@ -112,25 +104,37 @@
 
 	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function (e) {
-		console.log("CHANGING\n");
-		var information="";
-		information+="<section class=\"frontcover-preview-wrapper\">";
-		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
-		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\" style=\"display: none;\"><button type=\"button\" class=\"photo-picker\">Change Photo</button></div>";
-		if(title==null){
-			information+="<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		var insert="";
+		var imageURl=$('#theImage').attr('src');
+		var text=$('#theText').text();
+		var title=$('#theTitle').text();
+		insert+="<section class=\"frontcover-preview-wrapper\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
 		}
 		else{
-			information+="<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
+		if(title==null){
+			insert+="<div class=\"frontcover-preview\"><article><h1 id=\"theTitle\" class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			insert+="<div class=\"frontcover-preview\"><article><h1 id=\"theTitle\" class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
 		if(text==null){
-			information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+			insert+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div id=\"theText\" class=\"page-desc\" placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		}
 		else{
-			information+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div id=\"theText\" class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
-		$("#create-content").html(information);
-		
+		$("#create-content").html(insert);
+		templateId=0;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
 		/*
 		$(this).addClass("selected-layout");
 		$("#select-photo-layout").removeClass("selected-layout");
@@ -155,47 +159,39 @@
 	});
 
 	$("#select-photo-layout").click(function (e) {
-		console.log("CHANGING2\n");
-		var information="";
-		information+="<section class=\"photo-preview-wrapper\">";
-		information+="<img id=\"theimage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
-		information+="<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);\" style=\"display: none;\"><button type=\"button\" class=\"photo-picker\">Change Photo</button></div>";
+		var insert="";
+		var imageURl=$('#theImage').attr('src');
+		var text=$('#theText').text();
+		var title=$('#theTitle').text();
+		insert+="<section class=\"photo-preview-wrapper\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+		}
+		else{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
 		if(title==null){
-			information+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		}
 		else{
-			information+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" id=\"theTitle\" contenteditable=\"true\">"+title+"</h1>";
 		}
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 		if(text==null){
-			information+="<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		}
 		else{
-			information+="<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
-			information+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 		
-		$("#create-content").html(information);
-
-		/*
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").toggle();
-		$("#test-text").hide();
-		$("#test-horizontal").hide();
-		$("#test-overlay").hide();
-		$("#test-phototext").hide();
-		$("#test-vertical").hide();
-		$("#test-video").hide();
-		*/
+		$("#create-content").html(insert);
+		templateId=1;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");

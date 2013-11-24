@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 
 		<meta charset="utf-8"/>
 		<title>Create a book | Gapelia</title>
-
 		<!--/
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
@@ -26,18 +23,18 @@
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
-		<link href="/static/css/style.css" rel="stylesheet"/>
-		<link href="/static/css/selectize.css" rel="stylesheet"/>
-		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+		<link href="static/css/style.css" rel="stylesheet"/>
+		<link href="static/css/selectize.css" rel="stylesheet"/>
+		<link href="static/images/favicon.png" rel="shortcut icon"/>
 
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
 
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-		<script src="/static/scripts/selectize.js"></script>
+		<script src="static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="static/scripts/selectize.js"></script>
 
-		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script src="http://use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
 
 		<script>
@@ -69,7 +66,6 @@
 	</head>
 
 	<body class="book-creation g-body">
-
 		<header>
 			<div id="back">
         <div id="pages-toggle"><a href="#" title="Add pages">&oplus;</a></div>
@@ -99,37 +95,11 @@
 							</section>
 						</li>
 
-						<li class="page-delete-demo"><!--//-->
-							<a class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-02-thumb" alt=""/>
-								<span>02 &middot; Beautiful Skyline in Tokyo Bay</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-03-thumb" alt=""/>
-								<span>03 &middot; Underground Passage</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="delete-page entypo">&#9749;</a>
-
-							<a href="">
-								<img src="static/images/new-page-thumb.png" id="page-04-thumb" alt=""/>
-								<span>04 &middot; New Page</span>
-							</a>
-						</li>
-
 						<li id="add-page" class="new-thumb disable-sort">
 							<a href="#">+</a>
 							<span>Add New Page</span>
 						</li>
+
 					</ul>
 
 					<input name="pageSortOrder" type="hidden"/>
@@ -138,42 +108,42 @@
 				<div id="layout-scroller">
 					<ul>
 						<li id="select-frontcover-layout">
-							<img src="/static/images/view-modes/front.png" alt=""/>
+							<img src="static/images/view-modes/front.png" alt=""/>
 							<span>Front Cover</span>
 						</li>
 
 						<li id="select-photo-layout">
-							<img src="/static/images/view-modes/photo.png" alt=""/>
+							<img src="static/images/view-modes/photo.png" alt=""/>
 							<span>Photo</span>
 						</li>
 
 						<li id="select-text-layout">
-							<img src="/static/images/view-modes/text.png" alt=""/>
+							<img src="static/images/view-modes/text.png" alt=""/>
 							<span>Text</span>
 						</li>
 
 						<li id="select-horizontal-layout">
-							<img src="/static/images/view-modes/horizontal.png" alt=""/>
+							<img src="static/images/view-modes/horizontal.png" alt=""/>
 							<span>Horizontal</span>
 						</li>
 
 						<li id="select-overlay-layout">
-							<img src="/static/images/view-modes/overlay.png" alt=""/>
+							<img src="static/images/view-modes/overlay.png" alt=""/>
 							<span>Overlay</span>
 						</li>
 
 						<li id="select-phototext-layout">
-							<img src="/static/images/view-modes/phototext.png" alt=""/>
+							<img src="static/images/view-modes/phototext.png" alt=""/>
 							<span>Photo/Text</span>
 						</li>
 
 						<li id="select-vertical-layout">
-							<img src="/static/images/view-modes/vertical.png" alt=""/>
+							<img src="static/images/view-modes/vertical.png" alt=""/>
 							<span>Vertical</span>
 						</li>
 
 						<li id="select-video-layout">
-							<img src="/static/images/view-modes/video.png" alt=""/>
+							<img src="static/images/view-modes/video.png" alt=""/>
 							<span>Video</span>
 						</li>
 					</ul>
@@ -220,12 +190,10 @@
 						</select>
 					</div>
 				</div>
-
 				<div id="create-book">
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
-						<div id="test-shix"
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="button-wrapper">
 							</div>
@@ -242,11 +210,9 @@
 
 						<!--/ Front Cover /-->
 						<section id="test-frontcover" class="frontcover-preview-wrapper" style="display: none;">
-							<img id="page-01-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+							<img id="page-01-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
-							<div class="button-wrapper">
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-01-placeholder').attr('src', url);">
-							</div>
+							<div class=\"button-wrapper\"><button id=\"pickButton\">Pick File</button>
 
 							<div class="frontcover-preview">
 								<article class="cover-info">
@@ -262,7 +228,7 @@
 
 						<!--/ Photo /-->
 						<section id="test-photo" class="photo-preview-wrapper" style="display: none;">
-							<img id="page-02-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+							<img id="page-02-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-02-placeholder').attr('src', url);">
@@ -297,7 +263,7 @@
 						<!--/ Horizontal /-->
 						<section id="test-horizontal" class="horizontal-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"><!--/ style="background: url('/static/images/space-bb.jpg');" /-->
-								<img id="page-03-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+								<img id="page-03-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
 								<div class="button-wrapper">
 									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-03-placeholder').attr('src', url);">
@@ -318,7 +284,7 @@
 
 						<!--/ Overlay /-->
 						<section id="test-overlay" class="overlay-preview-wrapper" style="display: none;">
-							<img id="page-04-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+							<img id="page-04-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
 							<div class="button-wrapper">
 								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-04-placeholder').attr('src', url);">
@@ -337,11 +303,9 @@
 
 						<!--/ Photo/Text /-->
 						<section id="test-phototext" class="phototext-preview-wrapper" style="display: none;">
-							<img id="page-05-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+							<img id="page-05-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
-							<div class="button-wrapper">
-								<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-05-placeholder').attr('src', url);">
-							</div>
+							<div class=\"button-wrapper\"><button onclick=\"javascript:openFilePicker()\">Choose File</button></div>
 
 							<div class="phototext-preview">
 								<article>
@@ -358,7 +322,7 @@
 						<!--/ Vertical /-->
 						<section id="test-vertical" class="vertical-preview-wrapper" style="display: none;">
 							<section class="draggable-placeholder"><!--/ style="background: url('/static/images/space-bb.jpg');" /-->
-								<img id="page-06-placeholder" class="page-bg" src="/static/images/blank-bg.jpg"/>
+								<img id="page-06-placeholder" class="page-bg" src="static/images/blank-bg.jpg"/>
 
 								<div class="button-wrapper">
 									<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('#page-06-placeholder').attr('src', url);">
@@ -487,32 +451,15 @@
 		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/grande.js"></script>
-
+		<script src="static/scripts/grande.js"></script>
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
 		</script>
 
-		<script src="/static/scripts/filepicker2.js"></script>
-		<script src="/static/scripts/books.js"></script>
-
-		<!--/ Save this for the actual book! (:
-		<script src="/static/scripts/flip.js"></script>
-
-		<script>
-			$(document).ready(function () {
-				$("#create-content").flip({
-					forwardDir: "rtol",
-					// height: "340px",
-					showpager: false,
-					loop: false
-				});
-			});
-		</script>
-		/-->
-
-		<script src="/static/scripts/draggable_background.js"></script>
+		<script src="static/scripts/filepicker2.js"></script>
+		<script src="static/scripts/books.js"></script>
+		<script src="static/scripts/draggable_background.js"></script>
 
 		<script>
 			// Horizontal and Vertical layouts
@@ -520,8 +467,8 @@
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/scrollpanel.js"></script>
+		<script src="static/scripts/jquery.mousewheel.js"></script>
+		<script src="static/scripts/scrollpanel.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
@@ -536,7 +483,7 @@
 		</script>
 
 		<!--/ scripts/page-sorter /-->
-		<script src="/static/scripts/sortable.js"></script>
+		<script src="static/scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
@@ -548,7 +495,7 @@
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
-			var geotag = document.getElementById("geotag");
+			var geotag01 = document.getElementById("geotag-01");
 			autocomplete = new google.maps.places.Autocomplete(geotag01);
 
 			var geotag02 = document.getElementById("geotag-02");
@@ -610,8 +557,8 @@
 		</script>
 		
 		<!--/ scripts/dialog /-->
-		<script src="/static/scripts/vex.js"></script>
-		<script src="/static/scripts/vex.dialog.js"></script>
+		<script src="static/scripts/vex.js"></script>
+		<script src="static/scripts/vex.dialog.js"></script>
 
 		<script>
 			var modal = {};
