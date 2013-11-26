@@ -33,6 +33,7 @@
 		currentPage=0
 		one =1;
 	});
+
 	// Left Menus
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -623,6 +624,7 @@
 	});
 
 	// MUST FIX!!!
+	/*
 	$(".back-cover").mousemove(function() {
 	// $(".back-cover").ready(function() {
 
@@ -646,6 +648,82 @@
 		// if $('.back-cover').css('display');
 
 	});
+	*/
+
+	// MUST FIX!!!
+	// $(".back-cover").mousemove(function() {
+
+	$(function() {
+		setTimeout(function() {
+
+			if ($("#page1[style*='display:block']")) {
+				// if ($("#page1").attr("style") == "block") {
+				$("#bb-nav-prev").hide();
+			} else {
+				$("#bb-nav-prev").show();
+			}
+
+			/*
+			$(".front-cover").ready(function() {
+
+				if ($(".back-cover").css("display")) {
+					$("#bb-nav-prev").css({
+						"opacity": "0",
+						"right": "-50px"
+					});
+				}
+
+			});
+
+			$(".back-cover").ready(function() {
+
+				if ($(".back-cover").css("display")) {
+					$("#header-toggle").css({
+						"opacity": "0",
+						"top": "-50px"
+					});
+
+					$("#next-book-toggle").css({
+						"opacity": "0",
+						"top": "-50px"
+					});
+
+					$("#bb-nav-next").css({
+						"opacity": "0",
+						"right": "-50px"
+					});
+				}
+
+			});
+			*/
+
+		}, 30);
+	});
+
+	/*
+	$(".back-cover").ready(function() {
+
+		if ($(".back-cover").css("display")) {
+			$("#header-toggle").css({
+				"opacity": "0",
+				"top": "-50px"
+			});
+
+			$("#next-book-toggle").css({
+				"opacity": "0",
+				"top": "-50px"
+			});
+
+			$("#bb-nav-next").css({
+				"opacity": "0",
+				"right": "-50px"
+			});
+		}
+
+		// if $('.back-cover').css('display');
+
+	});
+	*/
 
 	$(".video-preview .play-video").click(function () {
 

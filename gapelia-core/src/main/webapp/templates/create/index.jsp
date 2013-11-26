@@ -492,11 +492,12 @@
 			});
 		</script>
 
-		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script> /-->
 
+		<!--/
 		<script>
-			var geotag = document.getElementById("geotag");
-			autocomplete = new google.maps.places.Autocomplete(geotag);
+			var geotag01 = document.getElementById("geotag-01");
+			autocomplete = new google.maps.places.Autocomplete(geotag01);
 
 			var geotag02 = document.getElementById("geotag-02");
 			autocomplete = new google.maps.places.Autocomplete(geotag02);
@@ -555,6 +556,7 @@
 			var geotag20 = document.getElementById("geotag-20");
 			autocomplete = new google.maps.places.Autocomplete(geotag20);
 		</script>
+		/-->
 		
 		<!--/ scripts/dialog /-->
 		<script src="static/scripts/vex.js"></script>
