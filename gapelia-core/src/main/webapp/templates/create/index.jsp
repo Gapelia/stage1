@@ -86,12 +86,12 @@
 				<div id="pages-scroller">
 					<ul>
 
-						<li class="current-thumb disable-sort">
+						<li id="page0" class="current-thumb disable-sort">
 							<a class="delete-page entypo">&#9749;</a>
 
 							<section>
-								<img src="static/images/space-bb-small.JPG" id="page-01-thumb" alt=""/>
-								<span class="livepreview-thing">01 &middot; Front Cover</span>
+								<img src="static/images/space-bb-small.JPG" class="page" id="0" alt=""/>
+								<span class="livepreview-thing">0 &middot; Front Cover</span>
 							</section>
 						</li>
 
@@ -495,8 +495,8 @@
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
 
 		<script>
-			var geotag01 = document.getElementById("geotag-01");
-			autocomplete = new google.maps.places.Autocomplete(geotag01);
+			var geotag = document.getElementById("geotag");
+			autocomplete = new google.maps.places.Autocomplete(geotag);
 
 			var geotag02 = document.getElementById("geotag-02");
 			autocomplete = new google.maps.places.Autocomplete(geotag02);
