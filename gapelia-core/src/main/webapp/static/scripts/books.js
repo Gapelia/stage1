@@ -5,20 +5,14 @@
 	// Live Preview
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
-	// Set menu height, necessary for scrollbar plugin
 	$("#pages-scroller").css("height", $vH - 52 + "px");
 	$("#layout-scroller").css("height", $vH - 52 + "px");
-	// $("#comments-scroller").css("height", $vH - 52 + "px");
-
-	// will need to check/change these heights later
 	$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
 	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(document).ready(function () {
-		//geotag = document.getElementById("geotag");
 		geotag="BUGGGGGG";
-		//autocomplete = new google.maps.places.Autocomplete(geotag);
  		book = {"author":"AUTHOR","title":null,"library":"NULL","dimension":"NULL"};
  		pages = {"page":[{"pageNumber":0,"geotag":geotag,"templateId":null,"title":null,"text":null,"image":"/static/images/blank-bg.jpg","video":"NULL"}]};
 		index=0;
@@ -33,7 +27,6 @@
 		currentPage=0
 		one =1;
 	});
-
 	// Left Menus
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -69,7 +62,7 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 	$("#add-page").click(function (e) {
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src='static/images/new-page-thumb.png' class='page' id='"+(pagesCreated)+"' alt=''/><span>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src='static/images/new-page-thumb.png' class='page' id='page"+(pagesCreated)+"Image' alt=''/><span  id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 		e.preventDefault();
 		imageURl=$('#theImage').attr('src');
 		text=$('#theText').text();
@@ -84,7 +77,6 @@
 			alert("Your book is too big please remove a page!\n");
 		}
 		else{ 
-
 			if(geotag==undefined)
 			{
 				pages.page[pagesCreated-1].geotag=null
@@ -98,27 +90,42 @@
 			pages.page[pagesCreated-1].image=imageURl;
 			pages.page[pagesCreated-1].video=videoURL;
 			pages.page[pagesCreated] = {"pageNumber":pagesCreated,"geotag":null,"templateId":"0","title":null,"text":null,"image":"/static/images/blank-bg.jpg","video":"NULL"};
+			templateId=null;
+			title=null;
+			text=null;
+			imageURl=null;
+			videoURL=null;
 			pagesCreated++;
 		}
 	});
 	$(document).on('click',"#pages-scroller ul li .delete-page", function (e) {
 		currentPage=$(this).closest("img").attr('id');
-		console.log(pages);
 		pages.page.splice(currentPage,1);
-		console.log(pages);
 		currentPage--;
+		pagesCreated--;
 		$(this).closest("li").remove();
 		e.preventDefault();
 	});
 	// Clicking on a page in menu opens layout menu
 	$(document).on('click',"#pages-scroller ul li img", function (e) {
-		var oldPage=currentPage
-		currentPage=$(this).closest("img").attr('id');
-		if(oldPage==currentPage)
+		currentPage=$(this).closest("li").attr('id');
+		if(templateId==null)
 		{
-		imageURl=$('#theImage').attr('src');
-		 text=$('#theText').text();
-		 title=$('#theTitle').text();
+			
+			var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
+			$("#create-content").html(insert);
+		}
+
+		templateId=pages.page[currentPage].templateId;
+		var oldPage=currentPage
+		currentPage=$(this).closest("li").attr('id');
+		if(oldPage!=currentPage)
+		{
+			pages.page[oldPage].templateId=templateId;
+			pages.page[oldPage].title=title;
+			pages.page[oldPage].text=text;
+			pages.page[oldPage].image=imageURl;
+			pages.page[oldPage].video=videoURL;
 		}
 		else{
 			pages.page[oldPage].templateId=templateId;
@@ -126,17 +133,16 @@
 			pages.page[oldPage].text=text;
 			pages.page[oldPage].image=imageURl;
 			pages.page[oldPage].video=videoURL;
-			templateId=pages.page[currentPage].templateId;
 			title=pages.page[currentPage].title;
 			text=pages.page[currentPage].text;
 			imageURl=pages.page[currentPage].image;
 			videoURL=pages.page[currentPage].video;
 		}
-		$("#pages-scroller").css("left", "-150px");
-		$("#layout-scroller").css("left", "0");
-		if(pages.page[currentPage].templateId=null)
+		if(templateId==null)
 		{
+			
 			var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
+			$("#create-content").html(insert);
 		}
 		else{
 			switch(templateId)
@@ -166,71 +172,7 @@
 		else{
 			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
 		}
-		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
-		if(title==null){
-			insert+="<div class=\"frontcover-preview\"><article><h1 id=\"theTitle\" class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-		}
-		else{
-			insert+="<div class=\"frontcover-preview\"><article><h1 id=\"theTitle\" class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
-		}
-		if(text==null){
-			insert+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div id=\"theText\" class=\"page-desc\" placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
-		}
-		else{
-			insert+="<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div id=\"theText\" class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
-		}
-		$("#create-content").html(insert);
-		var element=$('#me');
-		element=element[0];
-		element.type="filepicker";
-		filepicker.constructWidget(element); 
-	}
-	function photoLayout(){
-		var insert="";
-		insert+="<section class=\"photo-preview-wrapper\">";
-		if(imageURl==null)
-		{
-			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
-		}
-		else{
-			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
-		}
-		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
-		if(title==null){
-			insert+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-		}
-		else{
-			insert+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" id=\"theTitle\" contenteditable=\"true\">"+title+"</h1>";
-		}
-		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-		if(text==null){
-			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		}
-		else{
-			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
-		}
-		
-		$("#create-content").html(insert);
-		var element=$('#me');
-		element=element[0];
-		element.type="filepicker";
-		filepicker.constructWidget(element); 
-	}
-	// Toggle layout switcher
-	$("#select-frontcover-layout").click(function (e) {
-		insert="";
-		imageURl=$('#theImage').attr('src');
-		text=$('#theText').text();
-		title=$('#theTitle').text();
-		insert+="<section class=\"frontcover-preview-wrapper\">";
-		if(imageURl==null)
-		{
-			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
-		}
-		else{
-			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
-		}
-		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div>";
 		if(title==null){
 			insert+="<div class=\"frontcover-preview\"><article><h1 id=\"theTitle\" class=\"page-title-elem\"  placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		}
@@ -258,13 +200,9 @@
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 		e.preventDefault();
-	});
-
-	$("#select-photo-layout").click(function (e) {
+	}
+	function photoLayout(){
 		var insert="";
-		var imageURl=$('#theImage').attr('src');
-		var text=$('#theText').text();
-		var title=$('#theTitle').text();
 		insert+="<section class=\"photo-preview-wrapper\">";
 		if(imageURl==null)
 		{
@@ -273,7 +211,7 @@
 		else{
 			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
 		}
-		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#theImage').attr('src', url);\"></div>";
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div>";
 		if(title==null){
 			insert+="<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		}
@@ -287,176 +225,279 @@
 		else{
 			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
-		
 		$("#create-content").html(insert);
 		templateId=1;
 		var element=$('#me');
 		element=element[0];
 		element.type="filepicker";
 		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function textLayout(){
+		var insert="";
+		insert+="<section class=\"text-preview-wrapper\">";
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div>";
+		if(title==null){
+			insert+="<div class=\"text-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			insert+="<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" id=\"theTitle\" contenteditable=\"true\">"+title+"</h1>";
+		}
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		if(text==null){
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(insert);
+		templateId=2;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function horizontalLayout(){
+		var insert="";
+		insert+="<section class=\"horizontal-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+		}
+		else{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div>";
+		insert+="</section><div class=\"horizontal-preview\"><article>";
+		if(title==null)
+		{
+			insert+="<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\"></h1>";
+		}
+		else{
+			insert+="<h1 class=\"page-title-elem\">"+title+"</h1>";
+		}
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		if(text==null){
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(insert);
+		templateId=3;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function overlayLayout(){
+		var insert="";
+		insert+="<section class=\"overlay-preview-wrapper\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+		}
+		else{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div><div class=\"overlay-preview\"><article>";
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		if(text==null){
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(insert);
+		templateId=4;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function photoTextLayout(){
+		var insert="";
+		insert+="<section class=\"phototext-preview-wrapper\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+		}
+		else{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div>";
+		if(title==null){
+			insert+="<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			insert+="<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" id=\"theTitle\" contenteditable=\"true\">"+title+"</h1>";
+		}
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		if(text==null){
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(insert);
+		templateId=5;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function verticalLayout(){
+		var insert="";
+		insert+="<section class=\"vertical-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		if(imageURl==null)
+		{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+		}
+		else{
+			insert+="<img id=\"theImage\" class=\"page-bg\" src=\""+imageURl+"\"/>";
+		}
+		insert+="<div class=\"button-wrapper\"><input id=\"me\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"window\" data-fp-multiple=\"true\"onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('#theImage').attr('src', url);\"></div></section>";
+		if(title==null){
+			insert+="<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\"  id=\"theTitle\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+		}
+		else{
+			insert+="<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" id=\"theTitle\" contenteditable=\"true\">"+title+"</h1>";
+		}
+		insert+="<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		if(text==null){
+			insert+="<div class=\"page-desc\" contenteditable=\"true\" id=\"theText\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		}
+		else{
+			insert+="<div class=\"page-desc\" id=\"theText\"  contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+		$("#create-content").html(insert);
+		templateId=6;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	function videoLayout(){
+		var insert="";
+		insert+="<section id=\"test-video\" class=\"video-preview-wrapper\" ><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
+		insert+="<input class=\"video-picker\" type=\"text\" placeholder=\"Input video URL here\"/><script>";
+		insert+="$(\"#test-video .photo-picker\").click(function () {$(this).hide();$(\"#test-video .video-picker\").show();});function getVimeoId(url) {var match = /vimeo.*\/(\d+)/i.exec(url);if (match) {return match[1];}";
+		insert+="$(\".video-picker\").keypress(function (e) {var videoURL = \"http://player.vimeo.com/video/\" + getVimeoId($(this).val()) + \"?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1\";if (e.which == 13) {";
+		insert+="$(\".video-player-container iframe\").attr(\"src\", videoURL);$(\"#test-video .video-picker\").hide();$(\"#test-video .photo-picker\").show();return false;}});</script></div>";
+		insert+="<div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"\"></iframe></div><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\"></h1>";
+		insert+="<input id=\"geotag-07\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		$("#create-content").html(insert);
+		templateId=7;
+		var element=$('#me');
+		element=element[0];
+		element.type="filepicker";
+		filepicker.constructWidget(element); 
+		pages.page[currentPage].geotag=geotag;
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+		// Google Maps Autocomplete list positioning
+		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		e.preventDefault();
+	}
+	window.setInterval(function(){
+		imageURl=$('#theImage').attr('src');
+		text=$('#theText').text();
+		var string='#page'+currentPage+"Title";
+		title=$('#theTitle').text();
+		$(string).html(title);
+		videoURL=$('#theVideo').attr('src');
+		pages.page[currentPage].templateId=templateId;
+		pages.page[currentPage].title=title;
+		pages.page[currentPage].text=text;
+		pages.page[currentPage].image=imageURl;
+		pages.page[currentPage].video=videoURL;
+	}, 1000);
+	// Toggle layout switcher
+	$("#select-frontcover-layout").click(function (e) {
+		frontCoverLayout();
+	});
+
+	$("#select-photo-layout").click(function (e) {
+		photoLayout();
 	});
 
 	$("#select-text-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").toggle();
-		$("#test-horizontal").hide();
-		$("#test-overlay").hide();
-		$("#test-phototext").hide();
-		$("#test-vertical").hide();
-		$("#test-video").hide();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "0").css("position", "relative");
-		e.preventDefault();
-
+		textLayout();
 	});
-
 	$("#select-horizontal-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").hide();
-		$("#test-horizontal").toggle();
-		$("#test-overlay").hide();
-		$("#test-phototext").hide();
-		$("#test-vertical").hide();
-		$("#test-video").hide();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-		// $(".pac-item").css("text-align", "center");
-		e.preventDefault();
-
+		horizontalLayout();
 	});
 
 	$("#select-overlay-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").hide();
-		$("#test-horizontal").hide();
-		$("#test-overlay").toggle();
-		$("#test-phototext").hide();
-		$("#test-vertical").hide();
-		$("#test-video").hide();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "0").css("position", "relative");
-		e.preventDefault();
-
+		overlayLayout();
 	});
 
 	$("#select-phototext-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").hide();
-		$("#test-horizontal").hide();
-		$("#test-overlay").hide();
-		$("#test-phototext").toggle();
-		$("#test-vertical").hide();
-		$("#test-video").hide();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "0").css("position", "relative");
-		e.preventDefault();
-
+		photoTextLayout();
 	});
 
 	$("#select-vertical-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-video-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").hide();
-		$("#test-horizontal").hide();
-		$("#test-overlay").hide();
-		$("#test-phototext").hide();
-		$("#test-vertical").toggle();
-		$("#test-video").hide();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "0").css("position", "relative");
-		e.preventDefault();
-
+		verticalLayout();
 	});
 
 	$("#select-video-layout").click(function (e) {
-
-		$(this).addClass("selected-layout");
-
-		$("#select-frontcover-layout").removeClass("selected-layout");
-		$("#select-photo-layout").removeClass("selected-layout");
-		$("#select-text-layout").removeClass("selected-layout");
-		$("#select-horizontal-layout").removeClass("selected-layout");
-		$("#select-overlay-layout").removeClass("selected-layout");
-		$("#select-phototext-layout").removeClass("selected-layout");
-		$("#select-vertical-layout").removeClass("selected-layout");
-
-		$("#test-frontcover").hide();
-		$("#test-photo").hide();
-		$("#test-text").hide();
-		$("#test-horizontal").hide();
-		$("#test-overlay").hide();
-		$("#test-phototext").hide();
-		$("#test-vertical").hide();
-		$("#test-video").toggle();
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "0").css("position", "relative");
-		e.preventDefault();
-
+		videoLayout();
 	});
 
 	// Right Menus
@@ -624,7 +665,6 @@
 	});
 
 	// MUST FIX!!!
-	/*
 	$(".back-cover").mousemove(function() {
 	// $(".back-cover").ready(function() {
 
@@ -648,82 +688,6 @@
 		// if $('.back-cover').css('display');
 
 	});
-	*/
-
-	// MUST FIX!!!
-	// $(".back-cover").mousemove(function() {
-
-	$(function() {
-		setTimeout(function() {
-
-			if ($("#page1[style*='display:block']")) {
-				// if ($("#page1").attr("style") == "block") {
-				$("#bb-nav-prev").hide();
-			} else {
-				$("#bb-nav-prev").show();
-			}
-
-			/*
-			$(".front-cover").ready(function() {
-
-				if ($(".back-cover").css("display")) {
-					$("#bb-nav-prev").css({
-						"opacity": "0",
-						"right": "-50px"
-					});
-				}
-
-			});
-
-			$(".back-cover").ready(function() {
-
-				if ($(".back-cover").css("display")) {
-					$("#header-toggle").css({
-						"opacity": "0",
-						"top": "-50px"
-					});
-
-					$("#next-book-toggle").css({
-						"opacity": "0",
-						"top": "-50px"
-					});
-
-					$("#bb-nav-next").css({
-						"opacity": "0",
-						"right": "-50px"
-					});
-				}
-
-			});
-			*/
-
-		}, 30);
-	});
-
-	/*
-	$(".back-cover").ready(function() {
-
-		if ($(".back-cover").css("display")) {
-			$("#header-toggle").css({
-				"opacity": "0",
-				"top": "-50px"
-			});
-
-			$("#next-book-toggle").css({
-				"opacity": "0",
-				"top": "-50px"
-			});
-
-			$("#bb-nav-next").css({
-				"opacity": "0",
-				"right": "-50px"
-			});
-		}
-
-		// if $('.back-cover').css('display');
-
-	});
-	*/
 
 	$(".video-preview .play-video").click(function () {
 
