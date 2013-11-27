@@ -278,6 +278,14 @@
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
+		<script src="/static/scripts/succinct.js"></script>
+
+		<script>
+			$(function() {
+				// $(".page-desc").succinct({ size: 120 });
+			});
+		</script>
+
 		<script src="/static/scripts/books.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 

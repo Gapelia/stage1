@@ -714,6 +714,43 @@
 		});
 	})(jQuery);
 
+	/*
+	function TextLimit(elem, maxChars) {
+
+		var permittedKeys = [8,37,38,39,40,46];
+
+		elem.focus(function() {
+			if(elem.val().length >= maxChars) {
+				elem.data('prevent', true);
+				elem.data('value', elem.val());
+			}
+		});
+		
+		elem.blur(function() {
+			if( elem.data('prevent')) {
+				elem.val( elem.data('value'));
+			}
+		});
+
+		elem.keydown(function(event) {
+
+			var count = elem.val().length;
+
+			if(count >= maxChars && $.inArray(event.which, permittedKeys) < 0) {
+				elem.data('prevent', true);
+				elem.data('value', elem.val());
+				return false;
+			} else {
+				elem.data('prevent', false);
+			}
+
+		});
+
+	}
+	*/
+
+	TextLimit($(".frontcover-preview-wrapper .page-desc"), 30);
+
 	// Video Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------

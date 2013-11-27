@@ -834,7 +834,7 @@ body.demo-start .page-vex, body.page-intro .page-vex { opacity: 0; z-index: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview ::-webkit-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview ::-moz-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview :-ms-input-placeholder { color: #fcfcfc; }
-.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-geotag-elem { color: #fcfcfc; text-align: center; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-geotag-elem { color: #fcfcfc; margin: 2rem 0 0 0; text-align: center; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview { width: 30%; height: 100%; top: 0; right: 0; background-color: rgba(25, 25, 25, 0.7); color: #fcfcfc; padding: 4rem 2rem 2rem 2rem; position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview ::-webkit-input-placeholder { color: #fcfcfc; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview ::-moz-placeholder { color: #fcfcfc; }
