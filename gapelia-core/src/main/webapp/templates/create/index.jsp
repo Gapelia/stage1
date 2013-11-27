@@ -266,14 +266,7 @@
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
-		<script src="/static/scripts/books.js"></script>
-		<script src="/static/scripts/draggable_background.js"></script>
-
-		<script>
-			// Horizontal and Vertical layouts
-			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
-		</script>
-
+		
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
@@ -283,11 +276,14 @@
 			$("#layout-scroller").scrollpanel();
 
 			// $("#publish-scroller").scrollpanel();
+		</script>
 
-			$(".text-preview-wrapper .page-desc").scrollpanel();
-			$(".phototext-preview-wrapper .page-desc").scrollpanel();
-			$(".vertical-preview-wrapper .page-desc").scrollpanel();
-			$(".video-preview-wrapper .page-desc").scrollpanel();
+		<script src="/static/scripts/books.js"></script>
+		<script src="/static/scripts/draggable_background.js"></script>
+
+		<script>
+			// Horizontal and Vertical layouts
+			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/page-sorter /-->

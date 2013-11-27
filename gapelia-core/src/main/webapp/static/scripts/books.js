@@ -12,12 +12,6 @@
 	$("#pages-scroller").css("height", $vH - 52 + "px");
 	$("#layout-scroller").css("height", $vH - 52 + "px");
 
-	// will need to check/change these heights later
-	$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
-	$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-	$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-	$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-
 	$(document).ready(function () {
 
 		geotag = "BUGGGGGG";
@@ -160,67 +154,6 @@
 
 	});
 
-	// Clicking on a page in menu opens layout menu
-	/* Fucks up flow, removing
-	$(document).on("click", "#pages-scroller ul li img", function (e) {
-
-		currentPage = $(this).closest("li").attr("id");
-
-		if(templateId == null) {
-			var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
-			$("#create-content").html(insert);
-		}
-
-		templateId = pages.page[currentPage].templateId;
-
-		var oldPage = currentPage;
-		currentPage = $(this).closest("li").attr("id");
-
-		if(oldPage != currentPage) {
-			pages.page[oldPage].templateId = templateId;
-			pages.page[oldPage].title = title;
-			pages.page[oldPage].text = text;
-			pages.page[oldPage].image = imageURL;
-			pages.page[oldPage].video = videoURL;
-		} else {
-			pages.page[oldPage].templateId = templateId;
-			pages.page[oldPage].title = title;
-			pages.page[oldPage].text = text;
-			pages.page[oldPage].image = imageURL;
-			pages.page[oldPage].video = videoURL;
-			title = pages.page[currentPage].title;
-			text = pages.page[currentPage].text;
-			imageURL = pages.page[currentPage].image;
-			videoURL = pages.page[currentPage].video;
-		}
-
-		if(templateId == null) {
-			var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
-			$("#create-content").html(insert);
-		} else {
-			switch(templateId) {
-				case 0:
-					frontCoverLayout();
-					break;
-
-				case 1:
-					photoLayout();
-					break;
-
-				case 2:
-					break;
-
-				default:
-					frontCoverLayout();
-					break;
-			}
-		}
-
-		e.preventDefault();
-
-	});
-	*/
-
 	function frontCoverLayout() {
 
 		insert = "";
@@ -332,8 +265,6 @@
 		var insert = "";
 		insert += "<section class=\"text-preview-wrapper\">";
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
-
 		if(title == null) {
 			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
@@ -365,17 +296,14 @@
 		$("#create-content").html(insert);
 		templateId = 2;
 
-		var element = $(".photo-picker");
-		element = element[0];
-		element.type = "filepicker";
-		filepicker.constructWidget(element);
-
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").scrollpanel();
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -544,6 +472,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
+		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
@@ -597,6 +527,8 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -681,6 +613,8 @@
 			}
 
 		});
+
+		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
