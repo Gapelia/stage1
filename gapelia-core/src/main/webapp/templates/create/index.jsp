@@ -90,15 +90,16 @@
 				<div id="pages-scroller">
 					<ul>
 
+						<!--/
 						<li id="0" class="current-thumb disable-sort">
 							<a class="delete-page entypo">&#9749;</a>
 
 							<section>
-								<!--/ <img src="/static/images/space-bb-small.JPG" class="page" id="page0Image" alt=""/> /-->
 								<img src="/static/images/space-bb-small.JPG" id="page0Image" alt=""/>
 								<span id="page0Title" class="livepreview-thing">0 &middot; Front Cover</span>
 							</section>
 						</li>
+						/-->
 
 						<li id="add-page" class="new-thumb disable-sort">
 							<a href="#">+</a>

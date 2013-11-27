@@ -1,7 +1,7 @@
 
 	// Book Creation
 	// @Gapelia
-	// ====================================================================================
+	// ========================================================
 	// Left Menus | Layout and page interaction | Right Menus | Content Creation
 	// Live Preview
 
@@ -22,14 +22,14 @@
 
 		geotag = "BUGGGGGG";
 
- 		book = {
+		book = {
 			"author" : "AUTHOR",
 			"title" : null,
 			"library" : "NULL",
 			"dimension" : "NULL"
 		};
 
- 		pages = {
+		pages = {
 			"page":[{
 				"pageNumber" : 0,
 				"geotag" : geotag,
@@ -92,14 +92,14 @@
 
 	$("#add-page").click(function (e) {
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src='static/images/new-page-thumb.png' class='page' id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src='static/images/new-page-thumb.png' id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		// $(this).before($("<li draggable='true'></li>").html("<a href='#' class='delete-page entypo'>&#9749;</a><a href=''><img src='static/images/new-page-thumb.png' id='page-##-thumb' alt=''/><span>## &middot; New Page</span></a>"));
 
-		imageURL = $(".page-bg").attr("src");
-		text = $(".page-title-elem").text();
-		title = $(".page-desc").text();
+		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
+		text = $(".page-desc").text();
+		imageURL = $(".page-bg").attr("src");
 
 		if(pagesCreated == 0) {
 			pages.page[pagesCreated] = {
@@ -111,11 +111,11 @@
 				"image" : "/static/images/blank-bg.jpg",
 				"video" : "NULL"
 			};
-		} else if(pagesCreated > 21) {
+		} else if(pagesCreated > 20) {
 			alert("Your book is too big please remove a page!\n");
 		} else {
 			if(geotag == undefined) {
-				pages.page[pagesCreated-1].geotag = null
+				pages.page[pagesCreated-1].geotag = null;
 			} else {
 				pages.page[pagesCreated-1].geotag = geotag;
 			}
@@ -161,6 +161,7 @@
 	});
 
 	// Clicking on a page in menu opens layout menu
+	/* Fucks up flow, removing
 	$(document).on("click", "#pages-scroller ul li img", function (e) {
 
 		currentPage = $(this).closest("li").attr("id");
@@ -218,6 +219,7 @@
 		e.preventDefault();
 
 	});
+	*/
 
 	function frontCoverLayout() {
 
@@ -233,13 +235,13 @@
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
-			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
 
 		if(text == null) {
-			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		} else {
 			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
@@ -252,9 +254,9 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -278,7 +280,7 @@
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
-			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
@@ -286,20 +288,22 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
 		templateId = 1;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
-		filepicker.constructWidget(element); 
-		pages.page[currentPage].geotag = geotag;
+		filepicker.constructWidget(element);
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -313,28 +317,34 @@
 
 		var insert = "";
 		insert += "<section class=\"text-preview-wrapper\">";
+
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
-			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
-		} insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+		}
+
+		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+
 		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
 		templateId = 2;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
-		filepicker.constructWidget(element); 
-		pages.page[currentPage].geotag = geotag;
+		filepicker.constructWidget(element);
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -368,21 +378,22 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
 		templateId = 3;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -401,7 +412,7 @@
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div>";
@@ -417,14 +428,15 @@
 
 		$("#create-content").html(insert);
 		templateId = 4;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -440,15 +452,15 @@
 		insert += "<section class=\"phototext-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert+="<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
 		} else {
-			insert+="<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
-			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
@@ -456,21 +468,22 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
 		templateId = 5;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
-		filepicker.constructWidget(element); 
+		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -482,7 +495,7 @@
 
 	function verticalLayout() {
 
-		var insert="";
+		var insert = "";
 		insert += "<section class=\"vertical-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -494,7 +507,7 @@
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
-			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
@@ -502,21 +515,22 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" placeholder=\"Start writing your story here.\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
 		templateId = 6;
+
 		var element = $(".photo-picker");
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -530,41 +544,69 @@
 
 		var insert = "";
 
-		// insert += "<section id=\"test-video\" class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
-
 		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
 
-		// insert += "<input class=\"video-picker\" type=\"text\" placeholder=\"Input video URL here\"/><script>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Input video URL here\" style=\"display: none;\"/></div>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" placeholder=\"Input video URL here\" style=\"display: none;\"/>";
+		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
-		// insert += "$(\"#test-video .photo-picker\").click(function () {$(this).hide();$(\"#test-video .video-picker\").show();});function getVimeoId(url) {var match = /vimeo.*\/(\d+)/i.exec(url);if (match) {return match[1];}";
+		insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div>";
 
-		// insert += "$(\".video-picker\").keypress(function (e) {var videoURL = \"http://player.vimeo.com/video/\" + getVimeoId($(this).val()) + \"?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1\";if (e.which == 13) {";
+		if(title == null) {
+			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
+		} else {
+			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+		}
 
-		// insert += "$(\".video-player-container iframe\").attr(\"src\", videoURL);$(\"#test-video .video-picker\").hide();$(\"#test-video .photo-picker\").show();return false;}});</script></div>";
+		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
-		// insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"\"></iframe></div><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\"></h1>";
-
-		insert += "</div><div class=\"video-preview\"><span class=\"play-video\">Play</span>";
-
-		insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\"></h1>";
-
-		insert += "<input class=\"page-geotag-elem\" placeholder=\"Select your location\"/><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		if(text == null) {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		} else {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
 
 		$("#create-content").html(insert);
 		templateId = 7;
-		var element = $(".photo-picker");
-		element = element[0];
-		element.type = "filepicker";
-		filepicker.constructWidget(element);
 
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		$(".video-preview-wrapper .photo-picker").on("click", function () {
+
+			$(this).hide();
+			$(".video-preview-wrapper .video-picker").show();
+
+		});
+
+		function getVimeoId(url) {
+
+			var match = /vimeo.*\/(\d+)/i.exec(url);
+
+			// if the match isn't null (i.e. it matched)
+			if (match) {
+				return match[1]; // the grouped/matched digits from the regex
+			}
+
+		}
+
+		$(".video-picker").keypress(function (e) {
+
+			var videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1";
+
+			if (e.which == 13) {
+				$(".video-player-container iframe").attr("src", videoURL);
+				$(".video-preview-wrapper .video-picker").hide();
+				$(".video-preview-wrapper .photo-picker").show();
+
+				return false;
+			}
+
+		});
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -575,13 +617,15 @@
 
 		imageURL = $(".page-bg").attr("src");
 		title = $(".page-title-elem").text();
-		var string = '#page'+currentPage+"Title";
+		var string = "#page" +currentPage+ "Title";
 		text = $(".page-desc").text();
 		$(string).html(title);
-		videoURL = $('#theVideo').attr("src");
+		videoURL = $(".video-player-container iframe").attr("src");
+		// videoURL = $('#theVideo').attr("src");
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -647,7 +691,7 @@
 					"class": "placeholder"
 				}).text($(this).data("placeholder") || "");
 
-				if (text === "") {
+				if (text == "") {
 					$(this).html(ph);
 				}
 
@@ -666,10 +710,11 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	$("#test-video .photo-picker").click(function () {
+	/*
+	$(".video-preview-wrapper .photo-picker").click(function () {
 
 		$(this).hide();
-		$("#test-video .video-picker").show();
+		$(".video-preview-wrapper .video-picker").show();
 
 	});
 
@@ -697,6 +742,7 @@
 		}
 
 	});
+	*/
 
 	// Google Maps stuff, might not need
 	/*
