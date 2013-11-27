@@ -25,13 +25,6 @@
 
 		pages = {
 			"page":[{
-				"pageNumber" : 0,
-				"geotag" : geotag,
-				"templateId" : null,
-				"title" : null,
-				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
-				"video" : "NULL"
 			}]
 		};
 
@@ -43,7 +36,7 @@
 		videoURL = pages.page[index].video;
 		templateId = pages.page[index].templateId;
 		title = pages.page[index].title;
-		pagesCreated = 1;
+		pagesCreated = 0;
 		currentPage = 0;
 		one = 1;
 
@@ -78,6 +71,11 @@
 
 	$("#comments-scroller").mouseleave(function() {
 		$("#comments-scroller").css("left", "-150px");
+	});
+
+	$("#settings-button").click(function (e){
+		var temp=JSON.stringify(pages);
+		localStorage.setItem("pages",temp);	
 	});
 
 	// Layout and page interaction
@@ -143,17 +141,17 @@
 	});
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
-
 		currentPage = $(this).closest("img").attr("id");
 		pages.page.splice(currentPage, 1);
 		currentPage--;
 		pagesCreated--;
-
 		$(this).closest("li").remove();
 		e.preventDefault();
-
 	});
-
+	function baseLayout(){
+		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
+		$("#create-content").html(insert);
+	}
 	function frontCoverLayout() {
 
 		insert = "";
@@ -629,7 +627,6 @@
 		text = $(".page-desc").text();
 		$(string).html(title);
 		videoURL = $(".video-player-container iframe").attr("src");
-		// videoURL = $('#theVideo').attr("src");
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;

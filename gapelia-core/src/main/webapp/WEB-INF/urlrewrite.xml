@@ -7,7 +7,6 @@
 /-->
 
 <urlrewrite>
-
     <rule>
         <from>^/$</from>
         <to>/index.jsp</to>
@@ -17,7 +16,6 @@
         <from>^(.*)/$</from>
         <to type="permanent-redirect">$1</to>
     </rule>
-
 	<rule>
 		<from>^/misc$</from>
 		<to>/templates/etc/sample.jsp</to>
@@ -25,6 +23,14 @@
 	<outbound-rule>
 		<from>^/templates/etc/sample.jsp$</from>
 		<to>/misc</to>
+	</outbound-rule>
+	<rule>
+		<from>^/preview$</from>
+		<to>/templates/preview/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/templates/preview/index.jsp$</from>
+		<to>/preview</to>
 	</outbound-rule>
 
 	<rule>
