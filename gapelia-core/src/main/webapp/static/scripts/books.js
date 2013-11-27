@@ -334,6 +334,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
+		// no background in this view, but having this allows it to keep between layout switching
+		if(imageURL == null) {
+			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+		} else {
+			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
+		}
+
 		$("#create-content").html(insert);
 		templateId = 2;
 
@@ -424,6 +431,13 @@
 			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+		}
+
+		// no title in this view, but having this allows it to keep between layout switching
+		if(title == null) {
+			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
+		} else {
+			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+title+"</h1>";
 		}
 
 		$("#create-content").html(insert);
@@ -564,6 +578,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+
+		// no background in this view, but having this allows it to keep between layout switching
+		if(imageURL == null) {
+			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+		} else {
+			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
 
 		$("#create-content").html(insert);
