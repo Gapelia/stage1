@@ -1,8 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
+
 		<meta charset="utf-8"/>
 		<title>Create a book | Gapelia</title>
+
 		<!--/
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
@@ -13,22 +17,29 @@
 				01000111011000010111000001100101011011000110100101100001
 
 		/-->
+
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
-		<link href="static/css/style.css" rel="stylesheet"/>
-		<link href="static/css/selectize.css" rel="stylesheet"/>
-		<link href="static/images/favicon.png" rel="shortcut icon"/>
+
+		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/selectize.css" rel="stylesheet"/>
+		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
-		<script src="static/scripts/jquery-2.0.3.min.js"></script>
-		<script src="static/scripts/selectize.js"></script>
-		<script src="http://use.typekit.net/web3vzl.js"></script>
+
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/selectize.js"></script>
+
+		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
+
 		<script>
 			$(function() {
 
@@ -54,32 +65,41 @@
 
 			});
 		</script>
+
 	</head>
+
 	<body class="book-creation g-body">
+
 		<header>
 			<div id="back">
-		        <div id="pages-toggle"><a href="#" title="Add pages">&oplus;</a></div>
-		        <div id="layout-toggle"><a href="#" title="Layouts">&#9871;</a></div>
-		        <div id="comments-toggle"><a href="#" title="Comments">&#59160;</a></div>
+        <div id="pages-toggle"><a href="#" title="Add pages">&oplus;</a></div>
+        <div id="layout-toggle"><a href="#" title="Layouts">&#9871;</a></div>
+        <div id="comments-toggle"><a href="#" title="Comments">&#59160;</a></div>
 			</div>
+
 			<div id="finish">
 				<div id="settings-button"><a href="#" title="Settings">&#9998;</a></div>
-        		<div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
-        		<div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
+        <div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
+        <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
 			</div>
 		</header>
+
 		<!--/ main-content /-->
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 				<div id="pages-scroller">
 					<ul>
+
 						<li id="0" class="current-thumb disable-sort">
 							<a class="delete-page entypo">&#9749;</a>
+
 							<section>
-								<img src="static/images/space-bb-small.JPG" class="page" id="page0Image" alt=""/>
+								<!--/ <img src="/static/images/space-bb-small.JPG" class="page" id="page0Image" alt=""/> /-->
+								<img src="/static/images/space-bb-small.JPG" id="page0Image" alt=""/>
 								<span id="page0Title" class="livepreview-thing">0 &middot; Front Cover</span>
 							</section>
 						</li>
+
 						<li id="add-page" class="new-thumb disable-sort">
 							<a href="#">+</a>
 							<span>Add New Page</span>
@@ -93,42 +113,42 @@
 				<div id="layout-scroller">
 					<ul>
 						<li id="select-frontcover-layout">
-							<img src="static/images/view-modes/front.png" alt=""/>
+							<img src="/static/images/view-modes/front.png" alt=""/>
 							<span>Front Cover</span>
 						</li>
 
 						<li id="select-photo-layout">
-							<img src="static/images/view-modes/photo.png" alt=""/>
+							<img src="/static/images/view-modes/photo.png" alt=""/>
 							<span>Photo</span>
 						</li>
 
 						<li id="select-text-layout">
-							<img src="static/images/view-modes/text.png" alt=""/>
+							<img src="/static/images/view-modes/text.png" alt=""/>
 							<span>Text</span>
 						</li>
 
 						<li id="select-horizontal-layout">
-							<img src="static/images/view-modes/horizontal.png" alt=""/>
+							<img src="/static/images/view-modes/horizontal.png" alt=""/>
 							<span>Horizontal</span>
 						</li>
 
 						<li id="select-overlay-layout">
-							<img src="static/images/view-modes/overlay.png" alt=""/>
+							<img src="/static/images/view-modes/overlay.png" alt=""/>
 							<span>Overlay</span>
 						</li>
 
 						<li id="select-phototext-layout">
-							<img src="static/images/view-modes/phototext.png" alt=""/>
+							<img src="/static/images/view-modes/phototext.png" alt=""/>
 							<span>Photo/Text</span>
 						</li>
 
 						<li id="select-vertical-layout">
-							<img src="static/images/view-modes/vertical.png" alt=""/>
+							<img src="/static/images/view-modes/vertical.png" alt=""/>
 							<span>Vertical</span>
 						</li>
 
 						<li id="select-video-layout">
-							<img src="static/images/view-modes/video.png" alt=""/>
+							<img src="/static/images/view-modes/video.png" alt=""/>
 							<span>Video</span>
 						</li>
 					</ul>
@@ -175,19 +195,15 @@
 						</select>
 					</div>
 				</div>
+
 				<div id="create-book">
 					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
 						<!--/ New Page /-->
 						<section id="test-blank" class="blank-preview-wrapper">
-							<div class="button-wrapper">
-							</div>
-
 							<div class="blank-preview">
 								<article>
-
 									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!</p>
-
 								</article>
 							</div>
 						</section>
@@ -196,6 +212,7 @@
 			</div>
 		</section>
 		<!--//main-content /-->
+
 		<!--/ dialog-windows /-->
 		<div class="modal-delete-page" style="display: none;">
 			<div>
@@ -239,15 +256,17 @@
 		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
-		<script src="static/scripts/grande.js"></script>
+		<script src="/static/scripts/grande.js"></script>
+
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
 		</script>
 
-		<script src="static/scripts/filepicker2.js"></script>
-		<script src="static/scripts/books.js"></script>
-		<script src="static/scripts/draggable_background.js"></script>
+		<script src="/static/scripts/filepicker2.js"></script>
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+		<script src="/static/scripts/books.js"></script>
+		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
 			// Horizontal and Vertical layouts
@@ -255,8 +274,8 @@
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
-		<script src="static/scripts/jquery.mousewheel.js"></script>
-		<script src="static/scripts/scrollpanel.js"></script>
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
+		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
@@ -271,7 +290,7 @@
 		</script>
 
 		<!--/ scripts/page-sorter /-->
-		<script src="static/scripts/sortable.js"></script>
+		<script src="/static/scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
@@ -280,12 +299,9 @@
 			});
 		</script>
 
-		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
-
-		
 		<!--/ scripts/dialog /-->
-		<script src="static/scripts/vex.js"></script>
-		<script src="static/scripts/vex.dialog.js"></script>
+		<script src="/static/scripts/vex.js"></script>
+		<script src="/static/scripts/vex.dialog.js"></script>
 
 		<script>
 			var modal = {};
