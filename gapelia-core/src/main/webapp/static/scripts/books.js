@@ -246,6 +246,13 @@
 			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+		}
+
 		$("#create-content").html(insert);
 		templateId = 0;
 
@@ -291,6 +298,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -341,6 +355,13 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
 
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+		}
+
 		$("#create-content").html(insert);
 		templateId = 2;
 
@@ -388,6 +409,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -440,6 +468,13 @@
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+title+"</h1>";
 		}
 
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+		}
+
 		$("#create-content").html(insert);
 		templateId = 4;
 
@@ -485,6 +520,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+		}
+
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -534,6 +576,13 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
 		}
 
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+		}
+
 		$("#create-content").html(insert);
 		templateId = 6;
 
@@ -564,7 +613,11 @@
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
-		insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div>";
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\"><iframe src=\""+videoURL+"\"></iframe></div>";
+		}
 
 		if(title == null) {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
