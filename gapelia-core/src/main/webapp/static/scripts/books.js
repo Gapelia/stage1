@@ -379,21 +379,6 @@
 			}
 		}
 
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 299;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
-
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -536,21 +521,9 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		// title input limiter
-		var titleElem = "page-title-elem";
-		titleMax = 69;
-
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
-
-		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
-		}
-
 		// description input limiter
 		var descElem = "page-desc";
-		descMax = 299;
+		descMax = 149;
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
 
@@ -629,21 +602,6 @@
 			}
 		}
 
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 299;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
-
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -712,21 +670,6 @@
 			}
 		}
 
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 299;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
-
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -789,21 +732,6 @@
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
-		}
-
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 299;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
 			}
 		}
