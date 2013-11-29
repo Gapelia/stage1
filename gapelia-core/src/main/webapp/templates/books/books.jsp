@@ -42,7 +42,7 @@
 	</head>
 
 	<body class="app full-book">
-	
+
 		<div id="mp-pusher" class="super-wrapper">
 
 			<!--/ site-menu /-->
@@ -945,134 +945,6 @@
 
 			});
 		</script>
-
-		<!--/ scripts/dialog /-->
-		<!--/
-		<script src="/static/scripts/vex.js"></script>
-		<script src="/static/scripts/vex.dialog.js"></script>
-		
-		<script>
-			var demo = {};
-			demo.className = "vex-theme-wireframe";
-
-			vex.defaultOptions.className = "vex-theme-wireframe";
-			vex.dialog.defaultOptions.showCloseButton = true;
-
-			demo.loadInitialDialogs = function () {
-
-				$("body").addClass("page-intro");
-
-				demo.initialDialogsClassName = "vex-theme-wireframe";
-
-				for (var i = 0; i > -1; i--) {
-					vex.dialog.alert({
-						appendLocation: ".stack",
-						message: $(".modal-book-creation > div:nth-child(" + (i + 1) + ")").html(),
-						className: demo.initialDialogsClassName,
-						buttons: [
-							$.extend({}, vex.dialog.buttons.YES, {
-								text: "Skip"
-							})
-						],
-						callback: function (value) {
-							setTimeout(function () {
-								demo.advanceDemoDialogs();
-							}, 0);
-						}
-					});
-				}
-
-				demo.advanceDemoDialogs();
-
-			};
-
-			demo.advanceDemoDialogs = function () {
-
-				var $remaining = $('.stack > .vex:not(".vex-closing")');
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				$(".stack").show();
-
-				$(".stack").css({
-					"width": $vW + "px",
-					"height": $vH + "px"
-				});
-
-				$("#g-menu-toggle").css("opacity", "0.3");
-
-				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
-					$(item).addClass("v" + i);
-				});
-
-				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
-
-				if ($remaining.length === 0) {
-					$("body").removeClass("page-intro");
-
-					setTimeout(function () {
-						$(".stack").hide();
-					}, 600);
-				}
-
-			};
-
-			$(".demo-link").click(function () {
-				demo.loadInitialDialogs();
-			});
-		</script>
-
-		<script>
-			$(function() {
-
-				$("#user-search").selectize({
-					valueField: 'title',
-					labelField: 'title',
-					searchField: 'title',
-					options: [],
-					create: false,
-					render: {
-						option: function (item, escape) {
-							var actors = [];
-
-							for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
-								actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
-							}
-
-							return '<div>' +
-								'<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
-								'<span class="title">' +
-								'<span class="name">' + escape(item.title) + '</span>' +
-								'</span>' +
-								'<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
-								'<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
-								'</div>';
-						}
-					},
-					load: function (query, callback) {
-
-						if (!query.length) return callback();
-
-						$.ajax({
-							url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
-							type: 'GET',
-							dataType: 'jsonp',
-							data: {
-								q: query,
-								page_limit: 10,
-								apikey: '3qqmdwbuswut94jv4eua3j85'
-							},
-							error: function () { callback(); },
-							success: function (res) { callback(res.movies); }
-						});
-
-					}
-				});
-
-				// $("#book-dimension-picker").selectize();
-
-			});
-		</script>
-		/-->
 
 	</body>
 

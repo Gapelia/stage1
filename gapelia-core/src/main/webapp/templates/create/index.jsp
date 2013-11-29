@@ -1,8 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
+
 		<meta charset="utf-8"/>
 		<title>Create a book | Gapelia</title>
+
 		<!--/
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
@@ -13,24 +17,32 @@
 				01000111011000010111000001100101011011000110100101100001
 
 		/-->
+
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		<meta name="author" content="Gapelia"/>
 		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
-		<link href="static/css/style.css" rel="stylesheet"/>
-		<link href="static/css/selectize.css" rel="stylesheet"/>
-		<link href="static/images/favicon.png" rel="shortcut icon"/>
+
+		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/selectize.css" rel="stylesheet"/>
+		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
-		<script src="static/scripts/jquery-2.0.3.min.js"></script>
-		<script src="static/scripts/selectize.js"></script>
-		<script src="http://use.typekit.net/web3vzl.js"></script>
+
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/selectize.js"></script>
+
+		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
+
 		<script>
 			$(function() {
+
 				$("#input-tags").selectize({
 					delimiter: ",",
 					maxItems: 3,
@@ -42,7 +54,9 @@
 						}
 					}
 				});
+
 				$("#book-dimension-picker").selectize();
+
 				$("#library-search").selectize({
 					create: true,
 					sortField: "text",
@@ -51,7 +65,9 @@
 
 			});
 		</script>
+
 	</head>
+
 	<body class="book-creation g-body">
 
 		<header>
@@ -62,7 +78,8 @@
 			</div>
 
 			<div id="finish">
-				<div id="settings-button"><a href="/preview" title="Settings">&#9998;</a></div>
+				<!--/ <div id="settings-button"><a href="#" title="Settings">&#9998;</a></div> /-->
+				<div id="settings-button"><a href="/preview" target="_blank" title="Settings">&#9998;</a></div>
         <div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
         <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
 			</div>
@@ -197,6 +214,7 @@
 			</div>
 		</section>
 		<!--//main-content /-->
+
 		<!--/ dialog-windows /-->
 		<div class="modal-delete-page" style="display: none;">
 			<div>
@@ -235,49 +253,74 @@
 			</div>
 		</div>
 
-<div class="stack"></div>
+		<div class="stack"></div>
 		<div style="-webkit-transform: translateZ(0)"></div>
 		<!--//dialog-windows /-->
+
 		<!--/ scripts /-->
-		<script src="static/scripts/grande.js"></script>
+		<script src="/static/scripts/grande.js"></script>
+
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
-			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
-		<script src="static/scripts/filepicker2.js"></script>
-		<script src="static/scripts/books.js"></script>
-		<script src="static/scripts/draggable_background.js"></script>
+
+		<script src="/static/scripts/filepicker2.js"></script>
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+		
 		<!--/ scripts/layout-scroller /-->
-		<script src="static/scripts/jquery.mousewheel.js"></script>
-		<script src="static/scripts/scrollpanel.js"></script>
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
+		<script src="/static/scripts/scrollpanel.js"></script>
+
 		<script>
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
-			$(".text-preview-wrapper .page-desc").scrollpanel();
-			$(".phototext-preview-wrapper .page-desc").scrollpanel();
-			$(".vertical-preview-wrapper .page-desc").scrollpanel();
-			$(".video-preview-wrapper .page-desc").scrollpanel();
+
+			// $("#publish-scroller").scrollpanel();
 		</script>
+
+		<script src="/static/scripts/succinct.js"></script>
+
+		<script>
+			$(function() {
+				// $(".page-desc").succinct({ size: 120 });
+			});
+		</script>
+
+		<script src="/static/scripts/books.js"></script>
+		<script src="/static/scripts/draggable_background.js"></script>
+
+		<script>
+			// Horizontal and Vertical layouts
+			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
+		</script>
+
 		<!--/ scripts/page-sorter /-->
-		<script src="static/scripts/sortable.js"></script>
+		<script src="/static/scripts/sortable.js"></script>
+
 		<script>
 			$(function() {
 				$("#pages-scroller ul").sortable({ items: ":not(.disable-sort)" }).bind("sortupdate", function() {});
+				// $("#pages-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
 			});
 		</script>
-		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+
 		<!--/ scripts/dialog /-->
-		<script src="static/scripts/vex.js"></script>
-		<script src="static/scripts/vex.dialog.js"></script>
+		<script src="/static/scripts/vex.js"></script>
+		<script src="/static/scripts/vex.dialog.js"></script>
+
 		<script>
 			var modal = {};
 			modal.className = "vex-theme-wireframe";
+
 			vex.defaultOptions.className = "vex-theme-wireframe";
 			vex.dialog.defaultOptions.showCloseButton = false;
+
 			// Modal / Delete Page
 			modal.deletePage = function () {
+
 				modal.deletePageClassName = "vex-theme-wireframe";
+
 				for (var i = 0; i > -1; i--) {
 					vex.dialog.alert({
 						appendLocation: ".stack",
@@ -295,33 +338,47 @@
 						}
 					});
 				}
+
 				modal.deletePageFn();
+
 			};
+
 			modal.deletePageFn = function () {
+
 				var $remaining = $('.stack > .vex:not(".vex-closing")');
 				var $vW = $(window).width(), $vH = $(window).height();
+
 				$(".stack").show().css({
 					"width": $vW + "px",
 					"height": $vH + "px"
 				});
+
 				$("#g-menu-toggle").css("opacity", "0.3");
+
 				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
 					$(item).addClass("v" + i);
 				});
+
 				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
+
 				if ($remaining.length === 0) {
 					setTimeout(function () {
 						$(".stack").hide();
 					}, 600);
 				}
+
 				$("#confirm-delete").click(function () {
 					$(".page-delete-demo").remove();
 					$("body").removeClass("vex-open");
 				});
+
 			};
+
 			// Modal / Publish Book
 			modal.publishBook = function () {
+
 				modal.publishBookClassName = "vex-theme-wireframe";
+
 				for (var i = 0; i > -1; i--) {
 					vex.dialog.alert({
 						appendLocation: ".stack",
@@ -339,34 +396,48 @@
 						}
 					});
 				}
+
 				modal.publishBookFn();
+
 			};
+
 			modal.publishBookFn = function () {
+
 				var $remaining = $('.stack > .vex:not(".vex-closing")');
 				var $vW = $(window).width(), $vH = $(window).height();
+
 				$(".stack").show().css({
 					"width": $vW + "px",
 					"height": $vH + "px"
 				});
+
 				$("#g-menu-toggle").css("opacity", "0.3");
+
 				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
 					$(item).addClass("v" + i);
 				});
+
 				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
+
 				if ($remaining.length === 0) {
 					setTimeout(function () {
 						$(".stack").hide();
 					}, 600);
 				}
+
 			};
+
 			$(".delete-page").click(function () {
 				modal.deletePage();
 			});
+
 			$("#publish-book").click(function (e) {
 				modal.publishBook();
 				e.preventDefault;
 			});
 		</script>
 		<!--//scripts /-->
+
 	</body>
+
 </html>

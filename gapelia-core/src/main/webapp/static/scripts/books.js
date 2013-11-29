@@ -25,6 +25,15 @@
 
 		pages = {
 			"page":[{
+				/*
+				"pageNumber" : 0,
+				"geotag" : geotag,
+				"templateId" : null,
+				"title" : null,
+				"text" : null,
+				"image" : "/static/images/blank-bg.jpg",
+				"video" : "NULL"
+				*/
 			}]
 		};
 
@@ -36,6 +45,7 @@
 		videoURL = pages.page[index].video;
 		templateId = pages.page[index].templateId;
 		title = pages.page[index].title;
+		// pagesCreated = 1;
 		pagesCreated = 0;
 		currentPage = 0;
 		one = 1;
@@ -73,9 +83,11 @@
 		$("#comments-scroller").css("left", "-150px");
 	});
 
-	$("#settings-button").click(function (e){
-		var temp=JSON.stringify(pages);
-		localStorage.setItem("pages",temp);	
+	////
+
+	$("#settings-button").click(function () {
+		var temp = JSON.stringify(pages);
+		localStorage.setItem("pages", temp);	
 	});
 
 	// Layout and page interaction
@@ -141,17 +153,24 @@
 	});
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
+
 		currentPage = $(this).closest("img").attr("id");
 		pages.page.splice(currentPage, 1);
 		currentPage--;
 		pagesCreated--;
+
 		$(this).closest("li").remove();
 		e.preventDefault();
+
 	});
-	function baseLayout(){
+
+	function baseLayout() {
+
 		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
 		$("#create-content").html(insert);
+
 	}
+
 	function frontCoverLayout() {
 
 		insert = "";
@@ -191,6 +210,33 @@
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
+
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -246,6 +292,33 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -293,6 +366,33 @@
 
 		$("#create-content").html(insert);
 		templateId = 2;
+
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -352,6 +452,33 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -409,6 +536,33 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -462,6 +616,33 @@
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
+
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -519,6 +700,33 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -572,6 +780,33 @@
 
 		$("#create-content").html(insert);
 		templateId = 7;
+
+		// title input limiter
+		var titleElem = "page-title-elem";
+		titleMax = 69;
+
+		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		// description input limiter
+		var descElem = "page-desc";
+		descMax = 299;
+
+		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+		// Need to figure out how to run the limiter when users copy/paste from elsewhere
+		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(descElem, descMax, e) {
+			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+				e.preventDefault();
+			}
+		}
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -710,43 +945,6 @@
 
 		});
 	})(jQuery);
-
-	/*
-	function TextLimit(elem, maxChars) {
-
-		var permittedKeys = [8,37,38,39,40,46];
-
-		elem.focus(function() {
-			if(elem.val().length >= maxChars) {
-				elem.data('prevent', true);
-				elem.data('value', elem.val());
-			}
-		});
-		
-		elem.blur(function() {
-			if( elem.data('prevent')) {
-				elem.val( elem.data('value'));
-			}
-		});
-
-		elem.keydown(function(event) {
-
-			var count = elem.val().length;
-
-			if(count >= maxChars && $.inArray(event.which, permittedKeys) < 0) {
-				elem.data('prevent', true);
-				elem.data('value', elem.val());
-				return false;
-			} else {
-				elem.data('prevent', false);
-			}
-
-		});
-
-	}
-	*/
-
-	TextLimit($(".frontcover-preview-wrapper .page-desc"), 30);
 
 	// Video Layout
 	// @Gapelia
