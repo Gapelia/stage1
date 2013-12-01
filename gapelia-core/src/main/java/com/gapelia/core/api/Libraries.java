@@ -91,6 +91,27 @@ public class Libraries {
 		}
 	}
 
+	@Path("getAllLibraries")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getAllLibraries(@FormParam("sessionId") String sessionId) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		try {
+			// Get UserId from SessionId
+			LOG.info("Trying to retrieve user id from session id");
+			String id = Security.getUserIdFromSessionId(sessionId);
+			// Retrieving user details
+			Library [] libraries = TestHelper.getDummyUserLibraries();
+			String json = gson.toJson(libraries);
+			LOG.info("Response json: " + json);
+			return json;
+		} catch (Exception ex) {
+			LOG.error("Failed to retrieve library", ex);
+			return gson.toJson("Failed");
+		}
+	}
+
 	@Path("subscribe")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)

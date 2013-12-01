@@ -19,7 +19,7 @@ import java.io.IOException;
  * Time: 3:50 PM
  * Copyright Gapelia
  */
-@Path("ßß/me")
+@Path("/me")
 public class Profile {
 	public static Logger LOG = Logger.getLogger(Profile.class);
 
