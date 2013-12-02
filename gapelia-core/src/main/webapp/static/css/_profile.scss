@@ -11,13 +11,24 @@
 
 	#user-panel {
 		/* background-color: $slate; */
+
+		&:after {
+			top: 0; right: 0;
+			bottom: 0; left: 0;
+
+			/* background-image: linear-gradient(to bottom right, #002f4b, #dc4225); */
+			background-image: linear-gradient(to bottom left, $white, $black);
+			content: "";
+			opacity: 0.6;
+			position: absolute;
+		}
 	}
 
 	.user-bg, .user-data {
 	}
 
 	.user-bg {
-		width: auto; height: 60%;
+		width: 100%; height: 100%;
 		overflow: hidden;
 
 		img {
@@ -25,14 +36,16 @@
 		}
 	}
 
+	.user-avatar, .user-data {
+		position: absolute;
+		z-index: 1;
+	}
+
 	.user-avatar {
 		width: 100%; height: auto;
-		bottom: 210px; left: 0;
 
-		overflow: hidden;
-		position: absolute;
 		text-align: center;
-		/* z-index: 1; */
+		top: 25%;
 
 		img {
 			width: 150px; height: 150px;
@@ -43,21 +56,12 @@
 	}
 
 	.user-data {
-		width: 100%; height: 280px; /* 40% */
-		bottom: 0; left: 0;
+		width: 100%; height: auto;
 
-		background-color: $white;
-		border-right: 1px solid $gray-i;
-		position: absolute;
+		bottom: 20%;
+		color: $white !important;
 
 		h2, ul, span { text-align: center; }
-
-		ul, span {
-		}
-
-		h2 {
-			margin: 23% 0 0 0;
-		}
 
 		ul {
 			margin: 1rem 0;

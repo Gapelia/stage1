@@ -148,20 +148,12 @@
 			<div id="user-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
-				<div class="user-bg">
-					<img src="/static/images/space-bb.jpg"/>
+				<div class="user-avatar">
+					<img src="/static/images/users/11.jpg"/>
 				</div>
 
 				<div class="user-data">
 					<h2>Paul Anthony Webb</h2>
-
-					<!--/
-					<ul>
-						<li>Surfing</li>
-						<li>Hawaii</li>
-						<li>Fun</li>
-					</ul>
-					/-->
 
 					<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 
@@ -170,8 +162,8 @@
 					</div>
 				</div>
 
-				<div class="user-avatar">
-					<img src="/static/images/users/11.jpg"/>
+				<div class="user-bg">
+					<img src="/static/images/space-bb.jpg"/>
 				</div>
 			</div>
 			<!--//main-panel /-->
@@ -424,7 +416,7 @@
 							</div>
 
 							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.jpg" alt=""/>
+							<img src="/static/images/book-thumb.JPG" alt=""/>
 						</li>
 
 						<li class="collection">
@@ -661,7 +653,7 @@
 							</div>
 
 							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.jpg" alt=""/>
+							<img src="/static/images/book-thumb.JPG" alt=""/>
 						</li>
 
 						<li class="library">
@@ -753,6 +745,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
+		<!--/ <script src="/static/scripts/greyscale.js"></script> /-->
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
