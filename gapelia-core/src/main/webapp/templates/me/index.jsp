@@ -36,8 +36,10 @@
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
+		<!--/
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
+		/-->
 
 	</head>
 
@@ -155,11 +157,11 @@
 				<div class="user-data">
 					<h2>Paul Anthony Webb</h2>
 
-					<span>Space Bandit / ♈ / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
+					<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
+				</div>
 
-					<div class="wrapper">
-						<button>Edit Profile</button>
-					</div>
+				<div class="button-wrapper">
+					<button class="edit-profile">Edit Profile</button>
 				</div>
 
 				<div class="user-bg">
@@ -745,7 +747,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
-		<!--/ <script src="/static/scripts/greyscale.js"></script> /-->
+		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
@@ -755,6 +757,10 @@
 
 			$(".mp-pushed").ready(function() {
 				$("#book-scroller").css("z-index", "0");
+			});
+
+			$(function() {
+				$(".user-bg, .book, .collection, .library, .draft").imgLiquid({ fill: true });
 			});
 		</script>
 

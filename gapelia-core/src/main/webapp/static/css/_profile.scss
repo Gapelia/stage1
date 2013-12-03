@@ -10,7 +10,13 @@
 	/* Start User Code */
 
 	#user-panel {
-		/* background-color: $slate; */
+		.button-wrapper {
+			bottom: 5%;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			z-index: 1;
+		}
 
 		&:after {
 			top: 0; right: 0;
@@ -22,9 +28,6 @@
 			opacity: 0.6;
 			position: absolute;
 		}
-	}
-
-	.user-bg, .user-data {
 	}
 
 	.user-bg {
@@ -58,7 +61,7 @@
 	.user-data {
 		width: 100%; height: auto;
 
-		bottom: 20%;
+		bottom: 30%;
 		color: $white !important;
 
 		h2, ul, span { text-align: center; }
@@ -79,9 +82,12 @@
 			}
 		}
 
-		span {
+		#user-bio {
 			margin: 0 0 1rem 0; padding: 0 1rem;
+
+			background-color: transparent;
 			display: block;
+			transition: all 0.2s ease;
 		}
 
 		button {

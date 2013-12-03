@@ -44,7 +44,24 @@ $(document).ready(function() {
 
 	$(".super-wrapper").css("height", $vH + "px");
 
+	// Edit Profile on "Me" page
+	$(document).on("click", "button.edit-profile", function () {
+
+		$("button.edit-profile").text("Save Profile").removeClass("edit-profile").addClass("save-profile");
+		$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(254, 254, 254, 0.3)").trigger("focus");
+		// $(this).html($(this).text());
+
+	});
+
+	$(document).on("click", "button.save-profile", function () {
+
+		$("button.save-profile").text("Edit Profile").removeClass("save-profile").addClass("edit-profile");
+		$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+
+	});
+
 	// Resize Image to Parent Container by Christian Varga
+	/*
 	jQuery.fn.resizeToParent = function(options) {
 
 		var defaults = { parent: ".book, .collection, .library, .portal" };
@@ -95,6 +112,7 @@ $(document).ready(function() {
 		});
 
 	};
+	*/
 
 	// Bookmark Logic
 	// @Gapelia
