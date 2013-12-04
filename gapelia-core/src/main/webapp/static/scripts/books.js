@@ -221,6 +221,7 @@
 			}
 		}
 
+		/*
 		// description input limiter
 		var descElem = "page-desc";
 		descMax = 299;
@@ -235,6 +236,7 @@
 				e.preventDefault();
 			}
 		}
+		*/
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -842,10 +844,7 @@
 		$("#back, #finish").fadeIn("fast");
 	});
 
-	////
-	// .css("color", "#999")
-	// .css("color", "#191919")
-
+	// Placeholders
 	(function ($) {
 		$(function () {
 
@@ -871,6 +870,29 @@
 
 		});
 	})(jQuery);
+
+	// Character Limiter
+	var maxNum = function ($elie, num) {
+
+		var $this;
+
+		$elie.each(function () {
+			$this = $(this);
+			$this.text($this.text().slice(0, num));
+		});
+
+	};
+
+	$(function () {
+		maxNum($(".frontcover-preview-wrapper .page-desc"), 300);
+	});
+
+	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function() {
+	// .on("paste", ".frontcover-preview-wrapper .page-desc", function() {
+	$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+		var $this = $(this);
+		$this.text($this.text().slice(0, 300));
+	});
 
 	// Video Layout
 	// @Gapelia
