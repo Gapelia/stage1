@@ -270,7 +270,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url).checkVerHor('.photo-preview-wrapper .page-bg');\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -279,14 +279,6 @@
 		}
 
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
-
-		/*
-		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
-		}
-		*/
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -302,6 +294,26 @@
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
+
+		var checkVerHor;
+
+		function checkVerHor(el) {
+			$(".photo-preview-wrapper .page-bg").prop("height", function() {
+				if($(this).height() > $(this).width()) {
+					// vertical
+					$(this).css({
+						"width": "auto",
+						"height": "66%"
+					});
+				} else {
+					// horizontal/default
+					$(this).css({
+						"width": "50%",
+						"height": "auto"
+					});
+				}
+			});
+		}
 
 		// title input limiter
 		var titleElem = "page-title-elem";

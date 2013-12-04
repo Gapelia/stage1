@@ -281,20 +281,15 @@
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
-		<script src="/static/scripts/succinct.js"></script>
+		<script src="/static/scripts/books.js"></script>
+		<script src="/static/scripts/draggable_background.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script>
 			$(function() {
-				// $(".page-desc").succinct({ size: 120 });
+				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
+				// $(".photo-preview-wrapper").imgLiquid({ fill: true });
 			});
-		</script>
-
-		<script src="/static/scripts/books.js"></script>
-		<script src="/static/scripts/draggable_background.js"></script>
-
-		<script>
-			// Horizontal and Vertical layouts
-			$(function() { $(".draggable-placeholder").backgroundDraggable(); });
 		</script>
 
 		<!--/ scripts/page-sorter /-->
