@@ -31,7 +31,7 @@
 				"templateId" : null,
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 				*/
 			}]
@@ -110,7 +110,7 @@
 				"templateId" : null,
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
 		} else if(pagesCreated > 20) {
@@ -134,7 +134,7 @@
 				"templateId" : "0",
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
 
@@ -175,7 +175,7 @@
 		insert += "<section class=\"frontcover-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
 		}
@@ -221,7 +221,6 @@
 			}
 		}
 
-		/*
 		// description input limiter
 		var descElem = "page-desc";
 		descMax = 299;
@@ -231,12 +230,22 @@
 		// Need to figure out how to run the limiter when users copy/paste from elsewhere
 		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
 
+		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+			check_charcount(descElem, descMax, e);
+		});
+
+		/*
+		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+			var $this = $(this);
+			$this.text($this.text().slice(0, 300));
+		});
+		*/
+
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
 			}
 		}
-		*/
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -256,7 +265,7 @@
 		insert += "<section class=\"photo-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -352,7 +361,7 @@
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
@@ -399,7 +408,7 @@
 		insert += "<section class=\"horizontal-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -494,7 +503,7 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -554,7 +563,7 @@
 		insert += "<section class=\"phototext-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -622,7 +631,7 @@
 		insert += "<section class=\"vertical-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -716,7 +725,7 @@
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
@@ -889,10 +898,36 @@
 
 	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function() {
 	// .on("paste", ".frontcover-preview-wrapper .page-desc", function() {
+	/*
 	$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
 		var $this = $(this);
 		$this.text($this.text().slice(0, 300));
 	});
+	*/
+
+	/*
+	placeCaretAtEnd(this);
+
+	function placeCaretAtEnd(el) {
+
+		el.focus();
+
+		if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+			var range = document.createRange();
+			range.selectNodeContents(el);
+			range.collapse(false);
+			var sel = window.getSelection();
+			sel.removeAllRanges();
+			sel.addRange(range);
+		} else if (typeof document.body.createTextRange != "undefined") {
+			var textRange = document.body.createTextRange();
+			textRange.moveToElementText(el);
+			textRange.collapse(false);
+			textRange.select();
+		}
+
+	}
+	*/
 
 	// Video Layout
 	// @Gapelia
