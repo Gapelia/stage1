@@ -470,10 +470,22 @@
 						top: 0; left: 0;
 
 						background-color: $gray-i;
-						background-image: url("../images/texture/vintage-speckles-alt.png");
-						/* background-size: 800px 600px; */
+						background-image: url("../images/blankBG.jpg");
+						// background-image: url("../images/texture/vintage-speckles-alt.png");
+						// background-size: 800px 600px;
 						color: $gray-iv;
 						position: absolute;
+						z-index: 1;
+
+						&:after {
+							top: 0; right: 0;
+							bottom: 0; left: 0;
+
+							background-image: linear-gradient(to top, $slate, $black);
+							content: "";
+							opacity: 0.2;
+							position: absolute;
+						}
 
 						article {
 							margin: 15% auto; padding: 2rem;
@@ -540,13 +552,6 @@
 								color: $white;
 								margin: 0 auto 0.5rem;
 								text-align: center;
-
-								/*
-								&:input-placeholder { color: $white; }
-								&:-ms-input-placeholder { color: $white; }
-								&::-moz-placeholder { color: $white; }
-								&::-webkit-input-placeholder { color: $white; }
-								*/
 							}
 
 							.page-feeling-elem {
@@ -557,7 +562,6 @@
 						p {
 							margin: 0 auto; padding: 1rem 0;
 
-							/* border-top: 1px solid $white; border-bottom: 1px solid $white; */
 							line-height: 1.2em;
 							text-align: center;
 							width: 60%;
@@ -566,24 +570,41 @@
 				}
 
 				.photo-preview-wrapper {
+					background-color: $white;
+
+					.page-bg {
+						width: 50%; height: auto;
+						top: 10%; left: 25%;
+
+						box-shadow: 0 0 5px 0 rgba($black, 0.3);
+						position: fixed;
+					}
+
 					.button-wrapper { bottom: 30%; }
 
 					.photo-preview {
 						width: 100%; height: auto; max-height: 30%;
-						bottom: 0; left: 0;
+						bottom: 4rem; left: 0;
 
-						background: linear-gradient(to top, $black 0, rgba($black, 0.2) 80%, rgba($white, 0) 100%) transparent;
-						background-color: transparent;
-						color: $white;
+						// background: linear-gradient(to top, $black 0, rgba($black, 0.2) 80%, rgba($white, 0) 100%) transparent;
+						// background-color: transparent;
+						color: $black;
 						height: auto;
 						padding: 1rem 2rem;
 						position: absolute;
 
-						::-webkit-input-placeholder	{ color: $white; }
-						::-moz-placeholder					{ color: $white; }
-						:-ms-input-placeholder			{ color: $white; }
+						::-webkit-input-placeholder	{ color: $black; }
+						::-moz-placeholder					{ color: $black; }
+						:-ms-input-placeholder			{ color: $black; }
 
 						.page-title-elem, .page-geotag-elem, .page-desc { text-align: center; }
+
+						.page-title-elem {
+							margin: 0 auto 0.5rem;
+							width: 70%;
+						}
+
+						.page-geotag-elem { color: $black; }
 					}
 				}
 
@@ -594,7 +615,7 @@
 						background-color: $white;
 						font-size: 1.5em;
 						line-height: 2.5em;
-						/* overflow-y: scroll; */
+						// overflow-y: scroll;
 						padding: 5% 15rem;
 						position: fixed; /**/
 
