@@ -9,8 +9,8 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Set menu height, necessary for scrollbar plugin
-	$("#pages-scroller").css("height", $vH - 52 + "px");
-	$("#layout-scroller").css("height", $vH - 52 + "px");
+	$("#pages-scroller").css("height", $vH - 48 + "px");
+	$("#layout-scroller").css("height", $vH - 48 + "px");
 
 	$(document).ready(function () {
 
@@ -56,6 +56,7 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	/*
 	$("#pages-toggle").click(function (e) {
 		$("#pages-scroller").css("left", "0");
 		e.preventDefault();
@@ -82,6 +83,7 @@
 	$("#comments-scroller").mouseleave(function() {
 		$("#comments-scroller").css("left", "-150px");
 	});
+	*/
 
 	////
 
@@ -96,7 +98,7 @@
 
 	$("#add-page").click(function (e) {
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><div class=\"edit-page entypo\">&#9998;</div><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -175,7 +177,7 @@
 		insert += "<section class=\"frontcover-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
 		}
@@ -270,7 +272,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url).checkVerHor('.photo-preview-wrapper .page-bg');\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -295,6 +297,8 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		/*
+		// Keep this code for later! Detects vertical images
 		var checkVerHor;
 
 		function checkVerHor(el) {
@@ -314,6 +318,7 @@
 				}
 			});
 		}
+		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";

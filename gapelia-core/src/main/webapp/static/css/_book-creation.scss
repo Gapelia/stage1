@@ -70,15 +70,21 @@
 	#pages-scroller, #layout-scroller, #comments-scroller, #publish-scroller {
 		background-color: $gray-i;
 		height: 100%;
-		position: fixed; /* absolute */
-		top: 50px;
+		position: inherit; // absolute
+		top: 48px;
 		transition: all 0.5s ease;
-		z-index: 1;
+		// z-index: 1;
+
+		.sp-viewport { padding: 0 !important; }
 
 		.sp-scrollbar {
 			background-color: $gray-i;
 			cursor: pointer;
-			width: 10px;
+			display: none;
+			right: 0.5rem !important;
+			margin: 1rem 0;
+			width: 3px;
+			z-index: 1;
 
 			.sp-thumb {
 				background-color: $gray-iv;
@@ -87,11 +93,15 @@
 		}
 
 		.sp-scrollbar.active .sp-thumb { background-color: $gray-iii; }
+
+		&:hover {
+			.sp-scrollbar { display: block; }
+		}
 	}
 
 	#pages-scroller, #layout-scroller, #comments-scroller {
-		bottom: 0; left: -150px; /* 0 */
-		width: 150px;
+		bottom: 0; left: 0; // -150px
+		width: 100%; // 150px
 	}
 
 	#pages-scroller, #layout-scroller {
@@ -126,11 +136,12 @@
 
 		.entypo {
 			width: auto; height: auto;
-			top: 1rem; left: 1rem;
+			// top: 1rem; left: 1rem;
 
 			color: $white;
 			font-size: 3.5em;
 			line-height: 0.5em;
+			padding: 0;
 			position: absolute;
 			text-align: center;
 			text-shadow: 0 0 1px $black; /* creates outline */
@@ -140,6 +151,14 @@
 				opacity: 1;
 				text-shadow: 0 0 3px $red;
 			}
+		}
+
+		.delete-page {
+			bottom: 1rem; left: 1rem;
+		}
+
+		.edit-page {
+			top: 1rem; right: 1rem;
 		}
 
 		span {
@@ -370,8 +389,9 @@
 				.frontcover-preview-wrapper, .photo-preview-wrapper, .text-preview-wrapper, .horizontal-preview-wrapper,
 				.overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
 					width: 100%; height: 100% !important;
+					// bottom: 0; left: 0;
 
-					overflow: hidden;
+					overflow: hidden; // inherit
 					position: fixed !important;
 
 					::-webkit-input-placeholder	{ color: $black; }
