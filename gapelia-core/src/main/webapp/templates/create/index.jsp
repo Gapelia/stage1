@@ -72,23 +72,20 @@
 		<div id="gpl-pusher" class="gpl-pusher">
 
 			<!-- gpl-menu -->
-			<nav id="gpl-menu" class="gpl-menu gpl-cover">
+			<nav id="gpl-menu" class="gpl-menu">
 				<div class="gpl-level" id="level-01">
 
 					<h2 class="icon icon-world">Pages</h2>
 
-					<div id="pages-scroller">
-						<ul>
+					<ul id="pages-scroller">
 
-							<li id="add-page" class="new-thumb disable-sort">
-								<a href="#">+</a>
-								<span>Add New Page</span>
-							</li>
+						<li id="add-page" class="new-thumb disable-sort">
+							<span href="#">+</span>
+							<span>Add New Page</span>
+						</li>
 
-						</ul>
-
-						<input name="pageSortOrder" type="hidden"/>
-					</div>
+						<!--/ <input name="pageSortOrder" type="hidden"/> /-->
+					</ul>
 
 					<!--/
 					<ul>
@@ -96,6 +93,7 @@
 							<a class="icon icon-display" href="#">Pencil/Edit</a>
 							/-->
 
+							<!--/
 							<div class="gpl-level" id="level-02">
 								<h2 class="icon icon-display">Layouts</h2>
 								<a class="gpl-back" href="#">Back to Pages</a>
@@ -144,6 +142,7 @@
 									</ul>
 								</div>
 							</div>
+							/-->
 
 							<!--/
 						</li>
@@ -354,8 +353,8 @@
 		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
-			$("#pages-scroller").scrollpanel();
-			$("#layout-scroller").scrollpanel();
+			// $("#pages-scroller").scrollpanel();
+			// $("#layout-scroller").scrollpanel();
 
 			// $("#publish-scroller").scrollpanel();
 		</script>
@@ -373,6 +372,14 @@
 				type : "cover"
 			});
 
+			$(function() {
+				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
+				// $(".photo-preview-wrapper").imgLiquid({ fill: true });
+			});
+		</script>
+
+		<!--/
+		<script>
 			$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 				// $('[data-level="1"]').addClass("gpl-level-overlay");
 				// $('[data-level="2"]').addClass("gpl-level-open");
@@ -382,12 +389,8 @@
 
 				e.preventDefault();
 			});
-
-			$(function() {
-				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
-				// $(".photo-preview-wrapper").imgLiquid({ fill: true });
-			});
 		</script>
+		/-->
 
 		<!--/ scripts/page-sorter /-->
 		<script src="/static/scripts/sortable.js"></script>

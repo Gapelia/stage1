@@ -143,7 +143,6 @@
 			});
 
 			this.levels.forEach(function (el, i) {
-
 				el.addEventListener(self.eventtype, function (ev) {
 
 					ev.stopPropagation();
@@ -155,7 +154,6 @@
 					}
 
 				});
-
 			});
 
 			this.levelBack.forEach(function (el, i) {

@@ -447,9 +447,7 @@
 	-webkit-transform: translate3d(0, 0, 0);
 }
 
-/* .gpl-cover .gpl-level.gpl-level-open > ul > li > .gpl-level:not(.gpl-level-open) { */
-
-.gpl-cover .gpl-level.gpl-level-open .edit-page > li > .gpl-level:not(.gpl-level-open) {
+.gpl-cover .gpl-level.gpl-level-open > ul > li > .gpl-level:not(.gpl-level-open) {
 	transform: translate3d(-100%, 0, 0);
 
 	-moz-transform: translate3d(-100%, 0, 0);
@@ -463,11 +461,12 @@
 }
 
 .gpl-menu h2 {
-	margin: 0; padding: 1rem;
+	margin: 0; padding: 0.5rem 1rem;
 
 	color: rgba($black, 0.4);
-	font-size: 2em;
+	font-size: 1em;
 	font-weight: 300;
+	line-height: 2em;
 	text-shadow: 0 0 1px rgba($black, 0.1);
 }
 
