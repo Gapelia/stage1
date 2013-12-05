@@ -85,7 +85,7 @@
 
 	////
 
-	$("#settings-button").click(function () {
+	$("#preview-book").click(function () {
 		var temp = JSON.stringify(pages);
 		localStorage.setItem("pages", temp);	
 	});

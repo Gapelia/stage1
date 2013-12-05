@@ -30,10 +30,6 @@
 		<link href="/static/css/selectize.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<!--* if lt IE 9 *>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<!* endif *-->
-
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
@@ -74,16 +70,14 @@
 
 		<header>
 			<div id="back">
-        <div id="pages-toggle"><a href="#" title="Add pages">&oplus;</a></div>
-        <div id="layout-toggle"><a href="#" title="Layouts">&#9871;</a></div>
-        <div id="comments-toggle"><a href="#" title="Comments">&#59160;</a></div>
+        <a href="#" id="pages-toggle" title="Add pages">Pages</a>
+        <a href="#" id="layout-toggle" title="Layouts">Layouts</a>
 			</div>
 
 			<div id="finish">
-				<!--/ <div id="settings-button"><a href="#" title="Settings">&#9998;</a></div> /-->
-				<div id="settings-button"><a href="/preview" target="_blank" title="Settings">&#9998;</a></div>
-        <div id="publish-toggle"><a href="#" title="Publish"><!--/ &#128213; /-->&#59185;</a></div>
-        <div id="close-button"><a href="/me" title="Save and Close">&#10006;</a></div>
+				<a href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
+        <a href="#" id="publish-toggle" title="Publish">Publish</a>
+        <a href="/me" id="close-button" title="Save and Close">Save + Close</a>
 			</div>
 		</header>
 
