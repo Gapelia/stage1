@@ -1,6 +1,7 @@
 /******************************************************************************** BOOK-CREATION/SCSS **/
 
 .book-creation {
+	background-image: url("../images/blankBG.jpg");
 	@include sans;
 	overflow: hidden;
 
@@ -63,26 +64,30 @@
 	}
 
 	.menu {
-		width: 200px; height: 100%;
+		width: 199px; height: 100%;
 
 		background-color: $gray-i;
+		box-shadow: 1px 0 0 0 rgba($black, 0.3);
+		left: -200px;
 		position: absolute;
 		top: 0;
+		transition: left 0.5s ease;
 		z-index: 2;
 
 		.sp-viewport { padding: 0 !important; }
 
 		.sp-scrollbar {
-			background-color: $gray-i;
+			background-color: $gray-iv;
 			cursor: pointer;
 			display: none;
+			opacity: 0.6;
 			right: 0.5rem !important;
 			margin: 1rem 0;
 			width: 3px;
 			z-index: 1;
 
 			.sp-thumb {
-				background-color: $gray-iv;
+				background-color: $black;
 				transition: height 0.2s ease-in-out;
 			}
 		}
@@ -92,14 +97,6 @@
 		&:hover {
 			.sp-scrollbar { display: block; }
 		}
-	}
-
-	#pages-scroller, #layout-scroller {
-		left: -200px;
-	}
-
-	#pages-scroller, #layout-scroller {
-		transition: left 0.5s ease;
 
 		li {
 			width: 100%; height: auto;
@@ -358,7 +355,7 @@
 
 					.page-title-elem {
 						font-size: 1.5em;
-						font-weight: 300;
+						font-weight: 700;
 						line-height: 1.2;
 						text-transform: capitalize;
 
@@ -458,7 +455,7 @@
 						top: 30%; left: 0;
 
 						color: $black;
-						position: fixed; /* absolute */
+						position: absolute; // fixed
 
 						article {
 							margin: 0 auto; padding: 2rem;
@@ -528,7 +525,7 @@
 						top: 10%; left: 25%;
 
 						box-shadow: 0 0 5px 0 rgba($black, 0.3);
-						position: fixed;
+						position: absolute;
 					}
 
 					.button-wrapper { bottom: 30%; }

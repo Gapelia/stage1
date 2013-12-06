@@ -249,12 +249,6 @@
 
 		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
 
-		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
-		}
-
 		// description input limiter
 		var descElem = "page-desc";
 		descMax = 299;
@@ -264,9 +258,13 @@
 		// Need to figure out how to run the limiter when users copy/paste from elsewhere
 		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
 
-		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
-			check_charcount(descElem, descMax, e);
-		});
+		$("." + descElem).on("live blur keyup paste", function (e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
 
 		/*
 		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
@@ -275,11 +273,34 @@
 		});
 		*/
 
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
+		/*
+		// This function is supposed to help in detecting paste events
+		$(function () {
+
+			return $("[contenteditable]").live("focus", function () {
+
+				var $this;
+				$this = $(this);
+				$this.data("before", $this.html());
+
+				return $this;
+
+			}).live("blur keyup paste", function () {
+
+				var $this;
+				$this = $(this);
+
+				if ($this.data("before") !== $this.html()) {
+					$this.data("before", $this.html());
+					$this.trigger("change");
+				}
+
+				return $this;
+
+			});
+
+		});
+		*/
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -895,6 +916,7 @@
 	// ------------------------------------------------------------------------------------
 
 	// Hide editor controls when typing, show when mouse moves
+	/*
 	$("article").keyup(function () {
 		setTimeout(function() {
 			$("#back, #finish").fadeOut("slow");
@@ -904,6 +926,32 @@
 	$("body").on("mousemove", function () {
 		$("#back, #finish").fadeIn("fast");
 	});
+	*/
+
+	var timedelay = 1;
+
+	function delayCheck() {
+
+		if (timedelay == 5) {
+			$(".book-creation header").fadeOut();
+			timedelay = 1;
+		}
+
+		timedelay = timedelay + 1;
+
+	}
+
+	$(document).mousemove(function () {
+
+		$(".book-creation header").fadeIn();
+		timedelay = 1;
+		clearInterval(_delay);
+		_delay = setInterval(delayCheck, 500);
+
+	});
+
+	// page load starts delay timer
+	_delay = setInterval(delayCheck, 500);
 
 	// Placeholders
 	(function ($) {
@@ -933,6 +981,9 @@
 	})(jQuery);
 
 	// Character Limiter
+	////////////////
+
+	/*
 	var maxNum = function ($elie, num) {
 
 		var $this;
@@ -947,6 +998,7 @@
 	$(function () {
 		maxNum($(".frontcover-preview-wrapper .page-desc"), 300);
 	});
+	*/
 
 	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function() {
 	// .on("paste", ".frontcover-preview-wrapper .page-desc", function() {
