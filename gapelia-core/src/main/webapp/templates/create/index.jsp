@@ -27,7 +27,6 @@
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
-		<link href="/static/css/selectize.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -76,7 +75,7 @@
 			<div id="finish">
 				<a href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
         <a href="#" id="publish-toggle" title="Publish">Publish</a>
-        <a href="/me" id="close-button" title="Save and Close">Save + Close</a>
+				<a href="/me" id="close-button" title="Save and Close">Save + Close</a>
 			</div>
 		</header>
 
@@ -140,109 +139,10 @@
 		<!--/ main-content /-->
 		<section id="main-content">
 			<div id="book-creation-wrapper">
-				<!--/
-				<div id="pages-scroller">
-					<ul>
-						<li id="add-page" class="new-thumb disable-sort">
-							<a href="#">+</a>
-							<span>Add New Page</span>
-						</li>
-					</ul>
-
-					<input name="pageSortOrder" type="hidden"/>
-				</div>
-
-				<div id="layout-scroller">
-					<ul>
-						<li id="select-frontcover-layout">
-							<img src="/static/images/view-modes/front.png" alt=""/>
-							<span>Front Cover</span>
-						</li>
-
-						<li id="select-photo-layout">
-							<img src="/static/images/view-modes/photo.png" alt=""/>
-							<span>Photo</span>
-						</li>
-
-						<li id="select-text-layout">
-							<img src="/static/images/view-modes/text.png" alt=""/>
-							<span>Text</span>
-						</li>
-
-						<li id="select-horizontal-layout">
-							<img src="/static/images/view-modes/horizontal.png" alt=""/>
-							<span>Horizontal</span>
-						</li>
-
-						<li id="select-overlay-layout">
-							<img src="/static/images/view-modes/overlay.png" alt=""/>
-							<span>Overlay</span>
-						</li>
-
-						<li id="select-phototext-layout">
-							<img src="/static/images/view-modes/phototext.png" alt=""/>
-							<span>Photo/Text</span>
-						</li>
-
-						<li id="select-vertical-layout">
-							<img src="/static/images/view-modes/vertical.png" alt=""/>
-							<span>Vertical</span>
-						</li>
-
-						<li id="select-video-layout">
-							<img src="/static/images/view-modes/video.png" alt=""/>
-							<span>Video</span>
-						</li>
-					</ul>
-				</div>
-				/-->
-
-				<div id="publish-scroller">
-					<div id="publish-header">
-						<button id="publish-book">Publish</button>
-
-						<select id="book-dimension-picker" placeholder="Choose a dimension">
-							<option value="">Choose a dimension</option>
-							<option value="PULSE">Pulse</option>
-							<option value="WOW">Wow</option>
-							<option value="LIFE">Life</option>
-							<option value="WONDER">Wonder</option>
-							<option value="ART">Art</option>
-							<option value="FLOW">Flow</option>
-						</select>
-
-						<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
-
-						<select id="library-search" class="demo-default" placeholder="Add book to library">
-							<option value="">Add book to library</option>
-							<option value="1">Architecture</option>
-							<option value="2">Biography</option>
-							<option value="3">Cinema</option>
-							<option value="4">Cuisine</option>
-							<option value="5">Era</option>
-							<option value="6">The Far East</option>
-							<option value="7">Fashionista</option>
-							<option value="8">Future</option>
-							<option value="9">Gapelians</option>
-							<option value="10">Historian</option>
-							<option value="11">Into the Wild</option>
-							<option value="12">Japanimation</option>
-							<option value="13">Land of Kawaii</option>
-							<option value="14">Manifesto</option>
-							<option value="15">Modernism</option>
-							<option value="16">Mother Gaea</option>
-							<option value="17">Museum</option>
-							<option value="18">On the Road</option>
-							<option value="19">Products of Tomorrow</option>
-							<option value="20">Subculture</option>
-						</select>
-					</div>
-				</div>
 
 				<div id="create-book">
-					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
 					<div id="create-content">
-						<!--/ New Page /-->
+
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="blank-preview">
 								<article>
@@ -250,11 +150,52 @@
 								</article>
 							</div>
 						</section>
+
 					</div>
 				</div>
+
 			</div>
 		</section>
 		<!--//main-content /-->
+
+		<section id="publish-modal" class="modal" style="display: none;">
+			<div class="wrapper">
+				<h1>*BOOK TITLE*</h1>
+
+				<input type="text" id="input-tags" value="photography, exuberance, Iceland"/>
+
+				<select id="library-search" class="demo-default" placeholder="Add book to library">
+					<option value="">Add book to library</option>
+					<option value="1">Architecture</option>
+					<option value="2">Biography</option>
+					<option value="3">Cinema</option>
+					<option value="4">Cuisine</option>
+					<option value="5">Era</option>
+					<option value="6">The Far East</option>
+					<option value="7">Fashionista</option>
+					<option value="8">Future</option>
+					<option value="9">Gapelians</option>
+					<option value="10">Historian</option>
+					<option value="11">Into the Wild</option>
+					<option value="12">Japanimation</option>
+					<option value="13">Land of Kawaii</option>
+					<option value="14">Manifesto</option>
+					<option value="15">Modernism</option>
+					<option value="16">Mother Gaea</option>
+					<option value="17">Museum</option>
+					<option value="18">On the Road</option>
+					<option value="19">Products of Tomorrow</option>
+					<option value="20">Subculture</option>
+				</select>
+
+				<div class="wrapper">
+					<a class="button a">Preview</a>
+					<a class="button b">Publish</a>
+				</div>
+
+				<div class="close-modal">&times;</div>
+			</div>
+		</section>
 
 		<!--/ dialog-windows /-->
 		<div class="modal-delete-page" style="display: none;">

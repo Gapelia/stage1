@@ -9,8 +9,8 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Set menu height, necessary for scrollbar plugin
-	$("#pages-scroller").css("height", $vH - 52 + "px");
-	$("#layout-scroller").css("height", $vH - 52 + "px");
+	$("#pages-scroller").css("height", $vH + "px");
+	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
 
@@ -58,6 +58,7 @@
 
 	$("#pages-toggle").on("click", function (e) {
 
+		$("#back").stop(true).css("margin", "0 0 0 200px");
 		$("#pages-scroller").stop(true).css("left", "0");
 
 		$("#main-content").stop(true).css({
@@ -73,6 +74,7 @@
 		// placeholder, apparently needed
 	}).on("mouseleave", function () {
 
+		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
 		$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
 
 		$("#main-content").css({
@@ -84,6 +86,7 @@
 
 	$("#layout-scroller").on("mouseenter", function () {
 
+		$("#back").stop(true).css("margin", "0 0 0 200px");
 		$(this).stop(true).css("left", "0").clearQueue();
 		$("#pages-scroller").css("left", "-200px");
 
@@ -94,6 +97,7 @@
 
 	}).on("mouseleave", function () {
 
+		$("#back").css("margin", "0");
 		$("#layout-scroller").css("left", "-200px");
 
 		$("#main-content").css({
@@ -867,19 +871,23 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	$("#publish-toggle").click(function (e) {
+	$("#publish-toggle").on("click", function (e) {
 
-		$("#publish-scroller").css("right", "0");
+		$("#publish-modal").css({
+			"width": "100%",
+			"height": "100%",
+			"opacity": "1"
+		}).show();
+
 		e.preventDefault();
 
 	});
 
-	$("#publish-scroller, .selectize-control").mouseleave(function() {
-		$("#publish-scroller").css("right", "-200px");
-	});
-
-	$("#publish-scroller .selectize-control .item").mouseover(function() {
-		// $("#publish-scroller").css("right", "0");
+	$(".close-modal").on("click", function (e) {
+		$(this).closest(".modal").css({
+			"display": "none",
+			"opacity": "0"
+		}).hide();
 	});
 
 	// Content Creation
