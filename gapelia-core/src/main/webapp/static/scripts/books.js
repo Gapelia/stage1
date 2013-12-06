@@ -9,8 +9,8 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Set menu height, necessary for scrollbar plugin
-	$("#pages-scroller").css("height", $vH - 48 + "px");
-	$("#layout-scroller").css("height", $vH - 48 + "px");
+	$("#pages-scroller").css("height", $vH - 52 + "px");
+	$("#layout-scroller").css("height", $vH - 52 + "px");
 
 	$(document).ready(function () {
 
@@ -56,34 +56,52 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	/*
-	$("#pages-toggle").click(function (e) {
-		$("#pages-scroller").css("left", "0");
+	$("#pages-toggle").on("click", function (e) {
+
+		$("#pages-scroller").stop(true).css("left", "0");
+
+		$("#main-content").stop(true).css({
+			"left": "200px",
+			"position": "fixed"
+		});
+
 		e.preventDefault();
+
 	});
 
-	$("#layout-toggle").click(function (e) {
-		$("#layout-scroller").css("left", "0");
-		e.preventDefault();
+	$("#pages-scroller").on("mouseenter", function () {
+		// placeholder, apparently needed
+	}).on("mouseleave", function () {
+
+		$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
+
+		$("#main-content").css({
+			"left": "0",
+			"position": "fixed"
+		}).stop(true).delay(5000);
+
 	});
 
-	$("#comments-toggle").click(function (e) {
-		$("#comments-scroller").css("left", "0");
-		e.preventDefault();
-	});
+	$("#layout-scroller").on("mouseenter", function () {
 
-	$("#pages-scroller").mouseleave(function() {
-		$("#pages-scroller").css("left", "-150px");
-	});
+		$(this).stop(true).css("left", "0").clearQueue();
+		$("#pages-scroller").css("left", "-200px");
 
-	$("#layout-scroller").mouseleave(function() {
-		$("#layout-scroller").css("left", "-150px");
-	});
+		$("#main-content").stop(true).css({
+			"left": "200px",
+			"position": "fixed"
+		});
 
-	$("#comments-scroller").mouseleave(function() {
-		$("#comments-scroller").css("left", "-150px");
+	}).on("mouseleave", function () {
+
+		$("#layout-scroller").css("left", "-200px");
+
+		$("#main-content").css({
+			"left": "0",
+			"position": "fixed"
+		});
+
 	});
-	*/
 
 	////
 
@@ -98,9 +116,9 @@
 
 	$("#add-page").click(function (e) {
 
-		// $(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		// $(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section><ul><li><div class=\"gpl-level\"><h2 class=\"icon icon-display\">Layouts</h2><a class=\"gpl-back\" href=\"#\">Back to Pages</a><div id=\"layout-scroller\"><ul><li id=\"select-frontcover-layout\"><img src=\"/static/images/view-modes/front.png\" alt=\"\"/><span>Front Cover</span></li><li id=\"select-photo-layout\"><img src=\"/static/images/view-modes/photo.png\" alt=\"\"/><span>Photo</span></li><li id=\"select-text-layout\"><img src=\"/static/images/view-modes/text.png\" alt=\"\"/><span>Text</span></li><li id=\"select-horizontal-layout\"><img src=\"/static/images/view-modes/horizontal.png\" alt=\"\"/><span>Horizontal</span></li><li id=\"select-overlay-layout\"><img src=\"/static/images/view-modes/overlay.png\" alt=\"\"/><span>Overlay</span></li><li id=\"select-phototext-layout\"><img src=\"/static/images/view-modes/phototext.png\" alt=\"\"/><span>Photo/Text</span></li><li id=\"select-vertical-layout\"><img src=\"/static/images/view-modes/vertical.png\" alt=\"\"/><span>Vertical</span></li><li id=\"select-video-layout\"><img src=\"/static/images/view-modes/video.png\" alt=\"\"/><span>Video</span></li></ul></div></div></li></ul>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -154,6 +172,14 @@
 
 	});
 
+	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
+
+		$("#pages-scroller").css("left", "-200px");
+		$("#layout-scroller").css("left", "0");
+		e.preventDefault();
+
+	});
+
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
 		currentPage = $(this).closest("img").attr("id");
@@ -179,7 +205,7 @@
 		insert += "<section class=\"frontcover-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
 		}
@@ -274,7 +300,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url).checkVerHor('.photo-preview-wrapper .page-bg');\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -299,8 +325,6 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		/*
-		// Keep this code for later! Detects vertical images
 		var checkVerHor;
 
 		function checkVerHor(el) {
@@ -320,7 +344,6 @@
 				}
 			});
 		}
-		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";

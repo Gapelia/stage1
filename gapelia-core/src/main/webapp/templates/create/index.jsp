@@ -30,7 +30,6 @@
 		<link href="/static/css/selectize.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
@@ -69,231 +68,193 @@
 
 	<body class="book-creation g-body">
 
-		<div id="gpl-pusher" class="gpl-pusher">
-
-			<!-- gpl-menu -->
-			<nav id="gpl-menu" class="gpl-menu">
-				<div class="gpl-level" id="level-01">
-
-					<h2 class="icon icon-world">Pages</h2>
-
-					<ul id="pages-scroller">
-
-						<li id="add-page" class="new-thumb disable-sort">
-							<span href="#">+</span>
-							<span>Add New Page</span>
-						</li>
-
-						<!--/ <input name="pageSortOrder" type="hidden"/> /-->
-					</ul>
-
-					<!--/
-					<ul>
-						<li class="icon icon-arrow-left">
-							<a class="icon icon-display" href="#">Pencil/Edit</a>
-							/-->
-
-							<!--/
-							<div class="gpl-level" id="level-02">
-								<h2 class="icon icon-display">Layouts</h2>
-								<a class="gpl-back" href="#">Back to Pages</a>
-
-								<div id="layout-scroller">
-									<ul>
-										<li id="select-frontcover-layout">
-											<img src="/static/images/view-modes/front.png" alt=""/>
-											<span>Front Cover</span>
-										</li>
-
-										<li id="select-photo-layout">
-											<img src="/static/images/view-modes/photo.png" alt=""/>
-											<span>Photo</span>
-										</li>
-
-										<li id="select-text-layout">
-											<img src="/static/images/view-modes/text.png" alt=""/>
-											<span>Text</span>
-										</li>
-
-										<li id="select-horizontal-layout">
-											<img src="/static/images/view-modes/horizontal.png" alt=""/>
-											<span>Horizontal</span>
-										</li>
-
-										<li id="select-overlay-layout">
-											<img src="/static/images/view-modes/overlay.png" alt=""/>
-											<span>Overlay</span>
-										</li>
-
-										<li id="select-phototext-layout">
-											<img src="/static/images/view-modes/phototext.png" alt=""/>
-											<span>Photo/Text</span>
-										</li>
-
-										<li id="select-vertical-layout">
-											<img src="/static/images/view-modes/vertical.png" alt=""/>
-											<span>Vertical</span>
-										</li>
-
-										<li id="select-video-layout">
-											<img src="/static/images/view-modes/video.png" alt=""/>
-											<span>Video</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-							/-->
-
-							<!--/
-						</li>
-					</ul>
-					/-->
-
-				</div>
-			</nav>
-			<!-- /gpl-menu -->
-
-			<div class="scroller"><!-- this is for emulating position fixed of the nav -->
-				<div class="scroller-inner">
-
-					<header>
-						<div id="back">
-							<a href="#" id="pages-toggle" title="Add pages">Pages</a>
-							<!--/ <a href="#" id="layout-toggle" title="Layouts">Layouts</a> /-->
-						</div>
-
-						<div id="finish">
-							<a href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
-							<a href="#" id="publish-toggle" title="Publish">Publish</a>
-							<a href="/me" id="close-button" title="Save and Close">Save + Close</a>
-						</div>
-					</header>
-
-					<!--/ main-content /-->
-					<section id="main-content">
-						<div id="book-creation-wrapper">
-							<!--/
-							<div id="pages-scroller">
-								<ul>
-
-									<li id="add-page" class="new-thumb disable-sort">
-										<a href="#">+</a>
-										<span>Add New Page</span>
-									</li>
-
-								</ul>
-
-								<input name="pageSortOrder" type="hidden"/>
-							</div>
-
-							<div id="layout-scroller">
-								<ul>
-									<li id="select-frontcover-layout">
-										<img src="/static/images/view-modes/front.png" alt=""/>
-										<span>Front Cover</span>
-									</li>
-
-									<li id="select-photo-layout">
-										<img src="/static/images/view-modes/photo.png" alt=""/>
-										<span>Photo</span>
-									</li>
-
-									<li id="select-text-layout">
-										<img src="/static/images/view-modes/text.png" alt=""/>
-										<span>Text</span>
-									</li>
-
-									<li id="select-horizontal-layout">
-										<img src="/static/images/view-modes/horizontal.png" alt=""/>
-										<span>Horizontal</span>
-									</li>
-
-									<li id="select-overlay-layout">
-										<img src="/static/images/view-modes/overlay.png" alt=""/>
-										<span>Overlay</span>
-									</li>
-
-									<li id="select-phototext-layout">
-										<img src="/static/images/view-modes/phototext.png" alt=""/>
-										<span>Photo/Text</span>
-									</li>
-
-									<li id="select-vertical-layout">
-										<img src="/static/images/view-modes/vertical.png" alt=""/>
-										<span>Vertical</span>
-									</li>
-
-									<li id="select-video-layout">
-										<img src="/static/images/view-modes/video.png" alt=""/>
-										<span>Video</span>
-									</li>
-								</ul>
-							</div>
-							/-->
-
-							<div id="publish-scroller">
-								<div id="publish-header">
-									<button id="publish-book">Publish</button>
-
-									<select id="book-dimension-picker" placeholder="Choose a dimension">
-										<option value="">Choose a dimension</option>
-										<option value="PULSE">Pulse</option>
-										<option value="WOW">Wow</option>
-										<option value="LIFE">Life</option>
-										<option value="WONDER">Wonder</option>
-										<option value="ART">Art</option>
-										<option value="FLOW">Flow</option>
-									</select>
-
-									<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
-
-									<select id="library-search" class="demo-default" placeholder="Add book to library">
-										<option value="">Add book to library</option>
-										<option value="1">Architecture</option>
-										<option value="2">Biography</option>
-										<option value="3">Cinema</option>
-										<option value="4">Cuisine</option>
-										<option value="5">Era</option>
-										<option value="6">The Far East</option>
-										<option value="7">Fashionista</option>
-										<option value="8">Future</option>
-										<option value="9">Gapelians</option>
-										<option value="10">Historian</option>
-										<option value="11">Into the Wild</option>
-										<option value="12">Japanimation</option>
-										<option value="13">Land of Kawaii</option>
-										<option value="14">Manifesto</option>
-										<option value="15">Modernism</option>
-										<option value="16">Mother Gaea</option>
-										<option value="17">Museum</option>
-										<option value="18">On the Road</option>
-										<option value="19">Products of Tomorrow</option>
-										<option value="20">Subculture</option>
-									</select>
-								</div>
-							</div>
-
-							<div id="create-book">
-								<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
-								<div id="create-content">
-									<!--/ New Page /-->
-									<section id="test-blank" class="blank-preview-wrapper">
-										<div class="blank-preview">
-											<article>
-												<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!</p>
-											</article>
-										</div>
-									</section>
-								</div>
-							</div>
-						</div>
-					</section>
-					<!--//main-content /-->
-
-				</div>
+		<header>
+			<div id="back">
+        <a href="#" id="pages-toggle" title="Add pages">Pages</a>
 			</div>
 
+			<div id="finish">
+				<a href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
+        <a href="#" id="publish-toggle" title="Publish">Publish</a>
+        <a href="/me" id="close-button" title="Save and Close">Save + Close</a>
+			</div>
+		</header>
+
+		<!--/ scrollers /-->
+
+		<div id="pages-scroller" class="menu">
+			<ul>
+				<li id="add-page" class="new-thumb disable-sort">
+					<a href="#">+</a>
+					<span>Add New Page</span>
+				</li>
+			</ul>
+
+			<input name="pageSortOrder" type="hidden"/>
 		</div>
+
+		<div id="layout-scroller" class="menu">
+			<ul>
+				<li id="select-frontcover-layout">
+					<img src="/static/images/view-modes/front.png" alt=""/>
+					<span>Front Cover</span>
+				</li>
+
+				<li id="select-photo-layout">
+					<img src="/static/images/view-modes/photo.png" alt=""/>
+					<span>Photo</span>
+				</li>
+
+				<li id="select-text-layout">
+					<img src="/static/images/view-modes/text.png" alt=""/>
+					<span>Text</span>
+				</li>
+
+				<li id="select-horizontal-layout">
+					<img src="/static/images/view-modes/horizontal.png" alt=""/>
+					<span>Horizontal</span>
+				</li>
+
+				<li id="select-overlay-layout">
+					<img src="/static/images/view-modes/overlay.png" alt=""/>
+					<span>Overlay</span>
+				</li>
+
+				<li id="select-phototext-layout">
+					<img src="/static/images/view-modes/phototext.png" alt=""/>
+					<span>Photo/Text</span>
+				</li>
+
+				<li id="select-vertical-layout">
+					<img src="/static/images/view-modes/vertical.png" alt=""/>
+					<span>Vertical</span>
+				</li>
+
+				<li id="select-video-layout">
+					<img src="/static/images/view-modes/video.png" alt=""/>
+					<span>Video</span>
+				</li>
+			</ul>
+		</div>
+
+		<!--/ main-content /-->
+		<section id="main-content">
+			<div id="book-creation-wrapper">
+				<!--/
+				<div id="pages-scroller">
+					<ul>
+						<li id="add-page" class="new-thumb disable-sort">
+							<a href="#">+</a>
+							<span>Add New Page</span>
+						</li>
+					</ul>
+
+					<input name="pageSortOrder" type="hidden"/>
+				</div>
+
+				<div id="layout-scroller">
+					<ul>
+						<li id="select-frontcover-layout">
+							<img src="/static/images/view-modes/front.png" alt=""/>
+							<span>Front Cover</span>
+						</li>
+
+						<li id="select-photo-layout">
+							<img src="/static/images/view-modes/photo.png" alt=""/>
+							<span>Photo</span>
+						</li>
+
+						<li id="select-text-layout">
+							<img src="/static/images/view-modes/text.png" alt=""/>
+							<span>Text</span>
+						</li>
+
+						<li id="select-horizontal-layout">
+							<img src="/static/images/view-modes/horizontal.png" alt=""/>
+							<span>Horizontal</span>
+						</li>
+
+						<li id="select-overlay-layout">
+							<img src="/static/images/view-modes/overlay.png" alt=""/>
+							<span>Overlay</span>
+						</li>
+
+						<li id="select-phototext-layout">
+							<img src="/static/images/view-modes/phototext.png" alt=""/>
+							<span>Photo/Text</span>
+						</li>
+
+						<li id="select-vertical-layout">
+							<img src="/static/images/view-modes/vertical.png" alt=""/>
+							<span>Vertical</span>
+						</li>
+
+						<li id="select-video-layout">
+							<img src="/static/images/view-modes/video.png" alt=""/>
+							<span>Video</span>
+						</li>
+					</ul>
+				</div>
+				/-->
+
+				<div id="publish-scroller">
+					<div id="publish-header">
+						<button id="publish-book">Publish</button>
+
+						<select id="book-dimension-picker" placeholder="Choose a dimension">
+							<option value="">Choose a dimension</option>
+							<option value="PULSE">Pulse</option>
+							<option value="WOW">Wow</option>
+							<option value="LIFE">Life</option>
+							<option value="WONDER">Wonder</option>
+							<option value="ART">Art</option>
+							<option value="FLOW">Flow</option>
+						</select>
+
+						<input type="text" id="input-tags" value="photography,exuberance,Iceland"/>
+
+						<select id="library-search" class="demo-default" placeholder="Add book to library">
+							<option value="">Add book to library</option>
+							<option value="1">Architecture</option>
+							<option value="2">Biography</option>
+							<option value="3">Cinema</option>
+							<option value="4">Cuisine</option>
+							<option value="5">Era</option>
+							<option value="6">The Far East</option>
+							<option value="7">Fashionista</option>
+							<option value="8">Future</option>
+							<option value="9">Gapelians</option>
+							<option value="10">Historian</option>
+							<option value="11">Into the Wild</option>
+							<option value="12">Japanimation</option>
+							<option value="13">Land of Kawaii</option>
+							<option value="14">Manifesto</option>
+							<option value="15">Modernism</option>
+							<option value="16">Mother Gaea</option>
+							<option value="17">Museum</option>
+							<option value="18">On the Road</option>
+							<option value="19">Products of Tomorrow</option>
+							<option value="20">Subculture</option>
+						</select>
+					</div>
+				</div>
+
+				<div id="create-book">
+					<!--/ <div id="create-content" data-role="flip" data-flip-show-pager="false" data-flip-forward-dir="rtol"/> /-->
+					<div id="create-content">
+						<!--/ New Page /-->
+						<section id="test-blank" class="blank-preview-wrapper">
+							<div class="blank-preview">
+								<article>
+									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!</p>
+								</article>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--//main-content /-->
 
 		<!--/ dialog-windows /-->
 		<div class="modal-delete-page" style="display: none;">
@@ -353,44 +314,22 @@
 		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
-			// $("#pages-scroller").scrollpanel();
-			// $("#layout-scroller").scrollpanel();
+			$("#pages-scroller").scrollpanel();
+			$("#layout-scroller").scrollpanel();
 
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
 		<script src="/static/scripts/books.js"></script>
-
-		<script src="/static/scripts/classie.js"></script>
-		<script src="/static/scripts/gplpushmenu.js"></script>
-
 		<script src="/static/scripts/draggable_background.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script>
-			new gplPushMenu(document.getElementById("gpl-menu"), document.getElementById("pages-toggle"), {
-				type : "cover"
-			});
-
 			$(function() {
 				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
 				// $(".photo-preview-wrapper").imgLiquid({ fill: true });
 			});
 		</script>
-
-		<!--/
-		<script>
-			$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
-				// $('[data-level="1"]').addClass("gpl-level-overlay");
-				// $('[data-level="2"]').addClass("gpl-level-open");
-
-				$("#level-01").addClass("gpl-level-overlay");
-				$("#level-02").addClass("gpl-level-open");
-
-				e.preventDefault();
-			});
-		</script>
-		/-->
 
 		<!--/ scripts/page-sorter /-->
 		<script src="/static/scripts/sortable.js"></script>
