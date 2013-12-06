@@ -115,6 +115,13 @@
             <artifactId>urlrewritefilter</artifactId>
             <version>4.0.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.brickred</groupId>
+            <artifactId>socialauth</artifactId>
+            <version>4.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/socialauth-4.3.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <finalName>gapelia</finalName>
@@ -133,6 +140,27 @@
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <tasks>
+                                <copy todir="${basedir}/target/gapelia/WEB-INF/lib">
+                                    <fileset dir="src/main/lib"/>
+                                </copy>
+                                <copy todir="${basedir}/target/gapelia/WEB-INF/lib">
+                                    <fileset dir="src/main/resources"/>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -80,9 +80,9 @@
 			<div class="cta">Sign up as a beta user now</div>
 
 			<ul>
-				<li><a href="onboard.jsp">Connect with Facebook</a></li>
-				<li><a href="onboard.jsp">Connect with Google+</a></li>
-				<li><a href="onboard.jsp">Connect with Twitter</a></li>
+				<li><a href="/login?id=facebook">Connect with Facebook</a></li>
+				<li><a href="/login?id=google">Connect with Google</a></li>
+				<li><a href="/login?id=twitter">Connect with Twitter</a></li>
 			</ul>
 
 			<h3><a href="#">Gapelia</a></h3>

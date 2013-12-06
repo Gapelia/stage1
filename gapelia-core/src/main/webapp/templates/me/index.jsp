@@ -1,3 +1,7 @@
+<% /* ----------------------------------------------- */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* ----------------------------------------------- */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +44,11 @@
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
 		/-->
+
+        <!-- ----------------------------------------- -->
+		<!-- To get user details -->
+		<%@include file="../../userDetails.jsp" %>
+		<!-- ----------------------------------------- -->
 
 	</head>
 
