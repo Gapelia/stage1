@@ -9,8 +9,8 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Set menu height, necessary for scrollbar plugin
-	$("#pages-scroller").css("height", $vH - 52 + "px");
-	$("#layout-scroller").css("height", $vH - 52 + "px");
+	$("#pages-scroller").css("height", $vH - 48 + "px");
+	$("#layout-scroller").css("height", $vH - 48 + "px");
 
 	$(document).ready(function () {
 
@@ -31,7 +31,7 @@
 				"templateId" : null,
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 				*/
 			}]
@@ -56,6 +56,7 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	/*
 	$("#pages-toggle").click(function (e) {
 		$("#pages-scroller").css("left", "0");
 		e.preventDefault();
@@ -82,10 +83,11 @@
 	$("#comments-scroller").mouseleave(function() {
 		$("#comments-scroller").css("left", "-150px");
 	});
+	*/
 
 	////
 
-	$("#settings-button").click(function () {
+	$("#preview-book").click(function () {
 		var temp = JSON.stringify(pages);
 		localStorage.setItem("pages", temp);	
 	});
@@ -96,7 +98,9 @@
 
 	$("#add-page").click(function (e) {
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<a class=\"delete-page entypo\">☕</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		// $(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section><ul><li><div class=\"gpl-level\"><h2 class=\"icon icon-display\">Layouts</h2><a class=\"gpl-back\" href=\"#\">Back to Pages</a><div id=\"layout-scroller\"><ul><li id=\"select-frontcover-layout\"><img src=\"/static/images/view-modes/front.png\" alt=\"\"/><span>Front Cover</span></li><li id=\"select-photo-layout\"><img src=\"/static/images/view-modes/photo.png\" alt=\"\"/><span>Photo</span></li><li id=\"select-text-layout\"><img src=\"/static/images/view-modes/text.png\" alt=\"\"/><span>Text</span></li><li id=\"select-horizontal-layout\"><img src=\"/static/images/view-modes/horizontal.png\" alt=\"\"/><span>Horizontal</span></li><li id=\"select-overlay-layout\"><img src=\"/static/images/view-modes/overlay.png\" alt=\"\"/><span>Overlay</span></li><li id=\"select-phototext-layout\"><img src=\"/static/images/view-modes/phototext.png\" alt=\"\"/><span>Photo/Text</span></li><li id=\"select-vertical-layout\"><img src=\"/static/images/view-modes/vertical.png\" alt=\"\"/><span>Vertical</span></li><li id=\"select-video-layout\"><img src=\"/static/images/view-modes/video.png\" alt=\"\"/><span>Video</span></li></ul></div></div></li></ul>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -110,7 +114,7 @@
 				"templateId" : null,
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
 		} else if(pagesCreated > 20) {
@@ -134,7 +138,7 @@
 				"templateId" : "0",
 				"title" : null,
 				"text" : null,
-				"image" : "/static/images/blank-bg.jpg",
+				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
 
@@ -164,7 +168,7 @@
 
 	function baseLayout() {
 
-		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"button-wrapper\"></div><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
+		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
@@ -175,7 +179,7 @@
 		insert += "<section class=\"frontcover-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
 		}
@@ -230,6 +234,17 @@
 		// Need to figure out how to run the limiter when users copy/paste from elsewhere
 		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
 
+		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+			check_charcount(descElem, descMax, e);
+		});
+
+		/*
+		$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+			var $this = $(this);
+			$this.text($this.text().slice(0, 300));
+		});
+		*/
+
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
@@ -254,7 +269,7 @@
 		insert += "<section class=\"photo-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -267,13 +282,7 @@
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
 		}
 
-		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
-		}
+		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -289,6 +298,29 @@
 		element = element[0];
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
+
+		/*
+		// Keep this code for later! Detects vertical images
+		var checkVerHor;
+
+		function checkVerHor(el) {
+			$(".photo-preview-wrapper .page-bg").prop("height", function() {
+				if($(this).height() > $(this).width()) {
+					// vertical
+					$(this).css({
+						"width": "auto",
+						"height": "66%"
+					});
+				} else {
+					// horizontal/default
+					$(this).css({
+						"width": "50%",
+						"height": "auto"
+					});
+				}
+			});
+		}
+		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -350,7 +382,7 @@
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
@@ -397,7 +429,7 @@
 		insert += "<section class=\"horizontal-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -492,7 +524,7 @@
 		insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -552,7 +584,7 @@
 		insert += "<section class=\"phototext-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -620,7 +652,7 @@
 		insert += "<section class=\"vertical-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
@@ -714,7 +746,7 @@
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blank-bg.jpg\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
 		}
@@ -842,10 +874,7 @@
 		$("#back, #finish").fadeIn("fast");
 	});
 
-	////
-	// .css("color", "#999")
-	// .css("color", "#191919")
-
+	// Placeholders
 	(function ($) {
 		$(function () {
 
@@ -871,6 +900,55 @@
 
 		});
 	})(jQuery);
+
+	// Character Limiter
+	var maxNum = function ($elie, num) {
+
+		var $this;
+
+		$elie.each(function () {
+			$this = $(this);
+			$this.text($this.text().slice(0, num));
+		});
+
+	};
+
+	$(function () {
+		maxNum($(".frontcover-preview-wrapper .page-desc"), 300);
+	});
+
+	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function() {
+	// .on("paste", ".frontcover-preview-wrapper .page-desc", function() {
+	/*
+	$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+		var $this = $(this);
+		$this.text($this.text().slice(0, 300));
+	});
+	*/
+
+	/*
+	placeCaretAtEnd(this);
+
+	function placeCaretAtEnd(el) {
+
+		el.focus();
+
+		if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+			var range = document.createRange();
+			range.selectNodeContents(el);
+			range.collapse(false);
+			var sel = window.getSelection();
+			sel.removeAllRanges();
+			sel.addRange(range);
+		} else if (typeof document.body.createTextRange != "undefined") {
+			var textRange = document.body.createTextRange();
+			textRange.moveToElementText(el);
+			textRange.collapse(false);
+			textRange.select();
+		}
+
+	}
+	*/
 
 	// Video Layout
 	// @Gapelia

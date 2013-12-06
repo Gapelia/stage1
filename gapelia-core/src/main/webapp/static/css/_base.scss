@@ -134,7 +134,7 @@ a {
 }
 
 em, i {
-	@include serif;
+	/* @include serif; */
 	font-style: italic;
 
 	strong, .strong, b {
@@ -144,12 +144,10 @@ em, i {
 }
 
 strong, .strong, b {
-	@include serif;
+	/* @include serif; */
 	font-weight: 700;
 
-	em, i {
-		font-style: italic;
-	}
+	em, i { font-style: italic; }
 }
 
 pre, code { @include mono; }
