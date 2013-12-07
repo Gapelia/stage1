@@ -122,6 +122,11 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/socialauth-4.3.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>1.0-alpha-1</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>gapelia</finalName>
