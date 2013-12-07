@@ -1,4 +1,9 @@
-
+<%@ page import="com.gapelia.core.auth.AuthHelper" %>
+<%
+    if (AuthHelper.isSessionAvailable(request) ) {
+        response.sendRedirect("/me");
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,9 +85,9 @@
 			<div class="cta">Sign up as a beta user now</div>
 
 			<ul>
-				<li><a href="/login?id=facebook">Connect with Facebook</a></li>
-				<li><a href="/login?id=google">Connect with Google</a></li>
-				<li><a href="/login?id=twitter">Connect with Twitter</a></li>
+				<li><a href="/login?type=facebook">Connect with Facebook</a></li>
+				<li><a href="/login?type=google">Connect with Google</a></li>
+				<li><a href="/login?type=twitter">Connect with Twitter</a></li>
 			</ul>
 
 			<h3><a href="#">Gapelia</a></h3>

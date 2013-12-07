@@ -8,9 +8,13 @@
     <display-name>Gapelia</display-name>
     <description>Gapelia Home</description>
 
+    <listener>
+        <listener-class>com.gapelia.core.auth.SessionManager</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.gapelia.core.auth.Login</servlet-class>
+        <servlet-class>com.gapelia.core.auth.SocialLogin</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -19,7 +23,7 @@
 
     <servlet>
         <servlet-name>AuthSuccess</servlet-name>
-        <servlet-class>com.gapelia.core.auth.SuccessPage</servlet-class>
+        <servlet-class>com.gapelia.core.auth.AuthSuccessHandler</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthSuccess</servlet-name>

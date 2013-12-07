@@ -1,5 +1,5 @@
-<%@ page import="com.gapelia.core.auth.SocialAuth" %>
+<%@ page import="com.gapelia.core.auth.AuthHelper" %>
 <%
-    String js = SocialAuth.getProfileDetails(session);
+    String js = AuthHelper.getProfileDetails(session);
 %>
 <%= js %>

@@ -6,16 +6,13 @@ import org.brickred.socialauth.SocialAuthConfig;
 import org.brickred.socialauth.SocialAuthManager;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.net.InetAddress;
 
-import static com.gapelia.core.auth.SocialAuth.APP_FACEBOOK;
-import static com.gapelia.core.auth.SocialAuth.APP_GOOGLE;
-import static com.gapelia.core.auth.SocialAuth.APP_TWITTER;
+import static com.gapelia.core.auth.AuthHelper.APP_FACEBOOK;
+import static com.gapelia.core.auth.AuthHelper.APP_GOOGLE;
+import static com.gapelia.core.auth.AuthHelper.APP_TWITTER;
 
 /**
  * User: Abhishek Tiwari
@@ -23,12 +20,12 @@ import static com.gapelia.core.auth.SocialAuth.APP_TWITTER;
  * Time: 12:55 AM
  * Copyright Nuance Communications
  */
-public class Login extends HttpServlet {
-	public static Logger LOG = Logger.getLogger(Login.class);
+public class SocialLogin extends HttpServlet {
+	public static Logger LOG = Logger.getLogger(SocialLogin.class);
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+		try {                
 			//Create an instance of SocialAuthConfig object
 			SocialAuthConfig config = SocialAuthConfig.getDefault();
 			LOG.info("Creating social auth config");
@@ -44,9 +41,10 @@ public class Login extends HttpServlet {
 
 			// URL of YOUR application which will be called after authentication
 			String hostName = InetAddress.getLocalHost().getHostName();
-			if (!hostName.contains("gapelia")) {
+			if (!(hostName.contains("gapelia") || hostName.contains("heroku"))) {
 				hostName = "http://localhost:8080";
 			}
+			hostName = "http://gapelia-dev.herokuapp.com";
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			LOG.info("Social auth succesUrl: " + successUrl);
 

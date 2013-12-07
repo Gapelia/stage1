@@ -6,10 +6,7 @@ import org.brickred.socialauth.util.SocialAuthUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Map;
 
@@ -19,8 +16,8 @@ import java.util.Map;
  * Time: 1:30 AM
  * Copyright Gapelia
  */
-public class SuccessPage extends HttpServlet {
-	public static Logger LOG = Logger.getLogger(SuccessPage.class);
+public class AuthSuccessHandler extends HttpServlet {
+	public static Logger LOG = Logger.getLogger(AuthSuccessHandler.class);
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,9 +38,15 @@ public class SuccessPage extends HttpServlet {
 			// setup session
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
+			//session.setMaxInactiveInterval(-1);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
-			dispatcher.forward(request, response);
+			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
+			sessionCookie.setMaxAge(31557600);
+			response.addCookie(sessionCookie);
+
+//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
+//			dispatcher.forward(request, response);
+			response.sendRedirect("/me");
 
 		} catch (Exception e) {
 			throw new ServletException(e);

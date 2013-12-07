@@ -1076,6 +1076,8 @@
 				});
 				*/
 
+                $(".user-data h2").html(_fullName);
+                $(".user-avatar img").attr("src", _image);
 			});
 		</script>
 

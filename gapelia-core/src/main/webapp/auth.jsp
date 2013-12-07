@@ -1,7 +1,6 @@
-<%@ page import="java.util.Enumeration" %>
+<%@ page import="com.gapelia.core.auth.AuthHelper" %>
 <%
-	String isLoggedIn = (String) session.getAttribute("login");
-	if (null == isLoggedIn || "false".equals(isLoggedIn)) {
+	if (!AuthHelper.isSessionAvailable(request)) {
 		response.sendRedirect("/");
 	}
 %>
