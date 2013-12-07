@@ -18,7 +18,7 @@ import static com.gapelia.core.auth.AuthHelper.APP_TWITTER;
  * User: Abhishek Tiwari
  * Date: 6/12/13
  * Time: 12:55 AM
- * Copyright Nuance Communications
+ * Copyright Gapelia
  */
 public class SocialLogin extends HttpServlet {
 	public static Logger LOG = Logger.getLogger(SocialLogin.class);
