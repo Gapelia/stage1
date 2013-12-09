@@ -67,86 +67,6 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<!--/ bookmarks-menu /-->
-			<div id="bookmarks-scroller">
-				<div id="bookmarks-header">
-					<h3>Paul Anthony Webb</h3>
-				</div>
-
-				<div id="bm-wrapper">
-					<dl id="bm-notifications">
-						<dt><span></span><a class="bm-section-title" href="#">Notifications</a></dt>
-
-						<dd>
-							<ul>
-								<li>Alice liked Nature is Gaea</l1>
-								<li>Theo added Tokyo Drift to a collection</l1>
-								<li>+3 people want to collaborate</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-books">
-						<dt><span></span><a class="bm-section-title" href="#">Bookshelf</a></dt>
-
-						<dd>
-							<ul>
-								<li>Fantasia</l1>
-								<li>Nature is Gaea</l1>
-								<li>Is This A Wonderland?</l1>
-								<li>Majesty</l1>
-								<li>AmsterDAYUM</l1>
-								<li>Japanimation</li>
-								<li>J'taime du jour</li>
-								<li>Heart + Seoul</li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-collections">
-						<dt><span></span><a class="bm-section-title" href="#">Scrapbook</a></dt>
-
-						<dd>
-							<ul>
-								<li>Nature</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-libraries">
-						<dt><span></span><a class="bm-section-title" href="#">Library</a></dt>
-
-						<dd>
-							<ul>
-								<li>Swiss Interiors</l1>
-								<li>World of Blue</l1>
-								<li>Hullabaloo</l1>
-								<li>I'm On A Boat</l1>
-								<li>Bahama Mama</l1>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-drafts">
-						<dt><span></span><a class="bm-section-title" href="#">Drafts</a></dt>
-
-						<dd>
-							<ul>
-								<li>Travel Book #01</l1>
-								<li>Adventure Book</l1>
-								<li>Mountains and Stuff</l1>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</div>
-			<!--//bookmarks-menu /-->
-
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
@@ -156,11 +76,7 @@
 					<p>A better place for collaborative blogging. Explore our users' featured books and libraries.</p>
 				</div>
 
-        <canvas id="dimensions-landing-bg">
-					<!--/ fallback is the Gapelia slate color /-->
-        </canvas>
-
-				<img src="/static/images/book-thumb-12.jpg" alt=""/>
+				<img src="/static/images/covers/bg.jpg" alt=""/>
 			</div>
 			<!--//main-panel /-->
 
@@ -792,6 +708,8 @@
 		<script>
 			$(document).ready(function () {
 
+				// Load Gapelia
+				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 				NProgress.start();
 
 				setTimeout(function () {
@@ -805,12 +723,64 @@
 						advanced: {
 							autoExpandHorizontalScroll: true,
 							updateOnContentResize: false
+						},
+						callbacks: {
+							onScroll: function() {
+								$("#featured-panel").css("width", "7%");
+
+								$("#featured-scroller").css({
+									"transition": "all 0.1s ease",
+									"-webkit-transition": "all 0.1s ease",
+									"width": "93%"
+								});
+
+								$("#featured-panel p").css("display", "none");
+
+								$("#featured-panel h2").css({
+									"margin": "0",
+									"padding": "0 0 4rem 0",
+									"bottom": "2rem",
+									"position": "fixed",
+									"transform": "rotate(-90deg)",
+									"-webkit-transform": "rotate(-90deg)"
+								});
+
+								$(this).mCustomScrollbar("update");
+							},
+							onTotalScrollBack: function() {
+								$("#featured-panel").css("width", "25%");
+
+								$("#featured-scroller").css({
+									"transition": "all 0.1s ease",
+									"-webkit-transition": "all 0.1s ease",
+									"width": "75%"
+								});
+
+								$("#featured-panel p").css("display", "block");
+
+								$("#featured-panel h2").css({
+									"margin": "0 0 10px 0",
+									"padding": "0",
+									"bottom": "0",
+									"position": "relative",
+									"transform": "rotate(0deg)",
+									"-webkit-transform": "rotate(0deg)"
+								});
+
+								$(this).mCustomScrollbar("update");
+							},
+							onTotalScrollBackOffset: 10
 						}
 					});
 
 					NProgress.done();
 
 					$("#book-list").css("opacity", "1");
+
+					// "fix" featured menu pop-in
+					setTimeout(function () {
+						$("#featured-panel, #featured-scroller").css("opacity", "1");
+					}, 400);
 
 				});
 
@@ -824,7 +794,6 @@
 					setTimeout(function () {
 
 						$("#book-list").show();
-						$("#dimension-list").hide();
 						$("#library-list").hide();
 
 						$("#book-list").mCustomScrollbar({
@@ -837,7 +806,6 @@
 							}
 						});
 
-						$("#dimension-list").mCustomScrollbar("destroy");
 						$("#library-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
@@ -845,42 +813,6 @@
 					});
 
 					$("#nav-books").addClass("current");
-					$("#nav-dimensions").removeClass("current");
-					$("#nav-libraries").removeClass("current");
-					e.preventDefault();
-
-				});
-
-				// Click "Dimensions"
-				$("#nav-dimensions").click(function (e) {
-
-					NProgress.start();
-
-					$("#book-list").hide();
-					$("#dimension-list").show();
-					$("#library-list").hide();
-
-					setTimeout(function () {
-
-						$("#dimension-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: {
-								autoExpandHorizontalScroll: true,
-								updateOnContentResize: false
-							}
-						});
-
-						$("#book-list").mCustomScrollbar("destroy");
-						$("#library-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-dimensions").addClass("current");
 					$("#nav-libraries").removeClass("current");
 					e.preventDefault();
 
@@ -892,7 +824,6 @@
 					NProgress.start();
 
 					$("#book-list").hide();
-					$("#dimension-list").hide();
 					$("#library-list").show();
 
 					setTimeout(function () {
@@ -908,14 +839,12 @@
 						});
 
 						$("#book-list").mCustomScrollbar("destroy");
-						$("#dimension-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
 					});
 
 					$("#nav-books").removeClass("current");
-					$("#nav-dimensions").removeClass("current");
 					$("#nav-libraries").addClass("current");
 					e.preventDefault();
 

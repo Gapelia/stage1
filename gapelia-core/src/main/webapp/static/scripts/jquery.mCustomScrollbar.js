@@ -651,7 +651,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 							var mCSB_buttonRight_stop = function (e) {
 								e.preventDefault();
 								clearInterval($this.data("mCSB_buttonScrollRight"));
-							}
+							};
 							mCSB_buttonRight.bind("mouseup touchend MSPointerUp mouseout MSPointerOut", mCSB_buttonRight_stop);
 							/*scroll left*/
 							mCSB_buttonLeft.bind("mousedown touchstart MSPointerDown", function (e) {
@@ -669,7 +669,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 							var mCSB_buttonLeft_stop = function (e) {
 								e.preventDefault();
 								clearInterval($this.data("mCSB_buttonScrollLeft"));
-							}
+							};
 							mCSB_buttonLeft.bind("mouseup touchend MSPointerUp mouseout MSPointerOut", mCSB_buttonLeft_stop);
 							$this.data({
 								"bindEvent_buttonsContinuous_x": true
@@ -697,7 +697,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 							var mCSB_buttonDown_stop = function (e) {
 								e.preventDefault();
 								clearInterval($this.data("mCSB_buttonScrollDown"));
-							}
+							};
 							mCSB_buttonDown.bind("mouseup touchend MSPointerUp mouseout MSPointerOut", mCSB_buttonDown_stop);
 							/*scroll up*/
 							mCSB_buttonUp.bind("mousedown touchstart MSPointerDown", function (e) {
@@ -715,7 +715,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 							var mCSB_buttonUp_stop = function (e) {
 								e.preventDefault();
 								clearInterval($this.data("mCSB_buttonScrollUp"));
-							}
+							};
 							mCSB_buttonUp.bind("mouseup touchend MSPointerUp mouseout MSPointerOut", mCSB_buttonUp_stop);
 							$this.data({
 								"bindEvent_buttonsContinuous_y": true
@@ -1211,7 +1211,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 		},
 		/*stop js animation tweens*/
 		mTweenAxisStop: function (el) {
-			if (el._id == null) {
+			if (el._id === null) {
 				return;
 			}
 			if (!window.requestAnimationFrame) {
@@ -1230,7 +1230,7 @@ Plugin Home:	http://manos.malihu.gr/jquery-custom-content-scroller
 				window.cancelAnimationFrame = window[pfx[i] + "CancelAnimationFrame"] || window[pfx[i] + "CancelRequestAnimationFrame"];
 			}
 		}
-	}
+	};
 
 	/*detect features*/
 	functions.rafPolyfill.call(); /*requestAnimationFrame*/

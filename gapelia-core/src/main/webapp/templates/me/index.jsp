@@ -108,7 +108,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -123,7 +123,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -138,7 +138,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -153,7 +153,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -168,7 +168,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -183,7 +183,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -198,7 +198,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -213,7 +213,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -228,7 +228,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -243,7 +243,7 @@
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -484,6 +484,7 @@
 			$(document).ready(function() {
 
 				// Load Gapelia
+				$("#user-panel, #book-scroller").css("opacity", "0").show();
 				NProgress.start();
 
 				setTimeout(function() {
@@ -500,6 +501,11 @@
 					NProgress.done();
 
 					$("#user-book-list").css("opacity", "1");
+
+					// "fix" featured menu pop-in
+					setTimeout(function () {
+						$("#user-panel, #book-scroller").css("opacity", "1");
+					}, 400).show();
 
 				});
 
