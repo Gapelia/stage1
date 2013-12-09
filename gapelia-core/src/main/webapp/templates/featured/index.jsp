@@ -98,6 +98,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
@@ -114,6 +116,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
@@ -132,6 +136,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
@@ -148,6 +154,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
@@ -166,6 +174,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
@@ -182,6 +192,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
@@ -200,6 +212,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
@@ -216,6 +230,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
@@ -234,6 +250,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
@@ -250,6 +268,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
@@ -276,6 +296,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/001/architecture">Architecture</a></div>
 								<div class="lib-blurb">Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
@@ -295,6 +317,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/002/biography">Biography</a></div>
@@ -316,6 +340,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/003/cinema">Cinema</a></div>
 								<div class="lib-blurb">Filmmaking takes place in many places around the world in a range of contexts, and using a variety of technologies and cinematic techniques.</div>
@@ -335,6 +361,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
@@ -356,6 +384,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/005/era">Era</a></div>
 								<div class="lib-blurb">An era is a period of time marked by distinctive character, events, &amp;c.</div>
@@ -375,6 +405,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
@@ -396,6 +428,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
 								<div class="lib-blurb">A person who creates or promotes high fashion, i.e. a fashion designer or fashion editor, + who dresses according to the trends of fashion.</div>
@@ -415,6 +449,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/008/future">Future</a></div>
@@ -436,6 +472,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
 								<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
@@ -455,6 +493,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/010/historian">Historian</a></div>
@@ -476,6 +516,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
 								<div class="lib-blurb">The Age of Discovery (a/k/a the Age of Exploration) was a period starting in the early 15th century and continuing to the 17th century.</div>
@@ -495,6 +537,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
@@ -516,6 +560,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
 								<div class="lib-blurb">Kawaii is the quality of cuteness in the context of Japanese culture.</div>
@@ -535,6 +581,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
@@ -556,6 +604,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
 								<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world. </div>
@@ -575,6 +625,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
@@ -596,6 +648,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/017/museum">Museum</a></div>
 								<div class="lib-blurb">A museum is an institution that cares for artifacts and other objects of scientific, artistic, cultural, or historical importance.</div>
@@ -615,6 +669,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
@@ -636,6 +692,8 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<span class="bookmark-notice">Bookmarked!</span>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
 								<div class="lib-blurb">Cyberpunk features advanced science, such as information technology and cybernetics, coupled with a degree of breakdown or radical change.</div>
@@ -655,6 +713,8 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
+
+							<span class="bookmark-notice">Bookmarked!</span>
 
 							<div class="library-info">
 								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
@@ -696,8 +756,17 @@
 			});
 
 			$(".library button").click(function () {
-				// $(this).text("Subscribed!").css("background-color", "#4cd964");
+				// $(this).text("Subscribed!").css("background-color", "#4cd964").delay(500).text("Unsubscribe");
 				$(this).text("Unsubscribe").css("background-color", "#4cd964");
+			});
+
+			$(".bookmark-this").click(function () {
+
+				// $(this).closest(".bookmark-notice").show().delay(500).fadeOut(1000);
+				// e.preventDefault();
+
+				$(".bookmark-this").closest(".bookmark-notice").show().delay(500).fadeOut(1000);
+
 			});
 		</script>
 

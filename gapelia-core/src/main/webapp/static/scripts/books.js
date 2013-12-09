@@ -902,11 +902,15 @@
 
 	});
 
-	$(".close-modal").on("click", function (e) {
+	$(document).on("click", ".close-modal", function (e) {
+
 		$(this).closest(".modal").css({
 			"display": "none",
 			"opacity": "0"
 		}).hide();
+
+		e.preventDefault();
+
 	});
 
 	// Content Creation

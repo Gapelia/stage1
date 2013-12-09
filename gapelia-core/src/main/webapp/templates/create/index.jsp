@@ -189,8 +189,8 @@
 				</select>
 
 				<div class="wrapper">
-					<a class="button a">Preview</a>
-					<a class="button b">Publish</a>
+					<a class="button a" href="/preview">Preview</a>
+					<a class="button b" id="publish-this" href="#">Publish</a>
 				</div>
 
 				<div class="close-modal">&times;</div>
@@ -234,9 +234,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="stack"></div>
-		<div style="-webkit-transform: translateZ(0)"></div>
 		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
@@ -283,38 +280,16 @@
 		</script>
 
 		<!--/ scripts/dialog /-->
-		<script src="/static/scripts/vex.js"></script>
-		<script src="/static/scripts/vex.dialog.js"></script>
-
 		<script>
-			var modal = {};
-			modal.className = "vex-theme-wireframe";
-
-			vex.defaultOptions.className = "vex-theme-wireframe";
-			vex.dialog.defaultOptions.showCloseButton = false;
+			$("#publish-this").on("click", function(e) {
+				// $("#publish-this .modal h1:before").html("");
+				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='close-modal'>&times;</div></div>").delay(500).fadeOut(1000);
+				e.preventDefault();
+			});
 
 			// Modal / Delete Page
+			/*
 			modal.deletePage = function () {
-
-				modal.deletePageClassName = "vex-theme-wireframe";
-
-				for (var i = 0; i > -1; i--) {
-					vex.dialog.alert({
-						appendLocation: ".stack",
-						message: $(".modal-delete-page > div:nth-child(" + (i + 1) + ")").html(),
-						className: modal.deletePageClassName,
-						buttons: [
-							$.extend({}, vex.dialog.buttons.YES, {
-								text: "Skip"
-							})
-						],
-						callback: function (value) {
-							setTimeout(function () {
-								modal.deletePageFn();
-							}, 0);
-						}
-					});
-				}
 
 				modal.deletePageFn();
 
@@ -322,85 +297,16 @@
 
 			modal.deletePageFn = function () {
 
-				var $remaining = $('.stack > .vex:not(".vex-closing")');
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				$(".stack").show().css({
-					"width": $vW + "px",
-					"height": $vH + "px"
-				});
-
-				$("#g-menu-toggle").css("opacity", "0.3");
-
-				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
-					$(item).addClass("v" + i);
-				});
-
-				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
-
-				if ($remaining.length === 0) {
-					setTimeout(function () {
-						$(".stack").hide();
-					}, 600);
-				}
-
-				$("#confirm-delete").click(function () {
-					$(".page-delete-demo").remove();
-					$("body").removeClass("vex-open");
-				});
-
 			};
 
 			// Modal / Publish Book
 			modal.publishBook = function () {
-
-				modal.publishBookClassName = "vex-theme-wireframe";
-
-				for (var i = 0; i > -1; i--) {
-					vex.dialog.alert({
-						appendLocation: ".stack",
-						message: $(".modal-publish-book > div:nth-child(" + (i + 1) + ")").html(),
-						className: modal.publishBookClassName,
-						buttons: [
-							$.extend({}, vex.dialog.buttons.YES, {
-								text: "Skip"
-							})
-						],
-						callback: function (value) {
-							setTimeout(function () {
-								modal.publishBookFn();
-							}, 0);
-						}
-					});
-				}
 
 				modal.publishBookFn();
 
 			};
 
 			modal.publishBookFn = function () {
-
-				var $remaining = $('.stack > .vex:not(".vex-closing")');
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				$(".stack").show().css({
-					"width": $vW + "px",
-					"height": $vH + "px"
-				});
-
-				$("#g-menu-toggle").css("opacity", "0.3");
-
-				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
-					$(item).addClass("v" + i);
-				});
-
-				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
-
-				if ($remaining.length === 0) {
-					setTimeout(function () {
-						$(".stack").hide();
-					}, 600);
-				}
 
 			};
 
@@ -412,6 +318,7 @@
 				modal.publishBook();
 				e.preventDefault;
 			});
+			*/
 		</script>
 		<!--//scripts /-->
 

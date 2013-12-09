@@ -182,6 +182,7 @@
 			top: 1rem; right: 2rem;
 
 			background-color: $black;
+			cursor: pointer;
 			position: absolute;
 			transform: rotate(-90deg);
 			z-index: 30;
@@ -210,6 +211,15 @@
 				background-color: $red;
 				position: absolute;
 			}
+		}
+
+		.bookmark-notice {
+			top: 1rem; right: 4rem;
+
+			color: $white;
+			font-weight: 700;
+			position: absolute;
+			z-index: 2;
 		}
 
 		.wrapper {

@@ -52,7 +52,7 @@
 
 					<ul>
 						<li><a class="" href="/me">Me</a></li>
-						<li><a class="demo-link">New Book</a></li>
+						<li><a class="" href="/create">New Book</a></li>
 					</ul>
 
 					<div id="account-links">
