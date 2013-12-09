@@ -31,24 +31,13 @@
 		<link href="/static/css/selectize.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<!--* if lt IE 9 *>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<!* endif *-->
-
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
-		<!--/
-		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
-		/-->
-
-        <!-- ----------------------------------------- -->
-		<!-- To get user details -->
+		<!--/ To get user details /-->
 		<%@include file="../../userDetails.jsp" %>
-		<!-- ----------------------------------------- -->
 
 	</head>
 
@@ -74,86 +63,6 @@
 				</div>
 			</nav>
 			<!--//site-menu /-->
-
-			<!--/ bookmarks-menu /-->
-			<div id="bookmarks-scroller">
-				<div id="bookmarks-header">
-					<h3>Paul Anthony Webb</h3>
-				</div>
-
-				<div id="bm-wrapper">
-					<dl id="bm-notifications">
-						<dt><span></span><a class="bm-section-title" href="#">Notifications</a></dt>
-
-						<dd>
-							<ul>
-								<li>Alice liked Nature is Gaea</l1>
-								<li>Theo added Tokyo Drift to a collection</l1>
-								<li>+3 people want to collaborate</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-books">
-						<dt><span></span><a class="bm-section-title" href="#">Bookshelf</a></dt>
-
-						<dd>
-							<ul>
-								<li>Fantasia</l1>
-								<li>Nature is Gaea</l1>
-								<li>Is This A Wonderland?</l1>
-								<li>Majesty</l1>
-								<li>AmsterDAYUM</l1>
-								<li>Japanimation</li>
-								<li>J'taime du jour</li>
-								<li>Heart + Seoul</li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-collections">
-						<dt><span></span><a class="bm-section-title" href="#">Scrapbook</a></dt>
-
-						<dd>
-							<ul>
-								<li>Nature</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-libraries">
-						<dt><span></span><a class="bm-section-title" href="#">Library</a></dt>
-
-						<dd>
-							<ul>
-								<li>Swiss Interiors</l1>
-								<li>World of Blue</l1>
-								<li>Hullabaloo</l1>
-								<li>I'm On A Boat</l1>
-								<li>Bahama Mama</l1>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-drafts">
-						<dt><span></span><a class="bm-section-title" href="#">Drafts</a></dt>
-
-						<dd>
-							<ul>
-								<li>Travel Book #01</l1>
-								<li>Adventure Book</l1>
-								<li>Mountains and Stuff</l1>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</div>
-			<!--//bookmarks-menu /-->
 
 			<!--/ main-panel /-->
 			<div id="user-panel">
@@ -183,16 +92,8 @@
 			<div id="book-scroller">
 				<ul id="book-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-					<li id="nav-collections"><a href="#">Scrapbook</a></li>
-					<li id="nav-libraries"><a href="#">Library</a></li>
+					<li id="nav-collections"><a href="#">Bookmarks</a></li>
 					<li id="nav-drafts"><a href="#">Drafts</a></li>
-
-					<li id="nav-bookmarks-toggle">
-						<span class="top-bm"></span>
-						<span class="bottom-bm"></span>
-						<span class="right-bm"></span>
-						<!--/ <a href="#">&#128278;</a> /-->
-					</li>
 				</ul>
 
 				<!--/ your-books /-->
@@ -526,187 +427,9 @@
 							<img src="/static/images/book-thumb-06.jpg" alt=""/>
 						</li>
 
-						<li class="new">
-							<div class="book-info">Doesn't make sense to have this here.</div>
-							<span class="image-overlay"></span>
-						</li>
-
 					</ul>
 				</div>
 				<!--//your-scrapbook /-->
-
-				<!--/ your-library /-->
-				<div class="user-library-list-wrapper">
-					<ul id="user-library-list">
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.JPG" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="library-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="new">
-							<div class="book-info">Doesn't make sense to have this here.</div>
-							<span class="image-overlay"></span>
-						</li>
-
-					</ul>
-				</div>
-				<!--//your-library /-->
 
 				<!--/ your-drafts /-->
 				<div class="user-draft-list-wrapper">
@@ -720,7 +443,6 @@
 
 							<div class="draft-info">
 								<div class="title"><a href="#">Mother Gaea</a></div>
-								<div class="draft-pages"><span>7</span> pages</div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -750,7 +472,7 @@
 			});
 
 			$(function() {
-				$(".user-bg, .book, .collection, .library, .draft").imgLiquid({ fill: true });
+				$(".user-bg, .book, .collection, .draft").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -792,7 +514,6 @@
 
 						$("#user-book-list").show();
 						$("#user-collection-list").hide();
-						$("#user-library-list").hide();
 						$("#user-draft-list").hide();
 
 						$("#user-book-list").mCustomScrollbar({
@@ -803,7 +524,6 @@
 						});
 
 						$("#user-collection-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
 						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
@@ -812,7 +532,6 @@
 
 					$("#nav-books").addClass("current");
 					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").removeClass("current");
 					$("#nav-drafts").removeClass("current");
 					e.preventDefault();
 
@@ -825,7 +544,6 @@
 
 					$("#user-book-list").hide();
 					$("#user-collection-list").show();
-					$("#user-library-list").hide();
 					$("#user-draft-list").hide();
 
 					setTimeout(function() {
@@ -838,7 +556,6 @@
 						});
 
 						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
 						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
@@ -847,42 +564,6 @@
 
 					$("#nav-books").removeClass("current");
 					$("#nav-collections").addClass("current");
-					$("#nav-libraries").removeClass("current");
-					$("#nav-drafts").removeClass("current");
-					e.preventDefault();
-
-				});
-
-				// Click "Libraries"
-				$("#nav-libraries").click(function (e) {
-
-					NProgress.start();
-
-					$("#user-book-list").hide();
-					$("#user-collection-list").hide();
-					$("#user-library-list").show();
-					$("#user-draft-list").hide();
-
-					setTimeout(function() {
-
-						$("#user-library-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-						});
-
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-collection-list").mCustomScrollbar("destroy");
-						$("#user-draft-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").addClass("current");
 					$("#nav-drafts").removeClass("current");
 					e.preventDefault();
 
@@ -895,7 +576,6 @@
 
 					$("#user-book-list").hide();
 					$("#user-collection-list").hide();
-					$("#user-library-list").hide();
 					$("#user-draft-list").show();
 
 					setTimeout(function() {
@@ -909,7 +589,6 @@
 
 						$("#user-book-list").mCustomScrollbar("destroy");
 						$("#user-collection-list").mCustomScrollbar("destroy");
-						$("#user-library-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -917,7 +596,6 @@
 
 					$("#nav-books").removeClass("current");
 					$("#nav-collections").removeClass("current");
-					$("#nav-libraries").removeClass("current");
 					$("#nav-drafts").addClass("current");
 					e.preventDefault();
 

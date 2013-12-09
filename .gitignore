@@ -38,4 +38,7 @@ Thumbs.db
 
 # ignore folders
 /gapelia-core/*
+/gapelia-core/src/main/java/com/gapelia/core/auth/SocialLogin.java
+
+# don't ignore this folder
 !/gapelia-core/src
