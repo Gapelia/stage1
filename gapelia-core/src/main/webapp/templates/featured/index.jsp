@@ -36,8 +36,10 @@
 		<script src="/static/scripts/nprogress.js"></script>
 		<!--/ <script src="/static/scripts/gradient.linear.js"></script> /-->
 
+		<!--/
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
+		/-->
 
 	</head>
 
@@ -166,15 +168,7 @@
 			<div id="featured-scroller">
 				<ul id="featured-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-					<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li> /-->
 					<li id="nav-libraries"><a href="#">Libraries</a></li>
-
-					<li id="nav-bookmarks-toggle">
-						<span class="top-bm"></span>
-						<span class="bottom-bm"></span>
-						<span class="right-bm"></span>
-						<!--/ <a href="#">&#128278;</a> /-->
-					</li>
 				</ul>
 
 				<!--/ Featured Books /-->
@@ -182,17 +176,16 @@
 					<ul id="book-list">
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -200,17 +193,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -218,17 +210,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -236,17 +227,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -254,17 +244,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -272,17 +261,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -290,17 +278,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -308,17 +295,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -326,17 +312,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -344,17 +329,16 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
-								<div class="library-location">Found in <a href="#">Camp Awesome</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -365,73 +349,20 @@
 				</div>
 				<!--//Featured Books /-->
 
-				<!--/ Gapelian Dimensions /-->
-				<!--/
-				<div class="dimension-list-wrapper">
-					<ul id="dimension-list">
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/pulse">Pulse</a></div>
-							</div>
-
-							<canvas id="pulse-portal-bg"></canvas>
-						</li>
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/art">Art</a></div>
-							</div>
-
-							<canvas id="art-portal-bg"></canvas>
-						</li>
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/wow">Wow</a></div>
-							</div>
-
-							<canvas id="wow-portal-bg"></canvas>
-						</li>
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/life">Life</a></div>
-							</div>
-
-							<canvas id="life-portal-bg"></canvas>
-						</li>
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/flow">Flow</a></div>
-							</div>
-
-							<canvas id="flow-portal-bg"></canvas>
-						</li>
-
-						<li class="portal">
-							<div class="portal-info">
-								<div class="title"><a href="/dimension/wonder">Wonder</a></div>
-							</div>
-
-							<canvas id="wonder-portal-bg"></canvas>
-						</li>
-
-					</ul>
-				</div>
-				/-->
-				<!--//Gapelian Dimensions /-->
-
 				<!--/ Featured Libraries /-->
 				<div class="library-list-wrapper">
 					<ul id="library-list">
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/001/architecture">Architecture</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
 							</div>
 
 							<div class="wrapper">
@@ -443,10 +374,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/002/biography">Biography</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
 							</div>
 
 							<div class="wrapper">
@@ -458,10 +394,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/003/cinema">Cinema</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Filmmaking takes place in many places around the world in a range of contexts, and using a variety of technologies and cinematic techniques.</div>
 							</div>
 
 							<div class="wrapper">
@@ -473,10 +414,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Cuisine is a characteristic style of cooking practices and traditions, often associated with a specific culture.</div>
 							</div>
 
 							<div class="wrapper">
@@ -488,10 +434,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/005/era">Era</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">An era is a period of time marked by distinctive character, events, &amp;c.</div>
 							</div>
 
 							<div class="wrapper">
@@ -503,10 +454,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">The term evokes cultural as well as geographic separation; the Far East is not just geographically distant, but also culturally exotic.</div>
 							</div>
 
 							<div class="wrapper">
@@ -518,10 +474,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">A person who creates or promotes high fashion, i.e. a fashion designer or fashion editor, + who dresses according to the trends of fashion.</div>
 							</div>
 
 							<div class="wrapper">
@@ -533,10 +494,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/008/future">Future</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">The future is the indefinite time period after the present. Its arrival is considered inevitable due to the existence of time + the physics.</div>
 							</div>
 
 							<div class="wrapper">
@@ -548,10 +514,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
 							</div>
 
 							<div class="wrapper">
@@ -563,10 +534,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/010/historian">Historian</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Historians are concerned with the continuous, methodical narrative and research of past events as relating to the human race.</div>
 							</div>
 
 							<div class="wrapper">
@@ -578,10 +554,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">The Age of Discovery (a/k/a the Age of Exploration) was a period starting in the early 15th century and continuing to the 17th century.</div>
 							</div>
 
 							<div class="wrapper">
@@ -593,10 +574,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Anime are Japanese animated productions featuring hand-drawn or CGI. For simplicity, many view anime as an animation product from Japan.</div>
 							</div>
 
 							<div class="wrapper">
@@ -608,10 +594,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Kawaii is the quality of cuteness in the context of Japanese culture.</div>
 							</div>
 
 							<div class="wrapper">
@@ -623,10 +614,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">A manifesto is a published verbal declaration of the intentions, motives, or views of the issuer, be it an individual, group, or government.</div>
 							</div>
 
 							<div class="wrapper">
@@ -638,10 +634,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world. </div>
 							</div>
 
 							<div class="wrapper">
@@ -653,10 +654,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Gaia was the great mother of all: the primal Greek Mother Goddess; creator and giver of birth to the Earth and all the Universe.</div>
 							</div>
 
 							<div class="wrapper">
@@ -668,10 +674,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/017/museum">Museum</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">A museum is an institution that cares for artifacts and other objects of scientific, artistic, cultural, or historical importance.</div>
 							</div>
 
 							<div class="wrapper">
@@ -683,10 +694,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Today, modern road tripping is a fast growing hobby, and not just a means of vacationing.</div>
 							</div>
 
 							<div class="wrapper">
@@ -698,10 +714,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">Cyberpunk features advanced science, such as information technology and cybernetics, coupled with a degree of breakdown or radical change.</div>
 							</div>
 
 							<div class="wrapper">
@@ -713,10 +734,15 @@
 						</li>
 
 						<li class="library">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
-								<div class="library-books"><span>25</span> books</div>
-								<div class="library-contributors"><span>14</span> contributors</div>
+								<div class="lib-blurb">In sociology + cultural studies, a subculture is a group of people within a culture that differentiates themselves from the larger culture.</div>
 							</div>
 
 							<div class="wrapper">
@@ -751,6 +777,11 @@
 
 			$(function() {
 				$("#featured-panel, .book, .library").imgLiquid({ fill: true });
+			});
+
+			$(".library button").click(function () {
+				// $(this).text("Subscribed!").css("background-color", "#4cd964");
+				$(this).text("Unsubscribe").css("background-color", "#4cd964");
 			});
 		</script>
 

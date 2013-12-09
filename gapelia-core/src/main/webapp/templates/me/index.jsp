@@ -735,25 +735,6 @@
 
 		</div>
 
-		<!--/ dialog-windows /-->
-		<div class="modal-book-creation" style="display: none">
-			<div>
-				<h1>They say two minds are better than one</h1>
-
-				<div class="reveal">
-					<p>Invite others to collaborate on your story:</p>
-					<select id="user-search" class="movies" placeholder="Search for a user"></select>
-					<p>Or, invite via <a href="">email</a></p>
-
-					<p><a href="/create">SKIP</a></p>
-				</div>
-			</div>
-		</div>
-
-		<div class="stack"></div>
-		<div style="-webkit-transform: translateZ(0)"></div>
-		<!--//dialog-windows /-->
-
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
@@ -945,80 +926,6 @@
 			});
 		</script>
 
-		<!--/ scripts/dialog /-->
-		<script src="/static/scripts/vex.js"></script>
-		<script src="/static/scripts/vex.dialog.js"></script>
-		
-		<script>
-			var demo = {};
-			demo.className = "vex-theme-wireframe";
-
-			vex.defaultOptions.className = "vex-theme-wireframe";
-			vex.dialog.defaultOptions.showCloseButton = true;
-
-			demo.loadInitialDialogs = function () {
-
-				$("body").addClass("page-intro");
-
-				demo.initialDialogsClassName = "vex-theme-wireframe";
-
-				for (var i = 0; i > -1; i--) {
-					vex.dialog.alert({
-						appendLocation: ".stack",
-						message: $(".modal-book-creation > div:nth-child(" + (i + 1) + ")").html(),
-						className: demo.initialDialogsClassName,
-						buttons: [
-							$.extend({}, vex.dialog.buttons.YES, {
-								text: "Skip"
-							})
-						],
-						callback: function (value) {
-							setTimeout(function () {
-								demo.advanceDemoDialogs();
-							}, 0);
-						}
-					});
-				}
-
-				demo.advanceDemoDialogs();
-
-			};
-
-			demo.advanceDemoDialogs = function () {
-
-				var $remaining = $('.stack > .vex:not(".vex-closing")');
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				$(".stack").show();
-
-				$(".stack").css({
-					"width": $vW + "px",
-					"height": $vH + "px"
-				});
-
-				$("#g-menu-toggle").css("opacity", "0.3");
-
-				$.each($remaining.removeClass("v0").toArray().reverse(), function (i, item) {
-					$(item).addClass("v" + i);
-				});
-
-				$('.stack > .v0:not(".vex-closing") input[type="submit"]').focus();
-
-				if ($remaining.length === 0) {
-					$("body").removeClass("page-intro");
-
-					setTimeout(function () {
-						$(".stack").hide();
-					}, 600);
-				}
-
-			};
-
-			$(".demo-link").click(function () {
-				demo.loadInitialDialogs();
-			});
-		</script>
-
 		<script>
 			$(function() {
 
@@ -1076,8 +983,9 @@
 				});
 				*/
 
-                $(".user-data h2").html(_fullName);
-                $(".user-avatar img").attr("src", _image);
+				$(".user-data h2").html(_fullName);
+				$(".user-avatar img").attr("src", _image);
+
 			});
 		</script>
 

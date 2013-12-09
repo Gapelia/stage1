@@ -214,54 +214,38 @@
 		position: relative;
 		transition: box-shadow 0.2s ease;
 
-		.add-this {
-			width: 0; height: 0;
-			top: 0; right: 0;
+		.bookmark-this {
+			width: auto; height: auto;
+			top: 1rem; right: 2rem;
 
-			border-top: 75px solid $slate;
-			border-left: 75px solid transparent;
-			color: $white;
+			background-color: $black;
 			position: absolute;
-			z-index: 1;
+			transform: rotate(-90deg);
+			z-index: 30;
 
-			a {
-				top: -4.8rem; right: 0.6rem;
+			-webkit-transform: rotate(-90deg);
 
-				color: $white;
-				font-size: 3em;
+			.top-bm, .bottom-bm {
+				width: 0; height: 0;
+
+				border-left: 20px solid transparent;
+				right: 9px;
 				position: absolute;
-				
-				&:hover {
-					opacity: 1;
+			}
 
-					span {
-						&:nth-child(2) { right: 0; }
-					}
-				}
+			.top-bm {
+				border-top: 20px solid $red;
+				bottom: -15px;
+			}
 
-				span {
-					position: absolute;
+			.bottom-bm { border-bottom: 20px solid $red; }
 
-					&:nth-child(1) {
-						top: 0.1rem; right: -0.1rem;
+			.right-bm {
+				width: 25px; height: 25px;
+				top: -5px; right: -16px;
 
-						font-family: "entyporegular";
-						z-index: 1;
-					}
-
-					&:nth-child(2) {
-						width: 220px; height: auto;
-						top: 0.9rem; right: -14rem;
-
-						background-color: $slate;
-						display: inline-block;
-						@include sans;
-						font-size: 0.1em !important;
-						font-weight: 300;
-						padding: 0.2rem 0.8rem;
-						transition: all 0.4s ease;
-					}
-				}
+				background-color: $red;
+				position: absolute;
 			}
 		}
 
@@ -289,7 +273,7 @@
 		&:hover {
 			/* ooh factor */
 			/* box-shadow: 0 0 6px rgba($black, 0.6); */
-			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black; }
+			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
 		}
 	}
 
@@ -329,27 +313,44 @@
 			&:hover { opacity: 0.7; }
 		}
 
-		.author-name, .library-location {
-			font-family: Georgia, serif;
+		.lib-blurb, .author-name, .library-location {
+			// font-family: Georgia, serif;
+			@include sans;
 			font-style: italic;
-			text-transform: lowercase;
+			line-height: 1.2em;
+			padding: 0 2rem;
+			// text-align: left;
+			// text-transform: lowercase;
 
 			a {
 				color: $white;
 				font-style: normal;
-				font-weight: 600;
+				// font-weight: 600;
 				text-transform: none;
 			}
 		}
 
-		.author-name {
-			margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-
-			border-bottom: 1px solid rgba($white, 0.7);
-			font-size: 85%;
+		.author-name, .library-location {
+			&:before {
+				@include serif;
+			}
 		}
 
-		.library-location { font-size: 70%; }
+		.author-name {
+			// font-size: 85%;
+
+			&:before {
+				content: "by ";
+			}
+		}
+
+		.library-location {
+			// font-size: 70%;
+
+			&:before {
+				content: "in ";
+			}
+		}
 	}
 
 	#bookmarks-scroller {
