@@ -93,6 +93,8 @@
 		</div>
 
 		<div id="layout-scroller" class="menu">
+			<h5><a href="#" id="back-to-pages">Back</a></h5>
+
 			<ul>
 				<li id="select-frontcover-layout">
 					<!--/ <img src="/static/images/view-modes/front.png" alt=""/> /-->
@@ -197,52 +199,12 @@
 				</select>
 
 				<div class="wrapper">
-					<a class="button a" href="/preview">Preview</a>
-					<a class="button b" id="publish-this" href="#">Publish</a>
+					<a class="button green" id="publish-this" href="#">Publish</a>
 				</div>
 
 				<div class="close-modal">&times;</div>
 			</div>
 		</section>
-
-		<!--/ dialog-windows /-->
-		<div class="modal-delete-page" style="display: none;">
-			<div>
-				<h1>Hold up</h1>
-
-				<div class="reveal">
-					<p>Are you sure you want to delete this page?</p>
-
-					<a id="confirm-delete">Yes</a>
-					<button>No</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="modal-delete-book" style="display: none;">
-			<div>
-				<h1>Hold up</h1>
-
-				<div class="reveal">
-					<p>Are you sure you want to delete this book?</p>
-
-					<button>Yes</button>
-					<button>No</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="modal-publish-book" style="display: none;">
-			<div>
-				<h1>Sweet</h1>
-
-				<div class="reveal">
-					<p>Your book has been published!</p>
-					<button>Okay</button>
-				</div>
-			</div>
-		</div>
-		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/grande.js"></script>
@@ -290,9 +252,12 @@
 		<!--/ scripts/dialog /-->
 		<script>
 			$("#publish-this").on("click", function(e) {
+
 				// $("#publish-this .modal h1:before").html("");
-				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='close-modal'>&times;</div></div>").delay(500).fadeOut(1000);
+				// $("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>").delay(500).fadeOut(1000);
+				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
 				e.preventDefault();
+
 			});
 
 			// Modal / Delete Page

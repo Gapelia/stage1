@@ -177,7 +177,24 @@
 	}
 
 	#layout-scroller {
+		h5 {
+			width: 100%; height: 48px;
+			top: 0; left: 0;
+
+			background-color: $slate;
+			border-bottom: 1px solid rgba($black, 0.3);
+			color: $white;
+			font-size: inherit;
+			padding: 0.8rem;
+			position: absolute;
+			z-index: 2;
+		}
+
+		.sp-scrollbar { margin: 60px 0 1rem 0; }
+
 		ul {
+			margin: 48px 0 0 0;
+
 			li {
 				padding: 1rem;
 
@@ -214,11 +231,9 @@
 					text-align: center;
 				}
 			}
-		}
-	}
 
-	#layout-scroller {
-		.selected-layout { background-color: $gray-ii; }
+			.selected-layout { background-color: $gray-ii; }
+		}
 	}
 
 	#main-content {
@@ -1045,8 +1060,7 @@
   top: 0; left: 0;
 	bottom: 0; right: 0;
 
-	background-color: rgba($white, 0.9);
-	// display: none;
+	background-color: $white; // rgba($white, 0.9);
 	opacity: 0;
   position: absolute;
 	text-align: center;
@@ -1079,26 +1093,39 @@
 		margin: 3rem 0 0 0; padding: 0.5rem 1rem;
 
 		border: 1px solid rgba($black, 0.3);
+		border-radius: 5px;
 		font-weight: 400;
 	}
 
 	.a, .b {
-		// float: left;
+		transition: all 0.2s ease;
+
+		&:hover {
+			opacity: 1;
+			padding: 0.5rem 1.5rem;
+		}
 	}
 
 	.a {
 		background-color: $gray;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 		color: $black;
 		margin: 0 -2px 0 0;
 	}
 
 	.b {
-		background-color: $green;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 		margin: 0 0 0 -2px;
+	}
+
+	.green {
+		background-color: $green;
 	}
 
 	.selectize-control { margin: 0 0 2rem 0; }

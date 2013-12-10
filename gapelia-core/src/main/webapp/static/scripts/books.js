@@ -84,26 +84,78 @@
 
 	});
 
-	$("#layout-scroller").on("mouseenter", function () {
+	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 
+		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
-		$(this).stop(true).css("left", "0").clearQueue();
-		$("#pages-scroller").css("left", "-200px");
+
+		setTimeout(function() {
+			$("#pages-scroller").stop(true).css("left", "-200px");
+		}, 200);
+
+		$("#layout-scroller").on("mouseenter", function () {
+
+			$("#back").stop(true).css("margin", "0 0 0 200px");
+			$(this).stop(true).css("left", "0").clearQueue();
+			$("#pages-scroller").css("left", "-200px");
+
+			$("#main-content").stop(true).css({
+				"left": "200px",
+				"position": "fixed"
+			});
+
+		}).on("mouseleave", function () {
+
+			setTimeout(function() {
+				$("#back").css("margin", "0");
+				$("#layout-scroller").css("left", "-200px");
+
+				$("#main-content").css({
+					"left": "0",
+					"position": "fixed"
+				});
+			}, 500);
+
+		});
+
+		e.preventDefault();
+
+	});
+
+	$("#back-to-pages").on("click", function (e) {
+
+		$("#pages-scroller").stop(true).css("left", "0");
+		$("#back").stop(true).css("margin", "0 0 0 200px");
+		$("#layout-scroller").stop(true).css("left", "-200px");
 
 		$("#main-content").stop(true).css({
 			"left": "200px",
 			"position": "fixed"
+		}).stop(true).delay(5000);
+
+		$("#pages-scroller").on("mousemove", function () {
+
+			$("#back").stop(true).css("margin", "0 0 0 200px");
+			$(this).stop(true).css("left", "0").clearQueue();
+
+			$("#main-content").stop(true).css({
+				"left": "200px",
+				"position": "fixed"
+			});
+
+		}).on("mouseleave", function () {
+
+			$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
+			$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
+
+			$("#main-content").css({
+				"left": "0",
+				"position": "fixed"
+			}).stop(true).delay(5000);
+
 		});
 
-	}).on("mouseleave", function () {
-
-		$("#back").css("margin", "0");
-		$("#layout-scroller").css("left", "-200px");
-
-		$("#main-content").css({
-			"left": "0",
-			"position": "fixed"
-		});
+		e.preventDefault();
 
 	});
 
@@ -174,6 +226,7 @@
 
 	});
 
+	/*
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 
 		$("#pages-scroller").css("left", "-200px");
@@ -181,6 +234,7 @@
 		e.preventDefault();
 
 	});
+	*/
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
