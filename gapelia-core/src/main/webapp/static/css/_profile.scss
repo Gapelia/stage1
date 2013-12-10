@@ -7,7 +7,7 @@
 		width: 100%;
 	}
 
-	/* Start User Code */
+	// Start User Code
 
 	#user-panel {
 		.button-wrapper {
@@ -107,7 +107,7 @@
 		}
 	}
 
-	/* End User Code */
+	// End User Code
 
 	.new-inner-wrapper {
 		height: auto;
@@ -147,8 +147,8 @@
 	}
 
 	.like-collect, .edit-delete {
-		width: 100%; height: 48px;
-		margin: 0; padding: 2rem 0;
+		width: 100%; height: auto; // 48px
+		margin: 0; padding: 0.5rem 0;
 		bottom: 3rem; right: 0;
 
 		background-color: rgba($black, 0.5);
@@ -159,11 +159,11 @@
 		li {
 			color: $white;
 			display: inline-block;
-			font-family: "entyporegular";
-			font-size: 3.4em;
-			line-height: 0;
 			margin: 0 1rem 0 0;
 			text-align: center;
+			vertical-align: top;
+
+			@include hide-text;
 
 			&:last-child { margin: 0; }
 
@@ -175,5 +175,20 @@
 			}
 		}
 	}
+
+	.edit, .delete {
+		width: 32px; height: 32px;
+
+		background-image: url("../images/sprite-sheet.png");
+		background-size: 200px 500px;
+
+		a {
+			width: 100%; height: 100%;
+			display: block;
+		}
+	}
+
+	.edit { background-position: 160px 1px; }
+	.delete { background-position: 129px 1px; }
 
 }

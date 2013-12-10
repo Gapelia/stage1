@@ -120,7 +120,7 @@
 
 	$("#add-page").click(function (e) {
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page entypo\">☕</div><a class=\"edit-page entypo\">&#9998;</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src="+imageURL+" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -196,7 +196,7 @@
 
 	function baseLayout() {
 
-		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the <span class=\"entypo\">&#9871;</span> menu to get started!</p></article></div></section>";
+		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the Pages menu to get started!</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
@@ -1144,9 +1144,9 @@
 		$(".full-book header").css("top", "0");
 
 		$("#g-menu-toggle").css({
-			"width": "30px",
-			"height": "30px",
-			"background-size": "30px",
+			"width": "32px",
+			"height": "32px",
+			"background-size": "200px 500px",
 			"top": "0.6rem"
 		});
 
@@ -1158,20 +1158,22 @@
 
 		$("#header-toggle").css({
 			"opacity": "1",
-			"top": "0"
+			"top": "0.5rem"
 		});
 
 		$("#next-book-toggle").css({
 			"opacity": "1",
-			"top": "0"
+			"top": "0.5rem"
 		});
 
+		/* big logo is distracting
 		$("#g-menu-toggle").css({
-			"width": "61px",
-			"height": "61px",
-			"background-size": "61px",
+			"width": "64px",
+			"height": "64px",
+			"background-size": "400px 1000px",
 			"top": "1rem"
 		});
+		*/
 
 	});
 

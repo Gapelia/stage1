@@ -95,42 +95,50 @@
 		<div id="layout-scroller" class="menu">
 			<ul>
 				<li id="select-frontcover-layout">
-					<img src="/static/images/view-modes/front.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/front.png" alt=""/> /-->
+					<div id="frontcover-layout">Front Cover Layout</div>
 					<span>Front Cover</span>
 				</li>
 
 				<li id="select-photo-layout">
-					<img src="/static/images/view-modes/photo.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/photo.png" alt=""/> /-->
+					<div id="photo-layout">Photo Layout</div>
 					<span>Photo</span>
 				</li>
 
 				<li id="select-text-layout">
-					<img src="/static/images/view-modes/text.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/text.png" alt=""/> /-->
+					<div id="text-layout">Text Layout</div>
 					<span>Text</span>
 				</li>
 
 				<li id="select-horizontal-layout">
-					<img src="/static/images/view-modes/horizontal.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/horizontal.png" alt=""/> /-->
+					<div id="horizontal-layout">Horizontal Layout</div>
 					<span>Horizontal</span>
 				</li>
 
 				<li id="select-overlay-layout">
-					<img src="/static/images/view-modes/overlay.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/overlay.png" alt=""/> /-->
+					<div id="overlay-layout">Overlay Layout</div>
 					<span>Overlay</span>
 				</li>
 
 				<li id="select-phototext-layout">
-					<img src="/static/images/view-modes/phototext.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/phototext.png" alt=""/> /-->
+					<div id="phototext-layout">Photo/Text Layout</div>
 					<span>Photo/Text</span>
 				</li>
 
 				<li id="select-vertical-layout">
-					<img src="/static/images/view-modes/vertical.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/vertical.png" alt=""/> /-->
+					<div id="vertical-layout">Vertical Layout</div>
 					<span>Vertical</span>
 				</li>
 
 				<li id="select-video-layout">
-					<img src="/static/images/view-modes/video.png" alt=""/>
+					<!--/ <img src="/static/images/view-modes/video.png" alt=""/> /-->
+					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
 			</ul>
@@ -146,7 +154,7 @@
 						<section id="test-blank" class="blank-preview-wrapper">
 							<div class="blank-preview">
 								<article>
-									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the <span class="entypo">&#9871;</span> menu to get started!</p>
+									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the Pages menu to get started!</p>
 								</article>
 							</div>
 						</section>

@@ -1,6 +1,7 @@
 /******************************************************************************** BOOK-CREATION/SCSS **/
 
 .book-creation {
+
 	background-image: url("../images/blankBG.jpg");
 	@include sans;
 	overflow: hidden;
@@ -34,7 +35,7 @@
 				display: inline-block;
 				font-weight: 400;
 
-				/* &:hover { opacity: 1; } */
+				// &:hover { opacity: 1; }
 				&:last-child { margin: 0; }
 			}
 
@@ -123,22 +124,27 @@
 		}
 
 		img {
-			width: 100%; height: 140px; /* auto */
+			width: 100%; height: 140px; // auto
 			display: block;
 		}
 
-		.entypo {
-			width: auto; height: auto;
+		.delete-page, .edit-page {
+			// width: auto; height: auto;
 			// top: 1rem; left: 1rem;
+			width: 32px; height: 32px;
 
+			background-image: url("../images/sprite-sheet.png");
+			background-size: 200px 500px;
 			color: $white;
 			font-size: 3.5em;
 			line-height: 0.5em;
 			padding: 0;
 			position: absolute;
 			text-align: center;
-			text-shadow: 0 0 1px $black; /* creates outline */
+			text-shadow: 0 0 1px $black; // creates outline
 			z-index: 1;
+			
+			@include hide-text;
 
 			&:hover {
 				opacity: 1;
@@ -148,10 +154,12 @@
 
 		.delete-page {
 			bottom: 1rem; left: 1rem;
+			background-position: 129px 1px;
 		}
 
 		.edit-page {
 			top: 1rem; right: 1rem;
+			background-position: 160px 1px;
 		}
 
 		span {
@@ -178,12 +186,28 @@
 					opacity: 0.7;
 				}
 
-				img, span { display: block; }
+				#frontcover-layout, #photo-layout, #text-layout, #horizontal-layout,
+				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout, span { display: block; }
 
-				img {
-					width: auto; height: auto;
+				#frontcover-layout, #photo-layout, #text-layout, #horizontal-layout,
+				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout {
+					width: 100px; height: 63px;
 					margin: 0 auto 1rem;
+
+					background-image: url("../images/sprite-sheet.png");
+					background-size: 200px 500px;
+
+					@include hide-text;
 				}
+
+				#frontcover-layout	{ background-position: 0 -32px; }
+				#photo-layout				{ background-position: 100px -32px; }
+				#text-layout				{ background-position: 0 -221px; }
+				#horizontal-layout	{ background-position: 100px -158px; }
+				#overlay-layout			{ background-position: 100px -95px; }
+				#phototext-layout		{ background-position: 0 -95px; }
+				#vertical-layout		{ background-position: 0 -158px; }
+				#video-layout				{ background-position: 100px -221px; }
 
 				span {
 					width: 100%; height: auto;
