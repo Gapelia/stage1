@@ -154,6 +154,8 @@
 					<div id="create-content">
 
 						<section id="test-blank" class="blank-preview-wrapper">
+							<img class="page-bg" src="/static/images/blankBG.jpg"/>
+
 							<div class="blank-preview">
 								<article>
 									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the Pages menu to get started!</p>
@@ -235,7 +237,7 @@
 		<script>
 			$(function() {
 				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
-				// $(".photo-preview-wrapper").imgLiquid({ fill: true });
+				$(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
 			});
 		</script>
 
