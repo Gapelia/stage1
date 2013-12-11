@@ -238,12 +238,29 @@
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
+		// $(this).closest("li").remove();
+
 		currentPage = $(this).closest("img").attr("id");
 		pages.page.splice(currentPage, 1);
 		currentPage--;
 		pagesCreated--;
 
+		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red\" class=\"yay-delete-page\">Yay</a><a href=\"#\" class=\"button b green\" class=\"nay-delete-page\">Nay</a></div></div>");
+
+		e.preventDefault();
+
+	});
+
+	$(document).on("click", "#pages-scroller ul li .delete-page-confirm .yay-delete-page", function (e) {
+
 		$(this).closest("li").remove();
+		e.preventDefault();
+
+	});
+
+	$(document).on("click", "#pages-scroller ul li .delete-page-confirm .nay-delete-page", function (e) {
+
+		$(this).closest(".delete-page-confirm").remove();
 		e.preventDefault();
 
 	});
@@ -516,7 +533,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").scrollpanel();
+		// $(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").scrollpanel();
+		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -739,7 +757,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		// $(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -807,7 +826,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		// $(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -905,7 +925,8 @@
 
 		});
 
-		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		// $(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
+		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -939,6 +960,14 @@
 	$("#select-phototext-layout").click(function ()		{ photoTextLayout(); });
 	$("#select-vertical-layout").click(function ()		{ verticalLayout(); });
 	$("#select-video-layout").click(function ()				{ videoLayout(); });
+
+	// Have front cover and 1 page ready at load time
+	$(document).ready(function () {
+
+		$("#add-page").before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		frontCoverLayout();
+
+	});
 
 	// Right Menus
 	// @Gapelia

@@ -1,0 +1,75 @@
+
+/************************************************************************************** BUTTONS/SCSS **/
+
+.button, button {
+	margin: 0 !important; padding: 0.5rem 1rem !important;
+
+	border: 1px solid rgba($black, 0.3);
+	border-radius: 5px;
+	font-weight: 400;
+	transition: all 0.2s ease;
+
+	&:hover {
+		opacity: 1;
+		padding: 0.5rem 1.5rem !important;
+	}
+}
+
+.a {
+	background-color: $gray;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 0;
+	color: $black;
+	margin: 0 -2px 0 0 !important;
+
+	// &:hover { border-right: 1px solid rgba($black, 0.3); }
+}
+
+.b {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: 0;
+	margin: 0 0 0 -2px !important;
+
+	// &:hover { border-left: 1px solid rgba($black, 0.3); }
+}
+
+.red {
+	background-color: $red !important;
+	color: $white !important;
+}
+
+.orange {
+	background-color: $orange !important;
+	color: $white !important;
+}
+
+.yellow {
+	background-color: $yellow !important;
+	color: $black !important;
+}
+
+.green {
+	background-color: $green !important;
+	color: $white !important;
+}
+
+.blue {
+	background-color: $blue !important;
+	color: $white !important;
+}
+
+.purple {
+	background-color: $purple !important;
+	color: $white !important;
+}
+
+.slate {
+	background-color: $slate !important;
+	color: $white !important;
+}
