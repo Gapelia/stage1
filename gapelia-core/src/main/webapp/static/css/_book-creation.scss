@@ -6,17 +6,6 @@
 	@include sans;
 	overflow: hidden;
 
-	::-webkit-scrollbar {
-		width: 3px; height: 3px;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background-color: $slate;
-		&:window-inactive { background-color: $gray-ii; }
-	}
-
-	::-webkit-scrollbar-track { background: rgba($white, 0.1); }
-
 	header {
 		width: 100%; height: auto;
 		top: 0; left: 0;
@@ -28,11 +17,9 @@
 		z-index: 1;
 
 		#back, #finish {
-			// background-color: $slate;
 			display: inline-block;
-			// font-family: "entyporegular";
 			@include sans;
-			font-size: 15px; // 3.4em
+			font-size: 15px;
 			line-height: 1;
 			text-align: center;
 			transition: margin 0.5s ease;
@@ -46,7 +33,6 @@
 				display: inline-block;
 				font-weight: 400;
 
-				// &:hover { opacity: 1; }
 				&:last-child { margin: 0; }
 			}
 
@@ -71,7 +57,6 @@
 		}
 
 		#back { float: left; }
-
 		#finish { float: right; }
 	}
 
@@ -431,7 +416,7 @@
 						font-size: 1.5em;
 						font-weight: 700;
 						line-height: 1.2;
-						text-transform: capitalize;
+						// text-transform: capitalize;
 
 						&:empty:after {
 							color: $gray-iv;
@@ -700,14 +685,14 @@
 						width: 30%; height: 100%;
 						top: 0; right: 0;
 
-						background-color: rgba($black, 0.7);
-						color: $white;
+						background-color: rgba($white, 0.7);
+						color: $black;
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
 
-						:-ms-input-placeholder			{ color: $white; }
-						::-moz-placeholder					{ color: $white; }
-						::-webkit-input-placeholder	{ color: $white; }
+						:-ms-input-placeholder			{ color: $black; }
+						::-moz-placeholder					{ color: $black; }
+						::-webkit-input-placeholder	{ color: $black; }
 
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
@@ -938,7 +923,7 @@
 			font-family: inherit;
 			font-size: 16px;
 			outline: none;
-			padding: 0;
+			padding: 0 !important;
 			transition: opacity 400ms;
 			user-select: none;
 
@@ -998,7 +983,7 @@
 			float: left;
 			font-size: 1em;
 			line-height: 1;
-			margin-right: 1px;
+			margin-right: 1px !important;
 		}
 
 		input {

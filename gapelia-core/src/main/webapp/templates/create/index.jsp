@@ -69,13 +69,13 @@
 
 		<header>
 			<div id="back">
-        <a href="#" id="pages-toggle" title="Add pages">Pages</a>
+        <a class="button transparent" href="#" id="pages-toggle" title="Add pages">Pages</a>
 			</div>
 
 			<div id="finish">
-				<a href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
-        <a href="#" id="publish-toggle" title="Publish">Publish</a>
-				<a href="/me" id="close-button" title="Save and Close">Save + Close</a>
+				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
+        <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish">Publish</a>
+				<a class="button b transparent" href="/me" id="close-button" title="Save and Close">Save + Close</a>
 			</div>
 		</header>
 
@@ -230,14 +230,14 @@
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
+		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/books.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
-		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script>
 			$(function() {
 				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
-				$(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
+				// $(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -255,45 +255,10 @@
 		<script>
 			$("#publish-this").on("click", function(e) {
 
-				// $("#publish-this .modal h1:before").html("");
-				// $("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>").delay(500).fadeOut(1000);
 				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
 				e.preventDefault();
 
 			});
-
-			// Modal / Delete Page
-			/*
-			modal.deletePage = function () {
-
-				modal.deletePageFn();
-
-			};
-
-			modal.deletePageFn = function () {
-
-			};
-
-			// Modal / Publish Book
-			modal.publishBook = function () {
-
-				modal.publishBookFn();
-
-			};
-
-			modal.publishBookFn = function () {
-
-			};
-
-			$(".delete-page").click(function () {
-				modal.deletePage();
-			});
-
-			$("#publish-book").click(function (e) {
-				modal.publishBook();
-				e.preventDefault;
-			});
-			*/
 		</script>
 		<!--//scripts /-->
 

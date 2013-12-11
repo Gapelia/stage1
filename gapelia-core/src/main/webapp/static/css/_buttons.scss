@@ -5,7 +5,7 @@
 	margin: 0 !important; padding: 0.5rem 1rem !important;
 
 	border: 1px solid rgba($black, 0.3);
-	border-radius: 5px;
+	border-radius: 15px;
 	font-weight: 400;
 	transition: all 0.2s ease;
 
@@ -16,9 +16,8 @@
 }
 
 .a {
-	background-color: $gray;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	border-right: 0;
@@ -28,9 +27,14 @@
 	// &:hover { border-right: 1px solid rgba($black, 0.3); }
 }
 
+.middle-button {
+	border-radius: 0;
+	margin: 0 -1px !important;
+}
+
 .b {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	border-left: 0;
@@ -72,4 +76,14 @@
 .slate {
 	background-color: $slate !important;
 	color: $white !important;
+}
+
+.gray {
+	background-color: $gray !important;
+	color: $black !important;
+}
+
+.transparent {
+	background-color: rgba($white, 0.3) !important;
+	color: $black !important;
 }
