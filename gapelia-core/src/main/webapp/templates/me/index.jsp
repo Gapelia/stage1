@@ -263,20 +263,21 @@
 				</div>
 				<!--//your-books /-->
 
-				<!--/ your-scrapbook /-->
-				<div class="user-collection-list-wrapper">
-					<ul id="user-collection-list">
+				<!--/ your-bookmarks /-->
+				<div class="user-bookmark-list-wrapper">
+					<ul id="user-bookmark-list">
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -284,15 +285,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -300,15 +302,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -316,15 +319,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -332,15 +336,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -348,15 +353,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -364,15 +370,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -380,15 +387,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -396,15 +404,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -412,15 +421,16 @@
 						</li>
 
 						<li class="collection">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
 
 							<div class="collection-info">
 								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="collection-pages"><span>10</span> pages</div>
-								<div class="collection-contributors"><span>3</span> contributors</div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -429,7 +439,7 @@
 
 					</ul>
 				</div>
-				<!--//your-scrapbook /-->
+				<!--//your-bookmarks /-->
 
 				<!--/ your-drafts /-->
 				<div class="user-draft-list-wrapper">
@@ -519,7 +529,7 @@
 					setTimeout(function() {
 
 						$("#user-book-list").show();
-						$("#user-collection-list").hide();
+						$("#user-bookmark-list").hide();
 						$("#user-draft-list").hide();
 
 						$("#user-book-list").mCustomScrollbar({
@@ -529,7 +539,7 @@
 							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
 						});
 
-						$("#user-collection-list").mCustomScrollbar("destroy");
+						$("#user-bookmark-list").mCustomScrollbar("destroy");
 						$("#user-draft-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
@@ -549,12 +559,12 @@
 					NProgress.start();
 
 					$("#user-book-list").hide();
-					$("#user-collection-list").show();
+					$("#user-bookmark-list").show();
 					$("#user-draft-list").hide();
 
 					setTimeout(function() {
 
-						$("#user-collection-list").mCustomScrollbar({
+						$("#user-bookmark-list").mCustomScrollbar({
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
@@ -581,7 +591,7 @@
 					NProgress.start();
 
 					$("#user-book-list").hide();
-					$("#user-collection-list").hide();
+					$("#user-bookmark-list").hide();
 					$("#user-draft-list").show();
 
 					setTimeout(function() {
@@ -594,7 +604,7 @@
 						});
 
 						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-collection-list").mCustomScrollbar("destroy");
+						$("#user-bookmark-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 

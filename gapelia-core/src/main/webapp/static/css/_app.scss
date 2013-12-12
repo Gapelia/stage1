@@ -190,6 +190,13 @@
 
 			-webkit-transform: rotate(-90deg);
 
+			&:hover {
+				.top-bm, .bottom-bm { right: 30px; }
+				.right-bm { width: 46px; }
+			}
+
+			.top-bm, .bottom-bm, .right-bm { transition: all 0.2s ease; }
+
 			.top-bm, .bottom-bm {
 				width: 0; height: 0;
 
@@ -199,28 +206,20 @@
 			}
 
 			.top-bm {
-				border-top: 20px solid $red;
+				border-top: 20px solid $white;
 				bottom: -15px;
 			}
 
-			.bottom-bm { border-bottom: 20px solid $red; }
+			.bottom-bm { border-bottom: 20px solid $white; }
 
 			.right-bm {
 				width: 25px; height: 25px;
 				top: -5px; right: -16px;
 
-				background-color: $red;
+				background-color: $white;
+				border-right: 1px solid $gray;
 				position: absolute;
 			}
-		}
-
-		.bookmark-notice {
-			top: 1rem; right: 4rem;
-
-			color: $white;
-			font-weight: 700;
-			position: absolute;
-			z-index: 2;
 		}
 
 		.wrapper {

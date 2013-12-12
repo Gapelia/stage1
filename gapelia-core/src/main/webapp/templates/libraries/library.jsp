@@ -26,18 +26,10 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<!--* if lt IE 9 *>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<!* endif *-->
-
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/gradient.linear.js"></script>
-
-		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
 
 	</head>
 
@@ -63,86 +55,6 @@
 				</div>
 			</nav>
 			<!--//site-menu /-->
-
-			<!--/ bookmarks-menu /-->
-			<div id="bookmarks-scroller">
-				<div id="bookmarks-header">
-					<h3>Paul Anthony Webb</h3>
-				</div>
-
-				<div id="bm-wrapper">
-					<dl id="bm-notifications">
-						<dt><span></span><a class="bm-section-title" href="#">Notifications</a></dt>
-
-						<dd>
-							<ul>
-								<li>Alice liked Nature is Gaea</l1>
-								<li>Theo added Tokyo Drift to a collection</l1>
-								<li>+3 people want to collaborate</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-books">
-						<dt><span></span><a class="bm-section-title" href="#">Bookshelf</a></dt>
-
-						<dd>
-							<ul>
-								<li>Fantasia</l1>
-								<li>Nature is Gaea</l1>
-								<li>Is This A Wonderland?</l1>
-								<li>Majesty</l1>
-								<li>AmsterDAYUM</l1>
-								<li>Japanimation</li>
-								<li>J'taime du jour</li>
-								<li>Heart + Seoul</li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-collections">
-						<dt><span></span><a class="bm-section-title" href="#">Scrapbook</a></dt>
-
-						<dd>
-							<ul>
-								<li>Nature</l1>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-libraries">
-						<dt><span></span><a class="bm-section-title" href="#">Library</a></dt>
-
-						<dd>
-							<ul>
-								<li>Swiss Interiors</l1>
-								<li>World of Blue</l1>
-								<li>Hullabaloo</l1>
-								<li>I'm On A Boat</l1>
-								<li>Bahama Mama</l1>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</dd>
-					</dl>
-
-					<dl id="bm-drafts">
-						<dt><span></span><a class="bm-section-title" href="#">Drafts</a></dt>
-
-						<dd>
-							<ul>
-								<li>Travel Book #01</l1>
-								<li>Adventure Book</l1>
-								<li>Mountains and Stuff</l1>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</div>
-			<!--//bookmarks-menu /-->
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
@@ -170,13 +82,6 @@
 					<li id="nav-dimensions"><a href="#">Dimensions</a></li>
 					<li id="nav-libraries"><a href="#">Libraries</a></li>
 					/-->
-
-					<li id="nav-bookmarks-toggle">
-						<span class="top-bm"></span>
-						<span class="bottom-bm"></span>
-						<span class="right-bm"></span>
-						<!--/ <a href="#">&#128278;</a> /-->
-					</li>
 				</ul>
 
 				<!--/ Featured Books /-->
@@ -184,16 +89,15 @@
 					<ul id="book-list">
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Bauhaus</a></div>
-								<div class="author-name">Published by <a href="#">Paul Anthony Webb</a></div>
+								<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -201,16 +105,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="/book/001/hayao-miyazaki">Hello Techstars!</a></div>
-								<div class="author-name">Published by <a href="#">Nokadota Xialiu</a></div>
+								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -218,16 +121,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Stadiums I've Performed In</a></div>
-								<div class="author-name">Published by <a href="#">the Wibby</a></div>
+								<div class="author-name"><a href="#">the Wibby</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -235,16 +137,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Integalactic Fortress</a></div>
-								<div class="author-name">Published by <a href="#">Spaceman Fresh</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -252,16 +153,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Techno-Bunka</a></div>
-								<div class="author-name">Published by <a href="#">The Most Fantabulous</a></div>
+								<div class="author-name"><a href="#">The Most Fantabulous</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -269,16 +169,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Pleasantville</a></div>
-								<div class="author-name">Published by <a href="#">Doug Funnie</a></div>
+								<div class="author-name"><a href="#">Doug Funnie</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -286,16 +185,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">ACDC Town</a></div>
-								<div class="author-name">Published by <a href="#">Lan Hikari</a></div>
+								<div class="author-name"><a href="#">Lan Hikari</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -303,16 +201,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Internet City</a></div>
-								<div class="author-name">Published by <a href="#">Hub Hikari</a></div>
+								<div class="author-name"><a href="#">Hub Hikari</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -320,16 +217,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Insane Aslyums</a></div>
-								<div class="author-name">Published by <a href="#">Daria Morgendorffer</a></div>
+								<div class="author-name"><a href="#">Daria Morgendorffer</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -337,16 +233,15 @@
 						</li>
 
 						<li class="book">
-							<div class="add-this">
-								<a href="#">
-									<span><!--/ &oplus; /-->&#9733;</span>
-									<span>Add to your library</span>
-								</a>
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
 							</div>
 
 							<div class="book-info">
 								<div class="title"><a href="#">Museums of the Mind</a></div>
-								<div class="author-name">Published by <a href="#">Jane Lane</a></div>
+								<div class="author-name"><a href="#">Jane Lane</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -363,6 +258,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
@@ -372,6 +268,10 @@
 
 			$(".mp-pushed").ready(function() {
 				$("#book-scroller").css("z-index", "0");
+			});
+
+			$(function() {
+				$("#featured-panel, .book").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -383,6 +283,7 @@
 			$(document).ready(function() {
 
 				// Load Gapelia
+				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 				NProgress.start();
 
 				setTimeout(function() {
@@ -399,6 +300,11 @@
 					NProgress.done();
 
 					$("#book-list").css("opacity", "1");
+
+					// "fix" featured menu pop-in
+					setTimeout(function () {
+						$("#featured-panel, #featured-scroller").css("opacity", "1");
+					}, 400);
 
 				});
 
