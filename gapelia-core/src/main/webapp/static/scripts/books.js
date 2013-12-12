@@ -114,7 +114,7 @@
 					"left": "0",
 					"position": "fixed"
 				});
-			}, 500);
+			}, 100);
 
 		});
 
@@ -261,6 +261,13 @@
 
 	});
 
+	// Disable pasting on all layouts until we can auto-limit text overflow
+	$(document).on("paste", "[contenteditable]", function(e) {
+		e.preventDefault();
+		// http://stackoverflow.com/a/19269040/1167646 may help
+	});
+
+
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -336,11 +343,6 @@
 		descMax = 299;
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
-		$("." + descElem).on("live blur keyup paste", function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -450,9 +452,6 @@
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
 
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
@@ -502,7 +501,15 @@
 		}
 
 		$("#create-content").html(insert);
+		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
 		templateId = 2;
+
+		pages.page[currentPage].templateId = templateId;
+		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
+		pages.page[currentPage].text = text;
+		pages.page[currentPage].image = imageURL;
+		pages.page[currentPage].video = videoURL;
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -515,16 +522,6 @@
 				e.preventDefault();
 			}
 		}
-
-		pages.page[currentPage].templateId = templateId;
-		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
-		pages.page[currentPage].text = text;
-		pages.page[currentPage].image = imageURL;
-		pages.page[currentPage].video = videoURL;
-
-		// $(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").scrollpanel();
-		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -606,9 +603,6 @@
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
 
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
@@ -684,9 +678,6 @@
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
 
-		// Need to figure out how to run the limiter when users copy/paste from elsewhere
-		// $("." + descElem).on("keyup paste", function(e) { check_charcount(descElem, descMax, e); });
-
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
@@ -737,6 +728,7 @@
 		}
 
 		$("#create-content").html(insert);
+		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 		templateId = 5;
 
 		var element = $(".photo-picker");
@@ -764,9 +756,6 @@
 				e.preventDefault();
 			}
 		}
-
-		// $(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
-		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -812,6 +801,7 @@
 		}
 
 		$("#create-content").html(insert);
+		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 		templateId = 6;
 
 		var element = $(".photo-picker");
@@ -839,9 +829,6 @@
 				e.preventDefault();
 			}
 		}
-
-		// $(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
-		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
@@ -890,7 +877,15 @@
 		}
 
 		$("#create-content").html(insert);
+		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 		templateId = 7;
+
+		pages.page[currentPage].templateId = templateId;
+		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
+		pages.page[currentPage].text = text;
+		pages.page[currentPage].image = imageURL;
+		pages.page[currentPage].video = videoURL;
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -903,13 +898,6 @@
 				e.preventDefault();
 			}
 		}
-
-		pages.page[currentPage].templateId = templateId;
-		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
-		pages.page[currentPage].text = text;
-		pages.page[currentPage].image = imageURL;
-		pages.page[currentPage].video = videoURL;
 
 		$(".video-preview-wrapper .photo-picker").on("click", function () {
 
@@ -942,9 +930,6 @@
 			}
 
 		});
-
-		// $(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px").scrollpanel();
-		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");

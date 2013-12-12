@@ -256,6 +256,7 @@
 	}
 
 	#main-content {
+		left: 0;
 		position: fixed;
 		transition: left 0.5s ease;
 	}
@@ -593,7 +594,7 @@
 
 						.page-title-elem {
 							margin: 0 auto 0.5rem;
-							width: 70%;
+							width: 52%;
 						}
 
 						.page-geotag-elem { color: $black; }
