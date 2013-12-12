@@ -60,7 +60,7 @@ $(document).ready(function() {
 	});
 
 	// Bookmarking
-	$(".bookmark-this").click(function () {
+	$(document).on("click", ".bookmark-this", function () {
 
 		$(this).find(".top-bm").css({
 			"border-top": "20px solid #ff3b30",
@@ -82,6 +82,51 @@ $(document).ready(function() {
 
 	});
 
+	$(document).on("click", ".bookmarked", function () {
 
+		$(this).find(".top-bm").css({
+			"border-top": "20px solid #fcfcfc",
+			"right": "10px"
+		});
+
+		$(this).find(".bottom-bm").css({
+			"border-bottom": "20px solid #fcfcfc",
+			"right": "10px"
+		});
+
+		$(this).find(".right-bm").css({
+			"background-color": "#fcfcfc",
+			"border-right": "0",
+			"width": "26px"
+		});
+
+		$(this).removeClass("bookmarked");
+
+	});
+
+});
+
+// Profile Bookmarks
+$("body.app.profile").on("load", function () {
+
+	$(".bookmark").each(function () {
+
+		$(this).find(".top-bm").css({
+			"border-top": "20px solid #ff3b30",
+			"right": "30px"
+		});
+
+		$(this).find(".bottom-bm").css({
+			"border-bottom": "20px solid #ff3b30",
+			"right": "30px"
+		});
+
+		$(this).find(".right-bm").css({
+			"background-color": "#ff3b30",
+			"border-right": "0",
+			"width": "46px"
+		});
+
+	}).addClass("bookmarked");
 
 });
