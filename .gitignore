@@ -41,8 +41,3 @@ Thumbs.db
 
 # don't ignore this folder
 !/gapelia-core/src
-
-/gapelia-core/src/main/java/com/gapelia/core/auth/*.jar
-!/gapelia-core/src/main/java/com/gapelia/core/auth/AuthHelper.java
-!/gapelia-core/src/main/java/com/gapelia/core/auth/AuthSuccessHandler.java
-!/gapelia-core/src/main/java/com/gapelia/core/auth/SessionManager.java
