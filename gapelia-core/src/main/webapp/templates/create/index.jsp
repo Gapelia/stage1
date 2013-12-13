@@ -18,11 +18,9 @@
 
 		/-->
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<meta name="author" content="Gapelia"/>
-		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
@@ -31,11 +29,6 @@
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
-
-		<!--/
-		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
-		/-->
 
 		<script>
 			$(function() {
@@ -52,12 +45,47 @@
 					}
 				});
 
-				$("#book-dimension-picker").selectize();
-
 				$("#library-search").selectize({
-					create: true,
-					sortField: "text",
-					dropdownParent: "body"
+					valueField: "title",
+					labelField: "title",
+					searchField: "title",
+					options: [],
+					create: false,
+					render: {
+						option: function (item, escape) {
+
+							return "<div>" +
+								"<span class='title'>" +
+								"<span class='name'>" + escape(item.title) + "</span>" +
+								"</span>" +
+								"<div class='description'>" + escape(item.synopsis || "No synopsis available at this time.") + "</div>" +
+								"</div>";
+
+						}
+					},
+
+					load: function (query, callback) {
+
+						if (!query.length) return callback();
+
+						$.ajax({
+							url: "http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+							type: "GET",
+							dataType: "jsonp",
+							data: {
+								q: query,
+								page_limit: 10,
+								apikey: "3qqmdwbuswut94jv4eua3j85"
+							},
+							error: function () {
+								callback();
+							},
+							success: function (res) {
+								callback(res.movies);
+							}
+						});
+
+					}
 				});
 
 			});
@@ -174,31 +202,61 @@
 			<div class="wrapper">
 				<h1>*BOOK TITLE*</h1>
 
-				<input type="text" id="input-tags" value="photography, exuberance, Iceland"/>
+				<input type="text" id="input-tags" value="input, tags, here"/>
 
+				<select id="library-search" placeholder="Add book to library"></select>
+
+				<!--/
 				<select id="library-search" class="demo-default" placeholder="Add book to library">
 					<option value="">Add book to library</option>
-					<option value="1">Architecture</option>
-					<option value="2">Biography</option>
+
+					<option value="1">
+						Architecture<br/>
+						<div>Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
+					</option>
+
+					<option value="2">
+						Biography<br/>
+						<div>A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
+					</option>
+
 					<option value="3">Cinema</option>
+
 					<option value="4">Cuisine</option>
+
 					<option value="5">Era</option>
+
 					<option value="6">The Far East</option>
+
 					<option value="7">Fashionista</option>
+
 					<option value="8">Future</option>
+
 					<option value="9">Gapelians</option>
+
 					<option value="10">Historian</option>
+
 					<option value="11">Into the Wild</option>
+
 					<option value="12">Japanimation</option>
+
 					<option value="13">Land of Kawaii</option>
+
 					<option value="14">Manifesto</option>
+
 					<option value="15">Modernism</option>
+
 					<option value="16">Mother Gaea</option>
+
 					<option value="17">Museum</option>
+
 					<option value="18">On the Road</option>
+
 					<option value="19">Products of Tomorrow</option>
+
 					<option value="20">Subculture</option>
 				</select>
+				/-->
 
 				<div class="wrapper">
 					<a class="button green" id="publish-this" href="#">Publish</a>
@@ -231,7 +289,7 @@
 		</script>
 
 		<script src="/static/scripts/imgLiquid.js"></script>
-		<script src="/static/scripts/books.js"></script>
+		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>

@@ -135,7 +135,8 @@
 			padding: 0;
 			position: absolute;
 			text-align: center;
-			text-shadow: 0 0 1px $black; // creates outline
+			// text-shadow: 0 0 1px $black; // creates outline
+			top: 1rem;
 			z-index: 1;
 			
 			@include hide-text;
@@ -147,13 +148,13 @@
 		}
 
 		.delete-page {
-			bottom: 1rem; left: 1rem;
 			background-position: 129px 1px;
+			left: 1rem;
 		}
 
 		.edit-page {
-			top: 1rem; right: 1rem;
 			background-position: 160px 1px;
+			right: 1rem;
 		}
 
 		span {
@@ -1039,7 +1040,7 @@
 	}
 
 	hr {
-		border: 1px solid $gray;;
+		border: 1px solid $gray;
 		display: block;
 		margin: 30px auto 20px auto;
 		width: 20%;
@@ -1051,20 +1052,22 @@
 
 .modal {
 	width: 10%; height: 10%;
-	margin: auto; padding: 4rem;
+	margin: auto; padding: 6rem 4rem;
   top: 0; left: 0;
 	bottom: 0; right: 0;
 
 	background-color: $white; // rgba($white, 0.9);
 	opacity: 0;
   position: absolute;
-	text-align: center;
+	text-align: left; // center
 	z-index: 1;
 
 	.wrapper {
 		margin: 0 auto;
 		position: relative;
 		width: 50%;
+
+		.wrapper { width: 100%; }
 	}
 
 	.close-modal {
@@ -1084,8 +1087,6 @@
 		}
 	}
 
-	.button { margin: 3rem 0 0 0; }
-
 	.selectize-control { margin: 0 0 2rem 0; }
 	.multi { margin: 0 0 1rem 0; }
 
@@ -1093,7 +1094,3 @@
 }
 
 #publish-modal { transition: all 0.5s ease; }
-
-
-
-
