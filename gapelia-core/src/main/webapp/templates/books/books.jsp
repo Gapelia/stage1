@@ -18,26 +18,17 @@
 
 		/-->
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<meta name="author" content="Gapelia"/>
-		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<!--* if lt IE 9 *>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<!* endif *-->
-
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-
-		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
 
 	</head>
 
@@ -733,7 +724,7 @@
 									<div id="author-name">Paul Anthony Webb</div>
 									<div id="author-bio-blurb">Visual artist and short fiction contributor, tweeting <a href="http://twitter.com/NetOpWibby">@NetOpWibby</a>.</div>
 
-									<button>Vote</button>
+									<button class="slate">Vote</button>
 
 									<ul class="share-book">
 										<li class="facebook"><a href="#">Facebook</a></li>
@@ -741,41 +732,13 @@
 									</ul>
 								</div>
 
-								<div id="fin-next">
+								<div id="fin-next" style="background-image:url('/static/images/test-book/2651.jpg')">
 									<section>
-										<h2>More from the author</h2>
+										<small>Next Read</small>
+										<h2>Roadtripping California</h2>
 
-										<ul>
-											<li><a href="">Tokyo Form</a></li>
-											<li><a href="">Japanimation</a></li>
-										</ul>
-									</section>
-
-									<section>
-										<h2>Suggested reading</h2>
-
-										<ul>
-											<li>
-												<a href="">Coffee Culture</a>
-												<span>Tomas Eduardo</span>
-											</li>
-
-											<li>
-												<a href="">Roadtripping California</a>
-												<span>Diego Regules</span>
-											</li>
-										</ul>
-									</section>
-
-									<section>
-										<h2>Next book</h2>
-
-										<ul>
-											<li>
-												<a href="">Wandering in Florence</a>
-												<span>Daniel Campos</span>
-											</li>
-										</ul>
+										<div>by Diego Regules</div>
+										<div>in On the Road</div>
 									</section>
 								</div>
 							</section>
@@ -787,25 +750,6 @@
 			</div>
 
 		</div>
-
-		<!--/ dialog-windows /-->
-		<div class="modal-book-creation" style="display: none">
-			<div>
-				<h1>They say two minds are better than one</h1>
-
-				<div class="reveal">
-					<p>Invite others to collaborate on your story:</p>
-					<select id="user-search" class="movies" placeholder="Search for a user"></select>
-					<p>Or, invite via <a href="">email</a></p>
-
-					<p><a href="/create">SKIP</a></p>
-				</div>
-			</div>
-		</div>
-
-		<div class="stack"></div>
-		<div style="-webkit-transform: translateZ(0)"></div>
-		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/nprogress.js"></script>
@@ -821,6 +765,7 @@
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
+		<!--/
 		<script src="/static/scripts/scrollpanel.js"></script>
 
 		<script>
@@ -829,6 +774,7 @@
 			$(".vertical-wrapper .page-desc").scrollpanel();
 			$(".video-wrapper .page-desc").scrollpanel();
 		</script>
+		/-->
 
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script>$("img").VimeoThumb();</script>
