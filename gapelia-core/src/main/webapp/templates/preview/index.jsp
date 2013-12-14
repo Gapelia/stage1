@@ -26,16 +26,16 @@
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
-		<link href="/static/css/style.css" rel="stylesheet"/>
-		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+		<link href="static/css/style.css" rel="stylesheet"/>
+		<link href="static/images/favicon.png" rel="shortcut icon"/>
 
 		<!--* if lt IE 9 *>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<!* endif *-->
-
-		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-		<!--/ <script src="/static/scripts/preview.js"></script> /-->
+		<script href="static/scripts/preview.js"></script>
+		<script src="static/scripts/modernizr.custom.js"></script>
+		<script src="static/scripts/jquery-2.0.3.min.js"></script>
+		<!--/ <script src="static/scripts/preview.js"></script> /-->
 
 		<script>
 			var htmlToInsert = "";
@@ -63,6 +63,59 @@
 				$("#bb-bookblock").html(htmlToInsert);
 
 			});
+			function insertPage(){
+		switch(current.templateId)
+		{
+			case 0:
+				frontCoverLayout();
+				break;
+			case 1:
+				photoLayout();
+				break;
+			case 2:
+				textLayout();
+				break;
+			case 3:
+				horizontalLayout();
+				break;
+			case 4:
+				overlayLayout();
+				break;
+			case 5:
+				photoTextLayout();
+				break;
+			case 6:
+				verticalLayout();
+				break;
+			case 7:
+				//videoLayout();
+				break;
+			default:
+				frontCoverLayout();
+				break;
+				}
+			}
+			function frontCoverLayout(){
+				htmlToInsert+="<section class=\"frontcover-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">"+current.title+"</h1><h5 contenteditable=\"false\"><span>*AUTHOR*</span></h5><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function photoLayout(){
+				htmlToInsert+="<section class=\"phototext-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">"+current.title+"</h1><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function textLayout(){
+				htmlToInsert+="<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">"+current.title+"</h1><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function horizontalLayout(){
+				htmlToInsert+="<section class=\"horizontal-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">"+current.title+"</h1><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function overlayLayout(){
+				htmlToInsert+="<section class=\"overlay-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"overlay-preview\"><article><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function photoTextLayout(){
+				htmlToInsert+="<section class=\"phototext-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">"+current.title+"</h1><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
+			function verticalLayout(){
+						htmlToInsert+="<section class=\"photo-wrapper\" style=\"background-image:url('"+current.image+"')\"><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">"+current.title+"</h1><div id=\"geotag-02\" class=\"page-geotag-elem\">"+current.geotag+"</div><div class=\"page-desc\">"+current.text+"</div></article></div></section></div></div>";
+			}
 		</script>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
@@ -142,20 +195,19 @@
 		<!--//dialog-windows /-->
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/g.money.js"></script>
-		<script src="/static/scripts/books.js"></script>
+		<script src="static/scripts/nprogress.js"></script>
+		<script src="static/scripts/g.money.js"></script>
 
-		<script src="/static/scripts/classie.js"></script>
-		<script src="/static/scripts/mlpushmenu.js"></script>
+		<script src="static/scripts/classie.js"></script>
+		<script src="static/scripts/mlpushmenu.js"></script>
 
 		<script>
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/scrollpanel.js"></script>
+		<script src="static/scripts/jquery.mousewheel.js"></script>
+		<script src="static/scripts/scrollpanel.js"></script>
 
 		<script>
 			$(".text-wrapper .page-desc").scrollpanel();
@@ -164,12 +216,12 @@
 			$(".video-wrapper .page-desc").scrollpanel();
 		</script>
 
-		<script src="/static/scripts/vimeothumb.js"></script>
+		<script src="static/scripts/vimeothumb.js"></script>
 		<script>$("img").VimeoThumb();</script>
 
 		<!--/ scripts/page-flip /-->
-		<script src="/static/scripts/jquerypp.custom.js"></script>
-		<script src="/static/scripts/jquery.bookblock.js"></script>
+		<script src="static/scripts/jquerypp.custom.js"></script>
+		<script src="static/scripts/jquery.bookblock.js"></script>
 
 		<script>
 			$(document).ready(function() {
