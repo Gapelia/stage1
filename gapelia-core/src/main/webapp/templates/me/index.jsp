@@ -39,7 +39,7 @@
 		<% /* Copy this on all jsp get sessionId %>
 		<!--/ To get session id /-->
 		<script>
-		    <% String id = session.getId(); %>
+		    <% String id = session.getId();  %>
 		    var sessionId = <%= id %>
 		</script>
         <% /* ******************************* */ %>
