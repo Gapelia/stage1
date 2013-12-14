@@ -13,43 +13,29 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-
-		geotag = "BUGGGGGG";
-
-		book = {
-			"author" : "AUTHOR",
-			"title" : null,
-			"library" : "NULL",
-			"dimension" : "NULL"
-		};
-
-		pages = {
-			"page":[{
-				/*
-				"pageNumber" : 0,
-				"geotag" : geotag,
-				"templateId" : null,
+			geotag = "BUGGGGGG";
+			book = {
+				"author" : "AUTHOR",
 				"title" : null,
-				"text" : null,
-				"image" : "/static/images/blankBG.jpg",
-				"video" : "NULL"
-				*/
-			}]
-		};
+				"library" : "NULL",
+				"dimension" : "NULL"
+			};
 
-		index = 0;
-		author = book.author;
-		pageNumber = pages.page[index].pageNumber;
-		text = pages.page[index].text;
-		imageURL = pages.page[index].image;
-		videoURL = pages.page[index].video;
-		templateId = pages.page[index].templateId;
-		title = pages.page[index].title;
-		// pagesCreated = 1;
-		pagesCreated = 0;
-		currentPage = 0;
-		one = 1;
-
+			pages = {
+				"page":[{}]
+			};
+			index = 0;
+			author = book.author;
+			pageNumber = 0;
+			text = null;
+			imageURL = null;
+			videoURL = null;
+			templateId = null;
+			title = null;
+			pagesCreated = -1;//subscript of 0
+			currentPage = 0;
+			one = 1;
+			baseLayout();
 	});
 
 	// Left Menus
@@ -70,9 +56,7 @@
 
 	});
 
-	$("#pages-scroller").on("mouseenter", function () {
-		// placeholder, apparently needed
-	}).on("mouseleave", function () {
+	$("#pages-scroller").on("mouseenter", function () ).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
 		$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
@@ -83,7 +67,44 @@
 		}).stop(true).delay(5000);
 
 	});
-
+	$(document).on("click","#pages-scroller ul li", function (){
+		currentPage = $(this).closest("li").attr("id");
+		templateId=pages.page[currentPage].templateId;
+		title=pages.page[currentPage].title;
+		text=pages.page[currentPage].text;
+		geotag=pages.page[currentPage].geotag;
+		imageURL=pages.page[currentPage].image;
+		videoURL=pages.page[currentPage].video;
+		pageNumber=pages.page[currentPage].pageNumber;
+		switch(templateId){
+			case 0:
+				frontCoverLayout();
+				break;
+			case 1:
+				photoLayout();
+				break;
+			case 2:
+				textLayout();
+				break;
+			case 3:
+				horizontalLayout();
+				break;
+			case 4:
+				overlayLayout();
+				break;
+			case 5:
+				photoTextLayout();
+				break;
+			case 6:
+				verticalLayout();
+				break;
+			case 7:
+				videoLayout();
+				break;
+			default:
+				baseLayout();
+		}
+	});
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 
 		$("#layout-scroller").stop(true).css("left", "0");
@@ -171,33 +192,32 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#add-page").click(function (e) {
-
+pagesCreated++;
 		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img <img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
 		text = $(".page-desc").text();
 		imageURL = $(".page-bg").attr("src");
-
-		if(pagesCreated == 0) {
-			pages.page[pagesCreated] = {
+		if(geotag == undefined) {
+				geotag="BUUUGGG";
+		} 
+		if(pagesCreated==0) {
+			pages.page[0] = {
 				"pageNumber" : pagesCreated,
 				"geotag" : geotag,
-				"templateId" : null,
+				"templateId" : 0,
 				"title" : null,
 				"text" : null,
 				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
+			templateId=0;
+			frontCoverLayout();
 		} else if(pagesCreated > 20) {
 			alert("Your book is too big please remove a page!\n");
 		} else {
-			if(geotag == undefined) {
-				pages.page[pagesCreated-1].geotag = null;
-			} else {
-				pages.page[pagesCreated-1].geotag = geotag;
-			}
-
+			pages.page[pagesCreated-1].geotag = geotag;
 			pages.page[pagesCreated-1].templateId = templateId;
 			pages.page[pagesCreated-1].title = title;
 			pages.page[pagesCreated-1].text = text;
@@ -219,9 +239,7 @@
 			text = null;
 			imageURL = null;
 			videoURL = null;
-			pagesCreated++;
 		}
-
 		e.preventDefault();
 
 	});
@@ -939,24 +957,21 @@
 	// Layout Constants
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
-
 	window.setInterval(function() {
-
-		imageURL = $(".page-bg").attr("src");
-		title = $(".page-title-elem").text();
-		var string = "#page" +currentPage+ "Title";
-		text = $(".page-desc").text();
-		$(string).html(title);
-		videoURL = $(".video-player-container iframe").attr("src");
-
-		pages.page[currentPage].templateId = templateId;
-		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
-		pages.page[currentPage].text = text;
-		pages.page[currentPage].image = imageURL;
-		pages.page[currentPage].video = videoURL;
-
-	}, 1000);
+		if(pages.page[0].templateId!=null&&pagesCreated!=-1){
+			console.log("starting to save on page" +currentPage);
+			imageURL = $(".page-bg").attr("src");
+			title = $(".page-title-elem").html();
+			var string = "#page" +currentPage+ "Title";
+			text = $(".page-desc").text();
+			pages.page[currentPage].templateId = templateId;
+			pages.page[currentPage].title = title;
+			pages.page[currentPage].geotag = geotag;
+			pages.page[currentPage].text = text;
+			pages.page[currentPage].image = imageURL;
+			pages.page[currentPage].video = videoURL;
+		}
+	}, 100);
 
 	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function ()	{ frontCoverLayout(); });
