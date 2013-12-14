@@ -19,7 +19,6 @@
 		/-->
 
 		<meta name="author" content="Gapelia"/>
-		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
@@ -265,7 +264,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -279,7 +278,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -293,7 +292,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -307,7 +306,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -321,7 +320,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -335,7 +334,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -349,7 +348,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -363,7 +362,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -377,7 +376,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -391,7 +390,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -405,7 +404,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -419,7 +418,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -433,7 +432,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -447,7 +446,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -461,7 +460,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -475,7 +474,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -489,7 +488,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -503,7 +502,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -517,7 +516,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -531,7 +530,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button>Subscribe</button>
+								<button class="subscribe slate">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -562,15 +561,6 @@
 
 			$(function() {
 				$("#featured-panel, .book, .library").imgLiquid({ fill: true });
-			});
-
-			$(".library button").click(function () {
-				// $(this).text("Subscribed!").css("background-color", "#4cd964").delay(500).text("Unsubscribe");
-				$(this).text("Unsubscribe").css("background-color", "#4cd964");
-			});
-
-			$(".bookmark-this").click(function () {
-				$(".bookmark-this").closest(".bookmark-notice").show().delay(500).fadeOut(1000);
 			});
 		</script>
 

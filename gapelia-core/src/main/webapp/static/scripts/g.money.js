@@ -46,7 +46,7 @@ $(document).ready(function() {
 	// Edit Profile on "Me" page
 	$(document).on("click", "button.edit-profile", function () {
 
-		$("button.edit-profile").text("Save Profile").removeClass("edit-profile").addClass("save-profile").css("background-color", "#4cd964");
+		$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
 		$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(254, 254, 254, 0.3)").trigger("focus");
 		// $(this).html($(this).text());
 
@@ -54,9 +54,18 @@ $(document).ready(function() {
 
 	$(document).on("click", "button.save-profile", function () {
 
-		$("button.save-profile").text("Edit Profile").removeClass("save-profile").addClass("edit-profile").css("background-color", "#70a1b1");
+		$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 		$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 
+	});
+
+	// Library Subscriptions
+	$(document).on("click", "button.subscribe", function () {
+		$(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
+	});
+
+	$(document).on("click", "button.unsubscribe", function () {
+		$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 	});
 
 	// Bookmarking

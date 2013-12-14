@@ -28,13 +28,11 @@
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
-		<link href="/static/css/selectize.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/selectize.js"></script>
 
 		<!--/ To get user details /-->
 		<%@include file="../../userDetails.jsp" %>
@@ -48,7 +46,7 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
+					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
 						<li><a class="" href="/me">Me</a></li>
@@ -79,7 +77,7 @@
 				</div>
 
 				<div class="button-wrapper">
-					<button class="edit-profile">Edit Profile</button>
+					<button class="edit-profile slate">Edit Profile</button>
 				</div>
 
 				<div class="user-bg">
@@ -618,69 +616,9 @@
 				});
 
 			});
-		</script>
-
-		<script>
-			$(function() {
-
-				$("#user-search").selectize({
-					valueField: 'title',
-					labelField: 'title',
-					searchField: 'title',
-					options: [],
-					create: false,
-					render: {
-						option: function (item, escape) {
-							var actors = [];
-
-							for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
-								actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
-							}
-
-							return '<div>' +
-								'<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
-								'<span class="title">' +
-								'<span class="name">' + escape(item.title) + '</span>' +
-								'</span>' +
-								'<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
-								'<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
-								'</div>';
-						}
-					},
-					load: function (query, callback) {
-
-						if (!query.length) return callback();
-
-						$.ajax({
-							url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
-							type: 'GET',
-							dataType: 'jsonp',
-							data: {
-								q: query,
-								page_limit: 10,
-								apikey: '3qqmdwbuswut94jv4eua3j85'
-							},
-							error: function () { callback(); },
-							success: function (res) { callback(res.movies); }
-						});
-
-					}
-				});
-
-				// $("#book-dimension-picker").selectize();
-
-				/*
-				$("#user-search").selectize({
-					create: true,
-					sortField: "text",
-					dropdownParent: "body"
-				});
-				*/
-
-				$(".user-data h2").html(_fullName);
-				$(".user-avatar img").attr("src", _image);
-
-			});
+			
+			$(".user-data h2").html(_fullName);
+			$(".user-avatar img").attr("src", _image);
 		</script>
 
 	</body>
