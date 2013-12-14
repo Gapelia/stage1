@@ -36,7 +36,117 @@
 
 		<!--/ To get user details /-->
 		<%@include file="../../userDetails.jsp" %>
+		<script type="text/javascript">
+			$(document).ready(function (){
+				sId=1234566;
+				//get user info
+				$.ajax({
+					url: "http://localhost:8080/api/me/getUserInfo",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+					},
+					success: function (data) {
+						userInfo=data;
+						console.log("user infromation:" + data);
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+				//get user notifications
+				$.ajax({
+					url: "http://localhost:8080/api/notification/getNotification",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+					},
+					success: function (data) {
+						userNotification=data;
+						console.log("user infromation:" + data);
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+				// Load Gapelia
+				html = "<ul id=\"user-book-list\">",
+				$vH = $(window).height();
+				NProgress.start();
+				//get users books
+				$.ajax({
+					url: "http://localhost:8080/api/me/getUsersBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+					},
+					success: function (data) {
+						userBooks=data;
+						parseJsonToStringForBooks(data);
+						console.log("Users Books" + data);
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
 
+				function parseJsonToStringForBooks(books) {
+					$.each(books, function () {
+						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
+						html += "<ul class=\"edit-delete\"><li class=\"edit\"><a href=\"#\">&#9998;</a></li><li class=\"delete\"><a href=\"#\">&#9749;</a></li></ul>";
+						html += "<div class='book-info'><div class='title'><a href='#'>" + this['title'] + "</a></div>";
+						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+						html += "<span class=\"image-overlay\"></span>";
+						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
+						html += "</li>";
+
+					});
+					html += "</ul>";
+					return html;
+					//$(".user-book-list-wrapper").html(parsedHtml);
+					resize();
+				}
+				function resize() {
+
+					$("#book-list").css("opacity", "0").show();
+
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+
+					NProgress.done();
+
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+
+				}
+
+				$("#nav-books").addClass("current");
+
+
+			});
+		</script>
 	</head>
 
 	<body class="app profile">
@@ -75,11 +185,9 @@
 
 					<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 				</div>
-
 				<div class="button-wrapper">
 					<button class="edit-profile slate">Edit Profile</button>
 				</div>
-
 				<div class="user-bg">
 					<img src="/static/images/space-bb.jpg"/>
 				</div>

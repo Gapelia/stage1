@@ -13,6 +13,26 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
+			sId = "1234567";
+			$.ajax({
+				url: "http://localhost:8080/api/book/createBook",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				type: "POST",
+				data: {
+					sessionId: sId,
+				},
+				success: function (data) {
+					bookId=data.bookId;
+					console.log("Succes Creating your book");
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						alert("Request timed out");
+					} else {
+						alert("Some issue happened with your request: " + err);
+					}
+				}
+			});
 			geotag = "BUGGGGGG";
 			book = {
 				"author" : "AUTHOR",
@@ -241,6 +261,7 @@ pagesCreated++;
 			videoURL = null;
 		}
 		e.preventDefault();
+		addPageBE();
 
 	});
 
@@ -948,21 +969,41 @@ pagesCreated++;
 			}
 
 		});
-
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
+	function addPageBE(){
+		$.ajax({
+			url: "http://localhost:8080/api/book/createPage",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId,
+				bookId:bookId,
 
+			},
+			success: function (data) {
+				pageId=date.pageId;
+				console.log("Succes Creating your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
+	}
 	// Layout Constants
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
+	//save data of what is being edited every second
 	window.setInterval(function() {
 		if(pages.page[0].templateId!=null&&pagesCreated!=-1){
-			console.log("starting to save on page" +currentPage);
 			imageURL = $(".page-bg").attr("src");
+			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();
-			var string = "#page" +currentPage+ "Title";
 			text = $(".page-desc").text();
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
@@ -971,7 +1012,66 @@ pagesCreated++;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
 		}
-	}, 100);
+	}, 1000);
+	//save book information every minute
+	window.setInterval(function () {
+		$.ajax({
+			url: "http://localhost:8080/api/book/createBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId,
+				title:title,
+				bookId:bookId
+			},
+			success: function (data) {
+				console.log("Succes Creating your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
+	},60000)
+	//save pages information every 5 seconds
+	window.setInterval(function () {
+		imageURL = $(".page-bg").attr("src");
+		videoURL = $(".video-player-container iframe").attr("src");
+		title = $(".page-title-elem").html();
+		text = $(".page-desc").text();
+		templateId = pages.page[currentPage].templateId;
+		geotag = pages.page[currentPage].geotag;
+		$.ajax({
+			url: "http://localhost:8080/api/book/createPage",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId,
+				title:title,
+				bookId:bookId,
+				pageId:pageId,
+				title:title,
+				description:text,
+				templateId:templateId,
+				videoUrl:videoURL,
+				pageNumber:currentPage,
+				createdByUserId:userId
+			},
+			success: function (data) {
+				console.log("Succes Creating your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
+	},5000)
 
 	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function ()	{ frontCoverLayout(); });
@@ -988,7 +1088,32 @@ pagesCreated++;
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
+		//TO DO, Get tags from format and library
+		library=1;
+		tags="fun";
 
+		$.ajax({
+			url: "http://localhost:8080/api/book/createBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId,
+				bookId:bookId,
+				isPublished:1,
+				libraryId:library,
+				tags:tags
+			},
+			success: function (data) {
+				console.log("Succes Publishing your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",

@@ -29,7 +29,31 @@
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
-
+		<script type="text/javascript">
+			$(document).ready(function () {
+				 sId = "1234567",
+				$.ajax({
+					url: "http://localhost:8080/api/book/createBook",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+					},
+					success: function (data) {
+						bookId=data.bookId;
+						console.log("Succes Creating your book");
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+				});
+				
+			});
+		</script>
 		<script>
 			$(function() {
 

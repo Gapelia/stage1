@@ -29,7 +29,109 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				html = "<ul id=\"book-list\">",
+				sId=123456;
+				$.ajax({
+					url: "http://localhost:8080/api/libraries/getFeaturedBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId,
+						dimension:"Art"
+					},
+					success: function (data) {
+						featuredBooks=data;
+						console.log("books" + data);
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
 
+
+					//$(".book-list-wrapper").html(parsedHtml);
+					$("#book-list").css("opacity", "0").show();
+
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+					NProgress.done();
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+				});
+				$.ajax({
+					url: "http://localhost:8080/api/libraries/getAllLibraries",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sId
+					},
+					success: function (data) {
+						html="";
+						libraries=data;
+						parseJsonToStringForLibraries(libraries);
+
+						console.log("libraries" + data);
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
+					//$(".library-list-wrapper").html(parsedHtml);
+					$("#library-list").css("opacity", "0").show();
+
+					$("#library-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+					NProgress.done();
+					$("#library-list .library").css("height", $vH - 97 + "px");
+					$("#library-list").css("opacity", "1");
+				)};
+				function parseJsonToStringForLibraries(libraries){
+					html+="<ul id=\"library-list\">";
+					$.each(libraries, function () {
+						html+="<li class=\"library\"><div class=\"library-info\">
+								<div class="title"><a href=\""+this["libraryHref"]+"\">"+this['title']+"</a></div><div class=\"lib-blurb\">"+this['blurb']+"</div></div>";
+						html+="<div class=\"wrapper\"><button class=\"subscribe slate\">Subscribe</button></div><span class=\"image-overlay\"></span>
+							<img src=\""+this['image']+"\" alt=\"\"/></li>";
+					});
+				}
+
+				function parseJsonToStringForBooks(books) {
+						$.each(books, function () {
+							html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
+							html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-info'>";
+							html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
+							html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+							html += "<span class=\"image-overlay\"></span>";
+							html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
+							html += "</li>";
+						});
+						html += "</ul>";
+						return html;
+				}
+			});
+		</script>
 	</head>
 
 	<body class="app profile">
