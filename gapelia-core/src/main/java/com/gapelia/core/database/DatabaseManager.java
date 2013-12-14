@@ -22,6 +22,9 @@ public class DatabaseManager {
 
 	public synchronized static DatabaseManager getInstance() {
 		if (_instance == null) {
+			String dummy = System.getProperty("gapeliaDummy");
+			if (null != dummy && "true".equals(dummy))
+				return null;
 			_instance = new DatabaseManager();
 		}
 		return _instance;

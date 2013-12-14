@@ -4,6 +4,7 @@ import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Event;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
+import com.gapelia.core.util.TestHelper;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
@@ -39,6 +40,8 @@ public class Query {
 	/********************************/
 
 	public static boolean checkProfile(Profile profile) {
+		if (isDummy())
+			return false;
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_USER);
 			statement.setString(1, profile.getProviderId());
@@ -71,6 +74,8 @@ public class Query {
 	}
 
 	public static User getUser(Profile profile) {
+		if (isDummy())
+			return TestHelper.getDummyUser();
 		User user = new User();
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_USER);
@@ -100,24 +105,34 @@ public class Query {
 	}
 
 	public static Book[] getBooksCreatedByUser(Profile profile) {
+		if (isDummy())
+			return TestHelper.getDummyBooks();
 		return new Book[0];
 	}
 
 	public static Book[] getBooksCollectedByUser(Profile profile) {
+		if (isDummy())
+			return TestHelper.getDummyBooks();
 		return new Book[0];
 	}
 
 	public static Library[] getLibrariesCollectedByUser(Profile profile) {
+		if (isDummy())
+			return TestHelper.getDummyUserLibraries();
 		return new Library[0];
 	}
 
 	public static boolean deleteBookById(Profile profile, String bookId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
 	public static boolean updateUserProfile(Profile profile, String name, String email, String bio, String facebookUrl,
 											String googlePlusUrl, String twitterUrl, String photoUrl, String gender,
 											String location, String dob) {
+		if (isDummy())
+			return true;
 		try {
 			PreparedStatement statement = connection.prepareStatement(UPDATE_USER);
 			statement.setString(1, name);
@@ -145,6 +160,8 @@ public class Query {
 
 	public static boolean saveBook(Profile profile, String bookId, String title, String language, String libraryId,
 								   String tags, String dimension, String createdBy, String isPublished) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
@@ -152,19 +169,27 @@ public class Query {
 	public static boolean savePage(Profile profile, String pageId, String title, String description, String location,
 								   String templateId, String marginX, String marginY, String videoUrl, String pageNumber,
 								   String bookId, String createdByUserId, String photoUrl, String photoId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
 
 	public static Book getBookById(Profile profile, String bookId) {
+		if (isDummy())
+			return TestHelper.getDummyBooks()[0];
 		return null;
 	}
 
 	public static boolean subscribeBook(Profile profile, String bookId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
 	public static boolean unSubscribeBook(Profile profile, String bookId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
@@ -181,31 +206,45 @@ public class Query {
 	/************************************/
 
 	public static Book[] getFeaturedBooks(Profile profile) {
-		return new Book[0];
+		if (isDummy())
+			return TestHelper.getDummyBooks();
+		return null;
 	}
 
 
 	public static Book[] getAllBooks(Profile profile, String page) {
-		return new Book[0];
+		if (isDummy())
+			return TestHelper.getDummyBooks();
+		return null;
 	}
 
 	public static Library getLibraryById(Profile profile, String libraryId) {
+		if (isDummy())
+			return TestHelper.getDummyUserLibraries()[0];
 		return null;
 	}
 
 	public static Library[] getAllLibraries(Profile profile, String page) {
-		return new Library[0];
+		if (isDummy())
+			return TestHelper.getDummyUserLibraries();
+		return null;
 	}
 
 	public static Library[] getLibraryByPrefix(Profile profile, String prefix) {
-		return new Library[0];
+		if (isDummy())
+			return TestHelper.getDummyUserLibraries();
+		return null;
 	}
 
 	public static boolean subscribeLibrary(Profile profile, String libraryId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
 	public static boolean unSubscribeLibrary(Profile profile, String libraryId) {
+		if (isDummy())
+			return true;
 		return false;
 	}
 
@@ -214,10 +253,21 @@ public class Query {
 	/************************************/
 
 	public static Book[] getTopBooksByDimension(Profile profile, String dimension) {
-		return new Book[0];
+		if (isDummy())
+			return TestHelper.getDummyBooks();
+		return null;
 	}
 
 	public static Book[] getAllBooksByDimension(Profile profile, String dimension, String page) {
-		return new Book[0];
+		if (isDummy())
+			return TestHelper.getDummyBooks();
+		return null;
+	}
+
+	private static boolean isDummy() {
+		String dummy = System.getProperty("gapeliaDummy");
+		if (null != dummy && "true".equals(dummy))
+			return true;
+		return false;
 	}
 }
