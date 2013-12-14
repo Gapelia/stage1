@@ -1,4 +1,7 @@
-
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +33,14 @@
 
 		<script src="/static/scripts/nprogress.js"></script>
 
+		<% /* ******************************* */ %>
+            <% /* Copy this on all jsp get sessionId %>
+            <!--/ To get session id /-->
+            <script>
+                <% String id = session.getId(); %>
+                var sessionId = <%= id %>
+            </script>
+        <% /* ******************************* */ %>
 	</head>
 
 	<body class="app profile">
@@ -39,7 +50,7 @@
 			<div id="header-message">
 				Welcome to Gapelia, *USERNAME*!<br/>Personalize your experience by subscribing to your favorite libraries.
 
-				<button><a href="fin.jsp">Ready to go</a></button>
+				<button><a href="/finalize-setup">Ready to go</a></button>
 			</div>
 
 			<!--/ Featured Libraries /-->

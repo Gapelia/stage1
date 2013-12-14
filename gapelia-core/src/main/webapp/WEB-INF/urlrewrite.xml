@@ -16,14 +16,25 @@
         <from>^(.*)/$</from>
         <to type="permanent-redirect">$1</to>
     </rule>
-	<rule>
-		<from>^/misc$</from>
-		<to>/templates/etc/sample.jsp</to>
+
+    <rule>
+		<from>^/onboard$</from>
+		<to>/onboard.jsp</to>
 	</rule>
 	<outbound-rule>
-		<from>^/templates/etc/sample.jsp$</from>
-		<to>/misc</to>
+		<from>^/onboard.jsp$</from>
+		<to>/onboard</to>
 	</outbound-rule>
+
+    <rule>
+        <from>^/finalize-setup$</from>
+        <to>/fin.jsp</to>
+    </rule>
+    <outbound-rule>
+        <from>^/fin.jsp$</from>
+        <to>/finalize-setup</to>
+    </outbound-rule>
+
 	<rule>
 		<from>^/preview$</from>
 		<to>/templates/preview/index.jsp</to>

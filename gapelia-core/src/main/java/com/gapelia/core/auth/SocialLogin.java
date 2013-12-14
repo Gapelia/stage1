@@ -25,7 +25,7 @@ public class SocialLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {                
+		try {
 			//Create an instance of SocialAuthConfig object
 			SocialAuthConfig config = SocialAuthConfig.getDefault();
 			LOG.info("Creating social auth config");
@@ -41,10 +41,13 @@ public class SocialLogin extends HttpServlet {
 
 			// URL of YOUR application which will be called after authentication
 			String hostName = InetAddress.getLocalHost().getHostName();
-			if (!(hostName.contains("gapelia") || hostName.contains("heroku"))) {
+			String mode = System.getProperty("gapeliaMode");
+
+			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";
+			} else {
+				hostName = "http://gapelia-dev.herokuapp.com";
 			}
-			// hostName = "http://gapelia-dev.herokuapp.com";
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			LOG.info("Social auth succesUrl: " + successUrl);
 
@@ -61,6 +64,12 @@ public class SocialLogin extends HttpServlet {
 				url = manager.getAuthenticationUrl(APP_TWITTER, successUrl, Permission.AUTHENTICATE_ONLY);
 			} else {
 				url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
+			}
+
+			if (null != mode && "local".equals(mode)) {
+				LOG.info("Local mode. Switching to dummy user.");
+				response.sendRedirect(response.encodeRedirectURL(successUrl));
+				return;
 			}
 
 			LOG.info("Redirecting to url: " + url);

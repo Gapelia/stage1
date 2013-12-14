@@ -1,8 +1,8 @@
 package com.gapelia.core.api;
 
+import com.gapelia.core.auth.AuthHelper;
+import com.gapelia.core.database.Query;
 import com.gapelia.core.model.Event;
-import com.gapelia.core.util.Security;
-import com.gapelia.core.util.TestHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -28,11 +28,11 @@ public class Notification {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve notifications for user");
-			Event[] events = TestHelper.getDummyNotifications();
+			Event[] events = Query.getNotifications(profile);
 			String json = gson.toJson(events);
 			LOG.info("Response json: " + json);
 			return json;

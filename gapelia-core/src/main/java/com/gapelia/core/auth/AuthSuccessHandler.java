@@ -1,7 +1,9 @@
 package com.gapelia.core.auth;
 
+import com.gapelia.core.database.Query;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.*;
+import org.brickred.socialauth.util.BirthDate;
 import org.brickred.socialauth.util.SocialAuthUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -26,15 +28,22 @@ public class AuthSuccessHandler extends HttpServlet {
 
 			// get the social auth manager from session
 			SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
+			Profile profile = null;
 
-			// call connect method of manager which returns the provider object.
-			// Pass request parameter map while calling connect method.
-			Map requestMap = SocialAuthUtil.getRequestParametersMap(request);
-			AuthProvider provider = manager.connect(requestMap);
+			String mode = System.getProperty("gapeliaMode");
 
-			// get profile
-			Profile profile = provider.getUserProfile();
+			if (null != mode && "local".equals(mode)) {
+				// get profile
+				profile = getDummyProfile();
+			} else {
+				// call connect method of manager which returns the provider object.
+				// Pass request parameter map while calling connect method.
+				Map requestMap = SocialAuthUtil.getRequestParametersMap(request);
+				AuthProvider provider = manager.connect(requestMap);
 
+				// get profile
+				profile = provider.getUserProfile();
+			}
 			// setup session
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
@@ -46,10 +55,34 @@ public class AuthSuccessHandler extends HttpServlet {
 
 //			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
 //			dispatcher.forward(request, response);
+
+			boolean isFirstTime = Query.checkProfile(profile);
+
+			if (isFirstTime) {
+				response.sendRedirect("/onboard");
+				return;
+			}
 			response.sendRedirect("/me");
 
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
+	}
+
+	private Profile getDummyProfile() {
+		Profile profile = new Profile();
+		profile.setCountry("Japan");
+		profile.setDisplayName("Tom Hanks");
+		profile.setDob(new BirthDate());
+		profile.setEmail("atiwari@gapelia.com");
+		profile.setGender("Male");
+		profile.setFirstName("Tom");
+		profile.setLastName("Hanks");
+		profile.setLanguage("en-us");
+		profile.setLocation("Boston");
+		profile.setProviderId("1234567");
+		profile.setProfileImageURL("https://scontent-a-iad.xx.fbcdn.net/hphotos-ash2/180323_10150140302526321_780884_n.jpg");
+		profile.setValidatedId("1234567");
+		return profile;
 	}
 }

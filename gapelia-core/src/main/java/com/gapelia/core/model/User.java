@@ -16,6 +16,9 @@ public class User {
 	private String bio;
 	private String photoUrl;
 	private String userId;
+	private String gender;
+	private String location;
+	private String dob;
 	private Double reputation;
 	private String facebookUrl;
 	private String twitterUrl;
@@ -61,6 +64,30 @@ public class User {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 
 	public Double getReputation() {

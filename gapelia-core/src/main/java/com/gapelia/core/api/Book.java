@@ -1,19 +1,14 @@
 package com.gapelia.core.api;
 
-import com.gapelia.core.model.Event;
-import com.gapelia.core.model.Page;
-import com.gapelia.core.model.Photo;
-import com.gapelia.core.model.PhotoTag;
-import com.gapelia.core.util.Security;
-import com.gapelia.core.util.TestHelper;
+import com.gapelia.core.auth.AuthHelper;
+import com.gapelia.core.database.Query;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.sql.Date;
-import java.util.List;
+import java.util.UUID;
 
 /**
  * User: Abhishek Tiwari
@@ -42,10 +37,13 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to save book");
-			String json = gson.toJson("Success");
+			if (null == bookId || bookId.trim().length() == 0)
+				bookId = UUID.randomUUID().toString();
+			boolean status = Query.saveBook(profile, bookId, title, language, libraryId, tags, dimension, createdBy, isPublished);
+			String json = gson.toJson(status ? bookId : "Failure");
 			return json;
 		} catch (Exception ex) {
 			LOG.error("Failed to create book", ex);
@@ -75,10 +73,15 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to save page");
-			return gson.toJson("Success");
+			if (null == pageId || pageId.trim().length() == 0)
+				pageId = UUID.randomUUID().toString();
+			boolean status = Query.savePage(profile, pageId, title, description, location, templateId, marginX,
+				marginY, videoUrl, pageNumber, bookId, createdByUserId, photoUrl, photoId);
+			String json = gson.toJson(status ? pageId : "Failure");
+			return json;
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
 			return gson.toJson("Failed");
@@ -95,10 +98,10 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to retrieve book");
-			com.gapelia.core.model.Book book = new com.gapelia.core.model.Book();
+			com.gapelia.core.model.Book book = Query.getBookById(profile, bookId);
 			return gson.toJson(book);
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
@@ -116,10 +119,11 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to subscribe");
-			return gson.toJson("Success");
+			boolean status = Query.subscribeBook(profile, bookId);
+			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to subscribe", ex);
 			return gson.toJson("Failed");
@@ -136,12 +140,13 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
-			LOG.info("Trying to unsubscribe");
-			return gson.toJson("Success");
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
+			LOG.info("Trying to un-subscribe");
+			boolean status = Query.unSubscribeBook(profile, bookId);
+			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
-			LOG.error("Failed to unsubscribe", ex);
+			LOG.error("Failed to un-subscribe", ex);
 			return gson.toJson("Failed");
 		}
 	}

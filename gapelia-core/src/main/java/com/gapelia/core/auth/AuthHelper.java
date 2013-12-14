@@ -1,5 +1,6 @@
 package com.gapelia.core.auth;
 
+import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 import org.brickred.socialauth.util.BirthDate;
 
@@ -14,9 +15,33 @@ import javax.servlet.http.HttpSession;
  * Copyright Gapelia
  */
 public class AuthHelper {
+	public static Logger LOG = Logger.getLogger(AuthHelper.class);
+
 	public static final String APP_FACEBOOK = "facebook";
 	public static final String APP_GOOGLE = "google";
 	public static final String APP_TWITTER = "twitter";
+
+	public static String getUserIdFromSessionId(String sessionId) {
+		Profile profile = getUserProfileFromSessionId(sessionId);
+		if (profile == null)
+			return null;
+		return profile.getProviderId();
+	}
+
+	public static Profile getUserProfileFromSessionId(String sessionId) {
+		LOG.info("Session Id received: " + sessionId);
+		HttpSession session = SessionManager.find(sessionId);
+		if (session == null) {
+			LOG.error("No session found with id: " + sessionId);
+			return null;
+		}
+		Profile profile = (Profile) session.getAttribute("profile");
+		if (profile == null) {
+			LOG.error("No profile found in session: " + sessionId);
+			return null;
+		}
+		return profile;
+	}
 	
 	public static String getProfileDetails(HttpSession session) {
 		Profile profile = (Profile) session.getAttribute("profile");

@@ -1,8 +1,5 @@
 package com.gapelia.core.api;
 
-import com.gapelia.core.model.Event;
-import com.gapelia.core.util.Security;
-import com.gapelia.core.util.TestHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;

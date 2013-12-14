@@ -1,10 +1,10 @@
 package com.gapelia.core.api;
 
+import com.gapelia.core.auth.AuthHelper;
+import com.gapelia.core.database.Query;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
-import com.gapelia.core.util.Security;
-import com.gapelia.core.util.TestHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -31,11 +31,11 @@ public class Profile {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve user details from id");
-			User user = TestHelper.getDummyUser();
+			User user = Query.getUser(profile);
 			String json = gson.toJson(user);
 			LOG.info("Response json: " + json);
 			return json;
@@ -53,11 +53,11 @@ public class Profile {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve books user has created");
-			Book[] books = TestHelper.getDummyBooks();
+			Book[] books = Query.getBooksCreatedByUser(profile);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -75,11 +75,11 @@ public class Profile {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve books user has subscribed to");
-			Book [] books = TestHelper.getDummyBooks();
+			Book [] books = Query.getBooksCollectedByUser(profile);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -97,11 +97,11 @@ public class Profile {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve libraries user has subscribed to");
-			Library [] libraries = TestHelper.getDummyUserLibraries();
+			Library [] libraries = Query.getLibrariesCollectedByUser(profile);
 			String json = gson.toJson(libraries);
 			LOG.info("Response json: " + json);
 			return json;
@@ -119,11 +119,12 @@ public class Profile {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
-			LOG.info("Trying to delete book with id: " + id);
-			return "Success";
+			LOG.info("Trying to delete book with id: " + bookId);
+			boolean status = Query.deleteBookById(profile, bookId);
+			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to delete book", ex);
 			return gson.toJson("Failed");
@@ -135,21 +136,25 @@ public class Profile {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String updateUserInfo(@FormParam("sessionId") String sessionId,
-								 @FormParam("bookId") String name,
-								 @FormParam("bookId") String email,
-								 @FormParam("bookId") String bio,
-								 @FormParam("bookId") String facebookUrl,
-								 @FormParam("bookId") String googlePlusUrl,
-								 @FormParam("bookId") String photoUrl
-								 ) throws IOException {
+								 @FormParam("name") String name,
+								 @FormParam("email") String email,
+								 @FormParam("bio") String bio,
+								 @FormParam("facebookUrl") String facebookUrl,
+								 @FormParam("googlePlusUrl") String googlePlusUrl,
+								 @FormParam("twitterUrl") String twitterUrl,
+								 @FormParam("photoUrl") String photoUrl,
+								 @FormParam("gender") String gender,
+								 @FormParam("location") String location,
+								 @FormParam("dob") String dob) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
-			LOG.info("Trying to retrieve user id from session id");
-			String id = Security.getUserIdFromSessionId(sessionId);
+			LOG.info("Trying to retrieve user from session id");
+			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to update user info");
-			return "Success";
+			boolean status = Query.updateUserProfile(profile, name, email, bio, facebookUrl, googlePlusUrl, twitterUrl, photoUrl, gender, location, dob);
+			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to update user profile", ex);
 			return gson.toJson("Failed");

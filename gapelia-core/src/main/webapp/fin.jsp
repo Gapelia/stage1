@@ -1,4 +1,7 @@
-
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +32,15 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+
+		<% /* ******************************* */ %>
+            <% /* Copy this on all jsp get sessionId %>
+            <!--/ To get session id /-->
+            <script>
+                <% String id = session.getId(); %>
+                var sessionId = <%= id %>
+            </script>
+        <% /* ******************************* */ %>
 
 	</head>
 

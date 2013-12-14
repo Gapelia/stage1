@@ -1,7 +1,7 @@
-<% /* ----------------------------------------------- */ %>
+<% /* *********************************************** */ %>
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
-<% /* ----------------------------------------------- */ %>
+<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,13 +30,19 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="/static/scripts/modernizr.custom.js"></script>
+		<%@include file="../../userDetails.jsp" %> <!-- Dont use this. It is for testing only -->
+        <script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
-		<!--/ To get user details /-->
-		<%@include file="../../userDetails.jsp" %>
-
+		<% /* ******************************* */ %>
+		<% /* Copy this on all jsp get sessionId %>
+		<!--/ To get session id /-->
+		<script>
+		    <% String id = session.getId(); %>
+		    var sessionId = <%= id %>
+		</script>
+        <% /* ******************************* */ %>
 	</head>
 
 	<body class="app profile">
