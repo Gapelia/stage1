@@ -32,7 +32,7 @@
 			videoURL = null;
 			templateId = null;
 			title = null;
-			pagesCreated = -1;//subscript of 0
+			pagesCreated = 0;//subscript of 0
 			currentPage = 0;
 			one = 1;
 			baseLayout();
@@ -56,7 +56,7 @@
 
 	});
 
-	$("#pages-scroller").on("mouseenter", function () ).on("mouseleave", function () {
+	$("#pages-scroller").on("mouseenter", function () {} ).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
 		$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
