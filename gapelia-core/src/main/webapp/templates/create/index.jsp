@@ -26,11 +26,11 @@
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 
-		<link href="/static/css/style.css" rel="stylesheet"/>
-		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+		<link href="static/css/style.css" rel="stylesheet"/>
+		<link href="static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-		<script src="/static/scripts/selectize.js"></script>
+		<script src="static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="static/scripts/selectize.js"></script>
 
 		<!--/
 		<script src="//use.typekit.net/web3vzl.js"></script>
@@ -97,49 +97,49 @@
 
 			<ul>
 				<li id="select-frontcover-layout">
-					<!--/ <img src="/static/images/view-modes/front.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/front.png" alt=""/> /-->
 					<div id="frontcover-layout">Front Cover Layout</div>
 					<span>Front Cover</span>
 				</li>
 
 				<li id="select-photo-layout">
-					<!--/ <img src="/static/images/view-modes/photo.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/photo.png" alt=""/> /-->
 					<div id="photo-layout">Photo Layout</div>
 					<span>Photo</span>
 				</li>
 
 				<li id="select-text-layout">
-					<!--/ <img src="/static/images/view-modes/text.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/text.png" alt=""/> /-->
 					<div id="text-layout">Text Layout</div>
 					<span>Text</span>
 				</li>
 
 				<li id="select-horizontal-layout">
-					<!--/ <img src="/static/images/view-modes/horizontal.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/horizontal.png" alt=""/> /-->
 					<div id="horizontal-layout">Horizontal Layout</div>
 					<span>Horizontal</span>
 				</li>
 
 				<li id="select-overlay-layout">
-					<!--/ <img src="/static/images/view-modes/overlay.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/overlay.png" alt=""/> /-->
 					<div id="overlay-layout">Overlay Layout</div>
 					<span>Overlay</span>
 				</li>
 
 				<li id="select-phototext-layout">
-					<!--/ <img src="/static/images/view-modes/phototext.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/phototext.png" alt=""/> /-->
 					<div id="phototext-layout">Photo/Text Layout</div>
 					<span>Photo/Text</span>
 				</li>
 
 				<li id="select-vertical-layout">
-					<!--/ <img src="/static/images/view-modes/vertical.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/vertical.png" alt=""/> /-->
 					<div id="vertical-layout">Vertical Layout</div>
 					<span>Vertical</span>
 				</li>
 
 				<li id="select-video-layout">
-					<!--/ <img src="/static/images/view-modes/video.png" alt=""/> /-->
+					<!--/ <img src="static/images/view-modes/video.png" alt=""/> /-->
 					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
@@ -154,7 +154,7 @@
 					<div id="create-content">
 
 						<section id="test-blank" class="blank-preview-wrapper">
-							<img class="page-bg" src="/static/images/blankBG.jpg"/>
+							<img class="page-bg" src="static/images/blankBG.jpg"/>
 
 							<div class="blank-preview">
 								<article>
@@ -209,19 +209,19 @@
 		</section>
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/grande.js"></script>
+		<script src="static/scripts/grande.js"></script>
 
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
 		</script>
 
-		<script src="/static/scripts/filepicker2.js"></script>
+		<script src="static/scripts/filepicker2.js"></script>
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
 		
 		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/scrollpanel.js"></script>
+		<script src="static/scripts/jquery.mousewheel.js"></script>
+		<script src="static/scripts/scrollpanel.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
@@ -230,9 +230,9 @@
 			// $("#publish-scroller").scrollpanel();
 		</script>
 
-		<script src="/static/scripts/imgLiquid.js"></script>
-		<script src="/static/scripts/books.js"></script>
-		<script src="/static/scripts/draggable_background.js"></script>
+		<script src="static/scripts/imgLiquid.js"></script>
+		<script src="static/scripts/books.js"></script>
+		<script src="static/scripts/draggable_background.js"></script>
 
 		<script>
 			$(function() {
@@ -242,7 +242,7 @@
 		</script>
 
 		<!--/ scripts/page-sorter /-->
-		<script src="/static/scripts/sortable.js"></script>
+		<script src="static/scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
@@ -254,7 +254,6 @@
 		<!--/ scripts/dialog /-->
 		<script>
 			$("#publish-this").on("click", function(e) {
-
 				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
 				e.preventDefault();
 
