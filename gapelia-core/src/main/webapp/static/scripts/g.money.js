@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 	// Set height of books in feed on "Me" page
 	$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
-	$("#user-bookmark-list .collection, #user-bookmark-list .new").css("height", $vH - 97 + "px");
+	// $("#user-bookmark-list .collection, #user-bookmark-list .new").css("height", $vH - 97 + "px");
 	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
 	$("#user-draft-list .draft").css("height", $vH - 97 + "px");
 
@@ -27,6 +27,7 @@ $(document).ready(function() {
 	$("#book-list .book").css("height", $vH - 97 + "px");
 	$("#dimension-list .portal").css("height", $vH - 97 + "px");
 	$("#library-list .library").css("height", $vH - 97 + "px");
+	$("#bookmark-list .collection").css("height", $vH - 97 + "px");
 
 	/*
 	// Set height of dimension portals in feed
@@ -42,6 +43,31 @@ $(document).ready(function() {
 	// $("#dimension-list canvas").css({ width: $pW + "px", height: $vH - 97 + "px" });
 
 	$(".super-wrapper").css("height", $vH + "px");
+
+	////
+
+	$(document).ready(function () {
+
+		// var bookWidth = 500;
+		// $("#book-list").width($("#book-list .book").length * bookWidth);
+
+	});
+
+	$(document).ready(function() {
+
+		/*
+		var totalWidth = 0;
+
+		$("#book-list").children().each(function() {
+			totalWidth += $(this).outerWidth(true);
+		});
+
+		$("#book-list").css("width", totalWidth);
+		*/
+
+	});
+
+	////
 
 	// Edit Profile on "Me" page
 	$(document).on("click", "button.edit-profile", function () {

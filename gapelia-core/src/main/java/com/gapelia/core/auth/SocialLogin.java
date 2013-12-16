@@ -46,7 +46,7 @@ public class SocialLogin extends HttpServlet {
 			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";
 			} else {
-				hostName = "http://gapelia-dev.herokuapp.com";
+				// hostName = "http://gapelia-dev.herokuapp.com";
 			}
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			LOG.info("Social auth succesUrl: " + successUrl);

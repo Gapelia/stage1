@@ -81,7 +81,7 @@
 
 	});
 
-	// page load starts delay timer
+	// Page load starts delay timer
 	_delay = setInterval(delayCheck, 500);
 
 	$(".full-book header").on("mouseenter", function () {
@@ -104,6 +104,14 @@
 
 	});
 
+	$(".video-preview .play-video").click(function () {
+
+		$(this).hide();
+		$(".video-player-container img").hide();
+		$(".video-player-container iframe").show();
+
+	});
+
 	// Save for mp-push
 	/* big logo is distracting
 	$("#g-menu-toggle").css({
@@ -113,40 +121,3 @@
 		"top": "1rem"
 	});
 	*/
-
-	// MUST FIX!!!
-	// $(".back-cover").ready(function() {
-	$(".back-cover").mousemove(function() {
-
-		if ($(".back-cover").css("display")) {
-			/*
-			$("#header-toggle").css({
-				"opacity": "0",
-				"top": "-50px"
-			});
-			*/
-
-			/*
-			$("#next-book-toggle").css({
-				"opacity": "0",
-				"top": "-50px"
-			});
-			*/
-
-			$("#bb-nav-next").css({
-				"opacity": "0",
-				"right": "-50px"
-			});
-		}
-
-		// if $('.back-cover').css('display');
-
-	});
-
-	$(".video-preview .play-video").click(function () {
-
-		$(this).hide();
-		$(".video-player-container img").hide();
-		$(".video-player-container iframe").show();
-
-	});

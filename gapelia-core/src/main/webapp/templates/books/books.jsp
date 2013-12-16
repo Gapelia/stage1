@@ -734,11 +734,10 @@
 
 								<div id="fin-next" style="background-image:url('/static/images/test-book/2651.jpg')">
 									<section>
-										<small>Next Read</small>
-										<h2>Roadtripping California</h2>
+										<h2><a href="#">Roadtripping California</a></h2>
 
-										<div>by Diego Regules</div>
-										<div>in On the Road</div>
+										<div id="next-author"><a href="#">Diego Regules</a></div>
+										<div id="next-library"><a href="#">On the Road</a></div>
 									</section>
 								</div>
 							</section>

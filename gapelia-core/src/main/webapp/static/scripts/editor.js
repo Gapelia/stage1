@@ -13,49 +13,55 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-			sId = "1234567";
-			$.ajax({
-				url: "http://localhost:8080/api/book/createBook",
-				contentType: "application/x-www-form-urlencoded;charset=utf-8",
-				type: "POST",
-				data: {
-					sessionId: sId,
-				},
-				success: function (data) {
-					bookId=data.bookId;
-					console.log("Succes Creating your book");
-				},
-				error: function (q, status, err) {
-					if (status == "timeout") {
-						alert("Request timed out");
-					} else {
-						alert("Some issue happened with your request: " + err);
-					}
-				}
-			});
-			geotag = "BUGGGGGG";
-			book = {
-				"author" : "AUTHOR",
-				"title" : null,
-				"library" : "NULL",
-				"dimension" : "NULL"
-			};
 
-			pages = {
-				"page":[{}]
-			};
-			index = 0;
-			author = book.author;
-			pageNumber = 0;
-			text = null;
-			imageURL = null;
-			videoURL = null;
-			templateId = null;
-			title = null;
-			pagesCreated = 0;//subscript of 0
-			currentPage = 0;
-			one = 1;
-			baseLayout();
+		sId = "1234567";
+
+		$.ajax({
+			url: "http://localhost:8080/api/book/createBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId,
+			},
+			success: function (data) {
+				bookId=data.bookId;
+				console.log("Succes Creating your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
+
+		geotag = "BUGGGGGG";
+
+		book = {
+			"author" : "AUTHOR",
+			"title" : null,
+			"library" : "NULL",
+			"dimension" : "NULL"
+		};
+
+		pages = {
+			"page":[{}]
+		};
+
+		index = 0;
+		author = book.author;
+		pageNumber = 0;
+		text = null;
+		imageURL = null;
+		videoURL = null;
+		templateId = null;
+		title = null;
+		pagesCreated = 0; // subscript of 0
+		currentPage = 0;
+		one = 1;
+		baseLayout();
+
 	});
 
 	// Left Menus
@@ -76,7 +82,7 @@
 
 	});
 
-	$("#pages-scroller").on("mouseenter", function () {} ).on("mouseleave", function () {
+	$("#pages-scroller").on("mouseenter", function () {}).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
 		$("#pages-scroller").css("left", "-200px").stop(true).delay(5000);
@@ -87,16 +93,19 @@
 		}).stop(true).delay(5000);
 
 	});
-	$(document).on("click","#pages-scroller ul li", function (){
+
+	$(document).on("click","#pages-scroller ul li", function () {
+
 		currentPage = $(this).closest("li").attr("id");
-		templateId=pages.page[currentPage].templateId;
-		title=pages.page[currentPage].title;
-		text=pages.page[currentPage].text;
-		geotag=pages.page[currentPage].geotag;
-		imageURL=pages.page[currentPage].image;
-		videoURL=pages.page[currentPage].video;
-		pageNumber=pages.page[currentPage].pageNumber;
-		switch(templateId){
+		templateId = pages.page[currentPage].templateId;
+		title = pages.page[currentPage].title;
+		text = pages.page[currentPage].text;
+		geotag = pages.page[currentPage].geotag;
+		imageURL = pages.page[currentPage].image;
+		videoURL = pages.page[currentPage].video;
+		pageNumber = pages.page[currentPage].pageNumber;
+
+		switch(templateId) {
 			case 0:
 				frontCoverLayout();
 				break;
@@ -124,7 +133,9 @@
 			default:
 				baseLayout();
 		}
+
 	});
+
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 
 		$("#layout-scroller").stop(true).css("left", "0");
@@ -212,16 +223,20 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#add-page").click(function (e) {
-pagesCreated++;
+
+		pagesCreated++;
+
 		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img <img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
 		text = $(".page-desc").text();
 		imageURL = $(".page-bg").attr("src");
+
 		if(geotag == undefined) {
-				geotag="BUUUGGG";
-		} 
+			geotag="BUUUGGG";
+		}
+
 		if(pagesCreated==0) {
 			pages.page[0] = {
 				"pageNumber" : pagesCreated,
@@ -232,7 +247,8 @@ pagesCreated++;
 				"image" : "/static/images/blankBG.jpg",
 				"video" : "NULL"
 			};
-			templateId=0;
+
+			templateId = 0;
 			frontCoverLayout();
 		} else if(pagesCreated > 20) {
 			alert("Your book is too big please remove a page!\n");
@@ -260,6 +276,7 @@ pagesCreated++;
 			imageURL = null;
 			videoURL = null;
 		}
+
 		e.preventDefault();
 		addPageBE();
 
@@ -969,10 +986,14 @@ pagesCreated++;
 			}
 
 		});
+
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+
 	}
-	function addPageBE(){
+
+	function addPageBE() {
+
 		$.ajax({
 			url: "http://localhost:8080/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -994,17 +1015,22 @@ pagesCreated++;
 				}
 			}
 		});
+
 	}
+
 	// Layout Constants
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
-	//save data of what is being edited every second
+
+	// Save data of what is being edited every second
 	window.setInterval(function() {
-		if(pages.page[0].templateId!=null&&pagesCreated!=-1){
+
+		if(pages.page[0].templateId != null && pagesCreated != -1) {
 			imageURL = $(".page-bg").attr("src");
 			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();
 			text = $(".page-desc").text();
+
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
 			pages.page[currentPage].geotag = geotag;
@@ -1012,9 +1038,12 @@ pagesCreated++;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
 		}
+
 	}, 1000);
-	//save book information every minute
+
+	// Save book information every minute
 	window.setInterval(function () {
+
 		$.ajax({
 			url: "http://localhost:8080/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1035,15 +1064,19 @@ pagesCreated++;
 				}
 			}
 		});
-	},60000)
-	//save pages information every 5 seconds
+
+	}, 60000);
+
+	// Save page information every 5 seconds
 	window.setInterval(function () {
+
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").text();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
+
 		$.ajax({
 			url: "http://localhost:8080/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1071,7 +1104,8 @@ pagesCreated++;
 				}
 			}
 		});
-	},5000)
+
+	}, 5000);
 
 	// Toggle layout switcher
 	$("#select-frontcover-layout").click(function ()	{ frontCoverLayout(); });
@@ -1088,9 +1122,10 @@ pagesCreated++;
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
-		//TO DO, Get tags from format and library
-		library=1;
-		tags="fun";
+
+		// TO DO: Get tags from format and library
+		library = 1;
+		tags = "fun";
 
 		$.ajax({
 			url: "http://localhost:8080/api/book/createBook",
@@ -1114,6 +1149,7 @@ pagesCreated++;
 				}
 			}
 		});
+
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",

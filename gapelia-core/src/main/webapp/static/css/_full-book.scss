@@ -523,6 +523,11 @@
 			// color: $white;
 			float: left;
 			height: 100%;
+
+			a {
+				// color: $slate;
+				border-bottom: 1px dotted $white;
+			}
 		}
 
 		#fin {
@@ -578,6 +583,8 @@
 			.share-book {
 				margin: 1rem 0 0 0;
 
+				a { border: 0; }
+
 				&:before {
 					content: "Share this story";
 					@include serif;
@@ -589,6 +596,7 @@
 				}
 			}
 
+			/*
 			&:after {
 				top: 0; right: 0;
 				bottom: 0; left: 0;
@@ -599,6 +607,7 @@
 				position: absolute;
 				z-index: 0;
 			}
+			*/
 		}
 
 		#fin-next {
@@ -611,9 +620,16 @@
 			h2, section { z-index: 1; }
 
 			h2 {
-				// border-bottom: 1px solid $black;
-				text-transform: uppercase;
+				line-height: 1.1em;
 				width: auto;
+
+				&:before {
+					content: "Next Read";
+					display: block;
+					font-size: 0.5em;
+					line-height: 1em;
+					margin: 0;
+				}
 			}
 
 			section {
@@ -621,11 +637,33 @@
 				position: absolute;
 			}
 
+			#next-author, #next-library { font-size: 1.3em; }
+
+			#next-author {
+				margin: 1rem 0 0.3rem 0;
+
+				&:before {
+					content: "by ";
+					@include serif;
+					font-size: 0.8em;
+					font-style: italic;				
+				}
+			}
+
+			#next-library {
+				&:before {
+					content: "in ";
+					@include serif;
+					font-size: 0.8em;
+					font-style: italic;				
+				}
+			}
+
 			&:after {
 				top: 0; right: 0;
 				bottom: 0; left: 0;
 
-				background-image: linear-gradient(to bottom, $black, $white);
+				background-image: linear-gradient(to right, $black, transparent);
 				content: "";
 				opacity: 0.5;
 				position: absolute;

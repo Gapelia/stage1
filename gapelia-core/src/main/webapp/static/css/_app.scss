@@ -94,15 +94,15 @@
 	}
 
 	#featured-panel {
-		transition: all 0.5s ease;
-		-webkit-transition: all 0.5s ease;
+		transition: all 0.1s ease;
+		-webkit-transition: all 0.1s ease;
 
 		&:after {
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
-			// background-image: linear-gradient(to bottom left, $white, $black);
+			// background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+			background-image: linear-gradient(to top, $slate, $black);
 			content: "";
 			opacity: 0.6;
 			position: absolute;
@@ -182,7 +182,7 @@
 		width: 75%;
 	}
 
-	#user-book-list, #user-collection-list, #user-library-list, #user-draft-list,
+	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 	#book-list, #dimension-list, #library-list {
 		display: none;
 		transition: all 0.5s ease;
@@ -269,8 +269,7 @@
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			// background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
-			background-image: linear-gradient(to bottom, $slate, $black);
+			background-image: linear-gradient(to top, transparent, $black);
 			content: "";
 			opacity: 0.6;
 			position: absolute;

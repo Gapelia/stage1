@@ -31,7 +31,7 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<%@include file="../../userDetails.jsp" %> <!-- Dont use this. It is for testing only -->
-        <script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
@@ -96,7 +96,7 @@
 			<div id="book-scroller">
 				<ul id="book-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-					<li id="nav-collections"><a href="#">Bookmarks</a></li>
+					<!--/ <li id="nav-collections"><a href="#">Bookmarks</a></li> /-->
 					<li id="nav-drafts"><a href="#">Drafts</a></li>
 				</ul>
 
@@ -268,6 +268,7 @@
 				<!--//your-books /-->
 
 				<!--/ your-bookmarks /-->
+				<!--/
 				<div class="user-bookmark-list-wrapper">
 					<ul id="user-bookmark-list">
 
@@ -443,6 +444,7 @@
 
 					</ul>
 				</div>
+				/-->
 				<!--//your-bookmarks /-->
 
 				<!--/ your-drafts /-->
@@ -558,6 +560,7 @@
 				});
 
 				// Click "Collections"
+				/*
 				$("#nav-collections").click(function (e) {
 
 					NProgress.start();
@@ -588,6 +591,7 @@
 					e.preventDefault();
 
 				});
+				*/
 
 				// Click "Drafts"
 				$("#nav-drafts").click(function (e) {

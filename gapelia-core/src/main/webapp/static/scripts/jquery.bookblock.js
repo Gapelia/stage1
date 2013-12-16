@@ -142,7 +142,7 @@
 
 		// callback after the flip transition
 		// old is the index of the previous item
-		// page is the current item´s index
+		// page is the current item's index
 		// isLimit is true if the current page is the last one (or the first one)
 		onEndFlip: function (old, page, isLimit) {
 			return false;
@@ -438,6 +438,7 @@
 				if (self.options.autoplay) { self._startSlideshow(); }
 
 			}, this.options.interval);
+
 		},
 
 		_stopSlideshow: function () {

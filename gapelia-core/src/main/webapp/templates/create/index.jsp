@@ -29,9 +29,11 @@
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
-		<script type="text/javascript">
+
+		<script>
 			$(document).ready(function () {
-				 sId = "1234567",
+
+				sId = "1234567",
 				$.ajax({
 					url: "http://localhost:8080/api/book/createBook",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -40,7 +42,7 @@
 						sessionId: sId,
 					},
 					success: function (data) {
-						bookId=data.bookId;
+						bookId = data.bookId;
 						console.log("Succes Creating your book");
 					},
 					error: function (q, status, err) {
@@ -51,10 +53,9 @@
 						}
 					}
 				});
-				
+
 			});
-		</script>
-		<script>
+
 			$(function() {
 
 				$("#input-tags").selectize({

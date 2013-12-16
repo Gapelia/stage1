@@ -29,20 +29,24 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
+
+		<script>
+			/*
+			$(document).ready(function () {
+
 				html = "<ul id=\"book-list\">",
-				sId=123456;
+				sId = 123456;
+
 				$.ajax({
 					url: "http://localhost:8080/api/libraries/getFeaturedBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {
 						sessionId: sId,
-						dimension:"Art"
+						dimension: "Art"
 					},
 					success: function (data) {
-						featuredBooks=data;
+						featuredBooks = data;
 						console.log("books" + data);
 					},
 					error: function (q, status, err) {
@@ -53,8 +57,7 @@
 						}
 					}
 
-
-					//$(".book-list-wrapper").html(parsedHtml);
+					// $(".book-list-wrapper").html(parsedHtml);
 					$("#book-list").css("opacity", "0").show();
 
 					$("#book-list").mCustomScrollbar({
@@ -66,10 +69,12 @@
 							updateOnContentResize: false
 						}
 					});
+
 					NProgress.done();
 					$("#book-list .book").css("height", $vH - 97 + "px");
 					$("#book-list").css("opacity", "1");
 				});
+
 				$.ajax({
 					url: "http://localhost:8080/api/libraries/getAllLibraries",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -78,8 +83,8 @@
 						sessionId: sId
 					},
 					success: function (data) {
-						html="";
-						libraries=data;
+						html = "";
+						libraries = data;
 						parseJsonToStringForLibraries(libraries);
 
 						console.log("libraries" + data);
@@ -91,7 +96,8 @@
 							alert("Some issue happened with your request: " + err);
 						}
 					}
-					//$(".library-list-wrapper").html(parsedHtml);
+
+					// $(".library-list-wrapper").html(parsedHtml);
 					$("#library-list").css("opacity", "0").show();
 
 					$("#library-list").mCustomScrollbar({
@@ -103,35 +109,45 @@
 							updateOnContentResize: false
 						}
 					});
+
 					NProgress.done();
 					$("#library-list .library").css("height", $vH - 97 + "px");
 					$("#library-list").css("opacity", "1");
 				)};
-				function parseJsonToStringForLibraries(libraries){
-					html+="<ul id=\"library-list\">";
+
+				function parseJsonToStringForLibraries(libraries) {
+
+					html += "<ul id=\"library-list\">";
 					$.each(libraries, function () {
-						html+="<li class=\"library\"><div class=\"library-info\">
-								<div class="title"><a href=\""+this["libraryHref"]+"\">"+this['title']+"</a></div><div class=\"lib-blurb\">"+this['blurb']+"</div></div>";
-						html+="<div class=\"wrapper\"><button class=\"subscribe slate\">Subscribe</button></div><span class=\"image-overlay\"></span>
-							<img src=\""+this['image']+"\" alt=\"\"/></li>";
+						html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
+						html += "<div class=\"wrapper\"><button class=\"subscribe slate\">Subscribe</button></div><span class=\"image-overlay\"></span><img src=\"" + this['image'] + "\" alt=\"\"/></li>";
 					});
+
 				}
 
 				function parseJsonToStringForBooks(books) {
-						$.each(books, function () {
-							html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
-							html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-info'>";
-							html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
-							html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
-							html += "<span class=\"image-overlay\"></span>";
-							html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
-							html += "</li>";
-						});
-						html += "</ul>";
-						return html;
+
+					$.each(books, function () {
+
+						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
+						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-info'>";
+						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
+						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+						html += "<span class=\"image-overlay\"></span>";
+						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
+						html += "</li>";
+
+					});
+
+					html += "</ul>";
+					return html;
+
 				}
+
 			});
+			*/
 		</script>
+
 	</head>
 
 	<body class="app profile">
@@ -175,6 +191,7 @@
 				<ul id="featured-nav">
 					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
 					<li id="nav-libraries"><a href="#">Libraries</a></li>
+					<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
 				</ul>
 
 				<!--/ Featured Books /-->
@@ -642,6 +659,184 @@
 					</ul>
 				</div>
 				<!--//Featured Libraries /-->
+
+				<!--/ User's Bookmarks /-->
+				<div class="bookmark-list-wrapper">
+					<ul id="bookmark-list">
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-11.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-12.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-13.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb.JPG" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-01.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-02.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-03.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-04.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-05.jpg" alt=""/>
+						</li>
+
+						<li class="collection">
+							<div class="bookmark-this">
+								<span class="top-bm"></span>
+								<span class="bottom-bm"></span>
+								<span class="right-bm"></span>
+							</div>
+
+							<div class="collection-info">
+								<div class="title"><a href="#">Nature is Everything</a></div>
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+								<div class="library-location"><a href="#">Camp Awesome</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-06.jpg" alt=""/>
+						</li>
+
+					</ul>
+				</div>
+				<!--//User's Bookmarks /-->
 			</div>
 			<!--//main-content /-->
 
@@ -662,7 +857,7 @@
 			});
 
 			$(function() {
-				$("#featured-panel, .book, .library").imgLiquid({ fill: true });
+				$("#featured-panel, .book, .library, .collection").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -687,22 +882,31 @@
 						theme: "dark-thin",
 						advanced: {
 							autoExpandHorizontalScroll: true,
-							updateOnContentResize: false
+							updateOnContentResize: true
 						},
 						callbacks: {
 							onScroll: function() {
+
 								$("#featured-panel").css("width", "7%");
 
 								$("#featured-scroller").css({
-									"transition": "all 0.1s ease",
-									"-webkit-transition": "all 0.1s ease",
+									// "transition": "all 0.1s ease",
+									// "-webkit-transition": "all 0.1s ease",
 									"width": "93%"
 								});
 
 								$("#featured-panel p").css("display", "none");
 
 								$("#featured-panel h2").css({
-									"margin": "0",
+									"background-image": "url('/static/images/sprite-sheet.png')",
+									"background-position": "0 -333px",
+									"background-repeat": "no-repeat",
+									"background-size": "200px 500px",
+									"font-size": "0",
+									"line-height": "0",
+									"width": "200px",
+									"left": "-3.8rem",
+									"margin": "2rem 0",
 									"padding": "0 0 4rem 0",
 									"bottom": "2rem",
 									"position": "fixed",
@@ -711,13 +915,16 @@
 								});
 
 								$(this).mCustomScrollbar("update");
+
 							},
+
 							onTotalScrollBack: function() {
+
 								$("#featured-panel").css("width", "25%");
 
 								$("#featured-scroller").css({
-									"transition": "all 0.1s ease",
-									"-webkit-transition": "all 0.1s ease",
+									// "transition": "all 0.1s ease",
+									// "-webkit-transition": "all 0.1s ease",
 									"width": "75%"
 								});
 
@@ -727,14 +934,21 @@
 									"margin": "0 0 10px 0",
 									"padding": "0",
 									"bottom": "0",
+									"left": "0",
+									"background-image": "none",
+									"font-size": "28px",
+									"line-height": "40px",
 									"position": "relative",
 									"transform": "rotate(0deg)",
+									"width": "auto",
 									"-webkit-transform": "rotate(0deg)"
 								});
 
 								$(this).mCustomScrollbar("update");
+
 							},
-							onTotalScrollBackOffset: 10
+
+							onTotalScrollBackOffset: 100
 						}
 					});
 
@@ -760,6 +974,7 @@
 
 						$("#book-list").show();
 						$("#library-list").hide();
+						$("#bookmark-list").hide();
 
 						$("#book-list").mCustomScrollbar({
 							autoHideScrollbar: false,
@@ -772,6 +987,7 @@
 						});
 
 						$("#library-list").mCustomScrollbar("destroy");
+						$("#bookmark-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -779,6 +995,7 @@
 
 					$("#nav-books").addClass("current");
 					$("#nav-libraries").removeClass("current");
+					$("#nav-bookmarks").removeClass("current");
 					e.preventDefault();
 
 				});
@@ -790,6 +1007,7 @@
 
 					$("#book-list").hide();
 					$("#library-list").show();
+					$("#bookmark-list").hide();
 
 					setTimeout(function () {
 
@@ -804,6 +1022,7 @@
 						});
 
 						$("#book-list").mCustomScrollbar("destroy");
+						$("#bookmark-list").mCustomScrollbar("destroy");
 
 						NProgress.done();
 
@@ -811,6 +1030,39 @@
 
 					$("#nav-books").removeClass("current");
 					$("#nav-libraries").addClass("current");
+					$("#nav-bookmarks").removeClass("current");
+					e.preventDefault();
+
+				});
+
+				// Click "Bookmarks"
+				$("#nav-bookmarks").click(function (e) {
+
+					NProgress.start();
+
+					$("#book-list").hide();
+					$("#library-list").hide();
+					$("#bookmark-list").show();
+
+					setTimeout(function() {
+
+						$("#bookmark-list").mCustomScrollbar({
+							autoHideScrollbar: false,
+							horizontalScroll: true,
+							theme: "dark-thin",
+							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+						});
+
+						$("#book-list").mCustomScrollbar("destroy");
+						$("#library-list").mCustomScrollbar("destroy");
+
+						NProgress.done();
+
+					});
+
+					$("#nav-books").removeClass("current");
+					$("#nav-libraries").removeClass("current");
+					$("#nav-bookmarks").addClass("current");
 					e.preventDefault();
 
 				});
