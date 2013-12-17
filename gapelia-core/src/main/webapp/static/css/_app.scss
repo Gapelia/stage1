@@ -282,6 +282,16 @@
 		}
 	}
 
+	.new {
+		border: 1px solid rgba($black, 0.1);
+		font-size: 2em;
+		line-height: 1.3;
+		padding: 8rem 3rem;
+
+		&:after { background: none; }
+		&:hover { box-shadow: none; }
+	}
+
 	.book-info, .collection-info, .library-info, .new-inner-wrapper, .draft-info,
 	.portal-info, .featured-info {
 		color: $white;

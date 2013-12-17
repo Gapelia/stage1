@@ -27,7 +27,7 @@ $(document).ready(function() {
 	$("#book-list .book").css("height", $vH - 97 + "px");
 	$("#dimension-list .portal").css("height", $vH - 97 + "px");
 	$("#library-list .library").css("height", $vH - 97 + "px");
-	$("#bookmark-list .collection").css("height", $vH - 97 + "px");
+	$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
 
 	/*
 	// Set height of dimension portals in feed

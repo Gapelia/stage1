@@ -5,9 +5,9 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Create a book | Gapelia</title>
+		<title>Gapelia &middot; Book Editor</title>
 
-		<!--/
+		<!--/ AWESOME BOOK CREATOR, YA KNOW YOU LIKE IT!
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
@@ -17,8 +17,6 @@
 				01000111011000010111000001100101011011000110100101100001
 
 		/-->
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<meta name="author" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
@@ -33,6 +31,7 @@
 		<script>
 			$(document).ready(function () {
 
+				/*
 				sId = "1234567",
 				$.ajax({
 					url: "http://localhost:8080/api/book/createBook",
@@ -53,6 +52,7 @@
 						}
 					}
 				});
+				*/
 
 			});
 

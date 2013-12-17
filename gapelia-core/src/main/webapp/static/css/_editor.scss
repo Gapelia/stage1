@@ -430,7 +430,7 @@
 						background-color: transparent;
 						border: 0;
 						color: $white;
-						font-size: 1em;
+						font-size: 0.65em;
 						font-weight: 600;
 						text-transform: uppercase;
 						width: 100%;
@@ -448,6 +448,7 @@
 						font-size: 1em;
 						line-height: 1.4em;
 						margin: 1rem 0 0 0;
+						overflow-x: hidden;
 						text-align: center;
 						white-space: pre; // preserve line breaks!
 
@@ -643,6 +644,11 @@
 							color: $black;
 							text-align: center;
 						}
+
+						.page-desc {
+							margin: 1rem auto 0;
+							width: 70%;
+						}
 					}
 				}
 				
@@ -800,6 +806,7 @@
 							color: $black;
 							font-weight: 700;
 							position: relative;
+							text-align: center;
 							text-transform: uppercase;
 							transition: all 0.2s ease;
 							z-index: 2;

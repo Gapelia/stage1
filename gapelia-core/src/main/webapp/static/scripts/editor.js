@@ -14,6 +14,7 @@
 
 	$(document).ready(function () {
 
+		/*
 		sId = "1234567";
 
 		$.ajax({
@@ -35,6 +36,7 @@
 				}
 			}
 		});
+		*/
 
 		geotag = "BUGGGGGG";
 
@@ -901,7 +903,7 @@
 
 		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Input video URL here\" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -994,6 +996,7 @@
 
 	function addPageBE() {
 
+		/*
 		$.ajax({
 			url: "http://localhost:8080/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1001,7 +1004,6 @@
 			data: {
 				sessionId: sId,
 				bookId:bookId,
-
 			},
 			success: function (data) {
 				pageId=date.pageId;
@@ -1015,6 +1017,7 @@
 				}
 			}
 		});
+		*/
 
 	}
 
@@ -1044,6 +1047,7 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
+		/*
 		$.ajax({
 			url: "http://localhost:8080/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1054,7 +1058,7 @@
 				bookId:bookId
 			},
 			success: function (data) {
-				console.log("Succes Creating your book");
+				console.log("Success creating your book");
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
@@ -1064,6 +1068,7 @@
 				}
 			}
 		});
+		*/
 
 	}, 60000);
 
@@ -1077,21 +1082,22 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
+		/*
 		$.ajax({
 			url: "http://localhost:8080/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 				sessionId: sId,
-				title:title,
-				bookId:bookId,
-				pageId:pageId,
-				title:title,
-				description:text,
-				templateId:templateId,
-				videoUrl:videoURL,
-				pageNumber:currentPage,
-				createdByUserId:userId
+				title: title,
+				bookId: bookId,
+				pageId: pageId,
+				title: title,
+				description: text,
+				templateId: templateId,
+				videoUrl: videoURL,
+				pageNumber: currentPage,
+				createdByUserId: userId
 			},
 			success: function (data) {
 				console.log("Succes Creating your book");
@@ -1104,6 +1110,7 @@
 				}
 			}
 		});
+		*/
 
 	}, 5000);
 
@@ -1181,7 +1188,8 @@
 	function delayCheck() {
 
 		if (timedelay == 5) {
-			$(".book-creation header, button.photo-picker").fadeOut();
+			$(".book-creation header, .frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").fadeOut();
+			$(".video-preview-wrapper button.photo-picker").css("opacity", "0");
 			timedelay = 1;
 		}
 
@@ -1191,7 +1199,8 @@
 
 	$(document).mousemove(function () {
 
-		$(".book-creation header, button.photo-picker").fadeIn();
+		$(".book-creation header, .frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").fadeIn();
+		$(".video-preview-wrapper button.photo-picker").css("opacity", "1");
 		timedelay = 1;
 		clearInterval(_delay);
 		_delay = setInterval(delayCheck, 500);

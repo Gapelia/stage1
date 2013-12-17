@@ -9,7 +9,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Your Library | Gapelia</title>
+		<title>Gapelia &middot; Your Library</title>
 
 		<!--/ ME VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -23,7 +23,6 @@
 		/-->
 
 		<meta name="author" content="Gapelia"/>
-		<meta name="copyright" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 

@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Featured on Gapelia</title>
+		<title>Gapelia &middot; Featured Books</title>
 
 		<!--/ FEATURED VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -664,6 +664,11 @@
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list">
 
+						<li class="new">
+							You don't have any bookmarks saved yet. If you don't have time to read a book, or you want to add it to your favorites, it will appear here.
+						</li>
+
+						<!--/
 						<li class="collection">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
@@ -833,6 +838,7 @@
 							<span class="image-overlay"></span>
 							<img src="/static/images/book-thumb-06.jpg" alt=""/>
 						</li>
+						/-->
 
 					</ul>
 				</div>
