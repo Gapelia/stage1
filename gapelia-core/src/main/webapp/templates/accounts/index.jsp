@@ -80,8 +80,28 @@
 			</div>
 			<!--//main-panel /-->
 
-			<div id="book-scroller">
-				<div class="user-book-list-wrapper">
+			<div id="account-information">
+				<div class="account-info-wrapper">
+
+					<section id="">
+						<h3>Your email</h3>
+						<p contenteditable="false">paul@dsgn.io<br/><a href="#">Edit</a></p>
+					</section>
+
+					<section id="">
+						<h3>Email notifications</h3>
+						<p>When someone recommends your book, or wants to collaborate with you, we'll send you an email.<br/><a href="#">Yay</a><a href="#">Nay</a></p>
+					</section>
+
+					<section id="">
+						<h3>Import content</h3>
+						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Import your content <a href="#">here</a>.</p>
+					</section>
+
+					<section id="">
+						<h3>Delete account</h3>
+						<p>Are you sure? <a href="#">Delete account</a></p>
+					</section>
 
 				</div>
 			</div>
@@ -117,7 +137,7 @@
 			$(document).ready(function() {
 
 				// Load Gapelia
-				$("#user-panel, #book-scroller").css("opacity", "0").show();
+				$("#user-panel, #account-information").css("opacity", "0").show();
 				NProgress.start();
 
 				setTimeout(function() {
@@ -130,7 +150,7 @@
 
 					// "fix" featured menu pop-in
 					setTimeout(function () {
-						$("#user-panel, #book-scroller").css("opacity", "1");
+						$("#user-panel, #account-information").css("opacity", "1");
 					}, 400).show();
 
 				});
