@@ -267,186 +267,6 @@
 				</div>
 				<!--//your-books /-->
 
-				<!--/ your-bookmarks /-->
-				<!--/
-				<div class="user-bookmark-list-wrapper">
-					<ul id="user-bookmark-list">
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.JPG" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="collection">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-					</ul>
-				</div>
-				/-->
-				<!--//your-bookmarks /-->
-
 				<!--/ your-drafts /-->
 				<div class="user-draft-list-wrapper">
 					<ul id="user-draft-list">
@@ -511,7 +331,68 @@
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+						callbacks: {
+							onScroll: function() {
+
+								$("#user-panel").css("width", "7%");
+								$("#book-scroller").css("width", "93%");
+								$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
+
+								/*
+								$("#user-panel h2").css({
+									"margin": "2rem 0",
+									"padding": "0 0 4rem 0",									
+									"bottom": "2rem",
+									"left": "-3.8rem",
+									"background-image": "url('/static/images/sprite-sheet.png')",
+									"background-position": "0 -333px",
+									"background-repeat": "no-repeat",
+									"background-size": "200px 500px",
+									"font-size": "0",
+									"line-height": "0",
+									"position": "fixed",
+									"transform": "rotate(-90deg)",
+									"width": "200px",
+									"-webkit-transform": "rotate(-90deg)"
+								});
+								*/
+
+								$(this).mCustomScrollbar("update");
+								$(this).mCustomScrollbar("stop");
+
+							},
+
+							onTotalScrollBack: function() {
+
+								$("#user-panel").css("width", "25%");
+								$("#book-scroller").css("width", "75%");
+								$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
+
+								/*
+								$("#user-panel h2").css({
+									"margin": "0 0 10px 0",
+									"padding": "0",
+									"bottom": "0",
+									"left": "0",
+									"background-image": "none",
+									"font-size": "28px",
+									"line-height": "40px",
+									"position": "relative",
+									"transform": "rotate(0deg)",
+									"width": "auto",
+									"-webkit-transform": "rotate(0deg)"
+								});
+								*/
+
+								$(this).mCustomScrollbar("update");
+								$(this).mCustomScrollbar("stop");
+
+							},
+
+							onTotalScrollBackOffset: 100
+						},
+
+						advanced: { autoExpandHorizontalScroll: true }
 					});
 
 					NProgress.done();
@@ -542,7 +423,68 @@
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+							callbacks: {
+								onScroll: function() {
+
+									$("#user-panel").css("width", "7%");
+									$("#book-scroller").css("width", "93%");
+									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
+
+									/*
+									$("#user-panel h2").css({
+										"margin": "2rem 0",
+										"padding": "0 0 4rem 0",									
+										"bottom": "2rem",
+										"left": "-3.8rem",
+										"background-image": "url('/static/images/sprite-sheet.png')",
+										"background-position": "0 -333px",
+										"background-repeat": "no-repeat",
+										"background-size": "200px 500px",
+										"font-size": "0",
+										"line-height": "0",
+										"position": "fixed",
+										"transform": "rotate(-90deg)",
+										"width": "200px",
+										"-webkit-transform": "rotate(-90deg)"
+									});
+									*/
+
+									$(this).mCustomScrollbar("update");
+									$(this).mCustomScrollbar("stop");
+
+								},
+
+								onTotalScrollBack: function() {
+
+									$("#user-panel").css("width", "25%");
+									$("#book-scroller").css("width", "75%");
+									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
+
+									/*
+									$("#user-panel h2").css({
+										"margin": "0 0 10px 0",
+										"padding": "0",
+										"bottom": "0",
+										"left": "0",
+										"background-image": "none",
+										"font-size": "28px",
+										"line-height": "40px",
+										"position": "relative",
+										"transform": "rotate(0deg)",
+										"width": "auto",
+										"-webkit-transform": "rotate(0deg)"
+									});
+									*/
+
+									$(this).mCustomScrollbar("update");
+									$(this).mCustomScrollbar("stop");
+
+								},
+
+								onTotalScrollBackOffset: 100
+							},
+
+							advanced: { autoExpandHorizontalScroll: true }
 						});
 
 						$("#user-bookmark-list").mCustomScrollbar("destroy");
@@ -559,40 +501,6 @@
 
 				});
 
-				// Click "Collections"
-				/*
-				$("#nav-collections").click(function (e) {
-
-					NProgress.start();
-
-					$("#user-book-list").hide();
-					$("#user-bookmark-list").show();
-					$("#user-draft-list").hide();
-
-					setTimeout(function() {
-
-						$("#user-bookmark-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
-						});
-
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-draft-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").addClass("current");
-					$("#nav-drafts").removeClass("current");
-					e.preventDefault();
-
-				});
-				*/
-
 				// Click "Drafts"
 				$("#nav-drafts").click(function (e) {
 
@@ -608,7 +516,68 @@
 							autoHideScrollbar: false,
 							horizontalScroll: true,
 							theme: "dark-thin",
-							advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+							callbacks: {
+								onScroll: function() {
+
+									$("#user-panel").css("width", "7%");
+									$("#book-scroller").css("width", "93%");
+									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
+
+									/*
+									$("#user-panel h2").css({
+										"margin": "2rem 0",
+										"padding": "0 0 4rem 0",									
+										"bottom": "2rem",
+										"left": "-3.8rem",
+										"background-image": "url('/static/images/sprite-sheet.png')",
+										"background-position": "0 -333px",
+										"background-repeat": "no-repeat",
+										"background-size": "200px 500px",
+										"font-size": "0",
+										"line-height": "0",
+										"position": "fixed",
+										"transform": "rotate(-90deg)",
+										"width": "200px",
+										"-webkit-transform": "rotate(-90deg)"
+									});
+									*/
+
+									$(this).mCustomScrollbar("update");
+									$(this).mCustomScrollbar("stop");
+
+								},
+
+								onTotalScrollBack: function() {
+
+									$("#user-panel").css("width", "25%");
+									$("#book-scroller").css("width", "75%");
+									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
+
+									/*
+									$("#user-panel h2").css({
+										"margin": "0 0 10px 0",
+										"padding": "0",
+										"bottom": "0",
+										"left": "0",
+										"background-image": "none",
+										"font-size": "28px",
+										"line-height": "40px",
+										"position": "relative",
+										"transform": "rotate(0deg)",
+										"width": "auto",
+										"-webkit-transform": "rotate(0deg)"
+									});
+									*/
+
+									$(this).mCustomScrollbar("update");
+									$(this).mCustomScrollbar("stop");
+
+								},
+
+								onTotalScrollBackOffset: 100
+							},
+
+							advanced: { autoExpandHorizontalScroll: true }
 						});
 
 						$("#user-book-list").mCustomScrollbar("destroy");

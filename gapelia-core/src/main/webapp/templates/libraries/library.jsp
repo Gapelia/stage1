@@ -294,7 +294,64 @@
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
-						advanced: { autoExpandHorizontalScroll: true, updateOnContentResize: false }
+						callbacks: {
+							onScroll: function() {
+
+								$("#featured-panel").css("width", "7%");
+								$("#featured-scroller").css("width", "93%");
+								$("#featured-panel p").css("display", "none");
+
+								$("#featured-panel h2").css({
+									"margin": "2rem 0",
+									"padding": "0 0 4rem 0",									
+									"bottom": "2rem",
+									"left": "-3.8rem",
+									"background-image": "url('/static/images/sprite-sheet.png')",
+									"background-position": "0 -333px",
+									"background-repeat": "no-repeat",
+									"background-size": "200px 500px",
+									"font-size": "0",
+									"line-height": "0",
+									"position": "fixed",
+									"transform": "rotate(-90deg)",
+									"width": "200px",
+									"-webkit-transform": "rotate(-90deg)"
+								});
+
+								$(this).mCustomScrollbar("update");
+								$(this).mCustomScrollbar("stop");
+
+							},
+
+							onTotalScrollBack: function() {
+
+								$("#featured-panel").css("width", "25%");
+								$("#featured-scroller").css("width", "75%");
+								$("#featured-panel p").css("display", "block");
+
+								$("#featured-panel h2").css({
+									"margin": "0 0 10px 0",
+									"padding": "0",
+									"bottom": "0",
+									"left": "0",
+									"background-image": "none",
+									"font-size": "28px",
+									"line-height": "40px",
+									"position": "relative",
+									"transform": "rotate(0deg)",
+									"width": "auto",
+									"-webkit-transform": "rotate(0deg)"
+								});
+
+								$(this).mCustomScrollbar("update");
+								$(this).mCustomScrollbar("stop");
+
+							},
+
+							onTotalScrollBackOffset: 100
+						},
+
+						advanced: { autoExpandHorizontalScroll: true }
 					});
 
 					NProgress.done();
