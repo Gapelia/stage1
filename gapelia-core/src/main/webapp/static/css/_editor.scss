@@ -451,7 +451,7 @@
 						margin: 1rem 0 0 0;
 						overflow-x: hidden;
 						text-align: center;
-						white-space: pre; // preserve line breaks!
+						white-space: pre-wrap; // preserve line breaks!
 
 						&:empty:after {
 							color: $gray-iv;
