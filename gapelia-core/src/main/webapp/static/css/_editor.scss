@@ -375,6 +375,7 @@
 
 					overflow: hidden;
 					position: fixed !important;
+					// text-shadow: 0 0 1px rgba($black, 0.3) !important;
 
 					:-ms-input-placeholder			{ color: $black; }
 					::-moz-placeholder					{ color: $black; }

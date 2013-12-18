@@ -319,11 +319,13 @@
 
 	});
 
+	/*
 	// Disable pasting on all layouts until we can auto-limit text overflow
 	$(document).on("paste", "[contenteditable]", function(e) {
 		e.preventDefault();
 		// http://stackoverflow.com/a/19269040/1167646 may help
 	});
+	*/
 
 
 	// Base Layout
@@ -389,6 +391,7 @@
 		pages.page[currentPage].video = videoURL;
 
 		$(".frontcover-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -468,6 +471,8 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		/*
 		// Check to see if image is vertical or horizontal
@@ -569,6 +574,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+
 		// title input limiter
 		var titleElem = "page-title-elem";
 		titleMax = 69;
@@ -640,6 +647,8 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		$(".horizontal-preview-wrapper").imgLiquid({ fill: true });
 
@@ -728,6 +737,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+
 		$(".overlay-preview-wrapper").imgLiquid({ fill: true });
 
 		// description input limiter
@@ -802,6 +813,7 @@
 		pages.page[currentPage].video = videoURL;
 
 		$(".phototext-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -875,6 +887,7 @@
 		pages.page[currentPage].video = videoURL;
 
 		$(".vertical-preview-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -944,6 +957,8 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+
+		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter
 		var titleElem = "page-title-elem";

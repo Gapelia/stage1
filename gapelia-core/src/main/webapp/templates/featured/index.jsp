@@ -160,14 +160,44 @@
 					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a class="" href="/me">Me</a></li>
-						<li><a class="" href="/create">New Book</a></li>
+						<li><a id="gpl-menu-me" href="/me">Me</a>
+							<ul>
+								<li><a href="/accounts">Edit Profile</a></li>
+								<li><a href="#">Sign Out</a></li>
+							</ul>
+						</li>
+
+						<li><a id="gpl-menu-create">Create</a>
+							<ul>
+								<li><a href="/create">New Book</a></li>
+								<li><a href="/create">New Essay</a></li>
+							</ul>
+						</li>
+
+						<li><a id="gpl-menu-drafts">Drafts</a>
+							<ul>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+							</ul>
+						</li>
 					</ul>
 
+					<!--/
 					<div id="account-links">
 						<a href="/accounts">Account</a>
 						<a href="#">Sign Out</a>
 					</div>
+					/-->
 
 				</div>
 			</nav>
@@ -665,7 +695,7 @@
 					<ul id="bookmark-list">
 
 						<li class="new">
-							You don't have any bookmarks saved yet. If you don't have time to read a book, or you want to add it to your favorites, it will appear here.
+							You don't have any bookmarks saved yet.<br/><br/>If you don't have time to read a book, or you want to add it to your favorites, it will appear here.
 						</li>
 
 						<!--/

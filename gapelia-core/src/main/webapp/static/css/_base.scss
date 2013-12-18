@@ -8,7 +8,8 @@
 	box-sizing: border-box;
 	outline: none;
 	text-rendering: optimizeLegibility !important;
-	text-shadow: 1px 1px 1px rgba(25, 25, 25, 0.004);
+	text-shadow: 0 0 1px rgba(25, 25, 25, 0.1) !important;
+	// text-shadow: 1px 1px 1px rgba(25, 25, 25, 0.004);
 
 	-moz-box-sizing: border-box;
 	-webkit-font-smoothing: antialiased !important;
@@ -120,11 +121,11 @@ $purple:		rgba(179, 86, 214, 1);	// #b356d6;
 
 /** [-] Mixins ****************************************************************************************/
 
-@mixin sans { font-family: "Source Sans Pro", Arial, sans-serif; }
-@mixin serif { font-family: "Poly", Georgia, serif; }
+@mixin sans { font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif; }
+@mixin serif { font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
 
 @mixin unicode { font-family: Arial, Verdana, Geneva, sans-serif; }
-@mixin mono { font-family: Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
+@mixin mono { font-family: Menlo, Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
 
 @mixin hide-text {
   border: 0;

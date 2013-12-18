@@ -25,6 +25,9 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
@@ -292,12 +295,16 @@
 		</section>
 
 		<!--/ scripts /-->
+		<!--/
 		<script src="/static/scripts/grande.js"></script>
 
 		<script>
 			grande.bind(document.querySelectorAll(".page-title-elem"));
 			grande.bind(document.querySelectorAll(".page-desc"));
 		</script>
+		/-->
+
+		<script src="/static/scripts/gapelia-editor.js"></script>
 
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
