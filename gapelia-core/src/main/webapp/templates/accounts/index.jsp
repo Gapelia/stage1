@@ -42,15 +42,44 @@
 					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a class="" href="/me">Me</a></li>
-						<li><a class="" href="/create">New Book</a></li>
-						<li><a class="" href="/drafts">Drafts</a></li>
+						<li><a id="gpl-menu-me" href="/me">Me</a>
+							<ul>
+								<li><a href="/accounts">Edit Profile</a></li>
+								<li><a href="#">Sign Out</a></li>
+							</ul>
+						</li>
+
+						<li><a id="gpl-menu-create">Create</a>
+							<ul>
+								<li><a href="/create">New Book</a></li>
+								<li><a href="/create">New Essay</a></li>
+							</ul>
+						</li>
+
+						<li><a id="gpl-menu-drafts">Drafts</a>
+							<ul>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+							</ul>
+						</li>
 					</ul>
 
+					<!--/
 					<div id="account-links">
 						<a href="/accounts">Account</a>
 						<a href="#">Sign Out</a>
 					</div>
+					/-->
 
 				</div>
 			</nav>
@@ -83,24 +112,33 @@
 			<div id="account-information">
 				<div class="account-info-wrapper">
 
-					<section id="">
+					<section id="email-edit">
 						<h3>Your email</h3>
-						<p contenteditable="false">paul@dsgn.io<br/><a href="#">Edit</a></p>
+						<p id="user-email" contenteditable="false">paul@dsgn.io</p>
+						<p><a href="#">Edit</a></p>
 					</section>
 
-					<section id="">
+					<section id="email-notify">
 						<h3>Email notifications</h3>
-						<p>When someone recommends your book, or wants to collaborate with you, we'll send you an email.<br/><a href="#">Yay</a><a href="#">Nay</a></p>
+						<p>When someone recommends your book, or wants to collaborate with you, we'll send you an email.</p>
+
+						<p>
+							<input type="radio" name="email-opt" id="yay-email" checked>
+							<label for="yay-email">Sweet, I love email</label><br/>
+
+							<input type="radio" name="email-opt" id="nay-email">
+							<label for="nav-email">Nah, I get enough fan-mail already</label>
+						</p>
 					</section>
 
-					<section id="">
+					<section id="import-content">
 						<h3>Import content</h3>
-						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Import your content <a href="#">here</a>.</p>
+						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content <a href="#">here</a>.</p>
 					</section>
 
-					<section id="">
+					<section id="oh-noes">
 						<h3>Delete account</h3>
-						<p>Are you sure? <a href="#">Delete account</a></p>
+						<p>Are you sure? <a href="#">I sure am!</a></p>
 					</section>
 
 				</div>
@@ -151,7 +189,7 @@
 					// "fix" featured menu pop-in
 					setTimeout(function () {
 						$("#user-panel, #account-information").css("opacity", "1");
-					}, 400).show();
+					}, 450).show();
 
 				});
 

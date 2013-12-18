@@ -44,37 +44,11 @@ $(document).ready(function() {
 
 	$(".super-wrapper").css("height", $vH + "px");
 
-	////
-
-	$(document).ready(function () {
-
-		// var bookWidth = 500;
-		// $("#book-list").width($("#book-list .book").length * bookWidth);
-
-	});
-
-	$(document).ready(function() {
-
-		/*
-		var totalWidth = 0;
-
-		$("#book-list").children().each(function() {
-			totalWidth += $(this).outerWidth(true);
-		});
-
-		$("#book-list").css("width", totalWidth);
-		*/
-
-	});
-
-	////
-
 	// Edit Profile on "Me" page
 	$(document).on("click", "button.edit-profile", function () {
 
 		$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
 		$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(254, 254, 254, 0.3)").trigger("focus");
-		// $(this).html($(this).text());
 
 	});
 
@@ -82,6 +56,23 @@ $(document).ready(function() {
 
 		$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 		$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+
+	});
+
+	// Edit Email in "Accounts"
+	$(document).on("click", "#email-edit a", function (e) {
+
+		$("#email-edit a").text("Save").addClass("save-email");
+		$("#user-email").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
+		e.preventDefault();
+
+	});
+
+	$(document).on("click", "#email-edit .save-email", function (e) {
+
+		$("#email-edit a").text("Edit").removeClass("save-email");
+		$("#user-email").attr("contenteditable", "false").css("background-color", "transparent");
+		e.preventDefault();
 
 	});
 
