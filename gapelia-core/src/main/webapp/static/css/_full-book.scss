@@ -197,6 +197,7 @@
 			font-size: 1em;
 			line-height: 1.4em;
 			margin: 1rem 0 0 0;
+			min-height: 50px;
 			overflow-x: hidden;
 			text-align: center;
 			white-space: pre-wrap; // preserve line breaks!
@@ -263,9 +264,7 @@
 					text-align: center;
 				}
 
-				.page-feeling-elem {
-					&:after { content: " |"; }
-				}
+				.page-desc { min-height: 25px; }
 			}
 
 			p {

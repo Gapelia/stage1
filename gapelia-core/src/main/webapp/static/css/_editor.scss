@@ -447,6 +447,7 @@
 						@include serif;
 						font-size: 1em;
 						line-height: 1.4em;
+						min-height: 50px;
 						margin: 1rem 0 0 0;
 						overflow-x: hidden;
 						text-align: center;
@@ -552,9 +553,7 @@
 								text-align: center;
 							}
 
-							.page-feeling-elem {
-								&:after { content: " |"; }
-							}
+							.page-desc { min-height: 25px; }
 						}
 
 						p {
