@@ -111,27 +111,35 @@
 			case 0:
 				frontCoverLayout();
 				break;
+
 			case 1:
 				photoLayout();
 				break;
+
 			case 2:
 				textLayout();
 				break;
+
 			case 3:
 				horizontalLayout();
 				break;
+
 			case 4:
 				overlayLayout();
 				break;
+
 			case 5:
 				photoTextLayout();
 				break;
+
 			case 6:
 				verticalLayout();
 				break;
+
 			case 7:
 				videoLayout();
 				break;
+
 			default:
 				baseLayout();
 		}
@@ -839,7 +847,7 @@
 	function verticalLayout() {
 
 		var insert = "";
-		insert += "<section class=\"vertical-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -1149,6 +1157,7 @@
 		library = 1;
 		tags = "fun";
 
+		/*
 		$.ajax({
 			url: "http://localhost:8080/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1171,6 +1180,7 @@
 				}
 			}
 		});
+		*/
 
 		$("#publish-modal").css({
 			"width": "100%",

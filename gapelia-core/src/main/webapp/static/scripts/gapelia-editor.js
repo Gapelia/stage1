@@ -301,7 +301,9 @@ if (typeof module === "object") {
 			buttonLabels = {
 				'bold': '<b>B</b>',
 				'italic': '<b><i>I<i></b>',
+				// 'italic': '<i>I<i>',
 				'underline': '<b><u>U</u></b>',
+				// 'underline': '<u>U</u>',
 				'superscript': '<b>x<sup>1</sup></b>',
 				'subscript': '<b>x<sub>1</sup></b>',
 				'anchor': '<b>#</b>',
@@ -490,7 +492,7 @@ if (typeof module === "object") {
 
 			// First try on current node
 			try {
-				if (current.getAttribute('data-gapelia-element')) {
+				if (current.getAttribute("data-gapelia-element")) {
 					result = current;
 				} else {
 					result = getMediumElement(parent);

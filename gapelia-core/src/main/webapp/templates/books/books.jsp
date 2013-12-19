@@ -18,14 +18,15 @@
 
 		/-->
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 		<meta name="author" content="Gapelia"/>
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -73,14 +74,6 @@
 							</ul>
 						</li>
 					</ul>
-
-					<!--/
-					<div id="account-links">
-						<a href="/accounts">Account</a>
-						<a href="#">Sign Out</a>
-					</div>
-					/-->
-
 				</div>
 			</nav>
 			<!--//site-menu /-->
@@ -792,18 +785,7 @@
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 		</script>
 
-		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<!--/
-		<script src="/static/scripts/scrollpanel.js"></script>
-
-		<script>
-			$(".text-wrapper .page-desc").scrollpanel();
-			$(".phototext-wrapper .page-desc").scrollpanel();
-			$(".vertical-wrapper .page-desc").scrollpanel();
-			$(".video-wrapper .page-desc").scrollpanel();
-		</script>
-		/-->
 
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script>$("img").VimeoThumb();</script>

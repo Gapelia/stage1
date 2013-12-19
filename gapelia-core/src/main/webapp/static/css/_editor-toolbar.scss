@@ -1,25 +1,33 @@
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
 
-.gapelia-toolbar-arrow {
-	&:before {
-		border-color: transparent transparent $black transparent;
-		border-width: 0 8px 8px 8px;
-		top: -8px;
-	}
-
+.gapelia-toolbar-arrow, .gapelia-toolbar-arrow-under:after, .gapelia-toolbar-arrow-over:before {
 	width: 0; height: 0;
 
 	border-style: solid;
 	content: "";
 	display: block;
+	position: absolute;
 	left: 50%;
 	margin-left: -8px;
-	position: absolute;
+}
 
-	&:after {
-		border-color: $black transparent transparent transparent;
-		border-width: 8px 8px 0 8px;
-		top: 50px;
-	}
+.gapelia-toolbar-arrow-under:after {
+	border-color: $black transparent transparent transparent;
+	border-width: 8px 8px 0 8px;
+	top: 50px;
+}
+
+.gapelia-toolbar-arrow-over:before {
+	border-color: transparent transparent $black transparent;
+	border-width: 0 8px 8px 8px;
+	top: -8px;
 }
 
 .gapelia-editor-toolbar {
@@ -27,17 +35,21 @@
 
 	background-color: $black;
 	border: 1px solid darken($black, 30%);
-	@include serif;
+	border-radius: 5px;
+	// @include serif;
+	font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
 	font-size: 16px;
 	position: absolute;
+	transition: top 0.075s ease-out, left 0.075s ease-out;
 	visibility: hidden;
 	z-index: 2000;
 
+	-moz-transition: top 0.075s ease-out, left 0.075s ease-out;
+	-webkit-transition: top 0.075s ease-out, left 0.075s ease-out;
+
 	/*
 	@include background(linear-gradient(bottom, $black, rgba($black, 0.75)));
-	@include border-radius(5px);
 	@include box-shadow(0 0 3px #000);
-	@include transition(top .075s ease-out,left .075s ease-out);
 	*/
 
 	ul {
@@ -53,42 +65,44 @@
 		button {
 			min-width: 50px; height: 50px;
 
+			background: linear-gradient(bottom, $black, rgba($black, 0.89));
 			background-color: $black;
 			border: 0;
+			border-radius: 0 !important;
 			border-left: 1px solid rgba($white, 0.1);
 			border-right: 1px solid darken($black, 30%);
+			box-shadow: 0 2px 2px rgba($black, 0.3);
 			color: $white;
 			display: block;
 			padding: 15px;
 			text-decoration: none;
+			transition: background-color 0.2s ease-in;
 
-			/*
-			@include background(linear-gradient(bottom, $black, rgba($black, 0.89)));
-			@include box-shadow(0 2px 2px rgba(0,0,0,0.3));
-			@include box-sizing(border-box);
-			@include transition(background-color .2s ease-in);
-			*/
+			-moz-transition: background-color 0.2s ease-in;
+			-webkit-transition: background-color 0.2s ease-in;
 
 			&:hover {
-				color: yellow;
-				background-color: #000;
+				color: $slate;
+				background-color: $black;
+				opacity: 1;
+				padding: 0 !important;
 			}
 		}
 
 		.gapelia-editor-button-first {
-			border-top-left-radius: 5px;
-			border-bottom-left-radius: 5px;
+			border-top-left-radius: 5px !important;
+			border-bottom-left-radius: 5px !important;
 		}
 
 		.gapelia-editor-button-last {
-			border-top-right-radius: 5px;
-			border-bottom-right-radius: 5px;
+			border-top-right-radius: 5px !important;
+			border-bottom-right-radius: 5px !important;
 		}
 
 		.gapelia-editor-button-active {
-			background-color: #000;
-			color: $white;
-			// @include background(linear-gradient(bottom, $black, rgba(#000, 0.89)));
+			background: linear-gradient(bottom, $black, rgba(#000, 0.89));
+			background-color: $black;
+			color: $slate;
 		}
 
 		.gapelia-editor-action-underline { text-decoration: underline; }
@@ -127,7 +141,8 @@
 	display: none;
 
 	input, a {
-		@include serif;
+		// @include serif;
+		font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
 	}
 
 	input {
@@ -154,14 +169,14 @@
 		color: $white;
 		display: inline-block;
 		font-size: 24px;
-		font-weight: bolder;
+		// font-weight: bolder;
 		margin: 0 10px;
 		text-decoration: none;
 	}
 }
 
 .gapelia-editor-placeholder {
-	position: relative;
+	// position: relative;
 
 	/*
 	&:after {

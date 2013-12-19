@@ -419,7 +419,6 @@
 						font-size: 1.5em;
 						font-weight: 700;
 						line-height: 1.2;
-						// text-transform: capitalize;
 
 						&:empty:after {
 							color: $gray-iv;
@@ -462,6 +461,7 @@
 
 				.text-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
 					.page-desc {
+						overflow-x: hidden;
 						overflow-y: auto;
 						padding: 0 1rem 1rem 0;
 					}
