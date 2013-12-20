@@ -207,6 +207,8 @@
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 
+				<img src="/static/images/loader.gif" id="imgLoader" alt=""/>
+
 				<div id="create-book">
 					<div id="create-content">
 
@@ -322,6 +324,7 @@
 		</script>
 
 		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/medium.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 

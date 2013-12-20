@@ -236,7 +236,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img <img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -362,7 +362,7 @@
 			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -398,8 +398,27 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".frontcover-preview-wrapper").imgLiquid({ fill: true });
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		// $(".frontcover-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]');
+
+		/*
+		new Medium({
+			// element: document.getElementsByClassName("page-title-elem"),
+			// element: document.getElementsByTagName("h1"),
+			// element: document.getElementById("page-title-elem"),
+			mode: "inline",
+			maxLength: 25,
+			placeholder: "Some Title"
+		});
+		*/
+
+		// $("#imgLoader").show();
+
+		/*
+		$(".page-bg").load(function() {
+			$("#imgLoader").hide();
+		});
+		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -439,9 +458,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		// insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url).checkVerHor('.photo-preview-wrapper .page-bg');\"></div>";
-
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url);\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -480,7 +497,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		/*
 		// Check to see if image is vertical or horizontal
@@ -582,7 +599,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -616,7 +633,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		insert += "</section><div class=\"horizontal-preview\"><article>";
 
@@ -657,8 +674,7 @@
 		pages.page[currentPage].video = videoURL;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
-
-		$(".horizontal-preview-wrapper").imgLiquid({ fill: true });
+		// $(".horizontal-preview-wrapper").imgLiquid({ fill: true });
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -704,7 +720,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -745,9 +761,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
-
-		$(".overlay-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// $(".overlay-preview-wrapper").imgLiquid({ fill: true });
 
 		// description input limiter
 		var descElem = "page-desc";
@@ -781,7 +796,7 @@
 			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -820,8 +835,8 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".phototext-preview-wrapper").imgLiquid({ fill: true });
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		// $(".phototext-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -850,12 +865,12 @@
 		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/></div>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -894,7 +909,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		$(".vertical-preview-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+		// $(".vertical-preview-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter
@@ -966,7 +981,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -1236,6 +1251,7 @@
 	_delay = setInterval(delayCheck, 500);
 
 	// Placeholders
+	/*
 	(function ($) {
 		$(function () {
 
@@ -1261,6 +1277,7 @@
 
 		});
 	})(jQuery);
+	*/
 
 	// Character Limiter
 	////////////////

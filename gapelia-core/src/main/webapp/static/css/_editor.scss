@@ -6,6 +6,14 @@
 	@include sans;
 	overflow: hidden;
 
+	#imgLoader {
+		top: 48%; left: 48%;
+
+		display: none;
+		position: fixed;
+		z-index: 5;
+	}
+
 	header {
 		width: 100%; height: auto;
 		top: 0; left: 0;
