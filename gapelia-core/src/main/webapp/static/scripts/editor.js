@@ -236,7 +236,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").text();
 		geotag = $("geotag").text();
@@ -322,7 +322,7 @@
 	// Have front cover and one page ready at load time
 	$(document).ready(function () {
 
-		$("#add-page").before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+ "&middot; New Page</span></section>"));
+		$("#add-page").before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
 		frontCoverLayout();
 
 	});
@@ -398,7 +398,11 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		// $(".frontcover-preview-wrapper").imgLiquid({ fill: true });
+		// Title preview for front cover
+		$(".page-title-elem").keypress(function() {
+			$("#page0Title").text($(this).text());
+		});
+
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		/*
@@ -409,14 +413,6 @@
 			mode: "inline",
 			maxLength: 25,
 			placeholder: "Some Title"
-		});
-		*/
-
-		// $("#imgLoader").show();
-
-		/*
-		$(".page-bg").load(function() {
-			$("#imgLoader").hide();
 		});
 		*/
 
@@ -673,8 +669,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
-		// $(".horizontal-preview-wrapper").imgLiquid({ fill: true });
+		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -762,7 +757,6 @@
 		pages.page[currentPage].video = videoURL;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
-		// $(".overlay-preview-wrapper").imgLiquid({ fill: true });
 
 		// description input limiter
 		var descElem = "page-desc";
@@ -835,7 +829,6 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		// $(".phototext-preview-wrapper").imgLiquid({ fill: true });
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		// title input limiter
@@ -909,7 +902,6 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		// $(".vertical-preview-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		// title input limiter

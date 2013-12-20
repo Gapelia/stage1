@@ -115,6 +115,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/nprogress.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
@@ -171,6 +172,13 @@
 							"width": $vW + "px",
 							"height": $vH + "px"
 						});
+
+						$(".frontcover-wrapper").imgLiquid({ fill: true });
+						$(".photo-wrapper").imgLiquid({ fill: true });
+						$(".horizontal-wrapper").imgLiquid({ fill: true });
+						$(".overlay-wrapper").imgLiquid({ fill: true });
+						$(".phototext-wrapper").imgLiquid({ fill: true });
+						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
 					});
 
@@ -358,14 +366,6 @@
 					})();
 
 					Page.init();
-
-					$(".frontcover-wrapper").imgLiquid({ fill: true });
-					$(".photo-wrapper").imgLiquid({ fill: true });
-					$(".horizontal-wrapper").imgLiquid({ fill: true });
-					$(".overlay-wrapper").imgLiquid({ fill: true });
-					$(".phototext-wrapper").imgLiquid({ fill: true });
-					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
 					NProgress.done();
 
 				});

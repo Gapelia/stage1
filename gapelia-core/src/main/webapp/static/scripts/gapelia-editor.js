@@ -955,3 +955,247 @@ if (typeof module === "object") {
 	};
 
 }(window, document));
+
+//////////////////////////////////////////////////// Gapelia Inline Image Insertion
+
+// https://github.com/orthes/medium-editor-images-plugin
+!function (a) {
+
+	GapeliaEditor.prototype.serialize = function () {
+
+		var b, c, d, e, f, g, h, i, j = {};
+
+		for (b = 0; b < this.elements.length; b += 1) {
+			for (d = "" !== this.elements[b].id ? this.elements[b].id : "element-" + b, e = a(this.elements[b]).clone(), f = a(".gapeliaInsert", e), c = 0; c < f.length; c++) g = a(f[c]), h = a(".gapeliaInsert-placeholder", g).children(), 0 === h.length ? g.remove() : (g.removeAttr("contenteditable"), a("img[draggable]", g).removeAttr("draggable"), g.hasClass("small") && h.addClass("small"), a(".gapeliaInsert-buttons", g).remove(), h.unwrap());
+
+			i = e.html().trim(), j[d] = {
+				value: i
+			};
+		}
+
+		return j;
+	}, a.fn.gapeliaInsert = function (b) {
+		return a.fn.gapeliaInsert.settings = a.extend(a.fn.gapeliaInsert.settings, b), this.each(function () {
+
+			a("p", this).bind("dragover drop", function (a) { return a.preventDefault(), !1; }),
+
+			a.fn.gapeliaInsert.insert.init(a(this)), a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.images.init(), a.fn.gapeliaInsert.settings.maps === !0 && a.fn.gapeliaInsert.maps.init();
+
+		});
+	},
+
+	a.fn.gapeliaInsert.settings = {
+		imagesUploadScript: "upload.php",
+		images: !0,
+		maps: !1
+	},
+
+	a.fn.gapeliaInsert.insert = {
+		init: function (a) { this.$el = a, this.setPlaceholders(); },
+		deselect: function () { document.getSelection().removeAllRanges(); },
+
+		setPlaceholders: function () {
+
+			var
+			b = this,
+			c = a.fn.gapeliaInsert.insert.$el,
+			d = "",
+			e = '<a class="gapeliaInsert-action action-images-add">Image</a>',
+			f = '<a class="gapeliaInsert-action action-maps-add">Map</a>';
+
+			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html("<p><br></p>"), c.keyup(function () {
+
+				var b = 0;
+
+				c.children("p").each(function () {
+					a(this).next().hasClass("gapeliaInsert") === !1 && (a(this).after(d), a(this).next(".gapeliaInsert").attr("id", "gapeliaInsert-" + b)), b++;
+				});
+
+			}).keyup(), c.on("selectstart", ".gapeliaInsert", function (a) {
+				return a.preventDefault(), !1;
+			}), c.on("blur", function () {
+
+				var b, c = a(this).clone();
+				c.find(".gapeliaInsert").remove(), b = c.html().replace(/^\s+|\s+$/g, ""), ("" === b || "<p><br></p>" === b) && a(this).addClass("gapelia-editor-placeholder");
+
+			}), c.on("click", ".gapeliaInsert-buttons a.gapeliaInsert-buttonsShow", function () {
+
+				var
+				c = a(this).siblings(".gapeliaInsert-buttonsOptions"),
+				d = a(this).parent().siblings(".gapeliaInsert-placeholder");
+
+				a(this).hasClass("active") ? (a(this).removeClass("active"), c.hide(), a("a", c).show()) : (a(this).addClass("active"), c.show(), a("a", c).each(function () {
+
+					var
+					b = a(this).attr("class").split("action-")[1],
+					e = b.split("-")[0];
+
+					a(".gapeliaInsert-" + e, d).length > 0 && a("a:not(.action-" + b + ")", c).hide();
+
+				})), b.deselect();
+
+			}), c.on("mouseleave", ".gapeliaInsert", function () {
+				a("a.gapeliaInsert-buttonsShow", this).removeClass("active"), a(".gapeliaInsert-buttonsOptions", this).hide();
+			}), c.on("click", ".gapeliaInsert-buttons .gapeliaInsert-action", function () {
+
+				var
+				b = a(this).attr("class").split("action-")[1].split("-"),
+				c = a(this).parents(".gapeliaInsert-buttons").siblings(".gapeliaInsert-placeholder");
+
+				a.fn.gapeliaInsert[b[0]] && a.fn.gapeliaInsert[b[0]][b[1]] && a.fn.gapeliaInsert[b[0]][b[1]](c), a(this).parents(".gapeliaInsert").mouseleave();
+
+			}));
+
+		}
+	};
+
+}(jQuery),
+
+function (a) {
+
+	a.fn.gapeliaInsert.images = {
+		init: function () {
+			this.$el = a.fn.gapeliaInsert.insert.$el, this.options = a.extend(this.
+				default, a.fn.gapeliaInsert.settings.imagesPlugin), this.setImageEvents(), this.setDragAndDropEvents();
+		},
+
+		"default": {
+			formatData: function (a) {
+				var b = new FormData;
+				return b.append("file", a), b;
+			}
+		},
+
+		add: function (b) {
+
+			var c, d, e = this;
+
+			return c = a('<input type="file">').click(), c.change(function () {
+				d = this.files, e.uploadFiles(b, d);
+			}), a.fn.gapeliaInsert.insert.deselect(), c;
+
+		},
+
+		updateProgressBar: function (b) {
+
+			var c, d = a(".progress:first", this.$el);
+			b.lengthComputable && (c = b.loaded / b.total * 100 | 0, d.attr("value", c), d.html(c));
+
+		},
+
+		uploadCompleted: function (b) {
+
+			var c, d = a(".progress:first", this.$el);
+
+			d.attr("value", 100), d.html(100), d.before('<span class="gapeliaInsert-images"><img src="' + b.responseText + '" draggable="true" alt=""></span>'), c = d.siblings("img"), d.remove(), c.load(function () {
+				c.parent().mouseleave().mouseenter();
+			});
+
+		},
+
+		uploadFiles: function (b, c) {
+
+			for (var d = {
+				"image/png": !0,
+				"image/jpeg": !0,
+				"image/gif": !0
+			},
+
+			e = this, f = function () {
+
+				var a = new XMLHttpRequest;
+				return a.upload.onprogress = e.updateProgressBar, a;
+
+			}, g = 0; g < c.length; g++) {
+				var h = c[g];
+
+				d[h.type] === !0 && (b.append('<progress class="progress" min="0" max="100" value="0">0</progress>'), a.ajax({
+					type: "post",
+					url: a.fn.gapeliaInsert.settings.imagesUploadScript,
+					xhr: f,
+					cache: !1,
+					contentType: !1,
+					complete: this.uploadCompleted,
+					processData: !1,
+					data: this.options.formatData(h)
+				}));
+			}
+
+		},
+
+		setImageEvents: function () {
+
+			this.$el.on("mouseenter", ".gapeliaInsert-images", function () {
+
+				var b, c, d = a("img", this);
+
+				d.length > 0 && (a(this).append('<a class="gapeliaInsert-imageRemove"></a>'), a(this).parent().parent().hasClass("small") ? a(this).append('<a class="gapeliaInsert-imageResizeBigger"></a>') : a(this).append('<a class="gapeliaInsert-imageResizeSmaller"></a>'), b = d.position().top + parseInt(d.css("margin-top"), 10), c = d.position().left + d.width() - 30, a(".gapeliaInsert-imageRemove", this).css({
+					right: "auto",
+					top: b,
+					left: c
+				}), a(".gapeliaInsert-imageResizeBigger, .gapeliaInsert-imageResizeSmaller", this).css({
+					right: "auto",
+					top: b,
+					left: c - 31
+				}));
+
+			}), this.$el.on("mouseleave", ".gapeliaInsert-images", function () {
+				a(".gapeliaInsert-imageRemove, .gapeliaInsert-imageResizeSmaller, .gapeliaInsert-imageResizeBigger", this).remove();
+			}), this.$el.on("click", ".gapeliaInsert-imageResizeSmaller", function () {
+				a(this).parent().parent().parent().addClass("small"), a(this).parent().mouseleave().mouseleave(), a.fn.gapeliaInsert.insert.deselect();
+			}), this.$el.on("click", ".gapeliaInsert-imageResizeBigger", function () {
+				a(this).parent().parent().parent().removeClass("small"), a(this).parent().mouseleave().mouseleave(), a.fn.gapeliaInsert.insert.deselect();
+			}), this.$el.on("click", ".gapeliaInsert-imageRemove", function () {
+				0 === a(this).parent().siblings().length && a(this).parent().parent().parent().removeClass("small"), a(this).parent().remove(), a.fn.gapeliaInsert.insert.deselect();
+			});
+
+		},
+
+		setDragAndDropEvents: function () {
+
+			var
+			b, c, d = this,
+			e = !1,
+			f = !1;
+
+			a(document).on("dragover", "body", function () {
+				a(this).addClass("hover");
+			}), a(document).on("dragend", "body", function () {
+				a(this).removeClass("hover");
+			}), this.$el.on("dragover", ".gapeliaInsert", function () {
+				a(this).addClass("hover"), a(this).attr("contenteditable", !0);
+			}), this.$el.on("dragleave", ".gapeliaInsert", function () {
+				a(this).removeClass("hover"), a(this).attr("contenteditable", !1);
+			}), this.$el.on("dragstart", ".gapeliaInsert .gapeliaInsert-images img", function () {
+				b = a(this).parent().index(), c = a(this).parent().parent().parent().attr("id");
+			}), this.$el.on("dragend", ".gapeliaInsert .gapeliaInsert-images img", function (b) {
+
+				e === !0 && (0 === a(b.originalEvent.target.parentNode).siblings().length && a(b.originalEvent.target.parentNode).parent().parent().removeClass("small"), a(b.originalEvent.target.parentNode).mouseleave(), a(b.originalEvent.target.parentNode).remove(), e = !1, f = !1);
+
+			}), this.$el.on("dragover", ".gapeliaInsert .gapeliaInsert-images img", function (a) {
+				a.preventDefault();
+			}), this.$el.on("drop", ".gapeliaInsert .gapeliaInsert-images img", function () {
+
+				var d, e, g;
+				return c !== a(this).parent().parent().parent().attr("id") ? (f = !1, b = c = null, void 0) : (d = parseInt(b, 10), e = a(this).parent().parent().find(".gapeliaInsert-images:nth-child(" + (d + 1) + ")"), g = a(this).parent().index(), g > d ? e.insertAfter(a(this).parent()) : d > g && e.insertBefore(a(this).parent()), e.mouseleave(), f = !0, b = null, void 0);
+
+			}), this.$el.on("drop", ".gapeliaInsert", function (b) {
+
+				var c;
+				b.preventDefault(), a(this).removeClass("hover"), a("body").removeClass("hover"), a(this).attr("contenteditable", !1), c = b.originalEvent.dataTransfer.files, c.length > 0 ? d.uploadFiles(a(".gapeliaInsert-placeholder", this), c) : f === !0 ? f = !1 : (a(".gapeliaInsert-placeholder", this).append('<span class="gapeliaInsert-images">' + b.originalEvent.dataTransfer.getData("text/html") + "</span>"), a("meta", this).remove(), e = !0);
+
+			});
+
+		}
+	};
+
+}(jQuery),
+
+function (a) {
+
+	a.fn.gapeliaInsert.maps = {
+		init: function () { this.$el = a.fn.gapeliaInsert.insert.$el; },
+		add: function (b) { a.fn.gapeliaInsert.insert.deselect(), b.append('<div class="gapeliaInsert-maps">Map - Coming soon...</div>'); }
+	};
+
+}(jQuery);

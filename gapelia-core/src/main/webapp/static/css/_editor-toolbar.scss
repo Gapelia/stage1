@@ -297,3 +297,150 @@
 		-webkit-transform: matrix(1, 0, 0, 1, 0, 0);
 	}
 }
+
+/***********************************************************/
+
+.clearfix:before, [data-gapelia-element="true"]:before, .clearfix:after, [data-gapelia-element="true"]:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after, [data-gapelia-element="true"]:after { clear: both }
+
+img { max-width: 100% }
+
+/*
+q, blockquote {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-left: 5px solid #efefef;
+	padding-left: 20px;
+	margin-left: -25px;
+}
+*/
+
+[draggable] {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+}
+
+[contenteditable] { outline: 0px solid transparent }
+
+[contenteditable]:focus { outline: 0px solid transparent }
+
+.gapelia-editor-placeholder {
+	padding-bottom: 0 !important;
+	min-height: 58px;
+}
+
+.gapelia-editor-placeholder:after {
+	content: attr(data-placeholder) !important;
+	top: 1em;
+}
+
+.gapeliaInsert {
+	position: relative;
+	margin: -1em 0 -1em -80px;
+	min-height: 18px;
+}
+
+.gapeliaInsert .gapeliaInsert-buttons {
+	position: absolute;
+	display: none;
+	width: 80px;
+	top: 0;
+	left: 0;
+	color: #ddd;
+	font-size: 0.9em;
+}
+
+.gapeliaInsert .gapeliaInsert-buttons a {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.gapeliaInsert .gapeliaInsert-buttons a.active { font-weight: bold }
+
+.gapeliaInsert .gapeliaInsert-buttons .gapeliaInsert-buttonsIcon {
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+
+.gapeliaInsert .gapeliaInsert-buttons ul.gapeliaInsert-buttonsOptions {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: none;
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder {
+	position: relative;
+	margin-left: 80px;
+	text-align: center;
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images img {
+	margin-top: 1em;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a {
+	position: absolute;
+	top: 1em;
+	width: 30px;
+	height: 30px;
+	background-color: #3b3b3b;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageRemove {
+	right: 0;
+	background-image: url(../images/editor/remove.png);
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeSmaller, .gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeBigger {
+	right: 31px;
+	background-image: url(../images/editor/resize-smaller.png);
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeBigger { background-image: url(../images/editor/resize-bigger.png) }
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:first-child:after {
+	content: "\a";
+	white-space: pre;
+}
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:not(:first-child) { margin-right: 10px }
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:not(:first-child) img { width: 20% }
+
+.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-maps {
+	padding: 10px;
+	background: #ccc;
+}
+
+.gapeliaInsert.hover .gapeliaInsert-placeholder { background: #f0f0f0 }
+
+.gapeliaInsert:hover .gapeliaInsert-buttons { display: block }
+
+.gapeliaInsert.small .gapeliaInsert-placeholder {
+	width: 33.33%;
+	float: left;
+	margin-right: 30px;
+}
+
+.hover .gapeliaInsert-placeholder {
+	min-height: 14px;
+	border: 1px dashed #ddd;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
