@@ -567,8 +567,8 @@
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
-		}
+			insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
+		} // <div class=\"insertIMG\" onclick=\"javascript:openFilePicker()\">Insert Image</div> // <img class=\"page-bg\" src=\"\" style=\"display: none;\"/>
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
@@ -596,6 +596,69 @@
 		pages.page[currentPage].video = videoURL;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
+
+		/*
+		$(function () {
+			$('[contenteditable="true"]').gapeliaInsert({
+			// $(".text-preview-wrapper .page-desc").gapeliaInsert({
+				// editor: editor,
+				images: true
+			});
+		});
+		*/
+
+		// .action-images-add .text-preview-wrapper .page-desc p:after
+		// $('<style>.text-preview-wrapper .page-desc p:after { content: "intro"; }</style>').appendTo(".text-preview-wrapper .page-desc p");
+
+		// $(".text-preview-wrapper .page-desc p").append("<div>Insert Image</div>");
+
+		// $("<div>Insert Image</div>").addClass("insertIMG").appendTo(".text-preview-wrapper .page-desc p");
+
+		function openFilePicker() {
+		
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					// $('<img class="page-bg" src=""/>').appendTo("p");
+					$('<img class="page-bg" src=""/>').appendTo("p:first-child");
+					$(".page-bg").attr("src", e.target.result).show();
+				};
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$(".insertIMG-btn").change(function () {
+			readURL(this);
+		});
+
+		$(document).on("click", ".insertIMG", function () {
+
+			// $(".insertIMG").css("font-color", "#07d0eb");
+
+			/*
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$(".blah").attr("src", e.target.result);
+					};
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$(".action-images-add").change(function () {
+				readURL(this);
+			});
+			*/
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";

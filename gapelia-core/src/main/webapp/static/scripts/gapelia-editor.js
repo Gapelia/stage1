@@ -974,6 +974,7 @@ if (typeof module === "object") {
 		}
 
 		return j;
+
 	}, a.fn.gapeliaInsert = function (b) {
 		return a.fn.gapeliaInsert.settings = a.extend(a.fn.gapeliaInsert.settings, b), this.each(function () {
 
@@ -985,7 +986,7 @@ if (typeof module === "object") {
 	},
 
 	a.fn.gapeliaInsert.settings = {
-		imagesUploadScript: "upload.php",
+		// imagesUploadScript: "/static/scripts/upload.php",
 		images: !0,
 		maps: !1
 	},
@@ -1111,7 +1112,7 @@ function (a) {
 
 				d[h.type] === !0 && (b.append('<progress class="progress" min="0" max="100" value="0">0</progress>'), a.ajax({
 					type: "post",
-					url: a.fn.gapeliaInsert.settings.imagesUploadScript,
+					// url: a.fn.gapeliaInsert.settings.imagesUploadScript,
 					xhr: f,
 					cache: !1,
 					contentType: !1,

@@ -307,8 +307,6 @@
 		</script>
 		/-->
 
-		<script src="/static/scripts/gapelia-editor.js"></script>
-
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
 		
@@ -324,7 +322,8 @@
 		</script>
 
 		<script src="/static/scripts/imgLiquid.js"></script>
-		<script src="/static/scripts/medium.js"></script>
+		<!--/ <script src="/static/scripts/medium.js"></script> /-->
+		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 

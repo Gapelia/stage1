@@ -1,3 +1,4 @@
+
 .clearfix:after {
 	clear: both;
 	content: " ";
@@ -37,7 +38,8 @@
 	border: 1px solid darken($black, 30%);
 	border-radius: 5px;
 	// @include serif;
-	font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
+	// font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
+	font-family: "icomoon" !important;
 	font-size: 16px;
 	position: absolute;
 	transition: top 0.075s ease-out, left 0.075s ease-out;
@@ -47,10 +49,8 @@
 	-moz-transition: top 0.075s ease-out, left 0.075s ease-out;
 	-webkit-transition: top 0.075s ease-out, left 0.075s ease-out;
 
-	/*
-	@include background(linear-gradient(bottom, $black, rgba($black, 0.75)));
-	@include box-shadow(0 0 3px #000);
-	*/
+	// @include background(linear-gradient(bottom, $black, rgba($black, 0.75)));
+	// @include box-shadow(0 0 3px #000);
 
 	ul {
 		margin: 0; padding: 0;
@@ -142,7 +142,8 @@
 
 	input, a {
 		// @include serif;
-		font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
+		// font-family: "ff-more-web-pro", "Poly", Georgia, serif !important;
+		font-family: "icomoon" !important;
 	}
 
 	input {
@@ -299,15 +300,15 @@
 }
 
 /***********************************************************/
-
+/*
 .clearfix:before, [data-gapelia-element="true"]:before, .clearfix:after, [data-gapelia-element="true"]:after {
 	content: " ";
 	display: table;
 }
+*/
+// .clearfix:after, [data-gapelia-element="true"]:after { clear: both; }
 
-.clearfix:after, [data-gapelia-element="true"]:after { clear: both }
-
-img { max-width: 100% }
+// img { max-width: 100%; }
 
 /*
 q, blockquote {
@@ -321,126 +322,126 @@ q, blockquote {
 */
 
 [draggable] {
+	user-select: none;
+
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
-	user-select: none;
-	-khtml-user-drag: element;
-	-webkit-user-drag: element;
 }
 
-[contenteditable] { outline: 0px solid transparent }
-
-[contenteditable]:focus { outline: 0px solid transparent }
+[contenteditable] {
+	outline: 0 solid transparent;
+	&:focus { outline: 0 solid transparent; }
+}
 
 .gapelia-editor-placeholder {
+	// min-height: 58px;
 	padding-bottom: 0 !important;
-	min-height: 58px;
-}
 
-.gapelia-editor-placeholder:after {
-	content: attr(data-placeholder) !important;
-	top: 1em;
+	&:after {
+		// content: attr(data-placeholder) !important;
+		// top: 1em;
+	}
 }
 
 .gapeliaInsert {
-	position: relative;
 	margin: -1em 0 -1em -80px;
 	min-height: 18px;
-}
-
-.gapeliaInsert .gapeliaInsert-buttons {
-	position: absolute;
-	display: none;
-	width: 80px;
-	top: 0;
-	left: 0;
-	color: #ddd;
-	font-size: 0.9em;
-}
-
-.gapeliaInsert .gapeliaInsert-buttons a {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-.gapeliaInsert .gapeliaInsert-buttons a.active { font-weight: bold }
-
-.gapeliaInsert .gapeliaInsert-buttons .gapeliaInsert-buttonsIcon {
-	position: absolute;
-	top: 0;
-	right: 10px;
-}
-
-.gapeliaInsert .gapeliaInsert-buttons ul.gapeliaInsert-buttonsOptions {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	display: none;
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder {
 	position: relative;
-	margin-left: 80px;
-	text-align: center;
+
+	.gapeliaInsert-buttons {
+		top: 0; left: 0;
+
+		color: #ddd;
+		display: none;
+		font-size: 0.5em;
+		position: absolute;
+		width: 80px;
+
+		a {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+
+		a.active { font-weight: 700; }
+
+		.gapeliaInsert-buttonsIcon {
+			top: 0; right: 10px;
+			position: absolute;
+		}
+
+		ul.gapeliaInsert-buttonsOptions {
+			margin: 0; padding: 0;
+
+			display: none;
+			list-style: none;
+		}
+	}
+
+	.gapeliaInsert-placeholder {
+		margin-left: 80px;
+		position: relative;
+		text-align: center;
+
+		.gapeliaInsert-images {
+			img {
+				margin-top: 1em 0 10px 0;
+				vertical-align: top;
+			}
+
+			a {
+				width: 30px; height: 30px;
+
+				background-color: #3b3b3b;
+				background-repeat: no-repeat;
+				background-position: center center;
+				cursor: pointer;
+				position: absolute;
+				top: 1em;
+			}
+
+			a.gapeliaInsert-imageRemove {
+				background-image: url("../images/editor/remove.png");
+				right: 0;
+			}
+
+			a.gapeliaInsert-imageResizeSmaller, a.gapeliaInsert-imageResizeBigger {
+				background-image: url("../images/editor/resize-smaller.png");
+				right: 31px;
+			}
+
+			a.gapeliaInsert-imageResizeBigger { background-image: url("../images/editor/resize-bigger.png"); }
+		}
+
+		.gapeliaInsert-images:first-child:after {
+			content: "\a";
+			white-space: pre;
+		}
+
+		.gapeliaInsert-images:not(:first-child) { margin-right: 10px; }
+		.gapeliaInsert-images:not(:first-child) img { width: 20%; }
+
+		.gapeliaInsert-maps {
+			background-color: #ccc;
+			padding: 10px;
+		}
+	}
 }
 
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images img {
-	margin-top: 1em;
-	margin-bottom: 10px;
-	vertical-align: top;
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a {
-	position: absolute;
-	top: 1em;
-	width: 30px;
-	height: 30px;
-	background-color: #3b3b3b;
-	background-repeat: no-repeat;
-	background-position: center center;
-	cursor: pointer;
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageRemove {
-	right: 0;
-	background-image: url(../images/editor/remove.png);
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeSmaller, .gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeBigger {
-	right: 31px;
-	background-image: url(../images/editor/resize-smaller.png);
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images a.gapeliaInsert-imageResizeBigger { background-image: url(../images/editor/resize-bigger.png) }
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:first-child:after {
-	content: "\a";
-	white-space: pre;
-}
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:not(:first-child) { margin-right: 10px }
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-images:not(:first-child) img { width: 20% }
-
-.gapeliaInsert .gapeliaInsert-placeholder .gapeliaInsert-maps {
-	padding: 10px;
-	background: #ccc;
-}
-
-.gapeliaInsert.hover .gapeliaInsert-placeholder { background: #f0f0f0 }
-
-.gapeliaInsert:hover .gapeliaInsert-buttons { display: block }
+.gapeliaInsert.hover .gapeliaInsert-placeholder { background-color: #f0f0f0; }
+.gapeliaInsert:hover .gapeliaInsert-buttons { display: block; }
 
 .gapeliaInsert.small .gapeliaInsert-placeholder {
-	width: 33.33%;
 	float: left;
 	margin-right: 30px;
+	width: 33.33%;
 }
 
 .hover .gapeliaInsert-placeholder {
-	min-height: 14px;
 	border: 1px dashed #ddd;
-	margin-top: -1px;
-	margin-bottom: -1px;
+	margin: -1px 0;
+	min-height: 14px;
 }
