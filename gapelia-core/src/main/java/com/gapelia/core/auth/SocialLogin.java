@@ -41,7 +41,12 @@ public class SocialLogin extends HttpServlet {
 
 			// URL of YOUR application which will be called after authentication
 			String hostName = InetAddress.getLocalHost().getHostName();
-			String mode = System.getProperty("gapeliaMode");
+			String mode = null;
+			try {
+				mode = System.getProperty("gapeliaMode");
+			} catch (Exception ex) {
+				// Ignore mode is null
+			}
 
 			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";

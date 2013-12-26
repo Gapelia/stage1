@@ -30,7 +30,12 @@ public class AuthSuccessHandler extends HttpServlet {
 			SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
 			Profile profile = null;
 
-			String mode = System.getProperty("gapeliaMode");
+			String mode = null;
+			try {
+				mode = System.getProperty("gapeliaMode");
+			} catch (Exception ex) {
+				// Ignore mode is null
+			}
 
 			if (null != mode && "local".equals(mode)) {
 				// get profile

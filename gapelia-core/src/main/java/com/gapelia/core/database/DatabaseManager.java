@@ -22,7 +22,12 @@ public class DatabaseManager {
 
 	public synchronized static DatabaseManager getInstance() {
 		if (_instance == null) {
-			String dummy = System.getProperty("gapeliaDummy");
+			String dummy = null;
+			try {
+				dummy = System.getProperty("gapeliaDummy");
+			} catch (Exception ex) {
+				// Ignore mode is null
+			}
 			if (null != dummy && "true".equals(dummy))
 				return null;
 			_instance = new DatabaseManager();
@@ -38,7 +43,12 @@ public class DatabaseManager {
 			String connectionString = DB_CONN_STRING + DB_HOSTNAME + ":" + DB_PORT + "/" + DB_NAME;
 			String userName = DB_USER;
 			String password = DB_PASS;
-			String mode = System.getProperty("gapeliaMode");
+			String mode = null;
+			try {
+				mode = System.getProperty("gapeliaMode");
+			} catch (Exception ex) {
+				// Ignore mode is null
+			}
 			if (null != mode && "local".equals(mode)) {
 				connectionString = "jdbc:postgresql://localhost:5432/gapelia";
 				userName = "postgres";

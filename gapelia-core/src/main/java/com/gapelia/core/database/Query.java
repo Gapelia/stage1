@@ -265,7 +265,12 @@ public class Query {
 	}
 
 	private static boolean isDummy() {
-		String dummy = System.getProperty("gapeliaDummy");
+		String dummy = null;
+		try {
+			dummy = System.getProperty("gapeliaDummy");
+		} catch (Exception ex) {
+			// Ignore mode is null
+		}
 		if (null != dummy && "true".equals(dummy))
 			return true;
 		return false;
