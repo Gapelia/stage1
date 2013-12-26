@@ -177,9 +177,8 @@
 }
 
 .gapelia-editor-placeholder {
-	// position: relative;
+	position: relative;
 
-	/*
 	&:after {
 		top: 0; left: 0;
 
@@ -187,8 +186,9 @@
 		content: attr(data-placeholder);
 		font-style: italic;
 		position: absolute;
+		text-align: center;
+		width: 100%;
 	}
-	*/
 }
 
 @keyframes pop-upwards {

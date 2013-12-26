@@ -904,7 +904,9 @@ if (typeof module === "object") {
 
 						for (p = 0; p < paragraphs.length; p += 1) {
 							if (paragraphs[p] !== "") {
-								html += "<p>" + paragraphs[p] + "</p>";
+								// html += "<p>" + paragraphs[p] + "</p>";
+								// html += paragraphs[p];
+								html += paragraphs;
 							}
 						}
 
@@ -1004,7 +1006,9 @@ if (typeof module === "object") {
 			e = '<a class="gapeliaInsert-action action-images-add">Image</a>',
 			f = '<a class="gapeliaInsert-action action-maps-add">Map</a>';
 
-			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html("<p><br></p>"), c.keyup(function () {
+			// a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html("<p><br></p>"), c.keyup(function () {
+
+			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html(), c.keyup(function () {
 
 				var b = 0;
 
@@ -1017,7 +1021,8 @@ if (typeof module === "object") {
 			}), c.on("blur", function () {
 
 				var b, c = a(this).clone();
-				c.find(".gapeliaInsert").remove(), b = c.html().replace(/^\s+|\s+$/g, ""), ("" === b || "<p><br></p>" === b) && a(this).addClass("gapelia-editor-placeholder");
+				// c.find(".gapeliaInsert").remove(), b = c.html().replace(/^\s+|\s+$/g, ""), ("" === b || "<p><br></p>" === b) && a(this).addClass("gapelia-editor-placeholder");
+				c.find(".gapeliaInsert").remove(), b = c.html().replace(/^\s+|\s+$/g, ""), ("" === b || "" === b) && a(this).addClass("gapelia-editor-placeholder");
 
 			}), c.on("click", ".gapeliaInsert-buttons a.gapeliaInsert-buttonsShow", function () {
 

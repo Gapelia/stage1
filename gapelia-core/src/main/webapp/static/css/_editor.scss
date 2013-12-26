@@ -428,6 +428,10 @@
 						font-weight: 700;
 						line-height: 1.2;
 
+						p {
+							margin: 0; padding: 0;
+						}
+
 						&:empty:after {
 							color: $gray-iv;
 							content : "Write your title here";
@@ -460,6 +464,8 @@
 						// overflow-x: hidden;
 						text-align: center;
 						white-space: pre-wrap; // preserve line breaks!
+
+						p { padding: 0 0 1rem 0; }
 
 						&:empty:after {
 							color: $gray-iv;
@@ -569,7 +575,7 @@
 						}
 
 						p {
-							margin: 0 auto; padding: 1rem 0;
+							margin: 0 auto; padding: 0 0 1rem 0;
 
 							line-height: 1.2em;
 							text-align: center;
@@ -593,16 +599,16 @@
 
 					.photo-preview {
 						width: 100%; height: auto; max-height: 30%;
-						bottom: 4rem; left: 0;
+						bottom: 5%; /* 4rem */ left: 0;
 
 						color: $black;
 						height: auto;
 						padding: 1rem 2rem;
 						position: absolute;
 
-						::-webkit-input-placeholder	{ color: $black; }
-						::-moz-placeholder					{ color: $black; }
 						:-ms-input-placeholder			{ color: $black; }
+						::-moz-placeholder					{ color: $black; }
+						::-webkit-input-placeholder	{ color: $black; }
 
 						.page-title-elem, .page-geotag-elem, .page-desc { text-align: center; }
 
@@ -646,6 +652,10 @@
 								}
 								*/
 							}
+						}
+
+						.gapelia-editor-placeholder {
+							&:after { text-align: left; }
 						}
 
 						.insertIMG {
@@ -753,6 +763,10 @@
 						::-moz-placeholder					{ color: $black; }
 						::-webkit-input-placeholder	{ color: $black; }
 
+						.gapelia-editor-placeholder {
+							&:after { text-align: left; }
+						}
+
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
 
@@ -791,6 +805,10 @@
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
 
+						.gapelia-editor-placeholder {
+							&:after { text-align: left; }
+						}
+
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
 
@@ -822,7 +840,10 @@
 						:-ms-input-placeholder			{ color: $black; }
 						::-moz-placeholder					{ color: $black; }
 						::-webkit-input-placeholder	{ color: $black; }
-						
+
+						.gapelia-editor-placeholder {
+							&:after { text-align: left; }
+						}
 
 						.page-geotag-elem {
 							margin: 0 0 1rem 0; padding: 0 0 1rem 0;
