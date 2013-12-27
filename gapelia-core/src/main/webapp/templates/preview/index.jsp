@@ -85,10 +85,11 @@
 			<!--//site-menu /-->
 
 			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+
+			<!--/
 			<div id="header-toggle">&#9206;</div>
 			<div id="next-book-toggle">&#9197;</div>
 
-			<!--/
 			<header>
 				<div id="header-info">
 					<span id="header-title">*Book Title*</span>
