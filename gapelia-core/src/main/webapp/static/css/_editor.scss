@@ -541,8 +541,8 @@
 							width: 52%;
 						}
 
-						h1, h5, section {
-							text-align: center;
+						h1, h5, section, .page-desc {
+							text-align: left;
 							width: 100%;
 						}
 
@@ -558,7 +558,7 @@
 
 						h5 {
 							display: none; //
-							margin: 0 0 0.5rem 0;
+							margin: 1.5rem 0 0.5rem 0;
 							text-transform: uppercase;
 
 							span {
@@ -571,25 +571,27 @@
 							}
 						}
 
-						section {
-							margin: 0 0 1rem 0;
+						section { margin: 0 0 1rem 0; }
 
-							.page-geotag-elem {
-								appearance: textfield;
-								background: transparent;
-								color: $white;
-								margin: 0 auto 0.5rem;
-								text-align: center;
-							}
+						.page-geotag-elem {
+							appearance: textfield;
+							background: transparent;
+							color: $white;
+							margin: 0 auto 0.5rem;
+							text-align: center;
+						}
 
-							.page-desc { min-height: 25px; }
+						.page-desc {
+							font-size: 1.4em;
+							line-height: 1.4em;
+							min-height: 25px;
 						}
 
 						p {
 							// margin: 0 auto; padding: 0 0 1rem 0;
 
 							line-height: 1.2em;
-							text-align: center;
+							// text-align: center;
 							// width: 60%;
 						}
 					}

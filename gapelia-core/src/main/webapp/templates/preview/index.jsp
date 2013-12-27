@@ -229,7 +229,7 @@
 
 					function frontCoverLayout() {
 
-						htmlToInsert += "<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">" + current.title + "</h1><h5 contenteditable=\"false\"><span>*AUTHOR*</span></h5><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div><h5>*AUTHOR*</h5></article></div></section></div></div>";
 
 					}
 
