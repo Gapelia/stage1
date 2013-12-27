@@ -418,13 +418,13 @@
 
 		// title input limiter
 		var titleElem = "page-title-elem";
-		titleMax = 69;
+		titleMax = 51;
 
 		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
 
 		// description input limiter
 		var descElem = "page-desc";
-		descMax = 299;
+		descMax = 151;
 
 		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
 
@@ -749,6 +749,7 @@
 			}
 		}
 
+		/*
 		// description input limiter
 		var descElem = "page-desc";
 		descMax = 299;
@@ -760,6 +761,7 @@
 				e.preventDefault();
 			}
 		}
+		*/
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");

@@ -88,6 +88,7 @@
 			<div id="header-toggle">&#9206;</div>
 			<div id="next-book-toggle">&#9197;</div>
 
+			<!--/
 			<header>
 				<div id="header-info">
 					<span id="header-title">*Book Title*</span>
@@ -100,6 +101,7 @@
 					<li class="email"><a href="#">eMail</a></li>
 				</ul>
 			</header>
+			/-->
 
 			<div id="bb-nav-prev">Previous Page</div>
 			<div id="bb-nav-next">Next Page</div>
@@ -250,7 +252,7 @@
 
 						// htmlToInsert += "<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"horizontal-wrapper\"><div class=\"scroller-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
 
 					}
 
