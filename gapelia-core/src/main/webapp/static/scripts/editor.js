@@ -238,9 +238,9 @@
 
 		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
 
-		title = $(".page-title-elem").text();
-		geotag = $("geotag").text();
-		text = $(".page-desc").text();
+		title = $(".page-title-elem").html();
+		geotag = $("geotag").html();
+		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 
 		if(geotag == undefined) {
@@ -1131,7 +1131,7 @@
 			imageURL = $(".page-bg").attr("src");
 			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();
-			text = $(".page-desc").text();
+			text = $(".page-desc").html();
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
@@ -1177,7 +1177,7 @@
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
-		text = $(".page-desc").text();
+		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
