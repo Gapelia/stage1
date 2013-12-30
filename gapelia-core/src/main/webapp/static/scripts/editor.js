@@ -96,7 +96,9 @@
 
 	});
 
-	$(document).on("click","#pages-scroller ul li", function () {
+	$(document).on("click", "#pages-scroller ul li", function () {
+
+		// $(this).closest("li").css("border", "3px solid #70a1b1");
 
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
@@ -255,7 +257,7 @@
 				"title" : null,
 				"text" : null,
 				"image" : "/static/images/blankBG.jpg",
-				"video" : "NULL"
+				"video" : "null"
 			};
 
 			templateId = 0;
@@ -277,7 +279,7 @@
 				"title" : null,
 				"text" : null,
 				"image" : "/static/images/blankBG.jpg",
-				"video" : "NULL"
+				"video" : "null"
 			};
 
 			templateId = null;
@@ -335,7 +337,6 @@
 	});
 	*/
 
-
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -353,34 +354,40 @@
 
 	function frontCoverLayout() {
 
+		/*
+		$(document).on("ready", "#pages-scroller ul li", function () {
+			$(this).closest("li").css("border", "3px solid #70a1b1");
+		});
+		*/
+
 		insert = "";
 		insert += "<section class=\"frontcover-preview-wrapper\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\"" +imageURL+ "\"/>";
+			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
-			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		if(text == null) {
 			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		} else {
-			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -445,21 +452,27 @@
 
 	function photoLayout() {
 
+		/*
+		$(document).on("ready", "#pages-scroller ul li", function () {
+			$(this).closest("li").css("border", "3px solid #70a1b1");
+		});
+		*/
+
 		var insert = "";
 		insert += "<section class=\"photo-preview-wrapper\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
-			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
@@ -470,14 +483,14 @@
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		// no description in this view, but having this allows it to keep between layout switching
 		if(text == null) {
 			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		$("#create-content").html(insert);
@@ -559,9 +572,10 @@
 		insert += "<section class=\"text-preview-wrapper\">";
 
 		if(title == null) {
-			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			// insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" onkeyup=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/text.png');\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
-			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -577,18 +591,31 @@
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" style=\"display: none;\"/>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
+
+		// insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png');\" style=\"display: none;\"/></div>";
 
 		$("#create-content").html(insert);
 		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
+
+		/*
+		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").bind("blur keyup paste copy cut mouseup", function () {
+			$("#page'+ currentPage +'Image").attr("src", "static/images/view-modes/text.png");
+		});
+		*/
+
+		$(document).on("keyup", ".text-preview-wrapper .page-desc", function () {
+			// $('#page"+ currentPage +"Image').attr("src", "static/images/view-modes/text.png");
+		});
+
 		templateId = 2;
 
 		pages.page[currentPage].templateId = templateId;
@@ -692,17 +719,17 @@
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		insert += "</section><div class=\"horizontal-preview\"><article>";
 
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 		} else {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -710,14 +737,14 @@
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -780,17 +807,17 @@
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
@@ -800,14 +827,14 @@
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
 		} else {
-			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+title+"</h1>";
+			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -856,15 +883,15 @@
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
-			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -872,14 +899,14 @@
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -929,15 +956,15 @@
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/></div>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+currentPage+"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
-			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -945,14 +972,14 @@
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		$("#create-content").html(insert);
@@ -1000,20 +1027,20 @@
 
 		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png');\" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div>";
 		} else {
-			insert += "<div class=\"video-player-container\"><iframe src=\""+videoURL+"\"></iframe></div>";
+			insert += "<div class=\"video-player-container\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
 		if(title == null) {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 		} else {
-			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+title+"</h1>";
+			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -1021,14 +1048,14 @@
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+text+"</div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no background in this view, but having this allows it to keep between layout switching
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/view-modes/video.png\" style=\"display: none;\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+imageURL+"\" style=\"display: none;\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" style=\"display: none;\"/>";
 		}
 
 		$("#create-content").html(insert);

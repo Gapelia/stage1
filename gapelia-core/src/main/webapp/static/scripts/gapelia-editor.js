@@ -961,6 +961,7 @@ if (typeof module === "object") {
 //////////////////////////////////////////////////// Gapelia Inline Image Insertion
 
 // https://github.com/orthes/medium-editor-images-plugin
+/*
 !function (a) {
 
 	GapeliaEditor.prototype.serialize = function () {
@@ -1008,7 +1009,7 @@ if (typeof module === "object") {
 
 			// a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html("<p><br></p>"), c.keyup(function () {
 
-			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html(), c.keyup(function () {
+			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? d = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + e + "</li><li>" + f + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? d = e : a.fn.gapeliaInsert.settings.maps === !0 && (d = f), "" !== d && (d = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + d + '</div><div class="gapeliaInsert-placeholder"></div></div>', c.is(":empty") && c.html(""), c.keyup(function () {
 
 				var b = 0;
 
@@ -1205,3 +1206,4 @@ function (a) {
 	};
 
 }(jQuery);
+*/
