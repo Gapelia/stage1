@@ -475,6 +475,14 @@
 							content : "Start writing your story here.";
 						}
 					}
+
+					.image-attribution {
+						bottom: 1rem;
+						padding: 0 1rem;
+						position: absolute;
+						text-shadow: 0 0 30px $white !important;
+						width: 100%;
+					}
 				}
 
 				.text-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
@@ -700,7 +708,7 @@
 				}
 
 				.horizontal-preview-wrapper {
-					overflow-y: auto;
+					// overflow-y: auto;
 
 					.button-wrapper { bottom: 30%; }
 
@@ -709,7 +717,7 @@
 					}
 
 					.horizontal-preview {
-						width: 100%; min-height: 100%; // 25%
+						width: 100%; min-height: 53%; // 168px // 25% // 100%
 						top: 75%; left: 0; // bottom: 0;
 
 						background-color: $white;
@@ -717,7 +725,7 @@
 						color: $black;
 						font-size: 1.5em;
 						line-height: 2.5em;
-						padding: 1rem 2rem;
+						padding: 1rem 2rem 0 2rem;
 						position: absolute;
 						text-align: center;
 
@@ -801,13 +809,11 @@
 				}
 
 				.vertical-preview-wrapper {
-					.button-wrapper { width: 25%; }
+					.button-wrapper, .image-attribution { width: 25%; }
 
-					section {
-						width: 25%; height: 100%;
-					}
+					.button-wrapper { bottom: 10%; }
 
-					.draggable-placeholder {
+					section, .draggable-placeholder {
 						width: 25%; height: 100%;
 					}
 

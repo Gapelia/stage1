@@ -100,6 +100,16 @@
 
 		// $(this).closest("li").css("border", "3px solid #70a1b1");
 
+		/*
+		$(document).on("ready", "#pages-scroller ul li", function () {
+			$(this).closest("li").css("border", "3px solid #70a1b1");
+		});
+		*/
+
+		// $(this).closest("li").css("border", "3px solid #70a1b1");
+		// currentPage = $(this).closest("li").attr("id");
+		// .closest('li').css('border', '3px solid #70a1b1')
+
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
 		title = pages.page[currentPage].title;
@@ -238,7 +248,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
 
 		title = $(".page-title-elem").html();
 		geotag = $("geotag").html();
@@ -360,13 +370,19 @@
 		});
 		*/
 
+		// $(this).closest("li").css("border", "3px solid #70a1b1");
+		// currentPage = $(this).closest("li").attr("id");
+		// .closest('li').css('border', '3px solid #70a1b1')
+
+		// $("pages.page[currentPage]").closest("li").css("border", "3px solid #70a1b1");
+
 		insert = "";
-		insert += "<section class=\"frontcover-preview-wrapper\">";
+		insert += "<section class=\"frontcover-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('#imgLoader').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').load(function() { $('#imgLoader').hide(); });\"></div>";
@@ -378,9 +394,9 @@
 		}
 
 		if(text == null) {
-			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+			insert += "<h5 contenteditable=\"false\"><span>* "+ author +" *</span></h5><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		} else {
-			insert += "<h5 contenteditable=\"false\"><span>* "+author+" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
+			insert += "<h5 contenteditable=\"false\"><span>* "+ author +" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
@@ -458,8 +474,10 @@
 		});
 		*/
 
+		// $("pages.page[currentPage]").closest("li").css("border", "3px solid #70a1b1");
+
 		var insert = "";
-		insert += "<section class=\"photo-preview-wrapper\">";
+		insert += "<section class=\"photo-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -714,7 +732,7 @@
 	function horizontalLayout() {
 
 		var insert = "";
-		insert += "<section class=\"horizontal-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -764,6 +782,15 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
+		// $(".horizontal-preview").css("min-height", 0.25 * $vH);
+
+		$(document).on("keydown", ".horizontal-preview-wrapper", function () {
+			$(this).css("overflow-y", "auto");
+		});
+
+		// $(".horizontal-preview").height(0.25 * $vH);
+		// ("height", $vH - 97 + "px");
+
 		// title input limiter
 		var titleElem = "page-title-elem";
 		titleMax = 69;
@@ -802,7 +829,7 @@
 	function overlayLayout() {
 
 		var insert = "";
-		insert += "<section class=\"overlay-preview-wrapper\">";
+		insert += "<section class=\"overlay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -878,7 +905,7 @@
 	function photoTextLayout() {
 
 		var insert = "";
-		insert += "<section class=\"phototext-preview-wrapper\">";
+		insert += "<section class=\"phototext-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -951,7 +978,7 @@
 	function verticalLayout() {
 
 		var insert = "";
-		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"draggable-placeholder\">";
+		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><div class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/></div>";
@@ -1315,7 +1342,7 @@
 
 	function delayCheck() {
 
-		if (timedelay == 5) {
+		if (timedelay == 2) {
 			// $(".book-creation header, .frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").fadeOut();
 			$(".book-creation header").fadeOut();
 			$(".frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
@@ -1445,6 +1472,7 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	/*
 	$(document).ready(function() {
 
 		// h1 = page-title-elem // span = livepreview-thing in page thumb
@@ -1453,3 +1481,4 @@
 		});
 
 	});
+	*/

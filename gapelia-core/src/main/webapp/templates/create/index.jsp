@@ -126,13 +126,13 @@
 
 		<header>
 			<div id="back">
-        <a class="button transparent" href="#" id="pages-toggle" title="Add pages">Pages</a>
+        <a class="button transparent" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
 			</div>
 
 			<div id="finish">
-				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview">Preview</a>
-        <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish">Publish</a>
-				<a class="button b transparent" href="/me" id="close-button" title="Save and Close">Save + Close</a>
+				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
+        <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish your book">Publish</a>
+				<a class="button b transparent" href="/me" id="close-button" title="Save changes and quit">Save + Close</a>
 			</div>
 		</header>
 
