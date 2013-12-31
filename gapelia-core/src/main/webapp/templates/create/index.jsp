@@ -325,9 +325,13 @@
 		<!--/ <script src="/static/scripts/medium.js"></script> /-->
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/editor.js"></script>
+		<script src="/static/scripts/spin.js"></script>
+		<script src="/static/scripts/jquery.spin.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
+			$("#book-creation-wrapper").spin();
+
 			$(function() {
 				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
 				// $(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
