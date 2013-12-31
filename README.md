@@ -5,9 +5,9 @@ Directions on running this app locally will have to wait, nothing is 100% yet. H
 
 =
 
-— Things to do before and after pushing/pulling to the repo:
+— Things to do before and after pushing/pulling to this repo:
 
-	git pull origin [branch-name]
+	git pull origin dragon
 	mvn clean package
 
 And then you will be able to see and work on the latest changes.
