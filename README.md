@@ -40,7 +40,8 @@ Here's another example:
 
 =
 
-— Deploying to Heroku
+— Deploying to Heroku:
+
 Longer guide to come soon, just make sure you have Java and War set up. Then, run this command in the root folder of the repo, locally (in Terminal, dummy):
 
 	heroku deploy:war --war target/gapelia.war --app gapelia-dev
