@@ -207,7 +207,7 @@
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 
-				<img src="/static/images/loader.gif" id="imgLoader" alt=""/>
+				<!--/ <img src="/static/images/loader.gif" id="imgLoader" alt=""/> /-->
 
 				<div id="create-book">
 					<div id="create-content">
@@ -326,11 +326,10 @@
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
-		<script src="/static/scripts/jquery.spin.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
-			$("#book-creation-wrapper").spin();
+			Spinner({radius: 40, length: 10}).spin(document.getElementById("book-creation-wrapper"));
 
 			$(function() {
 				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts

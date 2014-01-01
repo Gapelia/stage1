@@ -17,7 +17,7 @@
 	"use strict";
 
 	var
-	prefixes = ['O', 'ms', 'Moz', 'webkit'],
+	prefixes = ["O", "ms", "Moz", "webkit"],
 	animations = {},
 	useCssAnimations;
 
@@ -58,11 +58,11 @@
 	function addAnimation(alpha, trail, i, lines) {
 
 		var
-		name = ['opacity', trail, ~~ (alpha * 100), i, lines].join('-'),
+		name = ["opacity", trail, ~~ (alpha * 100), i, lines].join("-"),
 		start = 0.01 + i / lines * 100,
 		z = Math.max(1 - (1 - alpha) / trail * (100 - start), alpha),
-		prefix = useCssAnimations.substring(0, useCssAnimations.indexOf('Animation')).toLowerCase(),
-		pre = prefix && '-' + prefix + '-' || '';
+		prefix = useCssAnimations.substring(0, useCssAnimations.indexOf("Animation")).toLowerCase(),
+		pre = prefix && "-" + prefix + "-" || "";
 
 		if (!animations[name]) {
 			sheet.insertRule(
@@ -154,7 +154,7 @@
 		corners: 1,						// Roundness (0..1)
 		color: "#70a1b1",			// #rgb or #rrggbb
 		direction: 1,					// 1: clockwise, -1: counterclockwise
-		speed: 1,							// Rounds per second
+		speed: 2,							// Rounds per second
 		trail: 100,						// Afterglow percentage
 		opacity: 1 / 4,				// Opacity of the lines
 		fps: 20,							// Frames per second when using setTimeout()
