@@ -732,6 +732,7 @@
 	function horizontalLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -758,6 +759,34 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
+		/*
+		// Essay code
+		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
+
+		if(imageURL == null) {
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\"/>";
+		} else {
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
+		}
+
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+
+		insert += "</section><div class=\"essay-preview\"><article>";
+
+		if(title == null) {
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
+		} else {
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
+		}
+
+		if(text == null) {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		} else {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
+		}
+		// End essay code
+		*/
+
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
@@ -782,14 +811,17 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		// $(".horizontal-preview").css("min-height", 0.25 * $vH);
-
 		$(document).on("keydown", ".horizontal-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 
-		// $(".horizontal-preview").height(0.25 * $vH);
-		// ("height", $vH - 97 + "px");
+		/*
+		// Essay code
+		$(document).on("keydown", ".essay-preview-wrapper", function () {
+			$(this).css("overflow-y", "auto");
+		});
+		// End essasy code
+		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -802,20 +834,6 @@
 				e.preventDefault();
 			}
 		}
-
-		/*
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 299;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
-
-		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
-		*/
 
 		// Google Maps Autocomplete list positioning
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
