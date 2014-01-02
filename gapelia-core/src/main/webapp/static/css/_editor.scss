@@ -7,14 +7,6 @@
 	@include sans;
 	overflow: hidden;
 
-	#imgLoader {
-		top: 48%; left: 48%;
-
-		display: none;
-		position: fixed;
-		z-index: 5;
-	}
-
 	.spinner {
 		top: 50% !important; left: 50% !important;
 
@@ -430,7 +422,10 @@
 
 					.placeholder { color: $gray-iv; }
 
-					.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
+					.page-title-elem, .page-geotag-elem, .page-desc {
+						color: rgba($black, 0.9);
+						display: block;
+					}
 					.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
 
 					.page-title-elem {
@@ -485,11 +480,38 @@
 					}
 
 					.image-attribution {
+						background-color: rgba($white, 0.7); // $black
 						bottom: 1rem;
-						padding: 0 1rem;
+						display: none;
+						padding: 0.5rem 1rem !important; // 0 1rem
 						position: absolute;
-						text-shadow: 0 0 30px $white !important;
-						width: 100%;
+						// text-shadow: 0 0 30px $white !important;
+						// width: 100%;
+						z-index: 1;
+
+						p {
+							margin: 0; padding: 0;
+
+							color: $black; // $white
+							// text-shadow: 0 0 30px $white !important;
+
+							// Copyright sign and space
+							/*
+							&:before {
+								content:"Image \00a9\00a0";
+								@include serif;
+								font-style: italic;
+							}
+							*/
+
+							a { font-weight: 700; }
+						}
+
+						&:after {
+							// color: $black; // $white
+							font-style: normal;
+							position: relative;
+						}
 					}
 				}
 
@@ -498,6 +520,8 @@
 						// overflow-x: hidden;
 						// overflow-y: auto;
 						padding: 0 1rem 1rem 0;
+
+						p { line-height: 1.5em; }
 					}
 				}
 
@@ -718,6 +742,7 @@
 				.horizontal-preview-wrapper {
 					// overflow-y: auto;
 
+					.image-attribution { bottom: 25%; }
 					.button-wrapper { bottom: 30%; }
 
 					section {
@@ -791,7 +816,7 @@
 						width: 30%; height: 100%;
 						top: 0; right: 0;
 
-						background-color: rgba($white, 0.7);
+						background-color: rgba($white, 0.75);
 						color: $black;
 						overflow-y: auto;
 						padding: 4rem 2rem 2rem 2rem;
