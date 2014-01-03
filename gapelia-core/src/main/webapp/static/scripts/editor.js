@@ -16,6 +16,7 @@
 
 		sId = "1234567";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -35,6 +36,7 @@
 				}
 			}
 		});
+		*/
 
 		geotag = "BUGGGGGG";
 
@@ -96,13 +98,18 @@
 
 	$(document).on("click", "#pages-scroller ul li", function () {
 
-		$("#pages-scroller ul li").css("border", "none");
+		$("#pages-scroller ul li").css({
+			"border-top": "1px solid #e7e7e7",
+			"border-bottom": "none",
+			"border-left": "none",
+			"border-right": "none"
+		});
 
 		var e = $(this).closest("li");
 		e = e[0];
 
 		if(e.id != "add-page") {
-			e.style.border="3px solid #70a1b1";
+			e.style.border = "3px solid #70a1b1";
 		}
 
 		currentPage = $(this).closest("li").attr("id");
@@ -1199,6 +1206,7 @@
 
 	function addPageBE() {
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1219,6 +1227,7 @@
 				}
 			}
 		});
+		*/
 
 	}
 
@@ -1248,6 +1257,7 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
+		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1268,6 +1278,7 @@
 				}
 			}
 		});
+		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
@@ -1283,6 +1294,7 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1310,6 +1322,7 @@
 				}
 			}
 		});
+		*/
 
 	}, 5000);
 
@@ -1333,6 +1346,7 @@
 		library = 1;
 		tags = "fun";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1355,6 +1369,7 @@
 				}
 			}
 		});
+		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
