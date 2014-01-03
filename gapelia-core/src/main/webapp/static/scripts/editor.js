@@ -16,7 +16,6 @@
 
 		sId = "1234567";
 
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -36,7 +35,6 @@
 				}
 			}
 		});
-		*/
 
 		geotag = "BUGGGGGG";
 
@@ -1206,7 +1204,6 @@
 
 	function addPageBE() {
 
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1227,7 +1224,6 @@
 				}
 			}
 		});
-		*/
 
 	}
 
@@ -1257,7 +1253,6 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
-		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1278,7 +1273,6 @@
 				}
 			}
 		});
-		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
@@ -1294,7 +1288,6 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1322,7 +1315,6 @@
 				}
 			}
 		});
-		*/
 
 	}, 5000);
 
@@ -1346,7 +1338,6 @@
 		library = 1;
 		tags = "fun";
 
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1369,7 +1360,6 @@
 				}
 			}
 		});
-		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
