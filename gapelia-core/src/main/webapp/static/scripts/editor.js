@@ -1241,6 +1241,8 @@
 		});
 		*/
 
+		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
+
 	}, 60000);
 
 	// Save page information every 5 seconds

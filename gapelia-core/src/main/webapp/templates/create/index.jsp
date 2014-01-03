@@ -31,95 +31,6 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
-		<script>
-			$(document).ready(function () {
-
-				/*
-				sId = "1234567";
-
-				$.ajax({
-					url: "http://localhost:8080/api/book/createBook",
-					contentType: "application/x-www-form-urlencoded;charset=utf-8",
-					type: "POST",
-					data: {
-						sessionId: sId,
-					},
-					success: function (data) {
-						bookId = data.bookId;
-						console.log("Succes Creating your book");
-					},
-					error: function (q, status, err) {
-						if (status == "timeout") {
-							alert("Request timed out");
-						} else {
-							alert("Some issue happened with your request: " + err);
-						}
-					}
-				});
-				*/
-
-			});
-
-			$(function() {
-
-				$("#input-tags").selectize({
-					delimiter: ",",
-					maxItems: 3,
-					persist: false,
-					create: function(input) {
-						return {
-							value: input,
-							text: input
-						}
-					}
-				});
-
-				$("#library-search").selectize({
-					valueField: "title",
-					labelField: "title",
-					searchField: "title",
-					options: [],
-					create: false,
-					render: {
-						option: function (item, escape) {
-
-							return "<div>" +
-								"<span class='title'>" +
-								"<span class='name'>" + escape(item.title) + "</span>" +
-								"</span>" +
-								"<div class='description'>" + escape(item.synopsis || "No synopsis available at this time.") + "</div>" +
-								"</div>";
-
-						}
-					},
-
-					load: function (query, callback) {
-
-						if (!query.length) return callback();
-
-						$.ajax({
-							url: "http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-							type: "GET",
-							dataType: "jsonp",
-							data: {
-								q: query,
-								page_limit: 10,
-								apikey: "3qqmdwbuswut94jv4eua3j85"
-							},
-							error: function () {
-								callback();
-							},
-							success: function (res) {
-								callback(res.movies);
-							}
-						});
-
-					}
-				});
-
-			});
-		</script>
-
 	</head>
 
 	<body class="book-creation g-body">
@@ -208,6 +119,7 @@
 			<div id="book-creation-wrapper">
 
 				<!--/ <img src="/static/images/loader.gif" id="imgLoader" alt=""/> /-->
+				<div id="notify-saving">Saving...</div>
 
 				<div id="create-book">
 					<div id="create-content">
@@ -233,9 +145,52 @@
 			<div class="wrapper">
 				<h1>*BOOK TITLE*</h1>
 
-				<input type="text" id="input-tags" value="input, tags, here"/>
+				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
+
+				<script>
+					$("#input-tags").selectize({
+						delimiter: ",",
+						maxItems: 3,
+						persist: false,
+						create: function(input) {
+							return {
+								value: input,
+								text: input
+							}
+						}
+					});
+				</script>
 
 				<select id="library-search" placeholder="Add book to library"></select>
+
+				<script>
+					$("#library-search").selectize({
+						options: [
+							{ name: "Architecture", value: "architecture" },
+							{ name: "Biography", value: "biography" },
+							{ name: "Cinema", value: "cinema" },
+							{ name: "Cuisine", value: "cuisine" },
+							{ name: "Era", value: "era" },
+							{ name: "The Far East", value: "thefareast" },
+							{ name: "Fashionista", value: "fashionista" },
+							{ name: "Future", value: "future" },
+							{ name: "Gapelians", value: "gapelians" },
+							{ name: "Historian", value: "historian" },
+							{ name: "Into the Wild", value: "intothewild" },
+							{ name: "Japanimation", value: "japanimation" },
+							{ name: "Land of Kawaii", value: "landofkawaii" },
+							{ name: "Manifesto", value: "manifesto" },
+							{ name: "Modernism", value: "modernism" },
+							{ name: "Mother Gaea", value: "mothergaea" },
+							{ name: "Museum", value: "museum" },
+							{ name: "On the Road", value: "ontheroad" },
+							{ name: "Products of Tomorrow", value: "productsoftomorrow" },
+							{ name: "Subculture", value: "subculture" }
+						],
+						labelField: "name",
+						searchField: ["name"]
+					});
+				</script>
 
 				<!--/
 				<select id="library-search" class="demo-default" placeholder="Add book to library">
