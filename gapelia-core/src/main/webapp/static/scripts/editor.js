@@ -13,7 +13,9 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
+
 		sId = "1234567";
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -79,6 +81,7 @@
 		e.preventDefault();
 
 	});
+
 	$("#pages-scroller").on("mouseenter", function () {}).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
@@ -88,25 +91,34 @@
 			"left": "0",
 			"position": "fixed"
 		}).stop(true).delay(5000);
+
 	});
+
 	$(document).on("click", "#pages-scroller ul li", function () {
-		$("#pages-scroller ul li").css('border', 'none');
-		var e =$(this).closest("li");
-		e=e[0];
-		if(e.id!='add-page')
-		{e.style.border="3px solid #70a1b1";}
+
+		$("#pages-scroller ul li").css("border", "none");
+
+		var e = $(this).closest("li");
+		e = e[0];
+
+		if(e.id != "add-page") {
+			e.style.border="3px solid #70a1b1";
+		}
+
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
-		if(templateId==undefined||templateId==null)
-		{
+
+		if(templateId == undefined || templateId == null) {
 			templateId=0;
-		} 
+		}
+
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
 		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
+
 		switch(templateId) {
 			case 0:
 				frontCoverLayout();
@@ -135,8 +147,11 @@
 			default:
 				baseLayout();
 		}
+
 	});
+
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
+
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
 
@@ -213,8 +228,10 @@
 	////
 
 	$("#preview-book").click(function () {
+
 		var temp = JSON.stringify(pages);
-		localStorage.setItem("pages", temp);	
+		localStorage.setItem("pages", temp);
+
 	});
 
 	// Layout and page interaction
@@ -340,9 +357,9 @@
 	// ------------------------------------------------------------------------------------
 
 	function frontCoverLayout() {
-		
 
 		insert = "";
+
 		insert += "<section class=\"frontcover-preview-wrapper\"><div class=\"image-attribution\" data-placeholder=\"Add photography credit\" contenteditable=\"true\"></div>";
 
 		if(imageURL == null) {
@@ -360,17 +377,16 @@
 		}
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
-		} 
-		else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+		} else {
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -442,7 +458,9 @@
 	// ------------------------------------------------------------------------------------
 
 	function photoLayout() {
+
 		var insert = "";
+
 		insert += "<section class=\"photo-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -455,21 +473,22 @@
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		insert += "</article></div></section>";
+
 		$("#create-content").html(insert);
 		templateId = 1;
 
@@ -546,6 +565,7 @@
 	function textLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"text-preview-wrapper\">";
 
 		if(title == null) {
@@ -558,16 +578,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 		}
@@ -638,9 +658,11 @@
 				var reader = new FileReader();
 
 				reader.onload = function (e) {
+
 					// $('<img class="page-bg" src=""/>').appendTo("p");
 					$('<img class="page-bg" src=""/>').appendTo("p:first-child");
 					$(".page-bg").attr("src", e.target.result).show();
+
 				};
 
 				reader.readAsDataURL(input.files[0]);
@@ -721,16 +743,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -822,6 +844,7 @@
 	function overlayLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"overlay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -846,15 +869,15 @@
 		// no title in this view, but having this allows it to keep between layout switching
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
 		}
 
@@ -906,6 +929,7 @@
 	function photoTextLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"phototext-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -925,16 +949,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -987,6 +1011,7 @@
 	function verticalLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><div class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -1006,16 +1031,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1090,16 +1115,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1174,7 +1199,6 @@
 
 	function addPageBE() {
 
-		
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1189,12 +1213,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+
 	}
 
 	// Layout Constants
@@ -1222,6 +1247,7 @@
 
 	// Save book information every minute
 	window.setInterval(function () {
+
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1236,9 +1262,9 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
@@ -1278,13 +1304,12 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
-		*/
 
 	}, 5000);
 
@@ -1307,6 +1332,7 @@
 		// TO DO: Get tags from format and library
 		library = 1;
 		tags = "fun";
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1329,7 +1355,6 @@
 				}
 			}
 		});
-		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
