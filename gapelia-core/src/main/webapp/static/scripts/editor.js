@@ -13,12 +13,9 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-
-		/*
 		sId = "1234567";
-
 		$.ajax({
-			url: "http://localhost:8080/api/book/createBook",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -36,7 +33,6 @@
 				}
 			}
 		});
-		*/
 
 		geotag = "BUGGGGGG";
 
@@ -57,7 +53,7 @@
 		text = null;
 		imageURL = null;
 		videoURL = null;
-		templateId = null;
+		templateId = 0;
 		title = null;
 		pagesCreated = 0; // subscript of 0
 		currentPage = 0;
@@ -83,7 +79,6 @@
 		e.preventDefault();
 
 	});
-
 	$("#pages-scroller").on("mouseenter", function () {}).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
@@ -93,73 +88,55 @@
 			"left": "0",
 			"position": "fixed"
 		}).stop(true).delay(5000);
-
 	});
-
 	$(document).on("click", "#pages-scroller ul li", function () {
-
-		// $(this).closest("li").css("border", "3px solid #70a1b1");
-
-		/*
-		$(document).on("ready", "#pages-scroller ul li", function () {
-			$(this).closest("li").css("border", "3px solid #70a1b1");
-		});
-		*/
-
-		// $(this).closest("li").css("border", "3px solid #70a1b1");
-		// currentPage = $(this).closest("li").attr("id");
-		// .closest('li').css('border', '3px solid #70a1b1')
-
+		$("#pages-scroller ul li").css('border', 'none');
+		var e =$(this).closest("li");
+		e=e[0];
+		if(e.id!='add-page')
+		{e.style.border="3px solid #70a1b1";}
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
+		if(templateId==undefined||templateId==null)
+		{
+			templateId=0;
+		} 
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
 		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
-
 		switch(templateId) {
 			case 0:
 				frontCoverLayout();
 				break;
-
 			case 1:
 				photoLayout();
 				break;
-
 			case 2:
 				textLayout();
 				break;
-
 			case 3:
 				horizontalLayout();
 				break;
-
 			case 4:
 				overlayLayout();
 				break;
-
 			case 5:
 				photoTextLayout();
 				break;
-
 			case 6:
 				verticalLayout();
 				break;
-
 			case 7:
 				videoLayout();
 				break;
-
 			default:
 				baseLayout();
 		}
-
 	});
-
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
-
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
 
@@ -363,18 +340,7 @@
 	// ------------------------------------------------------------------------------------
 
 	function frontCoverLayout() {
-
-		/*
-		$(document).on("ready", "#pages-scroller ul li", function () {
-			$(this).closest("li").css("border", "3px solid #70a1b1");
-		});
-		*/
-
-		// $(this).closest("li").css("border", "3px solid #70a1b1");
-		// currentPage = $(this).closest("li").attr("id");
-		// .closest('li').css('border', '3px solid #70a1b1')
-
-		// $("pages.page[currentPage]").closest("li").css("border", "3px solid #70a1b1");
+		
 
 		insert = "";
 		insert += "<section class=\"frontcover-preview-wrapper\"><div class=\"image-attribution\" data-placeholder=\"Add photography credit\" contenteditable=\"true\"></div>";
@@ -394,9 +360,18 @@
 		}
 
 		if(text == null) {
-			insert += "<h5 contenteditable=\"false\"><span>* "+ author +" *</span></h5><div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
-		} else {
-			insert += "<h5 contenteditable=\"false\"><span>* "+ author +" *</span></h5><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
+			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+		} 
+		else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
@@ -467,15 +442,6 @@
 	// ------------------------------------------------------------------------------------
 
 	function photoLayout() {
-
-		/*
-		$(document).on("ready", "#pages-scroller ul li", function () {
-			$(this).closest("li").css("border", "3px solid #70a1b1");
-		});
-		*/
-
-		// $("pages.page[currentPage]").closest("li").css("border", "3px solid #70a1b1");
-
 		var insert = "";
 		insert += "<section class=\"photo-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
@@ -489,28 +455,21 @@
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		insert += "</article></div></section>";
-
-		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
-		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
-		}
-
-		// no description in this view, but having this allows it to keep between layout switching
-		if(text == null) {
-			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-		}
-
 		$("#create-content").html(insert);
 		templateId = 1;
 
@@ -599,8 +558,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 		}
@@ -754,8 +721,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -871,8 +846,16 @@
 		// no title in this view, but having this allows it to keep between layout switching
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
@@ -942,8 +925,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1015,8 +1006,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1091,8 +1090,16 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
+			if(currentPage==0)
+			{
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1167,9 +1174,9 @@
 
 	function addPageBE() {
 
-		/*
+		
 		$.ajax({
-			url: "http://localhost:8080/api/book/createPage",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1182,14 +1189,12 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					//alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					//alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
-		*/
-
 	}
 
 	// Layout Constants
@@ -1217,10 +1222,8 @@
 
 	// Save book information every minute
 	window.setInterval(function () {
-
-		/*
 		$.ajax({
-			url: "http://localhost:8080/api/book/createBook",
+			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1233,13 +1236,12 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					//alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					//alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
-		*/
 
 	}, 60000);
 
@@ -1253,9 +1255,8 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
-		/*
 		$.ajax({
-			url: "http://localhost:8080/api/book/createPage",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1275,9 +1276,9 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					//alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					//alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
@@ -1304,10 +1305,8 @@
 		// TO DO: Get tags from format and library
 		library = 1;
 		tags = "fun";
-
-		/*
 		$.ajax({
-			url: "http://localhost:8080/api/book/createBook",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1322,9 +1321,9 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					//alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					//alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
