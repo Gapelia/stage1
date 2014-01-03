@@ -139,11 +139,9 @@
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
-
 		setTimeout(function() {
 			$("#pages-scroller").stop(true).css("left", "-200px");
 		}, 200);
-
 		$("#layout-scroller").on("mouseenter", function () {
 
 			$("#back").stop(true).css("margin", "0 0 0 200px");
@@ -362,14 +360,14 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		} 
 		else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -457,13 +455,13 @@
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 		}
 
@@ -560,13 +558,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
@@ -723,13 +721,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -848,13 +846,13 @@
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 		}
 
@@ -927,13 +925,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -1008,13 +1006,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -1092,13 +1090,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -1282,7 +1280,6 @@
 				}
 			}
 		});
-		*/
 
 	}, 5000);
 
@@ -1327,7 +1324,6 @@
 				}
 			}
 		});
-		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
