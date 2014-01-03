@@ -16,6 +16,7 @@
 
 		sId = "1234567";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -35,6 +36,7 @@
 				}
 			}
 		});
+		*/
 
 		geotag = "BUGGGGGG";
 
@@ -46,7 +48,7 @@
 		};
 
 		pages = {
-			"page":[{}]
+			"page" : [{}]
 		};
 
 		index = 0;
@@ -727,6 +729,7 @@
 
 		var insert = "";
 
+		/*
 		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -760,8 +763,8 @@
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
+		*/
 
-		/*
 		// Essay code
 		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
@@ -771,7 +774,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.essay-preview').css('top', '65%'); $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		insert += "</section><div class=\"essay-preview\"><article>";
 
@@ -787,7 +790,6 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 		// End essay code
-		*/
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -817,13 +819,11 @@
 			$(this).css("overflow-y", "auto");
 		});
 
-		/*
 		// Essay code
 		$(document).on("keydown", ".essay-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 		// End essasy code
-		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -1204,6 +1204,7 @@
 
 	function addPageBE() {
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1224,6 +1225,7 @@
 				}
 			}
 		});
+		*/
 
 	}
 
@@ -1253,6 +1255,7 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
+		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1273,6 +1276,7 @@
 				}
 			}
 		});
+		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
@@ -1288,6 +1292,7 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1315,6 +1320,7 @@
 				}
 			}
 		});
+		*/
 
 	}, 5000);
 
@@ -1338,6 +1344,7 @@
 		library = 1;
 		tags = "fun";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1354,12 +1361,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
