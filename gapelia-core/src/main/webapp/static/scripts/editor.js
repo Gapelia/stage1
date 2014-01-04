@@ -48,7 +48,7 @@
 		};
 
 		index = 0;
-		author = book.author;
+		author = "author";
 		pageNumber = 0;
 		text = null;
 		imageURL = null;
@@ -364,14 +364,14 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
 		} 
 		else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -459,13 +459,13 @@
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		}
 
@@ -562,13 +562,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
@@ -725,13 +725,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -850,13 +850,13 @@
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		}
 
@@ -929,13 +929,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -1010,13 +1010,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
@@ -1094,13 +1094,13 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
