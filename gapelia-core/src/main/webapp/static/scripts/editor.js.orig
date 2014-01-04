@@ -16,6 +16,7 @@
 
 		sId = "1234567";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -35,6 +36,7 @@
 				}
 			}
 		});
+		*/
 
 		geotag = "BUGGGGGG";
 
@@ -46,11 +48,11 @@
 		};
 
 		pages = {
-			"page":[{}]
+			"page" : [{}]
 		};
 
 		index = 0;
-		author = book.author;
+		author = "author";
 		pageNumber = 0;
 		text = null;
 		imageURL = null;
@@ -96,13 +98,18 @@
 
 	$(document).on("click", "#pages-scroller ul li", function () {
 
-		$("#pages-scroller ul li").css("border", "none");
+		$("#pages-scroller ul li").css({
+			"border-top": "1px solid #e7e7e7",
+			"border-bottom": "none",
+			"border-left": "none",
+			"border-right": "none"
+		});
 
 		var e = $(this).closest("li");
 		e = e[0];
 
 		if(e.id != "add-page") {
-			e.style.border="3px solid #70a1b1";
+			e.style.border = "3px solid #70a1b1";
 		}
 
 		currentPage = $(this).closest("li").attr("id");
@@ -154,9 +161,11 @@
 
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
+
 		setTimeout(function() {
 			$("#pages-scroller").stop(true).css("left", "-200px");
 		}, 200);
+
 		$("#layout-scroller").on("mouseenter", function () {
 
 			$("#back").stop(true).css("margin", "0 0 0 200px");
@@ -378,11 +387,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
@@ -391,12 +400,12 @@
 		else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 		} else {
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -488,13 +497,13 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 
 			if(currentPage == 0) {
@@ -505,7 +514,7 @@
 
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 		}
 
@@ -605,11 +614,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -617,11 +626,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
@@ -758,6 +767,7 @@
 
 		var insert = "";
 
+		/*
 		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -782,11 +792,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -794,17 +804,17 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
+		*/
 
-		/*
 		// Essay code
 		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
@@ -814,7 +824,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.essay-preview').css('top', '65%'); $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		insert += "</section><div class=\"essay-preview\"><article>";
 
@@ -830,7 +840,6 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 		// End essay code
-		*/
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -860,13 +869,11 @@
 			$(this).css("overflow-y", "auto");
 		});
 
-		/*
 		// Essay code
 		$(document).on("keydown", ".essay-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 		// End essasy code
-		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -920,13 +927,13 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 
 			if(currentPage == 0) {
@@ -937,7 +944,7 @@
 
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 		}
 
@@ -1012,11 +1019,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -1024,11 +1031,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1106,11 +1113,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -1118,11 +1125,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1202,11 +1209,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -1214,11 +1221,11 @@
 <<<<<<< HEAD
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+book.author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 =======
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ book.author +"</span></h5>";
->>>>>>> c571fa03c68d51a9c249f476ae0aed46ae70a295
+>>>>>>> 88626d3d19a3be92de53c0e5842a301c7cc1c991
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1295,6 +1302,7 @@
 
 	function addPageBE() {
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1315,6 +1323,7 @@
 				}
 			}
 		});
+		*/
 
 	}
 
@@ -1344,6 +1353,7 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
+		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1364,6 +1374,7 @@
 				}
 			}
 		});
+		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
@@ -1379,6 +1390,7 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1406,6 +1418,7 @@
 				}
 			}
 		});
+		*/
 
 	}, 5000);
 
@@ -1429,6 +1442,7 @@
 		library = 1;
 		tags = "fun";
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1445,12 +1459,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+		*/
 
 		$("#publish-modal").css({
 			"width": "100%",

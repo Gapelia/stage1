@@ -13,7 +13,10 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
+
 		sId = "1234567";
+
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -33,6 +36,7 @@
 				}
 			}
 		});
+		*/
 
 		geotag = "BUGGGGGG";
 
@@ -44,7 +48,7 @@
 		};
 
 		pages = {
-			"page":[{}]
+			"page" : [{}]
 		};
 
 		index = 0;
@@ -79,6 +83,7 @@
 		e.preventDefault();
 
 	});
+
 	$("#pages-scroller").on("mouseenter", function () {}).on("mouseleave", function () {
 
 		$("#back").stop(true).css("margin", "0").stop(true).delay(5000);
@@ -88,25 +93,39 @@
 			"left": "0",
 			"position": "fixed"
 		}).stop(true).delay(5000);
+
 	});
+
 	$(document).on("click", "#pages-scroller ul li", function () {
-		$("#pages-scroller ul li").css('border', 'none');
-		var e =$(this).closest("li");
-		e=e[0];
-		if(e.id!='add-page')
-		{e.style.border="3px solid #70a1b1";}
+
+		$("#pages-scroller ul li").css({
+			"border-top": "1px solid #e7e7e7",
+			"border-bottom": "none",
+			"border-left": "none",
+			"border-right": "none"
+		});
+
+		var e = $(this).closest("li");
+		e = e[0];
+
+		if(e.id != "add-page") {
+			e.style.border = "3px solid #70a1b1";
+		}
+
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
-		if(templateId==undefined||templateId==null)
-		{
+
+		if(templateId == undefined || templateId == null) {
 			templateId=0;
-		} 
+		}
+
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
 		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
+
 		switch(templateId) {
 			case 0:
 				frontCoverLayout();
@@ -135,15 +154,18 @@
 			default:
 				baseLayout();
 		}
+
 	});
 
 	$(document).on("click", "#pages-scroller ul li .edit-page", function (e) {
 
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
+
 		setTimeout(function() {
 			$("#pages-scroller").stop(true).css("left", "-200px");
 		}, 200);
+
 		$("#layout-scroller").on("mouseenter", function () {
 
 			$("#back").stop(true).css("margin", "0 0 0 200px");
@@ -444,7 +466,9 @@
 	// ------------------------------------------------------------------------------------
 
 	function photoLayout() {
+
 		var insert = "";
+
 		insert += "<section class=\"photo-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -472,6 +496,7 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		insert += "</article></div></section>";
+
 		$("#create-content").html(insert);
 		templateId = 1;
 
@@ -548,6 +573,7 @@
 	function textLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"text-preview-wrapper\">";
 
 		if(title == null) {
@@ -564,12 +590,14 @@
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
 		}
@@ -640,9 +668,11 @@
 				var reader = new FileReader();
 
 				reader.onload = function (e) {
+
 					// $('<img class="page-bg" src=""/>').appendTo("p");
 					$('<img class="page-bg" src=""/>').appendTo("p:first-child");
 					$(".page-bg").attr("src", e.target.result).show();
+
 				};
 
 				reader.readAsDataURL(input.files[0]);
@@ -702,6 +732,7 @@
 
 		var insert = "";
 
+		/*
 		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -727,16 +758,18 @@
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
+		*/
 
-		/*
 		// Essay code
 		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
@@ -746,7 +779,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.essay-preview').css('top', '65%'); $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		insert += "</section><div class=\"essay-preview\"><article>";
 
@@ -762,7 +795,6 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 		// End essay code
-		*/
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -792,13 +824,11 @@
 			$(this).css("overflow-y", "auto");
 		});
 
-		/*
 		// Essay code
 		$(document).on("keydown", ".essay-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 		// End essasy code
-		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -824,6 +854,7 @@
 	function overlayLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"overlay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -908,6 +939,7 @@
 	function photoTextLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"phototext-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div>";
 
 		if(imageURL == null) {
@@ -931,12 +963,14 @@
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -989,6 +1023,7 @@
 	function verticalLayout() {
 
 		var insert = "";
+
 		insert += "<section class=\"vertical-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><div class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -1012,12 +1047,14 @@
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1096,12 +1133,14 @@
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
 				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -1176,7 +1215,7 @@
 
 	function addPageBE() {
 
-		
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1197,6 +1236,8 @@
 				}
 			}
 		});
+		*/
+
 	}
 
 	// Layout Constants
@@ -1238,12 +1279,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
@@ -1259,6 +1301,7 @@
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
 
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1280,12 +1323,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+		*/
 
 	}, 5000);
 
@@ -1308,6 +1352,8 @@
 		// TO DO: Get tags from format and library
 		library = 1;
 		tags = "fun";
+
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1324,12 +1370,13 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					//alert("Request timed out");
+					// alert("Request timed out");
 				} else {
-					//alert("Some issue happened with your request: " + err);
+					// alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
+		*/
 
 		$("#publish-modal").css({
 			"width": "100%",
