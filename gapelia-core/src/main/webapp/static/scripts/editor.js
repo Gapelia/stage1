@@ -1285,7 +1285,6 @@
 				}
 			}
 		});
-		*/
 
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 

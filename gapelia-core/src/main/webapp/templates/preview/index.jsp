@@ -39,7 +39,7 @@
 
 	</head>
 
-	<body class="app full-book">
+	<body class="app full-book g-body">
 
 		<div id="mp-pusher" class="super-wrapper">
 
