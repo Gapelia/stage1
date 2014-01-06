@@ -25,6 +25,19 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
+		<style>
+			.app #featured-panel h2 {
+				margin: 4rem 0; padding: 0;
+
+				background-image: none;
+				color: #fcfcfc;
+				font-size: 28px;
+				left: -2.5rem;
+				line-height: 40px;
+				width: auto;
+			}
+		</style>
+
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
@@ -91,15 +104,11 @@
 
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
-					<p>[Library Description]</p>
+					<!--/ <p>[Library Description]</p> /-->
 				</div>
 
-				<!--/
-        <canvas id="dimensions-landing-bg">
-        </canvas>
-				/-->
-
-				<img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/>
+				<!--/ <canvas id="dimensions-landing-bg"></canvas> /-->
+				<!--/ <img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/> /-->
 			</div>
 			<!--//main-panel /-->
 
@@ -124,8 +133,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Bauhaus</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Bauhaus</a></div>
 								<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
 							</div>
 
@@ -140,8 +150,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="/book/001/hayao-miyazaki">Hello Techstars!</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="/book/001/hayao-miyazaki">Hello Techstars!</a></div>
 								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
 							</div>
 
@@ -156,8 +167,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Stadiums I've Performed In</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Stadiums I've Performed In</a></div>
 								<div class="author-name"><a href="#">the Wibby</a></div>
 							</div>
 
@@ -172,8 +184,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Integalactic Fortress</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Integalactic Fortress</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 							</div>
 
@@ -188,8 +201,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Techno-Bunka</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Techno-Bunka</a></div>
 								<div class="author-name"><a href="#">The Most Fantabulous</a></div>
 							</div>
 
@@ -204,8 +218,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Pleasantville</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Pleasantville</a></div>
 								<div class="author-name"><a href="#">Doug Funnie</a></div>
 							</div>
 
@@ -220,8 +235,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">ACDC Town</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">ACDC Town</a></div>
 								<div class="author-name"><a href="#">Lan Hikari</a></div>
 							</div>
 
@@ -236,8 +252,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Internet City</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Internet City</a></div>
 								<div class="author-name"><a href="#">Hub Hikari</a></div>
 							</div>
 
@@ -252,8 +269,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Insane Aslyums</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Insane Aslyums</a></div>
 								<div class="author-name"><a href="#">Daria Morgendorffer</a></div>
 							</div>
 
@@ -268,8 +286,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Museums of the Mind</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Museums of the Mind</a></div>
 								<div class="author-name"><a href="#">Jane Lane</a></div>
 							</div>
 
@@ -300,7 +319,7 @@
 			});
 
 			$(function() {
-				$("#featured-panel, .book").imgLiquid({ fill: true });
+				$(".book").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -310,6 +329,19 @@
 
 		<script>
 			$(document).ready(function() {
+
+				var
+				$vW = $(window).width(),
+				$vH = $(window).height();
+
+				if ($vW < "801") {
+
+					$("#featured-panel").prepend("<small>[Library Name]</small>");
+
+					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Recent</a></li><li id='nav-libraries'><a href='#'>Popular</a></li></ul>");
+
+				} else {
+				}
 
 				// Load Gapelia
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
@@ -324,64 +356,11 @@
 						horizontalScroll: true,
 						theme: "dark-thin",
 						callbacks: {
-							onScroll: function() {
-
-								$("#featured-panel").css("width", "7%");
-								$("#featured-scroller").css("width", "93%");
-								$("#featured-panel p").css("display", "none");
-
-								$("#featured-panel h2").css({
-									"margin": "2rem 0",
-									"padding": "0 0 4rem 0",									
-									"bottom": "2rem",
-									"left": "-3.8rem",
-									"background-image": "url('/static/images/sprite-sheet.png')",
-									"background-position": "0 -333px",
-									"background-repeat": "no-repeat",
-									"background-size": "200px 500px",
-									"font-size": "0",
-									"line-height": "0",
-									"position": "fixed",
-									"transform": "rotate(-90deg)",
-									"width": "200px",
-									"-webkit-transform": "rotate(-90deg)"
-								});
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBack: function() {
-
-								$("#featured-panel").css("width", "25%");
-								$("#featured-scroller").css("width", "75%");
-								$("#featured-panel p").css("display", "block");
-
-								$("#featured-panel h2").css({
-									"margin": "0 0 10px 0",
-									"padding": "0",
-									"bottom": "0",
-									"left": "0",
-									"background-image": "none",
-									"font-size": "28px",
-									"line-height": "40px",
-									"position": "relative",
-									"transform": "rotate(0deg)",
-									"width": "auto",
-									"-webkit-transform": "rotate(0deg)"
-								});
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBackOffset: 100
 						},
-
 						advanced: { autoExpandHorizontalScroll: true }
 					});
+
+					if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
 
 					NProgress.done();
 

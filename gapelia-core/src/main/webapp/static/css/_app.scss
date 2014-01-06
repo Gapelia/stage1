@@ -95,17 +95,24 @@
 
 	#featured-panel {
 		transition: all 0.1s ease;
+		width: 7%; //
+
 		-webkit-transition: all 0.1s ease;
 
-		&:after {
-			top: 0; right: 0;
-			bottom: 0; left: 0;
+		h2 {
+			margin: 2rem 0; padding: 0 0 5rem 0;
+			bottom: 2rem; left: -3.8rem;
 
-			// background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
-			background-image: linear-gradient(to top, $slate, $black);
-			content: "";
-			opacity: 0.6;
-			position: absolute;
+			background-image: url("/static/images/sprite-sheet.png");
+			background-position: 0 -333px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			position: fixed;
+			transform: rotate(-90deg);
+			width: 214px;
+
+			@include hide-text;
+			-webkit-transform: rotate(-90deg);
 		}
 
 		.featured-info {
@@ -129,6 +136,17 @@
 
 		img {
 			width: auto; height: 100%;
+		}
+
+		&:after {
+			top: 0; right: 0;
+			bottom: 0; left: 0;
+
+			// background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+			background-image: linear-gradient(to top, $slate, $black);
+			content: "";
+			opacity: 0.6;
+			position: absolute;
 		}
 	}
 
@@ -182,6 +200,10 @@
 		width: 75%;
 	}
 
+	#featured-scroller {
+		width: 93%;
+	}
+
 	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 	#book-list, #dimension-list, #library-list {
 		display: none;
@@ -199,6 +221,12 @@
 		overflow: hidden;
 		position: relative;
 		transition: box-shadow 0.2s ease;
+
+		&:hover {
+			// ooh factor
+			box-shadow: 0 0 6px rgba($black, 0.6);
+			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
+		}
 
 		.bookmark-this {
 			width: auto; height: auto;
@@ -269,16 +297,10 @@
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			background-image: linear-gradient(to top, transparent, $black);
+			background-image: linear-gradient(to bottom, transparent, $black);
 			content: "";
 			opacity: 0.6;
 			position: absolute;
-		}
-
-		&:hover {
-			// ooh factor
-			box-shadow: 0 0 6px rgba($black, 0.6);
-			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
 		}
 	}
 
@@ -292,7 +314,23 @@
 		&:hover { box-shadow: none; }
 	}
 
-	.book-info, .collection-info, .library-info, .new-inner-wrapper, .draft-info,
+	.book-title {
+		margin: 0 0 0.5rem 0; padding: 0 2rem; // 0 1rem
+
+		font-weight: 600;
+		font-size: 200%;
+		position: absolute;
+		text-align: left; // center
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 35%;
+		width: 100%;
+		z-index: 1;
+
+		a { color: $white; }
+	}
+
+	.library-info, .new-inner-wrapper, .draft-info,
 	.portal-info, .featured-info {
 		color: $white;
 		padding: 0 2rem; // 0 1rem
@@ -328,7 +366,7 @@
 			&:hover { opacity: 0.7; }
 		}
 
-		.lib-blurb, .author-name, .library-location {
+		.lib-blurb {
 			@include sans;
 			font-style: italic;
 			line-height: 1.2em;
@@ -340,23 +378,39 @@
 				text-transform: none;
 			}
 		}
+	}
+
+	.book-info, .collection-info {
+		color: $white;
+		padding: 0 2rem;
+		position: absolute;
+		text-align: left;
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		bottom: 5%;
+		width: 100%;
+		z-index: 1;
 
 		.author-name, .library-location {
-			&:before {
-				@include serif;
+			@include sans;
+			font-style: italic;
+			line-height: 1.2em;
+
+			a {
+				color: $white;
+				font-style: normal;
+				text-transform: none;
 			}
+
+			&:before { @include serif; }
 		}
 
 		.author-name {
-			&:before {
-				content: "by ";
-			}
+			&:before { content: "by "; }
 		}
 
 		.library-location {
-			&:before {
-				content: "in ";
-			}
+			&:before { content: "in "; }
 		}
 	}
 

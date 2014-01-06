@@ -209,10 +209,10 @@
 
 				<div class="featured-info">
 					<h2>Gapelia</h2>
-					<p>A better place for collaborative blogging. Explore our users' featured books and libraries.</p>
+					<!--/ <p>A better place for collaborative blogging. Explore our users' featured books and libraries.</p> /-->
 				</div>
 
-				<img src="/static/images/covers/bg.jpg" alt=""/>
+				<!--/ <img src="/static/images/covers/bg.jpg" alt=""/> /-->
 			</div>
 			<!--//main-panel /-->
 
@@ -235,8 +235,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -252,8 +253,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Editor's Picks: Snowstorm Pictures</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -269,8 +271,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">The Legend of Mick Dodge</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -286,8 +289,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Secret Ski Towns</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -303,8 +307,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Exploring the Ancient World in 2013</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -320,8 +325,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Best New Space Pictures</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -337,8 +343,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Connecting Tribes From the Yukon to the Amazon</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -354,8 +361,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -371,8 +379,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Going for Gold</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -388,8 +397,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Exploring Animals in 2013</a></div>
+
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -694,11 +704,12 @@
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list">
 
+						<!--/
 						<li class="new">
 							You don't have any bookmarks saved yet.<br/><br/>If you don't have time to read a book, or you want to add it to your favorites, it will appear here.
 						</li>
+						/-->
 
-						<!--/
 						<li class="collection">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
@@ -706,8 +717,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">7 Routes to Extended-Layover Bliss</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -723,8 +735,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">5 Layover-Worthy Airports</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -740,8 +753,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Going Dutch in the Off Season</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -757,8 +771,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -774,8 +789,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">I Heart My City (And So Should You)</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -791,8 +807,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">The Best of Intelligent Travel</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -808,8 +825,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">January Event-o-Rama</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -825,8 +843,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">4 Realistic Travel Resolutions</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -842,8 +861,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Top 10 Compact Cameras for Travelers</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -859,8 +879,9 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="book-title"><a href="#">Canada's 50 Places of a Lifetime</a></div>
+
 							<div class="collection-info">
-								<div class="title"><a href="#">Nature is Everything</a></div>
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
@@ -868,7 +889,6 @@
 							<span class="image-overlay"></span>
 							<img src="/static/images/book-thumb-06.jpg" alt=""/>
 						</li>
-						/-->
 
 					</ul>
 				</div>
@@ -893,7 +913,7 @@
 			});
 
 			$(function() {
-				$("#featured-panel, .book, .library, .collection").imgLiquid({ fill: true });
+				$(".book, .library, .collection").imgLiquid({ fill: true });
 			});
 		</script>
 
@@ -903,6 +923,19 @@
 
 		<script>
 			$(document).ready(function () {
+
+				var
+				$vW = $(window).width(),
+				$vH = $(window).height();
+
+				if ($vW < "801") {
+
+					$("#featured-panel").prepend("<small>Featured</small>");
+
+					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+
+				} else {
+				}
 
 				// Load Gapelia
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
@@ -917,64 +950,11 @@
 						horizontalScroll: true,
 						theme: "dark-thin",
 						callbacks: {
-							onScroll: function() {
-
-								$("#featured-panel").css("width", "7%");
-								$("#featured-scroller").css("width", "93%");
-								$("#featured-panel p").css("display", "none");
-
-								$("#featured-panel h2").css({
-									"margin": "2rem 0",
-									"padding": "0 0 4rem 0",									
-									"bottom": "2rem",
-									"left": "-3.8rem",
-									"background-image": "url('/static/images/sprite-sheet.png')",
-									"background-position": "0 -333px",
-									"background-repeat": "no-repeat",
-									"background-size": "200px 500px",
-									"font-size": "0",
-									"line-height": "0",
-									"position": "fixed",
-									"transform": "rotate(-90deg)",
-									"width": "200px",
-									"-webkit-transform": "rotate(-90deg)"
-								});
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBack: function() {
-
-								$("#featured-panel").css("width", "25%");
-								$("#featured-scroller").css("width", "75%");
-								$("#featured-panel p").css("display", "block");
-
-								$("#featured-panel h2").css({
-									"margin": "0 0 10px 0",
-									"padding": "0",
-									"bottom": "0",
-									"left": "0",
-									"background-image": "none",
-									"font-size": "28px",
-									"line-height": "40px",
-									"position": "relative",
-									"transform": "rotate(0deg)",
-									"width": "auto",
-									"-webkit-transform": "rotate(0deg)"
-								});
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBackOffset: 100
 						},
-
 						advanced: { autoExpandHorizontalScroll: true }
 					});
+
+					if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
 
 					NProgress.done();
 
@@ -1005,67 +985,14 @@
 							horizontalScroll: true,
 							theme: "dark-thin",
 							callbacks: {
-								onScroll: function() {
-
-									$("#featured-panel").css("width", "7%");
-									$("#featured-scroller").css("width", "93%");
-									$("#featured-panel p").css("display", "none");
-
-									$("#featured-panel h2").css({
-										"margin": "2rem 0",
-										"padding": "0 0 4rem 0",									
-										"bottom": "2rem",
-										"left": "-3.8rem",
-										"background-image": "url('/static/images/sprite-sheet.png')",
-										"background-position": "0 -333px",
-										"background-repeat": "no-repeat",
-										"background-size": "200px 500px",
-										"font-size": "0",
-										"line-height": "0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "200px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBack: function() {
-
-									$("#featured-panel").css("width", "25%");
-									$("#featured-scroller").css("width", "75%");
-									$("#featured-panel p").css("display", "block");
-
-									$("#featured-panel h2").css({
-										"margin": "0 0 10px 0",
-										"padding": "0",
-										"bottom": "0",
-										"left": "0",
-										"background-image": "none",
-										"font-size": "28px",
-										"line-height": "40px",
-										"position": "relative",
-										"transform": "rotate(0deg)",
-										"width": "auto",
-										"-webkit-transform": "rotate(0deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBackOffset: 100
 							},
-
 							advanced: { autoExpandHorizontalScroll: true }
 						});
 
 						$("#library-list").mCustomScrollbar("destroy");
 						$("#bookmark-list").mCustomScrollbar("destroy");
+
+						if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
 
 						NProgress.done();
 
@@ -1094,67 +1021,14 @@
 							horizontalScroll: true,
 							theme: "dark-thin",
 							callbacks: {
-								onScroll: function() {
-
-									$("#featured-panel").css("width", "7%");
-									$("#featured-scroller").css("width", "93%");
-									$("#featured-panel p").css("display", "none");
-
-									$("#featured-panel h2").css({
-										"margin": "2rem 0",
-										"padding": "0 0 4rem 0",									
-										"bottom": "2rem",
-										"left": "-3.8rem",
-										"background-image": "url('/static/images/sprite-sheet.png')",
-										"background-position": "0 -333px",
-										"background-repeat": "no-repeat",
-										"background-size": "200px 500px",
-										"font-size": "0",
-										"line-height": "0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "200px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBack: function() {
-
-									$("#featured-panel").css("width", "25%");
-									$("#featured-scroller").css("width", "75%");
-									$("#featured-panel p").css("display", "block");
-
-									$("#featured-panel h2").css({
-										"margin": "0 0 10px 0",
-										"padding": "0",
-										"bottom": "0",
-										"left": "0",
-										"background-image": "none",
-										"font-size": "28px",
-										"line-height": "40px",
-										"position": "relative",
-										"transform": "rotate(0deg)",
-										"width": "auto",
-										"-webkit-transform": "rotate(0deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBackOffset: 100
 							},
-
 							advanced: { autoExpandHorizontalScroll: true }
 						});
 
 						$("#book-list").mCustomScrollbar("destroy");
 						$("#bookmark-list").mCustomScrollbar("destroy");
+
+						if ($vW < "801") { $("#library-list").mCustomScrollbar("destroy"); }
 
 						NProgress.done();
 
@@ -1183,67 +1057,14 @@
 							horizontalScroll: true,
 							theme: "dark-thin",
 							callbacks: {
-								onScroll: function() {
-
-									$("#featured-panel").css("width", "7%");
-									$("#featured-scroller").css("width", "93%");
-									$("#featured-panel p").css("display", "none");
-
-									$("#featured-panel h2").css({
-										"margin": "2rem 0",
-										"padding": "0 0 4rem 0",									
-										"bottom": "2rem",
-										"left": "-3.8rem",
-										"background-image": "url('/static/images/sprite-sheet.png')",
-										"background-position": "0 -333px",
-										"background-repeat": "no-repeat",
-										"background-size": "200px 500px",
-										"font-size": "0",
-										"line-height": "0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "200px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBack: function() {
-
-									$("#featured-panel").css("width", "25%");
-									$("#featured-scroller").css("width", "75%");
-									$("#featured-panel p").css("display", "block");
-
-									$("#featured-panel h2").css({
-										"margin": "0 0 10px 0",
-										"padding": "0",
-										"bottom": "0",
-										"left": "0",
-										"background-image": "none",
-										"font-size": "28px",
-										"line-height": "40px",
-										"position": "relative",
-										"transform": "rotate(0deg)",
-										"width": "auto",
-										"-webkit-transform": "rotate(0deg)"
-									});
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBackOffset: 100
 							},
-
 							advanced: { autoExpandHorizontalScroll: true }
 						});
 
 						$("#book-list").mCustomScrollbar("destroy");
 						$("#library-list").mCustomScrollbar("destroy");
+
+						if ($vW < "801") { $("#bookmark-list").mCustomScrollbar("destroy"); }
 
 						NProgress.done();
 

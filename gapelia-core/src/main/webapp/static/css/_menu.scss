@@ -57,7 +57,7 @@
 	#g-menu-toggle { opacity: 1; }
 
 	.book-info, .collection-info, .library-info, .new-inner-wrapper, .portal-info, canvas, .add-this, .wrapper,
-	.user-avatar, .user-data, .button-wrapper, #the-book {
+	.user-avatar, .user-data, .button-wrapper, #the-book, .book-title {
 		transition: all 0.2s ease;
 		z-index: 0 !important;
 	}
@@ -327,7 +327,7 @@
 .mp-back {
 	background-color: rgba($black, 0.1);
 	box-shadow: inset 0 1px rgba($black, 0.1);
-	color: #fff;
+	color: $white;
 	display: block;
 	font-size: 0.8em;
 	font-weight: 700;
@@ -548,7 +548,7 @@
 .gpl-back {
 	background: rgba($black, 0.1);
 	box-shadow: inset 0 1px rgba($black, 0.1);
-	color: #fff;
+	color: $white;
 	display: block;
 	font-size: 0.8em;
 	font-weight: 700;

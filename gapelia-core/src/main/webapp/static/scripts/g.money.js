@@ -17,30 +17,35 @@ $(document).ready(function() {
 		}
 	});
 
-	// Set height of books in feed on "Me" page
-	$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
-	// $("#user-bookmark-list .collection, #user-bookmark-list .new").css("height", $vH - 97 + "px");
-	$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
-	$("#user-draft-list .draft").css("height", $vH - 97 + "px");
+	if ($vW > "801") {
 
-	// Set height of books in feed on "Featured" page
-	$("#book-list .book").css("height", $vH - 97 + "px");
-	$("#dimension-list .portal").css("height", $vH - 97 + "px");
-	$("#library-list .library").css("height", $vH - 97 + "px");
-	$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
+		// Set height of books in feed on "Me" page
+		$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
+		$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
+		$("#user-draft-list .draft").css("height", $vH - 97 + "px");
 
-	/*
-	// Set height of dimension portals in feed
-	$("#dimensions-landing-bg, #pulse-landing-bg, #art-landing-bg, #wow-landing-bg, #life-landing-bg, #flow-landing-bg, #wonder-landing-bg").css({
-		width: $dW + "px",
-		height: $vH + "px"
-	});
-	*/
+		// Set height of books in feed on "Featured" page
+		$("#book-list .book").css("height", $vH - 97 + "px");
+		$("#dimension-list .portal").css("height", $vH - 97 + "px");
+		$("#library-list .library").css("height", $vH - 97 + "px");
+		$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
 
-	// $("#dimension-list .portal, #dimension-list canvas").css("height", $vH - 97 + "px");
+	} else {
 
-	// $("#dimensions-landing-bg").css("height", $vH + "px");
-	// $("#dimension-list canvas").css({ width: $pW + "px", height: $vH - 97 + "px" });
+		/*
+		// Set width of books in feed on "Me" page
+		$("#user-book-list .book, #user-book-list .new").css();
+		$("#user-library-list .library, #user-library-list .new").css();
+		$("#user-draft-list .draft").css();
+
+		// Set width of books in feed on "Featured" page
+		$("#book-list .book").css();
+		$("#dimension-list .portal").css();
+		$("#library-list .library").css();
+		$("#bookmark-list .collection, #bookmark-list .new").css();
+		*/
+
+	}
 
 	$(".super-wrapper").css("height", $vH + "px");
 
@@ -88,46 +93,84 @@ $(document).ready(function() {
 	// Bookmarking
 	$(document).on("click", ".bookmark-this", function () {
 
-		$(this).find(".top-bm").css({
-			"border-top": "20px solid #ff3b30",
-			"right": "30px"
-		});
-
-		$(this).find(".bottom-bm").css({
-			"border-bottom": "20px solid #ff3b30",
-			"right": "30px"
-		});
+		$(this).addClass("bookmarked");
+		// $(this).closest("li").remove(); for Me page
 
 		$(this).find(".right-bm").css({
 			"background-color": "#ff3b30",
-			"border-right": "0",
-			"width": "46px"
+			"border-right": "0"
 		});
 
-		$(this).addClass("bookmarked");
-		// $(this).closest("li").remove(); for Me page
+		if ($vW > "800") {
+
+			$(this).find(".top-bm").css({
+				"border-top": "20px solid #ff3b30",
+				"right": "30px"
+			});
+
+			$(this).find(".bottom-bm").css({
+				"border-bottom": "20px solid #ff3b30",
+				"right": "30px"
+			});
+
+			$(this).find(".right-bm").css("width", "46px");
+
+		} else {
+
+			$(this).find(".top-bm").css({
+				"border-top": "40px solid #ff3b30",
+				"right": "60px"
+			});
+
+			$(this).find(".bottom-bm").css({
+				"border-bottom": "40px solid #ff3b30",
+				"right": "60px"
+			});
+
+			$(this).find(".right-bm").css("width", "92px");
+
+		}
 
 	});
 
 	$(document).on("click", ".bookmarked", function () {
 
-		$(this).find(".top-bm").css({
-			"border-top": "20px solid #fcfcfc",
-			"right": "10px"
-		});
-
-		$(this).find(".bottom-bm").css({
-			"border-bottom": "20px solid #fcfcfc",
-			"right": "10px"
-		});
+		$(this).removeClass("bookmarked");
 
 		$(this).find(".right-bm").css({
 			"background-color": "#fcfcfc",
-			"border-right": "0",
-			"width": "26px"
+			"border-right": "0"
 		});
 
-		$(this).removeClass("bookmarked");
+		if ($vW > "800") {
+
+			$(this).find(".top-bm").css({
+				"border-top": "20px solid #fcfcfc",
+				"right": "10px"
+			});
+
+			$(this).find(".bottom-bm").css({
+				"border-bottom": "20px solid #fcfcfc",
+				"right": "10px"
+			});
+
+			$(this).find(".right-bm").css("width", "26px");
+
+		} else {
+
+			$(this).find(".top-bm").css({
+				"border-top": "40px solid #fcfcfc",
+				"right": "20px"
+			});
+
+			$(this).find(".bottom-bm").css({
+				"border-bottom": "40px solid #fcfcfc",
+				"right": "20px"
+			});
+
+			$(this).find(".right-bm").css("width", "52px");
+
+		}
 
 	});
 
