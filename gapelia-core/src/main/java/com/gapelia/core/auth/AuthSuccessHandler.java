@@ -61,14 +61,12 @@ public class AuthSuccessHandler extends HttpServlet {
 			// RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
 			// dispatcher.forward(request, response);
 
-			// boolean isFirstTime = Query.checkProfile(profile);
+			boolean isFirstTime = Query.checkProfile(profile);
 
-			/*
 			if (isFirstTime) {
 				response.sendRedirect("/onboard");
 				return;
 			}
-			*/
 
 			response.sendRedirect("/me");
 
