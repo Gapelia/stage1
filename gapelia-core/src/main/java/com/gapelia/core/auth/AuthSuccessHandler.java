@@ -58,15 +58,18 @@ public class AuthSuccessHandler extends HttpServlet {
 			sessionCookie.setMaxAge(31557600);
 			response.addCookie(sessionCookie);
 
-//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
-//			dispatcher.forward(request, response);
+			// RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
+			// dispatcher.forward(request, response);
 
-			boolean isFirstTime = Query.checkProfile(profile);
+			// boolean isFirstTime = Query.checkProfile(profile);
 
+			/*
 			if (isFirstTime) {
 				response.sendRedirect("/onboard");
 				return;
 			}
+			*/
+
 			response.sendRedirect("/me");
 
 		} catch (Exception e) {
