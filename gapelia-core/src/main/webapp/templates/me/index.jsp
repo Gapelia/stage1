@@ -138,18 +138,10 @@
 					<ul id="user-book-list">
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
 							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
 
 							<div class="book-info">
 								<div class="library-location"><a href="#">Insane Asylum</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -157,18 +149,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
 							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
 
 							<div class="book-info">
 								<div class="library-location"><a href="#">The Teachings of Goku</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -176,18 +160,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
 							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
 
 							<div class="book-info">
 								<div class="library-location"><a href="#">Space Cadets</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -195,18 +171,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
 							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
 
 							<div class="book-info">
 								<div class="library-location"><a href="#">Dimmi Bolling Press Kit</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -214,18 +182,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
 							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head × Beats Take Significance</a></div>
 
 							<div class="book-info">
 								<div class="library-location"><a href="#">The Kitchen Collective</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -233,18 +193,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
-							<div class="book-title"><a href="#">Japanimation</a></div>
+							<div class="book-title"><a href="#">Save the trees, too!</a></div>
 
 							<div class="book-info">
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
+								<div class="library-location"><a href="#">PETA</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -252,18 +204,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
-							<div class="book-title"><a href="#">Japanimation</a></div>
+							<div class="book-title"><a href="#">BOkeH!</a></div>
 
 							<div class="book-info">
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
+								<div class="library-location"><a href="#">Hmm, weird</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -271,18 +215,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
-							<div class="book-title"><a href="#">Japanimation</a></div>
+							<div class="book-title"><a href="#">The Wild Thornberrys!</a></div>
 
 							<div class="book-info">
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
+								<div class="library-location"><a href="#">Nene-ne-ne-nene-ne-nick-Nickelodeooooon!</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -290,18 +226,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
-							<div class="book-title"><a href="#">Japanimation</a></div>
+							<div class="book-title"><a href="#">Crying Rivers: The Justin Timberlake Story</a></div>
 
 							<div class="book-info">
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
+								<div class="library-location"><a href="#">Biography</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -309,18 +237,10 @@
 						</li>
 
 						<li class="book">
-							<!--/
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-							/-->
-
-							<div class="book-title"><a href="#">Japanimation</a></div>
+							<div class="book-title"><a href="#">Trees Yo</a></div>
 
 							<div class="book-info">
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
-								<small><a href="#">EDIT THIS BOOK</a></small>
+								<div class="library-location"><a href="#">Nature Bros</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -371,7 +291,26 @@
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
 
 		<script>
+			$(".user-data h2").html(_fullName);
+			$(".user-avatar img").attr("src", _image);
+
 			$(document).ready(function() {
+
+				var
+				$vW = $(window).width(),
+				$vH = $(window).height();
+
+				if ($vW < "801") {
+
+					$("#book-nav, .user-avatar").css("display", "none");
+
+					$("#user-panel").prepend("<small>Hello!</small>");
+					$("#user-panel small").html(_fullName);
+
+					// $("#user-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+
+				} else {
+				}
 
 				// Load Gapelia
 				$("#user-panel, #book-scroller").css("opacity", "0").show();
@@ -388,28 +327,7 @@
 						callbacks: {
 							onScroll: function() {
 
-								$("#user-panel").css("width", "7%");
-								$("#book-scroller").css("width", "93%");
 								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
-
-								/*
-								$("#user-panel h2").css({
-									"margin": "2rem 0",
-									"padding": "0 0 4rem 0",
-									"bottom": "2rem",
-									"left": "-3.8rem",
-									"background-image": "url('/static/images/sprite-sheet.png')",
-									"background-position": "0 -333px",
-									"background-repeat": "no-repeat",
-									"background-size": "200px 500px",
-									"font-size": "0",
-									"line-height": "0",
-									"position": "fixed",
-									"transform": "rotate(-90deg)",
-									"width": "200px",
-									"-webkit-transform": "rotate(-90deg)"
-								});
-								*/
 
 								$("#user-panel h2").css({
 									"bottom": "2rem",
@@ -421,6 +339,19 @@
 									"-webkit-transform": "rotate(-90deg)"
 								});
 
+								if ($vW < "1025") {
+
+									// $("#book-list").mCustomScrollbar("destroy");
+									$("#user-panel").css("width", "9.4%");
+									$("#book-scroller").css("width", "90.6%");
+
+								} else {
+
+									$("#user-panel").css("width", "7%");
+									$("#book-scroller").css("width", "93%");
+
+								}
+
 								$(this).mCustomScrollbar("update");
 								$(this).mCustomScrollbar("stop");
 
@@ -431,22 +362,6 @@
 								$("#user-panel").css("width", "25%");
 								$("#book-scroller").css("width", "75%");
 								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
-
-								/*
-								$("#user-panel h2").css({
-									"margin": "0 0 10px 0",
-									"padding": "0",
-									"bottom": "0",
-									"left": "0",
-									"background-image": "none",
-									"font-size": "28px",
-									"line-height": "40px",
-									"position": "relative",
-									"transform": "rotate(0deg)",
-									"width": "auto",
-									"-webkit-transform": "rotate(0deg)"
-								});
-								*/
 
 								$("#user-panel h2").css({
 									"margin": "0 0 10px 0",
@@ -467,6 +382,8 @@
 						advanced: { autoExpandHorizontalScroll: true }
 					});
 
+					if ($vW < "801") { $("#user-book-list").mCustomScrollbar("destroy"); }
+
 					NProgress.done();
 
 					$("#user-book-list").css("opacity", "1");
@@ -474,16 +391,13 @@
 					// "fix" featured menu pop-in
 					setTimeout(function () {
 						$("#user-panel, #book-scroller").css("opacity", "1");
-					}, 400).show();
+					}, 400);
 
 				});
 
 				$("#nav-books").addClass("current");
 
 			});
-
-			$(".user-data h2").html(_fullName);
-			$(".user-avatar img").attr("src", _image);
 		</script>
 
 	</body>

@@ -53,7 +53,7 @@ $(document).ready(function() {
 	$(document).on("click", "button.edit-profile", function () {
 
 		$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
-		$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(254, 254, 254, 0.3)").trigger("focus");
+		$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
 
 	});
 
