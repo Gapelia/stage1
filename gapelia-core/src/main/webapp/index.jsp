@@ -54,7 +54,7 @@
 
 			<div class="split-right">
 				<div class="video-container">
-					<iframe src="http://player.vimeo.com/video/80806483?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
+					<iframe src="http://player.vimeo.com/video/82982349?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
 				</div>
 			</div>
 		</div>
