@@ -26,17 +26,19 @@ Sometimes GitHub doesn't care what you put in your .gitignore and that's annoyin
 
 	git update-index --assume-unchanged [path to file]
 
-Here's my example:
+Here's some examples:
 
 	git update-index --assume-unchanged src/main/java/com/gapelia/core/auth/SocialLogin.java
+	git update-index --assume-unchanged src/main/java/com/gapelia/core/auth/AuthSuccessHandler.java
 
 If you want GitHub to see that file again, run this in Terminal:
 
 	git update-index --no-assume-unchanged [path to file]
 
-Here's another example:
+Here's are more examples:
 
 	git update-index --no-assume-unchanged src/main/java/com/gapelia/core/auth/SocialLogin.java
+	git update-index --no-assume-unchanged src/main/java/com/gapelia/core/auth/AuthSuccessHandler.java
 
 =
 
