@@ -102,7 +102,9 @@
 				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
 
 				<div class="user-avatar">
-					<img src="/static/images/users/11.jpg"/>
+					<div class="avatar-wrapper">
+						<img src="/static/images/users/11.jpg"/>
+					</div>
 				</div>
 
 				<div class="user-data">
@@ -115,18 +117,20 @@
 					<button class="edit-profile slate">Edit Profile</button>
 				</div>
 
+				<!--/
 				<div class="user-bg">
 					<img src="/static/images/space-bb.jpg"/>
 				</div>
+				/-->
 			</div>
 			<!--//main-panel /-->
 
 			<!--/ main-scroller /-->
 			<div id="book-scroller">
 				<ul id="book-nav">
-					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
+					<li id="nav-books" class="current"><a href="#">Your Personal Collection</a></li>
 					<!--/ <li id="nav-collections"><a href="#">Bookmarks</a></li> /-->
-					<li id="nav-drafts"><a href="#">Drafts</a></li>
+					<!--/ <li id="nav-drafts"><a href="#">Drafts</a></li> /-->
 				</ul>
 
 				<!--/ your-books /-->
@@ -134,14 +138,18 @@
 					<ul id="user-book-list">
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Insane Asylum</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -149,14 +157,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">The Teachings of Goku</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -164,14 +176,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Space Cadets</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -179,14 +195,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">Dimmi Bolling Press Kit</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -194,14 +214,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head × Beats Take Significance</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<div class="library-location"><a href="#">The Kitchen Collective</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -209,14 +233,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Japanimation</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -224,14 +252,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Japanimation</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -239,14 +271,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Japanimation</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -254,14 +290,18 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Japanimation</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -269,20 +309,25 @@
 						</li>
 
 						<li class="book">
+							<!--/
 							<ul class="edit-delete">
 								<li class="edit"><a href="#">&#9998;</a></li>
 								<li class="delete"><a href="#">&#9749;</a></li>
 							</ul>
+							/-->
+
+							<div class="book-title"><a href="#">Japanimation</a></div>
 
 							<div class="book-info">
-								<div class="title"><a href="#">Japanimation</a></div>
 								<div class="library-location"><a href="#">Camp Awesome</a></div>
+								<small><a href="#">EDIT THIS BOOK</a></small>
 							</div>
 
 							<span class="image-overlay"></span>
 							<img src="/static/images/book-thumb-10.jpg" alt=""/>
 						</li>
 
+						<!--/
 						<li class="new">
 							<a class="new-inner-wrapper" href="{% url 'create' %}">
 								<span class="entypo">&#10133;</span>
@@ -291,32 +336,12 @@
 
 							<span class="image-overlay"></span>
 						</li>
+						/-->
 
 					</ul>
 				</div>
 				<!--//your-books /-->
 
-				<!--/ your-drafts /-->
-				<div class="user-draft-list-wrapper">
-					<ul id="user-draft-list">
-
-						<li class="draft">
-							<ul class="edit-delete">
-								<li class="edit"><a href="#">&#9998;</a></li>
-								<li class="delete"><a href="#">&#9749;</a></li>
-							</ul>
-
-							<div class="draft-info">
-								<div class="title"><a href="#">Mother Gaea</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-					</ul>
-				</div>
-				<!--//your-drafts /-->
 			</div>
 			<!--//main-scroller /-->
 
@@ -365,12 +390,12 @@
 
 								$("#user-panel").css("width", "7%");
 								$("#book-scroller").css("width", "93%");
-								$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
 
 								/*
 								$("#user-panel h2").css({
 									"margin": "2rem 0",
-									"padding": "0 0 4rem 0",									
+									"padding": "0 0 4rem 0",
 									"bottom": "2rem",
 									"left": "-3.8rem",
 									"background-image": "url('/static/images/sprite-sheet.png')",
@@ -386,6 +411,16 @@
 								});
 								*/
 
+								$("#user-panel h2").css({
+									"bottom": "2rem",
+									"left": "-3.1rem",
+									"margin": "2rem 0",
+									"position": "fixed",
+									"transform": "rotate(-90deg)",
+									"width": "194px",
+									"-webkit-transform": "rotate(-90deg)"
+								});
+
 								$(this).mCustomScrollbar("update");
 								$(this).mCustomScrollbar("stop");
 
@@ -395,7 +430,7 @@
 
 								$("#user-panel").css("width", "25%");
 								$("#book-scroller").css("width", "75%");
-								$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
 
 								/*
 								$("#user-panel h2").css({
@@ -412,6 +447,14 @@
 									"-webkit-transform": "rotate(0deg)"
 								});
 								*/
+
+								$("#user-panel h2").css({
+									"margin": "0 0 10px 0",
+									"position": "static",
+									"transform": "rotate(0deg)",
+									"width": "100%",
+									"-webkit-transform": "rotate(0deg)"
+								});
 
 								$(this).mCustomScrollbar("update");
 								$(this).mCustomScrollbar("stop");
@@ -437,194 +480,8 @@
 
 				$("#nav-books").addClass("current");
 
-				// Click "Books"
-				$("#nav-books").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function() {
-
-						$("#user-book-list").show();
-						$("#user-bookmark-list").hide();
-						$("#user-draft-list").hide();
-
-						$("#user-book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							callbacks: {
-								onScroll: function() {
-
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
-									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
-
-									/*
-									$("#user-panel h2").css({
-										"margin": "2rem 0",
-										"padding": "0 0 4rem 0",									
-										"bottom": "2rem",
-										"left": "-3.8rem",
-										"background-image": "url('/static/images/sprite-sheet.png')",
-										"background-position": "0 -333px",
-										"background-repeat": "no-repeat",
-										"background-size": "200px 500px",
-										"font-size": "0",
-										"line-height": "0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "200px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-									*/
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBack: function() {
-
-									$("#user-panel").css("width", "25%");
-									$("#book-scroller").css("width", "75%");
-									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
-
-									/*
-									$("#user-panel h2").css({
-										"margin": "0 0 10px 0",
-										"padding": "0",
-										"bottom": "0",
-										"left": "0",
-										"background-image": "none",
-										"font-size": "28px",
-										"line-height": "40px",
-										"position": "relative",
-										"transform": "rotate(0deg)",
-										"width": "auto",
-										"-webkit-transform": "rotate(0deg)"
-									});
-									*/
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBackOffset: 100
-							},
-
-							advanced: { autoExpandHorizontalScroll: true }
-						});
-
-						$("#user-bookmark-list").mCustomScrollbar("destroy");
-						$("#user-draft-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").addClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-drafts").removeClass("current");
-					e.preventDefault();
-
-				});
-
-				// Click "Drafts"
-				$("#nav-drafts").click(function (e) {
-
-					NProgress.start();
-
-					$("#user-book-list").hide();
-					$("#user-bookmark-list").hide();
-					$("#user-draft-list").show();
-
-					setTimeout(function() {
-
-						$("#user-draft-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							callbacks: {
-								onScroll: function() {
-
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
-									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "none");
-
-									/*
-									$("#user-panel h2").css({
-										"margin": "2rem 0",
-										"padding": "0 0 4rem 0",									
-										"bottom": "2rem",
-										"left": "-3.8rem",
-										"background-image": "url('/static/images/sprite-sheet.png')",
-										"background-position": "0 -333px",
-										"background-repeat": "no-repeat",
-										"background-size": "200px 500px",
-										"font-size": "0",
-										"line-height": "0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "200px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-									*/
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBack: function() {
-
-									$("#user-panel").css("width", "25%");
-									$("#book-scroller").css("width", "75%");
-									$("#user-panel .user-avatar, #user-panel .user-data, #user-panel .button-wrapper").css("display", "block");
-
-									/*
-									$("#user-panel h2").css({
-										"margin": "0 0 10px 0",
-										"padding": "0",
-										"bottom": "0",
-										"left": "0",
-										"background-image": "none",
-										"font-size": "28px",
-										"line-height": "40px",
-										"position": "relative",
-										"transform": "rotate(0deg)",
-										"width": "auto",
-										"-webkit-transform": "rotate(0deg)"
-									});
-									*/
-
-									$(this).mCustomScrollbar("update");
-									$(this).mCustomScrollbar("stop");
-
-								},
-
-								onTotalScrollBackOffset: 100
-							},
-
-							advanced: { autoExpandHorizontalScroll: true }
-						});
-
-						$("#user-book-list").mCustomScrollbar("destroy");
-						$("#user-bookmark-list").mCustomScrollbar("destroy");
-
-						NProgress.done();
-
-					});
-
-					$("#nav-books").removeClass("current");
-					$("#nav-collections").removeClass("current");
-					$("#nav-drafts").addClass("current");
-					e.preventDefault();
-
-				});
-
 			});
-			
+
 			$(".user-data h2").html(_fullName);
 			$(".user-avatar img").attr("src", _image);
 		</script>

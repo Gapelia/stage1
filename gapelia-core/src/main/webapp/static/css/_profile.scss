@@ -10,6 +10,11 @@
 	// Start User Code
 
 	#user-panel {
+		background-color: $white;
+		// box-shadow: inset 2px 2px 5px rgba($black, 0.5),inset 0 0 2px 1px rgba($black, 0.05);
+		box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+		color: rgba($black, 0.9);
+
 		.button-wrapper {
 			bottom: 5%;
 			position: absolute;
@@ -18,6 +23,7 @@
 			z-index: 1;
 		}
 
+		/*
 		&:after {
 			top: 0; right: 0;
 			bottom: 0; left: 0;
@@ -28,6 +34,7 @@
 			opacity: 0.6;
 			position: absolute;
 		}
+		*/
 	}
 
 	.user-bg {
@@ -50,11 +57,19 @@
 		text-align: center;
 		top: 25%;
 
-		img {
+		.avatar-wrapper {
 			width: 150px; height: 150px;
 
-			border: 6px solid $white;
+			// border: 6px solid $white;
+			// border: 6px solid rgba($black, 0.05);
 			border-radius: 300rem;
+			box-shadow: inset 2px 2px 5px rgba($black, 0.5),inset 0 0 2px 1px rgba($black, 0.05);
+			overflow: hidden;
+			margin: 0 auto;
+		}
+
+		img {
+			width: auto; height: 100%;
 		}
 	}
 
@@ -62,7 +77,8 @@
 		width: 100%; height: auto;
 
 		bottom: 26.5%;
-		color: $white !important;
+		// color: $white !important;
+		color: rgba($black, 0.9);
 
 		h2, ul, span { text-align: center; }
 
@@ -174,6 +190,7 @@
 		}
 	}
 
+	/*
 	.like-collect, .edit-delete {
 		width: 100%; height: auto; // 48px
 		margin: 0; padding: 0.5rem 0;
@@ -203,7 +220,9 @@
 			}
 		}
 	}
+	*/
 
+	/*
 	.edit, .delete {
 		width: 32px; height: 32px;
 
@@ -215,8 +234,9 @@
 			display: block;
 		}
 	}
+	*/
 
-	.edit { background-position: 160px 1px; }
-	.delete { background-position: 129px 1px; }
+	// .edit { background-position: 160px 1px; }
+	// .delete { background-position: 129px 1px; }
 
 }

@@ -35,7 +35,7 @@ If you want GitHub to see that file again, run this in Terminal:
 
 	git update-index --no-assume-unchanged [path to file]
 
-Here's are more examples:
+Here's some more examples:
 
 	git update-index --no-assume-unchanged src/main/java/com/gapelia/core/auth/SocialLogin.java
 	git update-index --no-assume-unchanged src/main/java/com/gapelia/core/auth/AuthSuccessHandler.java

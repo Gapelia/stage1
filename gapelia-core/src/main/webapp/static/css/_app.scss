@@ -217,6 +217,7 @@
 		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: rgba($gray-i, 0.4);
+		box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine"
 		display: inline-block;
 		overflow: hidden;
 		position: relative;
@@ -224,7 +225,7 @@
 
 		&:hover {
 			// ooh factor
-			box-shadow: 0 0 6px rgba($black, 0.6);
+			box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6);
 			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
 		}
 
