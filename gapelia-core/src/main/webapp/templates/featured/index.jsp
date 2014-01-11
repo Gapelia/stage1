@@ -162,7 +162,7 @@
 					<ul>
 						<li><a id="gpl-menu-me" href="/me">Me</a>
 							<ul>
-								<li><a href="/accounts">Edit Profile</a></li>
+								<li><a href="/accounts">Account Settings</a></li>
 								<li><a href="#">Sign Out</a></li>
 							</ul>
 						</li>

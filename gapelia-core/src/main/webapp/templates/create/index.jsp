@@ -192,58 +192,6 @@
 					});
 				</script>
 
-				<!--/
-				<select id="library-search" class="demo-default" placeholder="Add book to library">
-					<option value="">Add book to library</option>
-
-					<option value="1">
-						Architecture<br/>
-						<div>Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
-					</option>
-
-					<option value="2">
-						Biography<br/>
-						<div>A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
-					</option>
-
-					<option value="3">Cinema</option>
-
-					<option value="4">Cuisine</option>
-
-					<option value="5">Era</option>
-
-					<option value="6">The Far East</option>
-
-					<option value="7">Fashionista</option>
-
-					<option value="8">Future</option>
-
-					<option value="9">Gapelians</option>
-
-					<option value="10">Historian</option>
-
-					<option value="11">Into the Wild</option>
-
-					<option value="12">Japanimation</option>
-
-					<option value="13">Land of Kawaii</option>
-
-					<option value="14">Manifesto</option>
-
-					<option value="15">Modernism</option>
-
-					<option value="16">Mother Gaea</option>
-
-					<option value="17">Museum</option>
-
-					<option value="18">On the Road</option>
-
-					<option value="19">Products of Tomorrow</option>
-
-					<option value="20">Subculture</option>
-				</select>
-				/-->
-
 				<div class="wrapper">
 					<a class="button green" id="publish-this" href="#">Publish</a>
 				</div>
