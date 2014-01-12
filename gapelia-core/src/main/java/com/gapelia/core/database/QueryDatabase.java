@@ -27,7 +27,8 @@ public class QueryDatabase {
 	private static final String CREATE_TABLE_NOTIFICATION = "";
 	private static final String CREATE_TABLE_PAGE = "";
 	private static final String CREATE_TABLE_PHOTO = "";
-	private static final String INSERT_BOOK="INSERT INTO books ( bookiD,title, language,libraryId,tags,userId,isPublished) " + "VALUES(?,?,?,?,?,?,?)";
+	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,libraryId,tags,userId,isPublished) " + "VALUES(?,?,?,?,?,?,?)";
 	// All User related queries
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
@@ -158,11 +159,10 @@ public class QueryDatabase {
 	/* Methods to manipulate Books  */
 	/********************************/
 
-	public static String saveBook(String bookId, String title, String language, int libraryId,
-								   String tags, String dimension, int createdBy, int isPublished) {
-		//if (isDummy())
-			//return true;
-		int userId=1;
+	public static String saveBook(Profile profile,String bookId, String title, String language, int libraryId,
+								   String tags, String dimension, String createdBy, int isPublished) {
+		if (isDummy())
+			return "success";
 		LOG.info("Try to save book!");
 		try {
 			PreparedStatement statement = connection.prepareStatement(INSERT_BOOK);
@@ -171,24 +171,41 @@ public class QueryDatabase {
 			statement.setString(3, language);
 			statement.setInt(4, libraryId);
 			statement.setString(5, tags);
-			statement.setInt(6, userId);
+			statement.setInt(6, 1);
 			statement.setInt(7, isPublished);
-			LOG.info(statement);
 			statement.execute();
 			return  statement.toString();
 		} catch (Exception ex) {
-			LOG.info("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPINNNCannot update user profile: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + ex);
 			return ex.toString();
 		}
 	}
 
 
-	public static boolean savePage(Profile profile, String pageId, String title, String description, String location,
-								   String templateId, String marginX, String marginY, String videoUrl, String pageNumber,
+	public static String savePage(Profile profile, String pageId,String title, String description, String location,
+								   int templateId, String marginX, String marginY, String videoUrl, int pageNumber,
 								   String bookId, String createdByUserId, String photoUrl, String photoId) {
+
 		if (isDummy())
-			return true;
-		return false;
+			return "success";
+		LOG.info("Try to save page!");
+		try {
+			PreparedStatement statement = connection.prepareStatement(INSERT_PAGE);
+			statement.setString(1, title);
+			statement.setString(2, description);
+			statement.setInt(3, templateId);
+			statement.setString(4, bookId);
+			statement.setString(5, marginX);
+			statement.setString(6, marginY);
+			statement.setString(7, videoUrl);
+			statement.setInt(8, pageNumber);
+			statement.setInt(9, 1);
+			statement.setString(10, photoUrl);
+			statement.setString(11, photoId);
+			statement.execute();
+			return  statement.toString();
+		} catch (Exception ex) {
+			return ex.toString();
+		}
 	}
 
 

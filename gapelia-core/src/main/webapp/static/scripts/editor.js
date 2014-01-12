@@ -250,7 +250,25 @@
 		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
-
+		$.ajax({
+			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId
+			},
+			success: function (data) {
+				pageId=data;
+				console.log("Succes Creating your book");
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
 		if(geotag == undefined) {
 			geotag="BUUUGGG";
 		}
@@ -285,7 +303,8 @@
 				"title" : null,
 				"text" : null,
 				"image" : "/static/images/blankBG.jpg",
-				"video" : "null"
+				"video" : "null",
+				"pageId" :pageId
 			};
 
 			templateId = null;
@@ -294,10 +313,7 @@
 			imageURL = null;
 			videoURL = null;
 		}
-
 		e.preventDefault();
-		addPageBE();
-
 	});
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
@@ -1260,6 +1276,7 @@
 
 	// Save book information every minute
 	window.setInterval(function () {
+		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1280,7 +1297,7 @@
 				}
 			}
 		});
-
+		*/
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
 	}, 60000);
@@ -1346,7 +1363,7 @@
 		// TO DO: Get tags from format and library
 		library = 1;
 		tags = "fun";
-
+		//Save book
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1373,7 +1390,40 @@
 				}
 			}
 		});
-
+		for(int i=0;i<pagesCreated;i++)
+		{
+			$.ajax({
+				url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				type: "POST",
+				data: {
+					sessionId: sId,
+					pageId: pages.page[i].pageId,
+					title:pages.page[i].title,
+					description:pages.page[i].text,
+					location:"TODO",
+					templateId:pages.page[i].templateId,
+					marginX:"TODO",
+					marginY:"TODO",
+					videoUrl:pages.page[i].video,
+					pageNumber:i,
+					bookId:bookId,
+					createdbyUserId:"GOD",
+					photoUrl:pages.page[i].image,
+					photoId:"TODO"
+				},
+				success: function (data) {
+					console.log("Succes Publishing your book");
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						 alert("Request timed out");
+					} else {
+						 alert("Some issue happened with your request: " + err);
+					}
+				}
+			});
+		}
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",

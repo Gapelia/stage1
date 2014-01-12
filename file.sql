@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS pages (
 	description VARCHAR(10000),
 	location VARCHAR(1000),
 	templateId INT,
-	bookId INT references books(id),
+	bookId VARCHAR(100),
 	marginX VARCHAR(100),
 	marginY VARCHAR(100),
 	videoUrl VARCHAR(256),

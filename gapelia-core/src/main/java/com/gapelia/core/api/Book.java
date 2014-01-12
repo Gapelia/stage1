@@ -41,25 +41,13 @@ public class Book {
 			String json ;
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-			LOG.info("Trying to save book");
-			LOG.info("Session ID:"+sessionId);
-			LOG.info("bookId"+bookId);
-			LOG.info("title"+title);
-			LOG.info("languague"+language);
-			LOG.info("libraryId" +libraryId);
-			LOG.info("tags"+tags);
-			LOG.info("dimension"+dimension);
-			LOG.info("createdBy"+createdBy);
-			LOG.info("isPublished"+isPublished);
 			if (null == bookId || bookId.trim().length() == 0)
 			{
 				bookId = UUID.randomUUID().toString();
 				json = gson.toJson( bookId );
 			}
 			else{
-				LOG.info("Begin to Save book");
-				String status=QueryDatabase.saveBook(bookId,title,language,libraryId,tags,dimension,createdBy,isPublished);
-				LOG.info("status is!: "+status);
+				String status=QueryDatabase.saveBook(profile,bookId,title,language,libraryId,tags,dimension,createdBy,isPublished);
 				json =gson.toJson(status);
 			}	
 			return json;
@@ -80,11 +68,11 @@ public class Book {
 							 @FormParam("title") String title,
 							 @FormParam("description") String description,
 							 @FormParam("location") String location,
-							 @FormParam("templateId") String templateId,
+							 @FormParam("templateId") int templateId,
 							 @FormParam("marginX") String marginX,
 							 @FormParam("marginY") String marginY,
 							 @FormParam("videoUrl") String videoUrl,
-							 @FormParam("pageNumber") String pageNumber,
+							 @FormParam("pageNumber") int pageNumber,
 							 @FormParam("bookId") String bookId,
 							 @FormParam("createdByUserId") String createdByUserId,
 							 @FormParam("photoUrl") String photoUrl,
@@ -93,14 +81,20 @@ public class Book {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			// Get UserId from SessionId
+			String json ;
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to save page");
 			if (null == pageId || pageId.trim().length() == 0)
-			{pageId = UUID.randomUUID().toString();}
-			boolean status = QueryDatabase.savePage(profile, pageId, title, description, location, templateId, marginX,
+			{
+				pageId = UUID.randomUUID().toString();
+				json = gson.toJson( bookId );
+			}
+			else {
+				String status = QueryDatabase.savePage(profile, pageId, title, description, location, templateId, marginX,
 				marginY, videoUrl, pageNumber, bookId, createdByUserId, photoUrl, photoId);
-			String json = gson.toJson(status ? pageId : "Failure");
+				json =gson.toJson(status);
+			}
 			return json;
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
