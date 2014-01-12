@@ -1,7 +1,7 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.Query;
+import com.gapelia.core.database.QueryDatabase;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
 import com.google.gson.Gson;
@@ -35,7 +35,7 @@ public class Libraries {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve featured top books for user");
-			Book[] books = Query.getFeaturedBooks(profile);
+			Book[] books = QueryDatabase.getFeaturedBooks(profile);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -59,7 +59,7 @@ public class Libraries {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve all books for user");
-			Book[] books = Query.getAllBooks(profile, page);
+			Book[] books = QueryDatabase.getAllBooks(profile, page);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -82,7 +82,7 @@ public class Libraries {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve library");
-			Library library = Query.getLibraryById(profile, libraryId);
+			Library library = QueryDatabase.getLibraryById(profile, libraryId);
 			String json = gson.toJson(library);
 			LOG.info("Response json: " + json);
 			return json;
@@ -104,7 +104,7 @@ public class Libraries {
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
-			Library [] libraries = Query.getAllLibraries(profile, page);
+			Library [] libraries = QueryDatabase.getAllLibraries(profile, page);
 			String json = gson.toJson(libraries);
 			LOG.info("Response json: " + json);
 			return json;
@@ -126,7 +126,7 @@ public class Libraries {
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
-			Library [] libraries = Query.getLibraryByPrefix(profile, prefix);
+			Library [] libraries = QueryDatabase.getLibraryByPrefix(profile, prefix);
 			String json = gson.toJson(libraries);
 			LOG.info("Response json: " + json);
 			return json;
@@ -149,7 +149,7 @@ public class Libraries {
 			LOG.info("Trying to retrieve user id from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to subscribe");
-			boolean status = Query.subscribeLibrary(profile, libraryId);
+			boolean status = QueryDatabase.subscribeLibrary(profile, libraryId);
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to subscribe", ex);
@@ -170,7 +170,7 @@ public class Libraries {
 			LOG.info("Trying to retrieve user id from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to un-subscribe");
-			boolean status = Query.unSubscribeLibrary(profile, libraryId);
+			boolean status = QueryDatabase.unSubscribeLibrary(profile, libraryId);
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to unsubscribe", ex);

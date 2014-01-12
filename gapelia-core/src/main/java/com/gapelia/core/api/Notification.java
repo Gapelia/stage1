@@ -1,7 +1,7 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.Query;
+import com.gapelia.core.database.QueryDatabase;
 import com.gapelia.core.model.Event;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,7 +32,7 @@ public class Notification {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve notifications for user");
-			Event[] events = Query.getNotifications(profile);
+			Event[] events = QueryDatabase.getNotifications(profile);
 			String json = gson.toJson(events);
 			LOG.info("Response json: " + json);
 			return json;

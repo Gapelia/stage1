@@ -15,17 +15,15 @@
 	$(document).ready(function () {
 
 		sId = "1234567";
-
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
-				sessionId: sId,
+				sessionId: sId
 			},
 			success: function (data) {
-				bookId=data.bookId;
+				bookId=data;
 				console.log("Succes Creating your book");
 			},
 			error: function (q, status, err) {
@@ -36,10 +34,7 @@
 				}
 			}
 		});
-		*/
-
 		geotag = "BUGGGGGG";
-
 		book = {
 			"author" : "AUTHOR",
 			"title" : null,
@@ -1352,7 +1347,6 @@
 		library = 1;
 		tags = "fun";
 
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1360,22 +1354,25 @@
 			data: {
 				sessionId: sId,
 				bookId:bookId,
-				isPublished:1,
+				title: pages.page[0].title,
+				language:"English",
 				libraryId:library,
-				tags:tags
+				tags:tags,
+				dimension:"pulse",
+				createdBy:"god",
+				isPublished:1
 			},
 			success: function (data) {
 				console.log("Succes Publishing your book");
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					// alert("Request timed out");
+					 alert("Request timed out");
 				} else {
-					// alert("Some issue happened with your request: " + err);
+					 alert("Some issue happened with your request: " + err);
 				}
 			}
 		});
-		*/
 
 		$("#publish-modal").css({
 			"width": "100%",

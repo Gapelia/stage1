@@ -1,7 +1,7 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.Query;
+import com.gapelia.core.database.QueryDatabase;
 import com.gapelia.core.model.Book;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,7 +33,7 @@ public class Dimension {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve featured top books for user");
-			Book[] books = Query.getTopBooksByDimension(profile, dimension);
+			Book[] books = QueryDatabase.getTopBooksByDimension(profile, dimension);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -57,7 +57,7 @@ public class Dimension {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve all books for user");
-			Book[] books = Query.getAllBooksByDimension(profile, dimension, page);
+			Book[] books = QueryDatabase.getAllBooksByDimension(profile, dimension, page);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;

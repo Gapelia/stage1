@@ -1,6 +1,6 @@
 package com.gapelia.core.auth;
 
-import com.gapelia.core.database.Query;
+import com.gapelia.core.database.QueryDatabase;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.*;
 import org.brickred.socialauth.util.BirthDate;
@@ -61,7 +61,7 @@ public class AuthSuccessHandler extends HttpServlet {
 			// RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
 			// dispatcher.forward(request, response);
 
-			boolean isFirstTime = Query.checkProfile(profile);
+			boolean isFirstTime = QueryDatabase.checkProfile(profile);
 
 			if (isFirstTime) {
 				response.sendRedirect("/onboard");

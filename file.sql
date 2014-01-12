@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS books (
 	bookId VARCHAR(100), 
 	title VARCHAR(100),
 	language VARCHAR(100),
-	tags VARCHAR(100),
 	libraryId INT references libraries(id),
+	tags VARCHAR(100),
 	userId  INT references users(id),
 	isPublished INT
 );

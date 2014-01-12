@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 /**
  * Author: Abhishek Tiwari (14/12/13)
  */
-public class Query {
+public class QueryDatabase {
 	private static Logger LOG = Logger.getLogger(Book.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
 
@@ -27,7 +27,7 @@ public class Query {
 	private static final String CREATE_TABLE_NOTIFICATION = "";
 	private static final String CREATE_TABLE_PAGE = "";
 	private static final String CREATE_TABLE_PHOTO = "";
-
+	private static final String INSERT_BOOK="INSERT INTO books ( bookiD,title, language,libraryId,tags,userId,isPublished) " + "VALUES(?,?,?,?,?,?,?)";
 	// All User related queries
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
@@ -158,11 +158,28 @@ public class Query {
 	/* Methods to manipulate Books  */
 	/********************************/
 
-	public static boolean saveBook(Profile profile, String bookId, String title, String language, String libraryId,
-								   String tags, String dimension, String createdBy, String isPublished) {
-		if (isDummy())
-			return true;
-		return false;
+	public static String saveBook(String bookId, String title, String language, int libraryId,
+								   String tags, String dimension, int createdBy, int isPublished) {
+		//if (isDummy())
+			//return true;
+		int userId=1;
+		LOG.info("Try to save book!");
+		try {
+			PreparedStatement statement = connection.prepareStatement(INSERT_BOOK);
+			statement.setString(1, bookId);
+			statement.setString(2, title);
+			statement.setString(3, language);
+			statement.setInt(4, libraryId);
+			statement.setString(5, tags);
+			statement.setInt(6, userId);
+			statement.setInt(7, isPublished);
+			LOG.info(statement);
+			statement.execute();
+			return  statement.toString();
+		} catch (Exception ex) {
+			LOG.info("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPINNNCannot update user profile: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + ex);
+			return ex.toString();
+		}
 	}
 
 

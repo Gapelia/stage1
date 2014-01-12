@@ -1,7 +1,7 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.Query;
+import com.gapelia.core.database.QueryDatabase;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
@@ -35,7 +35,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve user details from id");
-			User user = Query.getUser(profile);
+			User user = QueryDatabase.getUser(profile);
 			String json = gson.toJson(user);
 			LOG.info("Response json: " + json);
 			return json;
@@ -57,7 +57,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve books user has created");
-			Book[] books = Query.getBooksCreatedByUser(profile);
+			Book[] books = QueryDatabase.getBooksCreatedByUser(profile);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -79,7 +79,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve books user has subscribed to");
-			Book [] books = Query.getBooksCollectedByUser(profile);
+			Book [] books = QueryDatabase.getBooksCollectedByUser(profile);
 			String json = gson.toJson(books);
 			LOG.info("Response json: " + json);
 			return json;
@@ -101,7 +101,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve libraries user has subscribed to");
-			Library [] libraries = Query.getLibrariesCollectedByUser(profile);
+			Library [] libraries = QueryDatabase.getLibrariesCollectedByUser(profile);
 			String json = gson.toJson(libraries);
 			LOG.info("Response json: " + json);
 			return json;
@@ -123,7 +123,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to delete book with id: " + bookId);
-			boolean status = Query.deleteBookById(profile, bookId);
+			boolean status = QueryDatabase.deleteBookById(profile, bookId);
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to delete book", ex);
@@ -153,7 +153,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to update user info");
-			boolean status = Query.updateUserProfile(profile, name, email, bio, facebookUrl, googlePlusUrl, twitterUrl, photoUrl, gender, location, dob);
+			boolean status = QueryDatabase.updateUserProfile(profile, name, email, bio, facebookUrl, googlePlusUrl, twitterUrl, photoUrl, gender, location, dob);
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to update user profile", ex);
