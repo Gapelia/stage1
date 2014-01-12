@@ -88,7 +88,7 @@ public class Book {
 			if (null == pageId || pageId.trim().length() == 0)
 			{
 				pageId = UUID.randomUUID().toString();
-				json = gson.toJson( bookId );
+				json = gson.toJson( pageId );
 			}
 			else {
 				String status = QueryDatabase.savePage(profile, pageId, title, description, location, templateId, marginX,

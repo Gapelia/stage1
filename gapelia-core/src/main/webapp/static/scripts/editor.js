@@ -13,7 +13,7 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-
+		//Create Book
 		sId = "1234567";
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
@@ -34,6 +34,25 @@
 				}
 			}
 		});
+		$.ajax({
+			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sId
+			},
+			success: function (data) {
+				pageId=data;
+				console.log(data);
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err);
+				}
+			}
+		});
 		geotag = "BUGGGGGG";
 		book = {
 			"author" : "AUTHOR",
@@ -45,7 +64,6 @@
 		pages = {
 			"page" : [{}]
 		};
-
 		index = 0;
 		author = "author";
 		pageNumber = 0;
@@ -58,6 +76,16 @@
 		currentPage = 0;
 		one = 1;
 		baseLayout();
+		pages.page[pagesCreated] = {
+				"pageNumber" : pagesCreated,
+				"geotag" : null,
+				"templateId" : "0",
+				"title" : null,
+				"text" : null,
+				"image" : "/static/images/blankBG.jpg",
+				"video" : "null",
+				"pageId" :pageId
+		};
 
 	});
 
@@ -250,6 +278,7 @@
 		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
+		pageId=0;
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -259,7 +288,7 @@
 			},
 			success: function (data) {
 				pageId=data;
-				console.log("Succes Creating your book");
+				console.log(data);
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
@@ -307,7 +336,7 @@
 				"pageId" :pageId
 			};
 
-			templateId = null;
+			templateId = 0;
 			title = null;
 			text = null;
 			imageURL = null;
@@ -1390,11 +1419,13 @@
 				}
 			}
 		});
-		for(int i=0;i<pagesCreated;i++)
-		{
+		i=0;
+		while(i<=pagesCreated){
+			console.log("attempting to save page number"+i);
 			$.ajax({
 				url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				async: false,
 				type: "POST",
 				data: {
 					sessionId: sId,
@@ -1413,11 +1444,12 @@
 					photoId:"TODO"
 				},
 				success: function (data) {
-					console.log("Succes Publishing your book");
+					console.log("Succes Publishing your page"+i);
+					i++;
 				},
 				error: function (q, status, err) {
 					if (status == "timeout") {
-						 alert("Request timed out");
+						 alert("Request timed out trying again");
 					} else {
 						 alert("Some issue happened with your request: " + err);
 					}
