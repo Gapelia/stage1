@@ -27,9 +27,10 @@ public class QueryDatabase {
 	private static final String CREATE_TABLE_NOTIFICATION = "";
 	private static final String CREATE_TABLE_PAGE = "";
 	private static final String CREATE_TABLE_PHOTO = "";
-	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,libraryId,tags,userId,isPublished) " + "VALUES(?,?,?,?,?,?,?)";
+	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	// All User related queries
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 LIMIT 5";
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
 												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -159,8 +160,8 @@ public class QueryDatabase {
 	/* Methods to manipulate Books  */
 	/********************************/
 
-	public static String saveBook(Profile profile,String bookId, String title, String language, int libraryId,
-								   String tags, String dimension, String createdBy, int isPublished) {
+	public static String saveBook(Profile profile,String bookId, String title, String language, String library,
+								   String tags, String createdBy, int isPublished,String coverPhoto) {
 		if (isDummy())
 			return "success";
 		LOG.info("Try to save book!");
@@ -169,10 +170,11 @@ public class QueryDatabase {
 			statement.setString(1, bookId);
 			statement.setString(2, title);
 			statement.setString(3, language);
-			statement.setInt(4, libraryId);
+			statement.setString(4, library);
 			statement.setString(5, tags);
 			statement.setInt(6, 1);
 			statement.setInt(7, isPublished);
+			statement.setString(8,coverPhoto);
 			statement.execute();
 			return  statement.toString();
 		} catch (Exception ex) {
@@ -181,10 +183,9 @@ public class QueryDatabase {
 	}
 
 
-	public static String savePage(Profile profile, String pageId,String title, String description, String location,
+	public static String savePage(Profile profile, String title, String description, String location,
 								   int templateId, String marginX, String marginY, String videoUrl, int pageNumber,
-								   String bookId, String createdByUserId, String photoUrl, String photoId) {
-
+								   String bookId, String createdByUserId, String photoUrl, String photoId,String pageId) {
 		if (isDummy())
 			return "success";
 		LOG.info("Try to save page!");
@@ -201,6 +202,7 @@ public class QueryDatabase {
 			statement.setInt(9, 1);
 			statement.setString(10, photoUrl);
 			statement.setString(11, photoId);
+			statement.setString(12,pageId);
 			statement.execute();
 			return  statement.toString();
 		} catch (Exception ex) {
@@ -248,8 +250,41 @@ public class QueryDatabase {
 
 	public static Book[] getAllBooks(Profile profile, String page) {
 		if (isDummy())
-			return TestHelper.getDummyBooks();
-		return null;
+		{	return TestHelper.getDummyBooks();}
+		Book [] books = new Book[5];
+		int i=0;
+		String resultsss="";
+		try {
+			PreparedStatement statement = connection.prepareStatement(SELECT_PUBLISHED_BOOKS);
+			ResultSet rs = statement.executeQuery();
+			resultsss=rs.toString();
+			while (rs.next()) {
+				books[i].setBookId(rs.getString("bookid"));
+				books[i].setTitle(rs.getString("title"));
+				books[i].setCoverPhoto(rs.getString("coverphoto"));
+				books[i].setTitle(rs.getString("language"));
+				books[i].setLibrary(rs.getString("library"));
+				//books[i].setTags(rs.getString("tags"));
+				boolean published;
+				if(rs.getInt("ispublished")==1)
+				{
+					published=true;
+				}
+				else{
+					published=false;
+				}
+				books[i].setUserId(rs.getString("userid"));
+				books[i].setPublished(published);
+				i++;
+			}
+			return books;
+		} catch (Exception ex) {
+			LOG.error("Cannot load books ", ex);
+			Book [] failure= new Book[1];
+			failure[0].setTitle(ex.toString());
+			failure[0].setCoverPhoto(resultsss);
+			return failure;
+		}
 	}
 
 	public static Library getLibraryById(Profile profile, String libraryId) {

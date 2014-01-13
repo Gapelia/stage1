@@ -65,7 +65,7 @@ public class Libraries {
 			return json;
 		} catch (Exception ex) {
 			LOG.error("Failed to retrieve all books", ex);
-			return gson.toJson("Failed");
+			return gson.toJson("Failed"+ex.toString());
 		}
 	}
 

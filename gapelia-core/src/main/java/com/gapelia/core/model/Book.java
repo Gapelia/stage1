@@ -12,14 +12,41 @@ public class Book {
 	private String bookId;
 	private String [] createdByUserIds;
 	private String title;
+	private String coverPhoto;
 	private String dimension;
 	private String language;
+	private String library;
+	private String userId;
 	private String [] tags;
 	private Page [] pages;
 	private Date createdDate;
 	private Date publishedDate;
 	private Date lastEditedDate;
 	private Boolean isPublished;
+	
+	public String getUserId(){
+		return userId;
+	}
+
+	public void setUserId(String userId){
+		this.userId=userId;
+	}
+
+	public String getLibrary(){
+		return library;
+	}
+
+	public void setLibrary(String library){
+		this.library=library;
+	}
+	
+	public String getCoverPhoto(){
+		return coverPhoto;
+	}
+
+	public void setCoverPhoto(String coverPhoto) {
+		this.coverPhoto = coverPhoto;
+	}
 
 	public String getBookId() {
 		return bookId;

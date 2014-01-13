@@ -31,14 +31,13 @@
 		<script src="/static/scripts/nprogress.js"></script>
 
 		<script>
-			/*
 			$(document).ready(function () {
-
-				html = "<ul id=\"book-list\">",
+				html = "<ul id=\"book-list\">";
+				featuredBooks="";
+				parsedHtml="";
 				sId = 123456;
-
 				$.ajax({
-					url: "http://localhost:8080/api/libraries/getFeaturedBooks",
+					url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {
@@ -47,7 +46,7 @@
 					},
 					success: function (data) {
 						featuredBooks = data;
-						console.log("books" + data);
+						console.log("books\n" + data);
 					},
 					error: function (q, status, err) {
 						if (status == "timeout") {
@@ -56,11 +55,11 @@
 							alert("Some issue happened with your request: " + err);
 						}
 					}
-
-					// $(".book-list-wrapper").html(parsedHtml);
-					$("#book-list").css("opacity", "0").show();
-
-					$("#book-list").mCustomScrollbar({
+				});
+				parsedHtml=parseJsonToStringForBooks(featuredBooks);
+				$(".book-list-wrapper").html(parsedHtml);
+				$("#book-list").css("opacity", "0").show();
+				$("#book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
@@ -69,12 +68,11 @@
 							updateOnContentResize: false
 						}
 					});
-
 					NProgress.done();
-					$("#book-list .book").css("height", $vH - 97 + "px");
+					//$("#book-list .book").css("height", $vH - 97 + "px");
 					$("#book-list").css("opacity", "1");
 				});
-
+				/*
 				$.ajax({
 					url: "http://localhost:8080/api/libraries/getAllLibraries",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -114,7 +112,7 @@
 					$("#library-list .library").css("height", $vH - 97 + "px");
 					$("#library-list").css("opacity", "1");
 				)};
-
+				*/
 				function parseJsonToStringForLibraries(libraries) {
 
 					html += "<ul id=\"library-list\">";
@@ -124,28 +122,22 @@
 					});
 
 				}
-
 				function parseJsonToStringForBooks(books) {
 
 					$.each(books, function () {
-
 						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
 						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-info'>";
 						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
-						html += "<div class='author-name'>Published by <a href='#'>" + this['createdByUserIds'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['libraryId'] + "</a></div></div>";
+						html += "<div class='author-name'>Published by <a href='#'>" + this['userId'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['library'] + "</a></div></div>";
 						html += "<span class=\"image-overlay\"></span>";
-						html += "<img src=\"" + this.pages[0].photo.photoUrl + "\" alt=''/>";
+						html += "<img src=\"" + this['coverImage'] + "\" alt=''/>";
 						html += "</li>";
-
 					});
 
 					html += "</ul>";
 					return html;
 
 				}
-
-			});
-			*/
 		</script>
 
 	</head>

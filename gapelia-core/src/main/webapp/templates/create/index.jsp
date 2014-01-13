@@ -51,6 +51,14 @@
 
 		<div id="pages-scroller" class="menu">
 			<ul>
+				<li id="0" draggable='true'>
+					<div class="delete-page">Delete</div>
+					<a class="edit-page">Edit</a>
+					<section>
+						<img src="/static/images/blankBG.jpg" id='page0Image'>
+						<span id='page0Title'>0 &middot; New Page</span>
+					</section>
+				</li>
 				<li id="add-page" class="new-thumb disable-sort">
 					<a href="#">+</a>
 					<span>Add New Page</span>

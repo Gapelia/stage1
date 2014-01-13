@@ -29,11 +29,12 @@ public class Book {
 							 @FormParam("bookId") String bookId,
 							 @FormParam("title") String title,
 							 @FormParam("language") String language,
-							 @FormParam("libraryId") int libraryId,
+							 @FormParam("library") String library,
 							 @FormParam("tags") String tags,
 							 @FormParam("dimension") String dimension,
 							 @FormParam("createdBy") String createdBy,
-							 @FormParam("isPublished") int isPublished
+							 @FormParam("isPublished") int isPublished,
+							 @FormParam("coverPhoto")String coverPhoto
 							 ) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
@@ -47,7 +48,7 @@ public class Book {
 				json = gson.toJson( bookId );
 			}
 			else{
-				String status=QueryDatabase.saveBook(profile,bookId,title,language,libraryId,tags,dimension,createdBy,isPublished);
+				String status=QueryDatabase.saveBook(profile,bookId,title,language,library,tags,createdBy,isPublished,coverPhoto);
 				json =gson.toJson(status);
 			}	
 			return json;
@@ -64,7 +65,6 @@ public class Book {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String createPage(@FormParam("sessionId") String sessionId,
-							 @FormParam("pageId") String pageId,
 							 @FormParam("title") String title,
 							 @FormParam("description") String description,
 							 @FormParam("location") String location,
@@ -76,7 +76,8 @@ public class Book {
 							 @FormParam("bookId") String bookId,
 							 @FormParam("createdByUserId") String createdByUserId,
 							 @FormParam("photoUrl") String photoUrl,
-							 @FormParam("photoId") String photoId
+							 @FormParam("photoId") String photoId,
+							 @FormParam("pageId") String pageId
 	) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
@@ -91,8 +92,8 @@ public class Book {
 				json = gson.toJson( pageId );
 			}
 			else {
-				String status = QueryDatabase.savePage(profile, pageId, title, description, location, templateId, marginX,
-				marginY, videoUrl, pageNumber, bookId, createdByUserId, photoUrl, photoId);
+				String status = QueryDatabase.savePage(profile, title, description, location, templateId, marginX,
+				marginY, videoUrl, pageNumber, bookId, createdByUserId, photoUrl,photoId,pageId);
 				json =gson.toJson(status);
 			}
 			return json;

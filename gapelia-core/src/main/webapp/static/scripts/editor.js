@@ -15,6 +15,8 @@
 	$(document).ready(function () {
 		//Create Book
 		sId = "1234567";
+		pageId=0;
+		bookId=0;
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -44,6 +46,38 @@
 			success: function (data) {
 				pageId=data;
 				console.log(data);
+				geotag = "BUGGGGGG";
+				book = {
+					"author" : "AUTHOR",
+					"title" : null,
+					"library" : "NULL",
+					"dimension" : "NULL"
+				};
+
+				pages = {
+					"page" : [{}]
+				};
+				index = 0;
+				author = "author";
+				pageNumber = 0;
+				text = null;
+				imageURL = null;
+				videoURL = null;
+				templateId = 0;
+				title = null;
+				pagesCreated = 0; // subscript of 0
+				currentPage = 0;
+				frontCoverLayout;
+				pages.page[0] = {
+						"pageNumber" : pagesCreated,
+						"geotag" : null,
+						"templateId" : "0",
+						"title" : null,
+						"text" : null,
+						"image" : "/static/images/blankBG.jpg",
+						"video" : "null",
+						"pageId" :pageId
+				};
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
@@ -53,39 +87,6 @@
 				}
 			}
 		});
-		geotag = "BUGGGGGG";
-		book = {
-			"author" : "AUTHOR",
-			"title" : null,
-			"library" : "NULL",
-			"dimension" : "NULL"
-		};
-
-		pages = {
-			"page" : [{}]
-		};
-		index = 0;
-		author = "author";
-		pageNumber = 0;
-		text = null;
-		imageURL = null;
-		videoURL = null;
-		templateId = 0;
-		title = null;
-		pagesCreated = 0; // subscript of 0
-		currentPage = 0;
-		one = 1;
-		baseLayout();
-		pages.page[pagesCreated] = {
-				"pageNumber" : pagesCreated,
-				"geotag" : null,
-				"templateId" : "0",
-				"title" : null,
-				"text" : null,
-				"image" : "/static/images/blankBG.jpg",
-				"video" : "null",
-				"pageId" :pageId
-		};
 
 	});
 
@@ -269,16 +270,19 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#add-page").click(function (e) {
-
+		if(pagesCreated > 20) {
+			alert("Your book is too big please remove a page!\n");
+			return;
+		}
 		pagesCreated++;
-
 		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
-
 		title = $(".page-title-elem").html();
 		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
-		pageId=0;
+		if(geotag == undefined) {
+			geotag="BUUUGGG";
+		}
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -289,6 +293,45 @@
 			success: function (data) {
 				pageId=data;
 				console.log(data);
+				if(pagesCreated==0) {
+					pages.page[0] = {
+						"pageNumber" : pagesCreated,
+						"geotag" : geotag,
+						"templateId" : 0,
+						"title" : null,
+						"text" : null,
+						"image" : "/static/images/blankBG.jpg",
+						"video" : "null",
+						"pageId":pageId
+					};
+
+					templateId = 0;
+					frontCoverLayout();
+				}  else {
+					pages.page[pagesCreated-1].geotag = geotag;
+					pages.page[pagesCreated-1].templateId = templateId;
+					pages.page[pagesCreated-1].title = title;
+					pages.page[pagesCreated-1].text = text;
+					pages.page[pagesCreated-1].image = imageURL;
+					pages.page[pagesCreated-1].video = videoURL;
+
+					pages.page[pagesCreated] = {
+						"pageNumber" : pagesCreated,
+						"geotag" : null,
+						"templateId" : "0",
+						"title" : null,
+						"text" : null,
+						"image" : "/static/images/blankBG.jpg",
+						"video" : "null",
+						"pageId" :pageId
+					};
+
+					templateId = 0;
+					title = null;
+					text = null;
+					imageURL = null;
+					videoURL = null;
+				}
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
@@ -298,50 +341,8 @@
 				}
 			}
 		});
-		if(geotag == undefined) {
-			geotag="BUUUGGG";
-		}
-
-		if(pagesCreated==0) {
-			pages.page[0] = {
-				"pageNumber" : pagesCreated,
-				"geotag" : geotag,
-				"templateId" : 0,
-				"title" : null,
-				"text" : null,
-				"image" : "/static/images/blankBG.jpg",
-				"video" : "null"
-			};
-
-			templateId = 0;
-			frontCoverLayout();
-		} else if(pagesCreated > 20) {
-			alert("Your book is too big please remove a page!\n");
-		} else {
-			pages.page[pagesCreated-1].geotag = geotag;
-			pages.page[pagesCreated-1].templateId = templateId;
-			pages.page[pagesCreated-1].title = title;
-			pages.page[pagesCreated-1].text = text;
-			pages.page[pagesCreated-1].image = imageURL;
-			pages.page[pagesCreated-1].video = videoURL;
-
-			pages.page[pagesCreated] = {
-				"pageNumber" : pagesCreated,
-				"geotag" : null,
-				"templateId" : "0",
-				"title" : null,
-				"text" : null,
-				"image" : "/static/images/blankBG.jpg",
-				"video" : "null",
-				"pageId" :pageId
-			};
-
-			templateId = 0;
-			title = null;
-			text = null;
-			imageURL = null;
-			videoURL = null;
-		}
+		
+		
 		e.preventDefault();
 	});
 
@@ -1390,7 +1391,7 @@
 	$("#publish-toggle").on("click", function (e) {
 
 		// TO DO: Get tags from format and library
-		library = 1;
+		library = "Into the Wild";
 		tags = "fun";
 		//Save book
 		$.ajax({
@@ -1402,11 +1403,12 @@
 				bookId:bookId,
 				title: pages.page[0].title,
 				language:"English",
-				libraryId:library,
+				library:library,
 				tags:tags,
 				dimension:"pulse",
 				createdBy:"god",
-				isPublished:1
+				isPublished:1,
+				coverPhoto:pages.page[0].image
 			},
 			success: function (data) {
 				console.log("Succes Publishing your book");
