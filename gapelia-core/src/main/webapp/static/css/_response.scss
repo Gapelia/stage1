@@ -1,8 +1,8 @@
 /************************************************************************************ RESPONSE/SCSS **/
 
-/** APP/SCSS *****************************************************************************************/
-
 @media all and (max-width: 1024px) {
+
+	/** APP/SCSS ***************************************************************************************/
 
 	.app {
 		#featured-panel {
@@ -11,6 +11,29 @@
 
 		#featured-scroller {
 			width: 90.6%;
+		}
+	}
+
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		.phototext-wrapper {
+			.phototext-preview { width: 40%; }
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				article { width: 80%; }
+			}
+		}
+
+		.text-wrapper {
+			.text-preview { padding: 5% 9rem; }
+		}
+
+		.video-wrapper {
+			.button-wrapper, .video-player-container { width: 60%; }
+			article { width: 40%; }
 		}
 	}
 
@@ -28,6 +51,8 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
+
+	/** APP/SCSS ***************************************************************************************/
 
 	.app {
 		#g-menu-toggle {
@@ -156,6 +181,41 @@
 			padding: 0 4rem;
 		}
 	}
+
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		.bb-item {
+			// display: inline-block !important;
+			float: left !important;
+		}
+
+		.frontcover-wrapper {
+			.frontcover-preview {
+				article {
+					font-size: 70%;
+					width: 80%;
+				}
+			}
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				article { width: 90%; }
+			}
+		}
+
+		.text-wrapper {
+			.text-preview { padding: 4rem; }
+		}
+
+		.video-wrapper {
+			.button-wrapper, .video-player-container { width: 60%; }
+			article { width: 40%; }
+		}
+	}
+
+	/** PROFILE/SCSS *************************************************************************************/
 
 	.profile {
 		.user-data {

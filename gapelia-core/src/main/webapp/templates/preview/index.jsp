@@ -161,9 +161,9 @@
 							current = pages.page[i];
 
 							if (i == 0) {
-								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display:block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							} else {
-								htmlToInsert += "<div style=\"display:none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							}
 
 							insertPage();
@@ -285,7 +285,7 @@
 
 						// htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
 					}
 
@@ -339,12 +339,12 @@
 
 							// add swipe events
 							$slides.on({
-								'swipeleft': function (event) {
+								"swipeleft": function (event) {
 									config.$bookBlock.bookblock("next");
 									return false;
 								},
 
-								'swiperight': function (event) {
+								"swiperight": function (event) {
 									config.$bookBlock.bookblock("prev");
 									return false;
 								}

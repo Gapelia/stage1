@@ -222,10 +222,16 @@
 	.frontcover-wrapper {
 		.frontcover-preview {
 			width: 100%; height: auto;
-			top: 30%; left: 0;
 
 			color: $black;
-			position: absolute;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 
 			article {
 				margin: 0 auto; padding: 2rem;
@@ -292,10 +298,16 @@
 
 		.page-bg {
 			width: 50%; height: auto; max-height: 66%;
-			top: 10%; left: 25%;
+			top: 50%; left: 25%;
 
 			box-shadow: 0 0 5px 0 rgba($black, 0.3);
-			position: absolute;
+			position: relative;
+			transform: translateY(-50%);
+
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 		}
 
 		.photo-preview {
