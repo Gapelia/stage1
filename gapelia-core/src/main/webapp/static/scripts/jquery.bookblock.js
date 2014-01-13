@@ -112,10 +112,10 @@
 		speed: 1000,
 
 		// easing for the flip transition
-		easing: "ease-in", // ease-in-out
+		easing: "ease-in-out", // ease-in
 
 		// if set to true, both the flipping page and the sides will have an overlay to simulate shadows
-		shadows: true,
+		shadows: false, // "true" is nice, but creates flickering
 
 		// opacity value for the "shadow" on both sides (when the flipping page is over it)
 		// value : 0.1 - 1
@@ -162,10 +162,10 @@
 			this.options = $.extend(true, {}, $.BookBlock.defaults, options);
 
 			// orientation class
-			this.$el.addClass('bb-' + this.options.orientation);
+			this.$el.addClass("bb-" + this.options.orientation);
 
 			// items
-			this.$items = this.$el.children('.bb-item').hide();
+			this.$items = this.$el.children(".bb-item").hide();
 
 			// total items
 			this.itemsCount = this.$items.length;
@@ -174,7 +174,7 @@
 			if ((this.options.startPage > 0) && (this.options.startPage <= this.itemsCount)) {
 				this.current = (this.options.startPage - 1);
 			} else {
-				logError('startPage option is out of range');
+				logError("startPage option is out of range");
 				this.current = 0;
 			}
 
@@ -196,7 +196,7 @@
 				"WebkitTransition": "webkitTransitionEnd"
 			};
 
-			this.transEndEventName = transEndEventNames[Modernizr.prefixed('transition')] + '.bookblock';
+			this.transEndEventName = transEndEventNames[Modernizr.prefixed("transition")] + ".bookblock";
 
 			// support css 3d transforms && css transitions && Modernizr.csstransformspreserve3d
 			this.support = Modernizr.csstransitions && Modernizr.csstransforms3d && Modernizr.csstransformspreserve3d;
@@ -411,16 +411,16 @@
 			var $side;
 
 			switch (side) {
-				case 'left':
-					$side = $('<div class="bb-page"><div class="bb-back"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 102);
+				case "left":
+					$side = $('<div class="bb-page"><div class="bb-back"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === "next" ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css("z-index", 102);
 					break;
 
-				case 'middle':
-					$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div></div>').css('z-index', 103);
+				case "middle":
+					$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === "next" ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === "next" ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div></div>').css("z-index", 103);
 					break;
 
-				case 'right':
-					$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 101);
+				case "right":
+					$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">' + (dir === "next" ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css("z-index", 101);
 					break;
 			}
 
@@ -471,10 +471,10 @@
 
 			var dir;
 
-			if (this.options.direction === 'ltr') {
-				dir = page > this.current ? 'next' : 'prev';
+			if (this.options.direction === "ltr") {
+				dir = page > this.current ? "next" : "prev";
 			} else {
-				dir = page > this.current ? 'prev' : 'next';
+				dir = page > this.current ? "prev" : "next";
 			}
 
 			this._action(dir, page);
@@ -501,7 +501,7 @@
 		update: function () {
 
 			var $currentItem = this.$items.eq(this.current);
-			this.$items = this.$el.children('.bb-item');
+			this.$items = this.$el.children(".bb-item");
 			this.itemsCount = this.$items.length;
 			this.current = $currentItem.index();
 
@@ -512,7 +512,7 @@
 			if (this.options.autoplay) {
 				this._stopSlideshow();
 			}
-			this.$el.removeClass('bb-' + this.options.orientation);
+			this.$el.removeClass("bb-" + this.options.orientation);
 			this.$items.show();
 
 			if (this.options.nextEl !== "") {
@@ -573,11 +573,5 @@
 		return this;
 
 	};
-
-	/*
-	$('.page3').click(function() {
-		config.bb.bookblock('jump', 3);
-	});
-	*/
 
 })(jQuery, window);

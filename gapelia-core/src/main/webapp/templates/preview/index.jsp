@@ -26,7 +26,7 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -292,11 +292,11 @@
 					var Page = (function () {
 
 						var config = {
-							$bookBlock: $('#bb-bookblock'),
-							$navNext: $('#bb-nav-next'),
-							$navPrev: $('#bb-nav-prev'),
-							$navFirst: $('#bb-nav-first'),
-							$navLast: $('#next-book-toggle')
+							$bookBlock: $("#bb-bookblock"),
+							$navNext: $("#bb-nav-next"),
+							$navPrev: $("#bb-nav-prev"),
+							$navFirst: $("#bb-nav-first"),
+							$navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
 
@@ -317,35 +317,35 @@
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on('click touchstart', function () {
-								config.$bookBlock.bookblock('next');
+							config.$navNext.on("click touchstart", function () {
+								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on('click touchstart', function () {
-								config.$bookBlock.bookblock('prev');
+							config.$navPrev.on("click touchstart", function () {
+								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on('click touchstart', function () {
-								config.$bookBlock.bookblock('first');
+							config.$navFirst.on("click touchstart", function () {
+								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
-							config.$navLast.on('click touchstart', function () {
-								config.$bookBlock.bookblock('last');
+							config.$navLast.on("click touchstart", function () {
+								config.$bookBlock.bookblock("last");
 								return false;
 							});
 
 							// add swipe events
 							$slides.on({
 								'swipeleft': function (event) {
-									config.$bookBlock.bookblock('next');
+									config.$bookBlock.bookblock("next");
 									return false;
 								},
 
 								'swiperight': function (event) {
-									config.$bookBlock.bookblock('prev');
+									config.$bookBlock.bookblock("prev");
 									return false;
 								}
 							});
@@ -364,11 +364,11 @@
 
 								switch (keyCode) {
 									case arrow.left:
-										config.$bookBlock.bookblock('prev');
+										config.$bookBlock.bookblock("prev");
 										break;
 
 									case arrow.right:
-										config.$bookBlock.bookblock('next');
+										config.$bookBlock.bookblock("next");
 										break;
 								}
 

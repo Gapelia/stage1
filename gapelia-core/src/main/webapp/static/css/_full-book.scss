@@ -70,7 +70,7 @@
 	}
 
 	#header-toggle {
-		background-position: 204px -1181px;
+		background-position: 204px -1177px;
 		cursor: default;
 		left: 48.2%;
 		text-align: center;
@@ -200,7 +200,7 @@
 			min-height: 50px;
 			// overflow-x: hidden;
 			text-align: center;
-			white-space: pre-wrap; // preserve line breaks!
+			// white-space: pre-wrap; // preserve line breaks!
 		}
 	}
 
@@ -498,8 +498,6 @@
 			.page-desc { text-align: left; }
 		}
 
-		.play-video { display: none; }
-
 		.video-player-container {
 			width: 70%; height: 100%;
 			top: 0; left: 0;
@@ -512,8 +510,12 @@
 			}
 		}
 
+		// .play-video { display: none; }
+
 		.button-wrapper {
 			bottom: 10%;
+			position: absolute;
+			text-align: center;
 			width: 70%;
 			z-index: 1;
 
