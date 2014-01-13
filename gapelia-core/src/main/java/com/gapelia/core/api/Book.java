@@ -115,8 +115,8 @@ public class Book {
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to retrieve book");
-			com.gapelia.core.model.Book book = QueryDatabase.getBookById(profile, bookId);
-			return gson.toJson(book);
+			com.gapelia.core.model.Page [] pages = QueryDatabase.getBookById(profile, bookId);
+			return gson.toJson(pages);
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
 			return gson.toJson("Failed");

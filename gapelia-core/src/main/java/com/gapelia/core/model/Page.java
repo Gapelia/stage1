@@ -13,7 +13,7 @@ public class Page {
 	private String title;
 	private String description;
 	private String location;
-	private Photo photo;
+	private String photo;
 	private String videoUrl;
 	private String templateId;
 	private Double marginX;
@@ -68,11 +68,11 @@ public class Page {
 		this.location = location;
 	}
 
-	public Photo getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(Photo photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 

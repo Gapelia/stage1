@@ -1,6 +1,7 @@
 package com.gapelia.core.database;
 
 import com.gapelia.core.model.Book;
+import com.gapelia.core.model.Page;
 import com.gapelia.core.model.Event;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
@@ -30,7 +31,8 @@ public class QueryDatabase {
 	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	// All User related queries
-	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 LIMIT 5";
+	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId = '?'";
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 LIMIT 10";
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
 												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -211,10 +213,30 @@ public class QueryDatabase {
 	}
 
 
-	public static Book getBookById(Profile profile, String bookId) {
+	public static Page[] getBookById(Profile profile, String bookId) {
 		if (isDummy())
-			return TestHelper.getDummyBooks()[0];
-		return null;
+			{return null;}
+		Page [] pages = new Page[20];
+		int i=0;
+		try {
+			PreparedStatement statement = connection.prepareStatement(SELECT_BOOK_FROM_ID);
+			statement.setString(1, bookId);
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				Page page = new Page();
+				//page.setPageId(rs.getString("PageId"));
+				page.setTitle(rs.getString("title"));
+				page.setDescription(rs.getString("description"));
+				page.setPhoto(rs.getString("photoUrl"));
+				page.setVideoUrl(rs.getString("videoUrl"));
+				pages[i]=page;
+				i++;
+			}
+			return pages;
+		} catch (Exception ex) {
+			LOG.error("Cannot load books ", ex);
+			return null;
+		}
 	}
 
 	public static boolean subscribeBook(Profile profile, String bookId) {
@@ -248,42 +270,30 @@ public class QueryDatabase {
 	}
 
 
-	public static Book[] getAllBooks(Profile profile, String page) {
+	public static Book[] getAllBooks() {
 		if (isDummy())
-		{	return TestHelper.getDummyBooks();}
-		Book [] books = new Book[5];
+		{return TestHelper.getDummyBooks();}
+		Book [] books = new Book[10];
 		int i=0;
-		String resultsss="";
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_PUBLISHED_BOOKS);
 			ResultSet rs = statement.executeQuery();
-			resultsss=rs.toString();
 			while (rs.next()) {
-				books[i].setBookId(rs.getString("bookid"));
-				books[i].setTitle(rs.getString("title"));
-				books[i].setCoverPhoto(rs.getString("coverphoto"));
-				books[i].setTitle(rs.getString("language"));
-				books[i].setLibrary(rs.getString("library"));
-				//books[i].setTags(rs.getString("tags"));
-				boolean published;
-				if(rs.getInt("ispublished")==1)
-				{
-					published=true;
-				}
-				else{
-					published=false;
-				}
-				books[i].setUserId(rs.getString("userid"));
-				books[i].setPublished(published);
+				Book book = new Book();
+				book.setBookId(rs.getString("bookid"));
+				book.setTitle(rs.getString("title"));
+				book.setCoverPhoto(rs.getString("coverphoto"));
+				book.setLanguage(rs.getString("language"));
+				book.setLibrary(rs.getString("library"));
+				book.setTags(rs.getString("tags"));
+				//book.setUserId(rs.getInt("userid"));//need to change database beacue is int:( will change when done with testing
+				books[i]=book;
 				i++;
 			}
 			return books;
 		} catch (Exception ex) {
 			LOG.error("Cannot load books ", ex);
-			Book [] failure= new Book[1];
-			failure[0].setTitle(ex.toString());
-			failure[0].setCoverPhoto(resultsss);
-			return failure;
+			return null;
 		}
 	}
 

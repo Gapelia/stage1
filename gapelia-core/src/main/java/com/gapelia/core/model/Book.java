@@ -17,7 +17,7 @@ public class Book {
 	private String language;
 	private String library;
 	private String userId;
-	private String [] tags;
+	private String  tags;
 	private Page [] pages;
 	private Date createdDate;
 	private Date publishedDate;
@@ -88,11 +88,11 @@ public class Book {
 		this.language = language;
 	}
 
-	public String[] getTags() {
+	public String getTags() {
 		return tags;
 	}
 
-	public void setTags(String[] tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 

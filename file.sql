@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS books (
 	library VARCHAR(100),
 	tags VARCHAR(100),
 	userId  INT references users(id),
+	#userId  VARCHAR(100),Damn it
 	isPublished INT
 );
 CREATE TABLE IF NOT EXISTS pages (

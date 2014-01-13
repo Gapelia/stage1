@@ -59,7 +59,7 @@ public class TestHelper {
 			book.setDimension("Pulse");
 			book.setLanguage("en-us");
 			book.setPublished(true);
-			book.setTags(new String[] { "joy", "love", "fun"});
+			book.setTags("joy,love,fun");
 			book.setLastEditedDate(Date.valueOf("1986-10-10"));
 			book.setTitle("This is a book");
 			book.setPublishedDate(Date.valueOf("1986-10-10"));
@@ -83,7 +83,7 @@ public class TestHelper {
 			page.setPageId("" + i);
 			page.setPageNumber(i);
 			Photo photo = getDummyPhoto();
-			page.setPhoto(photo);
+			//page.setPhoto(photo);
 			page.setTitle("This is a page");
 			page.setVideoUrl("http://www.youtube.com/watch?v=85eKmdX7tmI");
 			page.setTemplateId("1");

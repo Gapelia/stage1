@@ -59,8 +59,9 @@ public class Libraries {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to retrieve all books for user");
-			Book[] books = QueryDatabase.getAllBooks(profile, page);
+			Book[] books = QueryDatabase.getAllBooks();
 			String json = gson.toJson(books);
+			//String json = gson.toJson("NOT HERE");
 			LOG.info("Response json: " + json);
 			return json;
 		} catch (Exception ex) {

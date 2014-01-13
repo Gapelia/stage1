@@ -46,20 +46,10 @@
 					},
 					success: function (data) {
 						featuredBooks = data;
-						console.log("books\n" + data);
-					},
-					error: function (q, status, err) {
-						if (status == "timeout") {
-							alert("Request timed out");
-						} else {
-							alert("Some issue happened with your request: " + err);
-						}
-					}
-				});
-				parsedHtml=parseJsonToStringForBooks(featuredBooks);
-				$(".book-list-wrapper").html(parsedHtml);
-				$("#book-list").css("opacity", "0").show();
-				$("#book-list").mCustomScrollbar({
+						parsedHtml=parseJsonToStringForBooks(featuredBooks);
+						$(".book-list-wrapper").html(parsedHtml);
+						$("#book-list").css("opacity", "0").show();
+						$("#book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
 						theme: "dark-thin",
@@ -71,10 +61,18 @@
 					NProgress.done();
 					//$("#book-list .book").css("height", $vH - 97 + "px");
 					$("#book-list").css("opacity", "1");
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err);
+						}
+					}
 				});
 				/*
 				$.ajax({
-					url: "http://localhost:8080/api/libraries/getAllLibraries",
+					url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllLibraries",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {
@@ -84,8 +82,22 @@
 						html = "";
 						libraries = data;
 						parseJsonToStringForLibraries(libraries);
+						$(".library-list-wrapper").html(parsedHtml);
+						$("#library-list").css("opacity", "0").show();
 
-						console.log("libraries" + data);
+						$("#library-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+						});
+
+						NProgress.done();
+						$("#library-list .library").css("height", $vH - 97 + "px");
+						$("#library-list").css("opacity", "1");
 					},
 					error: function (q, status, err) {
 						if (status == "timeout") {
@@ -94,50 +106,34 @@
 							alert("Some issue happened with your request: " + err);
 						}
 					}
-
-					// $(".library-list-wrapper").html(parsedHtml);
-					$("#library-list").css("opacity", "0").show();
-
-					$("#library-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: {
-							autoExpandHorizontalScroll: true,
-							updateOnContentResize: false
-						}
-					});
-
-					NProgress.done();
-					$("#library-list .library").css("height", $vH - 97 + "px");
-					$("#library-list").css("opacity", "1");
 				)};
 				*/
-				function parseJsonToStringForLibraries(libraries) {
-
-					html += "<ul id=\"library-list\">";
-					$.each(libraries, function () {
-						html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
-						html += "<div class=\"wrapper\"><button class=\"subscribe slate\">Subscribe</button></div><span class=\"image-overlay\"></span><img src=\"" + this['image'] + "\" alt=\"\"/></li>";
-					});
-
-				}
-				function parseJsonToStringForBooks(books) {
-
-					$.each(books, function () {
-						html += "<li class='book' bookid=\"" + this['bookId'] + "\">";
-						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-info'>";
-						html += "<div class='title'><a href='#'>" + this['title'] + "</a></div>";
-						html += "<div class='author-name'>Published by <a href='#'>" + this['userId'] + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + this['library'] + "</a></div></div>";
-						html += "<span class=\"image-overlay\"></span>";
-						html += "<img src=\"" + this['coverImage'] + "\" alt=''/>";
-						html += "</li>";
-					});
-
-					html += "</ul>";
-					return html;
-
-				}
+			});
+			function parseJsonToStringForLibraries(libraries) {
+				html += "<ul id=\"library-list\">";
+				$.each(libraries, function () {
+					html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
+					html += "<div class=\"wrapper\"><button class=\"subscribe slate\">Subscribe</button></div><span class=\"image-overlay\"></span><img src=\"" + this['image'] + "\" alt=\"\"/></li>";
+				});
+			}
+			function parseJsonToStringForBooks(books) {
+				i=0;
+				$.each(books, function () {
+					currentUrl=document.URL;
+					if(books[i]==null){
+						return false;
+					}
+					html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
+					html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='title'><a href='"+currentUrl+"/"+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'>";
+					html += "<div class='author-name'>Published by <a href='#'>" + books[i].userId + "</a></div><div class=\"library-location\">Found in <a href=\"#\">" + books[i].library + "</a></div></div>";
+					html += "<span class=\"image-overlay\"></span>";
+					html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
+					html += "</li>";
+					i++;
+				});
+				html += "</ul>";
+				return html;
+			}
 		</script>
 
 	</head>
