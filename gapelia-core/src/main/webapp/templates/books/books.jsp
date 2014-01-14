@@ -997,6 +997,21 @@
 				});
 
 			});
+
+			/*
+			setTimeout(function() {
+				// $(".video-player-container").imgLiquid({ fill: true });
+				$("img").VimeoThumb();
+			}, 5000); // prevent placeholder from appearing
+			*/
+
+			$(document).on(".play-video", "click", function () {
+
+				$(".play-video").hide();
+				$(".video-player-container img").hide();
+				$(".video-player-container iframe").show();
+
+			});
 		</script>
 
 	</body>
