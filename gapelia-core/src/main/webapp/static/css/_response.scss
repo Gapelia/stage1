@@ -1,8 +1,8 @@
 /************************************************************************************ RESPONSE/SCSS **/
 
-/** APP/SCSS *****************************************************************************************/
-
 @media all and (max-width: 1024px) {
+
+	/** APP/SCSS ***************************************************************************************/
 
 	.app {
 		#featured-panel {
@@ -11,6 +11,29 @@
 
 		#featured-scroller {
 			width: 90.6%;
+		}
+	}
+
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		.phototext-wrapper {
+			.phototext-preview { width: 40%; }
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				article { width: 80%; }
+			}
+		}
+
+		.text-wrapper {
+			.text-preview { padding: 5% 9rem; }
+		}
+
+		.video-wrapper {
+			.button-wrapper, .video-player-container { width: 60%; }
+			article { width: 40%; }
 		}
 	}
 
@@ -28,6 +51,8 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
+
+	/** APP/SCSS ***************************************************************************************/
 
 	.app {
 		#g-menu-toggle {
@@ -157,6 +182,163 @@
 		}
 	}
 
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			margin: 0; padding: 0;
+
+			border-bottom: 1px solid $black;
+			height: auto !important;
+			overflow: initial; // auto
+			position: relative;
+
+			.page-bg, iframe {
+				width: 100%; height: auto;
+				bottom: auto; left: auto;
+
+				position: relative;
+				transform: translateY(0%);
+
+				-o-transform: translateY(0%);
+				-ms-transform: translateY(0%);
+				-moz-transform: translateY(0%);
+				-webkit-transform: translateY(0%);
+			}
+
+			article {
+				width: 100%; height: auto;
+
+				display: block;
+				padding: 2rem;
+				position: relative;
+			}
+
+			.page-title-elem {
+				font-size: 2.5em; // 36px
+				line-height: 1.2em; // 40px
+			}
+
+			.page-desc, p {
+				font-size: 1.4em !important;
+				line-height: 1.4em !important;
+			}
+
+			.page-desc { padding: 1rem 2rem !important; }
+		}
+
+		.frontcover-preview, .photo-preview, .text-preview, .horizontal-preview,
+		.overlay-preview, .phototext-preview, .vertical-preview, .video-preview, .backcover-preview {
+			margin: 0 !important; padding: 0 !important;
+		}
+
+		.frontcover-wrapper {
+			.frontcover-preview {
+				transform: translateY(0%);
+
+				-o-transform: translateY(0%);
+				-ms-transform: translateY(0%);
+				-moz-transform: translateY(0%);
+				-webkit-transform: translateY(0%);
+
+				article { width: 100%; }
+
+				.page-title-elem {
+					font-size: 2.5em;
+					line-height: 1.2em;
+				}
+
+				p { margin: inherit; }
+			}
+		}
+
+		.photo-wrapper {
+			overflow: inherit;
+
+			.page-bg {
+				border: none;
+				box-shadow: none;
+				max-height: none;
+			}
+
+			.photo-preview {
+				max-height: none;
+				position: relative;
+			}
+		}
+
+		.text-wrapper {
+			.text-preview { font-size: inherit; }
+		}
+
+		.horizontal-wrapper {
+			.horizontal-preview {
+				border: none;
+				min-height: inherit;
+				position: relative;
+
+				.page-desc { width: 100%; }
+			}
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				width: 100%; height: auto;
+
+				overflow: auto;
+				padding: 0;
+				position: relative;
+			}
+		}
+
+		.overlay-wrapper {
+			// height: 99% !important;
+
+			.overlay-preview {
+				article {
+				}
+			}
+		}
+
+		.text-wrapper {
+			.text-preview {
+			}
+		}
+
+		.vertical-wrapper {
+			.draggable-placeholder { width: 100%; }
+
+			.vertical-preview {
+				font-size: inherit;
+				line-height: inherit;
+				position: relative;
+				width: 100%;
+			}
+		}
+
+		.video-wrapper {
+			.video-preview, article { position: relative; }
+
+			.button-wrapper {
+				bottom: initial;
+				top: 400px;
+				width: 100%;
+			}
+
+			.video-player-container {
+				width: 100%; height: 500px;
+
+				position: relative;
+			}
+		}
+	}
+
+	/** PROFILE/SCSS *************************************************************************************/
+
 	.profile {
 		.user-data {
 			top: 2.7rem; left: 6rem;
@@ -177,6 +359,121 @@
 				padding: 1.2rem 2rem;
 				text-align: right;
 			}
+		}
+	}
+
+}
+
+@media all and (max-width: 600px) {
+
+	button, .button {
+		font-size: 2em !important;
+		padding: 1rem 1.5rem !important;
+
+		&:hover { padding: 1rem 2.5rem !important; }
+	}
+
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			.page-desc, p {
+				font-size: 1.5em !important;
+				line-height: 1.6em !important;
+			}
+		}
+
+		.overlay-wrapper {
+			height: auto !important;
+
+			.overlay-preview {
+				.page-desc { font-size: 2.5em !important; }
+				article { margin: 10% auto; }
+			}
+		}
+
+		.video-wrapper {
+			.button-wrapper { top: 380px; }
+		}
+	}
+
+}
+
+@media all and (max-width: 320px) {
+
+	button, .button {
+		font-size: 5em !important;
+		padding: 2rem 2.5rem !important;
+
+		&:hover { padding: 2rem 3rem !important; }
+	}
+
+	/** FULL-BOOK/SCSS *********************************************************************************/
+
+	.full-book {
+		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			.page-title-elem {
+				font-size: 5em;
+				line-height: 1.2em;
+				padding: 1rem 2rem 0 2rem;
+			}
+
+			.page-desc, p {
+				font-size: 2em !important;
+				line-height: 1.5em !important;
+			}
+
+			.page-desc {
+				padding: 1rem 6rem !important;
+				text-align: justify !important;
+			}
+		}
+
+		.frontcover-wrapper {
+			.frontcover-preview {
+				.page-title-elem {
+					font-size: 5em;
+					line-height: 1.2em;
+					padding: 1rem 2rem 0 2rem;
+				}
+			}
+		}
+
+		.photo-wrapper {
+			.photo-preview {
+				.page-title-elem { width: 100%; }
+			}
+		}
+
+		.horizontal-wrapper {
+			.horizontal-preview {
+				padding: 0 1rem !important;
+
+				.page-desc {
+					font-size: 2.5em !important;
+				}
+			}
+
+			.page-title-elem { font-size: 3.5em; }
+		}
+
+		.overlay-wrapper {
+			// height: auto !important;
+
+			.overlay-preview {
+				.page-desc { font-size: 3.5em !important; }
+
+				article {
+					margin: -1% auto;
+					width: 100%;
+				}
+			}
+		}
+
+		.video-wrapper {
+			.button-wrapper { top: 195px; }
 		}
 	}
 

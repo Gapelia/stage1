@@ -10,12 +10,14 @@ $(document).ready(function() {
 	// var $pW = $("#dimension-list .portal").width();
 
 	// Reload Gapelia when browser window resizing occurs
+	/*
 	$(window).resize(function() {
 		if($vW != $(window).width()) {
 			location.reload();
 			return;
 		}
 	});
+	*/
 
 	if ($vW > "801") {
 

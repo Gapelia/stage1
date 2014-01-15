@@ -12,8 +12,8 @@
 	var
 	pluginName = "VimeoThumb",
 	defaults = {
-		idSelectorName: 'data-vimeo-id',
-		vimeoPatternUrl: 'http://vimeo.com/api/v2/video/%id.json?callback=?'
+		idSelectorName: "data-vimeo-id",
+		vimeoPatternUrl: "http://vimeo.com/api/v2/video/%id.json?callback=?"
 	};
 
 	function Plugin(elements, options) {
@@ -35,18 +35,18 @@
 
 				var id = $(e).attr(options.idSelectorName);
 
-				if (id && !/VIMEO/i.test($(e).attr('src'))) {
+				if (id && !/VIMEO/i.test($(e).attr("src"))) {
 					var url = options.vimeoPatternUrl.replace(/%id/, id);
 
 					$.getJSON(url, function (data) {
 
 						if (data[0]) {
-							if ($(e).hasClass('large')) {
-								$(e).attr('src', data[0].thumbnail_large);
-							} else if ($(e).hasClass('small')) {
-								$(e).attr('src', data[0].thumbnail_thumb);
+							if ($(e).hasClass("large")) {
+								$(e).attr("src", data[0].thumbnail_large);
+							} else if ($(e).hasClass("small")) {
+								$(e).attr("src", data[0].thumbnail_thumb);
 							} else {
-								$(e).attr('src', data[0].thumbnail_medium);
+								$(e).attr("src", data[0].thumbnail_medium);
 							}
 						}
 

@@ -26,7 +26,7 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -85,7 +85,7 @@
 			<header>
 				<div id="header-info">
 					<span id="header-title">Hayao Miyazaki</span>
-					<span id="header-author">Paul Anthony Webb</span>
+					<span id="header-author">NetOperator Wibby</span>
 				</div>
 
 				<ul class="share-book">
@@ -106,14 +106,16 @@
 					<div class="bb-item front-cover" id="page1">
 						<div class="content">
 
-							<!--/ <section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/01.jpg')"> /-->
-							<section class="frontcover-wrapper" style="background-image:url('/static/images/test-book/team-cover.JPG')">
+							<!--/ /static/images/test-book/team-cover.JPG /-->
+							<section class="frontcover-wrapper">
 								<div class="frontcover-preview">
+									<img class="page-bg" src="/static/images/test-book/01.jpg"/>
+
 									<article class="cover-info">
 
-										<h1 class="page-title-elem">Hello Techstars!</h1>
-										<h5 contenteditable="false"><span>NetOperator Wibby</span></h5>
-										<div class="page-desc">This is a sample book that shows part of our product, in progress. Pretty neat, eh? Not that you guys/gals would be Canadian or anything. Is it true Canadian money smells like maple syrup?</div>
+										<h1 class="page-title-elem">Hayao Miyazaki</h1>
+										<div class="page-desc"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is "quite strenuous" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div>
+										<h5><span>NetOperator Wibby</span></h5>
 
 									</article>
 								</div>
@@ -126,48 +128,46 @@
 					<div class="bb-item" id="page2">
 						<div class="content">
 
-							<!--/ <section class="phototext-wrapper" style="background-image:url('/static/images/test-book/02.jpg')"> /-->
-							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/team-daniel.JPG')">
+							<!--/ /static/images/test-book/team-daniel.JPG /-->
+							<section class="phototext-wrapper">
+								<img class="page-bg" src="/static/images/test-book/02.jpg"/>
+
 								<div class="phototext-preview">
 									<article>
 
-										<h1 class="page-title-elem">Life Lessons</h1>
-										<div id="geotag-02" class="page-geotag-elem">Lake Powell, Arizona</div>
+										<h1 class="page-title-elem">The Future of the Operating System</h1>
+										<!--/ <div id="geotag-02" class="page-geotag-elem">Lake Powell, Arizona</div> /-->
 
 										<div class="page-desc">
-											<p>The problem with the world is that everyone is a few drinks behind.</p>
+											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<!--/
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
-
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
 											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+											<p>There is a point to this post, but first, a story...</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
 											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
 											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
 											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
 											<p>Everyone. I could not be happier.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
 											<p>EDIT: Created a GitHub repo!</p>
-											/-->
 										</div>
 
 									</article>
@@ -181,16 +181,20 @@
 					<div class="bb-item" id="page3">
 						<div class="content">
 
-							<!--/ <section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/03.jpg')"> /-->
-							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/team-diego.JPG')">
-								<div class="horizontal-preview">
-									<article>
+							<!--/ /static/images/test-book/team-diego.JPG /-->
+							<section class="horizontal-wrapper">
+								<div class="scroller-wrapper">
+									<img class="page-bg" src="/static/images/test-book/03.jpg"/>
 
-										<h1 class="page-title-elem">Diego Regules</h1>
-										<div id="geotag-03" class="page-geotag-elem">Calamocha, Aragon, Spain</div>
-										<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars." </div>
+									<div class="horizontal-preview">
+										<article>
 
-									</article>
+											<h1 class="page-title-elem">Diego Regules</h1>
+											<!--/ <div id="geotag-03" class="page-geotag-elem">Calamocha, Aragon, Spain</div> /-->
+											<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars." </div>
+
+										</article>
+									</div>
 								</div>
 							</section>
 
@@ -201,13 +205,15 @@
 					<div class="bb-item" id="page4">
 						<div class="content">
 
-							<!--/ <section class="overlay-wrapper" style="background-image:url('/static/images/test-book/04.jpg')"> /-->
-							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/team-tommy.JPG')">
+							<!--/ /static/images/test-book/team-tommy.JPG /-->
+							<section class="overlay-wrapper">
+								<img class="page-bg" src="/static/images/test-book/04.jpg"/>
+
 								<div class="overlay-preview">
 									<article>
 
 										<div class="page-desc"><blockquote>En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.</blockquote></div>
-										<div id="geotag-04" class="page-geotag-elem">Tapia de Casariego, Asturias, Spain</div>
+										<!--/ <div id="geotag-04" class="page-geotag-elem">Tapia de Casariego, Asturias, Spain</div> /-->
 
 									</article>
 								</div>
@@ -221,42 +227,38 @@
 						<div class="content">
 
 							<section class="text-wrapper">
-								<!--/ <img id="page-05-placeholder" class="page-bg" src="/static/images/test-book/05.jpg"/> /-->
-
 								<div class="text-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-05" class="page-geotag-elem">Boston, MA</div>
+										<!--/ <div id="geotag-05" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
-											<p>I love computers.</p>
+											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
-
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
 											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+											<p>There is a point to this post, but first, a story...</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
 											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
 											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
 											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
 											<p>Everyone. I could not be happier.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
@@ -265,18 +267,6 @@
 
 									</article>
 								</div>
-
-								<!--/
-								<div class="photo-preview">
-									<article>
-
-										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-05" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-
-									</article>
-								</div>
-								/-->
 							</section>
 
 						</div>
@@ -286,15 +276,17 @@
 					<div class="bb-item" id="page6">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/06.jpg')">
-								<!--/ <img id="page-06-placeholder" class="page-bg" src="/static/images/test-book/06.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/06.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
+										<!--/
 										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -307,15 +299,17 @@
 					<div class="bb-item" id="page7">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/07.jpg')">
-								<!--/ <img id="page-07-placeholder" class="page-bg" src="/static/images/test-book/07.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/07.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-07" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -328,15 +322,17 @@
 					<div class="bb-item" id="page8">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/08.jpg')">
-								<!--/ <img id="page-08-placeholder" class="page-bg" src="/static/images/test-book/08.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/08.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-08" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -349,17 +345,19 @@
 					<div class="bb-item" id="page9">
 						<div class="content">
 
-							<section class="horizontal-wrapper" style="background-image:url('/static/images/test-book/09.jpg')">
-								<!--/ <img id="page-09-placeholder" class="page-bg" src="/static/images/test-book/09.jpg"/> /-->
+							<section class="horizontal-wrapper">
+								<div class="scroller-wrapper">
+									<img class="page-bg" src="/static/images/test-book/09.jpg"/>
 
-								<div class="horizontal-preview">
-									<article>
+									<div class="horizontal-preview">
+										<article>
 
-										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-09" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
+											<h1 class="page-title-elem">This is a title</h1>
+											<!--/ <div id="geotag-09" class="page-geotag-elem">Location</div> /-->
+											<div class="page-desc">This is a description.</div>
 
-									</article>
+										</article>
+									</div>
 								</div>
 							</section>
 
@@ -370,15 +368,17 @@
 					<div class="bb-item" id="page10">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/10.jpg')">
-								<!--/ <img id="page-10-placeholder" class="page-bg" src="/static/images/test-book/10.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/10.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-10" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -391,15 +391,17 @@
 					<div class="bb-item" id="page11">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/11.jpg')">
-								<!--/ <img id="page-11-placeholder" class="page-bg" src="/static/images/test-book/11.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/11.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-11" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -412,43 +414,41 @@
 					<div class="bb-item" id="page12">
 						<div class="content">
 
-							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/12.jpg')">
-								<!--/ <img id="page-12-placeholder" class="page-bg" src="/static/images/test-book/12.jpg"/> /-->
+							<section class="phototext-wrapper">
+								<img class="page-bg" src="/static/images/test-book/12.jpg"/>
 
 								<div class="phototext-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-12" class="page-geotag-elem">Boston, MA</div>
+										<!--/ <div id="geotag-12" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
-											<p>I love computers.</p>
+											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
-
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
 											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+											<p>There is a point to this post, but first, a story...</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
 											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
 											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
 											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
 											<p>Everyone. I could not be happier.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
@@ -466,50 +466,50 @@
 					<div class="bb-item" id="page13">
 						<div class="content">
 
-							<section class="vertical-wrapper" style="background-image:url('/static/images/test-book/13.jpg')">
-								<!--/ <img id="page-13-placeholder" class="page-bg" src="/static/images/test-book/13.jpg"/> /-->
+							<section class="vertical-wrapper">
+								<div class="draggable-placeholder">
+									<img class="page-bg" src="/static/images/test-book/13.jpg"/>
 
-								<div class="vertical-preview">
-									<article>
+									<div class="vertical-preview">
+										<article>
 
-										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-13" class="page-geotag-elem">Boston, MA</div>
+											<h1 class="page-title-elem">The Future of the Operating System</h1>
+											<!--/ <div id="geotag-13" class="page-geotag-elem">Boston, MA</div> /-->
 
-										<div class="page-desc">
-											<p>I love computers.</p>
+											<div class="page-desc">
+												<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
+												<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+												<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
+												<p>There is a point to this post, but first, a story...</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+												<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+												<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
+												<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+												<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
+												<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+												<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
+												<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+												<p>Everyone. I could not be happier.</p>
 
-											<p>Everyone. I could not be happier.</p>
+												<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+												<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
-											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
+												<p>EDIT: Created a GitHub repo!</p>
+											</div>
 
-											<p>EDIT: Created a GitHub repo!</p>
-										</div>
-
-									</article>
+										</article>
+									</div>
 								</div>
 							</section>
 
@@ -520,15 +520,17 @@
 					<div class="bb-item" id="page14">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/14.jpg')">
-								<!--/ <img id="page-14-placeholder" class="page-bg" src="/static/images/test-book/14.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/14.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-14" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -541,43 +543,41 @@
 					<div class="bb-item" id="page15">
 						<div class="content">
 
-							<section class="phototext-wrapper" style="background-image:url('/static/images/test-book/15.jpg')">
-								<!--/ <img id="page-15-placeholder" class="page-bg" src="/static/images/test-book/15.jpg"/> /-->
+							<section class="phototext-wrapper">
+								<img class="page-bg" src="/static/images/test-book/15.jpg"/>
 
 								<div class="phototext-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-15" class="page-geotag-elem">Boston, MA</div>
+										<!--/ <div id="geotag-15" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
-											<p>I love computers.</p>
+											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
-
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
 											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+											<p>There is a point to this post, but first, a story...</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
 											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
 											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
 											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
 											<p>Everyone. I could not be happier.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
@@ -595,15 +595,17 @@
 					<div class="bb-item" id="page16">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/16.jpg')">
-								<!--/ <img id="page-16-placeholder" class="page-bg" src="/static/images/test-book/16.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/16.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-16" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -616,14 +618,14 @@
 					<div class="bb-item" id="page17">
 						<div class="content">
 
-							<section class="overlay-wrapper" style="background-image:url('/static/images/test-book/17.jpg')">
-								<!--/ <img id="page-17-placeholder" class="page-bg" src="/static/images/test-book/17.jpg"/> /-->
+							<section class="overlay-wrapper">
+								<img class="page-bg" src="/static/images/test-book/17.jpg"/>
 
 								<div class="overlay-preview">
 									<article>
 
 										<div class="page-desc">This is a description.</div>
-										<div id="geotag-17" class="page-geotag-elem">Location</div>
+										<!--/ <div id="geotag-17" class="page-geotag-elem">Location</div> /-->
 
 									</article>
 								</div>
@@ -636,15 +638,17 @@
 					<div class="bb-item" id="page18">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/18.jpg')">
-								<!--/ <img id="page-18-placeholder" class="page-bg" src="/static/images/test-book/18.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/18.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-18" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -664,43 +668,41 @@
 									</div>
 
 									<div class="video-player-container">
-										<img src="http://placehold.it/640x360" data-vimeo-id="26666315" class="large"/>
-										<iframe src="http://player.vimeo.com/video/26666315?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=1" style="display: none";></iframe>
+										<img src="http://placehold.it/640x360" data-vimeo-id="36733110" class="large"/>
+										<iframe src="http://player.vimeo.com/video/36733110?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=0" style="display: none";></iframe>
 									</div>
 
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<div id="geotag-19" class="page-geotag-elem">Boston, MA</div>
+										<!--/ <div id="geotag-19" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
-											<p>I love computers.</p>
+											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
 
-											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
-
-											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple’s iOS and Mac OS X both share the same codebase, as does Microsoft’s Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
+											<p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p>
 
 											<p>This line of reasoning is how my operating system concept, hikari OS was born.</p>
 
-											<p>There is a point to this post, but first, a story…</p>
+											<p>There is a point to this post, but first, a story...</p>
 
-											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his “Mega Man Battle Network” for my “Donkey Kong Country”. I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don’t remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
+											<p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his "Mega Man Battle Network" for my "Donkey Kong Country". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p>
 
 											<p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p>
 
-											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game…I’m inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
+											<p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p>
 
 											<p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p>
 
-											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &c. Some guy from England by the name of Eben Upton released a $30 computer called “Raspberry Pi”. I saw the pieces of my dream materializing.</p>
+											<p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called "Raspberry Pi". I saw the pieces of my dream materializing.</p>
 
 											<p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p>
 
-											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces “Boot2Gecko” (which was later renamed “Firefox OS”), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &c. Essentially, half of my idea. Now, just this week, Canonical announced “Ubuntu Edge”, which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop…the other half of my idea.</p>
+											<p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces "Boot2Gecko" (which was later renamed "Firefox OS"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced "Ubuntu Edge", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p>
 
 											<p>Everyone. I could not be happier.</p>
 
-											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone’s guess. This will only make computing better for everyone, which will make the ‘Net a better place to be.</p>
+											<p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p>
 
 											<p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p>
 
@@ -718,15 +720,17 @@
 					<div class="bb-item" id="page20">
 						<div class="content">
 
-							<section class="photo-wrapper" style="background-image:url('/static/images/test-book/20.jpg')">
-								<!--/ <img id="page-20-placeholder" class="page-bg" src="/static/images/test-book/20.jpg"/> /-->
+							<section class="photo-wrapper">
+								<img class="page-bg" src="/static/images/test-book/20.jpg"/>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<div id="geotag-20" class="page-geotag-elem">Location</div>
+										<!--/
+										<div id="geotag-06" class="page-geotag-elem">Location</div>
 										<div class="page-desc">This is a description.</div>
+										/-->
 
 									</article>
 								</div>
@@ -775,6 +779,7 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/nprogress.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
@@ -788,7 +793,14 @@
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 
 		<script src="/static/scripts/vimeothumb.js"></script>
-		<script>$("img").VimeoThumb();</script>
+
+		<script>
+			$("img").VimeoThumb();
+
+			setTimeout(function() {
+				$(".video-player-container").imgLiquid({ fill: true });
+			}, 1000); // prevent placeholder from appearing
+		</script>
 
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
@@ -801,14 +813,29 @@
 				NProgress.start();
 
 				setTimeout(function() {
+
+					var $vW = $(window).width(), $vH = $(window).height();
+
+					$(".content").css({
+						"width": $vW + "px",
+						"height": $vH + "px"
+					});
+
+					$(".frontcover-wrapper").imgLiquid({ fill: true });
+					// $(".photo-wrapper").imgLiquid({ fill: false });
+					$(".horizontal-wrapper").imgLiquid({ fill: true });
+					$(".overlay-wrapper").imgLiquid({ fill: true });
+					$(".phototext-wrapper").imgLiquid({ fill: true });
+					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
 					var Page = (function () {
 
 						var config = {
-							$bookBlock: $('#bb-bookblock'),
-							$navNext: $('#bb-nav-next'),
-							$navPrev: $('#bb-nav-prev'),
-							$navFirst: $('#bb-nav-first'),
-							$navLast: $('#next-book-toggle')
+							$bookBlock: $("#bb-bookblock"),
+							$navNext: $("#bb-nav-next"),
+							$navPrev: $("#bb-nav-prev"),
+							$navFirst: $("#bb-nav-first"),
+							$navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
 
@@ -829,35 +856,35 @@
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on('click touchstart', function () {
-								config.$bookBlock.bookblock('next');
+							config.$navNext.on("click touchstart", function () {
+								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on('click touchstart', function () {
-								config.$bookBlock.bookblock('prev');
+							config.$navPrev.on("click touchstart", function () {
+								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on('click touchstart', function () {
-								config.$bookBlock.bookblock('first');
+							config.$navFirst.on("click touchstart", function () {
+								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
-							config.$navLast.on('click touchstart', function () {
-								config.$bookBlock.bookblock('last');
+							config.$navLast.on("click touchstart", function () {
+								config.$bookBlock.bookblock("last");
 								return false;
 							});
 
 							// add swipe events
 							$slides.on({
-								'swipeleft': function (event) {
-									config.$bookBlock.bookblock('next');
+								"swipeleft": function (event) {
+									config.$bookBlock.bookblock("next");
 									return false;
 								},
 
-								'swiperight': function (event) {
-									config.$bookBlock.bookblock('prev');
+								"swiperight": function (event) {
+									config.$bookBlock.bookblock("prev");
 									return false;
 								}
 							});
@@ -876,11 +903,11 @@
 
 								switch (keyCode) {
 									case arrow.left:
-										config.$bookBlock.bookblock('prev');
+										config.$bookBlock.bookblock("prev");
 										break;
 
 									case arrow.right:
-										config.$bookBlock.bookblock('next');
+										config.$bookBlock.bookblock("next");
 										break;
 								}
 
@@ -895,10 +922,94 @@
 					})();
 
 					Page.init();
+					
+					if ($vW < "801") {
+
+						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+
+						// Page 01
+						$("#the-book").append("<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/01.jpg\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">Hayao Miyazaki</h1><div class=\"page-desc\"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is \"quite strenuous\" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div><h5>NetOperator Wibby</h5></article></div></section>");
+
+						// Page 02
+						$("#the-book").append("<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/02.jpg\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></section>");
+
+						// Page 03
+						$("#the-book").append("<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/03.jpg\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">Diego Regules</h1><div class=\"page-desc\">\"Shoot for the MOON. Even if you miss, you'll land amongst the stars.\"</div></article></div></section>");
+
+						// Page 04
+						$("#the-book").append("<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/04.jpg\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\"><blockquote>En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.</blockquote></div></article></div></section>");
+
+						// Page 05
+						$("#the-book").append("<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></section>");
+
+						// Page 06
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/06.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 07
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/07.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 08
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/08.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 09
+						$("#the-book").append("<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/09.jpg\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1><div class=\"page-desc\">This is a description.</div></article></div></section>");
+
+						// Page 10
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/10.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 11
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/11.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 12
+						$("#the-book").append("<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/12.jpg\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></section>");
+
+						// Page 13
+						$("#the-book").append("<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"/static/images/test-book/13.jpg\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></div></section>");
+
+						// Page 14
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/14.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 15
+						$("#the-book").append("<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/15.jpg\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></section>");
+
+						// Page 16
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/16.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 17
+						$("#the-book").append("<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/17.jpg\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">This is a description.</div></article></div></section>");
+
+						// Page 18
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/18.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+						
+						// Page 19
+						$("#the-book").append("<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play Video</button></div><div class=\"video-player-container\"><img src=\"http://placehold.it/640x360\" data-vimeo-id=\"36733110\" class=\"large\"/><iframe src=\"http://player.vimeo.com/video/36733110?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=0\" style=\"display: none\";></iframe></div><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></article></div></section>");
+
+						// Page 20
+						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/20.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
+
+						// Page 21
+						$("#the-book").append("Back cover stuff");
+
+					}
 
 					NProgress.done();
 
 				});
+
+			});
+
+			/*
+			setTimeout(function() {
+				// $(".video-player-container").imgLiquid({ fill: true });
+				$("img").VimeoThumb();
+			}, 5000); // prevent placeholder from appearing
+			*/
+
+			$(document).on(".play-video", "click", function () {
+
+				$(".play-video").hide();
+				$(".video-player-container img").hide();
+				$(".video-player-container iframe").show();
 
 			});
 		</script>

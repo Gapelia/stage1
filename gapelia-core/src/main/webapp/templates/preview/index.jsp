@@ -26,7 +26,7 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -161,9 +161,9 @@
 							current = pages.page[i];
 
 							if (i == 0) {
-								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display:block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							} else {
-								htmlToInsert += "<div style=\"display:none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							}
 
 							insertPage();
@@ -285,18 +285,18 @@
 
 						// htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
 					}
 
 					var Page = (function () {
 
 						var config = {
-							$bookBlock: $('#bb-bookblock'),
-							$navNext: $('#bb-nav-next'),
-							$navPrev: $('#bb-nav-prev'),
-							$navFirst: $('#bb-nav-first'),
-							$navLast: $('#next-book-toggle')
+							$bookBlock: $("#bb-bookblock"),
+							$navNext: $("#bb-nav-next"),
+							$navPrev: $("#bb-nav-prev"),
+							$navFirst: $("#bb-nav-first"),
+							$navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
 
@@ -317,35 +317,35 @@
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on('click touchstart', function () {
-								config.$bookBlock.bookblock('next');
+							config.$navNext.on("click touchstart", function () {
+								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on('click touchstart', function () {
-								config.$bookBlock.bookblock('prev');
+							config.$navPrev.on("click touchstart", function () {
+								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on('click touchstart', function () {
-								config.$bookBlock.bookblock('first');
+							config.$navFirst.on("click touchstart", function () {
+								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
-							config.$navLast.on('click touchstart', function () {
-								config.$bookBlock.bookblock('last');
+							config.$navLast.on("click touchstart", function () {
+								config.$bookBlock.bookblock("last");
 								return false;
 							});
 
 							// add swipe events
 							$slides.on({
-								'swipeleft': function (event) {
-									config.$bookBlock.bookblock('next');
+								"swipeleft": function (event) {
+									config.$bookBlock.bookblock("next");
 									return false;
 								},
 
-								'swiperight': function (event) {
-									config.$bookBlock.bookblock('prev');
+								"swiperight": function (event) {
+									config.$bookBlock.bookblock("prev");
 									return false;
 								}
 							});
@@ -364,11 +364,11 @@
 
 								switch (keyCode) {
 									case arrow.left:
-										config.$bookBlock.bookblock('prev');
+										config.$bookBlock.bookblock("prev");
 										break;
 
 									case arrow.right:
-										config.$bookBlock.bookblock('next');
+										config.$bookBlock.bookblock("next");
 										break;
 								}
 
