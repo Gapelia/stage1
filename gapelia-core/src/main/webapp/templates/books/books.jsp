@@ -743,28 +743,40 @@
 					<div class="bb-item back-cover" id="page21">
 						<div class="content">
 
-							<section class="backcover-wrapper" style="background-image:url('/static/images/test-book/20.jpg')">
+							<section class="backcover-wrapper">
 								<div id="fin">
-									<h1>Hayao Miyazaki</h1>
-									<h5><a href="#">Animanga!</a></h5>
+									<div class="appreciate"><span>Vote</span></div>
 
-									<div id="author-name">Paul Anthony Webb</div>
-									<div id="author-bio-blurb">Visual artist and short fiction contributor, tweeting <a href="http://twitter.com/NetOpWibby">@NetOpWibby</a>.</div>
-
-									<button class="slate">Vote</button>
+									<h2>Hayao Miyazaki</h1>
 
 									<ul class="share-book">
-										<li class="facebook"><a href="#">Facebook</a></li>
-										<li class="twitter"><a href="#">Twitter</a></li>
+										<li><a href="#">Facebook</a></li>
+										<li><a href="#">Twitter</a></li>
+										<li><a href="#">Email</a></li>
 									</ul>
+
+									<hr/>
+
+									<section>
+										<div id="author-avatar"><img src="/static/images/users/11.jpg"/></div>
+
+										<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
+										<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
+									</section>
+
+									<section>
+										<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
+
+										<div id="library-name"><a href="#">Japanimation</a></div>
+										<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn or CGI. For simplicity, many view anime as an animation product from Japan.</div>
+									</section>
 								</div>
 
-								<div id="fin-next" style="background-image:url('/static/images/test-book/2651.jpg')">
+								<div id="fin-next">
+									<img class="page-bg" src="/static/images/test-book/2651.jpg"/>
+
 									<section>
 										<h2><a href="#">Roadtripping California</a></h2>
-
-										<div id="next-author"><a href="#">Diego Regules</a></div>
-										<div id="next-library"><a href="#">On the Road</a></div>
 									</section>
 								</div>
 							</section>

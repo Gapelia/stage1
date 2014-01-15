@@ -32,6 +32,8 @@
 	});
 	*/
 
+	$(".backcover-wrapper .page-bg").css("width", $vW);
+
 	// Calculate half of viewport height minus half the height of the prev/next buttons
 	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
 
