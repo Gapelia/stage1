@@ -86,7 +86,7 @@ public class TestHelper {
 			//page.setPhoto(photo);
 			page.setTitle("This is a page");
 			page.setVideoUrl("http://www.youtube.com/watch?v=85eKmdX7tmI");
-			page.setTemplateId("1");
+			page.setTemplateId(1);
 			pages[i] = page;
 		}
 		return pages;

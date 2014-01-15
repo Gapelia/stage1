@@ -32,7 +32,7 @@ public class QueryDatabase {
 	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	// All User related queries
 	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId = '?'";
-	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 LIMIT 10";
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 10";
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
 												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -227,6 +227,7 @@ public class QueryDatabase {
 				//page.setPageId(rs.getString("PageId"));
 				page.setTitle(rs.getString("title"));
 				page.setDescription(rs.getString("description"));
+				page.setTemplateId(rs.getInt("templateId"));
 				page.setPhoto(rs.getString("photoUrl"));
 				page.setVideoUrl(rs.getString("videoUrl"));
 				pages[i]=page;

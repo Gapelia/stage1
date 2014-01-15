@@ -15,7 +15,7 @@ public class Page {
 	private String location;
 	private String photo;
 	private String videoUrl;
-	private String templateId;
+	private Integer templateId;
 	private Double marginX;
 	private Double marginY;
 	private Integer pageNumber;
@@ -84,11 +84,11 @@ public class Page {
 		this.videoUrl = videoUrl;
 	}
 
-	public String getTemplateId() {
+	public Integer getTemplateId() {
 		return templateId;
 	}
 
-	public void setTemplateId(String templateId) {
+	public void setTemplateId(Integer templateId) {
 		this.templateId = templateId;
 	}
 

@@ -106,7 +106,7 @@ public class Book {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String createPage(@FormParam("sessionId") String sessionId,
+	public String getBook(@FormParam("sessionId") String sessionId,
 							 @FormParam("bookId") String bookId
 	) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
