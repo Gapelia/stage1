@@ -38,11 +38,9 @@ public class QueryDatabase {
 												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, bio = ?, fb = ?, gp = ?, " +
 												"twt = ?, pic = ?, gender = ?, location = ?, dob = ?, updated = ? WHERE id = ?";
-
 	/********************************/
 	/* Methods to get User details  */
 	/********************************/
-
 	public static boolean checkProfile(Profile profile) {
 		if (isDummy())
 			return false;
