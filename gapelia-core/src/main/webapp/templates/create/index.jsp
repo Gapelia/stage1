@@ -21,12 +21,13 @@
 		<meta name="author" content="Gapelia"/>
 		<meta name="description" content="Better stories, together."/>
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>

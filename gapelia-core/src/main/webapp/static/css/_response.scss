@@ -1,17 +1,12 @@
 /************************************************************************************ RESPONSE/SCSS **/
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	/** APP/SCSS ***************************************************************************************/
 
 	.app {
-		#featured-panel {
-			width: 9.4%;
-		}
-
-		#featured-scroller {
-			width: 90.6%;
-		}
+		#featured-panel { width: 9.4%; }
+		#featured-scroller { width: 90.6%; }
 	}
 
 	/** FULL-BOOK/SCSS *********************************************************************************/
@@ -39,7 +34,7 @@
 
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	.super-wrapper.mp-pushed {
 		#g-menu-toggle { background-position: 0 0 !important; }
@@ -75,11 +70,10 @@
 			h2 { display: none; }
 
 			small {
-				/* margin: 0 0 0.5rem 0; */ padding: 0.2rem 0;
-
 				background-color: $slate;
 				color: $white;
 				font-size: 1.5em;
+				padding: 0.2rem 0;
 				position: fixed;
 				text-align: center;
 				text-transform: uppercase;
@@ -125,7 +119,6 @@
 				top: 20%;
 
 				.title, .lib-blurb { padding: 0 5rem 0 0; }
-
 				.title { font-size: 3em; }
 
 				.lib-blurb {
@@ -331,8 +324,61 @@
 
 			.video-player-container {
 				width: 100%; height: 500px;
-
 				position: relative;
+			}
+		}
+
+		.backcover-wrapper {
+			border-bottom: none;
+
+			.appreciate { margin: 0 1.5rem !important; }
+
+			#fin, #fin-next {
+				float: none;
+				width: 100%;
+			}
+
+			#fin {
+				height: auto;
+				padding: 4rem 4rem 0 4rem;
+
+				h2 {
+					&:before { font-size: 0.5em; }
+					margin: 0 0 0 2rem;
+				}
+
+				.share-book { margin: -1.5rem 0 2rem 11.4rem; }
+
+				#author-avatar, #library-avatar {
+					width: 150px; height: 150px;
+				}
+
+				#author-bio-blurb, #library-info-blurb {
+					font-size: 1.4em;
+					line-height: 1.4em;
+					margin: -6rem 0 0 11.4rem;
+				}
+			}
+
+			#fin-next {
+				height: 300px !important;
+				overflow: hidden;
+
+				section {
+					top: 50%; left: 0;
+					transform: translateY(-50%);
+
+					-o-transform: translateY(-50%);
+					-ms-transform: translateY(-50%);
+					-moz-transform: translateY(-50%);
+					-webkit-transform: translateY(-50%);
+				}
+
+				h2 {
+					font-size: 40px;
+					text-align: center;
+					width: 800px;
+				}
 			}
 		}
 	}
@@ -364,7 +410,7 @@
 
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	button, .button {
 		font-size: 2em !important;
@@ -379,7 +425,7 @@
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			.page-desc, p {
-				font-size: 1.5em !important;
+				font-size: 1.2em !important;
 				line-height: 1.6em !important;
 			}
 		}
@@ -388,25 +434,40 @@
 			height: auto !important;
 
 			.overlay-preview {
-				.page-desc { font-size: 2.5em !important; }
+				// .page-desc { font-size: 2.5em !important; }
 				article { margin: 10% auto; }
+			}
+		}
+
+		.horizontal-wrapper {
+			.horizontal-preview {
+				.page-title-elem { font-size: 1.7em; }
 			}
 		}
 
 		.video-wrapper {
 			.button-wrapper { top: 380px; }
 		}
+
+		.backcover-wrapper {
+			#fin-next {
+				h2 {
+					font-size: 32px;
+					width: 600px;
+				}
+			}
+		}
 	}
 
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	button, .button {
-		font-size: 5em !important;
-		padding: 2rem 2.5rem !important;
+		font-size: 40% !important;
+		padding: 0.5rem 1rem !important;
 
-		&:hover { padding: 2rem 3rem !important; }
+		&:hover { padding: 0.5rem 1rem !important; }
 	}
 
 	/** FULL-BOOK/SCSS *********************************************************************************/
@@ -415,18 +476,19 @@
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			.page-title-elem {
-				font-size: 5em;
+				font-size: 2em;
 				line-height: 1.2em;
-				padding: 1rem 2rem 0 2rem;
+				padding: 0 !important;
 			}
 
 			.page-desc, p {
-				font-size: 2em !important;
-				line-height: 1.5em !important;
+				// font-size: 1.2em !important;
+				font-size: 100% !important;
+				line-height: 1.6em !important;
 			}
 
 			.page-desc {
-				padding: 1rem 6rem !important;
+				padding: 0 !important;
 				text-align: justify !important;
 			}
 		}
@@ -434,9 +496,9 @@
 		.frontcover-wrapper {
 			.frontcover-preview {
 				.page-title-elem {
-					font-size: 5em;
+					font-size: 2em;
 					line-height: 1.2em;
-					padding: 1rem 2rem 0 2rem;
+					padding: 0 !important;
 				}
 			}
 		}
@@ -452,7 +514,7 @@
 				padding: 0 1rem !important;
 
 				.page-desc {
-					font-size: 2.5em !important;
+					// font-size: 2.5em !important;
 				}
 			}
 
@@ -460,10 +522,8 @@
 		}
 
 		.overlay-wrapper {
-			// height: auto !important;
-
 			.overlay-preview {
-				.page-desc { font-size: 3.5em !important; }
+				// .page-desc { font-size: 3.5em !important; }
 
 				article {
 					margin: -1% auto;
@@ -473,7 +533,63 @@
 		}
 
 		.video-wrapper {
-			.button-wrapper { top: 195px; }
+			.video-player-container {
+				height: 200px;
+			}
+
+			.button-wrapper { top: 140px; }
+		}
+
+		.backcover-wrapper {
+			#fin {
+				padding: 2rem 2rem 0 2rem;
+
+				.appreciate, h2 { display: block; }
+
+				.appreciate { margin: 0 auto !important; }
+
+				h2 {
+					margin: 0.5rem 0;
+					text-align: center;
+				}
+
+				.share-book {
+					&:before {
+						display: block;
+						margin: 0 0 0.5rem 0;
+					}
+
+					margin: 1.5rem auto;
+					text-align: center;
+				}
+
+				#author-avatar, #author-name,
+				#library-avatar, #library-name {
+					display: block;
+					font-size: 100%;
+					margin: 1rem 0;
+					text-align: center;
+				}
+
+				#author-avatar, #library-avatar { margin: 0 auto; }
+
+				#author-bio-blurb, #library-info-blurb {
+					font-size: 100%;
+					margin: 0;
+					text-align: center;
+				}
+			}
+
+			#fin-next {
+				height: auto !important;
+				min-height: 100px;
+				max-height: 150px;
+
+				h2 {
+					font-size: 150%;
+					width: 320px;
+				}
+			}
 		}
 	}
 

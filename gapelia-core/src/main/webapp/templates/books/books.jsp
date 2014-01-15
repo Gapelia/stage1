@@ -21,6 +21,7 @@
 		<meta name="author" content="Gapelia"/>
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
@@ -768,7 +769,7 @@
 										<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
 
 										<div id="library-name"><a href="#">Japanimation</a></div>
-										<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn or CGI. For simplicity, many view anime as an animation product from Japan.</div>
+										<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
 									</section>
 								</div>
 
@@ -1000,7 +1001,47 @@
 						$("#the-book").append("<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/20.jpg\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">This is a title</h1></article></div></section>");
 
 						// Page 21
-						$("#the-book").append("Back cover stuff");
+						$("#the-book").append("<section class=\"backcover-wrapper\"><div id=\"fin\"><div class=\"appreciate\"><span>Vote</span></div><h2>Hayao Miyazaki</h1><ul class=\"share-book\"><li><a href=\"#\">Facebook</a></li><li><a href=\"#\">Twitter</a></li><li><a href=\"#\">Email</a></li></ul><hr/><section><div id=\"author-avatar\"><img src=\"/static/images/users/11.jpg\"/></div><div id=\"author-name\"><a href=\"#\">Paul Anthony Webb</a></div><div id=\"author-bio-blurb\">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div></section><section><div id=\"library-avatar\"><img src=\"/static/images/covers/architecture-sonn-visionsofart.jpg\"/></div><div id=\"library-name\"><a href=\"#\">Japanimation</a></div><div id=\"library-info-blurb\">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div></section></div><div id=\"fin-next\"><img class=\"page-bg\" src=\"/static/images/test-book/2651.jpg\"/><section><h2><a href=\"#\">Roadtripping California</a></h2></section></div></section>");
+
+						/*
+						<section class="backcover-wrapper">
+							<div id="fin">
+								<div class="appreciate"><span>Vote</span></div>
+
+								<h2>Hayao Miyazaki</h1>
+
+								<ul class="share-book">
+									<li><a href="#">Facebook</a></li>
+									<li><a href="#">Twitter</a></li>
+									<li><a href="#">Email</a></li>
+								</ul>
+
+								<hr/>
+
+								<section>
+									<div id="author-avatar"><img src="/static/images/users/11.jpg"/></div>
+
+									<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
+									<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
+								</section>
+
+								<section>
+									<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
+
+									<div id="library-name"><a href="#">Japanimation</a></div>
+									<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
+								</section>
+							</div>
+
+							<div id="fin-next">
+								<img class="page-bg" src="/static/images/test-book/2651.jpg"/>
+
+								<section>
+									<h2><a href="#">Roadtripping California</a></h2>
+								</section>
+							</div>
+						</section>
+						*/
 
 					}
 
