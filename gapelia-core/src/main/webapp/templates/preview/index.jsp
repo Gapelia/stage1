@@ -21,6 +21,7 @@
 		<meta name="author" content="Gapelia"/>
 		<meta name="description" content="This should be a synopsis about the book"/>
 		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
@@ -30,12 +31,6 @@
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-
-		<!--/ <script src="static/scripts/preview.js"></script> /-->
-
-		<script>
-
-		</script>
 
 	</head>
 
