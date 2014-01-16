@@ -39,6 +39,7 @@
 
 				html = "<ul id=\"book-list\">";
 				featuredBooks = "";
+				$vH = $(window).height();
 				parsedHtml = "";
 				sId = 123456;
 
