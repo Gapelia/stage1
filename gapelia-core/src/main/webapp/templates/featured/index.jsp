@@ -39,7 +39,6 @@
 
 				html = "<ul id=\"book-list\">";
 				featuredBooks = "";
-				$vH = $(window).height();
 				parsedHtml = "";
 				sId = 123456;
 
@@ -58,7 +57,22 @@
 						parsedHtml = parseJsonToStringForBooks(featuredBooks);
 
 						$(".book-list-wrapper").html(parsedHtml);
-						resize();
+						$("#book-list").css("opacity", "0").show();
+
+						$("#book-list").mCustomScrollbar({
+							autoHideScrollbar: false,
+							horizontalScroll: true,
+							theme: "dark-thin",
+							advanced: {
+								autoExpandHorizontalScroll: true,
+								updateOnContentResize: false
+							}
+						});
+
+						NProgress.done();
+
+						// $("#book-list .book").css("height", $vH - 97 + "px");
+						$("#book-list").css("opacity", "1");
 
 					},
 
@@ -72,26 +86,7 @@
 
 					}
 				});
-				function resize() {
 
-					$("#book-list").css("opacity", "0").show();
-
-					$("#book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: {
-							autoExpandHorizontalScroll: true,
-							updateOnContentResize: false
-						}
-					});
-
-					NProgress.done();
-
-					$("#book-list .book").css("height", $vH - 97 + "px");
-					$("#book-list").css("opacity", "1");
-
-				}
 				/*
 				$.ajax({
 					url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllLibraries",
@@ -238,7 +233,7 @@
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
-				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+				<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
 
 				<div class="featured-info">
 					<h2>Gapelia</h2>

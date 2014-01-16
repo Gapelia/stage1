@@ -51,8 +51,10 @@
 
 	.app {
 		#g-menu-toggle {
-			top: 2.3rem; left: 1rem;
-			background-position: 271px -632px;
+			width: 64px; height: 64px;
+
+			background-position: 0 0;
+			background-size: 400px 1000px;
 		}
 
 		#featured-panel, #featured-scroller,
@@ -473,6 +475,39 @@
 	/** FULL-BOOK/SCSS *********************************************************************************/
 
 	.full-book {
+		.mp-pushed {
+			transform: translate3d(225px, 0px, 0px) !important;
+
+			-o-transform: translate3d(225px, 0px, 0px) !important;
+			-ms-transform: translate3d(225px, 0px, 0px) !important;
+			-moz-transform: translate3d(225px, 0px, 0px) !important;
+			-webkit-transform: translate3d(225px, 0px, 0px) !important;
+		}
+
+		.mp-menu {
+			font-size: 80%;
+			width: 225px;
+		}
+
+		#g-menu-toggle {
+			width: 32px; height: 32px;
+
+			background-size: 200px 500px;
+			opacity: 1;
+			z-index: 103;
+
+			span {
+				height: 100%;
+				top: 0;
+				transform: translateY(0);
+
+				-o-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+			}
+		}
+
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			.page-title-elem {

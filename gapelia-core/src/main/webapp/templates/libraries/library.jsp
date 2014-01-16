@@ -104,7 +104,7 @@
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
-				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+				<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
 
 				<div class="featured-info">
 					<h2>[Library Name]</h2>

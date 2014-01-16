@@ -10,11 +10,24 @@
 
 	.mp-pushed {
 		#g-menu-toggle {
-			// width: 64px !important; height: 64px !important;
+			width: 64px !important; height: 64px !important;
+			top: 1.5rem !important; left: 1rem;
 
-			// background-size: 400px 1000px !important;
-			// top: 1rem !important;
-		}	
+			background-size: 400px 1000px !important;
+			border-radius: 300rem;
+			z-index: 1;
+
+			span {
+				height: 20%;
+				top: 50%;
+				transform: translateY(-50%);
+
+				-o-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+		}
 	}
 
 	.bb-item {
@@ -59,6 +72,31 @@
 	*/
 
 	#g-menu-toggle {
+		width: 32px; height: 32px;
+
+		background-size: 200px 500px;
+		// left: 0;
+		opacity: 1;
+		// top: 0.6rem;
+		// transition: all 0.2s ease;
+		z-index: 103;
+
+		span {
+			height: 100%;
+			top: 0;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+
+		&:hover { padding: 0 !important; }
+	}
+
+	/*
+	#g-menu-toggle {
 		&:before {
 			width: 100%; height: 20px;
 
@@ -76,6 +114,7 @@
 		top: 0.6rem;
 		z-index: 103;
 	}
+	*/
 
 	#header-toggle, #next-book-toggle {
 		width: 47px; height: 47px;

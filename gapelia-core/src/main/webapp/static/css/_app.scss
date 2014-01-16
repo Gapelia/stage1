@@ -66,7 +66,7 @@
 
 		background-color: $slate;
 		border: 0;
-		border-radius: 300rem;
+		// border-radius: 300rem;
 		color: $white;
 		cursor: pointer;
 		font-weight: 300;
@@ -154,18 +154,31 @@
 		width: 64px; height: 64px;
 		top: 1rem; left: 1rem;
 
-		background-color: transparent;
+		background-color: $slate; // transparent
 		background-image: url("../images/sprite-sheet.png");
 		background-position: 0 0;
 		background-size: 400px 1000px;
-		border-radius: 300rem;
+		// border-radius: 300rem;
+		border-radius: none;
+		border-top-right-radius: 300rem;
+		border-bottom-right-radius: 300rem;
 		cursor: pointer;
 		opacity: 0.7;
 		position: absolute;
-		transition: all 0.2s ease;
+		transition: all 0.5s ease;
 		z-index: 2;
 
 		@include hide-text;
+
+		span {
+			width: 20px; height: 100%;
+			top: 0; left: -17px;
+
+			background-color: $slate;
+			position: absolute;
+		}
+
+		a { text-shadow: none !important; }
 
 		&:hover { opacity: 1; }
 	}

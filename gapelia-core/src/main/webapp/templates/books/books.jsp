@@ -79,8 +79,9 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
-			<div id="header-toggle">&#9206;</div>
+			<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
+
+			<!--/ <div id="header-toggle">&#9206;</div> /-->
 			<div id="next-book-toggle">&#9197;</div>
 
 			<header>

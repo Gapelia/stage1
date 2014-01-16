@@ -103,7 +103,7 @@
 
 			<!--/ main-panel /-->
 			<div id="user-panel">
-				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+				<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
 
 				<div class="user-avatar">
 					<div class="avatar-wrapper">
