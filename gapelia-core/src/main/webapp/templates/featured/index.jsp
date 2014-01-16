@@ -53,22 +53,7 @@
 						parsedHtml = parseJsonToStringForBooks(featuredBooks);
 
 						$(".book-list-wrapper").html(parsedHtml);
-						$("#book-list").css("opacity", "0").show();
-
-						$("#book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: {
-								autoExpandHorizontalScroll: true,
-								updateOnContentResize: false
-							}
-						});
-
-						NProgress.done();
-
-						// $("#book-list .book").css("height", $vH - 97 + "px");
-						$("#book-list").css("opacity", "1");
+						resize();
 
 					},
 
@@ -82,7 +67,26 @@
 
 					}
 				});
+				function resize() {
 
+					$("#book-list").css("opacity", "0").show();
+
+					$("#book-list").mCustomScrollbar({
+						autoHideScrollbar: false,
+						horizontalScroll: true,
+						theme: "dark-thin",
+						advanced: {
+							autoExpandHorizontalScroll: true,
+							updateOnContentResize: false
+						}
+					});
+
+					NProgress.done();
+
+					$("#book-list .book").css("height", $vH - 97 + "px");
+					$("#book-list").css("opacity", "1");
+
+				}
 				/*
 				$.ajax({
 					url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllLibraries",
