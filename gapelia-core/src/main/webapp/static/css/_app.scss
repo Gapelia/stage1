@@ -88,7 +88,8 @@
 	#user-panel,
 	#dimension-panel,
 	#featured-panel {
-		background-color: $gray-i;
+		background-color: $white; // gray-i
+		box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 		overflow: hidden;
 		width: 25%;
 	}
@@ -104,9 +105,10 @@
 			bottom: 2rem; left: -3.8rem;
 
 			background-image: url("/static/images/sprite-sheet.png");
-			background-position: 0 -333px;
+			background-position: 0 -410px; // 0 -333px
 			background-repeat: no-repeat;
 			background-size: 200px 500px;
+			color: $slate !important;
 			position: fixed;
 			transform: rotate(-90deg);
 			width: 214px;
@@ -138,6 +140,7 @@
 			width: auto; height: 100%;
 		}
 
+		/*
 		&:after {
 			top: 0; right: 0;
 			bottom: 0; left: 0;
@@ -148,6 +151,7 @@
 			opacity: 0.6;
 			position: absolute;
 		}
+		*/
 	}
 
 	#g-menu-toggle {
