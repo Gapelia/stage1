@@ -93,6 +93,8 @@
 
 		h2, ul, span { text-align: center; }
 
+		h2 { margin: 0 0 -0.15rem 0; }
+
 		ul {
 			margin: 1rem 0;
 
@@ -114,6 +116,7 @@
 
 			background-color: transparent;
 			display: block;
+			line-height: 1.25em;
 			transition: all 0.2s ease;
 		}
 
@@ -179,6 +182,17 @@
 			display: block;
 			margin: 4rem 0 0 0;
 		}
+	}
+
+	.user-book-list-wrapper {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
 	}
 
 	.collection-pages, .collection-contributors, .draft-pages,

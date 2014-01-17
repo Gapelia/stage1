@@ -51,6 +51,20 @@ $(document).ready(function() {
 
 	$(".super-wrapper").css("height", $vH + "px");
 
+	// Me page
+
+	// Bio input limiter
+	var descElem = "user-bio";
+	descMax = 151;
+
+	$("#" + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+
+	function check_charcount(titleElem, titleMax, e) {
+		if(e.which != 8 && $("#" + titleElem).text().length > titleMax) {
+			e.preventDefault();
+		}
+	}
+
 	// Edit Profile on "Me" page
 	$(document).on("click", "button.edit-profile", function () {
 

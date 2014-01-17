@@ -13,10 +13,12 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-		//Create Book
+
+		// Create Book
 		sId = "1234567";
-		pageId=0;
-		bookId=0;
+		pageId = 0;
+		bookId = 0;
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -25,8 +27,8 @@
 				sessionId: sId
 			},
 			success: function (data) {
-				bookId=data;
-				console.log("Succes Creating your book");
+				bookId = data;
+				console.log("Success creating your book");
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
@@ -36,6 +38,7 @@
 				}
 			}
 		});
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -44,7 +47,8 @@
 				sessionId: sId
 			},
 			success: function (data) {
-				pageId=data;
+
+				pageId = data;
 				console.log(data);
 				geotag = "BUGGGGGG";
 				book = {
@@ -57,6 +61,7 @@
 				pages = {
 					"page" : [{}]
 				};
+
 				index = 0;
 				author = "author";
 				pageNumber = 0;
@@ -68,23 +73,27 @@
 				pagesCreated = 0; // subscript of 0
 				currentPage = 0;
 				frontCoverLayout;
+
 				pages.page[0] = {
-						"pageNumber" : pagesCreated,
-						"geotag" : null,
-						"templateId" : "0",
-						"title" : null,
-						"text" : null,
-						"image" : "/static/images/blankBG.jpg",
-						"video" : "null",
-						"pageId" :pageId
+					"pageNumber": pagesCreated,
+					"geotag": null,
+					"templateId": "0",
+					"title": null,
+					"text": null,
+					"image": "/static/images/blankBG.jpg",
+					"video": "null",
+					"pageId": pageId
 				};
+
 			},
 			error: function (q, status, err) {
+
 				if (status == "timeout") {
 					alert("Request timed out");
 				} else {
 					alert("Some issue happened with your request: " + err);
 				}
+
 			}
 		});
 
@@ -270,19 +279,25 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#add-page").click(function (e) {
+
 		if(pagesCreated > 20) {
 			alert("Your book is too big please remove a page!\n");
 			return;
 		}
+
 		pagesCreated++;
+
 		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
+
 		title = $(".page-title-elem").html();
 		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
+
 		if(geotag == undefined) {
-			geotag="BUUUGGG";
+			geotag = "BUUUGGG";
 		}
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -291,23 +306,25 @@
 				sessionId: sId
 			},
 			success: function (data) {
-				pageId=data;
+
+				pageId = data;
 				console.log(data);
-				if(pagesCreated==0) {
+
+				if(pagesCreated == 0) {
 					pages.page[0] = {
-						"pageNumber" : pagesCreated,
-						"geotag" : geotag,
-						"templateId" : 0,
-						"title" : null,
-						"text" : null,
-						"image" : "/static/images/blankBG.jpg",
-						"video" : "null",
-						"pageId":pageId
+						"pageNumber": pagesCreated,
+						"geotag": geotag,
+						"templateId": 0,
+						"title": null,
+						"text": null,
+						"image": "/static/images/blankBG.jpg",
+						"video": "null",
+						"pageId": pageId
 					};
 
 					templateId = 0;
 					frontCoverLayout();
-				}  else {
+				} else {
 					pages.page[pagesCreated-1].geotag = geotag;
 					pages.page[pagesCreated-1].templateId = templateId;
 					pages.page[pagesCreated-1].title = title;
@@ -316,14 +333,14 @@
 					pages.page[pagesCreated-1].video = videoURL;
 
 					pages.page[pagesCreated] = {
-						"pageNumber" : pagesCreated,
-						"geotag" : null,
-						"templateId" : "0",
-						"title" : null,
-						"text" : null,
-						"image" : "/static/images/blankBG.jpg",
-						"video" : "null",
-						"pageId" :pageId
+						"pageNumber": pagesCreated,
+						"geotag": null,
+						"templateId": "0",
+						"title": null,
+						"text": null,
+						"image": "/static/images/blankBG.jpg",
+						"video": "null",
+						"pageId": pageId
 					};
 
 					templateId = 0;
@@ -332,18 +349,21 @@
 					imageURL = null;
 					videoURL = null;
 				}
+
 			},
 			error: function (q, status, err) {
+
 				if (status == "timeout") {
 					alert("Request timed out");
 				} else {
 					alert("Some issue happened with your request: " + err);
 				}
+
 			}
 		});
-		
-		
+
 		e.preventDefault();
+
 	});
 
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
@@ -425,17 +445,16 @@
 		}
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
-		} 
-		else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+		} else {
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
+
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
@@ -522,15 +541,15 @@
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 		}
 
@@ -627,20 +646,19 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
-			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div></article></div></section>";
+			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
+
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no background in this view, but having this allows it to keep between layout switching
@@ -797,14 +815,14 @@
 		if(text == null) {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			if(currentPage==0)
 			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -920,15 +938,16 @@
 		// no title in this view, but having this allows it to keep between layout switching
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
+
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 		}
 
@@ -1000,16 +1019,14 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1084,16 +1101,14 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1170,16 +1185,14 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+author+"</span></h5>";
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -1306,6 +1319,7 @@
 
 	// Save book information every minute
 	window.setInterval(function () {
+
 		/*
 		$.ajax({
 			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
@@ -1328,6 +1342,7 @@
 			}
 		});
 		*/
+
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
 	}, 60000);
@@ -1393,7 +1408,8 @@
 		// TO DO: Get tags from format and library
 		library = "Into the Wild";
 		tags = "fun";
-		//Save book
+
+		// Save book
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1402,13 +1418,13 @@
 				sessionId: sId,
 				bookId:bookId,
 				title: pages.page[0].title,
-				language:"English",
-				library:library,
-				tags:tags,
-				dimension:"pulse",
-				createdBy:"god",
-				isPublished:1,
-				coverPhoto:pages.page[0].image
+				language: "English",
+				library: library,
+				tags: tags,
+				dimension: "pulse",
+				createdBy: "god",
+				isPublished: 1,
+				coverPhoto: pages.page[0].image
 			},
 			success: function (data) {
 				console.log("Succes Publishing your book");
@@ -1421,9 +1437,12 @@
 				}
 			}
 		});
-		i=0;
-		while(i<=pagesCreated){
-			console.log("attempting to save page number"+i);
+
+		i = 0;
+
+		while(i <= pagesCreated) {
+			console.log("attempting to save page number" + i);
+
 			$.ajax({
 				url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 				contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1432,32 +1451,33 @@
 				data: {
 					sessionId: sId,
 					pageId: pages.page[i].pageId,
-					title:pages.page[i].title,
-					description:pages.page[i].text,
-					location:"TODO",
-					templateId:pages.page[i].templateId,
-					marginX:"TODO",
-					marginY:"TODO",
-					videoUrl:pages.page[i].video,
-					pageNumber:i,
-					bookId:bookId,
-					createdbyUserId:"GOD",
-					photoUrl:pages.page[i].image,
-					photoId:"TODO"
+					title: pages.page[i].title,
+					description: pages.page[i].text,
+					location: "TODO",
+					templateId: pages.page[i].templateId,
+					marginX: "TODO",
+					marginY: "TODO",
+					videoUrl: pages.page[i].video,
+					pageNumber: i,
+					bookId: bookId,
+					createdbyUserId: "GOD",
+					photoUrl: pages.page[i].image,
+					photoId: "TODO"
 				},
 				success: function (data) {
-					console.log("Succes Publishing your page"+i);
+					console.log("Success publishing your page" + i);
 					i++;
 				},
 				error: function (q, status, err) {
 					if (status == "timeout") {
-						 alert("Request timed out trying again");
+						alert("Request timed out trying again");
 					} else {
-						 alert("Some issue happened with your request: " + err);
+						alert("Some issue happened with your request: " + err);
 					}
 				}
 			});
 		}
+
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",

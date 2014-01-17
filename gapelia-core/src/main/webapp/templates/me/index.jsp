@@ -33,7 +33,7 @@
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
-		<%@include file="../../userDetails.jsp" %> <!-- Dont use this. It is for testing only -->
+		<%@include file="../../userDetails.jsp" %><!--/ Dont use this. It is for testing only /-->
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
@@ -42,10 +42,11 @@
 		<% /* Copy this on all jsp get sessionId %>
 		<!--/ To get session id /-->
 		<script>
-		    <% String id = session.getId();  %>
-		    var sessionId = <%= id %>
+			<% String id = session.getId(); %>
+			var sessionId = <%= id %>
 		</script>
-        <% /* ******************************* */ %>
+		<% /* ******************************* */ %>
+
 	</head>
 
 	<body class="app profile">
@@ -131,14 +132,18 @@
 
 			<!--/ main-scroller /-->
 			<div id="book-scroller">
+				<!--/
 				<ul id="book-nav">
-					<li id="nav-books" class="current"><a href="#">Your Personal Collection</a></li>
-					<!--/ <li id="nav-collections"><a href="#">Bookmarks</a></li> /-->
-					<!--/ <li id="nav-drafts"><a href="#">Drafts</a></li> /-->
+					// <li id="nav-books" class="current"><a href="#">Your Personal Collection</a></li>
+					// <li id="nav-collections"><a href="#">Bookmarks</a></li>
+					// <li id="nav-drafts"><a href="#">Drafts</a></li>
 				</ul>
+				/-->
 
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
+					<!--/ <div><br/>&nbsp;<br/></div> /-->
+
 					<ul id="user-book-list">
 
 						<li class="book">
