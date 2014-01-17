@@ -946,8 +946,12 @@
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
+		<script src="/static/scripts/mousewheel.js"></script>
+
+		<!--/
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
+		/-->
 
 		<script>
 			$(document).ready(function () {
@@ -955,6 +959,15 @@
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
+
+				$(function() {
+					$("#featured-scroller").mousewheel(function(event, delta) {
+
+						this.scrollLeft -= (delta * 90);
+						event.preventDefault();
+
+					});
+				});
 
 				if ($vW < "801") {
 
@@ -966,70 +979,90 @@
 				}
 
 				// Load Gapelia
-				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
-				NProgress.start();
+				$(function() {
 
-				setTimeout(function () {
+					NProgress.start();
 
-					$("#book-list").css("opacity", "0").show();
+					$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
-					$("#book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						callbacks: {
-						},
-						advanced: { autoExpandHorizontalScroll: true }
-					});
+					var
+					allBooks = $("#book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
 
-					if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+					setTimeout(function () {
+
+						$("#book-list").hide();
+						$("#library-list").hide();
+						$("#bookmark-list").hide();
+
+						var w = 0;
+
+						$("#book-list li").each(function() {
+							w += $(this).outerWidth();
+						});
+
+						w += 500;
+
+						$("#book-list").css("width", w - 320 + "px");
+
+						// fades in the all the books after section width is added
+						$("#book-list li").fadeIn("100");
+						$("#book-list").fadeIn("100");
+
+						// "fix" featured menu pop-in
+						setTimeout(function () {
+							$("#featured-panel, #featured-scroller").css("opacity", "1");
+						}, 400);
+
+					}, 1000);
+
+					$("#nav-books").addClass("current");
 
 					NProgress.done();
 
-					$("#book-list").css("opacity", "1");
-
-					// "fix" featured menu pop-in
-					setTimeout(function () {
-						$("#featured-panel, #featured-scroller").css("opacity", "1");
-					}, 400);
-
 				});
-
-				$("#nav-books").addClass("current");
 
 				// Click "Books"
 				$("#nav-books").click(function (e) {
 
 					NProgress.start();
 
+					var
+					allBooks = $("#book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
 					setTimeout(function () {
 
-						$("#book-list").show();
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
 
-						$("#book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							callbacks: {
-							},
-							advanced: { autoExpandHorizontalScroll: true }
+						var w = 0;
+
+						$("#book-list li").each(function() {
+							w += $(this).outerWidth();
 						});
 
-						$("#library-list").mCustomScrollbar("destroy");
-						$("#bookmark-list").mCustomScrollbar("destroy");
+						w += 500;
 
-						if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
+						$("#book-list").css("width", w - 320 + "px");
 
-						NProgress.done();
+						// fades in the all the books after section width is added
+						$("#book-list li").fadeIn("100");
+						$("#book-list").fadeIn("100");
 
-					});
+					}, 1000);
+
+					e.preventDefault();
 
 					$("#nav-books").addClass("current");
 					$("#nav-libraries").removeClass("current");
 					$("#nav-bookmarks").removeClass("current");
-					e.preventDefault();
+
+					NProgress.done();
 
 				});
 
@@ -1038,34 +1071,40 @@
 
 					NProgress.start();
 
-					$("#book-list").hide();
-					$("#library-list").show();
-					$("#bookmark-list").hide();
+					var
+					allBooks = $("#library-list li"),		// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
 					setTimeout(function () {
 
-						$("#library-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							callbacks: {
-							},
-							advanced: { autoExpandHorizontalScroll: true }
+						$("#book-list").hide();
+						$("#bookmark-list").hide();
+
+						var w = 0;
+
+						$("#library-list li").each(function() {
+							w += $(this).outerWidth();
 						});
 
-						$("#book-list").mCustomScrollbar("destroy");
-						$("#bookmark-list").mCustomScrollbar("destroy");
+						w += 500;
 
-						if ($vW < "801") { $("#library-list").mCustomScrollbar("destroy"); }
+						$("#library-list").css("width", w - 155 + "px");
 
-						NProgress.done();
+						// fades in the all the books after section width is added
+						$("#library-list li").fadeIn("100");
+						$("#library-list").fadeIn("100");
 
-					});
+					}, 1000);
+
+					e.preventDefault();
 
 					$("#nav-books").removeClass("current");
 					$("#nav-libraries").addClass("current");
 					$("#nav-bookmarks").removeClass("current");
-					e.preventDefault();
+
+					NProgress.done();
 
 				});
 
@@ -1074,34 +1113,40 @@
 
 					NProgress.start();
 
-					$("#book-list").hide();
-					$("#library-list").hide();
-					$("#bookmark-list").show();
+					var
+					allBooks = $("#bookmark-list li"),		// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
 
-					setTimeout(function() {
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-						$("#bookmark-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							callbacks: {
-							},
-							advanced: { autoExpandHorizontalScroll: true }
+					setTimeout(function () {
+
+						$("#book-list").hide();
+						$("#library-list").hide();
+
+						var w = 0;
+
+						$("#bookmark-list li").each(function() {
+							w += $(this).outerWidth();
 						});
 
-						$("#book-list").mCustomScrollbar("destroy");
-						$("#library-list").mCustomScrollbar("destroy");
+						w += 500;
 
-						if ($vW < "801") { $("#bookmark-list").mCustomScrollbar("destroy"); }
+						$("#bookmark-list").css("width", w - 320 + "px");
 
-						NProgress.done();
+						// fades in the all the books after section width is added
+						$("#bookmark-list li").fadeIn("100");
+						$("#bookmark-list").fadeIn("100");
 
-					});
+					}, 1000);
+
+					e.preventDefault();
 
 					$("#nav-books").removeClass("current");
 					$("#nav-libraries").removeClass("current");
 					$("#nav-bookmarks").addClass("current");
-					e.preventDefault();
+
+					NProgress.done();
 
 				});
 

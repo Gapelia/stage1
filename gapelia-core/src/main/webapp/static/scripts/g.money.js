@@ -51,8 +51,44 @@ $(document).ready(function() {
 
 	$(".super-wrapper").css("height", $vH + "px");
 
-	// Me page
+	$(window).ready(function () {
 
+    // gets all photos in a post
+    var allpics = $("#user-book-list li, #library-list li, #bookmark-list li");
+
+    // gets first photo in list
+    var firstpic = $(allpics).first();
+
+    // hides all photos in a post except the first photo
+    $(allpics).not(firstpic).hide();
+
+    // holds function for one second and then adds width to body tag
+    setTimeout(function() {
+
+			$("#user-book-list").hide().css("margin", "-2px 0 0 0");
+			// $("#book-list, #library-list, #bookmark-list").hide();
+
+			var w = 0;
+
+			$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function() {
+				w += $(this).outerWidth();
+			});
+
+			w += 500;
+
+			$("#user-book-list, #book-list, #library-list, #bookmark-list").css("width", w - 320 + "px");
+
+			// fades in the all the photos after body width is added
+			$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").fadeIn("100");
+
+			$("#user-book-list").css("margin", "2px 0 0 0").fadeIn("100");
+			// $("#book-list, #library-list, #bookmark-list").fadeIn("100");
+
+    }, 1000);
+
+	});
+
+	// Me page
 	// Bio input limiter
 	var descElem = "user-bio";
 	descMax = 151;

@@ -328,8 +328,12 @@
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
+		<script src="/static/scripts/mousewheel.js"></script>
+
+		<!--/
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
+		/-->
 
 		<script>
 			$(document).ready(function() {
@@ -337,6 +341,15 @@
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
+
+				$(function() {
+					$("#featured-scroller").mousewheel(function(event, delta) {
+
+						this.scrollLeft -= (delta * 90);
+						event.preventDefault();
+
+					});
+				});
 
 				if ($vW < "801") {
 
@@ -348,6 +361,52 @@
 				}
 
 				// Load Gapelia
+				$(function() {
+
+					NProgress.start();
+
+					$("#featured-panel, #featured-scroller").css("opacity", "0").show();
+
+					var
+					allBooks = $("#book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+					setTimeout(function () {
+
+						$("#book-list").hide();
+						$("#library-list").hide();
+						$("#bookmark-list").hide();
+
+						var w = 0;
+
+						$("#book-list li").each(function() {
+							w += $(this).outerWidth();
+						});
+
+						w += 500;
+
+						$("#book-list").css("width", w - 320 + "px");
+
+						// fades in the all the books after section width is added
+						$("#book-list li").fadeIn("100");
+						$("#book-list").fadeIn("100");
+
+						// "fix" featured menu pop-in
+						setTimeout(function () {
+							$("#featured-panel, #featured-scroller").css("opacity", "1");
+						}, 400);
+
+					}, 1000);
+
+					$("#nav-books").addClass("current");
+
+					NProgress.done();
+
+				});
+
+				/*
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 				NProgress.start();
 
@@ -378,6 +437,7 @@
 				});
 
 				$("#nav-books").addClass("current");
+				*/
 
 			});
 		</script>

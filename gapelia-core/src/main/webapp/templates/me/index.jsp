@@ -296,8 +296,12 @@
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
+		<script src="/static/scripts/mousewheel.js"></script>
+
+		<!--/
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
+		/-->
 
 		<script>
 			$(".user-data h2").html(_fullName);
@@ -329,6 +333,61 @@
 
 					$("#user-book-list").css("opacity", "0").show();
 
+					$(function() {
+						$("#book-scroller").mousewheel(function(event, delta) {
+
+							this.scrollLeft -= (delta * 90);
+							event.preventDefault();
+
+							if (event.deltaY < 0) {
+
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
+
+								$("#user-panel h2").css({
+									"bottom": "2rem",
+									"left": "-3.1rem",
+									"margin": "2rem 0",
+									"position": "fixed",
+									"transform": "rotate(-90deg)",
+									"width": "194px",
+									"-webkit-transform": "rotate(-90deg)"
+								});
+
+								if ($vW < "1025") {
+
+									// $("#book-list").mCustomScrollbar("destroy");
+									$("#user-panel").css("width", "9.4%");
+									$("#book-scroller").css("width", "90.6%");
+
+								} else {
+
+									$("#user-panel").css("width", "7%");
+									$("#book-scroller").css("width", "93%");
+
+								}
+
+							}
+
+							if (event.deltaY > 0) {
+
+								$("#user-panel").css("width", "25%");
+								$("#book-scroller").css("width", "75%");
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
+
+								$("#user-panel h2").css({
+									"margin": "0 0 10px 0",
+									"position": "static",
+									"transform": "rotate(0deg)",
+									"width": "100%",
+									"-webkit-transform": "rotate(0deg)"
+								});
+
+							}
+
+						});
+					});
+
+					/*
 					$("#user-book-list").mCustomScrollbar({
 						autoHideScrollbar: false,
 						horizontalScroll: true,
@@ -390,8 +449,9 @@
 
 						advanced: { autoExpandHorizontalScroll: true }
 					});
+					*/
 
-					if ($vW < "801") { $("#user-book-list").mCustomScrollbar("destroy"); }
+					// if ($vW < "801") { $("#user-book-list").mCustomScrollbar("destroy"); }
 
 					NProgress.done();
 
@@ -404,7 +464,7 @@
 
 				});
 
-				$("#nav-books").addClass("current");
+				// $("#nav-books").addClass("current");
 
 			});
 		</script>

@@ -7,6 +7,12 @@
 		width: 100%;
 	}
 
+	.user-book-list-wrapper { top: 50% !important; }
+
+	#user-panel, #book-scroller {
+		transition: width 0.1s ease;
+	}
+
 	// Start User Code
 
 	#user-panel {
@@ -182,17 +188,6 @@
 			display: block;
 			margin: 4rem 0 0 0;
 		}
-	}
-
-	.user-book-list-wrapper {
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-
-		-o-transform: translateY(-50%);
-		-ms-transform: translateY(-50%);
-		-moz-transform: translateY(-50%);
-		-webkit-transform: translateY(-50%);
 	}
 
 	.collection-pages, .collection-contributors, .draft-pages,

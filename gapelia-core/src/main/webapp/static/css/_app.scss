@@ -212,20 +212,40 @@
 		}
 	}
 
+	#featured-nav { position: fixed; }
+
+	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
+		position: absolute;
+		top: 53.5%;
+		transform: translateY(-50%);
+
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+	}
+
 	#book-scroller, #dimension-scroller, #featured-scroller, #account-information {
-		overflow: hidden; // bookmark positioning/animation
+		overflow: hidden;
+		overflow-x: auto; //
 		width: 75%;
 	}
 
-	#featured-scroller {
-		width: 93%;
-	}
+	#featured-scroller { width: 93%; }
 
 	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-	#book-list, #dimension-list, #library-list {
+	#book-list, #dimension-list, #library-list, #bookmark-list {
 		display: none;
+		position: relative; // absolute
+		top: 50%;
+		transform: translateY(-50%);
 		transition: all 0.5s ease;
 		width: 100%;
+
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
 	}
 
 	.book, .collection, .library, .new, .draft,
@@ -235,7 +255,8 @@
 
 		background-color: rgba($gray-i, 0.4);
 		box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine"
-		display: inline-block;
+		// display: inline-block;
+		float: left;
 		overflow: hidden;
 		position: relative;
 		transition: box-shadow 0.2s ease;
