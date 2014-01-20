@@ -59,8 +59,6 @@
 		});
 
 	});
-	
-
 
 	if ($vW > "1025") {
 
@@ -151,6 +149,7 @@
 			var value = $(this).stop().scrollTop();
 
 			$(function() {
+
 				setTimeout(function() {
 
 					if (value > 1) {
@@ -174,9 +173,32 @@
 					}
 
 				}, 10);
+
+				setTimeout(function() {
+					window.scrollTo(0, 1);
+				}, 0);
+
 			});
 
 		});
+
+		/*
+		if (navigator.platform == "iPad" || navigator.platform == "iPhone" || navigator.platform == "iPod" || navigator.platform == "Linux armv6l") {
+			window.ontouchstart = function () {
+				$("#fixedDiv").css("display", "none");
+			};
+
+			window.onscroll = function () {
+
+				var iPadPosition = window.innerHeight + window.pageYOffset - 45; // 45 is the height of the Footer
+
+				$("#fixedDiv").css("position", "absolute");
+				$("#fixedDiv").css("top", iPadPosition);
+				$("#fixedDiv").css("display", "block");
+
+			};
+		}
+		*/
 
 	}
 
