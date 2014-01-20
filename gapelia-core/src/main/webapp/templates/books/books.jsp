@@ -937,7 +937,8 @@
 
 					Page.init();
 					
-					if ($vW < "801") {
+					// if ($vW < "801") {
+					if ($vW < "1025") {
 
 						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
@@ -1004,46 +1005,6 @@
 						// Page 21
 						$("#the-book").append("<section class=\"backcover-wrapper\"><div id=\"fin\"><div class=\"appreciate\"><span>Vote</span></div><h2>Hayao Miyazaki</h1><ul class=\"share-book\"><li><a href=\"#\">Facebook</a></li><li><a href=\"#\">Twitter</a></li><li><a href=\"#\">Email</a></li></ul><hr/><section><div id=\"author-avatar\"><img src=\"/static/images/users/11.jpg\"/></div><div id=\"author-name\"><a href=\"#\">Paul Anthony Webb</a></div><div id=\"author-bio-blurb\">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div></section><section><div id=\"library-avatar\"><img src=\"/static/images/covers/architecture-sonn-visionsofart.jpg\"/></div><div id=\"library-name\"><a href=\"#\">Japanimation</a></div><div id=\"library-info-blurb\">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div></section></div><div id=\"fin-next\"><img class=\"page-bg\" src=\"/static/images/test-book/2651.jpg\"/><section><h2><a href=\"#\">Roadtripping California</a></h2></section></div></section>");
 
-						/*
-						<section class="backcover-wrapper">
-							<div id="fin">
-								<div class="appreciate"><span>Vote</span></div>
-
-								<h2>Hayao Miyazaki</h1>
-
-								<ul class="share-book">
-									<li><a href="#">Facebook</a></li>
-									<li><a href="#">Twitter</a></li>
-									<li><a href="#">Email</a></li>
-								</ul>
-
-								<hr/>
-
-								<section>
-									<div id="author-avatar"><img src="/static/images/users/11.jpg"/></div>
-
-									<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
-									<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
-								</section>
-
-								<section>
-									<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
-
-									<div id="library-name"><a href="#">Japanimation</a></div>
-									<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
-								</section>
-							</div>
-
-							<div id="fin-next">
-								<img class="page-bg" src="/static/images/test-book/2651.jpg"/>
-
-								<section>
-									<h2><a href="#">Roadtripping California</a></h2>
-								</section>
-							</div>
-						</section>
-						*/
-
 					}
 
 					NProgress.done();
@@ -1062,6 +1023,7 @@
 			$(document).on(".play-video", "click", function () {
 
 				$(".play-video").hide();
+
 				$(".video-player-container img").hide();
 				$(".video-player-container iframe").show();
 

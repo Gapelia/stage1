@@ -632,7 +632,7 @@
 				&:before {
 					content: "You just read";
 					display: block;
-					font-size: 0.3em;
+					font-size: 0.5em;
 					line-height: 1em;
 				}
 			}
@@ -669,7 +669,11 @@
 						margin: 0 0.3rem;
 					}
 
+					&:first-child { color: $facebook; }
+					&:nth-child(2) { color: $twitter; }
+
 					&:last-child {
+						color: $slate;
 						&:after { content: ""; }
 					}
 				}
@@ -765,7 +769,7 @@
 			}
 
 			section {
-				top: 10rem; left: 2rem;
+				top: 8.4rem; left: 2rem;
 				position: absolute;
 			}
 

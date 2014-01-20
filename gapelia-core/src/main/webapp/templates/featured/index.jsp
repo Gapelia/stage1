@@ -59,16 +59,6 @@
 						$(".book-list-wrapper").html(parsedHtml);
 						$("#book-list").css("opacity", "0").show();
 
-						$("#book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: {
-								autoExpandHorizontalScroll: true,
-								updateOnContentResize: false
-							}
-						});
-
 						NProgress.done();
 
 						// $("#book-list .book").css("height", $vH - 97 + "px");
@@ -95,33 +85,31 @@
 					data: {
 						sessionId: sId
 					},
+
 					success: function (data) {
+
 						html = "";
 						libraries = data;
 						parseJsonToStringForLibraries(libraries);
+
 						$(".library-list-wrapper").html(parsedHtml);
 						$("#library-list").css("opacity", "0").show();
 
-						$("#library-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						advanced: {
-							autoExpandHorizontalScroll: true,
-							updateOnContentResize: false
-						}
-						});
-
 						NProgress.done();
+
 						$("#library-list .library").css("height", $vH - 97 + "px");
 						$("#library-list").css("opacity", "1");
+
 					},
+
 					error: function (q, status, err) {
+
 						if (status == "timeout") {
 							alert("Request timed out");
 						} else {
 							alert("Some issue happened with your request: " + err);
 						}
+
 					}
 				)};
 				*/
