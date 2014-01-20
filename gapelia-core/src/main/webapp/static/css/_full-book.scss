@@ -255,12 +255,17 @@
 		.page-desc {
 			@include serif;
 			font-size: 1em;
-			line-height: 1.4em;
+			line-height: 1.5em;
 			margin: 1rem 0 0 0;
-			min-height: 50px;
-			// overflow-x: hidden;
+			// min-height: 50px;
 			text-align: center;
 			// white-space: pre-wrap; // preserve line breaks!
+		}
+
+		p {
+			font-size: inherit;
+			line-height: inherit;
+			margin: 0 0 1.5rem 0;
 		}
 	}
 
@@ -341,15 +346,6 @@
 				line-height: 1.4em;
 				min-height: 25px;
 			}
-
-			p {
-				margin: 0 auto; // padding: 1rem 0;
-
-				font-size: 1.4em;
-				line-height: 1.2em;
-				// text-align: center;
-				// width: 60%;
-			}
 		}
 	}
 
@@ -404,7 +400,7 @@
 			.page-geotag-elem { color: $black; }
 
 			.page-desc {
-				margin: 0 0 1rem 0; padding: 0 1rem 2rem 0;
+				margin: 2rem 0 1rem 0; padding: 0 1rem 2rem 0;
 				text-align: left;
 			}
 		}
@@ -424,18 +420,20 @@
 			background-color: $white;
 			border-top: 1px solid $gray-ii;
 			color: $black;
-			font-size: 1.5em;
-			line-height: 2.5em;
+			// font-size: 1.5em;
+			// line-height: 2.5em;
 			padding: 1rem 2rem 0 2rem;
 			position: absolute;
 			text-align: center;
 
+			/*
 			.page-title-elem {
 				p {
 					font-size: 36px;
 					line-height: 1.2em;
 				}
 			}
+			*/
 
 			.page-geotag-elem {
 				color: $black;
@@ -471,8 +469,10 @@
 			.page-desc {
 				margin: 0 0 0.5rem 0; padding: 0;
 
+				/*
 				font-size: 36px;
 				line-height: 40px;
+				*/
 			}
 
 			.page-geotag-elem {
@@ -525,8 +525,8 @@
 			background-color: $white;
 			border-left: 1px solid $gray-ii;
 			color: $black;
-			font-size: 1.5em;
-			line-height: 2.5em;
+			// font-size: 1.5em;
+			// line-height: 2.5em;
 			overflow-y: auto; //
 			padding: 4rem 4rem 2rem 2rem;
 			position: absolute;
@@ -634,6 +634,7 @@
 					display: block;
 					font-size: 0.5em;
 					line-height: 1em;
+					margin: 0 0 0 0.1rem;
 				}
 			}
 
@@ -764,12 +765,12 @@
 					display: block;
 					font-size: 0.5em;
 					line-height: 1em;
-					margin: 0;
+					margin: 0 0 0 0.1rem;
 				}
 			}
 
 			section {
-				top: 8.4rem; left: 2rem;
+				top: 8.6rem; left: 2rem;
 				position: absolute;
 			}
 
