@@ -155,36 +155,44 @@
 	}
 
 	#g-menu-toggle {
-		width: 64px; height: 64px;
-		top: 1rem; left: 1rem;
+		width: 100%; height: auto;
+		top: 0.5rem; left: 0;
 
-		background-color: $slate; // transparent
-		background-image: url("../images/sprite-sheet.png");
-		background-position: 0 0;
-		background-size: 400px 1000px;
-		// border-radius: 300rem;
-		border-radius: none;
-		border-top-right-radius: 300rem;
-		border-bottom-right-radius: 300rem;
+		background-color: transparent; // $slate
+		// background-image: url("../images/sprite-sheet.png");
+		// background-position: 0 0;
+		// background-size: 400px 1000px;
+		// border-radius: none;
+		// border-top-right-radius: 300rem;
+		// border-bottom-right-radius: 300rem;
+		color: $slate;
 		cursor: pointer;
-		opacity: 0.7;
+		font-size: 36px;
+		// opacity: 0.7;
+		padding: 0 !important;
 		position: absolute;
 		transition: all 0.5s ease;
 		z-index: 2;
 
-		@include hide-text;
+		// @include hide-text;
 
 		span {
-			width: 20px; height: 100%;
-			top: 0; left: -17px;
+			width: 36px; height: 4px;
 
 			background-color: $slate;
-			position: absolute;
+			display: block;
+			margin: 0 auto 6px;
+			position: relative;
 		}
 
-		a { text-shadow: none !important; }
+		// a { text-shadow: none !important; }
 
-		&:hover { opacity: 1; }
+		&:hover { opacity: 0.7; }
+	}
+
+	#nav-wrapper {
+		top: 0; left: 0;
+		position: absolute;
 	}
 
 	#book-nav, #dimension-nav, #featured-nav {
@@ -560,5 +568,9 @@
 			position: absolute;
 		}
 	}
+
+	.ion-social-facebook { color: $facebook; }
+	.ion-social-twitter { color: $twitter; }
+	.ion-email { color: $slate; }
 
 }

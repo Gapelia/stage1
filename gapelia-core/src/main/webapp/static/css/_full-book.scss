@@ -10,13 +10,15 @@
 
 	.mp-pushed {
 		#g-menu-toggle {
-			width: 64px !important; height: 64px !important;
-			top: 1.5rem !important; left: 1rem;
+			// width: 64px !important; height: 64px !important;
+			// top: 1.5rem !important; left: 1rem;
 
-			background-size: 400px 1000px !important;
-			border-radius: 300rem;
+			// background-size: 400px 1000px !important;
+			// border-radius: 300rem;
+			top: -5rem !important;
 			z-index: 1;
 
+			/*
 			span {
 				height: 20%;
 				top: 50%;
@@ -27,6 +29,7 @@
 				-moz-transform: translateY(-50%);
 				-webkit-transform: translateY(-50%);
 			}
+			*/
 		}
 	}
 
@@ -42,104 +45,99 @@
 		width: 100%; height: 50px;
 		top: -50rem; left: 0;
 
-		background-color: rgba($black, 0.3);
-		color: $white;
+		// background-color: rgba($black, 0.3);
+		background-color: $white;
+		border-bottom: 1px solid rgba($black, 0.05);
+		color: $black;
 		position: absolute;
 		text-align: center;
 		transition: all 0.2s ease;
 		z-index: 102;
 
 		.share-book {
-			top: 0; right: 1rem;
+			top: 50%; right: 1rem;
+
 			position: absolute;
+			transform: translateY(-50%);
+
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+
+			li {
+				width: 32px; height: 32px;
+
+				// background-image: url("../images/sprite-sheet.png");
+				// background-size: 200px 500px;
+				display: inline-block;
+				font-size: 32px;
+				margin: 0 1rem 0 0;
+
+				a {
+					width: 100%; height: 100%;
+					display: block;
+				}
+
+				&:last-child { margin: 0; }
+
+				// @include hide-text;
+			}
+
+			// .facebook	{ background-position: 96px 1px; }
+			// .twitter	{ background-position: 64px 1px; }
+			// .email		{ background-position: 39px -1285px; }
 		}
 	}
 
 	#g-menu-toggle, #header-toggle, #next-book-toggle { position: fixed; }
 
-	/*
 	#g-menu-toggle {
-		width: 32px; height: 32px;
-
-		background-size: 200px 500px;
-		opacity: 1;
-		top: 0.6rem;
-		transition: all 0.2s ease;
+		color: $white;
+		left: 1rem;
+		padding: 0 !important;
+		width: 45px;
 		z-index: 103;
 
-		&:hover { padding: 0 !important; }
-	}
-	*/
-
-	#g-menu-toggle {
-		width: 32px; height: 32px;
-
-		background-size: 200px 500px;
-		// left: 0;
-		opacity: 1;
-		// top: 0.6rem;
-		// transition: all 0.2s ease;
-		z-index: 103;
-
+		/*
 		span {
-			height: 100%;
-			top: 0;
-			transform: translateY(0);
-
-			-o-transform: translateY(0);
-			-ms-transform: translateY(0);
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
+			background-color: $white;
+			box-shadow: 0 0 2px rgba($black, 0.3);
 		}
+		*/
 
-		&:hover { padding: 0 !important; }
+		.ion-drag { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
 	}
-
-	/*
-	#g-menu-toggle {
-		&:before {
-			width: 100%; height: 20px;
-
-			background-color: $slate;
-			display: block;
-		}
-
-		width: 132px; height: 50px;
-
-		background-color: $slate;
-		background-position: -13px -257px;
-		background-size: 150px 375px;
-		border-radius: 0 !important;
-		opacity: 1;
-		top: 0.6rem;
-		z-index: 103;
-	}
-	*/
 
 	#header-toggle, #next-book-toggle {
-		width: 47px; height: 47px;
+		// width: 47px; height: 47px;
 
-		background-image: url("../images/sprite-sheet.png");
-		background-size: 300px 750px;
+		// background-image: url("../images/sprite-sheet.png");
+		// background-size: 300px 750px;
 		opacity: 1;
 		top: 0.5rem;
 		transition: all 0.2s ease;
 		z-index: 101;
 
-		@include hide-text;
+		// @include hide-text;
 	}
 
 	#header-toggle {
-		background-position: 204px -1177px;
+		// background-position: 204px -1177px;
 		cursor: default;
 		left: 48.2%;
 		text-align: center;
 	}
 
 	#next-book-toggle {
-		background-position: 455px -1181px;
-		right: 1rem;
+		// background-position: 455px -1181px;
+		color: $white;
 		cursor: pointer;
+		font-size: 36px;
+		right: 1rem;
+		// text-shadow: 0 0 2px rgba($black, 0.3);
+
+		.ion-forward { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
 	}
 
 	#header-info {
@@ -147,9 +145,6 @@
 		font-size: 1.3em;
 		font-weight: 300;
 		line-height: 2.5em;
-	}
-
-	#header-title {
 	}
 
 	#header-author {
@@ -160,30 +155,6 @@
 			font-style: italic;
 			text-transform: lowercase;
 		}
-	}
-
-	.share-book {
-		li {
-			width: 32px; height: 32px;
-
-			background-image: url("../images/sprite-sheet.png");
-			background-size: 200px 500px;
-			display: inline-block;
-			margin: 0 1rem 0 0;
-
-			a {
-				width: 100%; height: 100%;
-				display: block;
-			}
-
-			&:last-child { margin: 0; }
-
-			@include hide-text;
-		}
-
-		.facebook	{ background-position: 96px 1px; }
-		.twitter	{ background-position: 64px 1px; }
-		.email		{ background-position: 39px -1285px; }
 	}
 
 	#bb-nav-prev, #bb-nav-next {
@@ -644,6 +615,7 @@
 				&:before {
 					content: "Share this";
 					@include serif;
+					float: left;
 					font-style: italic;
 					line-height: inherit;
 					margin: 0 0.5rem 0 0;
@@ -655,6 +627,7 @@
 
 					background-image: none;
 					color: $black;
+					float: left;
 					font: initial;
 					font-size: inherit;
 					line-height: inherit;
@@ -663,7 +636,7 @@
 					a { display: initial; }
 
 					&:after {
-						content: "\00a0\00b7";
+						content: "\00b7";
 						display: inline-block;
 						font-style: italic;
 						opacity: 0.3;

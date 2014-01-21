@@ -51,12 +51,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
-							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
-							</ul>
-						</li>
+						<li><a id="gpl-menu-create" href="/create">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -79,10 +74,15 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
+			<!--/ <button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button> /-->
 
-			<!--/ <div id="header-toggle">&#9206;</div> /-->
-			<div id="next-book-toggle">&#9197;</div>
+			<button id="g-menu-toggle">
+				<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
+				<i class="ion-drag"></i>
+			</button>
+
+			<!--/ <div id="header-toggle">&#9206; &#9197;</div> /-->
+			<div id="next-book-toggle"><i class="ion-forward"></i></div>
 
 			<header>
 				<div id="header-info">
@@ -91,9 +91,9 @@
 				</div>
 
 				<ul class="share-book">
-					<li class="facebook"><a href="#">Facebook</a></li>
-					<li class="twitter"><a href="#">Twitter</a></li>
-					<li class="email"><a href="#">eMail</a></li>
+					<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+					<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+					<li><a href="#"><i class="ion-email"></i></a></li>
 				</ul>
 			</header>
 

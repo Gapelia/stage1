@@ -66,12 +66,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
-							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
-							</ul>
-						</li>
+						<li><a id="gpl-menu-create" href="/create">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -104,7 +99,10 @@
 
 			<!--/ main-panel /-->
 			<div id="user-panel">
-				<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
+				<button id="g-menu-toggle">
+					<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
+					<i class="ion-drag"></i>
+				</button>
 
 				<div class="user-avatar">
 					<div class="avatar-wrapper">

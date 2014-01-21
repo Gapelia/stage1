@@ -37,6 +37,7 @@
 	// Calculate half of viewport height minus half the height of the prev/next buttons
 	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
 
+	/*
 	$("#header-toggle").mouseover(function () {
 
 		$(this).css({
@@ -59,6 +60,7 @@
 		});
 
 	});
+	*/
 
 	if ($vW > "1025") {
 
@@ -72,6 +74,19 @@
 
 					if (value > 1) {
 
+						$(".full-book #g-menu-toggle").css({
+							// "top": "0.8rem",
+							// "left": "0.8rem",
+							"color": "#70a1b1"
+						});
+
+						/*
+						$(".full-book #g-menu-toggle span").css({
+							"background-color": "#70a1b1",
+							"box-shadow": "0 0 6px rgba(25, 25, 25, 0)"
+						});
+						*/
+
 						$(".full-book #next-book-toggle").css({
 							"opacity": "0",
 							"top": "-50px"
@@ -80,6 +95,20 @@
 						$(".full-book header").css("top", "0");
 
 					} else {
+
+						$(".full-book #g-menu-toggle").css({
+							// "top": "0.5rem",
+							// "left": "1rem",
+							"color": "#fcfcfc"
+						});
+
+						/*
+						$(".full-book #g-menu-toggle span").css({
+							"background-color": "#fcfcfc",
+							// "box-shadow": "0 0 6px rgba(25, 25, 25, 0.6)"
+							"box-shadow": "0 0 2px rgba(25, 25, 25, 0.3)"
+						});
+						*/
 
 						$(".full-book #next-book-toggle").css({
 							"opacity": "1",

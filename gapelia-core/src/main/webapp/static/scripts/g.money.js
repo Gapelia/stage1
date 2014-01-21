@@ -21,16 +21,18 @@ $(document).ready(function() {
 
 	if ($vW > "801") {
 
-		// Set height of books in feed on "Me" page
-		$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
-		$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
-		$("#user-draft-list .draft").css("height", $vH - 97 + "px");
+		$(document).on("ready", function() {
+			// Set height of books in feed on "Me" page
+			$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
+			$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
+			$("#user-draft-list .draft").css("height", $vH - 97 + "px");
 
-		// Set height of books in feed on "Featured" page
-		$("#book-list .book").css("height", $vH - 97 + "px");
-		$("#dimension-list .portal").css("height", $vH - 97 + "px");
-		$("#library-list .library").css("height", $vH - 97 + "px");
-		$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
+			// Set height of books in feed on "Featured" page
+			$("#book-list .book").css("height", $vH - 97 + "px");
+			$("#dimension-list .portal").css("height", $vH - 97 + "px");
+			$("#library-list .library").css("height", $vH - 97 + "px");
+			$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
+		});
 
 	} else {
 
