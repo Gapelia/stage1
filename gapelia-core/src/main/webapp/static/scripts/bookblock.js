@@ -1,13 +1,4 @@
-/**
- * jquery.bookblock.js v2.0.1
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2013, Codrops
- * http://www.codrops.com
-**/
+/** based on jquery.bookblock.js from the beautiful people at codrops.com **/
 
 ;(function ($, window, undefined) {
 
@@ -450,14 +441,38 @@
 
 		},
 
-		// public method: flips next
+		// public method: flips forward
 		next: function () {
+
 			this._action(this.options.direction === "ltr" ? "next" : "prev");
+
+			// close header overlay
+			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
+
+			$(".full-book #next-book-toggle").css({
+				"opacity": "1",
+				"top": "0.5rem"
+			});
+
+			$(".full-book header").css("top", "-50rem");
+
 		},
 
 		// public method: flips back
 		prev: function () {
+
 			this._action(this.options.direction === "ltr" ? "prev" : "next");
+
+			// close header overlay
+			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
+
+			$(".full-book #next-book-toggle").css({
+				"opacity": "1",
+				"top": "0.5rem"
+			});
+
+			$(".full-book header").css("top", "-50rem");
+
 		},
 
 		// public method: goes to a specific page

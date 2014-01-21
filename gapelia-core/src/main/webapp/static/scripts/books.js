@@ -5,7 +5,6 @@
 
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
-	// $("#the-book").css("height", $vH + "px");
 
 	$(".content").css({
 		"width": $vW + "px",
@@ -17,52 +16,25 @@
 	$(".vertical-wrapper .page-desc").css("height", $vH - 185 + "px");
 	$(".video-wrapper .page-desc").css("height", $vH - 185 + "px");
 
-	/*
-	$(".phototext-wrapper .page-desc, .text-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc").ready(function() {
-		$(".sp-scrollbar").css({
-			"display": "block",
-			"height": 100 + "%"
-		});
-	});
-	*/
-
-	/*
-	$(".phototext-wrapper .page-desc, .text-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc").ready(function() {
-		$(".sp-thumb").css("height", 10 + "px");
-	});
-	*/
-
 	$(".backcover-wrapper .page-bg").css("width", $vW);
 
 	// Calculate half of viewport height minus half the height of the prev/next buttons
 	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
 
-	/*
-	$("#header-toggle").mouseover(function () {
-
-		$(this).css({
-			"opacity": "0",
-			"top": "-50px"
-		});
-
-		$("#next-book-toggle").css({
-			"opacity": "0",
-			"top": "-50px"
-		});
-
-		$(".full-book header").css("top", "0");
-
-		$("#g-menu-toggle").css({
-			"width": "32px",
-			"height": "32px",
-			"background-size": "200px 500px",
-			"top": "0.6rem"
-		});
-
-	});
-	*/
-
 	if ($vW > "1025") {
+
+		$(document).on("click", "#next-book-toggle", function() {
+
+			$(".full-book #g-menu-toggle").css("color", "#70a1b1");
+
+			$(".full-book #next-book-toggle").css({
+				"opacity": "0",
+				"top": "-50px"
+			});
+
+			$(".full-book header").css("top", "0");
+
+		});
 
 		// Show header on scroll
 		$(".phototext-preview, .horizontal-preview, .text-preview, .phototext-preview, .vertical-preview, .video-preview article").scroll(function () {
@@ -74,18 +46,7 @@
 
 					if (value > 1) {
 
-						$(".full-book #g-menu-toggle").css({
-							// "top": "0.8rem",
-							// "left": "0.8rem",
-							"color": "#70a1b1"
-						});
-
-						/*
-						$(".full-book #g-menu-toggle span").css({
-							"background-color": "#70a1b1",
-							"box-shadow": "0 0 6px rgba(25, 25, 25, 0)"
-						});
-						*/
+						$(".full-book #g-menu-toggle").css("color", "#70a1b1");
 
 						$(".full-book #next-book-toggle").css({
 							"opacity": "0",
@@ -96,19 +57,7 @@
 
 					} else {
 
-						$(".full-book #g-menu-toggle").css({
-							// "top": "0.5rem",
-							// "left": "1rem",
-							"color": "#fcfcfc"
-						});
-
-						/*
-						$(".full-book #g-menu-toggle span").css({
-							"background-color": "#fcfcfc",
-							// "box-shadow": "0 0 6px rgba(25, 25, 25, 0.6)"
-							"box-shadow": "0 0 2px rgba(25, 25, 25, 0.3)"
-						});
-						*/
+						$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
 
 						$(".full-book #next-book-toggle").css({
 							"opacity": "1",
@@ -218,13 +167,3 @@
 		$(".video-player-container iframe").show();
 
 	});
-
-	// Save for mp-push
-	/* big logo is distracting
-	$("#g-menu-toggle").css({
-		"width": "64px",
-		"height": "64px",
-		"background-size": "400px 1000px",
-		"top": "1rem"
-	});
-	*/

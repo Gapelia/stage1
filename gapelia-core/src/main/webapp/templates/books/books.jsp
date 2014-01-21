@@ -805,7 +805,6 @@
 		</script>
 
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
-
 		<script src="/static/scripts/vimeothumb.js"></script>
 
 		<script>
@@ -818,7 +817,7 @@
 
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
-		<script src="/static/scripts/jquery.bookblock.js"></script>
+		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
 			$(document).ready(function() {
@@ -848,8 +847,8 @@
 							$bookBlock: $("#bb-bookblock"),
 							$navNext: $("#bb-nav-next"),
 							$navPrev: $("#bb-nav-prev"),
-							$navFirst: $("#bb-nav-first"),
-							$navLast: $("#next-book-toggle")
+							$navFirst: $("#bb-nav-first")
+							// $navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
 
@@ -885,10 +884,12 @@
 								return false;
 							});
 
+							/*
 							config.$navLast.on("click touchstart", function () {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});
+							*/
 
 							// add swipe events
 							$slides.on({

@@ -116,13 +116,6 @@
 						</li>
 					</ul>
 
-					<!--/
-					<div id="account-links">
-						<a href="/accounts">Account</a>
-						<a href="#">Sign Out</a>
-					</div>
-					/-->
-
 				</div>
 			</nav>
 			<!--//site-menu /-->
