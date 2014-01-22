@@ -57,23 +57,43 @@
 						parsedHtml = parseJsonToStringForBooks(featuredBooks);
 
 						$(".book-list-wrapper").html(parsedHtml);
-						$("#book-list").css("opacity", "0").show();
+						NProgress.start();
 
-						$("#book-list").mCustomScrollbar({
-							autoHideScrollbar: false,
-							horizontalScroll: true,
-							theme: "dark-thin",
-							advanced: {
-								autoExpandHorizontalScroll: true,
-								updateOnContentResize: false
-							}
+					var
+					allBooks = $("#book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+					setTimeout(function () {
+
+						$("#library-list").hide();
+						$("#bookmark-list").hide();
+
+						var w = 0;
+
+						$("#book-list li").each(function() {
+							w += $(this).outerWidth();
 						});
 
-						NProgress.done();
+						w += 500;
 
-						// $("#book-list .book").css("height", $vH - 97 + "px");
-						$("#book-list").css("opacity", "1");
+						$("#book-list").css("width", w - 320 + "px");
 
+						// fades in the all the books after section width is added
+						$("#book-list li").fadeIn("100");
+						$("#book-list").fadeIn("100");
+
+					}, 1000);
+
+					e.preventDefault();
+
+					$("#nav-books").addClass("current");
+					$("#nav-libraries").removeClass("current");
+					$("#nav-bookmarks").removeClass("current");
+
+					NProgress.done();
+					
 					},
 
 					error: function (q, status, err) {
