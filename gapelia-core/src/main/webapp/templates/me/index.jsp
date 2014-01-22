@@ -456,7 +456,7 @@
 					$("#user-book-list").css("opacity", "1");
 
 					// "fix" featured menu pop-in
-					setTimeout(function () {
+					setTimeout(function() {
 						$("#user-panel, #book-scroller").css("opacity", "1");
 					}, 400);
 

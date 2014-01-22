@@ -4,13 +4,17 @@
 	// ------------------------------------------------------------------------------------
 
 	// General
+	var $vW = $(window).width(), $vH = $(window).height();
+
+	// Reload Gapelia when device orientation changes
+	window.onorientationchange = function() {
+		window.location.reload();
+	};
+
 	$(document).ready(function() {
 
+		$(".super-wrapper").css("height", $vH + "px");
 		$(".super-wrapper").show();
-
-		var $vW = $(window).width(), $vH = $(window).height();
-		// var $dW = $("#dimension-panel").width();
-		// var $pW = $("#dimension-list .portal").width();
 
 		// Reload Gapelia when browser window resizing occurs
 		/*
@@ -21,11 +25,6 @@
 			}
 		});
 		*/
-
-		// Reload Gapelia when device orientation changes
-		window.onorientationchange = function() {
-			window.location.reload();
-		};
 
 		if ($vW > "801") {
 
@@ -59,45 +58,6 @@
 
 		}
 
-		$(".super-wrapper").css("height", $vH + "px");
-
-		$(window).ready(function () {
-
-			// gets all photos in a post
-			var allpics = $("#user-book-list li, #library-list li, #bookmark-list li");
-
-			// gets first photo in list
-			var firstpic = $(allpics).first();
-
-			// hides all photos in a post except the first photo
-			$(allpics).not(firstpic).hide();
-
-			// holds function for one second and then adds width to body tag
-			setTimeout(function() {
-
-				$("#user-book-list").hide().css("margin", "-2px 0 0 0");
-				// $("#book-list, #library-list, #bookmark-list").hide();
-
-				var w = 0;
-
-				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function() {
-					w += $(this).outerWidth();
-				});
-
-				w += 500;
-
-				$("#user-book-list, #book-list, #library-list, #bookmark-list").css("width", w - 320 + "px");
-
-				// fades in the all the photos after body width is added
-				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").fadeIn("100");
-
-				$("#user-book-list").css("margin", "2px 0 0 0").fadeIn("100");
-				// $("#book-list, #library-list, #bookmark-list").fadeIn("100");
-
-			}, 1000);
-
-		});
-
 		// Me page
 		// Bio input limiter
 		var descElem = "user-bio";
@@ -112,14 +72,14 @@
 		}
 
 		// Edit Profile on "Me" page
-		$(document).on("click", "button.edit-profile", function () {
+		$(document).on("click", "button.edit-profile", function() {
 
 			$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
 			$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
 
 		});
 
-		$(document).on("click", "button.save-profile", function () {
+		$(document).on("click", "button.save-profile", function() {
 
 			$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 			$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
@@ -144,16 +104,16 @@
 		});
 
 		// Library Subscriptions
-		$(document).on("click", "button.subscribe", function () {
+		$(document).on("click", "button.subscribe", function() {
 			$(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
-		$(document).on("click", "button.unsubscribe", function () {
+		$(document).on("click", "button.unsubscribe", function() {
 			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
 
 		// Bookmarking
-		$(document).on("click", ".bookmark-this", function () {
+		$(document).on("click", ".bookmark-this", function() {
 
 			$(this).addClass("bookmarked");
 			// $(this).closest("li").remove(); for Me page
@@ -195,7 +155,7 @@
 
 		});
 
-		$(document).on("click", ".bookmarked", function () {
+		$(document).on("click", ".bookmarked", function() {
 
 			$(this).removeClass("bookmarked");
 
@@ -235,5 +195,47 @@
 			}
 
 		});
+
+	});
+
+	$(window).ready(function() {
+
+		if ($vW > "1024") {
+
+			// gets all photos in a post
+			var allpics = $("#user-book-list li, #library-list li, #bookmark-list li");
+
+			// gets first photo in list
+			var firstpic = $(allpics).first();
+
+			// hides all photos in a post except the first photo
+			$(allpics).not(firstpic).hide();
+
+			// holds function for one second and then adds width to body tag
+			setTimeout(function() {
+
+				$("#user-book-list").hide().css("margin", "-2px 0 0 0");
+				// $("#book-list, #library-list, #bookmark-list").hide();
+
+				var w = 0;
+
+				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function() {
+					w += $(this).outerWidth();
+				});
+
+				w += 500;
+
+				$("#user-book-list, #book-list, #library-list, #bookmark-list").css("width", w - 320 + "px");
+
+				// fades in the all the photos after body width is added
+				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").fadeIn("100");
+
+				$("#user-book-list").css("margin", "2px 0 0 0").fadeIn("100");
+				// $("#book-list, #library-list, #bookmark-list").fadeIn("100");
+
+			}, 1000);
+
+		} else {
+		}
 
 	});

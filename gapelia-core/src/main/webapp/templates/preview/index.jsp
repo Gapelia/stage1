@@ -145,7 +145,7 @@
 					var current;
 					var $vW = $(window).width(), $vH = $(window).height();
 
-					$(document).ready(function () {
+					$(document).ready(function() {
 
 						pages = JSON.parse(localStorage.getItem("pages"));
 						console.log(pages);
@@ -284,7 +284,7 @@
 
 					}
 
-					var Page = (function () {
+					var Page = (function() {
 
 						var config = {
 							$bookBlock: $("#bb-bookblock"),
@@ -295,7 +295,7 @@
 							// $navLast: $('#bb-nav-last')
 						},
 
-						init = function () {
+						init = function() {
 
 							config.$bookBlock.bookblock({
 								speed: 1000,
@@ -307,27 +307,27 @@
 
 						},
 
-						initEvents = function () {
+						initEvents = function() {
 
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on("click touchstart", function () {
+							config.$navNext.on("click touchstart", function() {
 								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on("click touchstart", function () {
+							config.$navPrev.on("click touchstart", function() {
 								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on("click touchstart", function () {
+							config.$navFirst.on("click touchstart", function() {
 								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
-							config.$navLast.on("click touchstart", function () {
+							config.$navLast.on("click touchstart", function() {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});

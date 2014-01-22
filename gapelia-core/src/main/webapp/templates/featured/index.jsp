@@ -35,7 +35,7 @@
 		<script src="/static/scripts/nprogress.js"></script>
 
 		<script>
-			$(document).ready(function () {
+			$(document).ready(function() {
 
 				/*
 				$.ajax({
@@ -848,7 +848,7 @@
 		/-->
 
 		<script>
-			$(document).ready(function () {
+			$(document).ready(function() {
 
 				var
 				$vW = $(window).width(),
@@ -897,7 +897,7 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function () {
+					setTimeout(function() {
 
 						$("#book-list").hide();
 						$("#library-list").hide();
@@ -956,7 +956,7 @@
 						});
 
 						// "fix" featured menu pop-in
-						setTimeout(function () {
+						setTimeout(function() {
 							$("#featured-panel, #featured-scroller").css("opacity", "1");
 						}, 400);
 
@@ -979,7 +979,7 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function () {
+					setTimeout(function() {
 
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
@@ -1021,7 +1021,7 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function () {
+					setTimeout(function() {
 
 						$("#book-list").hide();
 						$("#bookmark-list").hide();
@@ -1063,7 +1063,7 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function () {
+					setTimeout(function() {
 
 						$("#book-list").hide();
 						$("#library-list").hide();
@@ -1098,7 +1098,7 @@
 
 					html += "<ul id=\"library-list\">";
 
-					$.each(libraries, function () {
+					$.each(libraries, function() {
 
 						html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
 
@@ -1112,7 +1112,7 @@
 
 					i = 0;
 
-					$.each(books, function () {
+					$.each(books, function() {
 
 						currentUrl=document.URL;
 

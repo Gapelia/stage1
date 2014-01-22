@@ -335,13 +335,13 @@
 		<script>
 			$(document).on("ready", function() {
 
-				$("body").prepend("<section id='library-splash'><div id='library-info'><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section>Featured:<br/><a href='#'>hikari: The Future of the Operating System</a></section><div id='close-splash'>&raquo;</div></div><img class='page-bg' src='/static/images/libraries/villages.jpg'/></section>");
+				$("body").prepend("<section id='library-splash'><div id='library-info'><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id='featured-library' href='#'>hikari: The Future of the Operating System</a></section><div id='close-splash'>&raquo;</div></div><img class='page-bg' src='/static/images/libraries/villages.jpg'/></section>");
 
 				$("#library-splash").imgLiquid({ fill: true });
 
 			});
 
-			$(document).on("click", "#close-splash", function () {
+			$(document).on("click", "#close-splash", function() {
 
 				$("#library-splash").remove();
 				// e.preventDefault();
@@ -363,58 +363,65 @@
 					});
 				});
 
+				/*
 				if ($vW < "801") {
 
 					$("#featured-panel").prepend("<small>[Library Name]</small>");
 
-					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Recent</a></li><li id='nav-libraries'><a href='#'>Popular</a></li></ul>");
+					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li></ul>");
 
 				} else {
 				}
+				*/
 
 				// Load Gapelia
 				$(function() {
 
-					NProgress.start();
+					if ($vW > "1024") {
 
-					$("#featured-panel, #featured-scroller").css("opacity", "0").show();
+						NProgress.start();
 
-					var
-					allBooks = $("#book-list li"),			// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
+						$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+						var
+						allBooks = $("#book-list li"),			// gets all books in a section
+						firstBook = $(allBooks).first();		// gets first book in list
 
-					setTimeout(function () {
+						$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-						$("#book-list").hide();
-						$("#library-list").hide();
-						$("#bookmark-list").hide();
+						setTimeout(function() {
 
-						var w = 0;
+							$("#book-list").hide();
+							$("#library-list").hide();
+							$("#bookmark-list").hide();
 
-						$("#book-list li").each(function() {
-							w += $(this).outerWidth();
-						});
+							var w = 0;
 
-						w += 500;
+							$("#book-list li").each(function() {
+								w += $(this).outerWidth();
+							});
 
-						$("#book-list").css("width", w - 320 + "px");
+							w += 500;
 
-						// fades in the all the books after section width is added
-						$("#book-list li").fadeIn("100");
-						$("#book-list").fadeIn("100");
+							$("#book-list").css("width", w - 320 + "px");
 
-						// "fix" featured menu pop-in
-						setTimeout(function () {
-							$("#featured-panel, #featured-scroller").css("opacity", "1");
-						}, 400);
+							// fades in the all the books after section width is added
+							$("#book-list li").fadeIn("100");
+							$("#book-list").fadeIn("100");
 
-					}, 1000);
+							// "fix" featured menu pop-in
+							setTimeout(function() {
+								$("#featured-panel, #featured-scroller").css("opacity", "1");
+							}, 400);
 
-					$("#nav-books").addClass("current");
+						}, 1000);
 
-					NProgress.done();
+						$("#nav-books").addClass("current");
+
+						NProgress.done();
+
+					} else {
+					}
 
 				});
 
@@ -442,7 +449,7 @@
 					$("#book-list").css("opacity", "1");
 
 					// "fix" featured menu pop-in
-					setTimeout(function () {
+					setTimeout(function() {
 						$("#featured-panel, #featured-scroller").css("opacity", "1");
 					}, 400);
 

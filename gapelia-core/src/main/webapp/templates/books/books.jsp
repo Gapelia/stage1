@@ -841,7 +841,7 @@
 					$(".phototext-wrapper").imgLiquid({ fill: true });
 					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
-					var Page = (function () {
+					var Page = (function() {
 
 						var config = {
 							$bookBlock: $("#bb-bookblock"),
@@ -852,7 +852,7 @@
 							// $navLast: $('#bb-nav-last')
 						},
 
-						init = function () {
+						init = function() {
 
 							config.$bookBlock.bookblock({
 								speed: 1000,
@@ -864,28 +864,28 @@
 
 						},
 
-						initEvents = function () {
+						initEvents = function() {
 
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on("click touchstart", function () {
+							config.$navNext.on("click touchstart", function() {
 								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on("click touchstart", function () {
+							config.$navPrev.on("click touchstart", function() {
 								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on("click touchstart", function () {
+							config.$navFirst.on("click touchstart", function() {
 								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
 							/*
-							config.$navLast.on("click touchstart", function () {
+							config.$navLast.on("click touchstart", function() {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});
@@ -937,8 +937,7 @@
 					})();
 
 					Page.init();
-					
-					// if ($vW < "801") {
+
 					if ($vW < "1025") {
 
 						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
@@ -1008,6 +1007,14 @@
 
 					}
 
+					if ($vW < "321") {
+
+						// $(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH - 50 + "px");
+						$(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH);
+						$(".frontcover-wrapper, .overlay-wrapper").imgLiquid({ fill: true });
+
+					}
+
 					NProgress.done();
 
 				});
@@ -1021,7 +1028,7 @@
 			}, 5000); // prevent placeholder from appearing
 			*/
 
-			$(document).on(".play-video", "click", function () {
+			$(document).on(".play-video", "click", function() {
 
 				$(".play-video").hide();
 

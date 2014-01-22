@@ -1,8 +1,22 @@
 /************************************************************************************ RESPONSE/SCSS **/
 
+@media all and (min-width: 1025px), screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	.full-book {
+
+		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			height: 100% !important;
+		}
+
+	}
+
+}
+
 @media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	/***************************************************************************************************/
+	/*
 	body { font-size: 100%; }
 
 	body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
@@ -100,6 +114,7 @@
 			line-height: 1.45833333;	// 35px / 24px
 		}
 	}
+	*/
 	/***************************************************************************************************/
 
 	/** APP/SCSS ***************************************************************************************/
@@ -143,7 +158,7 @@
 			margin: 0; padding: 0;
 
 			border-bottom: 1px solid $black;
-			height: auto !important;
+			height: auto; // !important
 			overflow: initial; // auto
 			position: relative;
 
@@ -207,8 +222,8 @@
 		}
 
 		.photo-wrapper {
-			font-size: 50%; //
-			margin: -2rem 0 0 0 !important;
+			// font-size: 50%; //
+			margin: -2rem 0 0 0; // !important
 			overflow: inherit;
 
 			.page-bg {
@@ -499,7 +514,7 @@
 			margin: 0; padding: 0;
 
 			border-bottom: 1px solid $black;
-			height: auto !important;
+			height: auto; // !important
 			overflow: initial; // auto
 			position: relative;
 
@@ -743,7 +758,7 @@
 		}
 
 		.overlay-wrapper {
-			height: auto !important;
+			// height: auto !important;
 
 			.overlay-preview {
 				// .page-desc { font-size: 2.5em !important; }
@@ -752,9 +767,7 @@
 		}
 
 		.horizontal-wrapper {
-			.horizontal-preview {
-				.page-title-elem { font-size: 1.7em; }
-			}
+			// .page-title-elem { font-size: 1.7em; }
 		}
 
 		.video-wrapper {
@@ -772,16 +785,106 @@
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	/*
 	button, .button {
 		font-size: 40% !important;
 		padding: 0.5rem 1rem !important;
 
 		&:hover { padding: 0.5rem 1rem !important; }
 	}
+	*/
+
+	body {
+		// -webkit-overflow-scrolling: touch;
+	}
+
+	/** APP/SCSS ***************************************************************************************/
+
+	.app {
+
+		.super-wrapper.mp-pushed {
+			transform: translate3d(250px, 0, 0) !important;
+
+			-o-transform: translate3d(250px, 0, 0) !important;
+			-ms-transform: translate3d(250px, 0, 0) !important;
+			-moz-transform: translate3d(250px, 0, 0) !important;
+			-webkit-transform: translate3d(250px, 0, 0) !important;
+
+			.mp-menu { width: 250px; }
+			#g-menu-toggle { color: $white; }
+		}
+
+		#library-splash {
+			font-size: 1em;
+			padding: 2rem;
+
+			p {
+				font-size: 1em;
+				padding: 0;
+			}
+		}
+
+		#featured-panel {
+			height: 53px;
+
+			small { display: none; }
+
+			#g-menu-toggle {
+				width: 36px; height: auto;
+				top: 0.5rem; left: 1rem;
+
+				font-size: 36px;
+			}
+		}
+
+		.book-list-wrapper {
+			position: relative;
+			top: initial;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+
+		#book-list {
+			width: 100%; height: auto;
+
+			display: block;
+			top: initial;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+
+		.book {
+			padding: 2rem;
+
+			.book-title, .book-info {
+				padding: 0;
+				width: auto;
+			}
+
+			.book-title {
+				font-size: 2em;
+				top: 25%;
+			}
+
+			.book-info { font-size: 1em; }
+
+			&:last-child { margin: 0; }
+		}
+
+	}
 
 	/** FULL-BOOK/SCSS *********************************************************************************/
 
 	.full-book {
+
 		.mp-pushed {
 			transform: translate3d(225px, 0px, 0px) !important;
 
@@ -815,10 +918,37 @@
 			}
 		}
 
+		header {
+			background-color: $black;
+			opacity: 0.3;
+			position: fixed;
+			top: 0 !important;
+		}
+
+		#header-info, .share-book,
+		#bb-nav-prev, #bb-nav-next {
+			display: none;
+		}
+
+		#next-book-toggle {
+			display: block !important;
+			z-index: 103;
+		}
+
+		#the-book {
+			// -webkit-overflow-scrolling: touch;
+			transform: translate3d(0, 0, 0);
+
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+		}
+
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			.page-title-elem {
-				font-size: 2em;
+				font-size: 1.5em;
 				line-height: 1.2em;
 				padding: 0 !important;
 			}
@@ -831,16 +961,53 @@
 
 			.page-desc {
 				padding: 0 !important;
-				text-align: justify !important;
+				text-align: left !important;
 			}
 		}
 
+		.photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			border: 0;
+			margin: 0; // 0 0 2rem 0
+		}
+
+		.photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			height: auto !important;
+		}
+
 		.frontcover-wrapper {
+			// padding: 0 0 2rem 0;
+
 			.frontcover-preview {
+				// position: absolute;
+				top: 50px; bottom: 0;
+
 				.page-title-elem {
 					font-size: 2em;
 					line-height: 1.2em;
 					padding: 0 !important;
+				}
+
+				article {
+					background-color: transparent;
+					padding: 1.5rem 2rem auto;
+
+					.page-title-elem, .page-desc, h5 {
+						color: $white;
+						// z-index: 1;
+					}
+
+					&:after {
+						top: 0; right: 0;
+						bottom: 0; left: 0;
+
+						background-image: linear-gradient(to top, $black, transparent);
+						content: "";
+						opacity: 1; // 0.6
+						position: absolute;
+						z-index: -1;
+					}
 				}
 			}
 		}
@@ -853,17 +1020,19 @@
 
 		.horizontal-wrapper {
 			.horizontal-preview {
-				padding: 0 1rem !important;
+				// padding: 0 1rem !important;
 
 				.page-desc {
 					// font-size: 2.5em !important;
 				}
 			}
 
-			.page-title-elem { font-size: 3.5em; }
+			// .page-title-elem { font-size: 3.5em; }
 		}
 
 		.overlay-wrapper {
+			font-size: 1.5rem;
+
 			.overlay-preview {
 				// .page-desc { font-size: 3.5em !important; }
 
@@ -930,6 +1099,7 @@
 				h2 { font-size: 150%; }
 			}
 		}
+
 	}
 
 }
