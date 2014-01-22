@@ -66,12 +66,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
-							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
-							</ul>
-						</li>
+						<li><a id="gpl-menu-create" href="/create">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -104,7 +99,10 @@
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
-				<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
+				<button id="g-menu-toggle">
+					<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
+					<i class="ion-drag"></i>
+				</button>
 
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
@@ -118,13 +116,12 @@
 
 			<!--/ main-content /-->
 			<div id="featured-scroller">
-				<ul id="featured-nav">
-					<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-					<!--/
-					<li id="nav-dimensions"><a href="#">Dimensions</a></li>
-					<li id="nav-libraries"><a href="#">Libraries</a></li>
-					/-->
-				</ul>
+				<div id="nav-wrapper">
+					<ul id="featured-nav">
+						<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
+						<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li><li id="nav-libraries"><a href="#">Libraries</a></li> /-->
+					</ul>
+				</div>
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">

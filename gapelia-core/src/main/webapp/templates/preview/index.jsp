@@ -131,7 +131,7 @@
 
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
-		<script src="/static/scripts/jquery.bookblock.js"></script>
+		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
 			$(document).ready(function() {

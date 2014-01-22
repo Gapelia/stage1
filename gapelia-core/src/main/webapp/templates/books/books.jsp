@@ -51,12 +51,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
-							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
-							</ul>
-						</li>
+						<li><a id="gpl-menu-create" href="/create">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -79,10 +74,15 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button>
+			<!--/ <button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button> /-->
 
-			<!--/ <div id="header-toggle">&#9206;</div> /-->
-			<div id="next-book-toggle">&#9197;</div>
+			<button id="g-menu-toggle">
+				<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
+				<i class="ion-drag"></i>
+			</button>
+
+			<!--/ <div id="header-toggle">&#9206; &#9197;</div> /-->
+			<div id="next-book-toggle"><i class="ion-forward"></i></div>
 
 			<header>
 				<div id="header-info">
@@ -91,9 +91,9 @@
 				</div>
 
 				<ul class="share-book">
-					<li class="facebook"><a href="#">Facebook</a></li>
-					<li class="twitter"><a href="#">Twitter</a></li>
-					<li class="email"><a href="#">eMail</a></li>
+					<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+					<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+					<li><a href="#"><i class="ion-email"></i></a></li>
 				</ul>
 			</header>
 
@@ -805,7 +805,6 @@
 		</script>
 
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
-
 		<script src="/static/scripts/vimeothumb.js"></script>
 
 		<script>
@@ -818,7 +817,7 @@
 
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
-		<script src="/static/scripts/jquery.bookblock.js"></script>
+		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
 			$(document).ready(function() {
@@ -848,8 +847,8 @@
 							$bookBlock: $("#bb-bookblock"),
 							$navNext: $("#bb-nav-next"),
 							$navPrev: $("#bb-nav-prev"),
-							$navFirst: $("#bb-nav-first"),
-							$navLast: $("#next-book-toggle")
+							$navFirst: $("#bb-nav-first")
+							// $navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
 
@@ -885,10 +884,12 @@
 								return false;
 							});
 
+							/*
 							config.$navLast.on("click touchstart", function () {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});
+							*/
 
 							// add swipe events
 							$slides.on({
@@ -937,7 +938,8 @@
 
 					Page.init();
 					
-					if ($vW < "801") {
+					// if ($vW < "801") {
+					if ($vW < "1025") {
 
 						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
@@ -1004,46 +1006,6 @@
 						// Page 21
 						$("#the-book").append("<section class=\"backcover-wrapper\"><div id=\"fin\"><div class=\"appreciate\"><span>Vote</span></div><h2>Hayao Miyazaki</h1><ul class=\"share-book\"><li><a href=\"#\">Facebook</a></li><li><a href=\"#\">Twitter</a></li><li><a href=\"#\">Email</a></li></ul><hr/><section><div id=\"author-avatar\"><img src=\"/static/images/users/11.jpg\"/></div><div id=\"author-name\"><a href=\"#\">Paul Anthony Webb</a></div><div id=\"author-bio-blurb\">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div></section><section><div id=\"library-avatar\"><img src=\"/static/images/covers/architecture-sonn-visionsofart.jpg\"/></div><div id=\"library-name\"><a href=\"#\">Japanimation</a></div><div id=\"library-info-blurb\">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div></section></div><div id=\"fin-next\"><img class=\"page-bg\" src=\"/static/images/test-book/2651.jpg\"/><section><h2><a href=\"#\">Roadtripping California</a></h2></section></div></section>");
 
-						/*
-						<section class="backcover-wrapper">
-							<div id="fin">
-								<div class="appreciate"><span>Vote</span></div>
-
-								<h2>Hayao Miyazaki</h1>
-
-								<ul class="share-book">
-									<li><a href="#">Facebook</a></li>
-									<li><a href="#">Twitter</a></li>
-									<li><a href="#">Email</a></li>
-								</ul>
-
-								<hr/>
-
-								<section>
-									<div id="author-avatar"><img src="/static/images/users/11.jpg"/></div>
-
-									<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
-									<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
-								</section>
-
-								<section>
-									<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
-
-									<div id="library-name"><a href="#">Japanimation</a></div>
-									<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
-								</section>
-							</div>
-
-							<div id="fin-next">
-								<img class="page-bg" src="/static/images/test-book/2651.jpg"/>
-
-								<section>
-									<h2><a href="#">Roadtripping California</a></h2>
-								</section>
-							</div>
-						</section>
-						*/
-
 					}
 
 					NProgress.done();
@@ -1062,6 +1024,7 @@
 			$(document).on(".play-video", "click", function () {
 
 				$(".play-video").hide();
+
 				$(".video-player-container img").hide();
 				$(".video-player-container iframe").show();
 
