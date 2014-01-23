@@ -26,7 +26,8 @@
 		});
 		*/
 
-		if ($vW > "801") {
+		// if ($vW > "801") {
+		if ($vW > "1024") {
 
 			$(document).on("ready", function() {
 				// Set height of books in feed on "Me" page

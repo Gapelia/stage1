@@ -870,9 +870,10 @@
 					});
 				});
 
-				if ($vW < "801") {
+				// if ($vW < "801") {
+				if ($vW < "1025") {
 
-					$("#featured-panel").prepend("<small>Featured</small>");
+					// $("#featured-panel").prepend("<small>Featured</small>");
 
 					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
 
