@@ -119,24 +119,11 @@
 				<div class="button-wrapper">
 					<button class="edit-profile slate">Edit Profile</button>
 				</div>
-
-				<!--/
-				<div class="user-bg">
-					<img src="/static/images/space-bb.jpg"/>
-				</div>
-				/-->
 			</div>
 			<!--//main-panel /-->
 
 			<!--/ main-scroller /-->
 			<div id="book-scroller">
-				<!--/
-				<ul id="book-nav">
-					// <li id="nav-books" class="current"><a href="#">Your Personal Collection</a></li>
-					// <li id="nav-collections"><a href="#">Bookmarks</a></li>
-					// <li id="nav-drafts"><a href="#">Drafts</a></li>
-				</ul>
-				/-->
 
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
@@ -254,17 +241,6 @@
 							<img src="/static/images/book-thumb-10.jpg" alt=""/>
 						</li>
 
-						<!--/
-						<li class="new">
-							<a class="new-inner-wrapper" href="{% url 'create' %}">
-								<span class="entypo">&#10133;</span>
-								<div>Create a new book</div>
-							</a>
-
-							<span class="image-overlay"></span>
-						</li>
-						/-->
-
 					</ul>
 				</div>
 				<!--//your-books /-->
@@ -311,14 +287,54 @@
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				if ($vW < "801") {
+				if ($vW < "1025") {
 
-					$("#book-nav, .user-avatar").css("display", "none");
+					/*
+					$(window).scroll(function () {
 
-					$("#user-panel").prepend("<small>Hello!</small>");
-					$("#user-panel small").html(_fullName);
+						var value = $(this).stop().scrollTop();
+
+						$(function() {
+							setTimeout(function() {
+
+								if (value > 1 ) {
+
+									$("#user-panel").css("height", "75px");
+									$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
+
+								}
+
+							}, 10);
+						});
+
+					});
+					*/
+
+					// $("#book-nav, .user-avatar").css("display", "none");
+
+					// $("#user-panel").prepend("<small>Hello!</small>");
+					// $("#user-panel small").html(_fullName);
 
 					// $("#user-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+
+					document.body.addEventListener("touchmove", function(event) {
+						$("#user-panel").css("height", "75px");
+						$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
+						// event.preventDefault();
+					}, true);
+
+					document.body.addEventListener("touchend", function(event) {
+						$("#user-panel").css("height", "300px");
+						$(".user-avatar, .user-data, .button-wrapper").css("display", "block");
+						// event.preventDefault();
+					}, false);
+
+					/*
+					// Hides mobile browser's address bar when page is done loading.
+					window.addEventListener("load", function(e) {
+						setTimeout(function() { window.scrollTo(0, 1); }, 1);
+					}, false);
+					*/
 
 				} else {
 				}
@@ -327,133 +343,163 @@
 				$("#user-panel, #book-scroller").css("opacity", "0").show();
 				NProgress.start();
 
+				var
+				allBooks = $("#user-book-list li"),	// gets all books in a section
+				firstBook = $(allBooks).first();		// gets first book in list
+
+				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
 				setTimeout(function() {
 
 					$("#user-book-list").css("opacity", "0").show();
 
-					$(function() {
-						$("#book-scroller").mousewheel(function(event, delta) {
+					if ($vW > "1024") {
 
-							this.scrollLeft -= (delta * 90);
+						$(function() {
+							$("#book-scroller").mousewheel(function(event, delta) {
+
+								this.scrollLeft -= (delta * 90);
+								event.preventDefault();
+
+								if (event.deltaY < 0) {
+
+									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
+
+									$("#user-panel h2").css({
+										"bottom": "2rem",
+										"left": "-3.1rem",
+										"margin": "2rem 0",
+										"position": "fixed",
+										"transform": "rotate(-90deg)",
+										"width": "194px",
+										"-webkit-transform": "rotate(-90deg)"
+									});
+
+									$("#user-panel").css("width", "7%");
+									$("#book-scroller").css("width", "93%");
+
+								}
+
+								if (event.deltaY > 0) {
+
+									$("#user-panel").css("width", "25%");
+									$("#book-scroller").css("width", "75%");
+									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
+
+									$("#user-panel h2").css({
+										"margin": "0 0 10px 0",
+										"position": "static",
+										"transform": "rotate(0deg)",
+										"width": "100%",
+										"-webkit-transform": "rotate(0deg)"
+									});
+
+								}
+
+							});
+						});
+
+					} else {
+
+						/*
+						document.body.addEventListener("touchmove", function(event, delta) {
+
+							this.scrollDown -= (delta * 90);
 							event.preventDefault();
 
 							if (event.deltaY < 0) {
 
-								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
+								$("#user-panel").css("height", "75px");
+								$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
 
-								$("#user-panel h2").css({
-									"bottom": "2rem",
-									"left": "-3.1rem",
-									"margin": "2rem 0",
-									"position": "fixed",
-									"transform": "rotate(-90deg)",
-									"width": "194px",
-									"-webkit-transform": "rotate(-90deg)"
-								});
+							}
 
-								if ($vW < "1025") {
+						}, false);
+						*/
 
-									// $("#book-list").mCustomScrollbar("destroy");
-									$("#user-panel").css("width", "9.4%");
-									$("#book-scroller").css("width", "90.6%");
+						/*
+						function handleMove(event) {
 
-								} else {
+							var
+							touch, newY, delta;
+							// $firstItem = $(".item:first"),
+							// $lastItem = $(".item:last");
 
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
+							if (!isDown) { return; }
+
+							if (event.originalEvent.targetTouches.length == 1) {
+								touch = event.originalEvent.targetTouches[0];
+								newY = touch.clientY;
+							}
+
+							delta = lastY - newY;
+
+							// Swiping down
+							if (delta < 0) {
+
+								$("#user-panel").css("height", "75px");
+								$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
+
+								// Move last row from the end of the table to the beginning if first row is fully visible.
+								// if (($firstItem.position().top + $firstItem.outerHeight(true)) >= $page.position().top) { $page.css("margin-top", parseInt($page.css("margin-top")) - $lastItem.outerHeight(true) + "px").prepend($lastItem); }
+								// $page.css("margin-top", parseInt($page.css("margin-top")) - delta + "px");
+
+							}
+
+							lastY = newY;
+
+						}
+						*/
+
+						/*
+						$(function() {
+							$("#book-scroller").mousewheel(function(event, delta) {
+
+								this.scrollDown -= (delta * 90);
+								event.preventDefault();
+
+								if (event.deltaY < 0) {
+
+									$("#user-panel").css("height", "75px");
+									$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
 
 								}
 
-							}
+								if (event.deltaY > 0) {
 
-							if (event.deltaY > 0) {
+									$("#user-panel").css("height", "300px");
+									$(".user-avatar, .user-data, .button-wrapper").css("display", "block");
 
-								$("#user-panel").css("width", "25%");
-								$("#book-scroller").css("width", "75%");
-								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
+								}
 
-								$("#user-panel h2").css({
-									"margin": "0 0 10px 0",
-									"position": "static",
-									"transform": "rotate(0deg)",
-									"width": "100%",
-									"-webkit-transform": "rotate(0deg)"
-								});
-
-							}
-
+							});
 						});
+						*/
+
+					}
+
+					var w = 0, h = 0;
+
+					$("#user-book-list li").each(function() {
+						w += $(this).outerWidth();
+						h += $(this).outerHeight();
 					});
 
-					/*
-					$("#user-book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						callbacks: {
-							onScroll: function() {
+					w += 500;
 
-								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
-
-								$("#user-panel h2").css({
-									"bottom": "2rem",
-									"left": "-3.1rem",
-									"margin": "2rem 0",
-									"position": "fixed",
-									"transform": "rotate(-90deg)",
-									"width": "194px",
-									"-webkit-transform": "rotate(-90deg)"
-								});
-
-								if ($vW < "1025") {
-
-									// $("#book-list").mCustomScrollbar("destroy");
-									$("#user-panel").css("width", "9.4%");
-									$("#book-scroller").css("width", "90.6%");
-
-								} else {
-
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
-
-								}
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBack: function() {
-
-								$("#user-panel").css("width", "25%");
-								$("#book-scroller").css("width", "75%");
-								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
-
-								$("#user-panel h2").css({
-									"margin": "0 0 10px 0",
-									"position": "static",
-									"transform": "rotate(0deg)",
-									"width": "100%",
-									"-webkit-transform": "rotate(0deg)"
-								});
-
-								$(this).mCustomScrollbar("update");
-								$(this).mCustomScrollbar("stop");
-
-							},
-
-							onTotalScrollBackOffset: 100
-						},
-
-						advanced: { autoExpandHorizontalScroll: true }
-					});
-					*/
-
-					// if ($vW < "801") { $("#user-book-list").mCustomScrollbar("destroy"); }
+					if ($vW > "1024") {
+						// $("#book-list").css("width", w - 320 + "px");
+					} else {
+						$("#user-book-list").css("height", h + 444 + "px");
+					}
 
 					NProgress.done();
 
 					$("#user-book-list").css("opacity", "1");
+
+					// fades in the all the books after section width is added
+					$("#user-book-list li").fadeIn("100");
+					$("#user-book-list").fadeIn("100");
 
 					// "fix" featured menu pop-in
 					setTimeout(function() {
