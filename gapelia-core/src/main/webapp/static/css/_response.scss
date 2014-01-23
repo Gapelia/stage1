@@ -252,7 +252,7 @@
 			width: 64px; height: 75px;
 			top: 0; left: 1rem;
 		}
-		
+
 		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
 			position: relative;
 			top: initial;
@@ -263,7 +263,7 @@
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 		}
-		
+
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #dimension-list, #library-list, #bookmark-list {
 			top: initial;
@@ -341,6 +341,13 @@
 		#featured-scroller, #book-scroller {
 			overflow-x: hidden;
 			overflow-y: auto;
+			transform: translate3d(0, 0, 0);
+
+			-webkit-overflow-scrolling: touch;
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
 
 			#featured-nav { display: none; }
 		}
@@ -348,6 +355,8 @@
 		.book, .collection, .library, .new, .draft, .portal {
 			margin: 0 0 1rem 0; padding: 0;
 			width: 100%; height: 400px;
+
+			&:last-child { margin: 0; }
 
 			.library-info, .new-inner-wrapper, .draft-info,
 			.portal-info, .featured-info {
@@ -427,6 +436,16 @@
 
 		overflow-x: hidden;
 		overflow-y: auto;
+
+		#the-book {
+			transform: translate3d(0, 0, 0);
+
+			-webkit-overflow-scrolling: touch;
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+		}
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
@@ -865,16 +884,6 @@
 		#next-book-toggle {
 			display: block !important;
 			z-index: 103;
-		}
-
-		#the-book {
-			// -webkit-overflow-scrolling: touch;
-			transform: translate3d(0, 0, 0);
-
-			-o-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-webkit-transform: translate3d(0, 0, 0);
 		}
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,

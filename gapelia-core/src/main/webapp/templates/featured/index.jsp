@@ -921,22 +921,30 @@
 								$(".book-list-wrapper").html(parsedHtml);
 								$("#book-list").css("opacity", "0").show();
 
-								$("#book-list .book").css("height", $vH - 97 + "px");
+								if ($vW > "1024") {
+									$("#book-list .book").css("height", $vH - 97 + "px");
+								} else {
+								}
+
 								$(".book").imgLiquid({ fill: true });
 
-								var w = 0;
+								var w = 0, h = 0;
 
 								$("#book-list li").each(function() {
 									w += $(this).outerWidth();
+									h += $(this).outerHeight();
 								});
 
 								w += 500;
 
-								$("#book-list").css("width", w - 320 + "px");
+								if ($vW > "1024") {
+									$("#book-list").css("width", w - 320 + "px");
+								} else {
+									$("#book-list").css("height", h + 219 + "px");
+								}
 
 								NProgress.done();
 
-								// $("#book-list .book").css("height", $vH - 97 + "px");
 								$("#book-list").css("opacity", "1");
 
 								// fades in the all the books after section width is added
@@ -985,15 +993,20 @@
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
 
-						var w = 0;
+						var w = 0, h = 0;
 
 						$("#book-list li").each(function() {
 							w += $(this).outerWidth();
+							h += $(this).outerHeight();
 						});
 
 						w += 500;
 
-						$("#book-list").css("width", w - 320 + "px");
+						if ($vW > "1024") {
+							$("#book-list").css("width", w - 320 + "px");
+						} else {
+							$("#book-list").css("height", h + 219 + "px");
+						}
 
 						// fades in the all the books after section width is added
 						$("#book-list li").fadeIn("100");
@@ -1027,15 +1040,20 @@
 						$("#book-list").hide();
 						$("#bookmark-list").hide();
 
-						var w = 0;
+						var w = 0, h = 0;
 
 						$("#library-list li").each(function() {
 							w += $(this).outerWidth();
+							h += $(this).outerHeight();
 						});
 
 						w += 500;
 
-						$("#library-list").css("width", w - 155 + "px");
+						if ($vW > "1024") {
+							$("#library-list").css("width", w - 155 + "px");
+						} else {
+							$("#library-list").css("height", h + 379 + "px");
+						}
 
 						// fades in the all the books after section width is added
 						$("#library-list li").fadeIn("100");
@@ -1059,7 +1077,7 @@
 					NProgress.start();
 
 					var
-					allBooks = $("#bookmark-list li"),		// gets all books in a section
+					allBooks = $("#bookmark-list li"),	// gets all books in a section
 					firstBook = $(allBooks).first();		// gets first book in list
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
@@ -1069,15 +1087,21 @@
 						$("#book-list").hide();
 						$("#library-list").hide();
 
-						var w = 0;
+						var w = 0, h = 0;
 
 						$("#bookmark-list li").each(function() {
 							w += $(this).outerWidth();
+							h += $(this).outerHeight();
 						});
 
 						w += 500;
 
-						$("#bookmark-list").css("width", w - 320 + "px");
+
+						if ($vW > "1024") {
+							$("#bookmark-list").css("width", w - 320 + "px");
+						} else {
+							$("#bookmark-list").css("height", h + 219 + "px");
+						}
 
 						// fades in the all the books after section width is added
 						$("#bookmark-list li").fadeIn("100");
