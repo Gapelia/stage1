@@ -47,14 +47,14 @@
 					<ul>
 						<li><a id="gpl-menu-me" href="/me">Me</a>
 							<ul>
-								<li><a href="/accounts">Account Settings</a></li>
+								<li class="not-mobile"><a href="/accounts">Account Settings</a></li>
 								<li><a href="#">Sign Out</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create" href="/create">Create</a></li>
+						<li class="not-mobile"><a id="gpl-menu-create" href="/create">Create</a></li>
 
-						<li><a id="gpl-menu-drafts">Drafts</a>
+						<li class="not-mobile"><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
 								<li><a href="#">hikari: The Future of the Operating System</a></li>
 								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
@@ -925,7 +925,7 @@
 								if ($vW > "1024") {
 									$("#book-list").css("width", w - 320 + "px");
 								} else {
-									$("#book-list").css("height", h + 219 + "px");
+									// $("#book-list").css("height", h + 219 + "px");
 								}
 
 								NProgress.done();
@@ -990,7 +990,7 @@
 						if ($vW > "1024") {
 							$("#book-list").css("width", w - 320 + "px");
 						} else {
-							$("#book-list").css("height", h + 219 + "px");
+							// $("#book-list").css("height", h + 219 + "px");
 						}
 
 						// fades in the all the books after section width is added
@@ -1037,7 +1037,7 @@
 						if ($vW > "1024") {
 							$("#library-list").css("width", w - 155 + "px");
 						} else {
-							$("#library-list").css("height", h + 379 + "px");
+							// $("#library-list").css("height", h + 379 + "px");
 						}
 
 						// fades in the all the books after section width is added
@@ -1085,7 +1085,7 @@
 						if ($vW > "1024") {
 							$("#bookmark-list").css("width", w - 320 + "px");
 						} else {
-							$("#bookmark-list").css("height", h + 219 + "px");
+							// $("#bookmark-list").css("height", h + 400 + "px");
 						}
 
 						// fades in the all the books after section width is added
@@ -1125,7 +1125,7 @@
 					$.each(books, function() {
 
 						currentUrl=document.URL;
-						currentUrl=currentUrl.slice(0,(currentUrl.length-8));//removes the end
+						currentUrl=currentUrl.slice(0,(currentUrl.length-8)); // removes the end
 
 						if(books[i] == null) {
 							return false;

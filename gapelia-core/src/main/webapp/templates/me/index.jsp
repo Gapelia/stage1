@@ -366,7 +366,7 @@
 					if ($vW > "1024") {
 						// $("#book-list").css("width", w - 320 + "px");
 					} else {
-						$("#user-book-list").css("height", h + 273 + "px");
+						// $("#user-book-list").css("height", h + 273 + "px");
 					}
 
 					NProgress.done();
