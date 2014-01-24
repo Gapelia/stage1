@@ -831,7 +831,37 @@
 
 					// $("#featured-panel").prepend("<small>Featured</small>");
 
-					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+					$("#featured-panel").append("<button id='category-switcher'><i class='ion-chevron-down'></i></button>");
+
+					$("#featured-panel").append("<ul id='featured-nav' style='display: none'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+
+					$(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function() {
+
+						$("#featured-nav").toggle();
+
+						if ($("#featured-nav").css("display") == "block") {
+
+							$("#category-switcher").css({
+								"transform": "rotate(180deg)",
+								"-o-transform": "rotate(180deg)",
+								"-ms-transform": "rotate(180deg)",
+								"-moz-transform": "rotate(180deg)",
+								"-webkit-transform": "rotate(180deg)"
+							});
+
+						} else {
+
+							$("#category-switcher").css({
+								"transform": "rotate(0)",
+								"-o-transform": "rotate(0)",
+								"-ms-transform": "rotate(0)",
+								"-moz-transform": "rotate(0)",
+								"-webkit-transform": "rotate(0)"
+							});
+
+						}
+
+					});
 
 				} else {
 				}

@@ -288,54 +288,6 @@
 				$vH = $(window).height();
 
 				if ($vW < "1025") {
-
-					/*
-					$(window).scroll(function () {
-
-						var value = $(this).stop().scrollTop();
-
-						$(function() {
-							setTimeout(function() {
-
-								if (value > 1 ) {
-
-									$("#user-panel").css("height", "75px");
-									$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
-
-								}
-
-							}, 10);
-						});
-
-					});
-					*/
-
-					// $("#book-nav, .user-avatar").css("display", "none");
-
-					// $("#user-panel").prepend("<small>Hello!</small>");
-					// $("#user-panel small").html(_fullName);
-
-					// $("#user-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
-
-					document.body.addEventListener("touchmove", function(event) {
-						$("#user-panel").css("height", "75px");
-						$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
-						// event.preventDefault();
-					}, true);
-
-					document.body.addEventListener("touchend", function(event) {
-						$("#user-panel").css("height", "300px");
-						$(".user-avatar, .user-data, .button-wrapper").css("display", "block");
-						// event.preventDefault();
-					}, false);
-
-					/*
-					// Hides mobile browser's address bar when page is done loading.
-					window.addEventListener("load", function(e) {
-						setTimeout(function() { window.scrollTo(0, 1); }, 1);
-					}, false);
-					*/
-
 				} else {
 				}
 
@@ -400,82 +352,6 @@
 						});
 
 					} else {
-
-						/*
-						document.body.addEventListener("touchmove", function(event, delta) {
-
-							this.scrollDown -= (delta * 90);
-							event.preventDefault();
-
-							if (event.deltaY < 0) {
-
-								$("#user-panel").css("height", "75px");
-								$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
-
-							}
-
-						}, false);
-						*/
-
-						/*
-						function handleMove(event) {
-
-							var
-							touch, newY, delta;
-							// $firstItem = $(".item:first"),
-							// $lastItem = $(".item:last");
-
-							if (!isDown) { return; }
-
-							if (event.originalEvent.targetTouches.length == 1) {
-								touch = event.originalEvent.targetTouches[0];
-								newY = touch.clientY;
-							}
-
-							delta = lastY - newY;
-
-							// Swiping down
-							if (delta < 0) {
-
-								$("#user-panel").css("height", "75px");
-								$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
-
-								// Move last row from the end of the table to the beginning if first row is fully visible.
-								// if (($firstItem.position().top + $firstItem.outerHeight(true)) >= $page.position().top) { $page.css("margin-top", parseInt($page.css("margin-top")) - $lastItem.outerHeight(true) + "px").prepend($lastItem); }
-								// $page.css("margin-top", parseInt($page.css("margin-top")) - delta + "px");
-
-							}
-
-							lastY = newY;
-
-						}
-						*/
-
-						/*
-						$(function() {
-							$("#book-scroller").mousewheel(function(event, delta) {
-
-								this.scrollDown -= (delta * 90);
-								event.preventDefault();
-
-								if (event.deltaY < 0) {
-
-									$("#user-panel").css("height", "75px");
-									$(".user-avatar, .user-data, .button-wrapper").css("display", "none");
-
-								}
-
-								if (event.deltaY > 0) {
-
-									$("#user-panel").css("height", "300px");
-									$(".user-avatar, .user-data, .button-wrapper").css("display", "block");
-
-								}
-
-							});
-						});
-						*/
-
 					}
 
 					var w = 0, h = 0;
@@ -490,7 +366,7 @@
 					if ($vW > "1024") {
 						// $("#book-list").css("width", w - 320 + "px");
 					} else {
-						$("#user-book-list").css("height", h + 444 + "px");
+						$("#user-book-list").css("height", h + 273 + "px");
 					}
 
 					NProgress.done();
