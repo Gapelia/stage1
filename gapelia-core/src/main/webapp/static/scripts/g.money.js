@@ -26,7 +26,8 @@
 		});
 		*/
 
-		if ($vW > "801") {
+		// if ($vW > "801") {
+		if ($vW > "1024") {
 
 			$(document).on("ready", function() {
 				// Set height of books in feed on "Me" page
@@ -123,7 +124,7 @@
 				"border-right": "0"
 			});
 
-			if ($vW > "800") {
+			if ($vW > "1024") {
 
 				$(this).find(".top-bm").css({
 					"border-top": "20px solid #ff3b30",
@@ -164,7 +165,7 @@
 				"border-right": "0"
 			});
 
-			if ($vW > "800") {
+			if ($vW > "1024") {
 
 				$(this).find(".top-bm").css({
 					"border-top": "20px solid #fcfcfc",

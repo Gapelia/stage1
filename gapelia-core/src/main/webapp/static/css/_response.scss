@@ -15,357 +15,6 @@
 
 @media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
 
-	/***************************************************************************************************/
-	/*
-	body { font-size: 100%; }
-
-	body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
-		font-size-adjust: 0.5;
-	}
-
-	#page {
-		font-size: 1em;			// equivalent to 16px
-		line-height: 1.25;	// equivalent to 20px
-	}
-
-	@media (min-width: 43.75em) {
-		#page {
-			font-size: 1em;			// equivalent to 16px
-			line-height: 1.375;	// equivalent to 22px
-		}
-	}
-
-	h1 {
-		font-size: 2em;			// 2x body copy size = 32px
-		line-height: 1.25;	// 45px / 36px
-	}
-
-	@media (min-width: 43.75em) {
-		h1 {
-			font-size: 2.5em;		// 2.5x body copy size = 40px
-			line-height: 1.125;
-		}
-	}
-
-	@media (min-width: 56.25em) {
-		h1 {
-			font-size: 3em;			// 3x body copy size = 48px
-			line-height: 1.05;	// keep to a multiple of the 20px line height and something more appropriate for display headings
-		}
-	}
-
-	h2 {
-		font-size: 1.625em;				// 1.625x body copy size = 26px
-		line-height: 1.15384615;	// 30px / 26px
-	}
-
-	@media (min-width: 43.75em) {
-		h2 {
-			font-size: 2em;			// 2x body copy size = 32px
-			line-height: 1.25;
-		}
-	}
-
-	@media (min-width: 56.25em) {
-		h2 {
-			font-size: 2.25em;	// 2.25x body copy size = 36px
-			line-height: 1.25;
-		}
-	}
-
-	h3 {
-		font-size: 1.375em;				// 1.375x body copy size = 22px
-		line-height: 1.13636364;	// 25px / 22px
-	}
-
-	@media (min-width: 43.75em) {
-		h3 {
-			font-size: 1.5em;		// 1.5x body copy size = 24px
-			line-height: 1.25;
-		}
-	}
-
-	@media (min-width: 56.25em) {
-		h3 {
-			font-size: 1.75em;	// 1.75x body copy size = 28px
-			line-height: 1.25;
-		}
-	}
-
-	h4 {
-		font-size: 1.125em;				// 1.125x body copy size = 18px
-		line-height: 1.11111111;
-	}
-
-	@media (min-width: 43.75em) {
-		h4 {
-			line-height: 1.22222222;	// 22px / 18px
-		}
-	}
-
-	blockquote {
-		font-size: 1.25em;	// 20px / 16px
-		line-height: 1.25;	// 25px / 20px
-	}
-
-	@media (min-width: 43.75em) {
-		blockquote {
-			font-size: 1.5em;					// 24px / 16px
-			line-height: 1.45833333;	// 35px / 24px
-		}
-	}
-	*/
-	/***************************************************************************************************/
-
-	/** APP/SCSS ***************************************************************************************/
-
-	.app {
-		#featured-panel { width: 9.4%; }
-		#featured-scroller { width: 90.6%; }
-	}
-
-	/** FULL-BOOK/SCSS *********************************************************************************/
-
-	/*
-	.full-book {
-		.phototext-wrapper {
-			.phototext-preview { width: 40%; }
-		}
-
-		.overlay-wrapper {
-			.overlay-preview {
-				article { width: 80%; }
-			}
-		}
-
-		.text-wrapper {
-			.text-preview { padding: 5% 9rem; }
-		}
-
-		.video-wrapper {
-			.button-wrapper, .video-player-container { width: 60%; }
-			article { width: 40%; }
-		}
-	}
-	*/
-
-	.full-book {
-		overflow-x: hidden;
-		overflow-y: auto;
-
-		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
-		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
-			margin: 0; padding: 0;
-
-			border-bottom: 1px solid $black;
-			height: auto; // !important
-			overflow: initial; // auto
-			position: relative;
-
-			.page-bg, iframe {
-				width: 100%; height: auto;
-				bottom: auto; left: auto;
-
-				position: relative;
-				transform: translateY(0%);
-
-				-o-transform: translateY(0%);
-				-ms-transform: translateY(0%);
-				-moz-transform: translateY(0%);
-				-webkit-transform: translateY(0%);
-			}
-
-			article {
-				width: 100%; height: auto;
-
-				display: block;
-				padding: 2rem;
-				position: relative;
-			}
-
-			.page-title-elem {
-				font-size: 2.5em; // 36px
-				line-height: 1.2em; // 40px
-			}
-
-			.page-desc, p {
-				font-size: 1.4em !important;
-				line-height: 1.4em !important;
-			}
-
-			.page-desc { padding: 1rem 2rem !important; }
-		}
-
-		.frontcover-preview, .photo-preview, .text-preview, .horizontal-preview,
-		.overlay-preview, .phototext-preview, .vertical-preview, .video-preview, .backcover-preview {
-			margin: 0 !important; padding: 0 !important;
-		}
-
-		.frontcover-wrapper {
-			.frontcover-preview {
-				transform: translateY(0%);
-
-				-o-transform: translateY(0%);
-				-ms-transform: translateY(0%);
-				-moz-transform: translateY(0%);
-				-webkit-transform: translateY(0%);
-
-				article { width: 100%; }
-
-				.page-title-elem {
-					font-size: 2.5em;
-					line-height: 1.2em;
-				}
-
-				p { margin: inherit; }
-			}
-		}
-
-		.photo-wrapper {
-			// font-size: 50%; //
-			margin: -2rem 0 0 0; // !important
-			overflow: inherit;
-
-			.page-bg {
-				border: none;
-				box-shadow: none;
-				max-height: none;
-			}
-
-			.photo-preview {
-				max-height: none;
-				position: relative;
-			}
-		}
-
-		.text-wrapper {
-			.text-preview { font-size: inherit; }
-		}
-
-		.horizontal-wrapper {
-			.horizontal-preview {
-				border: none;
-				min-height: inherit;
-				position: relative;
-
-				.page-desc { width: 100%; }
-			}
-		}
-
-		.phototext-wrapper {
-			.phototext-preview {
-				width: 100%; height: auto;
-
-				overflow: auto;
-				padding: 0;
-				position: relative;
-			}
-		}
-
-		.overlay-wrapper {
-			// height: 99% !important;
-
-			.overlay-preview {
-				article {
-				}
-			}
-		}
-
-		.text-wrapper {
-			.text-preview {
-			}
-		}
-
-		.vertical-wrapper {
-			.draggable-placeholder { width: 100%; }
-
-			.vertical-preview {
-				font-size: inherit;
-				line-height: inherit;
-				position: relative;
-				width: 100%;
-			}
-		}
-
-		.video-wrapper {
-			.video-preview, article { position: relative; }
-
-			.button-wrapper {
-				bottom: initial;
-				top: 400px;
-				width: 100%;
-			}
-
-			.video-player-container {
-				width: 100%; height: 500px;
-				position: relative;
-			}
-		}
-
-		.backcover-wrapper {
-			border-bottom: none;
-
-			.appreciate { margin: 0 1.5rem !important; }
-
-			#fin, #fin-next {
-				float: none;
-				width: 100%;
-			}
-
-			#fin {
-				height: auto;
-				padding: 4rem 4rem 0 4rem;
-
-				h2 {
-					&:before { font-size: 0.5em; }
-					margin: 0 0 0 2rem;
-				}
-
-				.share-book { margin: -1.5rem 0 2rem 11.4rem; }
-
-				#author-avatar, #library-avatar {
-					width: 150px; height: 150px;
-				}
-
-				#author-bio-blurb, #library-info-blurb {
-					font-size: 1.4em;
-					line-height: 1.4em;
-					margin: -6rem 0 0 11.4rem;
-				}
-			}
-
-			#fin-next {
-				height: 300px !important;
-				overflow: hidden;
-
-				section {
-					top: 50%; left: 0;
-					transform: translateY(-50%);
-					width: 100%;
-
-					-o-transform: translateY(-50%);
-					-ms-transform: translateY(-50%);
-					-moz-transform: translateY(-50%);
-					-webkit-transform: translateY(-50%);
-				}
-
-				h2 {
-					font-size: 40px;
-					text-align: center;
-					width: 100%;
-				}
-			}
-		}
-	}
-
-}
-
-@media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
-
-	.super-wrapper.mp-pushed {
-		#g-menu-toggle { background-position: 0 0 !important; }
-	}
-
 	body {
 		margin: 0; padding: 0;
 
@@ -376,11 +25,33 @@
 	/** APP/SCSS ***************************************************************************************/
 
 	.app {
-		#g-menu-toggle {
-			width: 64px; height: 64px;
 
-			background-position: 0 0;
-			background-size: 400px 1000px;
+		#g-menu-toggle {
+			width: 64px; height: 75px;
+			top: 0; left: 1rem;
+		}
+
+		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
+			position: relative;
+			top: initial;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #dimension-list, #library-list, #bookmark-list {
+			top: initial;
+			transform: translateY(0);
+			width: 100% !important;
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
 		}
 
 		#featured-panel, #featured-scroller,
@@ -393,7 +64,7 @@
 			background-color: $white;
 			// border-bottom: 1px solid rgba($black, 0.3);
 			border-bottom: 0;
-			height: 117px;
+			height: 75px;
 
 			h2 { display: none; }
 
@@ -409,19 +80,36 @@
 			}
 
 			#featured-nav {
-				width: 100%; height: 100%;
-				margin: 0; padding: 3.6rem 0 2.2rem 0;
+				width: 100%; height: 75px;
+				margin: 0; padding: 0;
 
 				border-bottom: 0;
-				font-size: 2em;
+				font-size: 1.5rem;
 				text-align: center;
 
 				a { color: rgba($black, 0.6); }
-				li { margin: 0 2rem 0 0; }
 
-				.current a {
-					color: $slate;
-					padding: 0 0 1.29rem 0;
+				li {
+					margin: 0 2rem 0 0;
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+
+					-o-transform: translateY(-50%);
+					-ms-transform: translateY(-50%);
+					-moz-transform: translateY(-50%);
+					-webkit-transform: translateY(-50%);
+
+					&:last-child { margin: 0; }
+				}
+
+				.current {
+					padding: 0;
+
+					a {
+						color: $slate;
+						padding: 0 0 1.2rem 0;
+					}
 				}
 			}
 
@@ -431,27 +119,43 @@
 		#featured-scroller, #book-scroller {
 			overflow-x: hidden;
 			overflow-y: auto;
+			transform: translate3d(0, 0, 0);
+
+			-webkit-overflow-scrolling: touch;
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
 
 			#featured-nav { display: none; }
 		}
 
-		button { font-size: 1.2em; }
-
 		.book, .collection, .library, .new, .draft, .portal {
 			margin: 0 0 1rem 0; padding: 0;
 			width: 100%; height: 400px;
+
+			&:last-child { margin: 0; }
 
 			.library-info, .new-inner-wrapper, .draft-info,
 			.portal-info, .featured-info {
 				padding: 0 4rem;
 				top: 20%;
 
-				.title, .lib-blurb { padding: 0 5rem 0 0; }
-				.title { font-size: 3em; }
+				.title, .lib-blurb { padding: 0; }
+
+				.title {
+					font-size: 2.5rem;
+					margin: 0 0 2rem 0;
+				}
 
 				.lib-blurb {
 					font-size: 1.5em;
-					padding: 0 5rem 0 0;
+					line-height: 1.9rem;
+				}
+
+				button {
+					font-size: 1.2rem;
+					&:hover { padding: initial; }
 				}
 			}
 
@@ -467,8 +171,8 @@
 				right: 4rem;
 
 				&:hover {
-					.top-bm, .bottom-bm { right: 60px; }
-					.right-bm { width: 92px; }
+					.top-bm, .bottom-bm { right: 18px; }
+					.right-bm { width: 50px; }
 				}
 
 				.top-bm, .bottom-bm {
@@ -491,23 +195,35 @@
 		}
 
 		.book-title {
-			font-size: 3em;
-			padding: 0 4rem;
-			top: 20%;
+			font-size: 2.5rem; // 3em
+			padding: 0 5rem 0 4rem; // 0 4rem
+			top: 25%;
 		}
 
 		.book-info, .collection-info {
 			bottom: 10%;
-			font-size: 1.5em;
+			font-size: 1.2rem; // 1.5em
 			padding: 0 4rem;
 		}
+
 	}
 
 	/** FULL-BOOK/SCSS *********************************************************************************/
 
 	.full-book {
+
 		overflow-x: hidden;
 		overflow-y: auto;
+
+		#the-book {
+			transform: translate3d(0, 0, 0);
+
+			-webkit-overflow-scrolling: touch;
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+		}
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
@@ -617,8 +333,6 @@
 		}
 
 		.overlay-wrapper {
-			// height: 99% !important;
-
 			.overlay-preview {
 				article {
 				}
@@ -708,11 +422,31 @@
 				}
 			}
 		}
+
 	}
 
 	/** PROFILE/SCSS *************************************************************************************/
 
 	.profile {
+
+		.user-book-list-wrapper { top: initial !important; }
+
+		#user-panel {
+			height: 300px;
+
+			h2 {
+				display: block;
+			}
+		}
+
+		.user-avatar { top: 5%; }
+
+		.user-data {
+			top: 58%;
+			#user-bio { padding: 0.2rem; }
+		}
+
+		/*
 		.user-data {
 			top: 2.7rem; left: 6rem;
 
@@ -733,66 +467,19 @@
 				text-align: right;
 			}
 		}
+		*/
+
 	}
 
+}
+
+@media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
-
-	button, .button {
-		font-size: 2em !important;
-		padding: 1rem 1.5rem !important;
-
-		&:hover { padding: 1rem 2.5rem !important; }
-	}
-
-	/** FULL-BOOK/SCSS *********************************************************************************/
-
-	.full-book {
-		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
-		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
-			.page-desc, p {
-				font-size: 1.2em !important;
-				line-height: 1.6em !important;
-			}
-		}
-
-		.overlay-wrapper {
-			// height: auto !important;
-
-			.overlay-preview {
-				// .page-desc { font-size: 2.5em !important; }
-				article { margin: 10% auto; }
-			}
-		}
-
-		.horizontal-wrapper {
-			// .page-title-elem { font-size: 1.7em; }
-		}
-
-		.video-wrapper {
-			.button-wrapper { top: 380px; }
-		}
-
-		.backcover-wrapper {
-			#fin-next {
-				h2 { font-size: 32px; }
-			}
-		}
-	}
-
 }
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
-
-	/*
-	button, .button {
-		font-size: 40% !important;
-		padding: 0.5rem 1rem !important;
-
-		&:hover { padding: 0.5rem 1rem !important; }
-	}
-	*/
 
 	body {
 		// -webkit-overflow-scrolling: touch;
@@ -811,7 +498,11 @@
 			-webkit-transform: translate3d(250px, 0, 0) !important;
 
 			.mp-menu { width: 250px; }
-			#g-menu-toggle { color: $white; }
+
+			#g-menu-toggle {
+				color: $white;
+				left: 0.3rem;
+			}
 		}
 
 		#library-splash {
@@ -866,15 +557,15 @@
 
 			.book-title, .book-info {
 				padding: 0;
-				width: auto;
+				width: 80%; // auto
 			}
 
 			.book-title {
-				font-size: 2em;
+				font-size: 1.7rem;
 				top: 25%;
 			}
 
-			.book-info { font-size: 1em; }
+			.book-info { font-size: 1rem; }
 
 			&:last-child { margin: 0; }
 		}
@@ -933,16 +624,6 @@
 		#next-book-toggle {
 			display: block !important;
 			z-index: 103;
-		}
-
-		#the-book {
-			// -webkit-overflow-scrolling: touch;
-			transform: translate3d(0, 0, 0);
-
-			-o-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-webkit-transform: translate3d(0, 0, 0);
 		}
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
@@ -1100,6 +781,30 @@
 			}
 		}
 
+	}
+
+	/** PROFILE/SCSS *************************************************************************************/
+
+	.profile {
+
+		.user-avatar {
+			.avatar-wrapper {
+				width: 100px; height: 100px;
+
+				&:after {
+					width: 100px; height: 100px;
+				}
+			}
+		}
+
+		.user-data {
+			top: 40%;
+
+			#user-bio {
+				padding: 1rem;
+			}
+		}
+	
 	}
 
 }
