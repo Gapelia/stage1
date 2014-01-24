@@ -161,7 +161,7 @@
 			// total items
 			this.itemsCount = this.$items.length;
 
-			// current item´s index
+			// current item's index
 			if ((this.options.startPage > 0) && (this.options.startPage <= this.itemsCount)) {
 				this.current = (this.options.startPage - 1);
 			} else {
