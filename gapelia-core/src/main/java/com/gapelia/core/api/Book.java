@@ -109,16 +109,20 @@ public class Book {
 	public String getBook(@FormParam("sessionId") String sessionId,
 							 @FormParam("bookId") String bookId
 	) {
+		com.gapelia.core.model.Page [] pages =new com.gapelia.core.model.Page [20];
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String temp="";
+		String temp2="";
 		try {
 			// Get UserId from SessionId
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			LOG.info("Trying to retrieve book");
-			com.gapelia.core.model.Page [] pages = QueryDatabase.getBookById(profile, bookId);
+			pages = QueryDatabase.getBookById(profile, bookId);
 			return gson.toJson(pages);
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
+			System.out.println("Failed to call getBook" +ex.getMessage());
 			return gson.toJson("Failed"+ex.getMessage());
 		}
 	}
