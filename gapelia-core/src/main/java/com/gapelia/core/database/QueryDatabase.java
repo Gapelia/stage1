@@ -31,7 +31,7 @@ public class QueryDatabase {
 	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	// All User related queries
-	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId = '?'";
+	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
 	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 10";
 	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
 	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
@@ -212,34 +212,29 @@ public class QueryDatabase {
 
 
 	public static Page[] getBookById(Profile profile, String bookId) {
-		if (isDummy())
-			{return null;}
 		Page [] pages = new Page[20];
 		int i=0;
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_BOOK_FROM_ID);
 			statement.setString(1, bookId);
-			/*
 			ResultSet rs = statement.executeQuery();
-
 			while (rs.next()) {
+				System.out.println("Reading Page "+i);
 				Page page = new Page();
-				//page.setPageId(rs.getString("PageId"));
-				//page.setTitle(rs.getString("title"));
-				//page.setDescription(rs.getString("description"));
-				//page.setTemplateId(rs.getInt("templateId"));
-				//page.setPhoto(rs.getString("photoUrl"));
-				//page.setVideoUrl(rs.getString("videoUrl"));
+				page.setPageId(rs.getString("PageId"));
+				page.setTitle(rs.getString("title"));
+				page.setDescription(rs.getString("description"));
+				page.setTemplateId(rs.getInt("templateId"));
+				page.setPhoto(rs.getString("photoUrl"));
+				page.setVideoUrl(rs.getString("videoUrl"));
 				pages[i]=page;
 				i++;
 			}
-			pages[0].setPhoto("this stuff"+i);*/
 			return pages;
 		} catch (Exception ex) {
-			String temp=("Cannot load books "+ ex.getMessage());
-			pages[0].setPhoto(temp);
+			System.out.println("Cannot load books "+ ex.getMessage());
 			LOG.error("Cannot load books ", ex);
-			return null;
+			return pages;
 		}
 	}
 
