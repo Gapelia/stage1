@@ -9,6 +9,7 @@ import java.sql.DriverManager;
  * Author: Abhishek Tiwari (14/12/13)
  */
 public class DatabaseManager {
+	
 	private static String DB_DRIVER = "org.postgresql.Driver";
 	private static String DB_CONN_STRING = "jdbc:postgresql://";
 	private static String DB_HOSTNAME = "ec2-54-204-37-92.compute-1.amazonaws.com";
@@ -50,13 +51,14 @@ public class DatabaseManager {
 				// Ignore mode is null
 			}
 			if (null != mode && "local".equals(mode)) {
-				connectionString = "jdbc:postgresql://localhost:5432/gapelia";
-				userName = "postgres";
-				password = "";
+				LOG.error("we are in local mode:");
+				connectionString = "jdbc:postgresql://lmqyuqoyasrapq:5ELsYmpiso4HWAyj0SR_iaBQH4@ec2-54-204-37-92.compute-1.amazonaws.com:5432/?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 			}
 			connection = DriverManager.getConnection(connectionString, userName, password);
 			LOG.info("Got database connection");
 		} catch (Exception ex) {
+			LOG.error("SHIT\n\n\n\n\n\n\n\n");
+			LOG.error(connection);
 			LOG.error("Cannot get database connection", ex);
 		}
 	}

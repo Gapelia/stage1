@@ -33,50 +33,6 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
-
-		<script>
-			$(document).ready(function() {
-
-				/*
-				$.ajax({
-					url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllLibraries",
-					contentType: "application/x-www-form-urlencoded;charset=utf-8",
-					type: "POST",
-					data: {
-						sessionId: sId
-					},
-
-					success: function (data) {
-
-						html = "";
-						libraries = data;
-						parseJsonToStringForLibraries(libraries);
-
-						$(".library-list-wrapper").html(parsedHtml);
-						$("#library-list").css("opacity", "0").show();
-
-						NProgress.done();
-
-						$("#library-list .library").css("height", $vH - 97 + "px");
-						$("#library-list").css("opacity", "1");
-
-					},
-
-					error: function (q, status, err) {
-
-						if (status == "timeout") {
-							alert("Request timed out");
-						} else {
-							alert("Some issue happened with your request: " + err);
-						}
-
-					}
-				)};
-				*/
-
-			});
-		</script>
-
 	</head>
 
 	<body class="app profile">
@@ -908,8 +864,7 @@
 							contentType: "application/x-www-form-urlencoded;charset=utf-8",
 							type: "POST",
 							data: {
-								sessionId: sId,
-								dimension: "Art"
+								sessionId: sId
 							},
 
 							success: function (data) {
@@ -1115,6 +1070,7 @@
 					$.each(books, function() {
 
 						currentUrl=document.URL;
+						currentUrl=currentUrl.slice(0,(currentUrl.length-8));//removes the end
 
 						if(books[i] == null) {
 							return false;
@@ -1122,7 +1078,7 @@
 
 						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
 
-						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-title'><a href='"+currentUrl+"/"+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'>";
+						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'>";
 
 						html += "<div class='author-name'><a href='#'>" + books[i].userId + "</a></div><div class=\"library-location\"><a href=\"#\">" + books[i].library + "</a></div></div>";
 

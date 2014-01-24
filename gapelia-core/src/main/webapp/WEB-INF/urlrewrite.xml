@@ -16,7 +16,14 @@
         <from>^(.*)/$</from>
         <to type="permanent-redirect">$1</to>
     </rule>
-
+    <rule>
+    	<from>^/read/bookid=(.*)</from>
+    	<to>/templates/read/index.jsp</to>
+    </rule>
+    <outbound-rule>
+    	<from>^/templates/read/index.jsp</from>
+    	<to>/read/bookid=(.*)</to>
+    </outbound-rule>
     <rule>
 		<from>^/onboard$</from>
 		<to>/onboard.jsp</to>

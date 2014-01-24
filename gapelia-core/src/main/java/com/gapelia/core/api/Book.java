@@ -119,7 +119,7 @@ public class Book {
 			return gson.toJson(pages);
 		} catch (Exception ex) {
 			LOG.error("Failed to create page", ex);
-			return gson.toJson("Failed");
+			return gson.toJson("Failed"+ex.getMessage());
 		}
 	}
 
@@ -140,7 +140,7 @@ public class Book {
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to subscribe", ex);
-			return gson.toJson("Failed");
+			return gson.toJson("Failed"+ex.getMessage());
 		}
 	}
 

@@ -219,20 +219,25 @@ public class QueryDatabase {
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_BOOK_FROM_ID);
 			statement.setString(1, bookId);
+			/*
 			ResultSet rs = statement.executeQuery();
+
 			while (rs.next()) {
 				Page page = new Page();
 				//page.setPageId(rs.getString("PageId"));
-				page.setTitle(rs.getString("title"));
-				page.setDescription(rs.getString("description"));
-				page.setTemplateId(rs.getInt("templateId"));
-				page.setPhoto(rs.getString("photoUrl"));
-				page.setVideoUrl(rs.getString("videoUrl"));
+				//page.setTitle(rs.getString("title"));
+				//page.setDescription(rs.getString("description"));
+				//page.setTemplateId(rs.getInt("templateId"));
+				//page.setPhoto(rs.getString("photoUrl"));
+				//page.setVideoUrl(rs.getString("videoUrl"));
 				pages[i]=page;
 				i++;
 			}
+			pages[0].setPhoto("this stuff"+i);*/
 			return pages;
 		} catch (Exception ex) {
+			String temp=("Cannot load books "+ ex.getMessage());
+			pages[0].setPhoto(temp);
 			LOG.error("Cannot load books ", ex);
 			return null;
 		}
