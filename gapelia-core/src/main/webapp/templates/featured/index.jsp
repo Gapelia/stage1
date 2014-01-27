@@ -816,20 +816,16 @@
 						this.scrollLeft -= (delta * 90);
 						event.preventDefault();
 
-						/*
-						$("#featured-nav").css({
-							"right": "-4.5rem",
-							"position": "fixed"
-						});
-						*/
-
 					});
 				});
 
-				// if ($vW < "801") {
-				if ($vW < "1025") {
+				if ($vW > "801" & $vW < "1025") {
 
-					// $("#featured-panel").prepend("<small>Featured</small>");
+					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+
+				}
+
+				if ($vW < "801") {
 
 					$("#featured-panel").append("<button id='category-switcher'><i class='ion-chevron-down'></i></button>");
 

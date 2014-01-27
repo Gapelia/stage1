@@ -116,6 +116,11 @@
 			&:after { display: none; }
 		}
 
+		#featured-panel {
+			height: 75px; // 53
+			#category-switcher { display: none; }
+		}
+
 		#featured-scroller, #book-scroller {
 			overflow-x: hidden;
 			overflow-y: auto;
@@ -474,6 +479,25 @@
 }
 
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	.app {
+
+		#featured-panel {
+			#category-switcher {
+				width: 64px; height: 75px;
+				top: 0; right: 1rem;
+
+				background-color: transparent;
+				border-radius: 0;
+				color: $slate;
+				display: block;
+				font-size: 36px;
+				position: absolute;
+			}
+		}
+
+	}
+
 }
 
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -543,7 +567,7 @@
 				font-size: 36px;
 				position: absolute;
 			}
-			
+
 			#featured-nav {
 				// background-color: $white;
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
