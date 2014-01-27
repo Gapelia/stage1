@@ -7,18 +7,18 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Reload Gapelia when device orientation changes
-	window.onorientationchange = function() {
+	window.onorientationchange = function () {
 		window.location.reload();
 	};
 
-	$(document).ready(function() {
+	$(document).ready(function () {
 
 		$(".super-wrapper").css("height", $vH + "px");
 		$(".super-wrapper").show();
 
 		// Reload Gapelia when browser window resizing occurs
 		/*
-		$(window).resize(function() {
+		$(window).resize(function () {
 			if($vW != $(window).width()) {
 				location.reload();
 				return;
@@ -29,7 +29,7 @@
 		// if ($vW > "801") {
 		if ($vW > "1024") {
 
-			$(document).on("ready", function() {
+			$(document).on("ready", function () {
 				// Set height of books in feed on "Me" page
 				$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 				$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
@@ -64,7 +64,7 @@
 		var descElem = "user-bio";
 		descMax = 151;
 
-		$("#" + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+		$("#" + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("#" + titleElem).text().length > titleMax) {
@@ -73,14 +73,14 @@
 		}
 
 		// Edit Profile on "Me" page
-		$(document).on("click", "button.edit-profile", function() {
+		$(document).on("click", "button.edit-profile", function () {
 
 			$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
 			$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
 
 		});
 
-		$(document).on("click", "button.save-profile", function() {
+		$(document).on("click", "button.save-profile", function () {
 
 			$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 			$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
@@ -105,16 +105,16 @@
 		});
 
 		// Library Subscriptions
-		$(document).on("click", "button.subscribe", function() {
+		$(document).on("click", "button.subscribe", function () {
 			$(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
-		$(document).on("click", "button.unsubscribe", function() {
+		$(document).on("click", "button.unsubscribe", function () {
 			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
 
 		// Bookmarking
-		$(document).on("click", ".bookmark-this", function() {
+		$(document).on("click", ".bookmark-this", function () {
 
 			$(this).addClass("bookmarked");
 			// $(this).closest("li").remove(); for Me page
@@ -156,7 +156,7 @@
 
 		});
 
-		$(document).on("click", ".bookmarked", function() {
+		$(document).on("click", ".bookmarked", function () {
 
 			$(this).removeClass("bookmarked");
 
@@ -199,7 +199,7 @@
 
 	});
 
-	$(window).ready(function() {
+	$(window).ready(function () {
 
 		if ($vW > "1024") {
 
@@ -213,14 +213,14 @@
 			$(allpics).not(firstpic).hide();
 
 			// holds function for one second and then adds width to body tag
-			setTimeout(function() {
+			setTimeout(function () {
 
 				$("#user-book-list").hide().css("margin", "-2px 0 0 0");
 				// $("#book-list, #library-list, #bookmark-list").hide();
 
 				var w = 0;
 
-				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function() {
+				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function () {
 					w += $(this).outerWidth();
 				});
 

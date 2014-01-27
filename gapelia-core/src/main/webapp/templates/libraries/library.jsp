@@ -315,11 +315,11 @@
 		<script>
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function() {
+			$(".mp-pushed").ready(function () {
 				$("#book-scroller").css("z-index", "0");
 			});
 
-			$(function() {
+			$(function () {
 				$(".book").imgLiquid({ fill: true });
 			});
 		</script>
@@ -333,7 +333,7 @@
 		/-->
 
 		<script>
-			$(document).on("ready", function() {
+			$(document).on("ready", function () {
 
 				$("body").prepend("<section id='library-splash'><div id='library-info'><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id='featured-library' href='#'>hikari: The Future of the Operating System</a></section><div id='close-splash'>&raquo;</div></div><img class='page-bg' src='/static/images/libraries/villages.jpg'/></section>");
 
@@ -341,21 +341,21 @@
 
 			});
 
-			$(document).on("click", "#close-splash", function() {
+			$(document).on("click", "#close-splash", function () {
 
 				$("#library-splash").remove();
 				// e.preventDefault();
 
 			});
 
-			$(document).ready(function() {
+			$(document).ready(function () {
 
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				$(function() {
-					$("#featured-scroller").mousewheel(function(event, delta) {
+				$(function () {
+					$("#featured-scroller").mousewheel(function (event, delta) {
 
 						this.scrollLeft -= (delta * 90);
 						event.preventDefault();
@@ -375,7 +375,7 @@
 				*/
 
 				// Load Gapelia
-				$(function() {
+				$(function () {
 
 					if ($vW > "1024") {
 
@@ -389,7 +389,7 @@
 
 						$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-						setTimeout(function() {
+						setTimeout(function () {
 
 							$("#book-list").hide();
 							$("#library-list").hide();
@@ -397,7 +397,7 @@
 
 							var w = 0;
 
-							$("#book-list li").each(function() {
+							$("#book-list li").each(function () {
 								w += $(this).outerWidth();
 							});
 
@@ -410,7 +410,7 @@
 							$("#book-list").fadeIn("100");
 
 							// "fix" featured menu pop-in
-							setTimeout(function() {
+							setTimeout(function () {
 								$("#featured-panel, #featured-scroller").css("opacity", "1");
 							}, 400);
 
@@ -429,7 +429,7 @@
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 				NProgress.start();
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					$("#book-list").css("opacity", "0").show();
 
@@ -449,7 +449,7 @@
 					$("#book-list").css("opacity", "1");
 
 					// "fix" featured menu pop-in
-					setTimeout(function() {
+					setTimeout(function () {
 						$("#featured-panel, #featured-scroller").css("opacity", "1");
 					}, 400);
 

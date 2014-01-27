@@ -129,7 +129,7 @@
 		<script>
 			$("img").VimeoThumb();
 
-			setTimeout(function() {
+			setTimeout(function () {
 				$(".video-player-container").imgLiquid({ fill: true });
 			}, 1000); // prevent placeholder from appearing
 		</script>
@@ -139,12 +139,12 @@
 		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function () {
 
 				// Load Gapelia
 				NProgress.start();
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					currentUrl = document.URL;
 					bookid = currentUrl.slice(45); // leave just bookid
@@ -404,8 +404,12 @@
 
 					})();
 
-					Page.init();
-					NProgress.done();
+					setTimeout(function () {
+
+						Page.init();
+						NProgress.done();
+
+					}, 10);
 
 				});
 

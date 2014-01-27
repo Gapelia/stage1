@@ -786,11 +786,11 @@
 		<script>
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function() {
+			$(".mp-pushed").ready(function () {
 				$("#book-scroller").css("z-index", "0");
 			});
 
-			$(document).on("ready", function() {
+			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
 			});
 		</script>
@@ -804,14 +804,14 @@
 		/-->
 
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function () {
 
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				$(function() {
-					$("#featured-scroller").mousewheel(function(event, delta) {
+				$(function () {
+					$("#featured-scroller").mousewheel(function (event, delta) {
 
 						this.scrollLeft -= (delta * 90);
 						event.preventDefault();
@@ -831,7 +831,7 @@
 
 					$("#featured-panel").append("<ul id='featured-nav' style='display: none'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
 
-					$(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function() {
+					$(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
 
 						$("#featured-nav").toggle();
 
@@ -863,7 +863,7 @@
 				}
 
 				// Load Gapelia
-				$(function() {
+				$(function () {
 
 					NProgress.start();
 
@@ -880,7 +880,7 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function() {
+					setTimeout(function () {
 
 						$("#book-list").hide();
 						$("#library-list").hide();
@@ -911,7 +911,7 @@
 
 								var w = 0, h = 0;
 
-								$("#book-list li").each(function() {
+								$("#book-list li").each(function () {
 									w += $(this).outerWidth();
 									h += $(this).outerHeight();
 								});
@@ -946,7 +946,7 @@
 						});
 
 						// "fix" featured menu pop-in
-						setTimeout(function() {
+						setTimeout(function () {
 							$("#featured-panel, #featured-scroller").css("opacity", "1");
 						}, 400);
 
@@ -969,14 +969,14 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function() {
+					setTimeout(function () {
 
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
 
 						var w = 0, h = 0;
 
-						$("#book-list li").each(function() {
+						$("#book-list li").each(function () {
 							w += $(this).outerWidth();
 							h += $(this).outerHeight();
 						});
@@ -1016,14 +1016,14 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function() {
+					setTimeout(function () {
 
 						$("#book-list").hide();
 						$("#bookmark-list").hide();
 
 						var w = 0, h = 0;
 
-						$("#library-list li").each(function() {
+						$("#library-list li").each(function () {
 							w += $(this).outerWidth();
 							h += $(this).outerHeight();
 						});
@@ -1063,14 +1063,14 @@
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					setTimeout(function() {
+					setTimeout(function () {
 
 						$("#book-list").hide();
 						$("#library-list").hide();
 
 						var w = 0, h = 0;
 
-						$("#bookmark-list li").each(function() {
+						$("#bookmark-list li").each(function () {
 							w += $(this).outerWidth();
 							h += $(this).outerHeight();
 						});
@@ -1104,7 +1104,7 @@
 
 					html += "<ul id=\"library-list\">";
 
-					$.each(libraries, function() {
+					$.each(libraries, function () {
 
 						html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
 
@@ -1118,7 +1118,7 @@
 
 					i = 0;
 
-					$.each(books, function() {
+					$.each(books, function () {
 
 						currentUrl=document.URL;
 						currentUrl=currentUrl.slice(0,(currentUrl.length-8)); // removes the end
