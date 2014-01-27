@@ -139,75 +139,12 @@
 		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
-			$(document).ready(function () {
+			$(function () {
 
 				// Load Gapelia
 				NProgress.start();
 
 				setTimeout(function () {
-
-					currentUrl = document.URL;
-					bookid = currentUrl.slice(45); // leave just bookid
-					console.log(bookid);
-					sId = "12345";
-					info = "";
-
-					$.ajax({
-						url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
-						contentType: "application/x-www-form-urlencoded;charset=utf-8",
-						type: "POST",
-						data: {
-							sessionId: sId,
-							bookId: bookid
-						},
-						success: function (data) {
-							info = data;
-							insertPages(data);
-						},
-						error: function (q, status, err) {
-							if (status == "timeout") {
-								alert("Request timed out");
-							} else {
-								alert("Some issue happened with your request: " + err);
-							}
-						}
-					});
-
-					function insertPages(Pages) {
-
-						size = Pages.length;
-						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
-						htmlToInsert = "";
-						for (i = 0; i < size; i++) {
-
-							current = Pages[i];
-
-							if (current === null) { break; }
-
-							if (i === 0) {
-								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-							} else {
-								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-							}
-
-							$("#bb-bookblock").html(htmlToInsert);
-
-							$(".content").css({
-								"width": $vW + "px",
-								"height": $vH + "px"
-							});
-
-							$(".frontcover-wrapper").imgLiquid({ fill: true });
-							// $(".photo-wrapper").imgLiquid({ fill: false });
-							$(".horizontal-wrapper").imgLiquid({ fill: true });
-							$(".overlay-wrapper").imgLiquid({ fill: true });
-							$(".phototext-wrapper").imgLiquid({ fill: true });
-							$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
-							insertPage();
-						}
-
-					}
 
 					function insertPage() {
 
@@ -404,12 +341,72 @@
 
 					})();
 
-					setTimeout(function () {
+					currentUrl = document.URL;
+					bookid = currentUrl.slice(45); // leave just bookid
+					console.log(bookid);
+					sId = "12345";
+					info = "";
 
-						Page.init();
-						NProgress.done();
+					$.ajax({
+						url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
+						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+						type: "POST",
+						data: {
+							sessionId: sId,
+							bookId: bookid
+						},
+						success: function (data) {
+							info = data;
+							insertPages(data);
+						},
+						error: function (q, status, err) {
+							if (status == "timeout") {
+								alert("Request timed out");
+							} else {
+								alert("Some issue happened with your request: " + err);
+							}
+						}
+					});
 
-					}, 10);
+					function insertPages(Pages) {
+
+						size = Pages.length;
+						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
+						htmlToInsert = "";
+
+						for (i = 0; i < size; i++) {
+
+							current = Pages[i];
+
+							if (current === null) { break; }
+
+							if (i === 0) {
+								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+							} else {
+								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+							}
+
+							$("#bb-bookblock").html(htmlToInsert);
+
+							$(".content").css({
+								"width": $vW + "px",
+								"height": $vH + "px"
+							});
+
+							$(".frontcover-wrapper").imgLiquid({ fill: true });
+							// $(".photo-wrapper").imgLiquid({ fill: false });
+							$(".horizontal-wrapper").imgLiquid({ fill: true });
+							$(".overlay-wrapper").imgLiquid({ fill: true });
+							$(".phototext-wrapper").imgLiquid({ fill: true });
+							$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
+							insertPage();
+						}
+
+					}
+
+					Page.init();
+					NProgress.done();
 
 				});
 
