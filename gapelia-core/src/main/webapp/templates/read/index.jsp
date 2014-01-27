@@ -176,10 +176,9 @@
 					function insertPages(Pages) {
 
 						size = Pages.length;
-
+						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
+						htmlToInsert = "";
 						for (i = 0; i < size; i++) {
-							document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
-							htmlToInsert = "";
 
 							current = Pages[i];
 
