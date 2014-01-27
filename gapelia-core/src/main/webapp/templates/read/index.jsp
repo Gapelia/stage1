@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Book Title by Author Name &middot; Gapelia</title>
+		<title></title>
 
 		<!--/
 			 ______   ______   ______  ______   __       __   ______    
@@ -102,7 +102,10 @@
 
 			<!--/ div id="the-book" /-->
 			<div id="the-book" class="bb-custom-wrapper">
-				<div id="bb-bookblock" class="bb-bookblock"></div>
+				<div id="bb-bookblock" class="bb-bookblock">
+					</div>
+
+				</div>
 			</div>
 
 		</div>
@@ -172,37 +175,38 @@
 
 					function insertPages(Pages) {
 
-						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
-						htmlToInsert = "";
 						size = Pages.length;
 
 						for (i = 0; i < size; i++) {
+							document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
+							htmlToInsert = "";
+
 							current = Pages[i];
 
-							if (current == null) { break; }
+							if (current === null) { break; }
 
-							if (i == 0) {
+							if (i === 0) {
 								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							} else {
 								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 							}
 
+							$("#bb-bookblock").html(htmlToInsert);
+
+							$(".content").css({
+								"width": $vW + "px",
+								"height": $vH + "px"
+							});
+
+							$(".frontcover-wrapper").imgLiquid({ fill: true });
+							// $(".photo-wrapper").imgLiquid({ fill: false });
+							$(".horizontal-wrapper").imgLiquid({ fill: true });
+							$(".overlay-wrapper").imgLiquid({ fill: true });
+							$(".phototext-wrapper").imgLiquid({ fill: true });
+							$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
 							insertPage();
 						}
-
-						$("#bb-bookblock").html(htmlToInsert);
-
-						$(".content").css({
-							"width": $vW + "px",
-							"height": $vH + "px"
-						});
-
-						$(".frontcover-wrapper").imgLiquid({ fill: true });
-						// $(".photo-wrapper").imgLiquid({ fill: false });
-						$(".horizontal-wrapper").imgLiquid({ fill: true });
-						$(".overlay-wrapper").imgLiquid({ fill: true });
-						$(".phototext-wrapper").imgLiquid({ fill: true });
-						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
 					}
 
@@ -354,7 +358,7 @@
 							});
 
 							/*
-							config.$navLast.on("click touchstart", function() {
+							config.$navLast.on("click touchstart", function () {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});
@@ -376,9 +380,7 @@
 							// add keyboard events
 							$(document).keydown(function (e) {
 
-								var
-								keyCode = e.keyCode || e.which,
-								arrow = {
+								var keyCode = e.keyCode || e.which, arrow = {
 									left: 37,
 									up: 38,
 									right: 39,
