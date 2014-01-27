@@ -158,23 +158,14 @@
 		width: 100%; height: auto;
 		top: 0.5rem; left: 0;
 
-		background-color: transparent; // $slate
-		// background-image: url("../images/sprite-sheet.png");
-		// background-position: 0 0;
-		// background-size: 400px 1000px;
-		// border-radius: none;
-		// border-top-right-radius: 300rem;
-		// border-bottom-right-radius: 300rem;
+		background-color: transparent;
 		color: $slate;
 		cursor: pointer;
 		font-size: 36px;
-		// opacity: 0.7;
 		padding: 0 !important;
 		position: absolute;
 		transition: all 0.5s ease;
-		z-index: 2;
-
-		// @include hide-text;
+		z-index: 3;
 
 		span {
 			width: 36px; height: 4px;
@@ -184,8 +175,6 @@
 			margin: 0 auto 6px;
 			position: relative;
 		}
-
-		// a { text-shadow: none !important; }
 
 		&:hover { opacity: 0.7; }
 	}
