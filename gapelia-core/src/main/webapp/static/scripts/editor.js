@@ -84,6 +84,7 @@
 					"video": "null",
 					"pageId": pageId
 				};
+				frontCoverLayout();
 
 			},
 			error: function (q, status, err) {
@@ -393,13 +394,6 @@
 
 	});
 
-	// Have front cover and one page ready at load time
-	$(document).ready(function () {
-
-		$("#add-page").before($("<li id=\""+pagesCreated+"\"draggable='true'></li>").html("<div class=\"delete-page\">Delete</div><a class=\"edit-page\">Edit</a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=''/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
-		frontCoverLayout();
-
-	});
 
 	/*
 	// Disable pasting on all layouts until we can auto-limit text overflow
