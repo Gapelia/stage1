@@ -12,7 +12,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -804,6 +804,22 @@
 		/-->
 
 		<script>
+			$(document).ready(function () {
+
+				$("#mp-pusher").prepend('<section id="featured-splash"><div id="library-info"><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
+
+				$("#featured-splash").imgLiquid({ fill: true });
+				$("#g-menu-toggle").css("color", "#fcfcfc");
+
+			});
+
+			$(document).on("click", "#close-splash", function () {
+
+				$("#featured-splash").css("left", "-125%");
+				$("#g-menu-toggle").css("color", "#70a1b1");
+
+			});
+
 			$(document).ready(function () {
 
 				var

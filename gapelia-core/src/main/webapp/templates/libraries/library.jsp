@@ -335,16 +335,17 @@
 		<script>
 			$(document).on("ready", function () {
 
-				$("body").prepend("<section id='library-splash'><div id='library-info'><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id='featured-library' href='#'>hikari: The Future of the Operating System</a></section><div id='close-splash'>&raquo;</div></div><img class='page-bg' src='/static/images/libraries/villages.jpg'/></section>");
+				$("#mp-pusher").prepend('<section id="library-splash"><button class="subscribe slate">Subscribe</button><div id="library-info"><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/></section>');
 
 				$("#library-splash").imgLiquid({ fill: true });
+				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
 
 			$(document).on("click", "#close-splash", function () {
 
-				$("#library-splash").remove();
-				// e.preventDefault();
+				$("#library-splash, #library-splash button").css("left", "-125%");
+				$("#g-menu-toggle").css("color", "#70a1b1");
 
 			});
 
@@ -357,7 +358,7 @@
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
-						this.scrollLeft -= (delta * 90);
+						this.scrollLeft -= (delta * 45);
 						event.preventDefault();
 
 					});
