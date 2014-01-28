@@ -139,278 +139,282 @@
 		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
-			$(function () {
+			
+        
+                			$(function () {
+                				setTimeout(function () {
 
-				// Load Gapelia
-				NProgress.start();
+                					function insertPage() {
 
-				setTimeout(function () {
+                						switch (current.templateId) {
+                							case 0:
+                								frontCoverLayout();
+                								break;
 
-					function insertPage() {
+                							case 1:
+                								photoLayout();
+                								break;
 
-						switch (current.templateId) {
-							case 0:
-								frontCoverLayout();
-								break;
+                							case 2:
+                								textLayout();
+                								break;
 
-							case 1:
-								photoLayout();
-								break;
+                							case 3:
+                								horizontalLayout();
+                								break;
 
-							case 2:
-								textLayout();
-								break;
+                							case 4:
+                								overlayLayout();
+                								break;
 
-							case 3:
-								horizontalLayout();
-								break;
+                							case 5:
+                								photoTextLayout();
+                								break;
 
-							case 4:
-								overlayLayout();
-								break;
+                							case 6:
+                								verticalLayout();
+                								break;
 
-							case 5:
-								photoTextLayout();
-								break;
+                							case 7:
+                								videoLayout();
+                								break;
 
-							case 6:
-								verticalLayout();
-								break;
+                							default:
+                								frontCoverLayout();
+                								break;
+                						}
 
-							case 7:
-								videoLayout();
-								break;
+                						return 1;
 
-							default:
-								frontCoverLayout();
-								break;
-						}
+                					}
 
-					}
+                					function frontCoverLayout() {
 
-					function frontCoverLayout() {
+                						htmlToInsert += "<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div><h5>*AUTHOR*</h5></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div><h5>*AUTHOR*</h5></article></div></section></div></div>";
+                					}
 
-					}
+                					function photoLayout() {
 
-					function photoLayout() {
+                						// htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1></article></div></section></div></div>";
+                					}
 
-					}
+                					function textLayout() {
 
-					function textLayout() {
+                						// htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
+                					}
 
-					}
+                					function horizontalLayout() {
 
-					function horizontalLayout() {
+                						// htmlToInsert += "<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"horizontal-wrapper\"><div class=\"scroller-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"horizontal-wrapper\"><div class=\"scroller-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></div></section></div></div>";
+                					}
 
-					}
+                					function overlayLayout() {
 
-					function overlayLayout() {
+                						// htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.text + "</div><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.text + "</div><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
+                					}
 
-					}
+                					function photoTextLayout() {
 
-					function photoTextLayout() {
+                						// htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
+                					}
 
-					}
+                					function verticalLayout() {
 
-					function verticalLayout() {
+                						// htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
+                						htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.photo + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></div></section></div></div>";
+                					}
 
-					}
+                					function videoLayout() {
 
-					function videoLayout() {
+                						// htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
 
-						// htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+                						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div><div class=\"video-player-container\"><iframe src=\"" + current.videoUrl + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
 
-						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div><div class=\"video-player-container\"><iframe src=\"" + current.videoUrl + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.description + "</div></article></div></section></div></div>";
+                					}
 
-					}
+                					var Page = (function () {
 
-					var Page = (function () {
+                						var config = {
+                							$bookBlock: $("#bb-bookblock"),
+                							$navNext: $("#bb-nav-next"),
+                							$navPrev: $("#bb-nav-prev"),
+                							$navFirst: $("#bb-nav-first")
+                							// $navLast: $("#next-book-toggle")
+                							// $navLast: $('#bb-nav-last')
+                						},
+
+                						init = function () {
+
+                							config.$bookBlock.bookblock({
+                								speed: 1000,
+                								shadowSides: 0.8,
+                								shadowFlip: 0.4
+                							});
+
+                							initEvents();
+
+                						},
+
+                						initEvents = function () {
+
+                							var $slides = config.$bookBlock.children();
+
+                							// add navigation events
+                							config.$navNext.on("click touchstart", function () {
+                								config.$bookBlock.bookblock("next");
+                								return false;
+                							});
+
+                							config.$navPrev.on("click touchstart", function () {
+                								config.$bookBlock.bookblock("prev");
+                								return false;
+                							});
+
+                							config.$navFirst.on("click touchstart", function () {
+                								config.$bookBlock.bookblock("first");
+                								return false;
+                							});
+
+                							/*
+                							config.$navLast.on("click touchstart", function () {
+                								config.$bookBlock.bookblock("last");
+                								return false;
+                							});
+                							*/
+
+                							// add swipe events
+                							$slides.on({
+                								"swipeleft": function (event) {
+                									config.$bookBlock.bookblock("next");
+                									return false;
+                								},
+
+                								"swiperight": function (event) {
+                									config.$bookBlock.bookblock("prev");
+                									return false;
+                								}
+                							});
+
+                							// add keyboard events
+                							$(document).keydown(function (e) {
+
+                								var keyCode = e.keyCode || e.which, arrow = {
+                									left: 37,
+                									up: 38,
+                									right: 39,
+                									down: 40
+                								};
+
+                								switch (keyCode) {
+                									case arrow.left:
+                										config.$bookBlock.bookblock("prev");
+                										break;
+
+                									case arrow.right:
+                										config.$bookBlock.bookblock("next");
+                										break;
+                								}
+
+                							});
+
+                						};
+
+                						return { init: init };
+
+                					})();
+
+                					currentUrl = document.URL;
+                					bookid = currentUrl.slice(45); // leave just bookid
+                					console.log(bookid);
+                					sId = "12345";
+                					info = "";
+
+                					$.ajax({
+                						url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
+                						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                						type: "POST",
+                						data: {
+                							sessionId: sId,
+                							bookId: bookid
+                						},
+                						success: function (data) {
+                							info = data;
+                							NProgress.start();
+                							insertPages(data);
+                							Page.init(waitAndSee())
+                							NProgress.done();
+                						},
+                						error: function (q, status, err) {
+                							if (status == "timeout") {
+                								alert("Request timed out");
+                							} else {
+                								alert("Some issue happened with your request: " + err);
+                							}
+                						}
+                					});
+                					function waitAndSee(){
+                					$("#bb-bookblock").html(htmlToInsert);
+
+                							$(".content").css({
+                								"width": $vW + "px",
+                								"height": $vH + "px"
+                							});
+
+                							$(".frontcover-wrapper").imgLiquid({ fill: true });
+                							// $(".photo-wrapper").imgLiquid({ fill: false });
+                							$(".horizontal-wrapper").imgLiquid({ fill: true });
+                							$(".overlay-wrapper").imgLiquid({ fill: true });
+                							$(".phototext-wrapper").imgLiquid({ fill: true });
+                							$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+                				}
+                					function insertPages(Pages) {
+
+                						size = Pages.length;
+                						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
+                						htmlToInsert = "";
+
+                						for (i = 0; i < size; i++) {
+
+                							current = Pages[i];
+
+                							if (current === null) { break; }
+
+                							if (i === 0) {
+                								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+                							} else {
+                								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+                							}
+
+  
+
+                							insertPage();
+                						}
+
+                					}
+
+                				});
+
+                			});
 
-						var config = {
-							$bookBlock: $("#bb-bookblock"),
-							$navNext: $("#bb-nav-next"),
-							$navPrev: $("#bb-nav-prev"),
-							$navFirst: $("#bb-nav-first")
-							// $navLast: $("#next-book-toggle")
-							// $navLast: $('#bb-nav-last')
-						},
-
-						init = function () {
-
-							config.$bookBlock.bookblock({
-								speed: 1000,
-								shadowSides: 0.8,
-								shadowFlip: 0.4
-							});
-
-							initEvents();
-
-						},
-
-						initEvents = function () {
-
-							var $slides = config.$bookBlock.children();
-
-							// add navigation events
-							config.$navNext.on("click touchstart", function () {
-								config.$bookBlock.bookblock("next");
-								return false;
-							});
-
-							config.$navPrev.on("click touchstart", function () {
-								config.$bookBlock.bookblock("prev");
-								return false;
-							});
-
-							config.$navFirst.on("click touchstart", function () {
-								config.$bookBlock.bookblock("first");
-								return false;
-							});
-
-							/*
-							config.$navLast.on("click touchstart", function () {
-								config.$bookBlock.bookblock("last");
-								return false;
-							});
-							*/
-
-							// add swipe events
-							$slides.on({
-								"swipeleft": function (event) {
-									config.$bookBlock.bookblock("next");
-									return false;
-								},
-
-								"swiperight": function (event) {
-									config.$bookBlock.bookblock("prev");
-									return false;
-								}
-							});
 
-							// add keyboard events
-							$(document).keydown(function (e) {
-
-								var keyCode = e.keyCode || e.which, arrow = {
-									left: 37,
-									up: 38,
-									right: 39,
-									down: 40
-								};
-
-								switch (keyCode) {
-									case arrow.left:
-										config.$bookBlock.bookblock("prev");
-										break;
-
-									case arrow.right:
-										config.$bookBlock.bookblock("next");
-										break;
-								}
-
-							});
-
-						};
-
-						return { init: init };
-
-					})();
-
-					currentUrl = document.URL;
-					bookid = currentUrl.slice(45); // leave just bookid
-					console.log(bookid);
-					sId = "12345";
-					info = "";
-
-					$.ajax({
-						url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
-						contentType: "application/x-www-form-urlencoded;charset=utf-8",
-						type: "POST",
-						data: {
-							sessionId: sId,
-							bookId: bookid
-						},
-						success: function (data) {
-							info = data;
-							insertPages(data);
-						},
-						error: function (q, status, err) {
-							if (status == "timeout") {
-								alert("Request timed out");
-							} else {
-								alert("Some issue happened with your request: " + err);
-							}
-						}
-					});
-
-					function insertPages(Pages) {
-
-						size = Pages.length;
-						document.title = "You are reading \"" + Pages[0].title + "\" on Gapelia";
-						htmlToInsert = "";
-
-						for (i = 0; i < size; i++) {
-
-							current = Pages[i];
-
-							if (current === null) { break; }
-
-							if (i === 0) {
-								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-							} else {
-								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-							}
-
-							$("#bb-bookblock").html(htmlToInsert);
-
-							$(".content").css({
-								"width": $vW + "px",
-								"height": $vH + "px"
-							});
-
-							$(".frontcover-wrapper").imgLiquid({ fill: true });
-							// $(".photo-wrapper").imgLiquid({ fill: false });
-							$(".horizontal-wrapper").imgLiquid({ fill: true });
-							$(".overlay-wrapper").imgLiquid({ fill: true });
-							$(".phototext-wrapper").imgLiquid({ fill: true });
-							$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
-							insertPage();
-						}
-
-					}
-
-					Page.init();
-					NProgress.done();
-
-				});
-
-			});
 		</script>
 
 	</body>
