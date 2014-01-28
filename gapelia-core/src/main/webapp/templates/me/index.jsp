@@ -100,24 +100,27 @@
 			<!--/ main-panel /-->
 			<div id="user-panel">
 				<button id="g-menu-toggle">
-					<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
 					<i class="ion-drag"></i>
 				</button>
 
-				<div class="user-avatar">
-					<div class="avatar-wrapper">
-						<img src="/static/images/users/11.jpg"/>
+				<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
+
+				<div id="user-wrapper">
+					<div class="user-avatar">
+						<div class="avatar-wrapper">
+							<img src="/static/images/users/11.jpg"/>
+						</div>
 					</div>
-				</div>
 
-				<div class="user-data">
-					<h2>Paul Anthony Webb</h2>
+					<div class="user-data">
+						<h2>Paul Anthony Webb</h2>
 
-					<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
-				</div>
+						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
+					</div>
 
-				<div class="button-wrapper">
-					<button class="edit-profile slate">Edit Profile</button>
+					<div class="button-wrapper">
+						<button class="edit-profile slate">Edit Profile</button>
+					</div>
 				</div>
 			</div>
 			<!--//main-panel /-->
@@ -272,14 +275,19 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
 
-		<!--/
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-		/-->
-
 		<script>
 			$(".user-data h2").html(_fullName);
 			$(".user-avatar img").attr("src", _image);
+
+			/*
+			if (navigator.appVersion.indexOf("Win")!=-1) {
+				// Detect Windows
+			} else if (navigator.appVersion.indexOf("Mac")!=-1) {
+				// Detect Mac
+			} else {
+				// Detect Linux, lol
+			}
+			*/
 
 			$(document).ready(function() {
 
@@ -288,6 +296,53 @@
 				$vH = $(window).height();
 
 				if ($vW < "1025") {
+
+					$(function() {
+						$("#book-scroller").bind("touchmove scroll", function() {
+
+							var value = $(this).stop().scrollTop();
+
+							if (value > 1) {
+
+								$("#g-menu-toggle").hide();
+
+								$("#user-panel .user-avatar, #user-panel #user-data, #user-panel h2, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0");
+								$("#user-panel .button-wrapper").css("bottom", "inherit");
+
+								$("#mobile-header").css({
+									"top": "0",
+									"left": $vW / 2 - 100 + "px"
+								});
+
+								$("#user-panel").css({
+									"background-color": "#70a1b1",
+									"height": "75px"
+								});
+
+							}
+
+							if (value < 1) {
+
+								$("#g-menu-toggle").show();
+
+								$("#user-panel .user-avatar, #user-panel #user-data, #user-panel h2, #user-panel .button-wrapper").css("margin", "initial");
+								$("#user-panel .button-wrapper").css("bottom", "5%");
+
+								$("#mobile-header").css({
+									"top": "-20rem",
+									"transition": "all 0.2s ease"
+								});
+
+								$("#user-panel").css({
+									"background-color": "#fcfcfc",
+									"height": "300px"
+								});
+
+							}
+
+						});
+					});
+
 				} else {
 				}
 
@@ -310,7 +365,7 @@
 						$(function() {
 							$("#book-scroller").mousewheel(function(event, delta) {
 
-								this.scrollLeft -= (delta * 45);
+								this.scrollLeft -= (delta * 40);
 								event.preventDefault();
 
 								if (event.deltaY < 0) {
@@ -362,12 +417,6 @@
 					});
 
 					w += 500;
-
-					if ($vW > "1024") {
-						// $("#book-list").css("width", w - 320 + "px");
-					} else {
-						// $("#user-book-list").css("height", h + 273 + "px");
-					}
 
 					NProgress.done();
 

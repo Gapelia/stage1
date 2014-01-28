@@ -26,6 +26,23 @@
 
 	.app {
 
+		.not-mobile { display: none; }
+
+		.super-wrapper.mp-pushed {
+			#g-menu-toggle { color: $white !important; }
+		}
+
+		.mp-menu {
+			#gpl-menu-me {
+				&:hover:after { content: ""; }
+			}
+
+			ul li ul {
+				display: block;
+				height: 100%;
+			}
+		}
+
 		#g-menu-toggle {
 			width: 64px; height: 75px;
 			top: 0; left: 1rem;
@@ -82,6 +99,7 @@
 				width: 100%;
 			}
 
+			/*
 			#featured-nav {
 				width: 100%; height: 75px;
 				margin: 0; padding: 0;
@@ -115,13 +133,67 @@
 					}
 				}
 			}
+			*/
 
 			&:after { display: none; }
 		}
 
 		#featured-panel {
 			height: 75px; // 53
-			#category-switcher { display: none; }
+
+			#category-switcher {
+				width: 64px; height: 75px;
+				top: 0; right: 1rem;
+
+				background-color: transparent;
+				border-radius: 0;
+				color: $slate;
+				display: block; // none
+				font-size: 36px;
+				position: absolute;
+				z-index: 1;
+			}
+
+			#featured-nav {
+				width: 100%; height: 141px; // auto
+				margin: 0; padding: 0;
+
+				// background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+				font-size: 2rem;
+				text-align: center;
+				top: 74px; // 102px
+				transition: all 0.5s ease;
+				z-index: 1;
+
+				li {
+					margin: 0; padding: 1rem;
+
+					// border-bottom: 1px solid rgba($black, 0.3);
+					background-color: $white;
+					box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+					cursor: pointer;
+					display: block;
+					top: 0;
+					translate: translateY(0);
+
+					-o-translate: translateY(0);
+					-ms-translate: translateY(0);
+					-moz-translate: translateY(0);
+					-webkit-translate: translateY(0);
+				}
+
+				.current {
+					background-color: $slate;
+					border-bottom: 0;
+					padding: 1rem;
+
+					a {
+						border: 0;
+						color: $white;
+					}
+				}
+			}
 		}
 
 		#featured-scroller, #book-scroller {
@@ -140,20 +212,20 @@
 
 		.book, .collection, .library, .new, .draft, .portal {
 			margin: 0 0 1rem 0; padding: 0;
-			width: 100%; height: 400px;
+			width: 100%; height: 250px; // 400px
 
 			&:last-child { margin: 0; }
 
 			.library-info, .new-inner-wrapper, .draft-info,
 			.portal-info, .featured-info {
 				padding: 0 4rem;
-				top: 20%;
+				top: 10%; // 20%
 
 				.title, .lib-blurb { padding: 0; }
 
 				.title {
 					font-size: 2.5rem;
-					margin: 0 0 2rem 0;
+					margin: 0 0 1rem 0;
 				}
 
 				.lib-blurb {
@@ -168,7 +240,7 @@
 			}
 
 			.wrapper {
-				bottom: 4rem;
+				bottom: 2rem; // 4rem
 				padding: 0 4rem;
 				text-align: left;
 
@@ -209,7 +281,7 @@
 		}
 
 		.book-info, .collection-info {
-			bottom: 10%;
+			bottom: 25%; // 10%
 			font-size: 1.2rem; // 1.5em
 			padding: 0 4rem;
 		}
@@ -437,14 +509,47 @@
 
 	.profile {
 
+		// #g-menu-toggle { display: none; }
+
 		.user-book-list-wrapper { top: initial !important; }
 
 		#user-panel {
 			height: 300px;
+			position: relative;
+			transition: all 0.5s ease;
 
-			h2 {
+			h2 { display: block; }
+		}
+
+		#mobile-header {
+			width: 100%; height: 75px;
+
+			background-image: url("../images/sprite-sheet.png");
+			background-position: 0 -339px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			display: block !important;
+			position: absolute;
+			top: -20rem;
+			transition: all 0.5s ease;
+
+			@include hide-text;
+
+			a {
+				width: 100%; height: 100%;
+
 				display: block;
+				margin: 1rem 0;
 			}
+
+			// &:hover { opacity: 0.3; }
+		}
+
+		#user-wrapper {
+			width: 100%; height: 100%;
+
+			// border-top: 1px solid rgba($black, 0.5);
+			margin: 75px 0 0 0;
 		}
 
 		.user-avatar { top: 5%; }
@@ -454,29 +559,6 @@
 			#user-bio { padding: 0.2rem; }
 		}
 
-		/*
-		.user-data {
-			top: 2.7rem; left: 6rem;
-
-			font-size: 1.5em;
-			width: 68%;
-
-			#user-bio {
-				margin: 0; padding: 0;
-
-				line-height: 1.3em;
-				text-align: left;
-			}
-		}
-
-		#user-panel {
-			.button-wrapper {
-				padding: 1.2rem 2rem;
-				text-align: right;
-			}
-		}
-		*/
-
 	}
 
 }
@@ -485,19 +567,12 @@
 
 	.app {
 
-		#featured-panel {
-			#category-switcher {
-				width: 64px; height: 75px;
-				top: 0; right: 1rem;
-
-				background-color: transparent;
-				border-radius: 0;
-				color: $slate;
-				display: block;
-				font-size: 36px;
-				position: absolute;
-			}
+		.book-title {
+			padding: 0 6rem 0 4rem;
+			top: 20%;
 		}
+
+		.book-info, .collection-info { bottom: 20%; }
 
 	}
 
@@ -525,29 +600,10 @@
 			-webkit-transform: translate3d(250px, 0, 0) !important;
 
 			.mp-menu { width: 250px; }
-
-			#g-menu-toggle {
-				color: $white;
-				left: 0.3rem;
-			}
+			#g-menu-toggle { left: 0.3rem; }
 		}
 
-		.not-mobile {
-			display: none;
-		}
-
-		.mp-menu {
-			#gpl-menu-me {
-				&:hover:after { content: ""; }
-			}
-
-			ul li ul {
-				display: block;
-				height: 100%;
-			}
-		}
-
-		#library-splash {
+		#featured-splash, #library-splash {
 			font-size: 1em;
 			padding: 2rem;
 
@@ -608,19 +664,6 @@
 
 			.featured-info, small { display: none; }
 		}
-
-		/*
-		.book-list-wrapper {
-			position: relative;
-			top: initial;
-			transform: translateY(0);
-
-			-o-transform: translateY(0);
-			-ms-transform: translateY(0);
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-		}
-		*/
 
 		.book, .library, .collection {
 			background-color: transparent;

@@ -806,7 +806,7 @@
 		<script>
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="featured-splash"><div id="library-info"><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
+				$("#mp-pusher").prepend('<section id="featured-splash"><div id="featured-info"><h1>Gapelia</h1><p>Some interesting description about Gapelia, and possibly some lists of top-rated books, &amp;c. Yeah.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
 
 				$("#featured-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
@@ -815,7 +815,7 @@
 
 			$(document).on("click", "#close-splash", function () {
 
-				$("#featured-splash").css("left", "-125%");
+				$("#featured-splash").css("left", "-200%");
 				$("#g-menu-toggle").css("color", "#70a1b1");
 
 			});
@@ -829,19 +829,22 @@
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
-						this.scrollLeft -= (delta * 45);
+						this.scrollLeft -= (delta * 40);
 						event.preventDefault();
 
 					});
 				});
 
+				/*
 				if ($vW > "801" & $vW < "1025") {
 
 					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
 
 				}
+				*/
 
-				if ($vW < "801") {
+				// if ($vW < "801") {
+				if ($vW < "1025") {
 
 					$("#featured-panel").append("<button id='category-switcher'><i class='ion-chevron-down'></i></button>");
 

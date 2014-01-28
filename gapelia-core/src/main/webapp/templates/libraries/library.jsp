@@ -344,7 +344,7 @@
 
 			$(document).on("click", "#close-splash", function () {
 
-				$("#library-splash, #library-splash button").css("left", "-125%");
+				$("#library-splash, #library-splash button").css("left", "-200%");
 				$("#g-menu-toggle").css("color", "#70a1b1");
 
 			});
@@ -358,7 +358,7 @@
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
-						this.scrollLeft -= (delta * 45);
+						this.scrollLeft -= (delta * 40);
 						event.preventDefault();
 
 					});
