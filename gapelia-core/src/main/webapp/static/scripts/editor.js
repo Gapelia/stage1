@@ -1262,30 +1262,6 @@
 	}
 
 	function addPageBE() {
-
-		/*
-		$.ajax({
-			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-				sessionId: sId,
-				bookId:bookId,
-			},
-			success: function (data) {
-				pageId=date.pageId;
-				console.log("Succes Creating your book");
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					//alert("Request timed out");
-				} else {
-					//alert("Some issue happened with your request: " + err);
-				}
-			}
-		});
-		*/
-
 	}
 
 	// Layout Constants
@@ -1314,29 +1290,6 @@
 	// Save book information every minute
 	window.setInterval(function () {
 
-		/*
-		$.ajax({
-			url:"http://gapelia-dev.herokuapp.com/api/book/createBook",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-				sessionId: sId,
-				title:title,
-				bookId:bookId
-			},
-			success: function (data) {
-				console.log("Success creating your book");
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					// alert("Request timed out");
-				} else {
-					// alert("Some issue happened with your request: " + err);
-				}
-			}
-		});
-		*/
-
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
 	}, 60000);
@@ -1350,36 +1303,6 @@
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
-
-		/*
-		$.ajax({
-			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-				sessionId: sId,
-				title: title,
-				bookId: bookId,
-				pageId: pageId,
-				title: title,
-				description: text,
-				templateId: templateId,
-				videoUrl: videoURL,
-				pageNumber: currentPage,
-				createdByUserId: userId
-			},
-			success: function (data) {
-				console.log("Succes Creating your book");
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					// alert("Request timed out");
-				} else {
-					// alert("Some issue happened with your request: " + err);
-				}
-			}
-		});
-		*/
 
 	}, 5000);
 
@@ -1425,9 +1348,9 @@
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
-					 alert("Request timed out");
+					alert("Request timed out");
 				} else {
-					 alert("Some issue happened with your request: " + err);
+					alert("Some issue happened with your request: " + err);
 				}
 			}
 		});

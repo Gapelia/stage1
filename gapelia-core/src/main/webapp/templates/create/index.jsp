@@ -55,11 +55,13 @@
 				<li id="0" draggable='true'>
 					<div class="delete-page">Delete</div>
 					<a class="edit-page">Edit</a>
+
 					<section>
 						<img src="/static/images/blankBG.jpg" id='page0Image'>
 						<span id='page0Title'>0 &middot; New Page</span>
 					</section>
 				</li>
+
 				<li id="add-page" class="new-thumb disable-sort">
 					<a href="#">+</a>
 					<span>Add New Page</span>
@@ -220,7 +222,7 @@
 		/-->
 
 		<script src="/static/scripts/filepicker2.js"></script>
-		<script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script>
+		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script> /-->
 		
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
