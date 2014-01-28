@@ -813,7 +813,7 @@
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
-						this.scrollLeft -= (delta * 90);
+						this.scrollLeft -= (delta * 45);
 						event.preventDefault();
 
 					});

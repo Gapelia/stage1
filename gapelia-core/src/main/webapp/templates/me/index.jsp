@@ -310,7 +310,7 @@
 						$(function() {
 							$("#book-scroller").mousewheel(function(event, delta) {
 
-								this.scrollLeft -= (delta * 90);
+								this.scrollLeft -= (delta * 45);
 								event.preventDefault();
 
 								if (event.deltaY < 0) {
