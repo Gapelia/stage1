@@ -277,13 +277,30 @@
 		.book-title {
 			font-size: 2.5rem; // 3em
 			padding: 0 5rem 0 4rem; // 0 4rem
-			top: 25%;
+			top: 20%;
 		}
 
 		.book-info, .collection-info {
-			bottom: 25%; // 10%
+			bottom: 20%; // 10%
 			font-size: 1.2rem; // 1.5em
 			padding: 0 4rem;
+		}
+
+		#featured-splash, #library-splash {
+			#close-splash {
+				top: initial; right: 0; bottom: -16rem;
+
+				text-align: center;
+				width: 100%;
+
+				i {
+					transform: rotate(90deg);
+
+					-o-transform: rotate(90deg);
+					-moz-transform: rotate(90deg);
+					-webkit-transform: rotate(90deg);
+				}
+			}
 		}
 
 	}
