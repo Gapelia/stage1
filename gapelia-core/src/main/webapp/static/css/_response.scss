@@ -210,14 +210,13 @@
 			#featured-nav { display: none; }
 		}
 
-		.book, .collection, .library, .new, .draft, .portal {
+		.book, .collection, .library {
 			margin: 0 0 1rem 0; padding: 0;
 			width: 100%; height: 250px; // 400px
 
 			&:last-child { margin: 0; }
 
-			.library-info, .new-inner-wrapper, .draft-info,
-			.portal-info, .featured-info {
+			.library-info, .draft-info, .featured-info {
 				padding: 0 4rem;
 				top: 10%; // 20%
 
@@ -287,6 +286,8 @@
 		}
 
 		#featured-splash, #library-splash {
+			#library-info, #featured-info { padding: 0 10rem; }
+
 			#close-splash {
 				top: initial; right: 0; bottom: -16rem;
 
@@ -591,11 +592,58 @@
 
 		.book-info, .collection-info { bottom: 20%; }
 
+		#featured-splash, #library-splash {
+			#featured-info, #library-info {
+				padding: 0 5rem;
+				top: 60%;
+			}
+
+			#close-splash {
+				bottom: initial;
+				margin: 2rem 0 0 0;
+				position: relative;
+			}
+		}
+
+		.book, .collection, .library {
+			.library-info, .draft-info, .featured-info {
+				.title { font-size: 1.3rem; }
+			}
+		}
+
 	}
 
 }
 
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	.app {
+
+		.book-title { font-size: 2rem; }
+
+		#featured-splash, #library-splash {
+			#featured-info, #library-info {
+				padding: 0;
+				top: 55%;
+			}
+		}
+
+		.book, .collection, .library {
+			.library-info, .draft-info, .featured-info {
+				.title {
+					font-size: 2rem;
+					margin: 0 0 1.4rem 0;
+				}
+
+				.lib-blurb {
+					font-size: 1.2rem;
+					line-height: 1.5rem;
+				}
+			}
+		}
+
+	}
+
 }
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -627,6 +675,30 @@
 			p {
 				font-size: 1em;
 				padding: 0;
+			}
+
+			#featured-info, #library-info { top: 65%; }
+		}
+
+		#featured-splash {
+			#gapelia {
+				top: 2rem; left: 0;
+
+				background-position: 54px -349px;
+				width: 100%;
+			}
+
+			#login-greet {
+				top: 7rem; left: 0; right: initial;
+
+				text-align: center;
+				width: 100%;
+
+				a {
+					&:first-child:after { content: "\00a0\00a0\00a0\00b7\00a0\00a0\00a0"; }
+				}
+
+				br { display: none; }
 			}
 		}
 

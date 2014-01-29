@@ -33,6 +33,13 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+
+		<script>
+			$(function () {
+				$("#g-menu-toggle").css("z-index", "2");
+			});
+		</script>
+
 	</head>
 
 	<body class="app profile">
@@ -767,6 +774,7 @@
 		</div>
 
 		<!--/ scripts /-->
+		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
@@ -791,7 +799,7 @@
 		<script>
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="featured-splash"><h1 id="gapelia"><a href="/featured">Gapelia</a></h1><div id="login-greet"><a href="#">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div><div id="featured-info"><h3>How will books look like in 2050?</h3><p>Some interesting description about this book. There should be an excerpt here too.</p><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
+				$("#mp-pusher").prepend('<section id="featured-splash"><h1 id="gapelia"><a href="/featured">Gapelia</a></h1><div id="login-greet"><a href="#">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div><div id="featured-info"><h2>How will books look like in 2050?</h2><p>Some interesting description about this book. There should be an excerpt here too.</p><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
 
 				$("#featured-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
@@ -809,26 +817,26 @@
 
 			} else {
 
+				$(function() {
+
+					$("#featured-splash").swipe({
+						// Generic swipe handler for all directions
+						swipeUp: function(event, direction, distance, duration, fingerCount) {
+
+							$("#featured-splash").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+
+						}, threshold: 0
+					});
+
+				});
+
 				$(document).on("click", "#close-splash", function () {
 
 					$("#featured-splash").css("top", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
 
 				});
-
-				$(function () {
-					// $("#mp-pusher").css("overflow-y", "auto");
-				});
-
-				var
-				sticky = document.querySelector("#featured-panel"),
-				origOffsetY = sticky.offsetTop;
-
-				function onScroll(e) {
-					window.scrollY >= origOffsetY ? sticky.classList.add("fixed") : sticky.classList.remove("fixed");
-				}
-
-				document.addEventListener("scroll", onScroll);
 
 			}
 
