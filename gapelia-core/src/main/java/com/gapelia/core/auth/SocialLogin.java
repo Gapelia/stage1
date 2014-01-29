@@ -29,7 +29,7 @@ public class SocialLogin extends HttpServlet {
 			//Create an instance of SocialAuthConfig object
 			SocialAuthConfig config = SocialAuthConfig.getDefault();
 			LOG.info("Creating social auth config");
-
+			System.out.println("Creating social auth config");
 			//load configuration. By default load the configuration from oauth_consumer.properties.
 			//You can also pass input stream, properties object or properties file name.
 			config.load();
@@ -38,7 +38,7 @@ public class SocialLogin extends HttpServlet {
 			SocialAuthManager manager = new SocialAuthManager();
 			manager.setSocialAuthConfig(config);
 			LOG.info("Creating social auth manager");
-
+			System.out.println("Creating social auth manager");
 			// URL of YOUR application which will be called after authentication
 			String hostName = InetAddress.getLocalHost().getHostName();
 			String mode = null;
@@ -55,10 +55,10 @@ public class SocialLogin extends HttpServlet {
 			}
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			LOG.info("Social auth succesUrl: " + successUrl);
-
+			System.out.println("Social auth succesUrl: " + successUrl);
 			String type = request.getParameter("type");
 			LOG.info("Auth type: " + type);
-
+			System.out.println("Auth type: " + type);
 			// get Provider URL to which you should redirect for authentication.
 			// id can have values "facebook", "twitter", "yahoo" etc. or the OpenID URL
 			String url = null;
@@ -78,6 +78,7 @@ public class SocialLogin extends HttpServlet {
 			}
 
 			LOG.info("Redirecting to url: " + url);
+			System.out.println("Redirecting to url: " + url);
 			HttpSession session = request.getSession();
 			session.setAttribute("authManager", manager);
 			response.sendRedirect(response.encodeRedirectURL(url));

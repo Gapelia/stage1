@@ -32,45 +32,50 @@ public class QueryDatabase {
 	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	// All User related queries
 	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
-	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 20";
-	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
-	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
-												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 10";
+	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";//)name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) 
+	private static final String CHECK_USER = "SELECT * FROM users WHERE id= ?";
+	private static final String INSERT_USER = "INSERT INTO users (id, email, fullName,dob,gender,location,image,displayname,name,bio,tags)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, bio = ?, fb = ?, gp = ?, " +
 												"twt = ?, pic = ?, gender = ?, location = ?, dob = ?, updated = ? WHERE id = ?";
 	/********************************/
 	/* Methods to get User details  */
 	/********************************/
 	public static boolean checkProfile(Profile profile) {
-		if (isDummy())
-			return false;
 		try {
-			PreparedStatement statement = connection.prepareStatement(SELECT_USER);
-			statement.setString(1, profile.getProviderId());
+			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
+			int id=Integer.parseInt(profile.getValidatedId());
+			statement.setInt(1, id);
+			System.out.println("execute database query");
 			ResultSet rs = statement.executeQuery();
-			if (rs == null || rs.getFetchSize() == 0) {
+			System.out.println(rs.getFetchSize());
+			if (rs == null) {
+				System.out.println("making new statment");
 				PreparedStatement insert = connection.prepareStatement(INSERT_USER);
-				insert.setString(1, profile.getProviderId());
-				insert.setString(2, profile.getFirstName() + " " + profile.getLastName());
-				insert.setString(3, profile.getEmail());
-				insert.setString(4, "A Gapelian Hero");
-				insert.setString(5, null);
-				insert.setString(6, null);
-				insert.setString(7, null);
-				insert.setString(8, profile.getProfileImageURL());
-				insert.setString(9, profile.getGender());
-				insert.setString(10, profile.getLocation());
-				insert.setString(11, profile.getDob().toString());
-				insert.setString(12, "");
-				insert.setDouble(13, 50.0);
-				insert.setDate(14, new Date(System.currentTimeMillis()));
-				insert.setDate(15, new Date(System.currentTimeMillis()));
-				insert.setBoolean(16, true);
+				insert.setInt(1, id);
+				insert.setString(2, profile.getEmail());
+				insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
+				insert.setString(4, profile.getDob().toString());
+				insert.setString(5, profile.getGender());
+				insert.setString(6, profile.getLocation());
+				insert.setString(7, profile.getProfileImageURL());
+				insert.setString(8, profile.getFirstName());
+				insert.setString(9, profile.getFirstName());
+				insert.setString(10, "I Just Joined");
+				insert.setString(11, "Fun");
+				//insert.setDouble(13, 50.0);
+				//insert.setDate(14, new Date(System.currentTimeMillis()));
+				//insert.setDate(15, new Date(System.currentTimeMillis()));
+				//insert.setBoolean(16, true);
+				System.out.println(insert);
+				rs = insert.executeQuery();
+				System.out.println(rs);
 				return false; // newly created
 			}
 			return true;
 		} catch (Exception ex) {
 			LOG.error("Cannot check user profile: " + profile, ex);
+			System.out.println("Cannot check user profile: " + ex.toString());
 			return false;
 		}
 	}
@@ -219,7 +224,6 @@ public class QueryDatabase {
 			statement.setString(1, bookId);
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
-				System.out.println("Reading Page "+i);
 				Page page = new Page();
 				page.setPageId(rs.getString("PageId"));
 				page.setTitle(rs.getString("title"));
