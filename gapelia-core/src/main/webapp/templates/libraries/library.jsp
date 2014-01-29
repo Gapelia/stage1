@@ -306,6 +306,7 @@
 		</div>
 
 		<!--/ scripts /-->
+		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
@@ -327,20 +328,42 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
 
-		<!--/
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-		/-->
-
 		<script>
-			$(document).on("ready", function () {
+			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="library-splash"><button class="subscribe slate">Subscribe</button><div id="library-info"><h1>Library Name</h1><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/></section>');
+				$("#mp-pusher").prepend('<section id="library-splash"><button class="subscribe slate">Subscribe</button><div id="library-info"><h2>Library Name</h2><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/></section>');
 
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
+
+			if ($vW > "1024") {
+
+				$(document).on("click", "#close-splash", function () {
+
+					$("#library-splash").css("left", "-200%");
+					$("#g-menu-toggle").css("color", "#70a1b1");
+
+				});
+
+			} else {
+
+				$(function() {
+
+					$("#library-splash").swipe({
+						// Generic swipe handler for all directions
+						swipeUp: function(event, direction, distance, duration, fingerCount) {
+
+							$("#library-splash").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+
+						}, threshold: 0
+					});
+
+				});
+
+			}
 
 			$(document).on("click", "#close-splash", function () {
 

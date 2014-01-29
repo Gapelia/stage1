@@ -115,6 +115,7 @@
 			width: 214px;
 
 			@include hide-text;
+
 			-webkit-transform: rotate(-90deg);
 		}
 
@@ -476,7 +477,7 @@
 	}
 
 	#bm-wrapper {
-		margin: 4rem 0 0 0; /* 50 */
+		margin: 4rem 0 0 0; // 50
 
 		dl {
 			dt {
@@ -515,20 +516,21 @@
 		font-weight: 300;
 	}
 
-	#library-splash, #featured-splash {
+	#featured-splash, #library-splash {
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
 		background-color: transparent;
 		padding: 2rem;
 		position: absolute;
-		transition: all 0.5s ease;
+		transition: top 1.3s ease, left 1.3s ease;
 		z-index: 3;
 
 		#library-info, #featured-info {
 			color: $white;
+			padding: 0 15rem; //
 			position: relative;
-			text-align: center;
+			text-align: left; // center
 			top: 50%;
 			transform: translateY(-50%);
 			z-index: 10;
@@ -551,14 +553,17 @@
 		}
 
 		p {
-			font-size: 2em;
+			font-size: 1.3em; // 2em
 			line-height: 1.5em;
-			padding: 0 10rem;
+			padding: 0; // 0 10rem
 		}
 
 		#close-splash {
+			top: 20%; right: 1rem;
+
 			cursor: pointer;
-			font-size: 3em;
+			font-size: 5rem;
+			position: fixed;
 		}
 
 		&:after {
@@ -569,6 +574,42 @@
 			content: "";
 			opacity: 1;
 			position: absolute;
+		}
+	}
+
+	#featured-splash {
+		#gapelia {
+			width: 214px; height: 56px;
+
+			background-image: url("/static/images/sprite-sheet.png");
+			background-position: -20px -349px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			position: absolute;
+			// transform: rotate(-90deg);
+			z-index: 1;
+
+			@include hide-text;
+		}
+
+		#login-greet {
+			top: 2rem; right: 2rem;
+
+			line-height: 1.5rem;
+			position: absolute;
+			text-align: right;
+			z-index: 1;
+
+			a { color: $white; }
+		}
+
+		h2 {
+			&:before {
+				content: "Pick of the day";
+				display: block;
+				font-size: 1rem;
+				margin: 0 0 -0.4rem 0.05rem;
+			}
 		}
 	}
 
