@@ -77,6 +77,29 @@
 			-webkit-transform: translateY(0);
 		}
 
+		#book-cta {
+			padding: 0 3rem;
+			text-align: center;
+
+			p {
+				font-size: 2rem; // 1.8rem
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 1;
+
+				a {
+					border-bottom: 3px solid $black;
+					display: inline !important;
+				}
+
+				-o-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+		}
+
 		#featured-panel, #featured-scroller,
 		#user-panel, #book-scroller {
 			display: block;
@@ -102,42 +125,6 @@
 				width: 100%;
 			}
 
-			/*
-			#featured-nav {
-				width: 100%; height: 75px;
-				margin: 0; padding: 0;
-
-				border-bottom: 0;
-				font-size: 1.5rem;
-				text-align: center;
-
-				a { color: rgba($black, 0.6); }
-
-				li {
-					margin: 0 2rem 0 0;
-					position: relative;
-					top: 50%;
-					transform: translateY(-50%);
-
-					-o-transform: translateY(-50%);
-					-ms-transform: translateY(-50%);
-					-moz-transform: translateY(-50%);
-					-webkit-transform: translateY(-50%);
-
-					&:last-child { margin: 0; }
-				}
-
-				.current {
-					padding: 0;
-
-					a {
-						color: $slate;
-						padding: 0 0 1.2rem 0;
-					}
-				}
-			}
-			*/
-
 			&:after { display: none; }
 		}
 
@@ -145,8 +132,8 @@
 			height: 75px; // 53
 
 			#category-title {
-				width: 81.25%; height: 75px;
-				margin: 0 6rem; padding: 1.6rem 0;
+				width: 100%; height: 75px;
+				margin: 0; padding: 1.6rem 6rem;
 
 				font-size: 1.5rem;
 				left: 0;
@@ -177,7 +164,7 @@
 				// background-color: $white;
 				border-bottom: 1px solid rgba($black, 0.07);
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-				font-size: 2rem;
+				font-size: 1.5rem; // 2rem
 				text-align: center;
 				top: 74px; // 102px
 				transition: all 0.5s ease;
@@ -623,6 +610,10 @@
 			}
 		}
 
+		#book-cta {
+			p { font-size: 1.6rem; }
+		}
+
 		.book, .collection, .library {
 			.library-info, .draft-info, .featured-info {
 				.lib-blurb { font-size: 1.2rem; }
@@ -638,12 +629,22 @@
 
 	.app {
 
-		.book-title { font-size: 2rem; }
+		.book-title {
+			font-size: 2rem;
+			line-height: 2.3rem;
+		}
 
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
 				padding: 0;
 				top: 55%;
+			}
+		}
+
+		#book-cta {
+			p {
+				font-size: 1.4rem;
+				line-height: 2.2rem;
 			}
 		}
 
@@ -696,19 +697,21 @@
 				padding: 0;
 			}
 
-			#featured-info, #library-info { top: 65%; }
+			#featured-info, #library-info { top: 60%; }
 		}
 
 		#featured-splash {
 			#gapelia {
+				width: 100%; height: 55px;
 				top: 2rem; left: 0;
 
-				background-position: 54px -349px;
-				width: 100%;
+				background-image: url("/static/images/logo-white.png");
+				background-position: 50px 0;
+				background-size: 200px 55px;
 			}
 
 			#login-greet {
-				top: 7rem; left: 0; right: initial;
+				top: 6rem; left: 0; right: initial;
 
 				text-align: center;
 				width: 100%;
@@ -721,8 +724,35 @@
 			}
 		}
 
+		#library-splash {
+			button {
+				top: 1.2rem; right: 1.5rem;
+			}
+		}
+
+		#book-cta {
+			padding: 2rem;
+ 
+			p {
+				font-size: 1.2rem;
+				top: initial;
+				transform: translateY(0);
+
+				-o-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+			}
+		}
+
 		#featured-panel {
 			height: 75px; // 53
+
+			#category-title {
+				font-size: 1.2rem;
+				padding: 1.6rem 2rem 1.6rem 5rem;
+				text-align: right;
+			}
 
 			#category-switcher {
 				width: 64px; height: 75px;
@@ -738,8 +768,8 @@
 			#featured-nav {
 				// background-color: $white;
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-				height: 141px; // auto
-				top: 102px;
+				height: auto; // 141px
+				top: 74px; // 102px
 				z-index: 1;
 
 				li {

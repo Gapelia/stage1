@@ -359,16 +359,16 @@
 						}, threshold: 0
 					});
 
+					$(document).on("click", "#close-splash", function () {
+
+						$("#library-splash, #library-splash button").css("top", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
+
+					});
+
 				});
 
 			}
-
-			$(document).on("click", "#close-splash", function () {
-
-				$("#library-splash, #library-splash button").css("left", "-200%");
-				$("#g-menu-toggle").css("color", "#70a1b1");
-
-			});
 
 			$(document).ready(function () {
 
