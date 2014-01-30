@@ -20,24 +20,21 @@ import java.sql.ResultSet;
 public class QueryDatabase {
 	private static Logger LOG = Logger.getLogger(Book.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
-
-	private static final String CREATE_TABLE_USER = "";
-	private static final String CREATE_TABLE_BOOK = "";
-	private static final String CREATE_TABLE_DIMENSION = "";
-	private static final String CREATE_TABLE_LIBRARY = "";
-	private static final String CREATE_TABLE_NOTIFICATION = "";
-	private static final String CREATE_TABLE_PAGE = "";
-	private static final String CREATE_TABLE_PHOTO = "";
-	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
-	// All User related queries
-	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
-	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 10";
-	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";//)name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) 
+	//Page Relate Queries
+	private static final String UPDATE_PAGE = "UPDATE pages set title = ?, description = ?, templateId = ?, bookId = ?, marginX = ?, marginY = ?, videoUrl = ?, pageNumber = ?, userId = ?, photoUrl = ?, photoId = ?, creativeCommons = ?, lastUpdated = ? WHERE pageId = ?";
+	private static final String INSERT_PAGE = "INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	// Book Related Queries
+	private static final String INSERT_BOOK = "INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
+	private static final String UPDATE_BOOK = "UPDATE books set coverPhoto = ?, title = ?, language = ?, library = ?, tags = ?, lastUpdated = ?, isPublished = ? WHERE bookId= ?";
+	private static final String SELECT_BOOK_FROM_ID = "SELECT pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = 1 ORDER BY random() LIMIT 20";
+	private static final String SELECT_PUBLISHED_BOOKS_FROM_USER = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = 1 and userId = ? ORDER BY random() LIMIT 20";
+	private static final String SELECT_BOOKS_FROM_LIBRARY="SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where library = ? ORDER BY random() LIMIT 20";
+	//User Related Queries
+	private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,validateId,providerId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
 	private static final String CHECK_USER = "SELECT * FROM users WHERE id= ?";
-	private static final String INSERT_USER = "INSERT INTO users (id, email, fullName,dob,gender,location,image,displayname,name,bio,tags)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, bio = ?, fb = ?, gp = ?, " +
-												"twt = ?, pic = ?, gender = ?, location = ?, dob = ?, updated = ? WHERE id = ?";
+	private static final String INSERT_USER = "INSERT INTO users (name,email, fullName,dob,gender,location,image,displayname,validateId,providerId,joined,personalWebsite,lastLogin,LastUpdate,bio,tags,id)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
 	/********************************/
 	/* Methods to get User details  */
 	/********************************/
@@ -52,7 +49,7 @@ public class QueryDatabase {
 			if (rs == null) {
 				System.out.println("making new statment");
 				PreparedStatement insert = connection.prepareStatement(INSERT_USER);
-				insert.setInt(1, id);
+				insert.setString(1, profile.getFirstName());
 				insert.setString(2, profile.getEmail());
 				insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
 				insert.setString(4, profile.getDob().toString());
@@ -60,13 +57,16 @@ public class QueryDatabase {
 				insert.setString(6, profile.getLocation());
 				insert.setString(7, profile.getProfileImageURL());
 				insert.setString(8, profile.getFirstName());
-				insert.setString(9, profile.getFirstName());
-				insert.setString(10, "I Just Joined");
-				insert.setString(11, "Fun");
-				//insert.setDouble(13, 50.0);
-				//insert.setDate(14, new Date(System.currentTimeMillis()));
-				//insert.setDate(15, new Date(System.currentTimeMillis()));
-				//insert.setBoolean(16, true);
+				insert.setString(9, profile.getProviderId());//Type of accont connected
+				insert.setString(10, profile.getValidatedId());
+				insert.setDate(11, new Date(System.currentTimeMillis()));
+				insert.setDate(12, new Date(System.currentTimeMillis()));
+				insert.setDate(13, new Date(System.currentTimeMillis()));
+				insert.setString(14, null);
+				insert.setString(15, "I Just Joined and I Love To Explore!!!!! ");
+				insert.setString(16, "Fun");
+				insert.setInt(17, id);
+				//insert.setBoolean(17,TRUE);//is public
 				System.out.println(insert);
 				rs = insert.executeQuery();
 				System.out.println(rs);
@@ -89,7 +89,7 @@ public class QueryDatabase {
 			statement.setString(1, profile.getProviderId());
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
-				user.setUserId(rs.getString("id"));
+				user.setUserId(rs.getString("proverId"));
 				user.setName(rs.getString("name"));
 				user.setEmail(rs.getString("email"));
 				user.setBio(rs.getString("bio"));
@@ -100,8 +100,12 @@ public class QueryDatabase {
 				user.setGender(rs.getString("gender"));
 				user.setLocation(rs.getString("location"));
 				user.setDob(rs.getString("dob"));
-				user.setReputation(rs.getDouble("rep"));
-				user.setLastLoggedIn(rs.getDate("updated"));
+				//user.setReputation(rs.getDouble("rep"));
+				user.setLastUpdated(rs.getDate("lastUpdated"));
+				user.setLastLoggedIn(rs.getDate("lastLogin"));
+				user.setMemberSince(rs.getDate("memberSince"));
+				user.setPersonalWebsite(rs.getString("personalWebsite"));
+				user.setTags(rs.getString("tags"));
 				break;
 			}
 			return user;
@@ -112,15 +116,55 @@ public class QueryDatabase {
 	}
 
 	public static Book[] getBooksCreatedByUser(Profile profile) {
-		if (isDummy())
-			return TestHelper.getDummyBooks();
-		return new Book[0];
+		Book [] books = new Book[20];
+		int i=0;
+		try {
+			PreparedStatement statement = connection.prepareStatement(SELECT_PUBLISHED_BOOKS_FROM_USER);
+			statement.setString(1,profile.getValidatedId());
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setBookId(rs.getString("bookid"));
+				book.setTitle(rs.getString("title"));
+				book.setCoverPhoto(rs.getString("coverphoto"));
+				book.setLanguage(rs.getString("language"));
+				book.setLibrary(rs.getString("library"));
+				book.setTags(rs.getString("tags"));
+				book.setUserId(rs.getString("userid"));//need to change database beacue is int:( will change when done with testing
+				books[i]=book;
+				i++;
+			}
+			return books; 
+		} catch (Exception ex) {
+			LOG.error("Cannot check user profile: " + profile, ex);
+			return null;
+		}
 	}
 
 	public static Book[] getBooksCollectedByUser(Profile profile) {
-		if (isDummy())
-			return TestHelper.getDummyBooks();
-		return new Book[0];
+		Book [] books = new Book[20];
+		int i=0;
+		try {
+			PreparedStatement statement = connection.prepareStatement(SELECT_PUBLISHED_BOOKS_FROM_USER);//Change to subscibed
+			statement.setString(1,profile.getValidatedId());
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setBookId(rs.getString("bookid"));
+				book.setTitle(rs.getString("title"));
+				book.setCoverPhoto(rs.getString("coverphoto"));
+				book.setLanguage(rs.getString("language"));
+				book.setLibrary(rs.getString("library"));
+				book.setTags(rs.getString("tags"));
+				book.setUserId(rs.getString("userid"));//need to change database beacue is int:( will change when done with testing
+				books[i]=book;
+				i++;
+			}
+			return books; 
+		} catch (Exception ex) {
+			LOG.error("Cannot check user profile: " + profile, ex);
+			return null;
+		}
 	}
 
 	public static Library[] getLibrariesCollectedByUser(Profile profile) {
@@ -137,23 +181,28 @@ public class QueryDatabase {
 
 	public static boolean updateUserProfile(Profile profile, String name, String email, String bio, String facebookUrl,
 											String googlePlusUrl, String twitterUrl, String photoUrl, String gender,
-											String location, String dob) {
+											String location, String dob, String personalWebsite, String tags) {
 		if (isDummy())
 			return true;
 		try {
 			PreparedStatement statement = connection.prepareStatement(UPDATE_USER);
 			statement.setString(1, name);
 			statement.setString(2, email);
-			statement.setString(3, bio);
-			statement.setString(4, facebookUrl);
-			statement.setString(5, googlePlusUrl);
-			statement.setString(6, twitterUrl);
+			statement.setString(3, profile.getFirstName() + " " + profile.getLastName());
+			statement.setString(4, dob);
+			statement.setString(5, gender);
+			statement.setString(6, location);
 			statement.setString(7, photoUrl);
-			statement.setString(8, gender);
-			statement.setString(9, location);
-			statement.setString(10, dob);
-			statement.setDate(11, new Date(System.currentTimeMillis()));
-			statement.setString(12, profile.getProviderId());
+			statement.setString(8, profile.getValidatedId());
+			statement.setString(9, profile.getProviderId());
+			statement.setDate(10, new Date(System.currentTimeMillis()) );
+			statement.setString(11, personalWebsite);
+			statement.setString(12, bio);
+			statement.setString(13, tags);
+			statement.setString(14, facebookUrl);
+			statement.setString(15, googlePlusUrl);
+			statement.setString(16, twitterUrl);
+			statement.setInt(17, Integer.parseInt(profile.getValidatedId()));
 			return statement.execute();
 		} catch (Exception ex) {
 			LOG.error("Cannot update user profile: " + profile, ex);
@@ -177,7 +226,7 @@ public class QueryDatabase {
 			statement.setString(3, language);
 			statement.setString(4, library);
 			statement.setString(5, tags);
-			statement.setInt(6, 1);
+			statement.setString(6, profile.getProviderId());
 			statement.setInt(7, isPublished);
 			statement.setString(8,coverPhoto);
 			statement.execute();
@@ -187,7 +236,27 @@ public class QueryDatabase {
 		}
 	}
 
-
+	public static String updateBook(Profile profile,String bookId, String title, String language, String library,
+								   String tags, String createdBy, int isPublished,String coverPhoto) {
+		if (isDummy())
+			return "success";
+		LOG.info("Try to save book!");
+		try {
+			PreparedStatement statement = connection.prepareStatement(UPDATE_BOOK);
+			statement.setString(8, bookId);
+			statement.setString(1, title);
+			statement.setString(2, language);
+			statement.setString(3, library);
+			statement.setString(4, tags);
+			statement.setString(5, profile.getProviderId());
+			statement.setInt(6, isPublished);
+			statement.setString(7,coverPhoto);
+			statement.execute();
+			return  statement.toString();
+		} catch (Exception ex) {
+			return ex.toString();
+		}
+	}
 	public static String savePage(Profile profile, String title, String description, String location,
 								   int templateId, String marginX, String marginY, String videoUrl, int pageNumber,
 								   String bookId, String createdByUserId, String photoUrl, String photoId,String pageId) {

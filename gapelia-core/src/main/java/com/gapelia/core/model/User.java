@@ -23,9 +23,36 @@ public class User {
 	private String facebookUrl;
 	private String twitterUrl;
 	private String googlePlusUrl;	
+	private String personalWebsite;
+	private String tags;
 	private Date memberSince;
 	private Date lastLoggedIn;
+	private Date lastUpdated;
 
+	public String getPersonalWebsite() {
+		return personalWebsite;
+	}
+
+	public void setPersonalWebsite(String personalWebsite) {
+		this.personalWebsite = personalWebsite;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated =lastUpdated;
+	}
+
+	public Date getLastUpdated() {
+		return lastUpdated;
+	}
+	
 	public String getName() {
 		return name;
 	}
