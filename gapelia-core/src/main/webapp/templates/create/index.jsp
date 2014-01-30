@@ -34,7 +34,10 @@
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
-
+		<script>
+                <% String id = session.getId(); %>
+                sessionId = '<%= id %>';
+        </script>
 	</head>
 
 	<body class="book-creation g-body">

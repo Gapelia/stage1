@@ -43,9 +43,9 @@ public class QueryDatabase {
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
 			int id=Integer.parseInt(profile.getValidatedId());
 			statement.setInt(1, id);
-			System.out.println("execute database query"+statement);
+			
 			ResultSet rs = statement.executeQuery();
-			System.out.println(rs);
+			System.out.println(rs.getWarnings());
 			if (rs == null || rs.getFetchSize()==0) {
 				System.out.println("making new statment");
 				PreparedStatement insert = connection.prepareStatement(INSERT_USER);
@@ -219,6 +219,9 @@ public class QueryDatabase {
 		if (isDummy())
 			return "success";
 		LOG.info("Try to save book!");
+		System.out.println("Saving book");
+		boolean mybool = true;
+		if(isPublished == 0){ mybool=false;}
 		try {
 			PreparedStatement statement = connection.prepareStatement(INSERT_BOOK);
 			statement.setString(1, bookId);
@@ -226,12 +229,14 @@ public class QueryDatabase {
 			statement.setString(3, language);
 			statement.setString(4, library);
 			statement.setString(5, tags);
-			statement.setString(6, profile.getProviderId());
-			statement.setInt(7, isPublished);
+			statement.setString(6, profile.getValidatedId());
+			statement.setBoolean(7, mybool);
 			statement.setString(8,coverPhoto);
 			statement.execute();
+			System.out.println(statement.toString());
 			return  statement.toString();
 		} catch (Exception ex) {
+			System.out.println(ex.toString());
 			return ex.toString();
 		}
 	}

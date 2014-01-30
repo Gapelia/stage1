@@ -20,7 +20,6 @@ import java.util.UUID;
 @Path("/book/")
 public class Book {
 	public static Logger LOG = Logger.getLogger(Book.class);
-
 	@Path("createBook")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,7 +40,10 @@ public class Book {
 			// Get UserId from SessionId
 			String json ;
 			LOG.info("Trying to retrieve user from session id");
+			//String id = session.getId();
+			System.out.println(sessionId);
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
+			System.out.println(profile);
 			if (null == bookId || bookId.trim().length() == 0)
 			{
 				bookId = UUID.randomUUID().toString();

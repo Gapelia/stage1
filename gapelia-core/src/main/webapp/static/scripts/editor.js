@@ -15,7 +15,7 @@
 	$(document).ready(function () {
 
 		// Create Book
-		sId = "1234567";
+		
 		pageId = 0;
 		bookId = 0;
 
@@ -24,7 +24,7 @@
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
-				sessionId: sId
+				sessionId: sessionId
 			},
 			success: function (data) {
 				bookId = data;
@@ -44,7 +44,7 @@
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
-				sessionId: sId
+				sessionId: sessionId
 			},
 			success: function (data) {
 
@@ -304,7 +304,7 @@
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
-				sessionId: sId
+				sessionId: sessionId
 			},
 			success: function (data) {
 
@@ -1332,7 +1332,7 @@
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
-				sessionId: sId,
+				sessionId: sessionId,
 				bookId:bookId,
 				title: pages.page[0].title,
 				language: "English",
@@ -1366,7 +1366,7 @@
 				async: false,
 				type: "POST",
 				data: {
-					sessionId: sId,
+					sessionId: sessionId,
 					pageId: pages.page[i].pageId,
 					title: pages.page[i].title,
 					description: pages.page[i].text,

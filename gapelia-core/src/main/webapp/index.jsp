@@ -1,7 +1,7 @@
 <%@ page import="com.gapelia.core.auth.AuthHelper" %>
 <%
     if (AuthHelper.isSessionAvailable(request) ) {
-       // response.sendRedirect("/me");
+        response.sendRedirect("/me");
     }
 %>
 <!DOCTYPE html>
@@ -32,7 +32,10 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-
+    <script>
+                <% String id = session.getId(); %>
+                var sessionId = <%= id %>
+            </script>
 	</head>
 
 	<body>
