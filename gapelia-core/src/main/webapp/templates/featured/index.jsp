@@ -782,11 +782,13 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+			if ($vW > "1024") {
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function () {
-				$("#book-scroller").css("z-index", "0");
-			});
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+			}
 
 			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
@@ -855,47 +857,29 @@
 					});
 				});
 
-				/*
-				if ($vW > "801" & $vW < "1025") {
-
-					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
-
-				}
-				*/
-
-				// if ($vW < "801") {
 				if ($vW < "1025") {
 
-					$("#featured-panel").append("<button id='category-switcher'><i class='ion-chevron-down'></i></button>");
+					$("#featured-panel .featured-info").remove();
+					$("#featured-panel").append("<span id='category-title'>Bookshelf</span>");
 
-					$("#featured-panel").append("<ul id='featured-nav' style='display: none'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li><li id='nav-libraries'><a href='#'>Libraries</a></li><li id='nav-bookmarks'><a href='#'>Bookmarks</a></li></ul>");
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
 
-					$(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+					// $("#category-title").css("width", $vW + "px");
 
+					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
 						$("#featured-nav").toggle();
+					});
 
-						if ($("#featured-nav").css("display") == "block") {
+					$(document).on("click", "#nav-books", function () {
+						$("#category-title").html("Bookshelf");
+					});
 
-							$("#category-switcher").css({
-								"transform": "rotate(180deg)",
-								"-o-transform": "rotate(180deg)",
-								"-ms-transform": "rotate(180deg)",
-								"-moz-transform": "rotate(180deg)",
-								"-webkit-transform": "rotate(180deg)"
-							});
+					$(document).on("click", "#nav-libraries", function () {
+						$("#category-title").html("Libraries");
+					});
 
-						} else {
-
-							$("#category-switcher").css({
-								"transform": "rotate(0)",
-								"-o-transform": "rotate(0)",
-								"-ms-transform": "rotate(0)",
-								"-moz-transform": "rotate(0)",
-								"-webkit-transform": "rotate(0)"
-							});
-
-						}
-
+					$(document).on("click", "#nav-bookmarks", function () {
+						$("#category-title").html("Bookmarks");
 					});
 
 				} else {

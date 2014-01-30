@@ -100,17 +100,13 @@
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle">
-					<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
 					<i class="ion-drag"></i>
 				</button>
 
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
-					<!--/ <p>[Library Description]</p> /-->
 				</div>
 
-				<!--/ <canvas id="dimensions-landing-bg"></canvas> /-->
-				<!--/ <img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/> /-->
 			</div>
 			<!--//main-panel /-->
 
@@ -314,11 +310,13 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+			if ($vW > "1024") {
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function () {
-				$("#book-scroller").css("z-index", "0");
-			});
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+			}
 
 			$(function () {
 				$(".book").imgLiquid({ fill: true });
@@ -387,16 +385,20 @@
 					});
 				});
 
-				/*
-				if ($vW < "801") {
+				if ($vW < "1025") {
 
-					$("#featured-panel").prepend("<small>[Library Name]</small>");
+					$("#featured-panel .featured-info").remove();
+					$("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
 
-					$("#featured-panel").append("<ul id='featured-nav'><li id='nav-books' class='current'><a href='#'>Bookshelf</a></li></ul>");
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
+
+					// $(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+					$(document).on("click", "#g-menu-toggle", function () {
+						$("#featured-nav").toggle();
+					});
 
 				} else {
 				}
-				*/
 
 				// Load Gapelia
 				$(function () {
