@@ -33,6 +33,13 @@
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+
+		<script>
+			$(function () {
+				$("#g-menu-toggle").css("z-index", "2");
+			});
+		</script>
+
 	</head>
 
 	<body class="app profile">
@@ -79,16 +86,12 @@
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle">
-					<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
 					<i class="ion-drag"></i>
 				</button>
 
 				<div class="featured-info">
 					<h2>Gapelia</h2>
-					<!--/ <p>A better place for collaborative blogging. Explore our users' featured books and libraries.</p> /-->
 				</div>
-
-				<!--/ <img src="/static/images/covers/bg.jpg" alt=""/> /-->
 			</div>
 			<!--//main-panel /-->
 
@@ -582,12 +585,6 @@
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list">
 
-						<!--/
-						<li class="new">
-							You don't have any bookmarks saved yet.<br/><br/>If you don't have time to read a book, or you want to add it to your favorites, it will appear here.
-						</li>
-						/-->
-
 						<li class="collection">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
@@ -777,6 +774,7 @@
 		</div>
 
 		<!--/ scripts /-->
+		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
@@ -798,27 +796,49 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
 
-		<!--/
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-		/-->
-
 		<script>
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="featured-splash"><div id="featured-info"><h1>Gapelia</h1><p>Some interesting description about Gapelia, and possibly some lists of top-rated books, &amp;c. Yeah.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash">&raquo;</div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
+				$("#mp-pusher").prepend('<section id="featured-splash"><h1 id="gapelia"><a href="/featured">Gapelia</a></h1><div id="login-greet"><a href="#">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div><div id="featured-info"><h2>How will books look like in 2050?</h2><p>Some interesting description about this book. There should be an excerpt here too.</p><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
 
 				$("#featured-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
 
-			$(document).on("click", "#close-splash", function () {
+			if ($vW > "1024") {
 
-				$("#featured-splash").css("left", "-200%");
-				$("#g-menu-toggle").css("color", "#70a1b1");
+				$(document).on("click", "#close-splash", function () {
 
-			});
+					$("#featured-splash").css("left", "-200%");
+					$("#g-menu-toggle").css("color", "#70a1b1");
+
+				});
+
+			} else {
+
+				$(function() {
+
+					$("#featured-splash").swipe({
+						// Generic swipe handler for all directions
+						swipeUp: function(event, direction, distance, duration, fingerCount) {
+
+							$("#featured-splash").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+
+						}, threshold: 0
+					});
+
+				});
+
+				$(document).on("click", "#close-splash", function () {
+
+					$("#featured-splash").css("top", "-200%");
+					$("#g-menu-toggle").css("color", "#70a1b1");
+
+				});
+
+			}
 
 			$(document).ready(function () {
 

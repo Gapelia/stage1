@@ -1,7 +1,7 @@
 <%@ page import="com.gapelia.core.auth.AuthHelper" %>
 <%
     if (AuthHelper.isSessionAvailable(request) ) {
-        response.sendRedirect("/me");
+       // response.sendRedirect("/me");
     }
 %>
 <!DOCTYPE html>

@@ -52,7 +52,7 @@ public class AuthSuccessHandler extends HttpServlet {
 			// setup session
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
-			//session.setMaxInactiveInterval(-1);
+			// session.setMaxInactiveInterval(-1);
 
 			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
 			sessionCookie.setMaxAge(31557600);
@@ -60,15 +60,17 @@ public class AuthSuccessHandler extends HttpServlet {
 
 			// RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
 			// dispatcher.forward(request, response);
+			System.out.println("Pre Quering the database");
+			boolean isntFirstTime = QueryDatabase.checkProfile(profile);
+			System.out.println("post quering the databse");
 
-			boolean isFirstTime = QueryDatabase.checkProfile(profile);
-
-			if (isFirstTime) {
+			if (!isntFirstTime) {
 				response.sendRedirect("/onboard");
 				return;
+			} else {
+				response.sendRedirect("/onboard");
+				// response.sendRedirect("/me");
 			}
-
-			response.sendRedirect("/me");
 
 		} catch (Exception e) {
 			throw new ServletException(e);

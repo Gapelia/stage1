@@ -297,6 +297,10 @@
 
 				if ($vW < "1025") {
 
+					$("#user-wrapper").hide();
+
+					$("#book-scroller").prepend('<div id="user-wrapper"><div class="user-avatar"><div class="avatar-wrapper"><img src="/static/images/users/11.jpg"/></div></div><div class="user-data"><h2>Paul Webb</h2><span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span></div><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div></div>');
+
 					$(function() {
 						$("#book-scroller").bind("touchmove scroll", function() {
 
@@ -335,7 +339,7 @@
 
 								$("#user-panel").css({
 									"background-color": "#fcfcfc",
-									"height": "300px"
+									"height": "75px"
 								});
 
 							}

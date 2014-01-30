@@ -20,6 +20,26 @@ import java.sql.ResultSet;
 public class QueryDatabase {
 	private static Logger LOG = Logger.getLogger(Book.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
+<<<<<<< HEAD
+
+	private static final String CREATE_TABLE_USER = "";
+	private static final String CREATE_TABLE_BOOK = "";
+	private static final String CREATE_TABLE_DIMENSION = "";
+	private static final String CREATE_TABLE_LIBRARY = "";
+	private static final String CREATE_TABLE_NOTIFICATION = "";
+	private static final String CREATE_TABLE_PAGE = "";
+	private static final String CREATE_TABLE_PHOTO = "";
+	private static final String INSERT_PAGE="INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT_BOOK="INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
+	// All User related queries
+	private static final String SELECT_BOOK_FROM_ID = "Select pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where isPublished = 1 ORDER BY random() LIMIT 10";
+	private static final String SELECT_USER = "SELECT name, email, bio, fb, gp, twt, pic, gender, location, dob, rep, created, updated, enabled FROM user WHERE id = ?";
+	private static final String INSERT_USER = "INSERT INTO user (id, name, email, bio, fb, gp, twt, pic, gender, location, dob, auth, rep, created, updated, enabled) " +
+												"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, bio = ?, fb = ?, gp = ?, " +
+												"twt = ?, pic = ?, gender = ?, location = ?, dob = ?, updated = ? WHERE id = ?";
+=======
 	//Page Relate Queries
 	private static final String UPDATE_PAGE = "UPDATE pages set title = ?, description = ?, templateId = ?, bookId = ?, marginX = ?, marginY = ?, videoUrl = ?, pageNumber = ?, userId = ?, photoUrl = ?, photoId = ?, creativeCommons = ?, lastUpdated = ? WHERE pageId = ?";
 	private static final String INSERT_PAGE = "INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -35,6 +55,7 @@ public class QueryDatabase {
 	private static final String CHECK_USER = "SELECT * FROM users WHERE id= ?";
 	private static final String INSERT_USER = "INSERT INTO users (name,email, fullName,dob,gender,location,image,displayname,validateId,providerId,joined,personalWebsite,lastLogin,LastUpdate,bio,tags,id)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
+>>>>>>> 69ccdc43dff4521efe38a6b10968a5b612eee306
 	/********************************/
 	/* Methods to get User details  */
 	/********************************/

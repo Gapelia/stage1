@@ -145,6 +145,8 @@ public class Profile {
 								 @FormParam("photoUrl") String photoUrl,
 								 @FormParam("gender") String gender,
 								 @FormParam("location") String location,
+								 @FormParam("personalWebsite") String personalWebsite,
+								 @FormParam("tags")String tags,
 								 @FormParam("dob") String dob) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
@@ -153,7 +155,7 @@ public class Profile {
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
 			// Retrieving user details
 			LOG.info("Trying to update user info");
-			boolean status = QueryDatabase.updateUserProfile(profile, name, email, bio, facebookUrl, googlePlusUrl, twitterUrl, photoUrl, gender, location, dob);
+			boolean status = QueryDatabase.updateUserProfile(profile, name, email, bio, facebookUrl, googlePlusUrl, twitterUrl, photoUrl, gender, location, dob, personalWebsite, tags);
 			return gson.toJson(status ? "Success" : "Failure");
 		} catch (Exception ex) {
 			LOG.error("Failed to update user profile", ex);
