@@ -822,7 +822,6 @@
 				$(function() {
 
 					$("#featured-splash").swipe({
-						// Generic swipe handler for all directions
 						swipeUp: function(event, direction, distance, duration, fingerCount) {
 
 							$("#featured-splash").css("top", "-200%");
@@ -831,12 +830,12 @@
 						}, threshold: 0
 					});
 
-				});
+					$(document).on("click", "#close-splash", function () {
 
-				$(document).on("click", "#close-splash", function () {
+						$("#featured-splash").css("top", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
 
-					$("#featured-splash").css("top", "-200%");
-					$("#g-menu-toggle").css("color", "#70a1b1");
+					});
 
 				});
 
@@ -864,6 +863,8 @@
 
 					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
 
+					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
+					$("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 					// $("#category-title").css("width", $vW + "px");
 
 					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
