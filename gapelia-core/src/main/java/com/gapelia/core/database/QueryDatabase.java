@@ -31,9 +31,9 @@ public class QueryDatabase {
 	private static final String SELECT_PUBLISHED_BOOKS_FROM_USER = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = 1 and userId = ? ORDER BY random() LIMIT 20";
 	private static final String SELECT_BOOKS_FROM_LIBRARY="SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where library = ? ORDER BY random() LIMIT 20";
 	//User Related Queries
-	private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,validateId,providerId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
+	private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,providerId,validateId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
 	private static final String CHECK_USER = "SELECT * FROM users WHERE id= ?";
-	private static final String INSERT_USER = "INSERT INTO users (name,email, fullName,dob,gender,location,image,displayname,validateId,providerId,joined,personalWebsite,lastLogin,LastUpdate,bio,tags,id)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT_USER = "INSERT INTO users (name,email, fullName,dob,gender,location,image,displayname,validateId,providerId,personalWebsite,memberSince,lastLogin,lastUpdated,bio,tags,id)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
 	/********************************/
 	/* Methods to get User details  */
@@ -43,10 +43,10 @@ public class QueryDatabase {
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
 			int id=Integer.parseInt(profile.getValidatedId());
 			statement.setInt(1, id);
-			System.out.println("execute database query");
+			System.out.println("execute database query"+statement);
 			ResultSet rs = statement.executeQuery();
-			System.out.println(rs.getFetchSize());
-			if (rs == null) {
+			System.out.println(rs);
+			if (rs == null || rs.getFetchSize()==0) {
 				System.out.println("making new statment");
 				PreparedStatement insert = connection.prepareStatement(INSERT_USER);
 				insert.setString(1, profile.getFirstName());
@@ -59,10 +59,10 @@ public class QueryDatabase {
 				insert.setString(8, profile.getFirstName());
 				insert.setString(9, profile.getProviderId());//Type of accont connected
 				insert.setString(10, profile.getValidatedId());
-				insert.setDate(11, new Date(System.currentTimeMillis()));
+				insert.setString(11,null);
 				insert.setDate(12, new Date(System.currentTimeMillis()));
 				insert.setDate(13, new Date(System.currentTimeMillis()));
-				insert.setString(14, null);
+				insert.setDate(14, new Date(System.currentTimeMillis()));
 				insert.setString(15, "I Just Joined and I Love To Explore!!!!! ");
 				insert.setString(16, "Fun");
 				insert.setInt(17, id);
