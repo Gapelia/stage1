@@ -52,7 +52,7 @@ public class DatabaseManager {
 			}
 			if (null != mode && "local".equals(mode)) {
 				LOG.error("we are in local mode:");
-				connectionString = "jdbc:postgresql://lmqyuqoyasrapq:5ELsYmpiso4HWAyj0SR_iaBQH4@ec2-54-204-37-92.compute-1.amazonaws.com:5432/?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+				connectionString = "jdbc:postgresql://lmqyuqoyasrapq:5ELsYmpiso4HWAyj0SR_iaBQH4@ec2-54-204-37-92.compute-1.amazonaws.com:5432/d4fq8usu8kkech?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 			}
 			connection = DriverManager.getConnection(connectionString, userName, password);
 			LOG.info("Got database connection");

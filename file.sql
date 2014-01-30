@@ -1,6 +1,7 @@
-DROP TABLE IF EXISTS books, users, libraries, pages;
+DROP TABLE IF EXISTS books, users, librarysubscriptions, bookmarks,libraries, pages;
 CREATE TABLE IF NOT EXISTS users (
 	id serial PRIMARY KEY,
+	name VARCHAR(100),
 	email VARCHAR(100),
 	fullName VARCHAR(100),
 	dob VARCHAR(100),
@@ -10,9 +11,28 @@ CREATE TABLE IF NOT EXISTS users (
 	displayName VARCHAR(100),
 	validateId VARCHAR(100),
 	providerId VARCHAR(100),
-	name VARCHAR(100),
+	memberSince DATE,
+	lastLogin DATE,
+	lastUpdated DATE,
+	personalWebsite VARCHAR(100),
 	bio VARCHAR(1000),
-	tags VARCHAR(256)
+	tags VARCHAR(256),
+	fb VARCHAR(100),
+	gp VARCHAR(100),
+	twt VARCHAR(100),
+	isPublic BOOLEAN
+);
+CREATE TABLE IF NOT EXISTS librarysubscriptions (
+	id serial PRIMARY KEY,
+	userID VARCHAR(100),
+	libraryID VARCHAR(100),
+	subscribed DATE
+);
+CREATE TABLE IF NOT EXISTS bookmarks (
+	id serial PRIMARY KEY,
+	userID VARCHAR(100),
+	bookID VARCHAR(100),
+	boomarked DATE
 );
 CREATE TABLE IF NOT EXISTS libraries(
 	id serial PRIMARY KEY,
@@ -22,7 +42,9 @@ CREATE TABLE IF NOT EXISTS libraries(
 	coverPhoto VARCHAR(256),
 	description VARCHAR(256),
 	numberOfBooks INT,
-	numberOfContributors INT
+	numberOfContributors INT,
+	created DATE,
+	createdBy VARCHAR(100)
 );
 CREATE TABLE IF NOT EXISTS books ( 
 	id serial PRIMARY KEY, 
@@ -32,9 +54,10 @@ CREATE TABLE IF NOT EXISTS books (
 	language VARCHAR(100),
 	library VARCHAR(100),
 	tags VARCHAR(100),
-	userId  INT references users(id),
-	#userId  VARCHAR(100),Damn it
-	isPublished INT
+	userId  VARCHAR(100),
+	created DATE,
+	lastUpdated DATE,
+	isPublished BOOLEAN
 );
 CREATE TABLE IF NOT EXISTS pages (
 	id serial PRIMARY KEY,
@@ -48,9 +71,12 @@ CREATE TABLE IF NOT EXISTS pages (
 	marginY VARCHAR(100),
 	videoUrl VARCHAR(256),
 	pageNumber INT,
-	userId INT references users(id),
+	userId  VARCHAR(100),
 	photoUrl VARCHAR(256),
-	photoId VARCHAR(100)
+	photoId VARCHAR(100),
+	creativeCommons VARCHAR(100),
+	created DATE,
+	lastUpdated DATE
 );
 
 INSERT INTO users (id, email,fullName,dob,gender,location,image, displayName,ValidateId,ProviderId,name,bio,tags) VALUES (1,'dfcf93@hotmail.com','Erasmus','0/0/0000','M','Olympus','http://static2.wikia.nocookie.net/__cb20071215210061/dune/images/c/ce/Cymek.jpg','Ominus',1,1,'GOD','Erasmus became trapped in an ice crevice during a solo expedition on Corrin, and remained there for twenty years. During that time, and without the guidance of Omnius or the company of other beings, he spent vast amounts of time ruminating on various philosophical concepts.','DUNE');
