@@ -1,4 +1,5 @@
-/************************************************************************************ RESPONSE/SCSS **/
+
+///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
 @media all and (min-width: 1025px), screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -22,7 +23,7 @@
 		overflow-y: auto;
 	}
 
-	/** APP/SCSS ***************************************************************************************/
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
 
@@ -158,22 +159,20 @@
 			}
 
 			#featured-nav {
-				width: 100%; height: auto; // 141px
+				width: 100%; height: auto;
 				margin: 0; padding: 0;
 
-				// background-color: $white;
 				border-bottom: 1px solid rgba($black, 0.07);
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-				font-size: 1.5rem; // 2rem
+				font-size: 1.5rem;
 				text-align: center;
-				top: 74px; // 102px
+				top: 74px;
 				transition: all 0.5s ease;
 				z-index: 1;
 
 				li {
 					margin: 0; padding: 1rem;
 
-					// border-bottom: 1px solid rgba($black, 0.3);
 					background-color: $white;
 					box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
 					cursor: pointer;
@@ -215,7 +214,7 @@
 		}
 
 		.book, .collection, .library {
-			margin: 0 0 1rem 0; padding: 0;
+			margin: 0 0 2rem 0; padding: 0;
 			width: 100%; height: 250px; // 400px
 
 			&:last-child { margin: 0; }
@@ -310,7 +309,7 @@
 
 	}
 
-	/** FULL-BOOK/SCSS *********************************************************************************/
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
 
@@ -527,20 +526,65 @@
 
 	}
 
-	/** PROFILE/SCSS *************************************************************************************/
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
 
-		// #g-menu-toggle { display: none; }
-
 		.user-book-list-wrapper { top: initial !important; }
 
+		#featured-nav {
+			width: 100%; height: auto;
+			margin: 0; padding: 0;
+
+			border-bottom: 1px solid rgba($black, 0.07);
+			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+			font-size: 1.5rem;
+			text-align: center;
+			top: 74px;
+			transition: all 0.5s ease;
+			z-index: 1;
+
+			li {
+				margin: 0; padding: 1rem;
+
+				background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+				cursor: pointer;
+				display: block;
+				top: 0;
+				translate: translateY(0);
+
+				-o-translate: translateY(0);
+				-ms-translate: translateY(0);
+				-moz-translate: translateY(0);
+				-webkit-translate: translateY(0);
+			}
+
+			.current {
+				background-color: $slate;
+				border-bottom: 0;
+				padding: 1rem;
+
+				a {
+					border: 0;
+					color: $white;
+				}
+			}
+		}
+
 		#user-panel {
-			height: 75px; // 300px
+			height: 59%; // 75px
 			position: relative;
 			transition: all 0.5s ease;
 
-			h2 { display: block; }
+			h2 {
+				display: block;
+				transition: all 0.5s ease;
+			}
+
+			.button-wrapper {
+				bottom: 8%; left: 0;
+			}
 		}
 
 		#mobile-header {
@@ -550,7 +594,7 @@
 			background-position: 0 -339px;
 			background-repeat: no-repeat;
 			background-size: 200px 500px;
-			display: block !important;
+			display: none !important; // block
 			position: absolute;
 			top: -20rem;
 			transition: all 0.5s ease;
@@ -563,23 +607,30 @@
 				display: block;
 				margin: 1rem 0;
 			}
-
-			// &:hover { opacity: 0.3; }
 		}
 
 		#user-wrapper {
-			width: 100%; height: 40%; // 100%
+			width: 100%; height: 100%; // 40%
 
-			// border-top: 1px solid rgba($black, 0.5);
-			margin: 0; // 75px 0 0 0
+			margin: 0;
+			padding: 5rem 0;
 			position: relative;
 		}
 
-		.user-avatar { top: 5%; }
+		.user-avatar, .user-data { position: relative; }
+
+		.user-avatar {
+			margin: 0 0 2rem 0;
+			top: initial;
+		}
 
 		.user-data {
-			top: 58%;
-			#user-bio { padding: 0.2rem; }
+			top: initial; bottom: initial;
+
+			#user-bio {
+				margin: 0; padding: 1rem 6rem;
+				font-size: 1rem;
+			}
 		}
 
 	}
@@ -587,6 +638,8 @@
 }
 
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
 
@@ -623,9 +676,44 @@
 
 	}
 
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		#user-panel {
+			height: 48%;
+
+			.button-wrapper {
+				bottom: 23%; right: 5.6rem; left: initial;
+				width: 60%;
+			}
+		}
+
+		#user-wrapper {
+			padding: 4.6rem 5rem;
+		}
+
+		.user-avatar, .user-data {
+			float: left;
+		}
+
+		.user-avatar {
+			margin: 0;
+			width: 25%;
+		}
+
+		.user-data {
+			width: 75%;
+			#user-bio { padding: 1rem; }
+		}
+
+	}
+
 }
 
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
 
@@ -664,15 +752,35 @@
 
 	}
 
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		#user-panel {
+			height: 48%;
+
+			.button-wrapper {
+				bottom: 8%; right: 0; left: initial;
+				width: 100%;
+			}
+		}
+
+		#user-wrapper { padding: 2rem; }
+
+		.user-avatar, .user-data {
+			float: none;
+			width: 100%;
+		}
+
+		.user-avatar { margin: 0 0 1rem 0; }
+
+	}
+
 }
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
-	body {
-		// -webkit-overflow-scrolling: touch;
-	}
-
-	/** APP/SCSS ***************************************************************************************/
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
 
@@ -921,7 +1029,7 @@
 
 	}
 
-	/** FULL-BOOK/SCSS *********************************************************************************/
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
 
@@ -1132,7 +1240,7 @@
 
 	}
 
-	/** PROFILE/SCSS *************************************************************************************/
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
 
@@ -1143,11 +1251,13 @@
 			padding: 75px 0 0 0;
 		}
 
-		#user-panel {
-			height: 75px;
-		}
+		#user-panel { height: 75px !important; }
+
+		#user-wrapper { padding: 0; }
 
 		.user-avatar {
+			display: block !important;
+			margin: 0 !important;
 			top: 0;
 
 			.avatar-wrapper {
