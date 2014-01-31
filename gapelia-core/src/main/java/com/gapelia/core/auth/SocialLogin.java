@@ -49,7 +49,9 @@ public class SocialLogin extends HttpServlet {
 			}
 
 			if (null != mode && "local".equals(mode)) {
+				
 				hostName = "http://localhost:8080";
+				response.sendRedirect("/me");
 			} else {
 				hostName = "http://gapelia-dev.herokuapp.com";
 			}
@@ -73,6 +75,7 @@ public class SocialLogin extends HttpServlet {
 
 			if (null != mode && "local".equals(mode)) {
 				LOG.info("Local mode. Switching to dummy user.");
+				response.sendRedirect("/me");
 				response.sendRedirect(response.encodeRedirectURL(successUrl));
 				return;
 			}
