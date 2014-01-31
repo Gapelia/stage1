@@ -1,6 +1,6 @@
 <% /* *********************************************** */ %>
 <% /* Include this line below to make page login-safe */ %>
-<%/*@include file="../../auth.jsp" */%>
+<% /* @include file="../../auth.jsp"									*/ %>
 <% /* *********************************************** */ %>
 
 <!DOCTYPE html>
@@ -262,13 +262,15 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+			if ($vW > "1024") {
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function() {
-				$("#book-scroller").css("z-index", "0");
-			});
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+			}
 
-			$(function() {
+			$(function () {
 				$(".user-bg, .book, .collection, .draft").imgLiquid({ fill: true });
 			});
 		</script>
@@ -277,9 +279,6 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			$(".user-data h2").html(_fullName);
-			$(".user-avatar img").attr("src", _image);
-
 			/*
 			if (navigator.appVersion.indexOf("Win")!=-1) {
 				// Detect Windows
@@ -290,62 +289,126 @@
 			}
 			*/
 
-			$(document).ready(function() {
+			$(document).ready(function () {
 
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
+				// $(".user-data h2").html(_fullName);
+				// $(".user-avatar img").attr("src", _image);
+
 				if ($vW < "1025") {
 
-					$("#user-wrapper").hide();
+					// $("#user-wrapper").hide();
 
-					$("#book-scroller").prepend('<div id="user-wrapper"><div class="user-avatar"><div class="avatar-wrapper"><img src="/static/images/users/11.jpg"/></div></div><div class="user-data"><h2>Paul Webb</h2><span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span></div><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div></div>');
+					// $("#book-scroller").prepend('<div id="user-wrapper"><div class="user-avatar"><div class="avatar-wrapper"><img src="/static/images/users/11.jpg"/></div></div><div class="user-data"><h2>Paul Webb</h2><span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span></div><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div></div>');
 
-					$(function() {
-						$("#book-scroller").bind("touchmove scroll", function() {
+					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
+
+					$(function () {
+
+						if ($vW < "321") {
+							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
+						}
+
+						$("#g-menu-toggle").click(function () {
+
+							if ($vW > "320") {
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
+							}
+
+							$("#user-panel h2").css({
+								"top": "1.2rem",
+								"left": "0",
+								"padding": "0 6rem",
+								"position": "fixed",
+								"width": "100%"
+							});
+
+							$("#user-panel .button-wrapper").css("bottom", "inherit");
+							$("#user-panel").css("height", "75px");
+
+							$("#featured-nav").toggle();
+
+						});
+
+						$("#book-scroller").bind("touchmove scroll", function () {
 
 							var value = $(this).stop().scrollTop();
 
 							if (value > 1) {
 
-								$("#g-menu-toggle").hide();
+								if ($vW > "320") {
+									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
+								}
 
-								$("#user-panel .user-avatar, #user-panel #user-data, #user-panel h2, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0");
+								$("#user-panel h2").css({
+									"top": "1.2rem",
+									"left": "0",
+									"padding": "0 6rem",
+									"position": "fixed",
+									"width": "100%"
+								});
+
 								$("#user-panel .button-wrapper").css("bottom", "inherit");
-
-								$("#mobile-header").css({
-									"top": "0",
-									"left": $vW / 2 - 100 + "px"
-								});
-
-								$("#user-panel").css({
-									"background-color": "#70a1b1",
-									"height": "75px"
-								});
+								$("#user-panel").css("height", "75px");
 
 							}
 
 							if (value < 1) {
 
-								$("#g-menu-toggle").show();
+								if ($vW > "320") {
+									$("#user-panel .user-avatar").css("margin", "0 0 2rem 0").fadeIn();
+									$("#user-panel #user-bio").css("margin", "0").fadeIn();
+								}
 
-								$("#user-panel .user-avatar, #user-panel #user-data, #user-panel h2, #user-panel .button-wrapper").css("margin", "initial");
-								$("#user-panel .button-wrapper").css("bottom", "5%");
-
-								$("#mobile-header").css({
-									"top": "-20rem",
-									"transition": "all 0.2s ease"
+								$("#user-panel h2").css({
+									"padding": "0",
+									"position": "relative",
+									"top": "initial",
+									"width": "100%"
 								});
 
-								$("#user-panel").css({
-									"background-color": "#fcfcfc",
-									"height": "75px"
-								});
+								$("#user-panel .button-wrapper").css({
+									"bottom": "8%",
+									"margin": "0"
+								}).fadeIn();
+
+								$("#user-panel").css("height", "59%");
+
+								if ($vW < "801") {
+
+									$("#user-panel .button-wrapper").css({
+										"bottom": "23%",
+										"left": "initial",
+										"right": "5.6rem",
+										"margin": "0",
+										"width": "60%"
+									}).fadeIn();
+
+									$("#user-panel").css("height", "48%");
+
+								}
+
+								if ($vW < "601") {
+
+									$("#user-panel .user-avatar").css("margin", "0 0 1rem 0").fadeIn();
+
+									$("#user-panel .button-wrapper").css({
+										"bottom": "8%",
+										"left": "initial",
+										"right": "0",
+										"margin": "0",
+										"width": "100%"
+									}).fadeIn();
+
+								}
 
 							}
 
 						});
+
 					});
 
 				} else {
@@ -361,14 +424,14 @@
 
 				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					$("#user-book-list").css("opacity", "0").show();
 
 					if ($vW > "1024") {
 
-						$(function() {
-							$("#book-scroller").mousewheel(function(event, delta) {
+						$(function () {
+							$("#book-scroller").mousewheel(function (event, delta) {
 
 								this.scrollLeft -= (delta * 40);
 								event.preventDefault();
@@ -416,7 +479,7 @@
 
 					var w = 0, h = 0;
 
-					$("#user-book-list li").each(function() {
+					$("#user-book-list li").each(function () {
 						w += $(this).outerWidth();
 						h += $(this).outerHeight();
 					});
@@ -432,7 +495,7 @@
 					$("#user-book-list").fadeIn("100");
 
 					// "fix" featured menu pop-in
-					setTimeout(function() {
+					setTimeout(function () {
 						$("#user-panel, #book-scroller").css("opacity", "1");
 					}, 400);
 
