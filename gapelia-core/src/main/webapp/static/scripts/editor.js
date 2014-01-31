@@ -15,10 +15,15 @@
 	$(document).ready(function () {
 
 		// Create Book
-		
+		pages = {
+					"page" : [{}]
+				};
 		pageId = 0;
 		bookId = 0;
-
+		pagesCreated = 0;
+		author="bullshit";
+		templateId=0;
+/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -96,7 +101,17 @@
 				}
 
 			}
-		});
+		});*/
+		frontCoverLayout();
+		pages.page[0] = {
+					"pageNumber": 0,
+					"geotag": null,
+					"templateId": "0",
+					"title": null,
+					"text": null,
+					"image": "/static/images/blankBG.jpg",
+					"video": "null"
+				};
 
 	});
 
@@ -298,7 +313,44 @@
 		if(geotag == undefined) {
 			geotag = "BUUUGGG";
 		}
+		if(pagesCreated == 0) {
+					pages.page[0] = {
+						"pageNumber": pagesCreated,
+						"geotag": geotag,
+						"templateId": 0,
+						"title": null,
+						"text": null,
+						"image": "/static/images/blankBG.jpg",
+						"video": "null"
+					};
 
+					templateId = 0;
+					frontCoverLayout();
+				} else {
+					pages.page[pagesCreated-1].geotag = geotag;
+					pages.page[pagesCreated-1].templateId = templateId;
+					pages.page[pagesCreated-1].title = title;
+					pages.page[pagesCreated-1].text = text;
+					pages.page[pagesCreated-1].image = imageURL;
+					pages.page[pagesCreated-1].video = videoURL;
+
+					pages.page[pagesCreated] = {
+						"pageNumber": pagesCreated,
+						"geotag": null,
+						"templateId": "0",
+						"title": null,
+						"text": null,
+						"image": "/static/images/blankBG.jpg",
+						"video": "null"
+					};
+
+					templateId = 0;
+					title = null;
+					text = null;
+					imageURL = null;
+					videoURL = null;
+				}
+		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -361,7 +413,7 @@
 				}
 
 			}
-		});
+		});*/
 
 		e.preventDefault();
 
