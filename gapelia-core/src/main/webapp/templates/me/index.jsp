@@ -43,9 +43,13 @@
 		<!--/ To get session id /-->
 		<script>
 			<% String id = session.getId(); %>
-			var sessionId = <%= id %>
+			var sessionId = '<%= id %>'
 		</script>
 		<% /* ******************************* */ %>
+		<script>
+			<% String id = session.getId(); %>
+			var sessionId = '<%= id %>'
+		</script>
 
 	</head>
 
@@ -130,120 +134,7 @@
 
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
-					<!--/ <div><br/>&nbsp;<br/></div> /-->
-
 					<ul id="user-book-list">
-
-						<li class="book">
-							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Insane Asylum</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">The Teachings of Goku</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Space Cadets</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Dimmi Bolling Press Kit</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head × Beats Take Significance</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">The Kitchen Collective</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">Save the trees, too!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">PETA</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">BOkeH!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Hmm, weird</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">The Wild Thornberrys!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Nene-ne-ne-nene-ne-nick-Nickelodeooooon!</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">Crying Rivers: The Justin Timberlake Story</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Biography</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-title"><a href="#">Trees Yo</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Nature Bros</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
 					</ul>
 				</div>
 				<!--//your-books /-->
@@ -350,95 +241,118 @@
 				} else {
 				}
 
-				// Load Gapelia
-				$("#user-panel, #book-scroller").css("opacity", "0").show();
-				NProgress.start();
+				$(function () {
 
-				var
-				allBooks = $("#user-book-list li"),	// gets all books in a section
-				firstBook = $(allBooks).first();		// gets first book in list
+					NProgress.start();
 
-				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+					$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
-				setTimeout(function() {
+					html = "<ul id=\"user-book-list\">";
+					featuredBooks = "";
+					parsedHtml = "";
 
-					$("#user-book-list").css("opacity", "0").show();
+					var
+					allBooks = $("#user-book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
 
-					if ($vW > "1024") {
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-						$(function() {
-							$("#book-scroller").mousewheel(function(event, delta) {
+					setTimeout(function () {
+						$.ajax({
+							url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
+							contentType: "application/x-www-form-urlencoded;charset=utf-8",
+							type: "POST",
+							data: {
+								sessionId: sessionId
+							},
 
-								this.scrollLeft -= (delta * 40);
-								event.preventDefault();
+							success: function (data) {
 
-								if (event.deltaY < 0) {
+								featuredBooks = data;
+								parsedHtml = parseJsonToStringForBooks(featuredBooks);
 
-									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
+								$(".user-book-list-wrapper").html(parsedHtml);
+								$("#user-book-list").css("opacity", "0").show();
 
-									$("#user-panel h2").css({
-										"bottom": "2rem",
-										"left": "-3.1rem",
-										"margin": "2rem 0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "194px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
-
+								if ($vW > "1024") {
+									$("#user-book-list .book").css("height", $vH - 97 + "px");
+								} else {
 								}
 
-								if (event.deltaY > 0) {
+								$(".book").imgLiquid({ fill: true });
 
-									$("#user-panel").css("width", "25%");
-									$("#book-scroller").css("width", "75%");
-									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
+								var w = 0, h = 0;
 
-									$("#user-panel h2").css({
-										"margin": "0 0 10px 0",
-										"position": "static",
-										"transform": "rotate(0deg)",
-										"width": "100%",
-										"-webkit-transform": "rotate(0deg)"
-									});
+								$("#user-book-list li").each(function () {
+									w += $(this).outerWidth();
+									h += $(this).outerHeight();
+								});
 
+								w += 500;
+
+								if ($vW > "1024") {
+									$("#user-book-list").css("width", w - 320 + "px");
+								} else {
+									// $("#book-list").css("height", h + 219 + "px");
 								}
 
-							});
+								NProgress.done();
+
+								$("#user-book-list").css("opacity", "1");
+
+								// fades in the all the books after section width is added
+								$("#user-book-list li").fadeIn("100");
+								$("#user-book-list").fadeIn("100");
+
+							},
+
+							error: function (q, status, err) {
+
+								if (status == "timeout") {
+									// alert("Request timed out");
+								} else {
+									// alert("Some issue happened with your request: " + err);
+								}
+
+							}
 						});
 
-					} else {
-					}
+						// "fix" featured menu pop-in
+						setTimeout(function () {
+							$("#featured-panel, #featured-scroller").css("opacity", "1");
+						}, 400);
 
-					var w = 0, h = 0;
-
-					$("#user-book-list li").each(function() {
-						w += $(this).outerWidth();
-						h += $(this).outerHeight();
-					});
-
-					w += 500;
-
+					}, 1000);
 					NProgress.done();
 
-					$("#user-book-list").css("opacity", "1");
-
-					// fades in the all the books after section width is added
-					$("#user-book-list li").fadeIn("100");
-					$("#user-book-list").fadeIn("100");
-
-					// "fix" featured menu pop-in
-					setTimeout(function() {
-						$("#user-panel, #book-scroller").css("opacity", "1");
-					}, 400);
-
 				});
+				function parseJsonToStringForBooks(books) {
+					i = 0;
+					$.each(books, function () {
+						currentUrl=document.URL;
+						currentUrl=currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+						if(books[i] == null) {
+							return false;
+						}
+						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
 
-				// $("#nav-books").addClass("current");
+						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'>";
 
+						html += "<div class='author-name'><a href='#'>" + books[i].userId + "</a></div><div class=\"library-location\"><a href=\"#\">" + books[i].library + "</a></div></div>";
+
+						html += "<span class=\"image-overlay\"></span>";
+
+						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
+
+						html += "</li>";
+
+						i++;
+
+					});
+
+					html += "</ul>";
+					return html;
+				}
 			});
 		</script>
 

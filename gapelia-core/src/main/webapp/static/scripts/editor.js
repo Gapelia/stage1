@@ -13,17 +13,6 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-
-		// Create Book
-		pages = {
-					"page" : [{}]
-				};
-		pageId = 0;
-		bookId = 0;
-		pagesCreated = 0;
-		author="bullshit";
-		templateId=0;
-/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -43,7 +32,6 @@
 				}
 			}
 		});
-
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -101,18 +89,7 @@
 				}
 
 			}
-		});*/
-		frontCoverLayout();
-		pages.page[0] = {
-					"pageNumber": 0,
-					"geotag": null,
-					"templateId": "0",
-					"title": null,
-					"text": null,
-					"image": "/static/images/blankBG.jpg",
-					"video": "null"
-				};
-
+		});
 	});
 
 	// Left Menus
@@ -313,44 +290,6 @@
 		if(geotag == undefined) {
 			geotag = "BUUUGGG";
 		}
-		if(pagesCreated == 0) {
-					pages.page[0] = {
-						"pageNumber": pagesCreated,
-						"geotag": geotag,
-						"templateId": 0,
-						"title": null,
-						"text": null,
-						"image": "/static/images/blankBG.jpg",
-						"video": "null"
-					};
-
-					templateId = 0;
-					frontCoverLayout();
-				} else {
-					pages.page[pagesCreated-1].geotag = geotag;
-					pages.page[pagesCreated-1].templateId = templateId;
-					pages.page[pagesCreated-1].title = title;
-					pages.page[pagesCreated-1].text = text;
-					pages.page[pagesCreated-1].image = imageURL;
-					pages.page[pagesCreated-1].video = videoURL;
-
-					pages.page[pagesCreated] = {
-						"pageNumber": pagesCreated,
-						"geotag": null,
-						"templateId": "0",
-						"title": null,
-						"text": null,
-						"image": "/static/images/blankBG.jpg",
-						"video": "null"
-					};
-
-					templateId = 0;
-					title = null;
-					text = null;
-					imageURL = null;
-					videoURL = null;
-				}
-		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -413,7 +352,7 @@
 				}
 
 			}
-		});*/
+		});
 
 		e.preventDefault();
 
@@ -445,16 +384,6 @@
 		e.preventDefault();
 
 	});
-
-
-	/*
-	// Disable pasting on all layouts until we can auto-limit text overflow
-	$(document).on("paste", "[contenteditable]", function(e) {
-		e.preventDefault();
-		// http://stackoverflow.com/a/19269040/1167646 may help
-	});
-	*/
-
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -1312,22 +1241,18 @@
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
-
-	function addPageBE() {
-	}
-
 	// Layout Constants
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
 	// Save data of what is being edited every second
 	window.setInterval(function() {
-
 		if(pages.page[0].templateId != null && pagesCreated != -1) {
 			imageURL = $(".page-bg").attr("src");
 			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();
 			text = $(".page-desc").html();
+			
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
@@ -1341,21 +1266,17 @@
 
 	// Save book information every minute
 	window.setInterval(function () {
-
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
-
 	}, 60000);
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
-
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
-
 	}, 5000);
 
 	// Toggle layout switcher

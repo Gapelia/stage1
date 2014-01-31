@@ -27,8 +27,8 @@ public class QueryDatabase {
 	private static final String INSERT_BOOK = "INSERT INTO books (bookiD,title, language,library,tags,userId,isPublished,coverPhoto) " + "VALUES(?,?,?,?,?,?,?,?)";
 	private static final String UPDATE_BOOK = "UPDATE books set coverPhoto = ?, title = ?, language = ?, library = ?, tags = ?, lastUpdated = ?, isPublished = ? WHERE bookId= ?";
 	private static final String SELECT_BOOK_FROM_ID = "SELECT pageId,title,description,templateId,videoUrl,photoUrl FROM pages where bookId =  ?";//if not in quotations throws error
-	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = 1 ORDER BY random() LIMIT 20";
-	private static final String SELECT_PUBLISHED_BOOKS_FROM_USER = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = 1 and userId = ? ORDER BY random() LIMIT 20";
+	private static final String SELECT_PUBLISHED_BOOKS = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = true ORDER BY random() LIMIT 20";
+	private static final String SELECT_PUBLISHED_BOOKS_FROM_USER = "SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books WHERE isPublished = true and userId = ? ORDER BY random() LIMIT 20";
 	private static final String SELECT_BOOKS_FROM_LIBRARY="SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where library = ? ORDER BY random() LIMIT 20";
 	//User Related Queries
 	private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,providerId,validateId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
@@ -118,10 +118,13 @@ public class QueryDatabase {
 	public static Book[] getBooksCreatedByUser(Profile profile) {
 		Book [] books = new Book[20];
 		int i=0;
+		System.out.println("getting books created by user, pre try");
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_PUBLISHED_BOOKS_FROM_USER);
 			statement.setString(1,profile.getValidatedId());
+			System.out.println(statement);
 			ResultSet rs = statement.executeQuery();
+			System.out.println(rs.toString());
 			while (rs.next()) {
 				Book book = new Book();
 				book.setBookId(rs.getString("bookid"));
@@ -136,6 +139,7 @@ public class QueryDatabase {
 			}
 			return books; 
 		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 			LOG.error("Cannot check user profile: " + profile, ex);
 			return null;
 		}

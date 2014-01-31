@@ -32,17 +32,13 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-    <script>
-                <% String id = session.getId(); %>
-                var sessionId = <%= id %>
-            </script>
 	</head>
 
 	<body>
 
 		<header>
 			<h1><a href="#">Gapelia</a></h1>
-			<h3>A blogging platform built in Boston, 2013</h3>
+			<h3>A blogging platform built in Boston, 2014</h3>
 
 			<p>Breaking news and tweets are insufficient to make us a more informed society. <span class="mobile">Authentic stories are life-changing, but the fascination about knowledge inside of books is taken away by today's quick media.</span> Gapelia is building a better platform for telling delivering long-form stories in the most beautiful and easiest way. No coding required, just focus on your content.</p>
 
@@ -61,8 +57,21 @@
 				</div>
 			</div>
 		</div>
-		
 		<div id="container-02">
+			<div class="split-left">
+				<h3>MOAR VIDEOSSS</h3>
+				<div class="video-container">
+					 <iframe src="http://player.vimeo.com/video/84789778?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
+				</div>
+			</div>
+			<div class="splir-right">
+				<div class="video-container">
+					 <iframe src="http://player.vimeo.com/video/77160714?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1"></iframe>
+				</div>
+			</div>
+		</div>
+
+		<div id="container-01">
 			<h3>Blog Memorably</h3>
 			<p>Whether you publish for fun or to showcase your professional work, our platform is great for individuals or organizations who want to deliver the very best content to their audience. Use our live editor, add pages, and choose premium layouts that best fit your content.</p>
 
@@ -85,12 +94,12 @@
 		</div>
 
 		<footer>
-			<div class="cta">Sign up as a beta user now</div>
+			<div class="cta">Sign into the beta and try it out!Shu Dont tell your friends, yet!</div>
 
 			<ul>
 				<li><a href="/login?type=facebook">Connect with Facebook</a></li>
-				<li><a href="/login?type=google">Connect with Google</a></li>
-				<li><a href="/login?type=twitter">Connect with Twitter</a></li>
+				<!--<li><a href="/login?type=google">Connect with Google</a></li>
+				<li><a href="/login?type=twitter">Connect with Twitter</a></li>/-->
 			</ul>
 
 			<h3><a href="#">Gapelia</a></h3>
