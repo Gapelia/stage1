@@ -291,12 +291,76 @@
 
 			$(document).ready(function () {
 
+				<% String id = session.getId(); %>
+				var sessionId = '<%= id %>'
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
+				html = "<ul id=\"user-book-list\">";
+ 				featuredBooks = "";
+ 				parsedHtml = "";
+
 				// $(".user-data h2").html(_fullName);
 				// $(".user-avatar img").attr("src", _image);
+				$.ajax({
+					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
+							contentType: "application/x-www-form-urlencoded;charset=utf-8",
+							type: "POST",
+							data: {
+								sessionId: sessionId
+							},
+
+							success: function (data) {
+
+								featuredBooks = data;
+								parsedHtml = parseJsonToStringForBooks(featuredBooks);
+
+								$(".user-book-list-wrapper").html(parsedHtml);
+								$("#user-book-list").css("opacity", "0").show();
+
+								if ($vW > "1024") {
+									$("#user-book-list .book").css("height", $vH - 97 + "px");
+								} else {
+								}
+
+								$(".book").imgLiquid({ fill: true });
+
+								var w = 0, h = 0;
+
+								$("#user-book-list li").each(function () {
+									w += $(this).outerWidth();
+									h += $(this).outerHeight();
+								});
+
+								w += 500;
+
+								if ($vW > "1024") {
+									$("#user-book-list").css("width", w - 320 + "px");
+								} else {
+									// $("#book-list").css("height", h + 219 + "px");
+								}
+
+								NProgress.done();
+
+								$("#user-book-list").css("opacity", "1");
+
+								// fades in the all the books after section width is added
+								$("#user-book-list li").fadeIn("100");
+								$("#user-book-list").fadeIn("100");
+
+							},
+
+							error: function (q, status, err) {
+
+								if (status == "timeout") {
+									// alert("Request timed out");
+								} else {
+									// alert("Some issue happened with your request: " + err);
+								}
+
+							}
+						});
 
 				if ($vW < "1025") {
 
@@ -411,8 +475,7 @@
 
 					});
 
-				} else {
-				}
+				} 
 
 				// Load Gapelia
 				$("#user-panel, #book-scroller").css("opacity", "0").show();
@@ -500,7 +563,31 @@
 					}, 400);
 
 				});
+				function parseJsonToStringForBooks(books) {
+					i = 0;
+					$.each(books, function () {
+						currentUrl=document.URL;
+						currentUrl=currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+						if(books[i] == null) {
+							return false;
+						}
+						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
 
+						html += "<div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">"+books[i].library+"</a></div></div>";
+
+						html += "<span class=\"image-overlay\"></span>";
+
+						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
+
+						html += "</li>";
+
+						i++;
+
+					});
+
+					html += "</ul>";
+					return html;
+				}
 				// $("#nav-books").addClass("current");
 
 			});
