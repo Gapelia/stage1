@@ -279,94 +279,67 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			/*
-			if (navigator.appVersion.indexOf("Win")!=-1) {
-				// Detect Windows
-			} else if (navigator.appVersion.indexOf("Mac")!=-1) {
-				// Detect Mac
+			// Splash page
+			$(document).ready(function () {
+
+				$("#mp-pusher").prepend('<section id="user-splash"><div class="user-avatar"><div class="avatar-wrapper"></div></div><div id="splash-user-info"><h2>Paul Anthony Webb</h2><span id="splash-user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/bg-05.jpg"/></section>');
+
+				$("#user-splash").imgLiquid({ fill: true });
+				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/11.jpg"/>');
+
+			});
+
+			if ($vW > "1024") {
+
+				$(document).on("click", "#close-splash", function () {
+
+					$("#user-splash").css("left", "-200%");
+					$("#g-menu-toggle").css("color", "#70a1b1");
+
+				});
+
 			} else {
-				// Detect Linux, lol
+
+				$(function() {
+
+					$("#user-splash").swipe({
+						swipeUp: function(event, direction, distance, duration, fingerCount) {
+
+							$("#user-splash").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+
+						}, threshold: 0
+					});
+
+					$(document).on("click", "#close-splash", function () {
+
+						$("#user-splash").css("top", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
+
+					});
+
+				});
+
 			}
-			*/
 
 			$(document).ready(function () {
 
-				<% String id = session.getId(); %>
-				var sessionId = '<%= id %>'
 				var
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				html = "<ul id=\"user-book-list\">";
- 				featuredBooks = "";
- 				parsedHtml = "";
+				// Scrolling on desktop
+				$(function () {
+					$("#book-scroller").mousewheel(function (event, delta) {
 
-				// $(".user-data h2").html(_fullName);
-				// $(".user-avatar img").attr("src", _image);
-				$.ajax({
-					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
-							contentType: "application/x-www-form-urlencoded;charset=utf-8",
-							type: "POST",
-							data: {
-								sessionId: sessionId
-							},
+						this.scrollLeft -= (delta * 40);
+						event.preventDefault();
 
-							success: function (data) {
+					});
+				});
 
-								featuredBooks = data;
-								parsedHtml = parseJsonToStringForBooks(featuredBooks);
-
-								$(".user-book-list-wrapper").html(parsedHtml);
-								$("#user-book-list").css("opacity", "0").show();
-
-								if ($vW > "1024") {
-									$("#user-book-list .book").css("height", $vH - 97 + "px");
-								} else {
-								}
-
-								$(".book").imgLiquid({ fill: true });
-
-								var w = 0, h = 0;
-
-								$("#user-book-list li").each(function () {
-									w += $(this).outerWidth();
-									h += $(this).outerHeight();
-								});
-
-								w += 500;
-
-								if ($vW > "1024") {
-									$("#user-book-list").css("width", w - 320 + "px");
-								} else {
-									// $("#book-list").css("height", h + 219 + "px");
-								}
-
-								NProgress.done();
-
-								$("#user-book-list").css("opacity", "1");
-
-								// fades in the all the books after section width is added
-								$("#user-book-list li").fadeIn("100");
-								$("#user-book-list").fadeIn("100");
-
-							},
-
-							error: function (q, status, err) {
-
-								if (status == "timeout") {
-									// alert("Request timed out");
-								} else {
-									// alert("Some issue happened with your request: " + err);
-								}
-
-							}
-						});
-
+				// Dropdown menu for mobile
 				if ($vW < "1025") {
-
-					// $("#user-wrapper").hide();
-
-					// $("#book-scroller").prepend('<div id="user-wrapper"><div class="user-avatar"><div class="avatar-wrapper"><img src="/static/images/users/11.jpg"/></div></div><div class="user-data"><h2>Paul Webb</h2><span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span></div><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div></div>');
 
 					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
 
@@ -391,186 +364,150 @@
 							});
 
 							$("#user-panel .button-wrapper").css("bottom", "inherit");
-							$("#user-panel").css("height", "75px");
+							// $("#user-panel").css("height", "75px");
 
+							// $("#user-panel").css("height", "188px");
 							$("#featured-nav").toggle();
 
 						});
 
-						$("#book-scroller").bind("touchmove scroll", function () {
-
-							var value = $(this).stop().scrollTop();
-
-							if (value > 1) {
-
-								if ($vW > "320") {
-									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
-								}
-
-								$("#user-panel h2").css({
-									"top": "1.2rem",
-									"left": "0",
-									"padding": "0 6rem",
-									"position": "fixed",
-									"width": "100%"
-								});
-
-								$("#user-panel .button-wrapper").css("bottom", "inherit");
-								$("#user-panel").css("height", "75px");
-
-							}
-
-							if (value < 1) {
-
-								if ($vW > "320") {
-									$("#user-panel .user-avatar").css("margin", "0 0 2rem 0").fadeIn();
-									$("#user-panel #user-bio").css("margin", "0").fadeIn();
-								}
-
-								$("#user-panel h2").css({
-									"padding": "0",
-									"position": "relative",
-									"top": "initial",
-									"width": "100%"
-								});
-
-								$("#user-panel .button-wrapper").css({
-									"bottom": "8%",
-									"margin": "0"
-								}).fadeIn();
-
-								$("#user-panel").css("height", "59%");
-
-								if ($vW < "801") {
-
-									$("#user-panel .button-wrapper").css({
-										"bottom": "23%",
-										"left": "initial",
-										"right": "5.6rem",
-										"margin": "0",
-										"width": "60%"
-									}).fadeIn();
-
-									$("#user-panel").css("height", "48%");
-
-								}
-
-								if ($vW < "601") {
-
-									$("#user-panel .user-avatar").css("margin", "0 0 1rem 0").fadeIn();
-
-									$("#user-panel .button-wrapper").css({
-										"bottom": "8%",
-										"left": "initial",
-										"right": "0",
-										"margin": "0",
-										"width": "100%"
-									}).fadeIn();
-
-								}
-
-							}
-
-						});
-
 					});
 
-				} 
+				}
+
+				<% String id = session.getId(); %>
+				var sessionId = '<%= id %>'
+
+				html = "<ul id=\"user-book-list\">";
+ 				featuredBooks = "";
+ 				parsedHtml = "";
+
+				// $(".user-data h2").html(_fullName);
+				// $(".user-avatar img").attr("src", _image);
+
+				$.ajax({
+					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sessionId
+					},
+
+					success: function (data) {
+
+						featuredBooks = data;
+						parsedHtml = parseJsonToStringForBooks(featuredBooks);
+
+						$(".user-book-list-wrapper").html(parsedHtml);
+						$("#user-book-list").css("opacity", "0").show();
+
+						if ($vW > "1024") {
+							$("#user-book-list .book").css("height", $vH - 97 + "px");
+						}
+
+						$(".book").imgLiquid({ fill: true });
+
+						var w = 0, h = 0;
+
+						$("#user-book-list li").each(function () {
+							w += $(this).outerWidth();
+							h += $(this).outerHeight();
+						});
+
+						w += 500;
+
+						if ($vW > "1024") {
+							$("#user-book-list").css("width", w - 320 + "px");
+						}
+
+						NProgress.done();
+
+						$("#user-book-list").css("opacity", "1");
+
+						// fades in the all the books after section width is added
+						$("#user-book-list li").fadeIn("100");
+						$("#user-book-list").fadeIn("100");
+
+					},
+
+					error: function (q, status, err) {
+
+						if (status == "timeout") {
+							// alert("Request timed out");
+						} else {
+							// alert("Some issue happened with your request: " + err);
+						}
+
+					}
+				});
 
 				// Load Gapelia
-				$("#user-panel, #book-scroller").css("opacity", "0").show();
-				NProgress.start();
+				$(function () {
 
-				var
-				allBooks = $("#user-book-list li"),	// gets all books in a section
-				firstBook = $(allBooks).first();		// gets first book in list
+					NProgress.start();
 
-				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+					$("#user-panel, #book-scroller").css("opacity", "0").show();
 
-				setTimeout(function () {
+					var
+					allBooks = $("#user-book-list li"),	// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
 
-					$("#user-book-list").css("opacity", "0").show();
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					if ($vW > "1024") {
+					setTimeout(function () {
 
-						$(function () {
-							$("#book-scroller").mousewheel(function (event, delta) {
+						// $("#user-book-list").hide();
+						$("#user-book-list").css("opacity", "0").show();
 
-								this.scrollLeft -= (delta * 40);
-								event.preventDefault();
+						if ($vW > "1024") {
+							$("#user-book-list .book").css("height", $vH - 97 + "px");
+						}
 
-								if (event.deltaY < 0) {
+						$(".book").imgLiquid({ fill: true });
 
-									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "none");
+						var w = 0, h = 0;
 
-									$("#user-panel h2").css({
-										"bottom": "2rem",
-										"left": "-3.1rem",
-										"margin": "2rem 0",
-										"position": "fixed",
-										"transform": "rotate(-90deg)",
-										"width": "194px",
-										"-webkit-transform": "rotate(-90deg)"
-									});
-
-									$("#user-panel").css("width", "7%");
-									$("#book-scroller").css("width", "93%");
-
-								}
-
-								if (event.deltaY > 0) {
-
-									$("#user-panel").css("width", "25%");
-									$("#book-scroller").css("width", "75%");
-									$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("display", "block");
-
-									$("#user-panel h2").css({
-										"margin": "0 0 10px 0",
-										"position": "static",
-										"transform": "rotate(0deg)",
-										"width": "100%",
-										"-webkit-transform": "rotate(0deg)"
-									});
-
-								}
-
-							});
+						$("#user-book-list li").each(function () {
+							w += $(this).outerWidth();
+							h += $(this).outerHeight();
 						});
 
-					} else {
-					}
+						w += 500;
 
-					var w = 0, h = 0;
+						if ($vW > "1024") {
+							$("#user-book-list").css("width", w - 320 + "px");
+						}
 
-					$("#user-book-list li").each(function () {
-						w += $(this).outerWidth();
-						h += $(this).outerHeight();
+						NProgress.done();
+
+						$("#user-book-list").css("opacity", "1");
+
+						// fades in the all the books after section width is added
+						$("#user-book-list li").fadeIn("100");
+						$("#user-book-list").fadeIn("100");
+
+						// "fix" featured menu pop-in
+						setTimeout(function () {
+							$("#user-panel, #book-scroller").css("opacity", "1");
+						}, 600);
+
 					});
 
-					w += 500;
-
-					NProgress.done();
-
-					$("#user-book-list").css("opacity", "1");
-
-					// fades in the all the books after section width is added
-					$("#user-book-list li").fadeIn("100");
-					$("#user-book-list").fadeIn("100");
-
-					// "fix" featured menu pop-in
-					setTimeout(function () {
-						$("#user-panel, #book-scroller").css("opacity", "1");
-					}, 400);
-
 				});
+
 				function parseJsonToStringForBooks(books) {
+
 					i = 0;
+
 					$.each(books, function () {
-						currentUrl=document.URL;
-						currentUrl=currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+
+						currentUrl = document.URL;
+						currentUrl = currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+
 						if(books[i] == null) {
 							return false;
 						}
+
 						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
 
 						html += "<div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">"+books[i].library+"</a></div></div>";
@@ -586,9 +523,10 @@
 					});
 
 					html += "</ul>";
+
 					return html;
+
 				}
-				// $("#nav-books").addClass("current");
 
 			});
 		</script>

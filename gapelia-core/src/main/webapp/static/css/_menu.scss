@@ -56,7 +56,6 @@
 
 .super-wrapper.mp-pushed {
 	#g-menu-toggle {
-		// left: -25rem;
 		color: $white;
 		opacity: 1;
 	}
@@ -70,11 +69,6 @@
 	.featured-info, .bookmark-this, #bb-nav-prev, #bb-nav-next, #header-toggle, #next-book-toggle {
 		opacity: 0.1;
 		transition: all 0.2s ease;
-	}
-
-	#featured-panel {
-		background-color: transparent;
-		border-bottom: 1px solid #5c5c5c;
 	}
 }
 

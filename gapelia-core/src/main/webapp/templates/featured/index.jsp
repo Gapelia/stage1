@@ -34,12 +34,6 @@
 
 		<script src="/static/scripts/nprogress.js"></script>
 
-		<script>
-			$(function () {
-				$("#g-menu-toggle").css("z-index", "2");
-			});
-		</script>
-
 	</head>
 
 	<body class="app profile">
@@ -799,12 +793,12 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
+			// Splash page
 			$(document).ready(function () {
 
 				$("#mp-pusher").prepend('<section id="featured-splash"><h1 id="gapelia"><a href="/featured">Gapelia</a></h1><div id="login-greet"><a href="#">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div><div id="featured-info"><h2>How will books look like in 2050?</h2><p>Some interesting description about this book. There should be an excerpt here too.</p><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
 
 				$("#featured-splash").imgLiquid({ fill: true });
-				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
 
@@ -847,25 +841,30 @@
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
+				// Scrolling on desktop
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
-						this.scrollLeft -= (delta * 40);
+						if ($vW > "1024") {
+							this.scrollLeft -= (delta * 40);
+						} else {
+							this.scroll -= (delta * 40);
+						}
+
 						event.preventDefault();
 
 					});
 				});
 
+				// Dropdown menu for mobile
 				if ($vW < "1025") {
 
 					$("#featured-panel .featured-info").remove();
-					$("#featured-panel").append("<span id='category-title'>Bookshelf</span>");
+					$("#featured-panel").append('<span id="category-title">Bookshelf</span>');
 
 					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
 
-					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
 					$("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
-					// $("#category-title").css("width", $vW + "px");
 
 					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
 						$("#featured-nav").toggle();
@@ -883,7 +882,12 @@
 						$("#category-title").html("Bookmarks");
 					});
 
-				} else {
+				}
+				
+				if ($vW < "321") {
+
+					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
+
 				}
 
 				// Load Gapelia
@@ -928,7 +932,6 @@
 
 								if ($vW > "1024") {
 									$("#book-list .book").css("height", $vH - 97 + "px");
-								} else {
 								}
 
 								$(".book").imgLiquid({ fill: true });
@@ -944,8 +947,6 @@
 
 								if ($vW > "1024") {
 									$("#book-list").css("width", w - 320 + "px");
-								} else {
-									// $("#book-list").css("height", h + 219 + "px");
 								}
 
 								NProgress.done();
@@ -972,7 +973,7 @@
 						// "fix" featured menu pop-in
 						setTimeout(function () {
 							$("#featured-panel, #featured-scroller").css("opacity", "1");
-						}, 400);
+						}, 600);
 
 					}, 1000);
 

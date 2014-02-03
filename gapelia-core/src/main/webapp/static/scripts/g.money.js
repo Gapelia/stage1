@@ -77,6 +77,7 @@
 
 			$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
 			$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
+			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
 
 		});
 
@@ -84,6 +85,7 @@
 
 			$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 			$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 
 		});
 
