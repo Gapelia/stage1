@@ -605,11 +605,18 @@
 
 		h2 {
 			&:before {
-				content: "Pick of the day";
 				display: block;
 				font-size: 1rem;
 				margin: 0 0 -0.4rem 0.05rem;
 			}
+		}
+
+		#pick-story {
+			&:before { content: "Story of the day"; }
+		}
+
+		#pick-library {
+			&:before { content: "Library of the day"; }
 		}
 	}
 

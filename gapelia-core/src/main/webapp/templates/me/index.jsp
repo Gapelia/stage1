@@ -351,6 +351,7 @@
 
 						$("#g-menu-toggle").click(function () {
 
+							/*
 							if ($vW > "320") {
 								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
 							}
@@ -362,8 +363,9 @@
 								"position": "fixed",
 								"width": "100%"
 							});
+							*/
 
-							$("#user-panel .button-wrapper").css("bottom", "inherit");
+							// $("#user-panel .button-wrapper").css("bottom", "inherit");
 							// $("#user-panel").css("height", "75px");
 
 							// $("#user-panel").css("height", "188px");

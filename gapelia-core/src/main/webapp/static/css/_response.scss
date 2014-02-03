@@ -312,6 +312,7 @@
 		#user-splash {
 			#splash-user-info { top: 33%; }
 			#close-splash { bottom: -10rem; }
+			.user-avatar { top: 15%; }
 		}
 
 	}
@@ -594,6 +595,65 @@
 			.button-wrapper {
 				bottom: 8%; left: 0;
 			}
+
+			#user-wrapper {
+				width: 100%; height: 100%;
+				margin: 0; padding: 0;
+
+				display: block;
+				overflow: hidden;
+				position: relative;
+
+				.user-avatar {
+					width: 100%; height: auto;
+
+					margin: 0;
+					position: relative;
+					text-align: center;
+					top: initial;
+
+					.avatar-wrapper {
+						width: 75px; height: 75px;
+						border: 0;
+
+						img {
+							left: initial; right: 0;
+						}
+
+						&:after {
+							width: 75px; height: 75px;
+
+							border-radius: 0;
+							left: initial;
+						}
+					}
+				}
+
+				h2 {
+					width: 100%; height: 75px;
+					margin: 0; padding: 0 6rem;
+					top: 0; left: 0; bottom: initial;
+
+					background-image: none;
+					background-position: initial;
+					background-size: initial;
+					color: #191919 !important;
+					display: block;
+					font-size: 2rem;
+					line-height: 5rem;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					transform: rotate(0deg);
+					white-space: normal; // nowrap
+
+					-o-transform: rotate(0deg);
+					-ms-transform: rotate(0deg);
+					-moz-transform: rotate(0deg);
+					-webkit-transform: rotate(0deg);
+				}
+
+				#user-bio { display: none; }
+			}
 		}
 
 		#mobile-header {
@@ -618,9 +678,11 @@
 			}
 		}
 
+		/*
 		#user-wrapper {
 			width: 100%; height: 100%; // 40%
 
+			display: block;
 			margin: 0;
 			padding: 5rem 0;
 			position: relative;
@@ -638,9 +700,12 @@
 
 			#user-bio {
 				margin: 0; padding: 1rem 6rem;
+
+				display: none;
 				font-size: 1rem;
 			}
 		}
+		*/
 
 	}
 
@@ -673,11 +738,11 @@
 		}
 
 		#user-splash {
-			.user-avatar { top: 11%; }
+			.user-avatar { top: 17%; }
 
 			#splash-user-info {
 				margin: 0 0 1rem 0;
-				top: 38%;
+				top: 45%;
 			}
 		}
 
@@ -853,20 +918,20 @@
 
 		#user-splash {
 			.user-avatar {
-				top: 20%; left: 0;
+				top: 12%; left: 0;
 
 				position: absolute;
 				text-align: center;
 
 				.avatar-wrapper {
-					left: -38%;
+					left: 0;
 					position: relative;
 				}
 			}
 
 			#splash-user-info {
 				margin: 0 0 1rem 0; padding: 0;
-				top: 38%;
+				top: 45%;
 
 				h2 {
 					font-size: 1.4rem;
@@ -928,10 +993,11 @@
 			}
 
 			#featured-nav {
+				top: 74px; left: 0;
+
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 				font-size: 1.2rem;
 				height: auto;
-				top: 74px;
 				z-index: 1;
 
 				li {
@@ -1263,24 +1329,30 @@
 		#user-panel {
 			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 			height: 75px !important;
-		}
 
-		#user-wrapper { padding: 0; }
+			#user-wrapper {
+				padding: 0;
 
-		.user-avatar {
-			display: block !important;
-			margin: 0 !important;
-			top: 0;
+				.user-avatar {
+					display: block !important;
+					margin: 0 !important;
+					top: 0;
 
-			.avatar-wrapper {
-				width: 75px; height: 75px;
+					.avatar-wrapper {
+						width: 75px; height: 75px;
 
-				border: 0;
-				border-radius: 0;
-				float: right;
-				margin: 0;
+						border: 0;
+						border-radius: 0;
+						float: right;
+						margin: 0;
 
-				&:after { display: none; }
+						img {
+							width: 75px; height: auto;
+						}
+
+						&:after { display: none; }
+					}
+				}
 			}
 		}
 

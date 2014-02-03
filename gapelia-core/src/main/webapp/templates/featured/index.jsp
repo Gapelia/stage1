@@ -796,7 +796,21 @@
 			// Splash page
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="featured-splash"><h1 id="gapelia"><a href="/featured">Gapelia</a></h1><div id="login-greet"><a href="#">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div><div id="featured-info"><h2>How will books look like in 2050?</h2><p>Some interesting description about this book. There should be an excerpt here too.</p><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/></section>');
+				stuff = "";
+				stuff += "<section id=\"featured-splash\">";
+				stuff += "<h1 id=\"gapelia\"><a href=\"/featured\">Gapelia</a></h1>";
+				stuff += "<div id=\"login-greet\"><a href=\"#\">Sign in as a storyteller</a><br/><a href=\"#\">Learn more</a></div>";
+				stuff += "<div id=\"featured-info\">";
+				stuff += "<h2 id=\"pick-story\">How will books look like in 2050?</h2>";
+				stuff += "<p id=\"snippet-book\">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>";
+				stuff += "<h2 id=\"pick-library\">The Matrix Has You</h2>";
+				stuff += "<p id=\"snippet-library\">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>";
+				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+				stuff += "</div>";
+				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/design-tech-beyond.jpg\"/>";
+				stuff += "</section>";
+
+				$("#mp-pusher").prepend(stuff);
 
 				$("#featured-splash").imgLiquid({ fill: true });
 
