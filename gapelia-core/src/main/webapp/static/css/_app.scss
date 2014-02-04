@@ -694,8 +694,9 @@
 		}
 	}
 
-	.ion-social-facebook { color: $facebook; }
-	.ion-social-twitter { color: $twitter; }
-	.ion-email { color: $slate; }
+	.facebook, .ion-social-facebook { color: $facebook; }
+	.googleplus, .ion-social-googleplus { color: $google; }
+	.twitter, .ion-social-twitter { color: $twitter; }
+	.email, .ion-email, .ion-ios7-at { color: $slate; }
 
 }

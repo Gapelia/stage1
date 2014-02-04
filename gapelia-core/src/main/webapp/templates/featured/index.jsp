@@ -767,6 +767,19 @@
 
 		</div>
 
+		<div class="modal-login">
+			<h1>Welcome to Gapelia!</h1>
+
+			<ul id="login-platforms">
+				<li class="facebook" id="login-fb"><a href="/login?type=facebook">Facebook</a></li>
+				<li class="googleplus" id="login-gp"><a href="/login?type=google">Google+</a></li>
+				<li class="twitter" id="login-tw"><a href="/login?type=twitter">Twitter</a></li>
+				<li class="email" id="login-at"><a href="#">Email</a></li>
+			</ul>
+
+			<p><a href="#" class="login-link">Nevermind</a></p>
+		</div>
+
 		<!--/ scripts /-->
 		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
@@ -799,7 +812,7 @@
 				stuff = "";
 				stuff += "<section id=\"featured-splash\">";
 				stuff += "<h1 id=\"gapelia\"><a href=\"/featured\">Gapelia</a></h1>";
-				stuff += "<div id=\"login-greet\"><a href=\"#\">Sign in as a storyteller</a><br/><a href=\"#\">Learn more</a></div>";
+				stuff += "<div id=\"login-greet\"><a href=\"#\" class=\"login-link\">Sign in as a storyteller</a><br/><a href=\"#\">Learn more</a></div>";
 				stuff += "<div id=\"featured-info\">";
 				stuff += "<h2 id=\"pick-story\"><a href=\"#\">How will books look like in 2050?</a></h2>";
 				stuff += "<p id=\"snippet-book\">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>";
@@ -815,6 +828,12 @@
 
 				$("#featured-splash").imgLiquid({ fill: true });
 
+			});
+
+			$(document).on("click", ".login-link", function (e) {
+				$(".modal-login").toggleClass("active");
+				// $(".modal-login").toggle();
+				e.preventDefault();
 			});
 
 			if ($vW > "1024") {
