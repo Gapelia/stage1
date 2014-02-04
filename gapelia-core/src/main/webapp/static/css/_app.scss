@@ -1,5 +1,5 @@
 
-/****************************************************************************************** APP/SCSS **/
+////////////////////////////////////////////////////////////////////////////////////////// APP/SCSS ///
 
 .app {
 
@@ -609,7 +609,7 @@
 			line-height: 1.5rem;
 			position: absolute;
 			text-align: right;
-			z-index: 1;
+			z-index: 11;
 
 			a { color: $white; }
 		}
@@ -663,7 +663,7 @@
 			top: 1rem; right: 2rem;
 
 			position: absolute;
-			z-index: 1;
+			z-index: 11;
 		}
 	}
 
