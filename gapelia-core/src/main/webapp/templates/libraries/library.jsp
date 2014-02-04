@@ -329,7 +329,21 @@
 		<script>
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="library-splash"><button class="subscribe slate">Subscribe</button><div id="library-info"><h2>Library Name</h2><p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p><section><a id="featured-library" href="#">hikari: The Future of the Operating System</a></section><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/></section>');
+				stuff = "";
+				stuff += "<section id=\"library-splash\">";
+				stuff += "<button class=\"subscribe slate\">Subscribe</button>";
+				stuff += "<div id=\"library-info\">";
+				stuff += "<h2>Library Name</h2>";
+				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
+				stuff += "<section>";
+				stuff += "<a id=\"featured-library\" href=\"#\">hikari: The Future of the Operating System</a>";
+				stuff += "</section>";
+				stuff += "</div>";
+				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/wheat-field-by-phk-dan-10.jpg\"/>";
+				stuff += "</section>";
+
+				$("#mp-pusher").prepend(stuff);
 
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
@@ -339,6 +353,11 @@
 			if ($vW > "1024") {
 
 				$(document).on("click", "#close-splash", function () {
+
+					$("#close-splash").css({
+						"left": "-200%",
+						"right": "initial"
+					});
 
 					$("#library-splash").css("left", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
@@ -353,6 +372,11 @@
 						// Generic swipe handler for all directions
 						swipeUp: function(event, direction, distance, duration, fingerCount) {
 
+							$("#close-splash").css({
+								"height": "0",
+								"top": "-200%"
+							});
+
 							$("#library-splash").css("top", "-200%");
 							$("#g-menu-toggle").css("color", "#70a1b1");
 
@@ -360,6 +384,11 @@
 					});
 
 					$(document).on("click", "#close-splash", function () {
+
+						$("#close-splash").css({
+							"height": "0",
+							"top": "-200%"
+						});
 
 						$("#library-splash, #library-splash button").css("top", "-200%");
 						$("#g-menu-toggle").css("color", "#70a1b1");

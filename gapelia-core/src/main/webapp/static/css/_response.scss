@@ -294,8 +294,9 @@
 			#library-info, #featured-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
-				top: initial; right: 0; bottom: -16rem;
+				top: initial; right: 0; bottom: 4rem; // -16rem
 
+				height: auto;
 				text-align: center;
 				width: 100%;
 
@@ -311,7 +312,7 @@
 
 		#user-splash {
 			#splash-user-info { top: 33%; }
-			#close-splash { bottom: -10rem; }
+			// #close-splash { bottom: -10rem; }
 			.user-avatar { top: 15%; }
 		}
 
@@ -727,22 +728,30 @@
 		#featured-splash, #library-splash, #user-splash {
 			#featured-info, #library-info, #splash-user-info {
 				padding: 0 5rem;
-				top: 60%;
+				top: 50%; // 60%
 			}
 
 			#close-splash {
-				bottom: initial;
-				margin: 2rem 0 0 0;
-				position: relative;
+				bottom: 3rem; // initial
+				margin: 0; // 2rem 0 0 0
+				position: fixed; // relative
 			}
 		}
 
+		#featured-splash {
+			#snippet-book, #snippet-library { display: none; }
+		}
+
 		#user-splash {
-			.user-avatar { top: 17%; }
+			.user-avatar { top: 13%; }
 
 			#splash-user-info {
 				margin: 0 0 1rem 0;
-				top: 45%;
+				top: 33%;
+			}
+
+			#splash-user-bio {
+				margin: 0 0 1rem 0;
 			}
 		}
 
@@ -782,6 +791,11 @@
 				padding: 0;
 				top: 55%;
 			}
+		}
+
+		#user-splash {
+			.user-avatar { top: 18%; }
+			#splash-user-info { top: 38%; }
 		}
 
 		#book-cta {
@@ -841,7 +855,10 @@
 				padding: 0;
 			}
 
-			#featured-info, #library-info { top: 58%; }
+			#featured-info, #library-info {
+				// top: 58%;
+				top: 55%;
+			}
 		}
 
 		#featured-splash {
@@ -879,15 +896,30 @@
 			}
 
 			h2 {
-				font-size: 1.5rem;
-				line-height: 1.8rem;
+				font-size: 1.4rem;
+				line-height: 1.5rem;
 
 				&:before {
-					content: "";
-					display: none;
+					// content: "";
+					display: block;
+					font-size: 0.8rem;
 				}
 			}
 
+			#featured-info {
+			
+			}
+
+			#meta-book {
+				margin: -0.4rem 0 2rem 0;
+
+				.author-name {
+					display: block;
+					margin: 0 0 -0.5rem 0;
+				}
+			}
+
+			/*
 			#featured-info {
 				border-left: 3px solid $slate;
 				padding: 0 0 0 1rem;
@@ -903,6 +935,7 @@
 					position: fixed;
 				}
 			}
+			*/
 
 			#close-splash {
 				margin: 0;
@@ -952,7 +985,6 @@
 			#close-splash {
 				margin: 0;
 				position: fixed;
-				top: 13rem;
 			}
 		}
 

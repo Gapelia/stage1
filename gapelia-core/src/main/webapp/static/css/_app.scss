@@ -535,6 +535,8 @@
 			transform: translateY(-50%);
 			z-index: 10;
 
+			h2 { font-weight: 300; }
+
 			-o-transform: translateY(-50%);
 			-ms-transform: translateY(-50%);
 			-moz-transform: translateY(-50%);
@@ -559,11 +561,20 @@
 		}
 
 		#close-splash {
-			top: 20%; right: 1rem;
+			width: auto; height: 100%;
+			top: 0; right: 2rem;
 
+			color: $white;
 			cursor: pointer;
 			font-size: 5rem;
 			position: fixed;
+			transition: top 1.3s ease, left 1.3s ease;
+			z-index: 10;
+
+			i {
+				position: relative;
+				top: 45%;
+			}
 		}
 
 		&:after {
@@ -606,10 +617,37 @@
 		h2 {
 			&:before {
 				display: block;
+				@include serif;
 				font-size: 1rem;
+				font-style: italic;
 				margin: 0 0 -0.4rem 0.05rem;
 			}
 		}
+
+		#meta-book {
+			font-size: 0.8rem;
+			margin: -1rem 0 2rem 0;
+
+			.author-name, .library-name {
+				&:before {
+					@include serif;
+					font-style: italic;
+					margin: 0 0.3rem 0 0;
+				}
+			}
+
+			.author-name {
+				margin: 0 0.8rem 0 0;
+
+				&:before { content: "by"; }
+			}
+
+			.library-name {
+				&:before { content: "in"; }
+			}
+		}
+
+		#snippet-book, #snippet-library { cursor: default; }
 
 		#pick-story {
 			&:before { content: "Story of the day"; }

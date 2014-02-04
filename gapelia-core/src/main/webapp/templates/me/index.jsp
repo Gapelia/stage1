@@ -282,7 +282,19 @@
 			// Splash page
 			$(document).ready(function () {
 
-				$("#mp-pusher").prepend('<section id="user-splash"><div class="user-avatar"><div class="avatar-wrapper"></div></div><div id="splash-user-info"><h2>Paul Anthony Webb</h2><span id="splash-user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span><div class="button-wrapper"><button class="edit-profile slate">Edit Profile</button></div><div id="close-splash"><i class="ion-ios7-arrow-right"></i></div></div><img class="page-bg" src="/static/images/bg-05.jpg"/></section>');
+				stuff = "";
+				stuff += "<section id=\"user-splash\">";
+				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\"></div></div>";
+				stuff += "<div id=\"splash-user-info\">";
+				stuff += "<h2>Paul Anthony Webb</h2>";
+				stuff += "<span id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>";
+				stuff += "<div class=\"button-wrapper\"><button class=\"edit-profile slate\">Edit Profile</button></div>";
+				stuff += "</div>";
+				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+				stuff += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
+				stuff += "</section>";
+
+				$("#mp-pusher").prepend(stuff);
 
 				$("#user-splash").imgLiquid({ fill: true });
 				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/11.jpg"/>');
@@ -292,6 +304,11 @@
 			if ($vW > "1024") {
 
 				$(document).on("click", "#close-splash", function () {
+
+					$("#close-splash").css({
+						"left": "-200%",
+						"right": "initial"
+					});
 
 					$("#user-splash").css("left", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
@@ -305,6 +322,11 @@
 					$("#user-splash").swipe({
 						swipeUp: function(event, direction, distance, duration, fingerCount) {
 
+							$("#close-splash").css({
+								"height": "0",
+								"top": "-200%"
+							});
+
 							$("#user-splash").css("top", "-200%");
 							$("#g-menu-toggle").css("color", "#70a1b1");
 
@@ -312,6 +334,11 @@
 					});
 
 					$(document).on("click", "#close-splash", function () {
+
+						$("#close-splash").css({
+							"height": "0",
+							"top": "-200%"
+						});
 
 						$("#user-splash").css("top", "-200%");
 						$("#g-menu-toggle").css("color", "#70a1b1");
