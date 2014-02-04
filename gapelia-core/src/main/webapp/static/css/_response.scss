@@ -868,10 +868,8 @@
 				padding: 0;
 			}
 
-			#featured-info, #library-info {
-				// top: 58%;
-				top: 55%;
-			}
+			#featured-info { top: 60%; }
+			#library-info { top: 50%; }
 		}
 
 		#featured-splash {
@@ -919,12 +917,9 @@
 				}
 			}
 
-			#featured-info {
-			
-			}
-
 			#meta-book {
-				margin: -0.4rem 0 2rem 0;
+				margin: -0.4rem 0 1rem 0;
+				// margin: -0.4rem 0 2rem 0;
 
 				.author-name {
 					display: block;
@@ -932,25 +927,8 @@
 				}
 			}
 
-			/*
-			#featured-info {
-				border-left: 3px solid $slate;
-				padding: 0 0 0 1rem;
-
-				&:before {
-					content: "Pick of the day";
-					display: block;
-					@include serif;
-					font-size: 0.8rem;
-					// font-style: italic;
-					letter-spacing: 0.1rem;
-					margin: -1.5rem 0 0 -1.23rem;
-					position: fixed;
-				}
-			}
-			*/
-
 			#close-splash {
+				bottom: 1rem;
 				margin: 0;
 				position: fixed;
 			}
