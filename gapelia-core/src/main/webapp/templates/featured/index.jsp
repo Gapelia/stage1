@@ -799,7 +799,6 @@
 
 			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
-				$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 			});
 		</script>
 
@@ -807,86 +806,6 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			// Splash page
-			/*
-			$(document).ready(function () {
-
-				stuff = "";
-				stuff += "<section id=\"featured-splash\">";
-				stuff += "<h1 id=\"gapelia\"><a href=\"/featured\">Gapelia</a></h1>";
-				stuff += "<div id=\"login-greet\"><a href=\"#\" class=\"login-link\">Sign in as a storyteller</a><br/><a href=\"#\">Learn more</a></div>";
-				stuff += "<div id=\"featured-info\">";
-				stuff += "<h2 id=\"pick-story\"><a href=\"#\">How will books look like in 2050?</a></h2>";
-				stuff += "<p id=\"snippet-book\">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>";
-				stuff += "<h5 id=\"meta-book\"><span class=\"author-name\"><a href=\"#\">Diego Regules</a></span><span class=\"library-name\"><a href=\"#\">Psychochromatic</a></span></h5>";
-				stuff += "<h2 id=\"pick-library\"><a href=\"#\">The Matrix Has You</a></h2>";
-				stuff += "<p id=\"snippet-library\">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>";
-				stuff += "</div>";
-				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/design-tech-beyond.jpg\"/>";
-				stuff += "</section>";
-
-				$("#mp-pusher").prepend(stuff);
-
-				$("#featured-splash").imgLiquid({ fill: true });
-
-			});
-			*/
-
-			$(document).on("click", ".login-link", function (e) {
-				$(".modal-login").toggleClass("active");
-				// $(".modal-login").toggle();
-				e.preventDefault();
-			});
-
-			if ($vW > "1024") {
-
-				$(document).on("click", "#close-splash", function () {
-
-					$("#close-splash").css({
-						"left": "-200%",
-						"right": "initial"
-					});
-
-					$("#featured-splash").css("left", "-200%");
-					$("#g-menu-toggle").css("color", "#70a1b1");
-
-				});
-
-			} else {
-
-				$(function() {
-
-					$("#featured-splash").swipe({
-						swipeUp: function(event, direction, distance, duration, fingerCount) {
-
-							$("#close-splash").css({
-								"height": "0",
-								"top": "-200%"
-							});
-
-							$("#featured-splash").css("top", "-200%");
-							$("#g-menu-toggle").css("color", "#70a1b1");
-
-						}, threshold: 0
-					});
-
-					$(document).on("click", "#close-splash", function () {
-
-						$("#close-splash").css({
-							"height": "0",
-							"top": "-200%"
-						});
-
-						$("#featured-splash").css("top", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
-
-					});
-
-				});
-
-			}
-
 			$(document).ready(function () {
 
 				var
@@ -933,6 +852,10 @@
 					$(document).on("click", "#nav-bookmarks", function () {
 						$("#category-title").html("Bookmarks");
 					});
+
+				} else {
+
+					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 
 				}
 				
