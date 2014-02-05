@@ -228,6 +228,7 @@ public class QueryDatabase {
 		if(isPublished == 0){ mybool=false;}
 		try {
 			PreparedStatement statement = connection.prepareStatement(INSERT_BOOK);
+			System.out.println(statement.toString());
 			statement.setString(1, bookId);
 			statement.setString(2, title);
 			statement.setString(3, language);
