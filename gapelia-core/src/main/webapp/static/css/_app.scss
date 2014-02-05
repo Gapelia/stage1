@@ -264,6 +264,13 @@
 			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
 		}
 
+		.author-avatar {
+			width: 50px; height: auto;
+
+			border-radius: 300rem;
+			margin: 0 0 1rem 0;
+		}
+
 		.bookmark-this {
 			width: auto; height: auto;
 			top: 1rem; right: 2rem;
@@ -581,7 +588,7 @@
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), $black);
+			background-image: linear-gradient(to bottom, rgba($black, 0.4), $black);
 			content: "";
 			opacity: 1;
 			position: absolute;

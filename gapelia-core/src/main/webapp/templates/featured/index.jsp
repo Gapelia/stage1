@@ -799,6 +799,7 @@
 
 			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
+				$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 			});
 		</script>
 
@@ -807,6 +808,7 @@
 
 		<script>
 			// Splash page
+			/*
 			$(document).ready(function () {
 
 				stuff = "";
@@ -829,6 +831,7 @@
 				$("#featured-splash").imgLiquid({ fill: true });
 
 			});
+			*/
 
 			$(document).on("click", ".login-link", function (e) {
 				$(".modal-login").toggleClass("active");
