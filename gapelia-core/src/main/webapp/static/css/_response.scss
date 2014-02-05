@@ -290,7 +290,7 @@
 			padding: 0 4rem;
 		}
 
-		#library-splash, #user-splash {
+		#featured-splash, #library-splash, #user-splash {
 			#library-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
@@ -309,27 +309,13 @@
 				}
 			}
 		}
-		
+
+		// Tommy
 		#featured-splash {
-			#featured-info  { padding: 0 0rem; }
-				width: 50%;
-
-			#close-splash {
-				top: initial; right: 0; bottom: 4rem; // -16rem
-
-				height: auto;
-				text-align: center;
-				width: 100%;
-
-				i {
-					transform: rotate(90deg);
-
-					-o-transform: rotate(90deg);
-					-moz-transform: rotate(90deg);
-					-webkit-transform: rotate(90deg);
-				}
-			}
+			width: 50%;
+			#featured-info { padding: 0; }
 		}
+
 		#user-splash {
 			#splash-user-info { top: 33%; }
 			// #close-splash { bottom: -10rem; }
@@ -745,17 +731,14 @@
 
 		.book-info, .collection-info { bottom: 20%; }
 
-		#library-splash, #user-splash {
-			#library-info, #splash-user-info {
+		#featured-splash, #library-splash, #user-splash {
+			#featured-info, #library-info, #splash-user-info {
 				padding: 0 5rem;
 				top: 50%; // 60%
 			}
-		
-		#featured-splash {
-			#featured-info {
-				padding: 0;
-				top: 50%; // 60%
-				
+
+			#featured-info { padding: 0; }
+
 			#close-splash {
 				bottom: 3rem; // initial
 				margin: 0; // 2rem 0 0 0
@@ -813,7 +796,7 @@
 
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
-				padding: 0rem;
+				padding: 0;
 				top: 55%;
 			}
 		}

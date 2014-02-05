@@ -120,9 +120,9 @@
 		}
 
 		.featured-info {
-			padding: 0 0rem;
+			padding: 0; // 0 2rem // Tommy
 			text-align: left;
-			top: 55%;
+			top: 55%; // 38% // Tommy
 			z-index: 2;
 
 			p { line-height: 1.3em; }
@@ -145,7 +145,7 @@
 
 	#g-menu-toggle {
 		width: 100%; height: auto;
-		top: 0.4rem; left: 0;
+		top: 0.5rem; left: 0;
 
 		background-color: transparent;
 		color: $slate;
@@ -623,12 +623,12 @@
 
 		h2 {
 			&:before {
+				color: $slate; // Tommy
 				display: block;
 				@include serif;
 				font-size: 1rem;
 				font-style: italic;
 				margin: 0 0 -0.4rem 0.05rem;
-				color: #70a1b0
 			}
 		}
 

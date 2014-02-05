@@ -799,6 +799,10 @@
 
 			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
+
+				if ($vW > "1024") {
+					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
+				}
 			});
 		</script>
 
@@ -852,10 +856,6 @@
 					$(document).on("click", "#nav-bookmarks", function () {
 						$("#category-title").html("Bookmarks");
 					});
-
-				} else {
-
-					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 
 				}
 				
