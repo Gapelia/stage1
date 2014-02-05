@@ -290,8 +290,8 @@
 			padding: 0 4rem;
 		}
 
-		#featured-splash, #library-splash, #user-splash {
-			#library-info, #featured-info, #splash-user-info { padding: 0 10rem; }
+		#library-splash, #user-splash {
+			#library-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
 				top: initial; right: 0; bottom: 4rem; // -16rem
@@ -309,7 +309,27 @@
 				}
 			}
 		}
+		
+		#featured-splash {
+			#featured-info  { padding: 0 0rem; }
+				width: 50%;
 
+			#close-splash {
+				top: initial; right: 0; bottom: 4rem; // -16rem
+
+				height: auto;
+				text-align: center;
+				width: 100%;
+
+				i {
+					transform: rotate(90deg);
+
+					-o-transform: rotate(90deg);
+					-moz-transform: rotate(90deg);
+					-webkit-transform: rotate(90deg);
+				}
+			}
+		}
 		#user-splash {
 			#splash-user-info { top: 33%; }
 			// #close-splash { bottom: -10rem; }
@@ -725,19 +745,24 @@
 
 		.book-info, .collection-info { bottom: 20%; }
 
-		#featured-splash, #library-splash, #user-splash {
-			#featured-info, #library-info, #splash-user-info {
+		#library-splash, #user-splash {
+			#library-info, #splash-user-info {
 				padding: 0 5rem;
 				top: 50%; // 60%
 			}
-
+		
+		#featured-splash {
+			#featured-info {
+				padding: 0;
+				top: 50%; // 60%
+				
 			#close-splash {
 				bottom: 3rem; // initial
 				margin: 0; // 2rem 0 0 0
 				position: fixed; // relative
 			}
 		}
-
+	
 		#featured-splash {
 			#snippet-book, #snippet-library { display: none; }
 		}
@@ -788,7 +813,7 @@
 
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
-				padding: 0;
+				padding: 0rem;
 				top: 55%;
 			}
 		}
