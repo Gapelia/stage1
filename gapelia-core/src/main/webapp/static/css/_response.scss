@@ -1071,7 +1071,6 @@
 
 		.book, .library, .collection {
 			background-color: transparent;
-			background-image: none !important;
 			border-bottom: 10px solid $slate;
 			box-shadow: none; // inset 10px 0 0 0 #70d0eb
 			height: auto;
@@ -1116,6 +1115,7 @@
 
 			.library-info {
 				.lib-blurb {
+					display: none;
 					font-size: 0.9rem;
 					line-height: 1.3rem;
 				}
@@ -1131,6 +1131,43 @@
 
 			&:hover { box-shadow: none; }
 			&:last-child { margin: 0; }
+		}
+
+		.book, .collection { background-image: none !important; }
+
+		.library {
+			border-bottom: 10px solid $white;
+			height: 200px;
+			margin: 0;
+
+			.library-info {
+				top: 50%; left: 0;
+
+				position: absolute;
+				text-align: center;
+				transform: translateY(-50%);
+				z-index: 1;
+
+				-o-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+
+				.title {
+					a { color: $white; }
+				}
+			}
+
+			.wrapper { display: none; }
+
+			&:after {
+				top: 0; right: 0;
+				bottom: 0; left: 0;
+
+				background-image: linear-gradient(to bottom, transparent, $black);
+				content: "";
+				opacity: 0.5;
+				position: absolute;
+			}
 		}
 
 	}

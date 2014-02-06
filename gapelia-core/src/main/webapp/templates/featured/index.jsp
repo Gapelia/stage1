@@ -767,19 +767,6 @@
 
 		</div>
 
-		<div class="modal-login">
-			<h1>Welcome to Gapelia!</h1>
-
-			<ul id="login-platforms">
-				<li class="facebook" id="login-fb"><a href="/login?type=facebook">Facebook</a></li>
-				<li class="googleplus" id="login-gp"><a href="/login?type=google">Google+</a></li>
-				<li class="twitter" id="login-tw"><a href="/login?type=twitter">Twitter</a></li>
-				<li class="email" id="login-at"><a href="#">Email</a></li>
-			</ul>
-
-			<p><a href="#" class="login-link">Nevermind</a></p>
-		</div>
-
 		<!--/ scripts /-->
 		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
@@ -858,10 +845,10 @@
 					});
 
 				}
-				
+
 				if ($vW < "321") {
 
-					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
+					$(".book, .collection").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
 
 				}
 

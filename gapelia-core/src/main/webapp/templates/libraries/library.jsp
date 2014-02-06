@@ -414,19 +414,25 @@
 					});
 				});
 
+				// Dropdown menu for mobile
 				if ($vW < "1025") {
 
 					$("#featured-panel .featured-info").remove();
 					$("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
 
-					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
 
 					// $(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
 					$(document).on("click", "#g-menu-toggle", function () {
 						$("#featured-nav").toggle();
 					});
 
-				} else {
+				}
+
+				if ($vW < "321") {
+
+					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
+
 				}
 
 				// Load Gapelia
