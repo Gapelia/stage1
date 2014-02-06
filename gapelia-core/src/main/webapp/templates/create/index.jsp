@@ -2,6 +2,7 @@
 <% /* Include this line below to make page login-safe */ %>
 <%/*@include file="../../auth.jsp" */ %>
 <% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +35,12 @@
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
+
 		<script>
-                <% String id = session.getId(); %>
-                sessionId = '<%= id %>';
-        </script>
+			<% String id = session.getId(); %>
+			sessionId = '<%= id %>';
+		</script>
+
 	</head>
 
 	<body class="book-creation g-body">
@@ -69,7 +72,7 @@
 				</li>
 
 				<li id="add-page" class="new-thumb disable-sort">
-					<a href="#">+</a>
+					<div>+</div>
 					<span>Add New Page</span>
 				</li>
 			</ul>
@@ -81,53 +84,52 @@
 			<h5><a href="#" id="back-to-pages">Back</a></h5>
 
 			<ul>
-				<li id="select-frontcover-layout">
-					<!--/ <img src="/static/images/view-modes/front.png" alt=""/> /-->
-					<div id="frontcover-layout">Front Cover Layout</div>
-					<span>Front Cover</span>
+				<li id="select-fluid-layout">
+					<div id="fluid-layout">Fluid Layout</div>
+					<span>Fluid</span>
 				</li>
 
 				<li id="select-photo-layout">
-					<!--/ <img src="/static/images/view-modes/photo.png" alt=""/> /-->
 					<div id="photo-layout">Photo Layout</div>
 					<span>Photo</span>
 				</li>
 
-				<li id="select-text-layout">
-					<!--/ <img src="/static/images/view-modes/text.png" alt=""/> /-->
-					<div id="text-layout">Text Layout</div>
-					<span>Text</span>
-				</li>
-
-				<li id="select-horizontal-layout">
-					<!--/ <img src="/static/images/view-modes/horizontal.png" alt=""/> /-->
-					<div id="horizontal-layout">Horizontal Layout</div>
-					<span>Horizontal</span>
-				</li>
-
 				<li id="select-overlay-layout">
-					<!--/ <img src="/static/images/view-modes/overlay.png" alt=""/> /-->
 					<div id="overlay-layout">Overlay Layout</div>
 					<span>Overlay</span>
 				</li>
 
 				<li id="select-phototext-layout">
-					<!--/ <img src="/static/images/view-modes/phototext.png" alt=""/> /-->
 					<div id="phototext-layout">Photo/Text Layout</div>
 					<span>Photo/Text</span>
 				</li>
 
 				<li id="select-vertical-layout">
-					<!--/ <img src="/static/images/view-modes/vertical.png" alt=""/> /-->
 					<div id="vertical-layout">Vertical Layout</div>
 					<span>Vertical</span>
 				</li>
 
 				<li id="select-video-layout">
-					<!--/ <img src="/static/images/view-modes/video.png" alt=""/> /-->
 					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
+
+				<!--/
+				<li id="select-frontcover-layout">
+					<div id="frontcover-layout">Front Cover Layout</div>
+					<span>Front Cover</span>
+				</li>
+
+				<li id="select-text-layout">
+					<div id="text-layout">Text Layout</div>
+					<span>Text</span>
+				</li>
+
+				<li id="select-horizontal-layout">
+					<div id="horizontal-layout">Horizontal Layout</div>
+					<span>Horizontal</span>
+				</li>
+				/-->
 			</ul>
 		</div>
 
@@ -252,7 +254,7 @@
 			Spinner({radius: 40, length: 10}).spin(document.getElementById("book-creation-wrapper"));
 
 			$(function() {
-				$(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
+				// $(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
 				// $(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
 			});
 		</script>

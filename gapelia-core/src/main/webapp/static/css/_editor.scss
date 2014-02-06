@@ -116,21 +116,25 @@
 			width: 100%; height: auto;
 
 			background-color: $white;
-			border-top: 1px solid $gray-i;
+			// border-top: 1px solid $gray-i;
 			cursor: pointer;
 
-			&:first-child { border-top: none; }
+			// &:first-child { border-top: none; }
 		}
 	}
 
 	#pages-scroller {
 		li, section { position: relative; }
 
+		li {
+			border: 3px solid transparent;
+		}
+
 		.new-thumb {
 			padding: 1rem;
 			text-align: center;
 
-			a {
+			div {
 				color: $black;
 				font-size: 5em;
 			}
@@ -241,10 +245,12 @@
 				}
 
 				#frontcover-layout, #photo-layout, #text-layout, #horizontal-layout,
-				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout, span { display: block; }
+				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout,
+				#fluid-layout, span { display: block; }
 
 				#frontcover-layout, #photo-layout, #text-layout, #horizontal-layout,
-				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout {
+				#overlay-layout, #phototext-layout, #vertical-layout, #video-layout,
+				#fluid-layout {
 					width: 100px; height: 63px;
 					margin: 0 auto 1rem;
 
@@ -254,14 +260,15 @@
 					@include hide-text;
 				}
 
-				#frontcover-layout	{ background-position: 0 -32px; }
-				#photo-layout				{ background-position: 100px -32px; }
-				#text-layout				{ background-position: 0 -221px; }
-				#horizontal-layout	{ background-position: 100px -158px; }
-				#overlay-layout			{ background-position: 100px -95px; }
-				#phototext-layout		{ background-position: 0 -95px; }
-				#vertical-layout		{ background-position: 0 -158px; }
-				#video-layout				{ background-position: 100px -221px; }
+				#frontcover-layout	{ background-position: 0 0; }
+				#photo-layout				{ background-position: 100px 0; }
+				#text-layout				{ background-position: 0 -189px; }
+				#horizontal-layout	{ background-position: 100px -126px; }
+				#overlay-layout			{ background-position: 100px -63px; }
+				#phototext-layout		{ background-position: 0 -63px; }
+				#vertical-layout		{ background-position: 0 -126px; }
+				#video-layout				{ background-position: 100px -189px; }
+				#fluid-layout				{ background-position: 0 -252px; }
 
 				span {
 					width: 100%; height: auto;

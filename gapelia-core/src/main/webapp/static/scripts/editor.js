@@ -13,17 +13,19 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-		
+
 		pages = {
-					"page" : [{}]
-				};
+			"page": [{}]
+		};
+
 		pageId = 0;
 		bookId = 0;
 		pagesCreated = 0;
-		author="bullshit";
-		templateId=0;
-/*
-$.ajax({
+		author = "William Gibson";
+		templateId = 0;
+
+		/*
+		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
@@ -42,6 +44,7 @@ $.ajax({
 				}
 			}
 		});
+
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -99,17 +102,21 @@ $.ajax({
 				}
 
 			}
-		});*/
+		});
+		*/
+
 		frontCoverLayout();
+
 		pages.page[0] = {
-					"pageNumber": 0,
-					"geotag": null,
-					"templateId": "0",
-					"title": null,
-					"text": null,
-					"image": "/static/images/blankBG.jpg",
-					"video": "null"
-				};
+			"pageNumber": 0,
+			"geotag": null,
+			"templateId": "0",
+			"title": null,
+			"text": null,
+			"image": "/static/images/blankBG.jpg",
+			"video": "null"
+		};
+
 	});
 
 	// Left Menus
@@ -142,20 +149,16 @@ $.ajax({
 
 	});
 
-	$(document).on("click", "#pages-scroller ul li", function () {
+	$(document).on("click", "#pages-scroller ul li", function (ev) {
 
-		$("#pages-scroller ul li").css({
-			"border-top": "1px solid #e7e7e7",
-			"border-bottom": "none",
-			"border-left": "none",
-			"border-right": "none"
-		});
+		$("#pages-scroller ul li").css("border", "3px solid transparent");
 
 		var e = $(this).closest("li");
 		e = e[0];
 
 		if(e.id != "add-page") {
 			e.style.border = "3px solid #70a1b1";
+			// e.style.box-shadow = "inset 10px 0 0 0 #70d0eb";
 		}
 
 		currentPage = $(this).closest("li").attr("id");
@@ -174,32 +177,34 @@ $.ajax({
 
 		switch(templateId) {
 			case 0:
-				frontCoverLayout();
+				fluidLayout();
 				break;
+
 			case 1:
 				photoLayout();
 				break;
+
 			case 2:
-				textLayout();
-				break;
-			case 3:
-				horizontalLayout();
-				break;
-			case 4:
 				overlayLayout();
 				break;
-			case 5:
+
+			case 3:
 				photoTextLayout();
 				break;
-			case 6:
+
+			case 4:
 				verticalLayout();
 				break;
-			case 7:
+
+			case 5:
 				videoLayout();
 				break;
+
 			default:
 				baseLayout();
 		}
+
+		ev.preventDefault();
 
 	});
 
@@ -208,7 +213,7 @@ $.ajax({
 		$("#layout-scroller").stop(true).css("left", "0");
 		$("#back").stop(true).css("margin", "0 0 0 200px");
 
-		setTimeout(function() {
+		setTimeout(function () {
 			$("#pages-scroller").stop(true).css("left", "-200px");
 		}, 200);
 
@@ -225,7 +230,7 @@ $.ajax({
 
 		}).on("mouseleave", function () {
 
-			setTimeout(function() {
+			setTimeout(function () {
 				$("#back").css("margin", "0");
 				$("#layout-scroller").css("left", "-200px");
 
@@ -310,43 +315,45 @@ $.ajax({
 		if(geotag == undefined) {
 			geotag = "BUUUGGG";
 		}
+
 		if(pagesCreated == 0) {
-					pages.page[0] = {
-						"pageNumber": pagesCreated,
-						"geotag": geotag,
-						"templateId": 0,
-						"title": null,
-						"text": null,
-						"image": "/static/images/blankBG.jpg",
-						"video": "null"
-					};
+			pages.page[0] = {
+				"pageNumber": pagesCreated,
+				"geotag": geotag,
+				"templateId": 0,
+				"title": null,
+				"text": null,
+				"image": "/static/images/blankBG.jpg",
+				"video": "null"
+			};
 
-					templateId = 0;
-					frontCoverLayout();
-				} else {
-					pages.page[pagesCreated-1].geotag = geotag;
-					pages.page[pagesCreated-1].templateId = templateId;
-					pages.page[pagesCreated-1].title = title;
-					pages.page[pagesCreated-1].text = text;
-					pages.page[pagesCreated-1].image = imageURL;
-					pages.page[pagesCreated-1].video = videoURL;
+			templateId = 0;
+			frontCoverLayout();
+		} else {
+			pages.page[pagesCreated-1].geotag = geotag;
+			pages.page[pagesCreated-1].templateId = templateId;
+			pages.page[pagesCreated-1].title = title;
+			pages.page[pagesCreated-1].text = text;
+			pages.page[pagesCreated-1].image = imageURL;
+			pages.page[pagesCreated-1].video = videoURL;
 
-					pages.page[pagesCreated] = {
-						"pageNumber": pagesCreated,
-						"geotag": null,
-						"templateId": "0",
-						"title": null,
-						"text": null,
-						"image": "/static/images/blankBG.jpg",
-						"video": "null"
-					};
+			pages.page[pagesCreated] = {
+				"pageNumber": pagesCreated,
+				"geotag": null,
+				"templateId": "0",
+				"title": null,
+				"text": null,
+				"image": "/static/images/blankBG.jpg",
+				"video": "null"
+			};
 
-					templateId = 0;
-					title = null;
-					text = null;
-					imageURL = null;
-					videoURL = null;
-				}
+			templateId = 0;
+			title = null;
+			text = null;
+			imageURL = null;
+			videoURL = null;
+		}
+
 		/*
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
@@ -411,7 +418,8 @@ $.ajax({
 
 			}
 		});
-*/
+		*/
+
 		e.preventDefault();
 
 	});
@@ -442,6 +450,7 @@ $.ajax({
 		e.preventDefault();
 
 	});
+
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -453,15 +462,16 @@ $.ajax({
 
 	}
 
-	// Front Cover Layout
+	// Fluid Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	function frontCoverLayout() {
+	function fluidLayout() {
 
-		insert = "";
+		var insert = "";
 
-		insert += "<section class=\"frontcover-preview-wrapper\"><div class=\"image-attribution\" data-placeholder=\"Add photography credit\" contenteditable=\"true\"></div>";
+		/*
+		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -469,27 +479,60 @@ $.ajax({
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.frontcover-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+
+		insert += "</section><div class=\"horizontal-preview\"><article>";
 
 		if(title == null) {
-			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 		} else {
-			insert += "<div class=\"frontcover-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
+		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+
 		if(text == null) {
-			if(currentPage == 0) {
+			if(currentPage==0)
+			{
 				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
-			insert += "<div class=\"page-desc\" data-placeholder=\"Start writing your story here.\" contenteditable=\"true\"></div></article></div></section>";
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
-			if(currentPage == 0) {
+			if(currentPage==0)
+			{
 				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			}
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
+		*/
+
+		// Essay code
+		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
+
+		if(imageURL == null) {
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\"/>";
+		} else {
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
+		}
+
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.essay-preview').css('top', '65%'); $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+
+		insert += "</section><div class=\"essay-preview\"><article>";
+
+		if(title == null) {
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
+		} else {
+			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
+		}
+
+		if(text == null) {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		} else {
+			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
+		}
+		// End essay code
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -513,35 +556,23 @@ $.ajax({
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 
-		// Title preview for front cover
-		$(".page-title-elem").keypress(function() {
-			$("#page0Title").text($(this).text());
-		});
-
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		/*
-		new Medium({
-			// element: document.getElementsByClassName("page-title-elem"),
-			// element: document.getElementsByTagName("h1"),
-			// element: document.getElementById("page-title-elem"),
-			mode: "inline",
-			maxLength: 25,
-			placeholder: "Some Title"
+		$(document).on("keydown", ".horizontal-preview-wrapper", function () {
+			$(this).css("overflow-y", "auto");
 		});
-		*/
+
+		// Essay code
+		$(document).on("keydown", ".essay-preview-wrapper", function () {
+			$(this).css("overflow-y", "auto");
+		});
+		// End essasy code
 
 		// title input limiter
 		var titleElem = "page-title-elem";
-		titleMax = 51;
+		titleMax = 69;
 
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
-
-		// description input limiter
-		var descElem = "page-desc";
-		descMax = 151;
-
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -550,7 +581,7 @@ $.ajax({
 		}
 
 		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -570,7 +601,7 @@ $.ajax({
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -612,7 +643,7 @@ $.ajax({
 		var checkVerHor;
 
 		function checkVerHor(el) {
-			$(".photo-preview-wrapper .page-bg").prop("height", function() {
+			$(".photo-preview-wrapper .page-bg").prop("height", function () {
 				if($(this).height() > $(this).width()) {
 					// vertical
 					$(this).css({
@@ -634,7 +665,7 @@ $.ajax({
 		var titleElem = "page-title-elem";
 		titleMax = 69;
 
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -646,290 +677,10 @@ $.ajax({
 		var descElem = "page-desc";
 		descMax = 299;
 
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+		$("." + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
-				e.preventDefault();
-			}
-		}
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
-	}
-
-	// Text Layout
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	function textLayout() {
-
-		var insert = "";
-
-		insert += "<section class=\"text-preview-wrapper\">";
-
-		if(title == null) {
-			// insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" onkeyup=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/text.png');\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-		} else {
-			insert += "<div class=\"text-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			// insert += "<div class=\"insertIMG\"><input type='file' class=\"insertIMG-btn\"/></div><div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-		}
-
-		// no background in this view, but having this allows it to keep between layout switching
-		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" style=\"display: none;\"/>";
-		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" style=\"display: none;\"/>";
-		}
-
-		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
-		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
-		}
-
-		// insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png');\" style=\"display: none;\"/></div>";
-
-		$("#create-content").html(insert);
-		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px");
-
-		/*
-		$(".text-preview-wrapper .page-desc").css("height", $vH - 165 + "px").bind("blur keyup paste copy cut mouseup", function () {
-			$("#page'+ currentPage +'Image").attr("src", "static/images/view-modes/text.png");
-		});
-		*/
-
-		$(document).on("keyup", ".text-preview-wrapper .page-desc", function () {
-			// $('#page"+ currentPage +"Image').attr("src", "static/images/view-modes/text.png");
-		});
-
-		templateId = 2;
-
-		pages.page[currentPage].templateId = templateId;
-		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
-		pages.page[currentPage].text = text;
-		pages.page[currentPage].image = imageURL;
-		pages.page[currentPage].video = videoURL;
-
-		var editor = new GapeliaEditor('[contenteditable="true"]');
-
-		/*
-		$(function () {
-			$('[contenteditable="true"]').gapeliaInsert({
-			// $(".text-preview-wrapper .page-desc").gapeliaInsert({
-				// editor: editor,
-				images: true
-			});
-		});
-		*/
-
-		// .action-images-add .text-preview-wrapper .page-desc p:after
-		// $('<style>.text-preview-wrapper .page-desc p:after { content: "intro"; }</style>').appendTo(".text-preview-wrapper .page-desc p");
-
-		// $(".text-preview-wrapper .page-desc p").append("<div>Insert Image</div>");
-
-		// $("<div>Insert Image</div>").addClass("insertIMG").appendTo(".text-preview-wrapper .page-desc p");
-
-		function openFilePicker() {
-		
-		}
-
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-
-				reader.onload = function (e) {
-
-					// $('<img class="page-bg" src=""/>').appendTo("p");
-					$('<img class="page-bg" src=""/>').appendTo("p:first-child");
-					$(".page-bg").attr("src", e.target.result).show();
-
-				};
-
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-
-		$(".insertIMG-btn").change(function () {
-			readURL(this);
-		});
-
-		$(document).on("click", ".insertIMG", function () {
-
-			// $(".insertIMG").css("font-color", "#07d0eb");
-
-			/*
-			function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
-
-					reader.onload = function (e) {
-						$(".blah").attr("src", e.target.result);
-					};
-
-					reader.readAsDataURL(input.files[0]);
-				}
-			}
-
-			$(".action-images-add").change(function () {
-				readURL(this);
-			});
-			*/
-
-		});
-
-		// title input limiter
-		var titleElem = "page-title-elem";
-		titleMax = 69;
-
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
-
-		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
-		}
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
-	}
-
-	// Horizontal Layout
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	function horizontalLayout() {
-
-		var insert = "";
-
-		/*
-		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
-
-		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
-		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
-		}
-
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
-
-		insert += "</section><div class=\"horizontal-preview\"><article>";
-
-		if(title == null) {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
-		} else {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			if(currentPage==0)
-			{
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-		}
-		*/
-
-		// Essay code
-		insert += "<section class=\"essay-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
-
-		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\"/>";
-		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
-		}
-
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.essay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.essay-preview').css('top', '65%'); $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
-
-		insert += "</section><div class=\"essay-preview\"><article>";
-
-		if(title == null) {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
-		} else {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
-
-		if(text == null) {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-		}
-		// End essay code
-
-		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
-		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
-		}
-
-		$("#create-content").html(insert);
-		templateId = 3;
-
-		var element = $(".photo-picker");
-		element = element[0];
-		element.type = "filepicker";
-		filepicker.constructWidget(element);
-
-		pages.page[currentPage].templateId = templateId;
-		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
-		pages.page[currentPage].text = text;
-		pages.page[currentPage].image = imageURL;
-		pages.page[currentPage].video = videoURL;
-
-		var editor = new GapeliaEditor('[contenteditable="true"]');
-
-		$(document).on("keydown", ".horizontal-preview-wrapper", function () {
-			$(this).css("overflow-y", "auto");
-		});
-
-		// Essay code
-		$(document).on("keydown", ".essay-preview-wrapper", function () {
-			$(this).css("overflow-y", "auto");
-		});
-		// End essasy code
-
-		// title input limiter
-		var titleElem = "page-title-elem";
-		titleMax = 69;
-
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
-
-		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
 				e.preventDefault();
 			}
 		}
@@ -955,7 +706,7 @@ $.ajax({
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -992,7 +743,7 @@ $.ajax({
 		}
 
 		$("#create-content").html(insert);
-		templateId = 4;
+		templateId = 2;
 
 		var element = $(".photo-picker");
 		element = element[0];
@@ -1012,7 +763,7 @@ $.ajax({
 		var descElem = "page-desc";
 		descMax = 149;
 
-		$("." + descElem).keydown(function(e) { check_charcount(descElem, descMax, e); });
+		$("." + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(descElem, descMax, e) {
 			if(e.which != 8 && $("." + descElem).text().length > descMax) {
@@ -1041,7 +792,7 @@ $.ajax({
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -1074,7 +825,7 @@ $.ajax({
 
 		$("#create-content").html(insert);
 		$(".phototext-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-		templateId = 5;
+		templateId = 3;
 
 		var element = $(".photo-picker");
 		element = element[0];
@@ -1094,7 +845,7 @@ $.ajax({
 		var titleElem = "page-title-elem";
 		titleMax = 69;
 
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -1123,7 +874,7 @@ $.ajax({
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function() { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -1156,7 +907,7 @@ $.ajax({
 
 		$("#create-content").html(insert);
 		$(".vertical-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-		templateId = 6;
+		templateId = 4;
 
 		var element = $(".photo-picker");
 		element = element[0];
@@ -1176,7 +927,7 @@ $.ajax({
 		var titleElem = "page-title-elem";
 		titleMax = 69;
 
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -1240,7 +991,7 @@ $.ajax({
 
 		$("#create-content").html(insert);
 		$(".video-preview-wrapper .page-desc").css("height", $vH - 185 + "px");
-		templateId = 7;
+		templateId = 5;
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -1255,7 +1006,7 @@ $.ajax({
 		var titleElem = "page-title-elem";
 		titleMax = 69;
 
-		$("." + titleElem).keydown(function(e) { check_charcount(titleElem, titleMax, e); });
+		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
 			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
@@ -1299,18 +1050,19 @@ $.ajax({
 		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
+
 	// Layout Constants
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
 	// Save data of what is being edited every second
-	window.setInterval(function() {
+	window.setInterval(function () {
+
 		if(pages.page[0].templateId != null && pagesCreated != -1) {
 			imageURL = $(".page-bg").attr("src");
 			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();
 			text = $(".page-desc").html();
-			
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
@@ -1329,19 +1081,19 @@ $.ajax({
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
+
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
+
 	}, 5000);
 
 	// Toggle layout switcher
-	$("#select-frontcover-layout").click(function ()	{ frontCoverLayout(); });
+	$("#select-fluid-layout").click(function ()				{ fluidLayout(); });
 	$("#select-photo-layout").click(function ()				{ photoLayout(); });
-	$("#select-text-layout").click(function ()				{ textLayout(); });
-	$("#select-horizontal-layout").click(function ()	{ horizontalLayout(); });
 	$("#select-overlay-layout").click(function ()			{ overlayLayout(); });
 	$("#select-phototext-layout").click(function ()		{ photoTextLayout(); });
 	$("#select-vertical-layout").click(function ()		{ verticalLayout(); });
@@ -1536,10 +1288,10 @@ $.ajax({
 	});
 	*/
 
-	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function() {
-	// .on("paste", ".frontcover-preview-wrapper .page-desc", function() {
+	// .bind("DOMAttrModified change keypress paste focus", ".frontcover-preview-wrapper .page-desc", function () {
+	// .on("paste", ".frontcover-preview-wrapper .page-desc", function () {
 	/*
-	$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function() {
+	$(document).on("input change keypress paste", ".frontcover-preview-wrapper .page-desc", function () {
 		var $this = $(this);
 		$this.text($this.text().slice(0, 300));
 	});
@@ -1577,7 +1329,7 @@ $.ajax({
 	/*
 	$(".video-preview input").keydown(function (e) {
 
-		setTimeout(function() {
+		setTimeout(function () {
 			$(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
 		}, 1000);
 
@@ -1591,10 +1343,10 @@ $.ajax({
 	// ------------------------------------------------------------------------------------
 
 	/*
-	$(document).ready(function() {
+	$(document).ready(function () {
 
 		// h1 = page-title-elem // span = livepreview-thing in page thumb
-		$(".page-title-elem").keypress(function() {
+		$(".page-title-elem").keypress(function () {
 			$(".livepreview-thing").text($(this).text());
 		});
 
