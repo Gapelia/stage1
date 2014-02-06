@@ -1,0 +1,45 @@
+/**************************************************************************************** FONTS/SCSS **/
+
+// @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic);
+// @import url(http://fonts.googleapis.com/css?family=Poly:400,400italic);
+
+/** [-] Icons *****************************************************************************************/
+
+@font-face {
+	font-family: "icomoon";
+	font-style: normal;
+	font-weight: 400;
+
+	src: local("☺"), url("../font-face/icomoon.svg#icomoon") format("svg");
+	src: url("../font-face/icomoon.eot"),
+			 url("../font-face/icomoon.eot?#iefix") format("embedded-opentype"),
+			 url("../font-face/icomoon.ttf") format("truetype"),
+			 url("../font-face/icomoon.woff") format("woff");
+}
+
+@font-face {
+	font-family: $ionicons-font-family;
+	font-style: normal;
+	font-weight: normal;
+
+	src: url("../font-face/ionicons.eot?v=#{$ionicons-version}");
+	src: url("../font-face/ionicons.eot?v=#{$ionicons-version}#iefix") format("embedded-opentype"),
+			 url("../font-face/ionicons.ttf?v=#{$ionicons-version}") format("truetype"),
+			 url("../font-face/ionicons.woff?v=#{$ionicons-version}") format("woff"),
+			 url("../font-face/ionicons.svg?v=#{$ionicons-version}#Ionicons") format("svg");
+}
+
+.ion {
+	display: inline-block;
+	font-family: $ionicons-font-family;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	speak: none;
+	text-transform: none;
+	text-rendering: auto;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
