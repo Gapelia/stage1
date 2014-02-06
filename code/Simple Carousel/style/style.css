@@ -1,0 +1,40 @@
+﻿/* RESET */
+* {
+    margin:0;
+    padding:0;
+}
+ol, ul {
+    list-style:none;
+}
+
+/* CUSTOM */
+body { font:15px Verdana; }
+
+table { border-collapse:collapse; border-spacing:0; }
+table td, table th { text-align:left; padding:5px; border:1px solid #000; }
+table th { background-color:#efefef; }
+
+h1 { padding-bottom:10px; }
+h2 { margin:30px 0 20px 0; background-color:#ccc; }
+h3 { margin-bottom:20px; }
+
+#container { margin:20px; }
+
+.example { float:left; clear:both; margin:0 0 40px; }
+
+#example_01 li { width:102px; height:68px; margin:0 5px; }
+#example_02 li { width:140px; height:80px; margin:5px 0; }
+
+/* CAROUSEL */
+.carousel { position:relative; }
+
+.carousel-horizontal { padding:0 40px; }
+.carousel-vertical { padding:40px 0; }
+
+.carousel-prev, .carousel-next { position:absolute; background:url('img/sprite.png') no-repeat; text-indent:-9999px; line-height:0px; }
+
+.carousel-prev-vertical { top:0; left:45px; width:46px; height:31px; background-position:-46px -46px;  }
+.carousel-next-vertical { bottom:0; left:45px; width:46px; height:31px; background-position:0 -46px; }
+
+.carousel-prev-horizontal { top:10px; left:0; width:31px; height:46px; background-position:0 0; }
+.carousel-next-horizontal { top:10px; right:0; width:31px; height:46px; background-position:-34px 0; }

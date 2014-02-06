@@ -1,0 +1,65 @@
+/*************************************************************************************** MODAL/SCSS **/
+
+.modal-login {
+	width: 600px; height: auto;
+	margin: -150px 0 0 -300px; padding: 2rem;
+	top: 50%; left: 50%;
+
+	background-color: $white;
+	border-radius: 5px;
+	box-shadow: 0 0 0 9999px rgba($black, 0.5);
+	display: none;
+	position: fixed;
+	text-align: center;
+	z-index: 100;
+
+	&.active { display: block; }
+
+	h1 {
+		font-size: 1.8rem;
+		margin: 0 0 2rem 0;
+	}
+
+	#login-platforms {
+		font-size: 1.2rem;
+		margin: 0 0 3rem 0;
+
+		&:before {
+			content: "Please, sign up or log in:";
+			display: block;
+			@include serif;
+			font-size: 0.8rem;
+			font-style: italic;
+			margin: 0 0 0.5rem 0;
+		}
+
+		li {
+			display: inline-block;
+			margin: 0 2rem 0 0;
+
+			&:before {
+				font-family: "Ionicons";
+				font-size: 1.5rem;
+				margin: 0 0.5rem 0 0;
+			}
+
+			&:last-child { margin: 0; }
+		}
+
+		#login-fb {
+			&:before { content: "\f231"; }
+		}
+
+		#login-gp {
+			&:before { content: "\f235"; }
+		}
+
+		#login-tw {
+			&:before { content: "\f243"; }
+		}
+
+		#login-at {
+			&:before { content: "\f157"; }
+		}
+	}
+}

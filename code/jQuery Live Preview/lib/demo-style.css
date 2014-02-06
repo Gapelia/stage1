@@ -1,0 +1,53 @@
+body {
+	font-family: "Open Sans", Arial, Sans-Serif;
+	font-size: 0.9em;
+}
+
+#main  {
+	margin: auto;
+	width: 600px;
+}
+
+label  {
+	display: block;
+	margin: 10px 0 4px 0;
+}
+
+textarea.source  {
+	width: 400px; height: 100px;
+}
+
+div.preview  {
+	width: 400px; min-height: 200px;
+
+	border: 1px solid #191919;
+	background-color: #ffffec;
+	padding: 5px;
+}
+
+/* Code Syntax Styles */
+.csharpcode,.csharpcode pre {
+	background-color: #fefefe;
+	color: #191919;
+	font-family: Consolas, "Courier New", Courier, Monospace;
+	font-size: small;
+}
+
+.csharpcode pre { margin: 0; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #00f; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #c63; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #f00; }
+
+.csharpcode .asp{ background-color: #ff0; }
+
+.csharpcode .alt {
+	background-color: #f4f4f4;
+	margin: 0;
+	width: 100%;
+}
+
+.csharpcode .lnum { color: #606060; }
