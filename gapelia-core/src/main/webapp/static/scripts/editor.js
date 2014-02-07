@@ -11,8 +11,9 @@
 	// Set menu height, necessary for scrollbar plugin
 	$("#pages-scroller").css("height", $vH + "px");
 	$("#layout-scroller").css("height", $vH + "px");
-
+	//fuckkkkkkkk
 	$(document).ready(function () {
+		bookid =0;
 		$.ajax({
 			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
