@@ -795,19 +795,25 @@
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-		} else {
-			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
 
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
 			} else {
 				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
 			}
+		} else {
+			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+			} else {
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+			}
+		}
+
+		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+
+		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -877,19 +883,25 @@
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-		} else {
-			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
 
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
 			if(currentPage == 0) {
 				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
 			} else {
 				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
 			}
+		} else {
+			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 
+			if(currentPage == 0) {
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
+			} else {
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+			}
+		}
+
+		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+
+		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
@@ -948,8 +960,6 @@
 		var insert = "";
 
 		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
-
-		// insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png').attr('data-vimeo-id', '"+ getVimeoId($(".video-picker").val()) +"'); $('button.photo-picker').html('Change video');\" style=\"display: none;\"/></div>";
 
 		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('button.photo-picker').html('Change video');\" style=\"display: none;\"/></div>";
 

@@ -51,12 +51,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
-							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
-							</ul>
-						</li>
+						<li><a id="gpl-menu-create" href="/create">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -79,28 +74,12 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
+			<button id="g-menu-toggle">
+				<i class="ion-drag"></i>
+			</button>
 
-			<!--/
-			<div id="header-toggle">&#9206;</div>
-			<div id="next-book-toggle">&#9197;</div>
-
-			<header>
-				<div id="header-info">
-					<span id="header-title">*Book Title*</span>
-					<span id="header-author">*Author*</span>
-				</div>
-
-				<ul class="share-book">
-					<li class="facebook"><a href="#">Facebook</a></li>
-					<li class="twitter"><a href="#">Twitter</a></li>
-					<li class="email"><a href="#">eMail</a></li>
-				</ul>
-			</header>
-			/-->
-
-			<div id="bb-nav-prev">Previous Page</div>
-			<div id="bb-nav-next">Next Page</div>
+			<div id="bb-nav-prev"><i class="ion-ios7-arrow-left"></i></div>
+			<div id="bb-nav-next"><i class="ion-ios7-arrow-right"></i></div>
 
 			<!--/ div id="the-book" /-->
 			<div id="the-book" class="bb-custom-wrapper">
@@ -171,9 +150,7 @@
 							"height": $vH + "px"
 						});
 
-						$(".frontcover-wrapper").imgLiquid({ fill: true });
-						// $(".photo-wrapper").imgLiquid({ fill: false });
-						$(".horizontal-wrapper").imgLiquid({ fill: true });
+						$(".fluid-wrapper").imgLiquid({ fill: true });
 						$(".overlay-wrapper").imgLiquid({ fill: true });
 						$(".phototext-wrapper").imgLiquid({ fill: true });
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
@@ -184,7 +161,7 @@
 
 						switch (current.templateId) {
 							case 0:
-								frontCoverLayout();
+								fluidLayout();
 								break;
 
 							case 1:
@@ -192,95 +169,118 @@
 								break;
 
 							case 2:
-								textLayout();
-								break;
-
-							case 3:
-								horizontalLayout();
-								break;
-
-							case 4:
 								overlayLayout();
 								break;
 
-							case 5:
+							case 3:
 								photoTextLayout();
 								break;
 
-							case 6:
+							case 4:
 								verticalLayout();
 								break;
 
-							case 7:
+							case 5:
 								videoLayout();
 								break;
 
 							default:
-								frontCoverLayout();
+								fluidLayout();
 								break;
 						}
 
 					}
 
-					function frontCoverLayout() {
+					function fluidLayout() {
 
-						htmlToInsert += "<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div><h5>*AUTHOR*</h5></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"fluid-wrapper\">";
+						htmlToInsert += "<section class=\"draggable-placeholder\">";
+						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+						htmlToInsert += "</section>";
+						htmlToInsert += "<div class=\"fluid-preview\"><article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+						htmlToInsert += "</article></div>";
+						htmlToInsert += "</section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
 					function photoLayout() {
 
-						// htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"photo-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"photo-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1></article></div></section></div></div>";
-
-					}
-
-					function textLayout() {
-
-						// htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"text-wrapper\"><div class=\"text-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
-
-					}
-
-					function horizontalLayout() {
-
-						// htmlToInsert += "<section class=\"horizontal-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"horizontal-wrapper\"><div class=\"scroller-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"horizontal-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
+						htmlToInsert += "<section class=\"photo-wrapper\">";
+						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+						htmlToInsert += "<div class=\"photo-preview\">";
+						htmlToInsert += "<article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "</article>";
+						htmlToInsert += "</div>";
+						htmlToInsert += "</section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
 					function overlayLayout() {
 
-						// htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.text + "</div><div class=\"page-geotag-elem\">" + current.geotag + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"overlay-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"overlay-preview\"><article><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"overlay-wrapper\">";
+						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+						htmlToInsert += "<div class=\"overlay-preview\"><article>";
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "</article></div>";
+						htmlToInsert += "</section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
 					function photoTextLayout() {
 
-						// htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"phototext-wrapper\">";
+						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+						htmlToInsert += "<div class=\"phototext-preview\">";
+						htmlToInsert += "<article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+						htmlToInsert += "</article>";
+						htmlToInsert += "</div></section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
 					function verticalLayout() {
 
-						// htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"vertical-wrapper\"><div class=\"draggable-placeholder\"><img class=\"page-bg\" src=\"" + current.image + "\"/><div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></div></section></div></div>";
+						htmlToInsert += "<section class=\"vertical-wrapper\">";
+						htmlToInsert += "<div class=\"draggable-placeholder\">";
+						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+						htmlToInsert += "<div class=\"vertical-preview\">";
+						htmlToInsert += "<article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+						htmlToInsert += "</article></div>";
+						htmlToInsert += "</div></section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
 					function videoLayout() {
 
-						// htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><span class=\"play-video\">Play</span><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-geotag-elem\">" + current.geotag + "</div><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
-
-						htmlToInsert += "<section class=\"video-wrapper\"><div class=\"video-preview\"><div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div><div class=\"video-player-container\"><iframe src=\"" + current.video + "\"></iframe></div><article><h1 class=\"page-title-elem\">" + current.title + "</h1><div class=\"page-desc\">" + current.text + "</div></article></div></section></div></div>";
+						htmlToInsert += "<section class=\"video-wrapper\">";
+						htmlToInsert += "<div class=\"video-preview\">";
+						htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
+						htmlToInsert += "<div class=\"video-player-container\">";
+						htmlToInsert += "<iframe src=\"" + current.video + "\"></iframe>";
+						htmlToInsert += "</div>";
+						htmlToInsert += "<article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+						htmlToInsert += "</article>";
+						htmlToInsert += "</div></section>";
+						htmlToInsert += "</div></div>";
 
 					}
 
@@ -291,8 +291,6 @@
 							$navNext: $("#bb-nav-next"),
 							$navPrev: $("#bb-nav-prev"),
 							$navFirst: $("#bb-nav-first")
-							// $navLast: $("#next-book-toggle")
-							// $navLast: $('#bb-nav-last')
 						},
 
 						init = function() {
@@ -326,13 +324,6 @@
 								config.$bookBlock.bookblock("first");
 								return false;
 							});
-
-							/*
-							config.$navLast.on("click touchstart", function() {
-								config.$bookBlock.bookblock("last");
-								return false;
-							});
-							*/
 
 							// add swipe events
 							$slides.on({
