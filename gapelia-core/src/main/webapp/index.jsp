@@ -76,7 +76,7 @@
 				<li class="facebook" id="login-fb"><a href="/login?type=facebook">Facebook</a></li>
 				<li class="googleplus" id="login-gp"><a href="/login?type=google">Google+</a></li>
 				<li class="twitter" id="login-tw"><a href="/login?type=twitter">Twitter</a></li>
-				<li class="email" id="login-at"><a href="#">Email</a></li>
+				<!--/ <li class="email" id="login-at"><a href="#">Email</a></li> /-->
 			</ul>
 
 			<p><a href="#" class="login-link">Nevermind</a></p>
