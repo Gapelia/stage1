@@ -148,7 +148,7 @@
 
 							<div class="blank-preview">
 								<article>
-									<p contenteditable="false">Your page has been created.<br/><br/>Choose a layout from the Pages menu to get started!</p>
+									<p contenteditable="false">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style="font-size: 50%">We can't wait to see it. (:</small></p>
 								</article>
 							</div>
 						</section>
@@ -244,6 +244,7 @@
 		</script>
 
 		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/vimeothumb.js"></script>
 		<!--/ <script src="/static/scripts/medium.js"></script> /-->
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/editor.js"></script>
@@ -251,12 +252,9 @@
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
-			Spinner({radius: 40, length: 10}).spin(document.getElementById("book-creation-wrapper"));
+			// $("img").VimeoThumb();
 
-			$(function() {
-				// $(".draggable-placeholder").backgroundDraggable(); // Horizontal and Vertical layouts
-				// $(".frontcover-preview-wrapper, .photo-preview-wrapper, .horizontal-preview-wrapper, .overlay-preview-wrapper, .phototext-preview-wrapper, .vertical-preview-wrapper").imgLiquid({ fill: true });
-			});
+			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 		</script>
 
 		<!--/ scripts/page-sorter /-->

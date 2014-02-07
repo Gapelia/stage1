@@ -159,7 +159,6 @@
 
 		if(e.id != "add-page") {
 			e.style.border = "3px solid #70a1b1";
-			// e.style.box-shadow = "inset 10px 0 0 0 #70d0eb";
 		}
 
 		currentPage = $(this).closest("li").attr("id");
@@ -458,7 +457,7 @@
 
 	function baseLayout() {
 
-		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Your page has been created.<br/><br/>Choose a layout from the Pages menu to get started!</p></article></div></section>";
+		var insert="<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">ヾ(＠⌒ー⌒＠)ノ</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
@@ -950,7 +949,9 @@
 
 		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png'); $('button.photo-picker').html('Change photo');\" style=\"display: none;\"/></div>";
+		// insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').attr('src', 'static/images/view-modes/video.png').attr('data-vimeo-id', '"+ getVimeoId($(".video-picker").val()) +"'); $('button.photo-picker').html('Change video');\" style=\"display: none;\"/></div>";
+
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('button.photo-picker').html('Change video');\" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -1034,12 +1035,16 @@
 
 		$(".video-picker").keypress(function (e) {
 
-			var videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1";
+			var
+			videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1",
+			videoThumb = "#page"+ currentPage +"Image",
+			videoID = getVimeoId($(this).val());
 
 			if (e.which == 13) {
 				$(".video-player-container iframe").attr("src", videoURL);
 				$(".video-preview-wrapper .video-picker").hide();
 				$(".video-preview-wrapper .photo-picker").show();
+				$(videoThumb).attr("data-vimeo-id", videoID);
 
 				return false;
 			}
@@ -1047,7 +1052,7 @@
 		});
 
 		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
+		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -1213,7 +1218,8 @@
 
 			$(".frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
 
-			$(".video-preview-wrapper button.photo-picker").css("opacity", "0");
+			// Video layout doesn't really need this, and the button doesn't appear when moving mouse over iframe
+			// $(".video-preview-wrapper button.photo-picker").css("opacity", "0");
 
 			timedelay = 1;
 		}
@@ -1228,7 +1234,7 @@
 
 		$(".frontcover-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
 
-		$(".video-preview-wrapper button.photo-picker").css("opacity", "1");
+		// $(".video-preview-wrapper button.photo-picker").css("opacity", "1");
 
 		timedelay = 1;
 		clearInterval(_delay);
