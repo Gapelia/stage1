@@ -947,7 +947,7 @@
 
 		#user-splash {
 			.user-avatar {
-				top: 18%; left: 0;
+				top: 15%; left: 0;
 
 				position: absolute;
 				text-align: center;
@@ -955,25 +955,26 @@
 				.avatar-wrapper {
 					left: 0;
 					position: relative;
-					width: 125px;
-					height: 125px;
+					width: 110px;
+					height: 110px;
 				}
 			}
 
 			#splash-user-info {
 				margin: 0 0 1rem 0; padding: 0;
-				top: 38%;
+				top: 36%;
 
 				h2 {
 					font-size: 1.4rem;
 					line-height: 1.5rem;
+					font-weight: 600;
 					position: fixed;
 					width: 100%;
 				}
 			}
 
 			#splash-user-bio {
-				margin: 3rem 0 0 0; padding: 0;
+				margin: 2.3rem 0 0 0; padding: 0;
 
 				font-size: 0.9rem;
 				position: fixed;
@@ -983,7 +984,8 @@
 			#close-splash {
 				margin: 0;
 				position: fixed;
-				bottom: 6rem;
+				bottom: 10rem;
+				font-size: 3.5rem;
 			}
 		}
 
