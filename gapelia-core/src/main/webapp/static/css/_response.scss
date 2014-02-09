@@ -1071,10 +1071,11 @@
 
 		.book, .library, .collection {
 			background-color: transparent;
-			border-bottom: 10px solid $slate;
+			border-bottom: 2px solid $slate;
 			box-shadow: none; // inset 10px 0 0 0 #70d0eb
 			height: auto;
 			padding: 2rem;
+			margin: 0 0 0rem 0;
 
 			.book-title, .book-info, .collection-info, .library-info {
 				padding: 0;
