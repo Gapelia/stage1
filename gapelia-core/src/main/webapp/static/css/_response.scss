@@ -1063,7 +1063,7 @@
 
 			.featured-info, small { display: none; }
 		}
-
+		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #dimension-list, #library-list, #bookmark-list {
 			background-color: transparent;
@@ -1073,7 +1073,7 @@
 
 		.book, .library, .collection {
 			background-color: transparent;
-			border-bottom: 2px solid $slate;
+			border-bottom: 1px solid $slate;
 			box-shadow: none; // inset 10px 0 0 0 #70d0eb
 			height: auto;
 			padding: 2rem;
@@ -1091,7 +1091,7 @@
 				margin: 0 0 1rem 0;
 				top: 25%;
 
-				a { color: $slate; }
+				a { color: rgba(51, 51, 50, 0.9); }
 			}
 
 			.book-info, .collection-info, .library-info {
@@ -1433,9 +1433,14 @@
 			padding: 75px 0 0 0;
 		}
 
+		#g-menu-toggle {
+			color: white !important;
+			}
+		
 		#user-panel {
 			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 			height: 75px !important;
+			background-color: #70a1b1;
 
 			#user-wrapper {
 				padding: 0;
