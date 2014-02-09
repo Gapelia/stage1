@@ -353,14 +353,14 @@
 		}
 
 		.draggable-placeholder {
-			background-image: linear-gradient(to top, $white, transparent);
-			height: 65%;
+			// background-image: linear-gradient(to top, $white, transparent); // Tommy
+			height: 75%;
 			position: absolute;
 		}
 
 		.fluid-preview {
 			width: 100%; min-height: 53%;
-			top: 65%; /* 20% */ left: 0;
+			top: 75%; /* 20% */ left: 0;
 
 			background-color: $white;
 			color: $black;
