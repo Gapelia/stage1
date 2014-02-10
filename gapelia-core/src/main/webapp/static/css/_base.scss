@@ -120,7 +120,7 @@ $google:		rgba(221, 75, 57, 1);		// #dd4b39;
 
 @mixin sans { font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif; }
 @mixin serif { font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
-
+@mixin icon { font-family: "Ionicons"; }
 @mixin unicode { font-family: Arial, Verdana, Geneva, sans-serif; }
 @mixin mono { font-family: Menlo, Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
 

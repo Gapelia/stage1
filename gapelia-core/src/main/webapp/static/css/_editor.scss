@@ -392,24 +392,34 @@
 					}
 
 					button {
-						margin: 0 auto; padding: 0.5rem;
+						margin: 0 !important; padding: 0 !important;
 
-						background-color: rgba($white, 0.3);
-						background-image: linear-gradient(to bottom, transparent, transparent);
-						border: 3px solid $black;
-						color: $black;
+						background-color: transparent;
+						background-repeat: initial;
+						border: 0;
+						border-radius: 0;
+						color: rgba($black, 0.6);
 						cursor: pointer;
-						font-weight: 700;
+						font-size: 3rem;
+						@include icon;
+						font-weight: normal;
 						position: relative;
-						text-transform: uppercase;
 						transition: all 0.2s ease;
 						z-index: 2;
 
+						/*
+						&:after {
+							content: "Enhance your story with imagery";
+							@include serif;
+							font-size: 0.8rem;
+							font-style: italic;
+							margin: 0 0 0 1rem;
+							vertical-align: middle;
+						}
+						*/
+
 						&:hover {
-							background-image: linear-gradient(to bottom, $l-gray, $gray-ii);
-							// border: 3px solid $white;
-							// color: $white;
-							opacity: 1;
+							color: $black;
 						}
 					}
 
@@ -575,7 +585,7 @@
 					.button-wrapper, section, .fluid-preview { transition: all 0.2s ease; }
 
 					.button-wrapper {
-						bottom: 0; // 80%
+						bottom: -2rem; // 80%
 						padding: 0 16.5%;
 						text-align: left;
 					}
@@ -620,7 +630,7 @@
 					background-color: $white;
 
 					.page-bg-wrapper {
-						width: 50%; height: auto; max-height: 66%;
+						width: 50%; height: inherit; max-height: 66%;
 						top: 45vh; left: 25%; // top: 50%
 
 						position: relative;
@@ -645,13 +655,11 @@
 					}
 
 					.photo-preview {
-						width: 100%; height: auto; max-height: 30%;
-						bottom: 5%; /* 4rem */ left: 0;
+						width: 100%; height: auto;
+						margin: 2.5rem 0 0 0; padding: 1rem 2rem;
 
 						color: $black;
-						height: auto;
-						padding: 1rem 2rem;
-						position: absolute;
+						position: relative; // absolute
 
 						::-o-input-placeholder			{ color: $black; }
 						::-moz-placeholder					{ color: $black; }
@@ -661,7 +669,6 @@
 
 						.page-title-elem, h5 {
 							margin: 0 auto 0.5rem;
-							text-align: center;
 							width: 52%;
 						}
 
