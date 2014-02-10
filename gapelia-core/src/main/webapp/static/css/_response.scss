@@ -730,7 +730,7 @@
 		.book-title {
 			padding: 0 6rem 0 4rem;
 			top: 20%;
-			font-size: 2.3rem;
+			font-size: 2.1rem;
 		}
 
 		.book-info, .collection-info { bottom: 20%; }
@@ -750,12 +750,14 @@
 			
 			#featured-nav {
 				top: 65px;
+				left: 0;
 				
 				.current {
 					display: none;
 				}
 				li a {
 					font-size: 1.3rem;
+					color: #70a1b1;
 				}
 			}
 		}
@@ -900,6 +902,7 @@
 				}
 				li a {
 					font-size: 1.3rem;
+					color: #70a1b1;
 				}
 			}		
 		#g-menu-toggle {
@@ -918,10 +921,10 @@
 	.app {
 
 		.book-title {
-			font-size: 2rem;
+			font-size: 1.8rem;
 			line-height: 2.3rem;
 		}
-
+		
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
 				padding: 0;
