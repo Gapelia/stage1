@@ -523,9 +523,9 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 
 			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -607,9 +607,9 @@
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 
 			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -713,9 +713,9 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 
 			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<h5 contenteditable=\"false\"><span>"+ author +"<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			}
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -797,9 +797,9 @@
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 
 			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			}
 		} else {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -885,9 +885,9 @@
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 
 			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
 			}
 		} else {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";

@@ -722,6 +722,12 @@
 			margin: 0 0 1.5rem 0;
 		}
 		
+		.book-info {
+			.author-avatar {
+				width: 50px;
+			}
+		}
+		
 		#book-list, #bookmark-list, #library-list {
 			background-color: white;
 			padding: 5.4rem 1rem 1rem 1rem;
