@@ -718,13 +718,48 @@
 
 	.app {
 
+		.book, .library {
+			margin: 0 0 1.5rem 0;
+		}
+			
+		#book-list, #bookmark-list, #library-list {
+			background-color: white;
+			padding: 5.4rem 1rem 1rem 1rem;
+		}
+		
 		.book-title {
 			padding: 0 6rem 0 4rem;
 			top: 20%;
+			font-size: 2.3rem;
 		}
 
 		.book-info, .collection-info { bottom: 20%; }
 
+		.library .wrapper button, #library-splash button {
+			font-size: 1.0em;
+		}
+		
+		#featured-panel {
+			background-color: $slate;
+			height: 65px;
+			
+			#category-title {
+				color: $white;
+				font-size: 1.3rem;
+			}
+			
+			#featured-nav {
+				top: 65px;
+				
+				.current {
+					display: none;
+				}
+				li a {
+					font-size: 1.3rem;
+				}
+			}
+		}
+		
 		#featured-splash, #library-splash, #user-splash {
 			#featured-info, #library-info, #splash-user-info {
 				padding: 0 5rem;
@@ -737,6 +772,7 @@
 				bottom: 3rem; // initial
 				margin: 0; // 2rem 0 0 0
 				position: fixed; // relative
+				font-size: 3.5rem;
 			}
 		}
 	
@@ -744,16 +780,59 @@
 			#snippet-book, #snippet-library { display: none; }
 		}
 
+		#g-menu-toggle {
+			color: white !important;
+			height: 68px;
+			}
+		
+		#user-book-list {
+			background-color: white;
+			padding: 5.4rem 1rem 1rem 1rem;
+		}
+		
 		#user-splash {
-			.user-avatar { top: 13%; }
+			.user-avatar {
+				top: 20%; left: 0;
+
+				position: absolute;
+				text-align: center;
+
+				.avatar-wrapper {
+					left: 0;
+					position: relative;
+					width: 125px;
+					height: 125px;
+				}
+			}
 
 			#splash-user-info {
-				margin: 0 0 1rem 0;
-				top: 33%;
+				margin: 0 0 1rem 0; padding: 0;
+				top: 45%;
+
+				h2 {
+					font-size: 1.6rem;
+					line-height: 1.5rem;
+					font-weight: 600;
+					position: fixed;
+					width: 100%;
+				}
+				
+				.button-wrapper {display: none}
 			}
 
 			#splash-user-bio {
-				margin: 0 0 1rem 0;
+				margin: 2.3rem 0 0 0; padding: 1;
+
+				font-size: 1.0rem;
+				position: fixed;
+				width: 100%;
+			}
+
+			#close-splash {
+				margin: 0;
+				position: fixed;
+				bottom: 3rem;
+				font-size: 3.5rem;
 			}
 		}
 
@@ -768,11 +847,66 @@
 			}
 		}
 
+		#user-panel {
+			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+			height: 65px !important;
+			background-color: $slate;
+
+			#user-wrapper {
+				padding: 0;
+
+				.user-avatar {
+					display: block !important;
+					margin: 0 !important;
+					top: 0;
+
+					.avatar-wrapper {
+						width: 75px; height: 75px;
+
+						border: 0;
+						border-radius: 0;
+						float: right;
+						margin: 0;
+
+						img {
+							width: 55px; height: auto; border-radius: 40px; top: 5px; right: 25px;
+						}
+
+						&:after { display: none; }
+					}
+				}
+			}
+		}
+
 	}
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
+		#user-panel {
+			#user-wrapper {
+				h2 {
+					color: white !important;
+					font-size: 1.3rem;
+					text-align: right;
+					top: -4px;
+				}
+			}
+		#featured-nav {
+			top: 65px;
+			
+			.current {
+					display: none;
+				}
+				li a {
+					font-size: 1.3rem;
+				}
+			}		
+		#g-menu-toggle {
+			color: white !important;
+			height: 68px;
+			}
+		}
 	}
 
 }
@@ -1083,7 +1217,7 @@
 			height: auto;
 			padding: 2rem;
 			margin: 0 0 0rem 0;
-
+			
 			.book-title, .book-info, .collection-info, .library-info {
 				padding: 0;
 				position: relative;
@@ -1142,7 +1276,7 @@
 		}
 
 		.book, .collection { background-image: none !important; }
-
+		
 		.library {
 			border-bottom: 10px solid $white;
 			height: 200px;
