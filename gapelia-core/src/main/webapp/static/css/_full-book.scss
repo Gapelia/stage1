@@ -335,14 +335,24 @@
 		}
 	}
 
+	.photo-wrapper, .overlay-wrapper {
+		#author-info {
+			#author-name {
+				color: $white;
+				text-align: center;
+			}
+
+			#author-avatar { margin: 0 auto; }
+		}
+	}
+
 	.photo-wrapper {
 		background-color: $white;
 
-		.page-bg {
-			width: 50%; height: auto; max-height: 66%;
-			top: 45vh; /* 50% */ left: 25%;
+		.page-bg-wrapper {
+			width: 50%; height: inherit; max-height: 66%; // height: auto
+			top: 35vh; left: 25%; // top: 50%
 
-			box-shadow: 0 0 5px 0 rgba($black, 0.3);
 			position: relative;
 			transform: translateY(-50%);
 
@@ -350,22 +360,24 @@
 			-ms-transform: translateY(-50%);
 			-moz-transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
+		}
 
-			&:after {
-				content: "Hi there!";
-				position: absolute;
-				z-index: 25;
-			}
+		.page-bg {
+			width: 100%; height: auto;
+			box-shadow: 0 0 5px 0 rgba($black, 0.3);
+		}
+
+		.image-attribution {
+			right: 0;
+			width: auto;
 		}
 
 		.photo-preview {
-			width: 100%; height: auto; max-height: 30%;
-			bottom: 5%; /* 4rem */ left: 0;
+			width: 100%; height: auto;
+			margin: 2.5rem 0 0 0; padding: 1rem 2rem;
 
 			color: $black;
-			height: auto;
-			padding: 1rem 2rem;
-			position: absolute;
+			position: relative;
 
 			.page-title-elem, .page-geotag-elem, .page-desc { text-align: center; }
 
@@ -374,14 +386,11 @@
 				width: 52%;
 			}
 
-			.image-attribution {
-				bottom: -1rem; left: 0;
-
-				text-align: center;
-				width: 100%;
-			}
-
 			.page-geotag-elem { color: $black; }
+		}
+
+		#author-info {
+			#author-name { color: $black; }
 		}
 	}
 
@@ -413,17 +422,6 @@
 				color: $white;
 				margin: 2rem 0 0 0;
 				text-align: center;
-			}
-		}
-
-		#author-info {
-			#author-name {
-				color: $white;
-				text-align: center;
-			}
-
-			#author-avatar {
-				margin: 0 auto;
 			}
 		}
 

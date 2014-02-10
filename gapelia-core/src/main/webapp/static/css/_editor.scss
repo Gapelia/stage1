@@ -619,11 +619,10 @@
 				.photo-preview-wrapper {
 					background-color: $white;
 
-					.page-bg {
+					.page-bg-wrapper {
 						width: 50%; height: auto; max-height: 66%;
-						top: 45vh; /* 50% */ left: 25%;
+						top: 45vh; left: 25%; // top: 50%
 
-						box-shadow: 0 0 5px 0 rgba($black, 0.3);
 						position: relative;
 						transform: translateY(-50%);
 
@@ -633,13 +632,16 @@
 						-webkit-transform: translateY(-50%);
 					}
 
+					.page-bg {
+						width: 100%; height: auto;
+						box-shadow: 0 0 5px 0 rgba($black, 0.3);
+					}
+
 					.button-wrapper { bottom: 30%; }
 
 					.image-attribution {
-						bottom: -1rem; left: 0;
-
-						text-align: center;
-						width: 100%;
+						right: 0;
+						width: auto;
 					}
 
 					.photo-preview {

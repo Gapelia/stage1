@@ -550,23 +550,19 @@
 		var insert = "";
 
 		insert += "<section class=\"photo-preview-wrapper\">";
+		insert += "<div class=\"page-bg-wrapper\">";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/></div>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/></div>";
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $('button.photo-picker').html('Change photo'); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-
-			if(currentPage == 0) {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
-			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
