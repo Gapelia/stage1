@@ -721,7 +721,7 @@
 		.book, .library {
 			margin: 0 0 1.5rem 0;
 		}
-			
+		
 		#book-list, #bookmark-list, #library-list {
 			background-color: white;
 			padding: 5.4rem 1rem 1rem 1rem;
@@ -1188,7 +1188,8 @@
 					-webkit-translate: translateY(0);
 				}
 				a {
-					color: white;
+					color: white !important;
+					text-align: right !important;
 				}
 
 				.current {
