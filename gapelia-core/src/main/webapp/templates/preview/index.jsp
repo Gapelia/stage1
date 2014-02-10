@@ -196,10 +196,15 @@
 						htmlToInsert += "<section class=\"fluid-wrapper\">";
 						htmlToInsert += "<section class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "</section>";
-						htmlToInsert += "<div class=\"fluid-preview\"><article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "</section>";
+						htmlToInsert += "<div class=\"fluid-preview\">";
+						htmlToInsert += "<div id=\"author-info\">";
+						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "</div>";
+						htmlToInsert += "<article>";
+						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "</section>";
@@ -226,10 +231,15 @@
 
 						htmlToInsert += "<section class=\"overlay-wrapper\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<div class=\"overlay-preview\"><article>";
+						htmlToInsert += "<div class=\"overlay-preview\">";
+						htmlToInsert += "<article>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div id=\"author-info\">";
+						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "</div>";
 						htmlToInsert += "</article></div>";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "</div></div>";
 
@@ -238,11 +248,15 @@
 					function photoTextLayout() {
 
 						htmlToInsert += "<section class=\"phototext-wrapper\">";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"phototext-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div id=\"author-info\">";
+						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";
@@ -253,12 +267,16 @@
 					function verticalLayout() {
 
 						htmlToInsert += "<section class=\"vertical-wrapper\">";
+						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "<div class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"vertical-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div id=\"author-info\">";
+						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "</div></section>";
@@ -269,6 +287,7 @@
 					function videoLayout() {
 
 						htmlToInsert += "<section class=\"video-wrapper\">";
+						htmlToInsert += "<span class=\"image-attribution\">*Video Credit*</span>";
 						htmlToInsert += "<div class=\"video-preview\">";
 						htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
 						htmlToInsert += "<div class=\"video-player-container\">";
@@ -276,7 +295,10 @@
 						htmlToInsert += "</div>";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<div id=\"author-info\">";
+						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";

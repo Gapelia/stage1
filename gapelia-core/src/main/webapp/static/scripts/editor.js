@@ -470,43 +470,6 @@
 
 		var insert = "";
 
-		/*
-		insert += "<section class=\"horizontal-preview-wrapper\"><div class=\"image-attribution\" contenteditable=\"true\">Add photography credit</div><section class=\"draggable-placeholder\">";
-
-		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
-		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
-		}
-
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.horizontal-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); });\"></div>";
-
-		insert += "</section><div class=\"horizontal-preview\"><article>";
-
-		if(title == null) {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
-		} else {
-			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
-		if(text == null) {
-			if(currentPage==0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
-		} else {
-			if(currentPage==0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			}
-
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
-		}
-		*/
-
-		// Essay code
 		insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
 		if(imageURL == null) {
@@ -515,18 +478,12 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '40%'); $('section').css('height', '65%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('button.photo-picker').html('Change photo'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('button.photo-picker').html('Change photo'); }); $('.page-bg').css('opacity','1');\"></div>";
 
-		insert += "</section><div class=\"fluid-preview\"><article>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span></section><div class=\"fluid-preview\"><article>";
 
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
-
-			if(currentPage == 0) {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			}
 		} else {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
@@ -536,7 +493,6 @@
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
-		// End essay code
 
 		// no video in this view, but having this allows it to keep between layout switching
 		if(videoURL == null) {
@@ -607,9 +563,9 @@
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 
 			if(currentPage == 0) {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
 			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
+				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
 			}
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -711,18 +667,12 @@
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
-
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			}
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div>";
 		}
 
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
 		insert += "</article></div></section>";
 
 		// no title in this view, but having this allows it to keep between layout switching
@@ -784,6 +734,7 @@
 		var insert = "";
 
 		insert += "<section class=\"phototext-preview-wrapper\">";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
 
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/>";
@@ -795,20 +746,8 @@
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-
-			if(currentPage == 0) {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			}
 		} else {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
-			}
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -873,6 +812,8 @@
 
 		insert += "<section class=\"vertical-preview-wrapper\">";
 
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
+
 		if(imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\"/></div>";
 		} else {
@@ -883,20 +824,8 @@
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
-
-			if(currentPage == 0) {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add a photo credit\"></span>";
-			}
 		} else {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
-
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add photo credit?</span>";
-			}
 		}
 
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
@@ -959,9 +888,13 @@
 
 		var insert = "";
 
-		insert += "<section class=\"video-preview-wrapper\"><div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
+		insert += "<section class=\"video-preview-wrapper\">";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('button.photo-picker').html('Change video');\" style=\"display: none;\"/></div>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\"></span>";
+
+		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
+
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('button.photo-picker').html('Change video'); $('.image-attribution').show(); \" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -980,12 +913,6 @@
 		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
-			if(currentPage == 0) {
-				insert += "<h5 contenteditable=\"false\"><span>"+ author +"</span></h5><span class=\"image-attribution\" contenteditable=\"true\">Add video credit?</span>";
-			} else {
-				insert += "<span class=\"image-attribution\" contenteditable=\"true\">Add video credit?</span>";
-			}
-
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
