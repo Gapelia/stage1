@@ -32,7 +32,7 @@ public class QueryDatabase {
 	private static final String SELECT_BOOKS_FROM_LIBRARY="SELECT coverPhoto, bookId,title,language,library,tags,userId,isPublished FROM books where library = ? ORDER BY random() LIMIT 20";
 	//User Related Queries
 	private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,providerId,validateId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
-	private static final String CHECK_USER = "SELECT * FROM users WHERE id= ?";
+	private static final String CHECK_USER = "SELECT * FROM users WHERE validateId= ?";
 	private static final String INSERT_USER = "INSERT INTO users (name,email, fullName,dob,gender,location,image,displayname,validateId,providerId,personalWebsite,memberSince,lastLogin,lastUpdated,bio,tags,id)" +"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
 	/********************************/
@@ -43,7 +43,7 @@ public class QueryDatabase {
 			LOG.error(profile.toString());
 			System.out.println(profile.toString());
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
-			statement.setString(1, profile.getValidatedId());
+			statement.setString(1,profile.getValidatedId());
 			System.out.println(statement.toString());
 			ResultSet rs = statement.executeQuery();
 			System.out.println(rs.getWarnings());
