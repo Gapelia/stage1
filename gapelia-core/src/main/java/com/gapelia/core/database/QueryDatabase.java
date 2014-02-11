@@ -44,7 +44,7 @@ public class QueryDatabase {
 			System.out.println(profile.toString());
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
 			statement.setString(1, profile.getValidatedId());
-			System.out.println(statement);
+			System.out.println(statement.toString());
 			ResultSet rs = statement.executeQuery();
 			System.out.println(rs.getWarnings());
 			if (rs == null || rs.getFetchSize()==0) {
