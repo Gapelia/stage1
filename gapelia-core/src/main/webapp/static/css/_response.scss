@@ -718,7 +718,7 @@
 
 	.app {
 
-		.book .author-avatar { margin: 0 0 -1rem 0; width: 45px; }
+		.book .author-avatar, .collection .author-avatar { margin: 0 0 -1rem 0; width: 45px; }
 		
 		.book .bookmark-this {
 			.bottom-bm { border-bottom: 35px solid white; border-left: 34px solid transparent; right: 18px; }
@@ -730,7 +730,7 @@
 			margin: 0 0 1.5rem 0;
 		}
 		
-		.book-info .author-name, .book-info .library-location { display: inline-block; margin-left: 4px; }
+		.book-info .author-name, .book-info .library-location, .collection-info .author-name, .collection-info .library-location { display: inline-block; margin-left: 4px; }
 		
 		.book-info .author-name:before { display: none }
 		
@@ -1234,7 +1234,7 @@
 			left: 0.5rem;
 		}
 		
-		.book .author-avatar { width: 35px; }
+		.book .author-avatar, .collection .author-avatar { width: 35px; }
 		
 		.book, .library, .collection {
 			background-color: transparent;
