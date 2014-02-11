@@ -235,15 +235,13 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
-		<script src="/static/scripts/jquery.adaptive-backgrounds.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
 			$("#layout-scroller").scrollpanel();
-
-			// $("#publish-scroller").scrollpanel();
 		</script>
 
+		<script src="/static/scripts/adaptiveBG.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<!--/ <script src="/static/scripts/medium.js"></script> /-->

@@ -136,7 +136,8 @@
 					}
 
 					$parent.css({
-						backgroundColor: data.color
+						// backgroundColor: data.color
+						color: data.color
 					});
 
 					// Helper function to calculate yiq — http://en.wikipedia.org/wiki/YIQ
