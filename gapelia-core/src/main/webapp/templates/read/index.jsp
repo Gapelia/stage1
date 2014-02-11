@@ -347,7 +347,7 @@
                                                         htmlToInsert = "";
 
                      $.ajax({
-                      url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/getBook",
+                      url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/getBook",
                       contentType: "application/x-www-form-urlencoded;charset=utf-8",
                       type: "POST",
                       data: {

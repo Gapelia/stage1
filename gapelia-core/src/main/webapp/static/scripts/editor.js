@@ -15,7 +15,7 @@
 	$(document).ready(function () {
 		bookid =0;
 		$.ajax({
-			url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/createBook",
+			url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -34,7 +34,7 @@
 			}
 		});
 		$.ajax({
-			url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/createPage",
+			url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -292,7 +292,7 @@
 			geotag = "BUUUGGG";
 		}
 		$.ajax({
-			url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/createPage",
+			url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1302,7 +1302,7 @@
 
 		// Save book
 		$.ajax({
-			url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/createBook",
+			url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1335,7 +1335,7 @@
 			console.log("attempting to save page number" + i);
 
 			$.ajax({
-				url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/createPage",
+				url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createPage",
 				contentType: "application/x-www-form-urlencoded;charset=utf-8",
 				async: false,
 				type: "POST",
