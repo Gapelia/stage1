@@ -478,7 +478,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); }); $('.page-bg').css('opacity','1');\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.page-bg').css('opacity','1'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span></section><div class=\"fluid-preview\"><article>";
 
@@ -559,7 +559,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $('button.photo-picker').html('Change photo'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -588,7 +588,7 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		$("button.photo-picker").html("Add photo");
+		$("button.photo-picker").html("&#xf2e4;");
 
 		/*
 		// Check to see if image is vertical or horizontal
@@ -658,7 +658,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $('button.photo-picker').html('Change photo'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -702,7 +702,7 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		$("button.photo-picker").html("Add photo");
+		$("button.photo-picker").html("&#xf2e4;");
 
 		// description input limiter
 		var descElem = "page-desc";
@@ -738,7 +738,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $('button.photo-picker').html('Change photo'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -779,7 +779,7 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		$("button.photo-picker").html("Add photo");
+		$("button.photo-picker").html("&#xf2e4;");
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -816,7 +816,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $('button.photo-picker').html('Change photo'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -857,7 +857,7 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
-		$("button.photo-picker").html("Add photo");
+		$("button.photo-picker").html("&#xf2e4;");
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -888,9 +888,9 @@
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\"></span>";
 
-		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker\">Change Video</button>";
+		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker video-btn\">&#xf256;</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('button.photo-picker').html('Change video'); $('.image-attribution').show(); \" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); \" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -933,8 +933,8 @@
 		pages.page[currentPage].video = videoURL;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
-		
-		$("button.photo-picker").html("Add video");
+
+		$("button.photo-picker.video-btn").html("&#xf256;");
 
 		// title input limiter
 		var titleElem = "page-title-elem";

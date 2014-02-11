@@ -66,7 +66,7 @@
 					<a class="edit-page"><i class="ion-gear-b"></i></a>
 
 					<section>
-						<img src="/static/images/blankBG.jpg" id="page0Image">
+						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
 						<span id="page0Title">0 &middot; New Page</span>
 					</section>
 				</li>
@@ -144,7 +144,7 @@
 					<div id="create-content">
 
 						<section id="test-blank" class="blank-preview-wrapper">
-							<img class="page-bg" src="/static/images/blankBG.jpg"/>
+							<img class="page-bg" src="/static/images/blankBG.jpg" alt="" data-adaptive-background="1"/>
 
 							<div class="blank-preview">
 								<article>
@@ -235,6 +235,7 @@
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
+		<script src="/static/scripts/jquery.adaptive-backgrounds.js"></script>
 
 		<script>
 			$("#pages-scroller").scrollpanel();
@@ -253,7 +254,6 @@
 
 		<script>
 			// $("img").VimeoThumb();
-
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 		</script>
 
