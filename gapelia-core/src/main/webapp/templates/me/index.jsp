@@ -1,6 +1,6 @@
 <% /* *********************************************** */ %>
 <% /* Include this line below to make page login-safe */ %>
-<% /* @include file="../../auth.jsp"									*/ %>
+<%   @include file="../../auth.jsp"  %>
 <% /* *********************************************** */ %>
 
 <!DOCTYPE html>
@@ -415,7 +415,7 @@
 				// $(".user-avatar img").attr("src", _image);
 
 				$.ajax({
-					url: "gapss-609817464.us-west-2.elb.amazonaws.com/api/me/getUserBooks",
+					url: "/api/me/getUserBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {

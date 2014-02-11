@@ -888,13 +888,14 @@
 						$("#book-list").hide();
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
-
+						<% String id = session.getId(); %>
+						var sessionId = '<%= id %>'
 						$.ajax({
 							url: "/api/libraries/getAllBooks",
 							contentType: "application/x-www-form-urlencoded;charset=utf-8",
 							type: "POST",
 							data: {
-								sessionId: sId
+								sessionId: sessionId
 							},
 
 							success: function (data) {
