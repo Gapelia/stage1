@@ -760,7 +760,7 @@
 		}
 		
 		.library .wrapper button, #library-splash button {
-			font-size: 1.0em;
+			font-size: 0.8em;
 		}
 		
 		#featured-panel {
@@ -1101,11 +1101,17 @@
 		}
 
 		#library-splash {
-			button {
-				top: 1.2rem; right: 1.5rem;
+			#library-info {
+				h2 { font-size: 26px; }
+				p { font-size: 0.9em; }
 			}
+			section { font-size: 1.0em; line-height: initial; }
 		}
-
+		
+		.library .wrapper button, #library-splash button {
+			font-size: 0.6em;
+		}
+		
 		#user-splash {
 			.user-avatar {
 				top: 15%; left: 0;
