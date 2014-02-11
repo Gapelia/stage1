@@ -751,6 +751,14 @@
 
 		.book-info, .collection-info { bottom: 20%; }
 
+		#library-splash #library-info {
+			top: 40% !important ;
+			text-align: center;
+			
+			h2 { font-size: 38px; }
+			p { font-size: 1.0em; padding-top: 8px; }
+		}
+		
 		.library .wrapper button, #library-splash button {
 			font-size: 1.0em;
 		}
