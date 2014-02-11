@@ -43,8 +43,7 @@ public class QueryDatabase {
 			LOG.error(profile.toString());
 			System.out.println(profile.toString());
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
-			int id=Integer.parseInt(profile.getValidatedId());
-			statement.setInt(1, id);
+			statement.setString(1, profile.getValidatedId());
 			
 			ResultSet rs = statement.executeQuery();
 			System.out.println(rs.getWarnings());
@@ -88,10 +87,10 @@ public class QueryDatabase {
 		User user = new User();
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_USER);
-			statement.setString(1, profile.getProviderId());
+			statement.setString(1, profile.getValidatedId());
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
-				user.setUserId(rs.getString("proverId"));
+				user.setUserId(rs.getString("validatedId"));
 				user.setName(rs.getString("name"));
 				user.setEmail(rs.getString("email"));
 				user.setBio(rs.getString("bio"));
