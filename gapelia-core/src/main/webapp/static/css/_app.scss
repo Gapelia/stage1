@@ -558,6 +558,8 @@
 				font-style: italic;
 				margin: 0 0 0.5rem 0;
 				text-transform: lowercase;
+        font-weight: 500;
+        color: rgba(252, 252, 252, 0.5);
 			}
 		}
 
@@ -667,8 +669,12 @@
 	}
 
 	#library-splash {
-		button {
-			top: 1rem; right: 2rem;
+		#library-info h2 { font-size: 42px; font-weight: 700; }
+      p { font-weight: 200; font-size: 1.1em; padding-top: 12px; }
+      section { font-weight: bold; } 
+      
+    button {
+			top: 2rem; right: 2rem;
 
 			position: absolute;
 			z-index: 11;
