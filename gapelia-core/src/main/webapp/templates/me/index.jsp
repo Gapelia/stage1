@@ -415,7 +415,7 @@
 				// $(".user-avatar img").attr("src", _image);
 
 				$.ajax({
-					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
+					url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/me/getUserBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {

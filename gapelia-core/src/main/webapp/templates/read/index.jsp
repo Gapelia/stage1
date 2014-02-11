@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
  <head>
 
   <meta charset="utf-8"/>
@@ -349,7 +347,7 @@
                                                         htmlToInsert = "";
 
                      $.ajax({
-                      url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
+                      url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/book/getBook",
                       contentType: "application/x-www-form-urlencoded;charset=utf-8",
                       type: "POST",
                       data: {

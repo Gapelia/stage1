@@ -890,7 +890,7 @@
 						$("#bookmark-list").hide();
 
 						$.ajax({
-							url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
+							url: "http://http://ec2-54-213-201-87.us-west-2.compute.amazonaws.com/api/libraries/getAllBooks",
 							contentType: "application/x-www-form-urlencoded;charset=utf-8",
 							type: "POST",
 							data: {
