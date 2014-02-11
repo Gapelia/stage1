@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="gapelia-core:war">
-    <output-path>$PROJECT_DIR$/gapelia-core/target</output-path>
-    <root id="archive" name="gapelia.war">
-      <element id="artifact" artifact-name="gapelia-core:war exploded" />
-    </root>
-  </artifact>
-</component>
