@@ -40,6 +40,8 @@ public class QueryDatabase {
 	/********************************/
 	public static boolean checkProfile(Profile profile) {
 		try {
+			LOG.erro(profile.toString());
+			System.out.println(profile.toString());
 			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
 			int id=Integer.parseInt(profile.getValidatedId());
 			statement.setInt(1, id);
