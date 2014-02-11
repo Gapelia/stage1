@@ -66,7 +66,7 @@ public class QueryDatabase {
 				insert.setDate(14, new Date(System.currentTimeMillis()));
 				insert.setString(15, "I Just Joined and I Love To Explore!!!!! ");
 				insert.setString(16, "Fun");
-				insert.setInt(17, id);
+				insert.setInt(17, 1);
 				//insert.setBoolean(17,TRUE);//is public
 				System.out.println(insert);
 				rs = insert.executeQuery();
