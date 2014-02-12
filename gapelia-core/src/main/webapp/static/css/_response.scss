@@ -759,8 +759,15 @@
 			p { font-size: 1.0em; padding-top: 8px; }
 		}
 		
-		.library .wrapper button, #library-splash button {
-			font-size: 0.8em;
+		#library-splash button { font-size: 0.7em; }
+		
+		.library .wrapper { text-align: center; font-size: 0.8em; }
+		
+		.library .library-info {
+			text-align: center;
+			top: 23%;
+				.title { font-size: 1.8rem; }
+				.lib-blurb { font-size: 1.0rem; color: rgba(255, 255, 255, 0.7); }
 		}
 		
 		#featured-panel {
