@@ -30,7 +30,7 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script src="http://use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
@@ -245,7 +245,8 @@
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
-		<script src="/static/scripts/ge-insert.js"></script>
+		<!--/ <script src="/static/scripts/ge-insert.orig.js"></script> /-->
+		<!--/ <script src="/static/scripts/ge-filepicker.js"></script> /-->
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>

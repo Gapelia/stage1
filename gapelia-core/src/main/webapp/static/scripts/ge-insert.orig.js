@@ -39,7 +39,7 @@
 		}));
 
 	}, a.fn.gapeliaInsert.settings = {
-		imagesUploadScript: "/static/scripts/upload.php",
+		imagesUploadScript: "/static/scripts/upload.orig.php",
 		enabled: !0,
 		images: !0,
 		maps: !1
@@ -68,7 +68,6 @@
 			d = '<a class="gapeliaInsert-action action-images-add">Image</a>',
 			// d = '<input class="picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE">',
 			e = '<a class="gapeliaInsert-action action-maps-add">Map</a>';
-			// <button onclick="javascript:openFilePicker()">Choose Image</button>
 
 			a.fn.gapeliaInsert.settings.images === !0 && a.fn.gapeliaInsert.settings.maps === !0 ? c = '<a class="gapeliaInsert-buttonsShow">Insert</a><ul class="gapeliaInsert-buttonsOptions"><li>' + d + "</li><li>" + e + "</li></ul>" : a.fn.gapeliaInsert.settings.images === !0 ? c = d : a.fn.gapeliaInsert.settings.maps === !0 && (c = e), "" !== c && (c = '<div class="gapeliaInsert" contenteditable="false"><div class="gapeliaInsert-buttons"><div class="gapeliaInsert-buttonsIcon">&rarr;</div>' + c + '</div><div class="gapeliaInsert-placeholder"></div></div>', b.is(":empty") && b.html("<p><br></p>"), b.keyup(function () {
 
@@ -156,25 +155,15 @@ function (a) {
 
 			var c, d, e = this;
 
-			/*
 			return c = a('<input type="file">').click(), c.change(function () {
 				d = this.files, e.uploadFiles(b, d);
 			}), a.fn.gapeliaInsert.insert.deselect(), c;
-			*/
 
-			return c = a('<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE">').click(function () {
-
+			/*
+			return c = a('<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE"></input>').click(), c.change(function () {
 				// d = this.files, e.uploadFiles(b, d);
-
-				stuff = "";
-				stuff += "<div id=\"filepicker_dialog_container\" style=\"position: fixed; padding: 10px; background-image: url(https://www.filepicker.io/static/img/spinner.gif); background-color: rgb(255, 255, 255); top: 10px; bottom: auto; right: auto; left: 263px; height: 500px; width: 800px; overflow: hidden; border: 1px solid rgb(153, 153, 153); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; margin: 0px; -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 3px 7px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 3px 7px; z-index: 10001; box-sizing: content-box; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				stuff += "<a style=\"float: right; cursor: default; padding: 0 5px 0 0; font-size: 1.5em; color: rgb(85, 85, 85); text-decoration-line: none;\">×</a>";
-				stuff += "<iframe name=\"filepicker_dialog\" id=\"filepicker_dialog\" border=\"0\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" src=\"https://www.filepicker.io/dialog/open/?key=ABFuSiQFbQRylrWy9nCs7z&amp;id=1392224879965&amp;referrer=localhost&amp;iframe=true&amp;version=v1&amp;s=1,19,2,3,12,9&amp;m=image/*\" style=\"width: 100%; height: 468px; border: none; position: relative;\"></iframe>";
-				stuff += "</div>";
-
-				$("body").append(stuff);
-
 			}), a.fn.gapeliaInsert.insert.deselect(), c;
+			*/
 
 		},
 

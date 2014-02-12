@@ -197,8 +197,25 @@ if (typeof module === "object") {
 				node = getSelectionStart(),
 				tagName;
 
+				// var htmlISH = '<span>Oh hai!</span>';
+
+				// var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);\">";
+
+				var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);\">";
+
 				if (node && node.getAttribute("data-gapelia-element") && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute("data-disable-return"))) {
 					document.execCommand("formatBlock", false, "p");
+
+					// $("p").prepend(htmlISH);
+
+					$("p").each(function () {
+						$(this).after(htmlISH);
+					});
+
+					var element2 = $(".inline-image-insert");
+					element2 = element2[0];
+					element2.type = "filepicker";
+					filepicker.constructWidget(element2);
 				}
 
 				if (e.which === 13 && !e.shiftKey) {
@@ -213,6 +230,7 @@ if (typeof module === "object") {
 						}
 					}
 				}
+
 			});
 
 			return this;
@@ -366,7 +384,7 @@ if (typeof module === "object") {
 				hasMultiParagraphs = selectionHtml.match(/<(p|h[0-6]|blockquote)>([\s\S]*?)<\/(p|h[0-6]|blockquote)>/g);
 				hasMultiParagraphs = hasMultiParagraphs ? hasMultiParagraphs.length : 0;
 
-				if (newSelection.toString().trim() === '' || (this.options.allowMultiParagraphSelection === false && hasMultiParagraphs)) {
+				if (newSelection.toString().trim() === "" || (this.options.allowMultiParagraphSelection === false && hasMultiParagraphs)) {
 					this.hideToolbarActions();
 				} else {
 					selectionElement = this.getSelectionElement();
