@@ -609,6 +609,11 @@
 						margin: 0 auto;
 					}
 
+					.inline-image-insert {
+						bottom: 1rem; left: 1.5rem;
+						position: fixed;
+					}
+
 					.page-bg { opacity: 0; }
 
 					.draggable-placeholder {

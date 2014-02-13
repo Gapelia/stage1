@@ -7,6 +7,50 @@ if (typeof module === "object") {
 	module.exports = GapeliaEditor;
 }
 
+//
+function pasteHtmlAtCaret(html) {
+
+	var sel, range;
+
+	if (window.getSelection) {
+		// IE9 and non-IE
+		sel = window.getSelection();
+
+		if (sel.getRangeAt && sel.rangeCount) {
+			range = sel.getRangeAt(0);
+			range.deleteContents();
+
+			// Range.createContextualFragment() would be useful here but is non-standard
+			// and not supported in all browsers (IE9, for one)
+			var el = document.createElement("div");
+			el.innerHTML = html;
+
+			var frag = document.createDocumentFragment(), node, lastNode;
+
+			while ((node = el.firstChild)) {
+				lastNode = frag.appendChild(node);
+			}
+
+			range.insertNode(frag);
+
+			// Preserve the selection
+			if (lastNode) {
+				range = range.cloneRange();
+				range.setStartAfter(lastNode);
+				range.collapse(true);
+
+				sel.removeAllRanges();
+				sel.addRange(range);
+			}
+		}
+	} else if (document.selection && document.selection.type != "Control") {
+		// IE < 9
+		document.selection.createRange().pasteHTML(html);
+	}
+
+}
+//
+
 (function (window, document) {
 
 	"use strict";
@@ -197,25 +241,28 @@ if (typeof module === "object") {
 				node = getSelectionStart(),
 				tagName;
 
-				// var htmlISH = '<span>Oh hai!</span>';
+				// var someHtmlString = "<script>alert('hi!');</script>";
+				// var escaped = $("div.someClass").text(someHtmlString).html();
 
-				// var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);\">";
+				var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret(<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url);\">";
 
-				var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);\">";
+				// $('.inserted-img').before('</p>'); $('.inserted-img').after('<p>');
 
 				if (node && node.getAttribute("data-gapelia-element") && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute("data-disable-return"))) {
 					document.execCommand("formatBlock", false, "p");
 
-					// $("p").prepend(htmlISH);
-
-					$("p").each(function () {
-						$(this).after(htmlISH);
+					$(".page-desc p").each(function () {
+						// $(this).before(htmlISH);
+						$(".page-desc").before(htmlISH);
 					});
 
 					var element2 = $(".inline-image-insert");
+
 					element2 = element2[0];
 					element2.type = "filepicker";
 					filepicker.constructWidget(element2);
+
+					$("button.inline-image-insert").html("Add inline photo");
 				}
 
 				if (e.which === 13 && !e.shiftKey) {
@@ -602,7 +649,7 @@ if (typeof module === "object") {
 			// allowing nesting, we need to use outdent
 			// https://developer.mozilla.org/en-US/docs/Rich-Text_Editing_in_Mozilla
 			if (el === "blockquote" && selectionData.el && selectionData.el.parentNode.tagName.toLowerCase() === "blockquote") {
-				return document.execCommand('outdent', false, null);
+				return document.execCommand("outdent", false, null);
 			}
 
 			if (selectionData.tagName === el) { el = "p"; }

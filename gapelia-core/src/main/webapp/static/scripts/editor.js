@@ -488,24 +488,11 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		// <input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"\">
-
-		// <button onclick=\"javascript:openFilePicker()\">Choose Image</button>
-
-		// var $img = $("<img>").attr("src", response);
-		// $("#image_list").append($img);
-
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
-
-			// insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);   \">";
-
 			insert += "</article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div>";
-
-			// insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.page-desc').prepend('<img>'); $('.page-desc img').attr('src', url);   \">";
-
 			insert += "</article></div></section>";
 		}
 
@@ -524,13 +511,6 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		/*
-		var element2 = $(".inline-image-insert");
-		element2 = element2[0];
-		element2.type = "filepicker";
-		filepicker.constructWidget(element2);
-		*/
-
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -540,62 +520,7 @@
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
-		/*
-		$(function () {
-
-			var $something = "<div style='background-color: #07d0eb;'>Hey!</div>";
-			html = '<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;">your span</span>';
-
-			$(".page-desc").children("p").each(function () {
-			});
-
-		});
-		*/
-
-		/*
-    $(function () {
-
-			$(document).keypress(function(e) {
-				if(e.which == 13) {
-					// alert('You pressed enter!');
-				}
-			});
-
-    	html = '<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;">your span</span>';
-
-    	$('.page-desc p').each(function () {
-    		$(this).prepend(html);
-    	});
-
-    });
-		*/
-
-		/*
-		$(".page-desc").gapeliaInsert({
-			// editor: editor,
-			images: true,
-			maps: false
-			// filepicker: true
-		});
-		*/
-
-		// var editor = new GapeliaEditor(".editable", { excludedActions: ["u", "h3", "blockquote"], });
-
 		$("button.photo-picker").html("&#xf2e4;");
-
-		/*
-		$(document).on(".inline-image-insert", "click", function () {
-
-			stuff = "";
-			stuff += "<div id=\"filepicker_dialog_container\" style=\"position: fixed; padding: 10px; background-image: url(https://www.filepicker.io/static/img/spinner.gif); background-color: rgb(255, 255, 255); top: 10px; bottom: auto; right: auto; left: 263px; height: 500px; width: 800px; overflow: hidden; border: 1px solid rgb(153, 153, 153); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; margin: 0px; -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 3px 7px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 3px 7px; z-index: 10001; box-sizing: content-box; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-			stuff += "<a style=\"float: right; cursor: default; padding: 0px 5px 0px 0px; font-size: 1.5em; color: rgb(85, 85, 85); text-decoration-line: none;\">×</a>";
-			stuff += "<iframe name=\"filepicker_dialog\" id=\"filepicker_dialog\" border=\"0\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" src=\"https://www.filepicker.io/dialog/open/?key=ABFuSiQFbQRylrWy9nCs7z&amp;id=1392224879965&amp;referrer=localhost&amp;iframe=true&amp;version=v1&amp;s=1,19,2,3,12,9&amp;m=image/*\" style=\"width: 100%; height: 468px; border: none; position: relative;\"></iframe>";
-			stuff += "</div>";
-
-			$("body").append(stuff);
-
-		});
-		*/
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");

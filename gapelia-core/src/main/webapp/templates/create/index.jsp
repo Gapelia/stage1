@@ -244,10 +244,8 @@
 		<script src="/static/scripts/adaptiveBG.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
-		<script src="/static/scripts/gapelia-editor.js"></script>
-		<!--/ <script src="/static/scripts/ge-insert.orig.js"></script> /-->
-		<!--/ <script src="/static/scripts/ge-filepicker.js"></script> /-->
 		<script src="/static/scripts/editor.js"></script>
+		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 
