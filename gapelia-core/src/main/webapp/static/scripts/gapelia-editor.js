@@ -235,6 +235,7 @@ function pasteHtmlAtCaret(html) {
 
 			var self = this;
 
+			/*
 			this.elements[index].addEventListener("keyup", function (e) {
 
 				var
@@ -263,6 +264,32 @@ function pasteHtmlAtCaret(html) {
 					filepicker.constructWidget(element2);
 
 					$("button.inline-image-insert").html("Add inline photo");
+				}
+
+				if (e.which === 13 && !e.shiftKey) {
+					node = getSelectionStart();
+					tagName = node.tagName.toLowerCase();
+
+					if (!(self.options.disableReturn || this.getAttribute("data-disable-return")) && tagName !== "li") {
+						document.execCommand("formatBlock", false, "p");
+
+						if (tagName === "a") {
+							document.execCommand("unlink", false, null);
+						}
+					}
+				}
+
+			});
+			*/
+
+			this.elements[index].addEventListener("keyup", function (e) {
+
+				var
+				node = getSelectionStart(),
+				tagName;
+
+				if (node && node.getAttribute("data-gapelia-element") && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute("data-disable-return"))) {
+					document.execCommand("formatBlock", false, "p");
 				}
 
 				if (e.which === 13 && !e.shiftKey) {
@@ -363,8 +390,8 @@ function pasteHtmlAtCaret(html) {
 
 			html += '</ul>' +
 				'<div class="gapelia-editor-toolbar-form-anchor" id="gapelia-editor-toolbar-form-anchor">' +
-				'    <input type="text" value="" placeholder="' + this.options.anchorInputPlaceholder + '">' +
-				'    <a href="#">&#xf2bb;</a>' +
+				'<input type="text" value="" placeholder="' + this.options.anchorInputPlaceholder + '">' +
+				'<a href="#">&#xf2bb;</a>' +
 				'</div>';
 
 			return html;

@@ -526,6 +526,30 @@
 			$(this).css("overflow-y", "auto");
 		});
 
+		//
+		$(".page-desc").click(function () {
+
+			// var string = "";
+			// string += "</p><div class='inserted-img'><img src=" + url + "></div><p>";
+
+			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+
+			$(".page-desc p").each(function () {
+				// $(this).before(htmlISH);
+				$(".page-desc").before(htmlISH);
+			});
+
+			var element2 = $(".inline-image-insert");
+
+			element2 = element2[0];
+			element2.type = "filepicker";
+			filepicker.constructWidget(element2);
+
+			$("button.inline-image-insert").html("Add inline photo");
+
+		});
+		//
+
 		// title input limiter
 		var titleElem = "page-title-elem";
 		titleMax = 69;
