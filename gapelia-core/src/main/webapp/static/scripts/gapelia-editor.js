@@ -319,18 +319,29 @@ function pasteHtmlAtCaret(html) {
 		buttonTemplate: function (btnType) {
 
 			var buttonTemplates = {
-				'bold': '<li><button class="gapelia-editor-action gapelia-editor-action-bold" data-action="bold" data-element="b">B</button></li>',
-				'italic': '<li><button class="gapelia-editor-action gapelia-editor-action-italic" data-action="italic" data-element="i">I</button></li>',
-				'underline': '<li><button class="gapelia-editor-action gapelia-editor-action-underline" data-action="underline" data-element="u">U</button></li>',
-				'superscript': '<li><button class="gapelia-editor-action gapelia-editor-action-superscript" data-action="superscript" data-element="sup">x<sup>1</sup></button></li>',
-				'subscript': '<li><button class="gapelia-editor-action gapelia-editor-action-subscript" data-action="subscript" data-element="sub">x<sub>1</sup></button></li>',
-				'anchor': '<li><button class="gapelia-editor-action gapelia-editor-action-anchor" data-action="anchor" data-element="a">#</button></li>',
-				'header1': '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '">h1</button></li>',
-				'header2': '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">h2</button></li>',
-				'quote': '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote">&ldquo;</button></li>',
-				'orderedlist': '<li><button class="gapelia-editor-action gapelia-editor-action-orderedlist" data-action="insertorderedlist" data-element="ol">1.</button></li>',
-				'unorderedlist': '<li><button class="gapelia-editor-action gapelia-editor-action-unorderedlist" data-action="insertunorderedlist" data-element="ul">&bull;</button></li>',
-				'pre': '<li><button class="gapelia-editor-action gapelia-editor-action-pre" data-action="append-pre" data-element="pre">0101</button></li>'
+				"bold": '<li><button class="gapelia-editor-action gapelia-editor-action-bold" data-action="bold" data-element="b">B</button></li>',
+
+				"italic": '<li><button class="gapelia-editor-action gapelia-editor-action-italic" data-action="italic" data-element="i">I</button></li>',
+
+				"underline": '<li><button class="gapelia-editor-action gapelia-editor-action-underline" data-action="underline" data-element="u">U</button></li>',
+
+				"superscript": '<li><button class="gapelia-editor-action gapelia-editor-action-superscript" data-action="superscript" data-element="sup">x<sup>1</sup></button></li>',
+
+				"subscript": '<li><button class="gapelia-editor-action gapelia-editor-action-subscript" data-action="subscript" data-element="sub">x<sub>1</sup></button></li>',
+
+				"anchor": '<li><button class="gapelia-editor-action gapelia-editor-action-anchor" data-action="anchor" data-element="a">< # ></button></li>',
+
+				"header1": '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '">h1</button></li>',
+
+				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">h2</button></li>',
+
+				"quote": '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote">&ldquo;</button></li>',
+
+				"orderedlist": '<li><button class="gapelia-editor-action gapelia-editor-action-orderedlist" data-action="insertorderedlist" data-element="ol">1.</button></li>',
+
+				"unorderedlist": '<li><button class="gapelia-editor-action gapelia-editor-action-unorderedlist" data-action="insertunorderedlist" data-element="ul">&bull;</button></li>',
+
+				"pre": '<li><button class="gapelia-editor-action gapelia-editor-action-pre" data-action="append-pre" data-element="pre">0101</button></li>'
 			};
 
 			return buttonTemplates[btnType] || false;
@@ -353,7 +364,7 @@ function pasteHtmlAtCaret(html) {
 			html += '</ul>' +
 				'<div class="gapelia-editor-toolbar-form-anchor" id="gapelia-editor-toolbar-form-anchor">' +
 				'    <input type="text" value="" placeholder="' + this.options.anchorInputPlaceholder + '">' +
-				'    <a href="#">&times;</a>' +
+				'    <a href="#">&#xf2bb;</a>' +
 				'</div>';
 
 			return html;
@@ -725,9 +736,11 @@ function pasteHtmlAtCaret(html) {
 			clearTimeout(timer);
 
 			timer = setTimeout(function () {
+
 				if (!self.toolbar.classList.contains("gapelia-editor-toolbar-active")) {
 					self.toolbar.classList.add("gapelia-editor-toolbar-active");
 				}
+
 			}, 100);
 
 		},
@@ -756,6 +769,15 @@ function pasteHtmlAtCaret(html) {
 				if (e.keyCode === 13) {
 					e.preventDefault();
 					self.createLink(this);
+
+					var regex;
+
+					regex = /((http:\/\/(www\.flickr\.com\/photos\/.*|flic\.kr\/.*|instagr\.am\/p\/.*|instagram\.com\/p\/.*|gist\.github\.com\/.*|www\.kickstarter\.com\/projects\/.*\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|tumblr\.com\/.*|.*\.tumblr\.com\/post\/.*|cl\.ly\/.*|cl\.ly\/.*\/content|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|youtu\.be\/.*|.*\.youtube\.com\/user\/.*|.*\.youtube\.com\/.*#.*\/.*|m\.youtube\.com\/watch.*|m\.youtube\.com\/index.*|.*\.youtube\.com\/profile.*|.*\.youtube\.com\/view_play_list.*|.*\.youtube\.com\/playlist.*|.*twitch\.tv\/.*|.*justin\.tv\/.*\/b\/.*|.*justin\.tv\/.*\/w\/.*|.*twitch\.tv\/.*|.*twitch\.tv\/.*\/b\/.*|www\.ustream\.tv\/recorded\/.*|www\.ustream\.tv\/channel\/.*|www\.ustream\.tv\/.*|ustre\.am\/.*|.*revision3\.com\/.*|www\.vimeo\.com\/groups\/.*\/videos\/.*|www\.vimeo\.com\/.*|vimeo\.com\/groups\/.*\/videos\/.*|vimeo\.com\/.*|vimeo\.com\/m\/#\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*|open\.spotify\.com\/.*|spoti\.fi\/.*|play\.spotify\.com\/.*|www\.last\.fm\/music\/.*|www\.last\.fm\/music\/+videos\/.*|www\.last\.fm\/music\/+images\/.*|www\.last\.fm\/music\/.*\/_\/.*|www\.last\.fm\/music\/.*\/.*|www\.mixcloud\.com\/.*\/.*\/|www\.rdio\.com\/#\/artist\/.*\/album\/.*|www\.rdio\.com\/artist\/.*\/album\/.*|.*\.bandcamp\.com\/|.*\.bandcamp\.com\/track\/.*|.*\.bandcamp\.com\/album\/.*|grooveshark\.com\/.*))|(https:\/\/(gist\.github\.com\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|www\.vimeo\.com\/.*|vimeo\.com\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|open\.spotify\.com\/.*|play\.spotify\.com\/.*)))/i;
+
+					$("a").embedly({
+						urlRe: regex,
+						method: "after"
+					});
 				}
 
 			});

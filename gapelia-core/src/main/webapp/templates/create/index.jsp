@@ -244,6 +244,7 @@
 		<script src="/static/scripts/adaptiveBG.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
+		<script src="/static/scripts/embedly.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
