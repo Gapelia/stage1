@@ -244,7 +244,7 @@ function pasteHtmlAtCaret(html) {
 				// var someHtmlString = "<script>alert('hi!');</script>";
 				// var escaped = $("div.someClass").text(someHtmlString).html();
 
-				var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret(<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url);\">";
+				var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url);\">";
 
 				// $('.inserted-img').before('</p>'); $('.inserted-img').after('<p>');
 
