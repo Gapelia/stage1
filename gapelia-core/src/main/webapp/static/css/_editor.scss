@@ -688,7 +688,7 @@
 					}
 
 					.page-bg {
-						width: 100%; height: auto;
+						width: 100%; height: 100%;
 						box-shadow: 0 0 5px 0 rgba($black, 0.3);
 					}
 
@@ -700,8 +700,8 @@
 					}
 
 					.photo-preview {
-						width: 100%; height: auto;
-						margin: 2.5rem 0 0 0; padding: 1rem 2rem;
+						width: 100%; height: 100%;
+						margin: 6.5rem 0 0 0; padding: 1rem 2rem;
 
 						color: $black;
 						position: relative; // absolute
