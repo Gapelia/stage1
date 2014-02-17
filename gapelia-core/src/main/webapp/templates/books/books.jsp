@@ -74,14 +74,10 @@
 			</nav>
 			<!--//site-menu /-->
 
-			<!--/ <button id="g-menu-toggle"><span></span><a href="#">Gapelia Logo</a></button> /-->
-
 			<button id="g-menu-toggle">
-				<!--/ <span>This</span><span>Is</span><span>Guh-pell-ee-uhhhhh!</span> /-->
 				<i class="ion-drag"></i>
 			</button>
 
-			<!--/ <div id="header-toggle">&#9206; &#9197;</div> /-->
 			<div id="next-book-toggle"><i class="ion-forward"></i></div>
 
 			<header>
@@ -97,8 +93,8 @@
 				</ul>
 			</header>
 
-			<div id="bb-nav-prev">&#59229;</div>
-			<div id="bb-nav-next">&#59230;</div>
+			<div id="bb-nav-prev">&#xf153;</div>
+			<div id="bb-nav-next">&#xf154;</div>
 
 			<!--/ div id="the-book" /-->
 			<div id="the-book" class="bb-custom-wrapper">
@@ -108,16 +104,27 @@
 					<div class="bb-item front-cover" id="page1">
 						<div class="content">
 
-							<!--/ /static/images/test-book/team-cover.JPG /-->
-							<section class="frontcover-wrapper">
-								<div class="frontcover-preview">
-									<img class="page-bg" src="/static/images/test-book/01.jpg"/>
+							<section class="fluid-wrapper">
+								<section class="draggable-placeholder">
+									<img class="page-bg" src="/static/images/test-book/01.jpg" alt=""/>
+									<span class="image-attribution">*Photo Credit*</span>
+								</section>
 
-									<article class="cover-info">
+								<div class="fluid-preview">
+									<div id="author-info">
+										<div id="author-name">Paul Anthony Webb</div>
+										<img id="author-avatar" src="/static/images/users/11.jpg" alt=""/>
+									</div>
+
+									<article>
 
 										<h1 class="page-title-elem">Hayao Miyazaki</h1>
-										<div class="page-desc"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is "quite strenuous" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div>
-										<h5><span>NetOperator Wibby</span></h5>
+
+										<div class="page-desc">
+											<p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is "quite strenuous" and that he cannot work as long as he was once able to.</p>
+
+											<p>This is my tribute to him.</p>
+										</div>
 
 									</article>
 								</div>
@@ -130,15 +137,15 @@
 					<div class="bb-item" id="page2">
 						<div class="content">
 
-							<!--/ /static/images/test-book/team-daniel.JPG /-->
 							<section class="phototext-wrapper">
-								<img class="page-bg" src="/static/images/test-book/02.jpg"/>
+								<span class="image-attribution">*Photo Credit*</span>
+
+								<img class="page-bg" src="/static/images/test-book/02.jpg" alt=""/>
 
 								<div class="phototext-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<!--/ <div id="geotag-02" class="page-geotag-elem">Lake Powell, Arizona</div> /-->
 
 										<div class="page-desc">
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -183,20 +190,19 @@
 					<div class="bb-item" id="page3">
 						<div class="content">
 
-							<!--/ /static/images/test-book/team-diego.JPG /-->
-							<section class="horizontal-wrapper">
-								<div class="scroller-wrapper">
-									<img class="page-bg" src="/static/images/test-book/03.jpg"/>
+							<section class="fluid-wrapper">
+								<section class="draggable-placeholder">
+									<img class="page-bg" src="/static/images/test-book/03.jpg" alt=""/>
+									<span class="image-attribution">*Photo Credit*</span>
+								</section>
 
-									<div class="horizontal-preview">
-										<article>
+								<div class="fluid-preview">
+									<article>
 
-											<h1 class="page-title-elem">Diego Regules</h1>
-											<!--/ <div id="geotag-03" class="page-geotag-elem">Calamocha, Aragon, Spain</div> /-->
-											<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars." </div>
+										<h1 class="page-title-elem">Diego Regules</h1>
+										<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars."</div>
 
-										</article>
-									</div>
+									</article>
 								</div>
 							</section>
 
@@ -207,18 +213,18 @@
 					<div class="bb-item" id="page4">
 						<div class="content">
 
-							<!--/ /static/images/test-book/team-tommy.JPG /-->
 							<section class="overlay-wrapper">
-								<img class="page-bg" src="/static/images/test-book/04.jpg"/>
+								<img class="page-bg" src="/static/images/test-book/04.jpg" alt=""/>
 
 								<div class="overlay-preview">
 									<article>
 
 										<div class="page-desc"><blockquote>En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.</blockquote></div>
-										<!--/ <div id="geotag-04" class="page-geotag-elem">Tapia de Casariego, Asturias, Spain</div> /-->
 
 									</article>
 								</div>
+
+								<span class="image-attribution">*Photo Credit*</span>
 							</section>
 
 						</div>
@@ -228,12 +234,11 @@
 					<div class="bb-item" id="page5">
 						<div class="content">
 
-							<section class="text-wrapper">
-								<div class="text-preview">
+							<section class="fluid-wrapper no-img">
+								<div class="fluid-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<!--/ <div id="geotag-05" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -279,16 +284,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/06.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/06.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -302,16 +306,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/07.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/07.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -325,16 +328,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/08.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/08.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -347,19 +349,19 @@
 					<div class="bb-item" id="page9">
 						<div class="content">
 
-							<section class="horizontal-wrapper">
-								<div class="scroller-wrapper">
-									<img class="page-bg" src="/static/images/test-book/09.jpg"/>
+							<section class="fluid-wrapper">
+								<section class="draggable-placeholder">
+									<img class="page-bg" src="/static/images/test-book/09.jpg" alt=""/>
+									<span class="image-attribution">*Photo Credit*</span>
+								</section>
 
-									<div class="horizontal-preview">
-										<article>
+								<div class="fluid-preview">
+									<article>
 
-											<h1 class="page-title-elem">This is a title</h1>
-											<!--/ <div id="geotag-09" class="page-geotag-elem">Location</div> /-->
-											<div class="page-desc">This is a description.</div>
+										<h1 class="page-title-elem">This is a title.</h1>
+										<div class="page-desc">This is a description.</div>
 
-										</article>
-									</div>
+									</article>
 								</div>
 							</section>
 
@@ -371,16 +373,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/10.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/10.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -394,16 +395,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/11.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/11.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -417,13 +417,14 @@
 						<div class="content">
 
 							<section class="phototext-wrapper">
-								<img class="page-bg" src="/static/images/test-book/12.jpg"/>
+								<span class="image-attribution">*Photo Credit*</span>
+
+								<img class="page-bg" src="/static/images/test-book/12.jpg" alt=""/>
 
 								<div class="phototext-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<!--/ <div id="geotag-12" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -469,14 +470,15 @@
 						<div class="content">
 
 							<section class="vertical-wrapper">
+								<span class="image-attribution">*Photo Credit*</span>
+
 								<div class="draggable-placeholder">
-									<img class="page-bg" src="/static/images/test-book/13.jpg"/>
+									<img class="page-bg" src="/static/images/test-book/13.jpg" alt=""/>
 
 									<div class="vertical-preview">
 										<article>
 
 											<h1 class="page-title-elem">The Future of the Operating System</h1>
-											<!--/ <div id="geotag-13" class="page-geotag-elem">Boston, MA</div> /-->
 
 											<div class="page-desc">
 												<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -523,16 +525,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/14.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/14.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -546,13 +547,14 @@
 						<div class="content">
 
 							<section class="phototext-wrapper">
-								<img class="page-bg" src="/static/images/test-book/15.jpg"/>
+								<span class="image-attribution">*Photo Credit*</span>
+
+								<img class="page-bg" src="/static/images/test-book/15.jpg" alt=""/>
 
 								<div class="phototext-preview">
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<!--/ <div id="geotag-15" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -598,16 +600,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/16.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/16.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -621,16 +622,17 @@
 						<div class="content">
 
 							<section class="overlay-wrapper">
-								<img class="page-bg" src="/static/images/test-book/17.jpg"/>
+								<img class="page-bg" src="/static/images/test-book/17.jpg" alt=""/>
 
 								<div class="overlay-preview">
 									<article>
 
 										<div class="page-desc">This is a description.</div>
-										<!--/ <div id="geotag-17" class="page-geotag-elem">Location</div> /-->
 
 									</article>
 								</div>
+
+								<span class="image-attribution">*Photo Credit*</span>
 							</section>
 
 						</div>
@@ -641,16 +643,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/18.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/18.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -664,20 +665,21 @@
 						<div class="content">
 
 							<section class="video-wrapper">
+								<span class="image-attribution">*Video Credit*</span>
+
 								<div class="video-preview">
 									<div class="button-wrapper">
 										<button class="play-video">Play Video</button>
 									</div>
 
 									<div class="video-player-container">
-										<img src="http://placehold.it/640x360" data-vimeo-id="36733110" class="large"/>
-										<iframe src="http://player.vimeo.com/video/36733110?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=0" style="display: none";></iframe>
+										<img src="http://placehold.it/640x360" data-vimeo-id="36733110" class="large" alt=""/>
+										<iframe src="http://player.vimeo.com/video/36733110?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1;autoplay=0" style="display: none;"></iframe>
 									</div>
 
 									<article>
 
 										<h1 class="page-title-elem">The Future of the Operating System</h1>
-										<!--/ <div id="geotag-19" class="page-geotag-elem">Boston, MA</div> /-->
 
 										<div class="page-desc">
 											<p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p>
@@ -723,16 +725,15 @@
 						<div class="content">
 
 							<section class="photo-wrapper">
-								<img class="page-bg" src="/static/images/test-book/20.jpg"/>
+								<div class="page-bg-wrapper">
+									<span class="image-attribution">*Photo Credit*</span>
+									<img class="page-bg" src="/static/images/test-book/20.jpg" alt=""/>
+								</div>
 
 								<div class="photo-preview">
 									<article>
 
 										<h1 class="page-title-elem">This is a title</h1>
-										<!--/
-										<div id="geotag-06" class="page-geotag-elem">Location</div>
-										<div class="page-desc">This is a description.</div>
-										/-->
 
 									</article>
 								</div>
@@ -749,7 +750,7 @@
 								<div id="fin">
 									<div class="appreciate"><span>Vote</span></div>
 
-									<h2>Hayao Miyazaki</h1>
+									<h2>Hayao Miyazaki</h2>
 
 									<ul class="share-book">
 										<li><a href="#">Facebook</a></li>
@@ -760,14 +761,14 @@
 									<hr/>
 
 									<section>
-										<div id="author-avatar"><img src="/static/images/users/11.jpg"/></div>
+										<div id="author-avatar"><img src="/static/images/users/11.jpg" alt=""/></div>
 
 										<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
 										<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
 									</section>
 
 									<section>
-										<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg"/></div>
+										<div id="library-avatar"><img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/></div>
 
 										<div id="library-name"><a href="#">Japanimation</a></div>
 										<div id="library-info-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
@@ -775,7 +776,7 @@
 								</div>
 
 								<div id="fin-next">
-									<img class="page-bg" src="/static/images/test-book/2651.jpg"/>
+									<img class="page-bg" src="/static/images/test-book/2651.jpg" alt=""/>
 
 									<section>
 										<h2><a href="#">Roadtripping California</a></h2>
@@ -834,12 +835,14 @@
 						"height": $vH + "px"
 					});
 
-					$(".frontcover-wrapper").imgLiquid({ fill: true });
+					$(".fluid-wrapper").imgLiquid({ fill: true });
+					$(".no-img").imgLiquid({ fill: true });
 					// $(".photo-wrapper").imgLiquid({ fill: false });
-					$(".horizontal-wrapper").imgLiquid({ fill: true });
+					// $(".horizontal-wrapper").imgLiquid({ fill: true });
 					$(".overlay-wrapper").imgLiquid({ fill: true });
 					$(".phototext-wrapper").imgLiquid({ fill: true });
 					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+					$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
 
 					var Page = (function() {
 
@@ -943,7 +946,7 @@
 						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
 						// Page 01
-						$("#the-book").append("<section class=\"frontcover-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/01.jpg\"/><div class=\"frontcover-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">Hayao Miyazaki</h1><div class=\"page-desc\"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is \"quite strenuous\" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div><h5>NetOperator Wibby</h5></article></div></section>");
+						$("#the-book").append("<section class=\"fluid-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/01.jpg\"/><div class=\"fluid-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">Hayao Miyazaki</h1><div class=\"page-desc\"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is \"quite strenuous\" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div><h5>NetOperator Wibby</h5></article></div></section>");
 
 						// Page 02
 						$("#the-book").append("<section class=\"phototext-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/02.jpg\"/><div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\">The Future of the Operating System</h1><div class=\"page-desc\"><p>I also love gadgets and I own quite a few: Nintendo 3DS, iPhone 5, Vaio laptop (in desperate need of an upgrade), Wii, TV, a couple Raspberry Pis, &amp;c. This may very well sound like you! The ubiquity of computers over the last decade has boosted economies the world over, made a bunch of people rich, and is enabling people with ideas to achieve their dreams. Case in point: I make a living doing a job that did not exist a little over a decade ago — front-end web design and development (lol, remember Geocities and Angelfire?).</p><p>Every one of these gadgets contain their own operating system, specifically designed for that device. Of course, this is a good thing. However, as Microsoft and Apple branched out to create their own smartphones I started to notice some things that began to both interest and irritate me. Apple's iOS and Mac OS X both share the same codebase, as does Microsoft's Windows Phone OS and Windows 8. If we are essentially using the same OS at home and on the go, why are they separate? Boy, it would be really great if my smartphone could dock into a home console to become a full-fledged desktop OS!</p><p>This line of reasoning is how my operating system concept, hikari OS was born.</p><p>There is a point to this post, but first, a story...</p><p>When I was in middle school (maybe 7th or 8th grade), I was really into playing Mega Man X1, X2, and X3 via the snes9x emulator on my computer (my parents never allowed my sisters and I to own game consoles growing up. I did own a Gameboy Advance though, given to me by a friend). Anyhoo, there was a younger kid on my street who knew of my Mega Man gaming habits and suggested a GBA trade; his \"Mega Man Battle Network\" for my \"Donkey Kong Country\". I had never heard of this Mega Man game so I said sure. I got home, started a new game (over his game save, just to see how the story began) and was immediately drawn into this world set in the near-future about pocket-sized computers and the intelligent A.I.s that resided in them and became your friend (while also saving the world, of course). I don't remember when I got the game, but I remember defeating the final boss on Christmas morning (circa 2005?).</p><p>Needless to say, the nice kid on my street never got his game back (I am not sorry).</p><p>In 9th grade I befriended a guy who was also a huge MMBN fan like myself and also had the current game at the time, MMBN3 (critically hailed by fans as the definitive BN game...I'm inclined to agree, although I did like the last entry of the series, MMBN6 as well). Not only did I have a community of fans to converse with on the Internet, I also had someone who I could see everyday (and NetBattle!). I discussed with my best friend my crazy idea of one day creating the fictional world that had enthralled me so. No matter what, I was going to build it.</p><p>Fast-forward through high-school and my failed first six/eight months of college (long story/crappy circumstance) and I am nowhere closer to my goal. Sure, I have tons of blueprints at this point, and notebooks filled with conceptual software walkthroughs (I went to college for software engineering), but I did not have anything I could use or see. Code Academy did not exist, the Envato Tuts network was just getting started, and the economy sucked so bad I could not find a job to support what would be my night hobby (circa 2007/08).</p><p>So, I taught myself how to use Photoshop. I taught myself how to code webpages. I eventually got an internship and got better still. All of a sudden, HTML5 was released. People created proof-of-concept desktop environments using web technologies. Companies created their own operating systems using web technologies; Jolicloud, Chrome OS, &amp;c. Some guy from England by the name of Eben Upton released a $30 computer called \"Raspberry Pi\". I saw the pieces of my dream materializing.</p><p>With the Raspberry Pi, I could quickly build and test OS ideas! I would not have to wait to get massive resources or shell out money to contract elsewhere. I already knew how to use HTML5, and anything I did not know, I could quickly learn! The same goes for hardware.</p><p>Happy with the turn of events, I started coding mockups. Then, seemingly out of nowhere, Mozilla announces \"Boot2Gecko\" (which was later renamed \"Firefox OS\"), their HTML5-based OS that booted from a minimal Linux kernel stack on mobile devices supplied by the likes of HTC, &amp;c. Essentially, half of my idea. Now, just this week, Canonical announced \"Ubuntu Edge\", which is their OS/hardware concept that will allow their smartphone to dock into some sort of station at home to become a full-fledged desktop...the other half of my idea.</p><p>Everyone. I could not be happier.</p><p>Clearly, I am on the right track and I am so glad there are like-minded people at these great companies. To where these improvements and jumps in computing will take us is anyone's guess. This will only make computing better for everyone, which will make the 'Net a better place to be.</p><p>P.S. I will be slowly churning out updates on hikari and they will be slow. You can check the progress on the official site (just a placeholder for now), and also on Dribbble. I may post things here (and on Twitter!) as well.</p><p>EDIT: Created a GitHub repo!</p></div></article></div></section>");
