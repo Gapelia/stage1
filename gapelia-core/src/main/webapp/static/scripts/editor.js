@@ -534,6 +534,23 @@
 			$(this).css("overflow-y", "auto");
 		});
 
+		// $(function () {
+
+			// var section = document.getElementById("some-section");
+			// var section = document.getElementsByClassName("page-desc");
+			// var after = document.createElement("div");
+			// after.className = "text-fade";
+
+			// section.append(after);
+
+			$(".page-desc").after("<div class='text-fade'></div>");
+
+			$(".page-desc").on("scroll", function() {
+				$(".text-fade").style.bottom = -$(".page-desc").scrollTop + "px";
+			});
+
+		// });
+
 		/*
 		//
 		$(".page-desc").click(function () {
