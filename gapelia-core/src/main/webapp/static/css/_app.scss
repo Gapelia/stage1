@@ -673,11 +673,13 @@
       p { font-weight: 200; font-size: 1.1em; padding-top: 12px; }
       section { font-weight: bold; } 
       
-    button {
-			top: 2rem; right: 2rem;
-
-			position: absolute;
-			z-index: 11;
+      button {
+        top: 2rem; right: 2rem;
+        background-color: rgba(255, 255, 255, 0) !important;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+  
+        position: absolute;
+        z-index: 11;
 		}
 	}
 
