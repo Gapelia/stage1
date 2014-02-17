@@ -291,6 +291,14 @@
 			#author-avatar {
 				float: right;
 			}
+			
+			#author-name {
+				text-align: right;
+				
+				&:before {
+					text-align: right;
+				}
+			}
 		}
 
 		#author-info, article {
@@ -401,8 +409,27 @@
 		}
 
 		#author-info {
-			#author-name { color: $black; }
+			position: absolute;
+			top: -15%;
+			width: 20%;
+			color: $black;
+
+			#author-avatar {
+				float: right;
+			}
+			
+			#author-name {
+				text-align: right;
+				
+				&:before {
+					content: "by";
+					text-align: right;
+					display: inline;
+					margin-right: 6px;
+				}
+			}
 		}
+		
 	}
 
 	.overlay-wrapper {
@@ -435,7 +462,31 @@
 				text-align: center;
 			}
 		}
+		
+		#author-info {
+			position: relative;
+			top: 1rem;
+			width: 50%;
+			text-align: center;
+			color: white;
+			left: 25%;
 
+			#author-avatar {
+				float: right;
+				margin-right: 45%;
+				margin-top: 6px;
+				
+			}
+			
+			#author-name {
+				text-align: center;
+				
+				&:before {
+					text-align: center;
+				}
+			}
+		}
+		
 		.image-attribution { right: 0; }
 	}
 
