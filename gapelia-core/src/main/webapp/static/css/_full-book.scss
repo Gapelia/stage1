@@ -281,6 +281,8 @@
 		.image-attribution {
 			bottom: 0; right: 0;
 			margin: 0 auto;
+			max-width: 35%;
+			border-top-left-radius: 8px;
 		}
 
 		#author-info {
@@ -487,7 +489,17 @@
 			}
 		}
 		
-		.image-attribution { right: 0; }
+		.image-attribution {
+			bottom: 0; right: 0;
+			background-color: rgba(255, 255, 255, 0);
+			max-width: 30%;
+			color: $white;
+
+			position: fixed;
+			width: auto;
+
+			p { color: $white; }
+		}
 	}
 
 	.phototext-wrapper, .vertical-wrapper, .video-wrapper {
@@ -530,6 +542,11 @@
 
 			.page-desc { text-align: left; }
 		}
+		
+		.image-attribution {
+			max-width: 30%;
+			border-top-right-radius: 8px;
+		}
 	}
 
 	.vertical-wrapper {
@@ -541,6 +558,8 @@
 			width: 25%; height: 100%;
 		}
 
+		.image-attribution { width: 25%; background-image: linear-gradient(to bottom, transparent, rgba(252, 250, 250, 0.7)); background-color: transparent; }
+		
 		.page-bg {
 			width: auto; height: 100%;
 		}
