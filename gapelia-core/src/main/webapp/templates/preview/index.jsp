@@ -219,11 +219,11 @@
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/></div>";
 						htmlToInsert += "<div class=\"photo-preview\">";
+						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						htmlToInsert += "<div id=\"author-info\">";
 						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "<article>";
 						htmlToInsert += "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div>";

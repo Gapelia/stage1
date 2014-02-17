@@ -488,6 +488,8 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
+		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+		
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 			insert += "</article></div></section>";
@@ -511,6 +513,11 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		var element2 = $(".inline-image-insert");
+		element2 = element2[0];
+		element2.type = "filepicker";
+		filepicker.constructWidget(element2);
+
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
 		pages.page[currentPage].geotag = geotag;
@@ -521,11 +528,13 @@
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		$("button.photo-picker").html("&#xf2e4;");
+		$("button.inline-image-insert").html("Add inline photo");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 
+		/*
 		//
 		$(".page-desc").click(function () {
 
@@ -549,6 +558,7 @@
 
 		});
 		//
+		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -1173,9 +1183,9 @@
 	function delayCheck() {
 
 		if (timedelay == 2) {
-			$(".book-creation header").fadeOut();
+			$(".book-creation header").fadeOut("slow");
 
-			$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
+			$(".fluid-preview-wrapper button.photo-picker, button.inline-image-insert, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
 
 			// Video layout doesn't really need this, and the button doesn't appear when moving mouse over iframe
 			// $(".video-preview-wrapper button.photo-picker").css("opacity", "0");
@@ -1191,7 +1201,7 @@
 
 		$(".book-creation header").fadeIn();
 
-		$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
+		$(".fluid-preview-wrapper button.photo-picker, button.inline-image-insert, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
 
 		// $(".video-preview-wrapper button.photo-picker").css("opacity", "1");
 
