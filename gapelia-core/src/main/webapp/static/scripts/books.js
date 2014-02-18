@@ -6,15 +6,6 @@
 	// Globals
 	var $vW = $(window).width(), $vH = $(window).height();
 
-	/*
-	$(".phototext-wrapper .page-desc").css("height", $vH - 185 + "px");
-	$(".text-wrapper .page-desc").css("height", $vH - 165 + "px");
-	$(".vertical-wrapper .page-desc").css("height", $vH - 185 + "px");
-	$(".video-wrapper .page-desc").css("height", $vH - 185 + "px");
-	*/
-
-	// $(".backcover-wrapper .page-bg").css("width", $vW);
-
 	// Calculate half of viewport height minus half the height of the prev/next buttons
 	$("#bb-nav-prev, #bb-nav-next").css("top", $vH / 2 - 32 + "px");
 
@@ -23,6 +14,13 @@
 		$(".content").css({
 			"width": $vW + "px",
 			"height": $vH + "px"
+		});
+
+		$(function() {
+
+			$(".phototext-wrapper, .vertical-wrapper, .video-wrapper").closest(".content").css("height", $vH - 1 + "px");
+			$(".overlay-wrapper").closest(".content").css("overflow", "hidden");
+
 		});
 
 		$(document).on("click", "#next-book-toggle", function() {
@@ -36,6 +34,10 @@
 
 			$(".full-book header").css("top", "0");
 
+		});
+
+		$(document).on("mouseleave", ".full-book header", function() {
+			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
 		});
 
 		// Show header on scroll
@@ -209,6 +211,17 @@
 		*/
 
 	}
+
+	// Text fade
+	$(function () {
+
+		$(".fluid-wrapper .page-desc").after("<div class='text-fade'></div>");
+
+		$(".fluid-wrapper .page-desc").on("scroll", function() {
+			$(".text-fade").style.bottom = -$(".fluid-wrapper .page-desc").scrollTop + "px";
+		});
+
+	});
 
 	$(".video-preview .play-video").click(function() {
 

@@ -28,7 +28,7 @@
 		top: -50rem; left: 0;
 
 		background-color: $white; // rgba($black, 0.3)
-		border-bottom: 1px solid rgba($black, 0.05);
+		border-bottom: 1px solid rgba($black, 0.01);
 		color: $black;
 		position: absolute;
 		text-align: center;
@@ -156,19 +156,26 @@
 		width: 100%;
 
 		.page-bg, iframe {
-			width: 100%; height: 100%;
 			bottom: 0; left: 0;
 
 			position: absolute;
+			width: 100%;
 		}
 
-		.page-title-elem, .page-geotag-elem, .page-desc { display: block; }
+		iframe { height: 100%; }
+		.page-bg { height: auto; }
+
+		.page-title-elem, .page-geotag-elem, .page-desc {
+			color: rgba($black, 0.95);
+			display: block;
+		}
+
 		.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
 
 		.page-title-elem {
-			font-size: 1.5em;
+			font-size: 2rem;
 			font-weight: 700;
-			line-height: 1.2;
+			line-height: 2.5rem;
 		}
 
 		.page-geotag-elem {
@@ -190,15 +197,15 @@
 
 		.page-desc {
 			@include serif;
-			font-size: 1em;
-			line-height: 1.5em;
+			font-size: 1.2rem;
+			line-height: 2rem;
 			margin: 1rem 0 0 0;
-			// min-height: 50px;
 			text-align: center;
 			// white-space: pre-wrap; // preserve line breaks!
 		}
 
 		p {
+			color: inherit;
 			font-size: inherit;
 			line-height: inherit;
 			margin: 0 0 1.5rem 0;
@@ -250,6 +257,14 @@
 				display: block !important;
 			}
 		}
+
+		.text-fade {
+			bottom: 0; left: 0; right: 0;
+
+			background-image: linear-gradient(rgba($white, 0), $white);
+			height: 150px;
+			position: absolute;
+		}
 	}
 
 	.fluid-wrapper, .overlay-wrapper, .photo-wrapper {
@@ -262,7 +277,7 @@
 		.page-desc {
 			overflow-x: hidden;
 			overflow-y: auto;
-			padding: 0 1rem 1rem 0;
+			// padding: 0 1rem 1rem 0;
 		}
 	}
 
@@ -277,38 +292,18 @@
 		background-color: $white;
 		height: 100%;
 
-		/*
-		.image-attribution {
-			bottom: 0; right: 0;
-
-			border-top-left-radius: 8px; //
-			margin: 0 auto;
-			max-width: 35%; //
-		}
-		*/
-
 		#author-info {
 			position: absolute;
-			top: 1.8rem; // 3rem
+			top: 2.35rem;
 			width: 13%;
-			margin: 0 0 0 -1%; //
+			margin: 0;
 
-			#author-avatar {
-				float: right;
-			}
+			#author-avatar { float: right; }
 
 			#author-name {
 				text-align: right;
-
-				&:before {
-					display: none; //
-					// text-align: right;
-				}
+				&:before { text-align: right; }
 			}
-		}
-
-		#author-info, article {
-			// display: inline-block;
 		}
 
 		.button-wrapper, section, .fluid-preview { transition: all 0.2s ease; }
@@ -324,24 +319,21 @@
 		}
 
 		.fluid-preview {
-			width: 100%; min-height: 53%;
+			width: 100%; height: auto; // min-height: 53%;
 			top: 75%; /* 20% */ left: 0;
 
 			background-color: $white;
-			// color: $black;
-			font-size: 1.5em;
-			line-height: 2.5em;
 			padding: 1rem 2rem 0 2rem;
 			position: absolute;
+
+			article { margin: 0 0 4rem 0; }
 
 			.page-title-elem, .page-desc {
 				color: rgba($black, 0.8); //
 				margin: 1rem auto 0;
 				text-align: left;
-				width: 66%; // 70%
+				width: 68%;
 			}
-
-			.page-desc { padding: 0 0 5rem 0; }
 
 			h5 {
 				margin: 0 auto;
@@ -360,9 +352,7 @@
 			top: 3rem;
 			width: 13%;
 
-			#author-avatar {
-				float: right;
-			}
+			#author-avatar { float: right; }
 		}
 
 		#author-info, article {
@@ -387,18 +377,9 @@
 		}
 
 		.page-bg {
-			width: 100%; height: 100%;
+			width: 100%; height: auto;
 			box-shadow: 0 0 5px 0 rgba($black, 0.3);
 		}
-
-		/*
-		.image-attribution {
-			border-top-left-radius: 8px; //
-			right: 0;
-			width: auto;
-			max-width: 50%; //
-		}
-		*/
 
 		.photo-preview {
 			width: 100%; height: 100%;
@@ -406,10 +387,6 @@
 
 			color: $black;
 			position: relative;
-			
-			::-o-input-placeholder { color: $black; }
-			::-moz-placeholder { color: $black; }
-			::-webkit-input-placeholder { color: $black; }
 
 			.page-title-elem, .page-geotag-elem, .page-desc { text-align: center; }
 
@@ -464,8 +441,8 @@
 				margin: 0 0 0.5rem 0; padding: 0;
 
 				color: $white;
-				font-size: 36px;
-				line-height: 40px;
+				font-size: 2rem;
+				line-height: 2.5rem;
 			}
 
 			.page-geotag-elem {
@@ -474,7 +451,8 @@
 				text-align: center;
 			}
 		}
-		
+
+		// Tommy
 		#author-info {
 			position: relative;
 			top: 1rem;
@@ -485,31 +463,17 @@
 
 			#author-avatar {
 				float: right;
-				margin-right: 45%;
-				margin-top: 6px;
-				
+				margin-right: 45%; //
+				margin-top: 6px; //
 			}
-			
+
 			#author-name {
 				text-align: center;
-				
-				&:before {
-					text-align: center;
-				}
+				&:before { text-align: center; }
 			}
 		}
 
 		.image-attribution {
-			/*
-			background-color: rgba($white, 0); //
-			bottom: 0; //
-			color: $white; //
-			position: fixed; //
-			right: 0;
-			width: auto; //
-			max-width: 30%; //
-			*/
-
 			p { color: $white; }
 		}
 	}
@@ -545,6 +509,11 @@
 			padding: 4rem 2rem 2rem 2rem;
 			position: absolute;
 
+			.page-title-elem {
+				font-size: 1.4rem;
+				line-height: 1.7rem;
+			}
+
 			.page-geotag-elem {
 				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
 
@@ -552,15 +521,12 @@
 				border-bottom: 1px dotted $white;
 			}
 
-			.page-desc { text-align: left; }
+			.page-desc {
+				font-size: 1rem;
+				line-height: 1.7rem;
+				text-align: left;
+			}
 		}
-
-		/*
-		.image-attribution {
-			border-top-right-radius: 8px; //
-			max-width: 30%; //
-		}
-		*/
 	}
 
 	.vertical-wrapper {
@@ -572,14 +538,6 @@
 			width: 25%; height: 100%;
 		}
 
-		/*
-		.image-attribution {
-			background-color: transparent; //
-			background-image: linear-gradient(to bottom, transparent, rgba(252, 250, 250, 0.7)); //
-			width: 25%; //
-		}
-		*/
-
 		.page-bg {
 			width: auto; height: 100%;
 		}
@@ -589,7 +547,7 @@
 			top: 0; right: 0;
 
 			background-color: $white;
-			border-left: 1px solid $gray-ii;
+			border-left: 1px solid transparent;
 			// color: $black;
 			font-size: 1.5em; //
 			line-height: 2.5em; //
@@ -622,11 +580,16 @@
 			width: 30%; height: 100%;
 			top: 0; right: 0;
 
-			border-left: 1px solid $gray-ii;
+			border-left: 1px solid transparent;
 			color: $black;
 			overflow-y: auto; //
 			padding: 4rem 2rem 2rem 2rem;
 			position: absolute;
+
+			.page-title-elem {
+				font-size: 1.4rem;
+				line-height: 1.7rem;
+			}
 
 			.page-geotag-elem {
 				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
@@ -635,7 +598,11 @@
 				border-bottom: 1px dotted $black;
 			}
 
-			.page-desc { text-align: left; }
+			.page-desc {
+				font-size: 1rem;
+				line-height: 1.7rem;
+				text-align: left;
+			}
 		}
 
 		.video-player-container {
@@ -810,10 +777,8 @@
 			}
 
 			#author-bio-blurb, #library-info-blurb {
-				@include serif;
-				font-size: 1.2em;
-				font-style: italic;
-				line-height: 1.2em;
+				font-size: 1.2rem;
+				line-height: 1.5rem;
 				margin: -4rem 0 0 8.5rem;
 			}
 		}
@@ -868,6 +833,7 @@
 
 	backface-visibility: hidden;
 	margin: 0 auto;
+	// overflow: hidden; // stops 1px scroll jump
 	perspective: 1300px;
 	position: relative;
 	z-index: 100;

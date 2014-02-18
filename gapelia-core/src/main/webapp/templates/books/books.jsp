@@ -830,15 +830,8 @@
 
 					var $vW = $(window).width(), $vH = $(window).height();
 
-					$(".content").css({
-						"width": $vW + "px",
-						"height": $vH + "px"
-					});
-
 					$(".fluid-wrapper").imgLiquid({ fill: true });
 					$(".no-img").imgLiquid({ fill: true });
-					// $(".photo-wrapper").imgLiquid({ fill: false });
-					// $(".horizontal-wrapper").imgLiquid({ fill: true });
 					$(".overlay-wrapper").imgLiquid({ fill: true });
 					$(".phototext-wrapper").imgLiquid({ fill: true });
 					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
