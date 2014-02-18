@@ -326,6 +326,57 @@
 		overflow-y: auto;
 
 		#the-book {
+			#bb-bookblock {
+				.bb-item {
+					width: 100%; height: auto; // 100%
+					top: initial; left: initial;
+
+					display: block !important;
+					margin: 0 0 1rem 0;
+					position: relative;
+
+					.content {
+						height: auto;
+						position: relative;
+					}
+				}
+			}
+		}
+
+		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			width: 100%; height: auto; // 100%
+
+			overflow: initial;
+			position: relative;
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.page-desc {
+				overflow-x: initial;
+				overflow-y: initial;
+			}
+		}
+
+		.fluid-wrapper {
+			height: auto;
+
+			.draggable-placeholder, .fluid-preview {
+				height: auto;
+				position: relative;
+			}
+		}
+
+		.text-fade { display: none !important; }
+
+	}
+
+	/*
+	.full-book {
+
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		#the-book {
 			transform: translate3d(0, 0, 0);
 
 			-webkit-overflow-scrolling: touch;
@@ -534,6 +585,7 @@
 		}
 
 	}
+	*/
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 

@@ -830,12 +830,14 @@
 
 					var $vW = $(window).width(), $vH = $(window).height();
 
-					$(".fluid-wrapper").imgLiquid({ fill: true });
-					$(".no-img").imgLiquid({ fill: true });
-					$(".overlay-wrapper").imgLiquid({ fill: true });
-					$(".phototext-wrapper").imgLiquid({ fill: true });
-					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-					$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+					if ($vW > "1024") {
+						$(".fluid-wrapper").imgLiquid({ fill: true });
+						$(".no-img").imgLiquid({ fill: true });
+						$(".overlay-wrapper").imgLiquid({ fill: true });
+						$(".phototext-wrapper").imgLiquid({ fill: true });
+						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+					}
 
 					var Page = (function() {
 
@@ -936,8 +938,34 @@
 
 					if ($vW < "1025") {
 
-						$("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+						// $("#bb-bookblock, #header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+						$("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
+						$(function () {
+
+							var $fluid01 = $(".fluid-wrapper .draggable-placeholder").height();
+							var $fluid02 = $(".fluid-wrapper .fluid-preview").height();
+							var $fluid03 = $(".fluid-wrapper .fluid-preview article").height();
+							var $fluid04 = $(".fluid-wrapper .page-bg").height();
+
+							var $pt02 = $(".phototext-wrapper .phototext-preview").height();
+							var $pt04 = $(".phototext-wrapper .page-bg").height();
+
+							$(".fluid-wrapper .draggable-placeholder").css("height", $fluid04 + "px");
+							$(".fluid-wrapper .fluid-preview").css("height", $fluid02 + "px");
+
+							$(".phototext-wrapper .phototext-preview").css("height", $pt02 + $pt04 + "px");
+
+							$(".fluid-wrapper").css({
+								// "height": $fluid01 + $fluid02 + "px"
+								// "height": $fluid01 + $fluid03 + "px"
+								// "height": $fluid02 + "px"
+								// "height": $fluid03 + "px"
+							});
+
+						});
+
+						/*
 						// Page 01
 						$("#the-book").append("<section class=\"fluid-wrapper\"><img class=\"page-bg\" src=\"/static/images/test-book/01.jpg\"/><div class=\"fluid-preview\"><article class=\"cover-info\"><h1 class=\"page-title-elem\">Hayao Miyazaki</h1><div class=\"page-desc\"><p>Miyazaki has claimed he was retiring several times, but on September 6, 2013, he assured his fans that he is 'quite serious' this time. He believes he is getting too old for the business, and wants to make room for new animators. He also says that the task of animating is \"quite strenuous\" and that he cannot work as long as he was once able to.</p><p>This is my tribute to him.</p></div><h5>NetOperator Wibby</h5></article></div></section>");
 
@@ -1000,6 +1028,7 @@
 
 						// Page 21
 						$("#the-book").append("<section class=\"backcover-wrapper\"><div id=\"fin\"><div class=\"appreciate\"><span>Vote</span></div><h2>Hayao Miyazaki</h1><ul class=\"share-book\"><li><a href=\"#\">Facebook</a></li><li><a href=\"#\">Twitter</a></li><li><a href=\"#\">Email</a></li></ul><hr/><section><div id=\"author-avatar\"><img src=\"/static/images/users/11.jpg\"/></div><div id=\"author-name\"><a href=\"#\">Paul Anthony Webb</a></div><div id=\"author-bio-blurb\">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div></section><section><div id=\"library-avatar\"><img src=\"/static/images/covers/architecture-sonn-visionsofart.jpg\"/></div><div id=\"library-name\"><a href=\"#\">Japanimation</a></div><div id=\"library-info-blurb\">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div></section></div><div id=\"fin-next\"><img class=\"page-bg\" src=\"/static/images/test-book/2651.jpg\"/><section><h2><a href=\"#\">Roadtripping California</a></h2></section></div></section>");
+						*/
 
 					}
 
