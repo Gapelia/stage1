@@ -200,7 +200,7 @@
 									<article>
 
 										<h1 class="page-title-elem">Diego Regules</h1>
-										<div class="page-desc">"Shoot for the MOON. Even if you miss, you'll land among the stars."</div>
+										<div class="page-desc"><p>Shoot for the MOON. Even if you miss, you'll land among the stars.</p></div>
 
 									</article>
 								</div>
@@ -358,8 +358,8 @@
 								<div class="fluid-preview">
 									<article>
 
-										<h1 class="page-title-elem">This is a title.</h1>
-										<div class="page-desc">This is a description.</div>
+										<h1 class="page-title-elem">This is a title</h1>
+										<div class="page-desc"><p>This is a description.</p></div>
 
 									</article>
 								</div>
@@ -627,7 +627,7 @@
 								<div class="overlay-preview">
 									<article>
 
-										<div class="page-desc">This is a description.</div>
+										<div class="page-desc"><p>This is a description.</p></div>
 
 									</article>
 								</div>

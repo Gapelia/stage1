@@ -350,30 +350,29 @@
 		}
 
 		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
-			width: 100%; height: auto; // 100%
+			width: 100%; height: auto;
 
 			overflow: initial;
 			position: relative;
 
-			.page-bg, iframe {
-				position: relative;
-			}
+			.page-bg, iframe { position: relative; }
 		}
 
 		.scroller-wrapper {
-			overflow-y: initial; // auto
+			overflow-y: initial;
 			position: relative;
 		}
 
 		.fluid-wrapper {
 			#author-info {
 				top: -3.5rem; left: 1rem;
-				width: 30%;
+				width: 30rem;
 
 				#author-name {
 					margin: 0.3rem 0 0 3.5rem;
 					position: absolute;
 					text-align: left;
+					text-shadow: 1px 1px 0 rgba($white, 0.1) !important;
 
 					&:before { text-align: left; }
 				}
@@ -462,7 +461,9 @@
 				width: 100%; height: auto;
 			}
 
-			.page-bg { height: auto; }
+			.page-bg {
+				width: 100%; height: auto;
+			}
 
 			.vertical-preview {
 				width: 100%; height: auto;
@@ -570,223 +571,6 @@
 		.text-fade { display: none !important; }
 
 	}
-
-	/*
-	.full-book {
-
-		overflow-x: hidden;
-		overflow-y: auto;
-
-		#the-book {
-			transform: translate3d(0, 0, 0);
-
-			-webkit-overflow-scrolling: touch;
-			-o-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-webkit-transform: translate3d(0, 0, 0);
-		}
-
-		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
-		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
-			margin: 0; padding: 0;
-
-			border-bottom: 1px solid $black;
-			height: auto; // !important
-			overflow: initial; // auto
-			position: relative;
-
-			.page-bg, iframe {
-				width: 100%; height: auto;
-				bottom: auto; left: auto;
-
-				position: relative;
-				transform: translateY(0%);
-
-				-o-transform: translateY(0%);
-				-ms-transform: translateY(0%);
-				-moz-transform: translateY(0%);
-				-webkit-transform: translateY(0%);
-			}
-
-			article {
-				width: 100%; height: auto;
-
-				display: block;
-				padding: 2rem;
-				position: relative;
-			}
-
-			.page-title-elem {
-				font-size: 2.5em; // 36px
-				line-height: 1.2em; // 40px
-			}
-
-			.page-desc, p {
-				font-size: 1.4em !important;
-				line-height: 1.4em !important;
-			}
-
-			.page-desc { padding: 1rem 2rem !important; }
-		}
-
-		.frontcover-preview, .photo-preview, .text-preview, .horizontal-preview,
-		.overlay-preview, .phototext-preview, .vertical-preview, .video-preview, .backcover-preview {
-			margin: 0 !important; padding: 0 !important;
-		}
-
-		.frontcover-wrapper {
-			.frontcover-preview {
-				transform: translateY(0%);
-
-				-o-transform: translateY(0%);
-				-ms-transform: translateY(0%);
-				-moz-transform: translateY(0%);
-				-webkit-transform: translateY(0%);
-
-				article { width: 100%; }
-
-				.page-title-elem {
-					font-size: 2.5em;
-					line-height: 1.2em;
-				}
-
-				p { margin: inherit; }
-			}
-		}
-
-		.photo-wrapper {
-			overflow: inherit;
-
-			.page-bg {
-				border: none;
-				box-shadow: none;
-				max-height: none;
-			}
-
-			.photo-preview {
-				max-height: none;
-				position: relative;
-			}
-		}
-
-		.text-wrapper {
-			.text-preview { font-size: inherit; }
-		}
-
-		.horizontal-wrapper {
-			.horizontal-preview {
-				border: none;
-				min-height: inherit;
-				position: relative;
-
-				.page-desc { width: 100%; }
-			}
-		}
-
-		.phototext-wrapper {
-			.phototext-preview {
-				width: 100%; height: auto;
-
-				overflow: auto;
-				padding: 0;
-				position: relative;
-			}
-		}
-
-		.overlay-wrapper {
-			.overlay-preview {
-				article {
-				}
-			}
-		}
-
-		.text-wrapper {
-			.text-preview {
-			}
-		}
-
-		.vertical-wrapper {
-			.draggable-placeholder { width: 100%; }
-
-			.vertical-preview {
-				font-size: inherit;
-				line-height: inherit;
-				position: relative;
-				width: 100%;
-			}
-		}
-
-		.video-wrapper {
-			.video-preview, article { position: relative; }
-
-			.button-wrapper {
-				bottom: initial;
-				top: 400px;
-				width: 100%;
-			}
-
-			.video-player-container {
-				width: 100%; height: 500px;
-				position: relative;
-			}
-		}
-
-		.backcover-wrapper {
-			border-bottom: none;
-
-			.appreciate { margin: 0 1.5rem !important; }
-
-			#fin, #fin-next {
-				float: none;
-				width: 100%;
-			}
-
-			#fin {
-				height: auto;
-				padding: 4rem 4rem 0 4rem;
-
-				h2 {
-					&:before { font-size: 0.5em; }
-					margin: 0 0 0 2rem;
-				}
-
-				.share-book { margin: -1.5rem 0 2rem 11.4rem; }
-
-				#author-avatar, #library-avatar {
-					width: 150px; height: 150px;
-				}
-
-				#author-bio-blurb, #library-info-blurb {
-					font-size: 1.4em;
-					line-height: 1.4em;
-					margin: -6rem 0 0 11.4rem;
-				}
-			}
-
-			#fin-next {
-				height: 300px !important;
-				overflow: hidden;
-
-				section {
-					top: 50%; left: 0;
-					transform: translateY(-50%);
-
-					-o-transform: translateY(-50%);
-					-ms-transform: translateY(-50%);
-					-moz-transform: translateY(-50%);
-					-webkit-transform: translateY(-50%);
-				}
-
-				h2 {
-					font-size: 40px;
-					text-align: center;
-				}
-			}
-		}
-
-	}
-	*/
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
@@ -968,52 +752,72 @@
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+	/// Review all this at a later date
 
 	.app {
 
-		.book .author-avatar, .collection .author-avatar { margin: 0 0 -1rem 0; width: 45px; }
-		
-		.book .bookmark-this {
-			.bottom-bm { border-bottom: 35px solid white; border-left: 34px solid transparent; right: 18px; }
-			.right-bm { height: 45px; }
-			.top-bm { border-left: 35px solid transparent; }
+		.book, .collection {
+			.author-avatar {
+				margin: 0 0 -1rem 0;
+				width: 45px;
+			}
 		}
-		
-		.book, .library {
-			margin: 0 0 1.5rem 0;
+
+		.book, .library { margin: 0 0 1.5rem 0; }
+
+		.book {
+			.bookmark-this {
+				.bottom-bm {
+					border-bottom: 35px solid white;
+					border-left: 34px solid transparent;
+					right: 18px;
+				}
+
+				.right-bm { height: 45px; }
+				.top-bm { border-left: 35px solid transparent; }
+			}
 		}
-		
-		.book-info .author-name, .book-info .library-location, .collection-info .author-name, .collection-info .library-location { display: inline-block; margin-left: 4px; }
-		
-		.book-info .author-name:before { display: none }
-		
-		.book-info .author-name {
-			a { font-weight: 600; }
+
+		.book-info, .collection-info {
+			bottom: 20%; //
+			font-size: 1rem; //
+
+			.author-name, .library-location {
+				display: inline-block;
+				margin: 0 0 0 4px; //
+			}
+
+			.author-name {
+				a { font-weight: 600; }
+				// &:before { display: none; } //
+			}
 		}
-		
+
 		#book-list, #bookmark-list, #library-list {
-			background-color: white;
-			padding: 5.4rem 1rem 1rem 1rem;
+			background-color: $white; //
+			padding: 5.4rem 1rem 1rem 1rem; //
 		}
-		
+
 		.book-title {
+			font-size: 1.8rem; //
 			padding: 0 6rem 0 4rem;
 			top: 20%;
-			font-size: 1.8rem;
 		}
 
-		.book-info, .collection-info { bottom: 20%; font-size: 1.0rem; }
-
 		#library-splash #library-info {
-			top: 40% !important ;
 			text-align: center;
+			top: 40% !important; //
 			
-			h2 { font-size: 38px; }
-			p { font-size: 1.0em; padding-top: 8px; }
+			h2 { font-size: 38px; } //
+
+			p {
+				font-size: 1em; //
+				padding: 8px 0 0 0; //
+			}
 		}
 		
 		#library-splash button { font-size: 0.7em; }
-		
+
 		.library .wrapper { text-align: right; font-size: 0.7em; top: 1.5rem; padding: 0 1.5rem; }
 		
 		.library .library-info {
@@ -1166,34 +970,74 @@
 
 	}
 
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.full-book {
+
+		.fluid-wrapper {
+			.fluid-preview {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				article { width: 100%; }
+			}
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+		.video-wrapper {
+			article {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+	}
+
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	/// Review all this at a later date
 
 	.profile {
+
 		#user-panel {
 			#user-wrapper {
 				h2 {
-					color: white !important;
+					color: $white !important; //
 					font-size: 1.3rem;
 					text-align: right;
-					top: -4px;
+					top: -4px; //
 				}
 			}
-		#featured-nav {
-			top: 65px;
-			
-			.current {
-					display: none;
-				}
+
+			#featured-nav {
+				top: 65px; //
+
+				.current { display: none; } //
+
 				li a {
-					font-size: 1.3rem;
-					color: #70a1b1;
+					color: $slate; //
+					font-size: 1.3rem; //
 				}
-			}		
-		#g-menu-toggle {
-			color: white !important;
-			height: 68px;
+			}
+
+			#g-menu-toggle {
+				color: $white !important; //
+				height: 68px; //
 			}
 		}
+
 	}
 
 }
@@ -1257,6 +1101,50 @@
 		}
 	}
 
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.full-book {
+
+		.fluid-wrapper {
+			.fluid-preview {
+				.page-title-elem, .page-desc { width: 90%; }
+			}
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				.page-desc {
+					font-size: 1.5rem;
+					line-height: 2.3rem;
+				}
+			}
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				.page-title-elem, .page-desc { width: 90%; }
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				.page-title-elem, .page-desc { width: 90%; }
+			}
+		}
+
+		.video-wrapper {
+			.video-player-container {
+				height: 350px;
+				iframe { height: 350px; }
+			}
+
+			article {
+				.page-title-elem, .page-desc { width: 90%; }
+			}
+		}
+
+	}
+
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
@@ -1267,6 +1155,7 @@
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+	/// Review all this at a later date
 
 	.app {
 
@@ -1660,6 +1549,141 @@
 
 	.full-book {
 
+		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			.page-title-elem {
+				font-size: 1.4rem;
+				line-height: 1.7rem;
+			}
+
+			.page-desc {
+				font-size: 1rem;
+				line-height: 1.7rem;
+			}
+		}
+
+		.fluid-wrapper {
+			#author-info {
+				width: 100%; height: auto;
+				top: initial; left: initial;
+
+				display: inline-block;
+				position: relative;
+
+				#author-name {
+					margin: 0;
+					position: relative;
+					text-align: center;
+
+					&:before { text-align: center; }
+				}
+
+				#author-avatar { display: none !important; }
+			}
+
+			.fluid-preview {
+				padding: 1rem 2rem;
+				article { margin: 0; }
+			}
+		}
+
+		.photo-wrapper {
+			.page-bg-wrapper {
+				width: 100%; height: auto; max-height: initial;
+				top: initial; left: 0;
+
+				margin: 0;
+				transform: translateY(0);
+
+				-o-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+			}
+
+			.photo-preview {
+				height: auto;
+				margin: 0;
+			}
+		}
+
+		.overlay-wrapper {
+			margin: 0 0 2rem 0;
+			.overlay-preview { height: 100%; }
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				padding: 1rem 2rem;
+
+				.page-title-elem {
+					font-size: 1.4rem;
+					line-height: 1.7rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 1.7rem;
+				}
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				padding: 1rem 2rem;
+
+				.page-title-elem {
+					font-size: 1.4rem;
+					line-height: 1.7rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 1.7rem;
+				}
+			}
+		}
+
+		.video-wrapper {
+			.video-player-container {
+				height: 175px;
+				iframe { height: 175px; }
+			}
+
+			article {
+				padding: 1rem 2rem;
+
+				.page-title-elem {
+					font-size: 1.4rem;
+					line-height: 1.7rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 1.7rem;
+				}
+			}
+		}
+
+		.backcover-wrapper {
+			#fin-next {
+				height: 200px;
+
+				section { bottom: 135px; }
+
+				h2 {
+					font-size: 1.4rem;
+					line-height: 1.7rem;
+
+					&:before { line-height: 1.7rem; }
+				}
+			}
+		}
+
+	}
+
+	/*
+	.full-book {
+
 		.mp-pushed {
 			transform: translate3d(225px, 0px, 0px) !important;
 
@@ -1866,8 +1890,10 @@
 		}
 
 	}
+	*/
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	/// Review all this at a later date
 
 	.profile {
 
@@ -1878,22 +1904,20 @@
 			padding: 75px 0 0 0;
 		}
 
-		#g-menu-toggle {
-			color: white !important;
-			}
-		
+		#g-menu-toggle { color: white !important; } //
+
 		#user-panel {
-			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-			height: 65px !important;
-			background-color: #70a1b1;
+			box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05); //
+			height: 65px !important; //
+			background-color: $slate; //
 
 			#user-wrapper {
 				padding: 0;
 
 				.user-avatar {
-					display: block !important;
-					margin: 0 !important;
-					top: 0;
+					display: block !important; //
+					margin: 0 !important; //
+					top: 0; //
 
 					.avatar-wrapper {
 						width: 75px; height: 75px;
@@ -1904,17 +1928,20 @@
 						margin: 0;
 
 						img {
-							width: 55px; height: auto; border-radius: 40px; top: 10px; right: 10px;
+							width: 55px; height: auto; //
+							top: 10px; right: 10px; //
+
+							border-radius: 40px; //
 						}
 
-						&:after { display: none; }
+						&:after { display: none; } //
 					}
 				}
 			}
 		}
 
-		.user-data, .button-wrapper { display: none; }
-	
+		.user-data, .button-wrapper { display: none; } //
+
 	}
 
 }
