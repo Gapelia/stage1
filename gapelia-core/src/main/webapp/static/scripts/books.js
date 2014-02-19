@@ -212,6 +212,10 @@
 
 	}
 
+	$(function () {
+
+	});
+
 	// Text fade
 	$(function () {
 

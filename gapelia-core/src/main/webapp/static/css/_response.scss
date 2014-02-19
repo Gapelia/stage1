@@ -326,13 +326,19 @@
 		overflow-y: auto;
 
 		#the-book {
+			height: auto;
+
 			#bb-bookblock {
+				height: auto;
+				overflow-x: initial;
+				overflow-y: initial;
+
 				.bb-item {
 					width: 100%; height: auto; // 100%
 					top: initial; left: initial;
 
 					display: block !important;
-					margin: 0 0 1rem 0;
+					margin: 0; // 0 0 1rem 0
 					position: relative;
 
 					.content {
@@ -348,21 +354,216 @@
 
 			overflow: initial;
 			position: relative;
-		}
 
-		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
-			.page-desc {
-				overflow-x: initial;
-				overflow-y: initial;
+			.page-bg, iframe {
+				position: relative;
 			}
 		}
 
-		.fluid-wrapper {
-			height: auto;
+		.scroller-wrapper {
+			overflow-y: initial; // auto
+			position: relative;
+		}
 
-			.draggable-placeholder, .fluid-preview {
+		.fluid-wrapper {
+			#author-info {
+				top: -3.5rem; left: 1rem;
+				width: 30%;
+
+				#author-name {
+					margin: 0.3rem 0 0 3.5rem;
+					position: absolute;
+					text-align: left;
+
+					&:before { text-align: left; }
+				}
+
+				#author-avatar { float: left; }
+			}
+
+			section { height: auto; }
+
+			.draggable-placeholder {
 				height: auto;
 				position: relative;
+			}
+
+			.fluid-preview {
+				top: initial; left: initial;
+				position: relative;
+
+				.page-title-elem, .page-desc { width: 80%; }
+			}
+		}
+
+		.no-img {
+			.fluid-preview { top: initial; }
+		}
+
+		.photo-wrapper {
+			// border-top: 1px solid rgba($black, 0.3);
+			// border-bottom: 1px solid rgba($black, 0.3);
+
+			.page-bg-wrapper {
+				margin: 0 0 5rem 0;
+				top: 30vh;
+				transform: translateY(-53%);
+
+				-o-transform: translateY(-53%);
+				-ms-transform: translateY(-53%);
+				-moz-transform: translateY(-53%);
+				-webkit-transform: translateY(-53%);
+			}
+		}
+
+		.overlay-wrapper {
+			.overlay-preview {
+				top: intial; left: initial;
+
+				height: 99.5%;
+				position: absolute;
+			}
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.image-attribution {
+				bottom: initial; left: 0; top: 1.5rem;
+				position: relative;
+			}
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				width: 100%; height: auto;
+				top: initial; right: initial;
+
+				overflow-y: initial;
+				position: relative;
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					width: 80%;
+				}
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 2.5rem;
+				}
+
+				.page-desc {
+					font-size: 1.2rem;
+					line-height: 2rem;
+				}
+			}
+		}
+
+		.vertical-wrapper {
+			section, .draggable-placeholder {
+				width: 100%; height: auto;
+			}
+
+			.page-bg { height: auto; }
+
+			.vertical-preview {
+				width: 100%; height: auto;
+				top: initial; right: initial;
+
+				overflow-y: initial;
+				position: inherit;
+
+				article { width: 100%; }
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					width: 80%;
+				}
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 2.5rem;
+				}
+
+				.page-desc {
+					font-size: 1.2rem;
+					line-height: 2rem;
+				}
+			}
+		}
+
+		.video-wrapper {
+			.video-preview {
+				width: 100%; height: auto;
+				position: relative;
+			}
+
+			.button-wrapper { display: none; }
+
+			article {
+				width: 100%; height: auto;
+				top: inherit; right: inherit;
+
+				overflow-y: initial;
+				position: relative;
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					width: 80%;
+				}
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 2.5rem;
+				}
+
+				.page-desc {
+					font-size: 1.2rem;
+					line-height: 2rem;
+				}
+			}
+
+			.video-player-container {
+				width: 100%; height: 500px;
+				top: initial; left: initial;
+
+				position: relative;
+
+				iframe { height: 500px; }
+			}
+		}
+
+		.backcover-wrapper {
+			#fin, #fin-next {
+				display: block;
+				float: none;
+				width: 100%;
+			}
+
+			#fin { height: auto; }
+
+			#fin-next {
+				height: 300px;
+				overflow: hidden;
+
+				h2 {
+					font-size: 2rem;
+					line-height: 2.5rem;
+					text-align: center;
+
+					&:before {
+						font-size: 1rem;
+						line-height: 0.7rem;
+						margin: 0;
+					}
+				}
+
+				section {
+					width: 100%; height: 0;
+					top: initial; left: 0; bottom: 175px;
+
+					position: absolute;
+				}
+
+				&:after { background-image: linear-gradient(to top, $black, transparent); }
 			}
 		}
 
