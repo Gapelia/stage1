@@ -7,14 +7,11 @@
 	var $vW = $(window).width(), $vH = $(window).height();
 
 	// Reload Gapelia when device orientation changes
-	window.onorientationchange = function () {
-		window.location.reload();
-	};
+	$(function () {
 
-	$(document).ready(function () {
-
-		$(".super-wrapper").css("height", $vH + "px");
-		$(".super-wrapper").show();
+		window.onorientationchange = function () {
+			window.location.reload();
+		};
 
 		// Reload Gapelia when browser window resizing occurs
 		/*
@@ -26,10 +23,29 @@
 		});
 		*/
 
+	});
+
+	/*
+	$(document).on("hover", "#site-menu", function () {
+
+		// $("#site-menu").mouseenter(function () {
+		$("#site-menu li ul").css({
+			"display": "block",
+			"height": "100%"
+		});
+
+	});
+	*/
+
+	$(function () {
+
+		$(".super-wrapper").css("height", $vH + "px");
+		$(".super-wrapper").show();
+
 		// if ($vW > "801") {
 		if ($vW > "1024") {
 
-			$(document).on("ready", function () {
+			$(function () {
 				// Set height of books in feed on "Me" page
 				$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 				$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
