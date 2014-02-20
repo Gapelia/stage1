@@ -26,6 +26,9 @@
 		currentPage =0;
 		imageURL=0;
 		attribution = null;
+		title=null;
+		text =null;
+		videoURL=null;
 
 		/*
 		$.ajax({

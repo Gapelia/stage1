@@ -5,7 +5,6 @@ import com.gapelia.core.model.Page;
 import com.gapelia.core.model.Event;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
-import com.gapelia.core.util.TestHelper;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
@@ -14,9 +13,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- * Author: Abhishek Tiwari (14/12/13)
- */
 public class QueryDatabase {
 	private static Logger LOG = Logger.getLogger(Book.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
@@ -81,8 +77,6 @@ public class QueryDatabase {
 	}
 
 	public static User getUser(Profile profile) {
-		if (isDummy())
-			return TestHelper.getDummyUser();
 		User user = new User();
 		try {
 			PreparedStatement statement = connection.prepareStatement(SELECT_USER);
@@ -172,22 +166,16 @@ public class QueryDatabase {
 	}
 
 	public static Library[] getLibrariesCollectedByUser(Profile profile) {
-		if (isDummy())
-			return TestHelper.getDummyUserLibraries();
 		return new Library[0];
 	}
 
 	public static boolean deleteBookById(Profile profile, String bookId) {
-		if (isDummy())
-			return true;
 		return false;
 	}
 
 	public static boolean updateUserProfile(Profile profile, String name, String email, String bio, String facebookUrl,
 											String googlePlusUrl, String twitterUrl, String photoUrl, String gender,
 											String location, String dob, String personalWebsite, String tags) {
-		if (isDummy())
-			return true;
 		try {
 			PreparedStatement statement = connection.prepareStatement(UPDATE_USER);
 			statement.setString(1, name);
@@ -220,8 +208,6 @@ public class QueryDatabase {
 
 	public static String saveBook(Profile profile,String bookId, String title, String language, String library,
 								   String tags, String createdBy, int isPublished,String coverPhoto) {
-		if (isDummy())
-			return "success";
 		LOG.info("Try to save book!");
 		System.out.println("Saving book");
 		boolean mybool = true;
@@ -248,8 +234,6 @@ public class QueryDatabase {
 
 	public static String updateBook(Profile profile,String bookId, String title, String language, String library,
 								   String tags, String createdBy, int isPublished,String coverPhoto) {
-		if (isDummy())
-			return "success";
 		LOG.info("Try to save book!");
 		try {
 			PreparedStatement statement = connection.prepareStatement(UPDATE_BOOK);
@@ -270,8 +254,6 @@ public class QueryDatabase {
 	public static String savePage(Profile profile, String title, String description, String location,
 								   int templateId, String marginX, String marginY, String videoUrl, int pageNumber,
 								   String bookId, String createdByUserId, String photoUrl, String photoId,String pageId) {
-		if (isDummy())
-			return "success";
 		LOG.info("Try to save page!");
 		try {
 			PreparedStatement statement = connection.prepareStatement(INSERT_PAGE);
@@ -322,14 +304,10 @@ public class QueryDatabase {
 	}
 
 	public static boolean subscribeBook(Profile profile, String bookId) {
-		if (isDummy())
-			return true;
 		return false;
 	}
 
 	public static boolean unSubscribeBook(Profile profile, String bookId) {
-		if (isDummy())
-			return true;
 		return false;
 	}
 
@@ -346,15 +324,11 @@ public class QueryDatabase {
 	/************************************/
 
 	public static Book[] getFeaturedBooks(Profile profile) {
-		if (isDummy())
-			return TestHelper.getDummyBooks();
 		return null;
 	}
 
 
 	public static Book[] getAllBooks() {
-		if (isDummy())
-		{return TestHelper.getDummyBooks();}
 		Book [] books = new Book[20];
 		int i=0;
 		try {
@@ -380,60 +354,22 @@ public class QueryDatabase {
 	}
 
 	public static Library getLibraryById(Profile profile, String libraryId) {
-		if (isDummy())
-			return TestHelper.getDummyUserLibraries()[0];
 		return null;
 	}
 
 	public static Library[] getAllLibraries(Profile profile, String page) {
-		if (isDummy())
-			return TestHelper.getDummyUserLibraries();
 		return null;
 	}
 
 	public static Library[] getLibraryByPrefix(Profile profile, String prefix) {
-		if (isDummy())
-			return TestHelper.getDummyUserLibraries();
 		return null;
 	}
 
 	public static boolean subscribeLibrary(Profile profile, String libraryId) {
-		if (isDummy())
-			return true;
 		return false;
 	}
 
 	public static boolean unSubscribeLibrary(Profile profile, String libraryId) {
-		if (isDummy())
-			return true;
-		return false;
-	}
-
-	/************************************/
-	/* Methods to manipulate Dimension  */
-	/************************************/
-
-	public static Book[] getTopBooksByDimension(Profile profile, String dimension) {
-		if (isDummy())
-			return TestHelper.getDummyBooks();
-		return null;
-	}
-
-	public static Book[] getAllBooksByDimension(Profile profile, String dimension, String page) {
-		if (isDummy())
-			return TestHelper.getDummyBooks();
-		return null;
-	}
-
-	private static boolean isDummy() {
-		String dummy = null;
-		try {
-			dummy = System.getProperty("gapeliaDummy");
-		} catch (Exception ex) {
-			// Ignore mode is null
-		}
-		if (null != dummy && "true".equals(dummy))
-			return true;
 		return false;
 	}
 }
