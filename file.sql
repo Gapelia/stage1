@@ -1,102 +1,125 @@
-DROP TABLE IF EXISTS books, users, librarysubscriptions, bookmarks,libraries, pages;
 CREATE TABLE IF NOT EXISTS users (
-	id serial PRIMARY KEY,
-	name VARCHAR(100),
-	email VARCHAR(100),
-	fullName VARCHAR(100),
-	dob VARCHAR(100),
-	gender VARCHAR(100),
-	location VARCHAR(100),
-	image VARCHAR(1000),
-	displayName VARCHAR(100),
-	validateId VARCHAR(100),
-	providerId VARCHAR(100),
-	memberSince DATE,
-	lastLogin DATE,
-	lastUpdated DATE,
-	personalWebsite VARCHAR(100),
-	bio VARCHAR(1000),
-	tags VARCHAR(256),
-	fb VARCHAR(100),
-	gp VARCHAR(100),
-	twt VARCHAR(100),
-	isPublic BOOLEAN
+        id serial PRIMARY KEY,
+        name TEXT,
+        email TEXT,
+        fullname TEXT,
+        dob DATE,
+        gender VARCHAR(1),
+        location TEXT,
+        avatar_image TEXT,
+        cover_image TEXT,
+        display_name TEXT,
+        validate_id TEXT,
+        provider_id TEXT,
+        member_since TIMESTAMP WITH TIME ZONE,
+        last_login TIMESTAMP WITH TIME ZONE,
+        last_updated TIMESTAMP WITH TIME ZONE,
+        personal_website TEXT,
+        bio TEXT,
+        tags TEXT,
+        fb TEXT,
+        gp TEXT,
+        twt TEXT,
+        is_public BOOLEAN
 );
-CREATE TABLE IF NOT EXISTS librarysubscriptions (
-	id serial PRIMARY KEY,
-	userID VARCHAR(100),
-	libraryID VARCHAR(100),
-	subscribed DATE
-);
-CREATE TABLE IF NOT EXISTS bookmarks (
-	id serial PRIMARY KEY,
-	userID VARCHAR(100),
-	bookID VARCHAR(100),
-	boomarked DATE
-);
-CREATE TABLE IF NOT EXISTS libraries(
-	id serial PRIMARY KEY,
-	title VARCHAR(100),
-	editor VARCHAR(100),
-	tags VARCHAR(100),
-	coverPhoto VARCHAR(256),
-	description VARCHAR(256),
-	numberOfBooks INT,
-	numberOfContributors INT,
-	created DATE,
-	createdBy VARCHAR(100)
-);
-CREATE TABLE IF NOT EXISTS books ( 
-	id serial PRIMARY KEY, 
-	coverPhoto VARCHAR(256),
-	bookId VARCHAR(100), 
-	title VARCHAR(100),
-	language VARCHAR(100),
-	library VARCHAR(100),
-	tags VARCHAR(100),
-	userId  VARCHAR(100),
-	created DATE,
-	lastUpdated DATE,
-	isPublished BOOLEAN
-);
-CREATE TABLE IF NOT EXISTS pages (
-	id serial PRIMARY KEY,
-	pageId VARCHAR(1000),
-	title VARCHAR(100),
-	description VARCHAR(10000),
-	location VARCHAR(1000),
-	templateId INT,
-	bookId VARCHAR(100),
-	marginX VARCHAR(100),
-	marginY VARCHAR(100),
-	videoUrl VARCHAR(256),
-	pageNumber INT,
-	userId  VARCHAR(100),
-	photoUrl VARCHAR(256),
-	photoId VARCHAR(100),
-	creativeCommons VARCHAR(100),
-	created DATE,
-	lastUpdated DATE
-);
+CREATE INDEX user_validate_id_idx ON users(validate_id);
 
-INSERT INTO users (id, email,fullName,dob,gender,location,image, displayName,ValidateId,ProviderId,name,bio,tags) VALUES (1,'dfcf93@hotmail.com','Erasmus','0/0/0000','M','Olympus','http://static2.wikia.nocookie.net/__cb20071215210061/dune/images/c/ce/Cymek.jpg','Ominus',1,1,'GOD','Erasmus became trapped in an ice crevice during a solo expedition on Corrin, and remained there for twenty years. During that time, and without the guidance of Omnius or the company of other beings, he spent vast amounts of time ruminating on various philosophical concepts.','DUNE');
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (1,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Into the Wild', 'People, nature, freedom and the stories in between', 0, 0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (2,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'The Fashionista', 'The intersection of fashion, style and self-expression', 0, 0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (3,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg','The Farmhouse', 'Food, planet, values', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (4,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Architecture', 'Design, building and beauty around us', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (5,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'The Dali Collective', 'All stories visual', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (6,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Thought-provoking', 'Innovation distinguishes between a leader and a follower', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (7,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'The Historian', 'The documented truth around us', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (8,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Comedy Studio', 'Sense of humor', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (9,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Abbey Road', 'Without music, life would be an error', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (10,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Inventions of Tomorrow', 'Great products that exist or should exist', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (11,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Dead Poets Society', 'No matter what anybody tells you, words and ideas can change the world', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (12,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Guidebooks', 'Continents, countries, cities, neighborhoods', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (13,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Villages', 'With a sense of legacy, roots, and tradition', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (14,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'The Tribute Journal', 'Stay hungry, stay foolish', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (15,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'On the Road', 'Nothing behind me, everything ahead of me',0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (16,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Subculture', 'The underground identity', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (17,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Design, Tech and beyond', 'Humans and tech, together', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (18,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Modernism', 'a style of art, architecture, literature, etc., that uses ideas and methods which are very different from those used in the past', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (19,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Museum', 'Objects of scientific, artistic, cultural, or historical importance', 0,0);
-INSERT INTO libraries (id,editor,tags,coverPhoto,title,description,numberOfBooks,numberOfContributors) VALUES (20,1,'fun','http://gapelia-dev.herokuapp.com/static/images/book-thumb-01.jpg', 'Metabook', 'Re-imagining the future of books', 0,0); 
+CREATE TABLE IF NOT EXISTS books (
+        id serial PRIMARY KEY,
+        cover_photo TEXT,
+        title TEXT,
+        language VARCHAR(2),
+        tags TEXT[],
+        owned_by INT REFERENCES users(id) NOT NULL,
+        created TIMESTAMP WITH TIME ZONE,
+        last_updated TIMESTAMP WITH TIME ZONE,
+        is_published BOOLEAN default false
+);
+CREATE INDEX book_owned_by_idx ON books(owned_by);
+
+CREATE TABLE IF NOT EXISTS user_votes (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_votes_book_id_idx ON user_votes(book_id);
+
+CREATE TABLE IF NOT EXISTS user_subscriptions (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_subscriptions_book_id_idx ON user_subscriptions(book_id);
+
+CREATE TABLE IF NOT EXISTS user_bookmarks (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_bookmarks_book_id_idx ON user_bookmarks(book_id);
+
+
+CREATE TABLE IF NOT EXISTS pages (
+        id serial PRIMARY KEY,
+        title TEXT,
+        content TEXT,
+        template_id INT,
+        video_url TEXT,
+        book_id INT REFERENCES books(id) NOT NULL,
+        page_number INT,
+        user_id  INT REFERENCES users(id) NOT NULL,
+        photo_url TEXT,
+        photo_id TEXT,
+        creative_commons TEXT,
+        created TIMESTAMP WITH TIME ZONE,
+        last_updated TIMESTAMP WITH TIME ZONE
+);
+CREATE INDEX page_book_id_idx ON pages(book_id);
+CREATE INDEX page_user_id_idx ON pages(user_id);
+
+CREATE TABLE IF NOT EXISTS book_notifications (
+        recipient INT PRIMARY KEY REFERENCES users(id),
+        referenced_book INT REFERENCES books(id) NOT NULL,
+        sender INT REFERENCES users(id) NOT NULL,
+        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
+        accepted BOOLEAN default false
+);
+CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
+
+CREATE TABLE IF NOT EXISTS libraries(
+        id serial PRIMARY KEY,
+        created_by INT REFERENCES users(id) NOT NULL,
+        title TEXT NOT NULL,
+        tags TEXT,
+        cover_photo TEXT,
+        description TEXT,
+        num_subscribers INT default 0,
+        featured_book INT REFERENCES books(id) NOT NULL,
+        created TIMESTAMP WITH TIME ZONE
+);
+CREATE INDEX library_created_by_idx ON libraries(created_by);
+
+CREATE TABLE IF NOT EXISTS library_books (
+        library_id INT PRIMARY KEY REFERENCES libraries(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX library_books_book_id_idx ON library_books(book_id);
+
+CREATE TABLE IF NOT EXISTS contributors (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX contributors_book_id_idx ON contributors(book_id);
+
+CREATE TABLE IF NOT EXISTS editors (
+        editor_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX editors_book_id_idx ON editors(book_id);
+
+CREATE TABLE IF NOT EXISTS library_notifications (
+        recipient INT PRIMARY KEY REFERENCES users(id),
+        referenced_library INT REFERENCES libraries(id) NOT NULL,
+        sender INT REFERENCES users(id) NOT NULL,
+        book_id INT REFERENCES books(id) NOT NULL,
+        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
+        accepted BOOLEAN
+);
+CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);
