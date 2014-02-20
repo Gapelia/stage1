@@ -714,3 +714,23 @@
 	.email, .ion-email, .ion-ios7-at { color: $slate; }
 
 }
+
+.notification-time {
+	i {
+		animation: colors 5s ease infinite;
+		color: $white;
+
+		-o-animation: colors 5s ease infinite;
+		-ms-animation: colors 5s ease infinite;
+		-moz-animation: colors 5s ease infinite;
+		-webkit-animation: colors 5s ease infinite;
+	}
+}
+
+@keyframes colors {
+	0% { text-shadow: 0 0 10px $red; }
+	25% { text-shadow: 0 0 10px $orange; }
+	50% { text-shadow: 0 0 10px $green; }
+	75% { text-shadow: 0 0 10px $blue; }
+	100% { text-shadow: 0 0 10px $purple; }
+}

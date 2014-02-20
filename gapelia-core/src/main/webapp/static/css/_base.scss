@@ -20,7 +20,11 @@ html, body {
 	-webkit-overflow-scrolling: touch;
 
 	::-webkit-scrollbar {
-		width: 10px; height: 10px;
+		width: 2px; height: 2px;
+
+		&:hover {
+			width: 10px; height: 10px;
+		}
 	}
 
 	::-webkit-scrollbar-thumb {
