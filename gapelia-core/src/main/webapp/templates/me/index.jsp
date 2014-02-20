@@ -405,7 +405,9 @@
 				}
 
 				<% String id = session.getId(); %>
-				var sessionId = '<%= id %>'
+				sessionId = '<%= id %>';
+				<% String js = getProfileDetails(session); %>
+				userProfile = <% js %>;
 
 				html = "<ul id=\"user-book-list\">";
  				featuredBooks = "";
@@ -415,7 +417,7 @@
 				// $(".user-avatar img").attr("src", _image);
 
 				$.ajax({
-					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
+					url: "http://gapss-609817464.us-west-2.elb.amazonaws.com/api/me/getUserBooks",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
 					type: "POST",
 					data: {

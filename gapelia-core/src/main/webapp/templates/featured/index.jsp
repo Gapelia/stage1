@@ -862,7 +862,11 @@
 					html = "<ul id=\"book-list\">";
 					featuredBooks = "";
 					parsedHtml = "";
-					sId = 123456;
+				<% String id = session.getId(); %>
+				sessionId = '<%= id %>';
+				<% String userInfo = getProfileDetails(session); %>
+				userProfile = <% userInfo %>;
+
 
 					var
 					allBooks = $("#book-list li"),			// gets all books in a section
@@ -877,11 +881,11 @@
 						$("#bookmark-list").hide();
 
 						$.ajax({
-							url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
+							url: "http://gapss-609817464.us-west-2.elb.amazonaws.com/api/libraries/getAllBooks",
 							contentType: "application/x-www-form-urlencoded;charset=utf-8",
 							type: "POST",
 							data: {
-								sessionId: sId
+								sessionId: sessionId
 							},
 
 							success: function (data) {

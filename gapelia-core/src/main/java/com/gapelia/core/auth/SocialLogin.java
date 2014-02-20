@@ -53,7 +53,7 @@ public class SocialLogin extends HttpServlet {
 				hostName = "http://localhost:8080";
 				response.sendRedirect("/me");
 			} else {
-				hostName = "http://gapelia-dev.herokuapp.com";
+				hostName = "http://gapss-609817464.us-west-2.elb.amazonaws.com";
 			}
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			LOG.info("Social auth succesUrl: " + successUrl);

@@ -349,7 +349,7 @@
                                                         htmlToInsert = "";
 
                      $.ajax({
-                      url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
+                      url: "http://gapss-609817464.us-west-2.elb.amazonaws.com/api/book/getBook",
                       contentType: "application/x-www-form-urlencoded;charset=utf-8",
                       type: "POST",
                       data: {
