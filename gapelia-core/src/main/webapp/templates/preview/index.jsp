@@ -51,7 +51,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create" href="/create">Create</a></li>
+						<li><a id="gpl-menu-create" href="/createbook">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
@@ -136,11 +136,13 @@
 
 							if (i == 0) {
 								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								insertPage(1);
 							} else {
 								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								insertPage(0);
 							}
 
-							insertPage();
+							
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
@@ -157,41 +159,41 @@
 
 					});
 
-					function insertPage() {
+					function insertPage(isFirst) {
 
 						switch (current.templateId) {
 							case 0:
-								fluidLayout();
+								fluidLayout(isFirst);
 								break;
 
 							case 1:
-								photoLayout();
+								photoLayout(isFirst);
 								break;
 
 							case 2:
-								overlayLayout();
+								overlayLayout(isFirst);
 								break;
 
 							case 3:
-								photoTextLayout();
+								photoTextLayout(isFirst);
 								break;
 
 							case 4:
-								verticalLayout();
+								verticalLayout(isFirst);
 								break;
 
 							case 5:
-								videoLayout();
+								videoLayout(isFirst);
 								break;
 
 							default:
-								fluidLayout();
+								fluidLayout(isFirst);
 								break;
 						}
 
 					}
 
-					function fluidLayout() {
+					function fluidLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"fluid-wrapper\">";
 						htmlToInsert += "<section class=\"draggable-placeholder\">";
@@ -199,10 +201,12 @@
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "<div class=\"fluid-preview\">";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						}
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
@@ -212,7 +216,7 @@
 
 					}
 
-					function photoLayout() {
+					function photoLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"photo-wrapper\">";
 						htmlToInsert += "<div class=\"page-bg-wrapper\">";
@@ -221,10 +225,12 @@
 						htmlToInsert += "<div class=\"photo-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						}
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div>";
 						htmlToInsert += "</section>";
@@ -232,17 +238,19 @@
 
 					}
 
-					function overlayLayout() {
+					function overlayLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"overlay-wrapper\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"overlay-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						}
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
 						htmlToInsert += "</section>";
@@ -250,7 +258,7 @@
 
 					}
 
-					function photoTextLayout() {
+					function photoTextLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"phototext-wrapper\">";
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
@@ -258,10 +266,12 @@
 						htmlToInsert += "<div class=\"phototext-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						};
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";
@@ -269,7 +279,7 @@
 
 					}
 
-					function verticalLayout() {
+					function verticalLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"vertical-wrapper\">";
 						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
@@ -278,10 +288,12 @@
 						htmlToInsert += "<div class=\"vertical-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "</div></section>";
@@ -289,7 +301,7 @@
 
 					}
 
-					function videoLayout() {
+					function videoLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"video-wrapper\">";
 						htmlToInsert += "<span class=\"image-attribution\">*Video Credit*</span>";
@@ -300,10 +312,12 @@
 						htmlToInsert += "</div>";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div id=\"author-info\">";
-						htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-						htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-						htmlToInsert += "</div>";
+						if (isFirst==1) {
+							htmlToInsert += "<div id=\"author-info\">";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
+							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "</div>";
+						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";

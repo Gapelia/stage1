@@ -23,6 +23,9 @@
 		pagesCreated = 0;
 		author = "William Gibson";
 		templateId = 0;
+		currentPage =0;
+		imageURL=0;
+		attribution = null;
 
 		/*
 		$.ajax({
@@ -104,8 +107,6 @@
 			}
 		});
 		*/
-
-		// frontCoverLayout();
 		fluidLayout();
 
 		pages.page[0] = {
@@ -115,7 +116,8 @@
 			"title": null,
 			"text": null,
 			"image": "/static/images/blankBG.jpg",
-			"video": "null"
+			"video": null,
+			"attribution":null
 		};
 
 	});
@@ -174,7 +176,8 @@
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
-
+		draggable = pages.page[currentPage].draggable;
+		attribution = pages.page[currentPage].attribution;
 		switch(templateId) {
 			case 0:
 				fluidLayout();
@@ -201,7 +204,7 @@
 				break;
 
 			default:
-				baseLayout();
+				fluidLayout();
 		}
 
 		ev.preventDefault();
@@ -311,6 +314,7 @@
 		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
+		attribution = $(".image-attribution").html();
 
 		if(geotag == undefined) {
 			geotag = "BUUUGGG";
@@ -324,7 +328,8 @@
 				"title": null,
 				"text": null,
 				"image": "/static/images/blankBG.jpg",
-				"video": "null"
+				"video": "null",
+				"attribution":null
 			};
 
 			templateId = 0;
@@ -336,6 +341,7 @@
 			pages.page[pagesCreated-1].text = text;
 			pages.page[pagesCreated-1].image = imageURL;
 			pages.page[pagesCreated-1].video = videoURL;
+			pages.page[pagesCreated-1].attribution = attribution;
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
@@ -344,7 +350,8 @@
 				"title": null,
 				"text": null,
 				"image": "/static/images/blankBG.jpg",
-				"video": "null"
+				"video": "null",
+				"attribution" : "attribution"
 			};
 
 			templateId = 0;
@@ -468,14 +475,15 @@
 
 	function fluidLayout() {
 
-		var insert = "";
-
-		insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		insert = "";
 
 		if(imageURL == null) {
+			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
+			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(\"" + imageURL;
+			insert += "\");background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.page-bg, button.photo-picker').css('opacity','1'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
@@ -498,12 +506,7 @@
 			insert += "</article></div></section>";
 		}
 
-		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
-		} else {
-			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
-		}
+
 
 		$("#create-content").html(insert);
 		templateId = 0;

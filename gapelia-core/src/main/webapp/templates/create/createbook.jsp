@@ -137,7 +137,6 @@
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 
-				<!--/ <img src="/static/images/loader.gif" id="imgLoader" alt=""/> /-->
 				<div id="notify-saving">Saving...</div>
 
 				<div id="create-book">
@@ -219,20 +218,7 @@
 			</div>
 		</section>
 
-		<!--/ scripts /-->
-		<!--/
-		<script src="/static/scripts/grande.js"></script>
-
-		<script>
-			grande.bind(document.querySelectorAll(".page-title-elem"));
-			grande.bind(document.querySelectorAll(".page-desc"));
-		</script>
-		/-->
-
 		<script src="/static/scripts/filepicker2.js"></script>
-		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script> /-->
-		
-		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
 
@@ -251,21 +237,16 @@
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
-			// $("img").VimeoThumb();
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 		</script>
 
-		<!--/ scripts/page-sorter /-->
 		<script src="/static/scripts/sortable.js"></script>
 
 		<script>
 			$(function() {
 				$("#pages-scroller ul").sortable({ items: ":not(.disable-sort)" }).bind("sortupdate", function() {});
-				// $("#pages-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
 			});
 		</script>
-
-		<!--/ scripts/dialog /-->
 		<script>
 			$("#publish-this").on("click", function(e) {
 
@@ -274,7 +255,6 @@
 
 			});
 		</script>
-		<!--//scripts /-->
 
 	</body>
 

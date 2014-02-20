@@ -55,11 +55,10 @@ public class AuthSuccessHandler extends HttpServlet {
 			System.out.println("post quering the databse");
 
 			if (!isntFirstTime) {
-				response.sendRedirect("/create");
+				response.sendRedirect("/me");
 				return;
 			} else {
-				//response.sendRedirect("/onboard");
-				response.sendRedirect("/me");
+				response.sendRedirect("/onboard");
 			}
 
 		} catch (Exception e) {

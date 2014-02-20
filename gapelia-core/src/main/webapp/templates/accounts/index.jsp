@@ -55,8 +55,8 @@
 
 						<li><a id="gpl-menu-create">Create</a>
 							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
+								<li><a href="/createbook">New Book</a></li>
+								<li><a href="/createlibrary">New Essay</a></li>
 							</ul>
 						</li>
 

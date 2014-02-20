@@ -51,7 +51,7 @@
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create" href="/create">Create</a></li>
+						<li><a id="gpl-menu-create" href="/createbook">Create</a></li>
 
 						<li><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
