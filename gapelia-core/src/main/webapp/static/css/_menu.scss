@@ -242,7 +242,8 @@
 				-webkit-transition: background 0.3s, box-shadow 0.3s;
 			}
 
-			#gpl-menu-me, #gpl-menu-create, #gpl-menu-drafts {
+			#gpl-menu-me, #gpl-menu-notify, #gpl-menu-create, #gpl-menu-drafts {
+				cursor: default;
 				@include serif;
 				font-style: italic;
 
@@ -254,13 +255,19 @@
 
 				&:hover {
 					border-top: 1px solid rgba($black, 0.001);
-					&:after { content: "\00a0\00b7\00a0Visit Profile"; }
+					&:after { content: ", so beautiful"; }
+				}
+			}
+
+			#gpl-menu-notify {
+				&:hover {
+					// &:after { content: "\00a0\00b7\00a0 Well, *you're* popular!"; }
 				}
 			}
 
 			#gpl-menu-create {
 				&:hover {
-					&:after { content: "\00a0your next opus"; }
+					&:after { content: "\00a0something great!"; }
 				}
 			}
 

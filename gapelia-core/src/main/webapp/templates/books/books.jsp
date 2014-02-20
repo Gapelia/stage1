@@ -87,9 +87,9 @@
 				</div>
 
 				<ul class="share-book">
-					<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-					<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-					<li><a href="#"><i class="ion-email"></i></a></li>
+					<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://gapelia.com" target="_blank"><i class="ion-social-facebook"></i></a></li>
+					<li><a href="http://twitter.com/home?status=Reading%20this%20book%20on%20Gapelia,%20check%20it%20out.%20http://gapelia.com" target="_blank"><i class="ion-social-twitter"></i></a></li>
+					<li><a href="mailto:?subject=Oh%20hai&body=Good%20morning!"><i class="ion-email"></i></a></li>
 				</ul>
 			</header>
 
