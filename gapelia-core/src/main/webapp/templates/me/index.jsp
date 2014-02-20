@@ -406,7 +406,7 @@
 
 				<% String id = session.getId(); %>
 				sessionId = '<%= id %>';
-				<% String js = AuthHelper.getProfileDetails(session); %>
+				<% String js = getProfileDetails(session); %>
 				userProfile = <% js %>;
 
 				html = "<ul id=\"user-book-list\">";
