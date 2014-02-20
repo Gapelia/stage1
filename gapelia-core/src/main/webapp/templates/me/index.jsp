@@ -406,8 +406,6 @@
 
 				<% String id = session.getId(); %>
 				sessionId = '<%= id %>';
-				<% String userInfo = getProfileDetails(session); %>
-				userProfile = <% userInfo %>;
 
 				html = "<ul id=\"user-book-list\">";
  				featuredBooks = "";

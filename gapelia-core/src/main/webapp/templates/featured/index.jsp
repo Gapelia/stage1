@@ -864,8 +864,7 @@
 					parsedHtml = "";
 				<% String id = session.getId(); %>
 				sessionId = '<%= id %>';
-				<% String userInfo = getProfileDetails(session); %>
-				userProfile = <% userInfo %>;
+
 
 
 					var
