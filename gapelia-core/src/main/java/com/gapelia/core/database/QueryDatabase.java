@@ -35,45 +35,45 @@ public class QueryDatabase {
 	/* Methods to get User details  */
 	/********************************/
 	public static boolean checkProfile(Profile profile) {
-		try {
-			PreparedStatement statement = connection.prepareStatement(CHECK_USER);
-			int id=Integer.parseInt(profile.getValidatedId());
-			statement.setInt(1, id);
-			
-			ResultSet rs = statement.executeQuery();
-			System.out.println(rs.getWarnings());
-			if (rs == null || rs.getFetchSize()==0) {
-				System.out.println("making new statment");
-				PreparedStatement insert = connection.prepareStatement(INSERT_USER);
-				insert.setString(1, profile.getFirstName());
-				insert.setString(2, profile.getEmail());
-				insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
-				insert.setString(4, profile.getDob().toString());
-				insert.setString(5, profile.getGender());
-				insert.setString(6, profile.getLocation());
-				insert.setString(7, profile.getProfileImageURL());
-				insert.setString(8, profile.getFirstName());
-				insert.setString(9, profile.getProviderId());//Type of accont connected
-				insert.setString(10, profile.getValidatedId());
-				insert.setString(11,null);
-				insert.setDate(12, new Date(System.currentTimeMillis()));
-				insert.setDate(13, new Date(System.currentTimeMillis()));
-				insert.setDate(14, new Date(System.currentTimeMillis()));
-				insert.setString(15, "I Just Joined and I Love To Explore!!!!! ");
-				insert.setString(16, "Fun");
-				insert.setInt(17, id);
-				//insert.setBoolean(17,TRUE);//is public
-				System.out.println(insert);
-				rs = insert.executeQuery();
-				System.out.println(rs);
-				return false; // newly created
-			}
-			return true;
-		} catch (Exception ex) {
-			LOG.error("Cannot check user profile: " + profile, ex);
-			System.out.println("Cannot check user profile: " + ex.toString());
-			return false;
-		}
+			LOG.error(profile.toString());
+System.out.println(profile.toString());
+PreparedStatement statement = connection.prepareStatement(CHECK_USER);
+statement.setString(1,profile.getValidatedId());
+System.out.println(statement.toString());
+ResultSet rs = statement.executeQuery();
+System.out.println(rs.getWarnings());
+if (rs == null || rs.getFetchSize()==0) {
+System.out.println("making new statment");
+PreparedStatement insert = connection.prepareStatement(INSERT_USER);
+insert.setString(1, profile.getFirstName());
+insert.setString(2, profile.getEmail());
+insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
+insert.setString(4, profile.getDob().toString());
+insert.setString(5, profile.getGender());
+insert.setString(6, profile.getLocation());
+insert.setString(7, profile.getProfileImageURL());
+insert.setString(8, profile.getFirstName());
+insert.setString(9, profile.getProviderId());//Type of accont connected
+insert.setString(10, profile.getValidatedId());
+insert.setString(11,null);
+insert.setDate(12, new Date(System.currentTimeMillis()));
+insert.setDate(13, new Date(System.currentTimeMillis()));
+insert.setDate(14, new Date(System.currentTimeMillis()));
+insert.setString(15, "I Just Joined and I Love To Explore!!!!! ");
+insert.setString(16, "Fun");
+insert.setInt(17, 1);
+//insert.setBoolean(17,TRUE);//is public
+System.out.println(insert);
+rs = insert.executeQuery();
+System.out.println(rs);
+return false; // newly created
+}
+return true;
+} catch (Exception ex) {
+LOG.error("Cannot check user profile: " + profile, ex);
+System.out.println("Cannot check user profile: " + ex.toString());
+return false;
+}
 	}
 
 	public static User getUser(Profile profile) {
