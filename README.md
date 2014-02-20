@@ -49,3 +49,5 @@ Longer guide to come soon, just make sure you have Java and War set up. Then, ru
 	heroku deploy:war --war target/gapelia.war --app gapelia-dev
 
 If you are on a Mac, this probably packages and deploys the app in 2 seconds. On Windows 8, this takes about 20 minutes. I'm not joking.
+
+UPDATE: Forget about deploying to Heroku, dragon doesn't have any Ajax stuff.
