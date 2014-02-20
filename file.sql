@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS books, users, librarysubscriptions, bookmarks,libraries, pages;
 CREATE TABLE IF NOT EXISTS users (
         id serial PRIMARY KEY,
         name TEXT,
