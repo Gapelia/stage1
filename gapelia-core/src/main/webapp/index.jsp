@@ -52,7 +52,7 @@
 				<div id="login-greet"><a href="#" class="login-link">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div>
 
 				<div id="featured-info">
-					<h2 id="pick-story"><a href="#">How will books look like in 2050?</a></h2>
+					<h2 id="pick-story"><a href="#">How will books lookcfmtkrjted like in 2050?</a></h2>
 
 					<p id="snippet-book">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>
 
