@@ -405,7 +405,9 @@
 				}
 
 				<% String id = session.getId(); %>
-				var sessionId = '<%= id %>'
+				sessionId = '<%= id %>';
+				<% String js = AuthHelper.getProfileDetails(session); %>
+				userProfile = <% js %>;
 
 				html = "<ul id=\"user-book-list\">";
  				featuredBooks = "";

@@ -862,7 +862,11 @@
 					html = "<ul id=\"book-list\">";
 					featuredBooks = "";
 					parsedHtml = "";
-					sId = 123456;
+				<% String id = session.getId(); %>
+				sessionId = '<%= id %>';
+				<% String js = AuthHelper.getProfileDetails(session); %>
+				userProfile = <% js %>;
+
 
 					var
 					allBooks = $("#book-list li"),			// gets all books in a section
@@ -881,7 +885,7 @@
 							contentType: "application/x-www-form-urlencoded;charset=utf-8",
 							type: "POST",
 							data: {
-								sessionId: sId
+								sessionId: sessionId
 							},
 
 							success: function (data) {
