@@ -36,7 +36,7 @@
 
 	</head>
 
-	<body class="app profile">
+	<body class="app profile accounts">
 	
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -87,27 +87,10 @@
 
 			<!--/ main-panel /-->
 			<div id="user-panel">
-				<button id="g-menu-toggle"><a href="#">Gapelia Logo</a></button>
-
-				<div class="user-avatar">
-					<img src="/static/images/users/11.jpg"/>
-				</div>
-
-				<div class="user-data">
-					<h2>Paul Anthony Webb</h2>
-
-					<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
-				</div>
-
-				<div class="button-wrapper">
-					<button class="edit-profile slate">Edit Profile</button>
-				</div>
-
-				<div class="user-bg">
-					<img src="/static/images/space-bb.jpg"/>
-				</div>
+				<button id="g-menu-toggle">
+					<i class="ion-drag"></i>
+				</button>
 			</div>
-			<!--//main-panel /-->
 
 			<div id="account-information">
 				<div class="account-info-wrapper">
@@ -124,10 +107,10 @@
 
 						<p>
 							<input type="radio" name="email-opt" id="yay-email" checked>
-							<label for="yay-email">Sweet, I love email</label><br/>
+							<label for="yay-email" id="email-yay">Sweet, I love email</label><br/>
 
 							<input type="radio" name="email-opt" id="nay-email">
-							<label for="nav-email">Nah, I get enough fan-mail already</label>
+							<label for="nav-email" id="email-nay">Nah, I get enough fan-mail already</label>
 						</p>
 					</section>
 
@@ -136,7 +119,7 @@
 						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content <a href="#">here</a>.</p>
 					</section>
 
-					<section id="oh-noes">
+					<section id="oh-noes" class="not-mobile">
 						<h3>Delete account</h3>
 						<p>Are you sure? <a href="#">I sure am!</a></p>
 					</section>
@@ -154,37 +137,69 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
-
-			$(".mp-pushed").ready(function () {
-				$("#book-scroller").css("z-index", "0");
-			});
-
 			$(function () {
-				$(".user-bg").imgLiquid({ fill: true });
-			});
-		</script>
-
-		<!--/ scripts/layout-scroller /-->
-		<!--/
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/jquery.mCustomScrollbar.js"></script>
-		/-->
-
-		<script>
-			$(document).ready(function () {
 
 				// Load Gapelia
-				$("#user-panel, #account-information").css("opacity", "0").show();
 				NProgress.start();
 
+				// Slide menu for desktop
+				if ($vW > "1024") {
+					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+					$(".mp-pushed").ready(function () {
+						$("#book-scroller").css("z-index", "0");
+					});
+				}
+
+				// Dropdown menu for mobile
+				if ($vW < "1025") {
+
+					menu = "";
+					menu += "<ul id=\"menu\" style=\"display: none;\">";
+					menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+					menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
+					menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+					menu += "<ul>";
+					menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
+					menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
+					menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
+					menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
+					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
+					menu += "</ul>";
+					menu += "</li>";
+					menu += "</ul>";
+
+					$("#g-menu-toggle").after(menu);
+
+					$(document).on("click", "#g-menu-toggle", function () {
+						$("#menu").toggle();
+					});
+
+					$(document).on("click", "#nav-notify", function (e) {
+
+						$("#nav-notify ul").toggle();
+
+						if ($("#nav-notify ul").css("display") == "block") {
+							$("#nav-notify").css("padding", "1rem 0 0 0");
+						} else {
+							$("#nav-notify").css("padding", "1rem");
+						}
+
+						e.preventDefault();
+
+					});
+
+				}
+
+				if ($vW < "322") {
+
+					$("#email-yay").text("Heck yeah!");
+					$("#email-nay").text("Erm, no thanks");
+
+				}
+
+				/*
 				setTimeout(function () {
-
-					// $("#user-book-list").css("opacity", "0").show();
-
-					NProgress.done();
-
-					// $("#user-book-list").css("opacity", "1");
 
 					// "fix" featured menu pop-in
 					setTimeout(function () {
@@ -192,11 +207,11 @@
 					}, 450).show();
 
 				});
+				*/
+
+				NProgress.done();
 
 			});
-			
-			$(".user-data h2").html(_fullName);
-			$(".user-avatar img").attr("src", _image);
 		</script>
 
 	</body>

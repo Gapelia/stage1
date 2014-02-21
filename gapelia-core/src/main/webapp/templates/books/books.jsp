@@ -819,6 +819,7 @@
 		<script>
 			$(function () {
 
+				// Slide menu for desktop
 				if ($vW > "1024") {
 					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 

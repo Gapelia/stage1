@@ -1,4 +1,5 @@
-/************************************************************************************** PROFILE/SCSS **/
+
+////////////////////////////////////////////////////////////////////////////////////// PROFILE/SCSS ///
 
 .profile {
 
@@ -7,14 +8,10 @@
 		width: 100%;
 	}
 
-	// .user-book-list-wrapper { top: 50% !important; }
 	#user-panel, #book-scroller { transition: width 0.1s ease; }
 
 	// Start User Code
-
 	#user-panel {
-		// background-color: $white;
-		// box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 		color: rgba($black, 0.9);
 		display: none; //
 
@@ -128,11 +125,58 @@
 			&:hover { padding: 0.5rem 1.5rem; }
 		}
 	}
-
 	// End User Code
 
+	.new-inner-wrapper {
+		height: auto;
+		top: 15%;
+
+		.entypo {
+			display: block;
+			font-size: 20em;
+			line-height: 0.6em;
+			position: relative;
+		}
+
+		div {
+			display: block;
+			margin: 4rem 0 0 0;
+		}
+	}
+
+	.collection-pages, .collection-contributors, .draft-pages,
+	.library-books, .library-contributors {
+		display: inline-block;
+		@include serif;
+		font-style: italic;
+		text-transform: lowercase;
+
+		span {
+			font-style: normal;
+			text-transform: none;
+		}
+	}
+
+	.collection-pages, .library-books {
+		&:after {
+			content: "\00a0\00b7";
+			font-weight: 700;
+		}
+	}
+
+}
+
+.accounts {
+
+	#user-panel { display: block; }
+
+	#account-information {
+		overflow: hidden;
+		width: 100%;
+	}
+
 	.account-info-wrapper {
-		font-size: 1.05em;
+		font-size: 1rem;
 		padding: 2rem;
 
 		a {
@@ -158,91 +202,5 @@
 			position: absolute;
 		}
 	}
-
-	.new-inner-wrapper {
-		height: auto;
-		top: 15%;
-
-		.entypo {
-			display: block;
-			font-size: 20em;
-			line-height: 0.6em;
-			position: relative;
-		}
-
-		div {
-			display: block;
-			margin: 4rem 0 0 0;
-		}
-	}
-
-	.collection-pages, .collection-contributors, .draft-pages,
-	.library-books, .library-contributors {
-		display: inline-block;
-		font-family: Georgia, serif;
-		font-style: italic;
-		text-transform: lowercase;
-
-		span {
-			font-style: normal;
-			text-transform: none;
-		}
-	}
-
-	.collection-pages, .library-books {
-		&:after {
-			content: "\00a0\00b7";
-			font-weight: 700;
-		}
-	}
-
-	/*
-	.like-collect, .edit-delete {
-		width: 100%; height: auto; // 48px
-		margin: 0; padding: 0.5rem 0;
-		bottom: 3rem; right: 0;
-
-		background-color: rgba($black, 0.5);
-		position: absolute;
-		text-align: center;
-		z-index: 1;
-
-		li {
-			color: $white;
-			display: inline-block;
-			margin: 0 1rem 0 0;
-			text-align: center;
-			vertical-align: top;
-
-			@include hide-text;
-
-			&:last-child { margin: 0; }
-
-			a {
-				width: 100%; height: 100%;
-
-				color: $white;
-				display: block;
-			}
-		}
-	}
-	*/
-
-	/*
-	.edit, .delete {
-		width: 32px; height: 32px;
-
-		background-image: url("../images/sprite-sheet.png");
-		background-size: 200px 500px;
-
-		a {
-			width: 100%; height: 100%;
-			display: block;
-		}
-	}
-	*/
-
-	// .edit { background-position: 160px 1px; }
-	// .delete { background-position: 129px 1px; }
 
 }
