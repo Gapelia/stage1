@@ -352,34 +352,38 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 
-		#book-menu {
-			width: 100%; height: auto;
+		#book-menu, #share-menu {
+			width: 100%; height: auto; max-height: 500px;
 			margin: 0; padding: 71px 0 0 0;
 			top: 0; left: 0;
 
 			background-color: $white;
 			border-bottom: 1px solid rgba($black, 0.07);
-			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 			font-size: 1.5rem;
+			overflow-y: auto;
 			position: fixed;
 			text-align: center;
 			transition: all 0.5s ease;
 			z-index: 101;
 
 			li {
-				margin: 0; padding: 1rem;
+				margin: 0; padding: 1rem 0;
 
 				background-color: $white;
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
 				cursor: pointer;
 				display: block;
 				top: 0;
-				translate: translateY(0);
+			}
+		}
 
-				-o-translate: translateY(0);
-				-ms-translate: translateY(0);
-				-moz-translate: translateY(0);
-				-webkit-translate: translateY(0);
+		#book-menu {
+			#nav-notify {
+				ul {
+					display: none;
+					font-size: 0.8rem;
+					margin: 1rem 0 0 0;
+				}
 			}
 		}
 
@@ -907,7 +911,7 @@
 				}
 			}
 		}
-		
+
 		#featured-splash, #library-splash, #user-splash {
 			#featured-info, #library-info, #splash-user-info {
 				padding: 0 5rem;
@@ -923,16 +927,18 @@
 				font-size: 3.5rem;
 			}
 		}
-	
+
 		#featured-splash {
 			#snippet-book, #snippet-library { display: none; }
 		}
 
+		/*
 		#g-menu-toggle {
 			color: white !important;
 			height: 68px;
-			}
-		
+		}
+		*/
+
 		#user-book-list {
 			background-color: white;
 			padding: 5.4rem 1rem 1rem 1rem;
@@ -1212,6 +1218,12 @@
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	html, body {
+		::-webkit-scrollbar {
+			width: 2px; height: 2px;
+		}
+	}
+
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 	/// Review all this at a later date
 
@@ -1451,12 +1463,11 @@
 			padding: 75px 0 0 0;
 		}
 
-		#g-menu-toggle {
-			left: 0.5rem;
-		}
-		
+		#g-menu-toggle { left: 0.5rem; }
+		#next-book-toggle { right: 0; }
+
 		.book .author-avatar, .collection .author-avatar { width: 35px; }
-		
+
 		.book, .library, .collection {
 			background-color: transparent;
 			border-bottom: 1px solid $slate;
@@ -1606,6 +1617,22 @@
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
+
+		#book-menu, #share-menu {
+			font-size: 1rem;
+			max-height: 300px;
+		}
+
+		#book-menu {
+			#nav-notify {
+				ul {
+					font-size: 0.8rem;
+					line-height: 1rem;
+
+					li { padding: 1rem 2rem; }
+				}
+			}
+		}
 
 		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			.page-title-elem {

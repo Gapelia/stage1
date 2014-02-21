@@ -830,9 +830,32 @@
 				// Dropdown menu for mobile
 				if ($vW < "1025") {
 
-					$("#g-menu-toggle").after('<ul id="book-menu" style="display: none;"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-notify"><a href="#">Notifications</a></li></ul>');
+					menu = "";
+					menu += "<ul id=\"book-menu\" style=\"display: none;\">";
+					menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+					menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
+					menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+					menu += "<ul>";
+					menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
+					menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
+					menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
+					menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
+					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
+					menu += "</ul>";
+					menu += "</li>";
+					menu += "</ul>";
 
-					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+					share = "";
+					share += "<ul id=\"share-menu\" style=\"display: none;\">";
+					share += "<li><a href=\"javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)\">Share via Facebook</a></li>";
+					share += "<li><a href=\"javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)\">Share via Twitter</a></li>";
+					share += "<li><a href=\"mailto:?subject=Oh%20hai&amp;body=Good%20morning!\">Share via Email</a></li>";
+					share += "</ul>";
+
+					$("#g-menu-toggle").after(menu);
+					$("#next-book-toggle").after(share);
+
+					$(document).on("click", "#g-menu-toggle", function () {
 
 						$("#book-menu").toggle();
 
@@ -841,6 +864,40 @@
 						} else {
 							$("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
 						}
+
+						if ($("#share-menu").css("display") == "block") {
+							$("#share-menu").hide();
+						}
+
+					});
+
+					$(document).on("click", "#next-book-toggle", function () {
+
+						$("#share-menu").toggle();
+
+						if ($("#share-menu").css("display") == "block") {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+						} else {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+						}
+
+						if ($("#book-menu").css("display") == "block") {
+							$("#book-menu").hide();
+						}
+
+					});
+
+					$(document).on("click", "#nav-notify", function (e) {
+
+						$("#nav-notify ul").toggle();
+
+						if ($("#nav-notify ul").css("display") == "block") {
+							$("#nav-notify").css("padding", "1rem 0 0 0");
+						} else {
+							$("#nav-notify").css("padding", "1rem");
+						}
+
+						e.preventDefault();
 
 					});
 
@@ -868,7 +925,7 @@
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
 
-						$(document).on(".play-video", "click", function () {
+						$(document).on("click", ".play-video", function () {
 
 							$(".play-video").hide();
 
