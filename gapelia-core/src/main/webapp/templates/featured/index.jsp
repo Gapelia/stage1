@@ -805,25 +805,21 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			$(document).ready(function () {
+			$(function () {
 
-				var
-				$vW = $(window).width(),
-				$vH = $(window).height();
+				var $vW = $(window).width(), $vH = $(window).height();
 
 				// Scrolling on desktop
-				$(function () {
-					$("#featured-scroller").mousewheel(function (event, delta) {
+				$("#featured-scroller").mousewheel(function (event, delta) {
 
-						if ($vW > "1024") {
-							this.scrollLeft -= (delta * 40);
-						} else {
-							this.scroll -= (delta * 40);
-						}
+					if ($vW > "1024") {
+						this.scrollLeft -= (delta * 40);
+					} else {
+						this.scroll -= (delta * 40);
+					}
 
-						event.preventDefault();
+					event.preventDefault();
 
-					});
 				});
 
 				// Dropdown menu for mobile
@@ -832,7 +828,7 @@
 					$("#featured-panel .featured-info").remove();
 					$("#featured-panel").append('<span id="category-title">Bookshelf</span>');
 
-					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
 
 					$("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 
@@ -861,97 +857,93 @@
 				}
 
 				// Load Gapelia
-				$(function () {
+				NProgress.start();
 
-					NProgress.start();
+				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
-					$("#featured-panel, #featured-scroller").css("opacity", "0").show();
+				html = "<ul id=\"book-list\">";
+				featuredBooks = "";
+				parsedHtml = "";
+				sId = 123456;
 
-					html = "<ul id=\"book-list\">";
-					featuredBooks = "";
-					parsedHtml = "";
-					sId = 123456;
+				var
+				allBooks = $("#book-list li"),			// gets all books in a section
+				firstBook = $(allBooks).first();		// gets first book in list
 
-					var
-					allBooks = $("#book-list li"),			// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
+				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+				setTimeout(function () {
 
-					setTimeout(function () {
+					$("#book-list").hide();
+					$("#library-list").hide();
+					$("#bookmark-list").hide();
 
-						$("#book-list").hide();
-						$("#library-list").hide();
-						$("#bookmark-list").hide();
+					$.ajax({
+						url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
+						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+						type: "POST",
+						data: {
+							sessionId: sId
+						},
 
-						$.ajax({
-							url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
-							contentType: "application/x-www-form-urlencoded;charset=utf-8",
-							type: "POST",
-							data: {
-								sessionId: sId
-							},
+						success: function (data) {
 
-							success: function (data) {
+							featuredBooks = data;
+							parsedHtml = parseJsonToStringForBooks(featuredBooks);
 
-								featuredBooks = data;
-								parsedHtml = parseJsonToStringForBooks(featuredBooks);
+							$(".book-list-wrapper").html(parsedHtml);
+							$("#book-list").css("opacity", "0").show();
 
-								$(".book-list-wrapper").html(parsedHtml);
-								$("#book-list").css("opacity", "0").show();
-
-								if ($vW > "1024") {
-									$("#book-list .book").css("height", $vH - 97 + "px");
-								}
-
-								$(".book").imgLiquid({ fill: true });
-
-								var w = 0, h = 0;
-
-								$("#book-list li").each(function () {
-									w += $(this).outerWidth();
-									h += $(this).outerHeight();
-								});
-
-								w += 500;
-
-								if ($vW > "1024") {
-									$("#book-list").css("width", w - 320 + "px");
-								}
-
-								NProgress.done();
-
-								$("#book-list").css("opacity", "1");
-
-								// fades in the all the books after section width is added
-								$("#book-list li").fadeIn("100");
-								$("#book-list").fadeIn("100");
-
-							},
-
-							error: function (q, status, err) {
-
-								if (status == "timeout") {
-									// alert("Request timed out");
-								} else {
-									// alert("Some issue happened with your request: " + err);
-								}
-
+							if ($vW > "1024") {
+								$("#book-list .book").css("height", $vH - 97 + "px");
 							}
-						});
 
-						// "fix" featured menu pop-in
-						setTimeout(function () {
-							$("#featured-panel, #featured-scroller").css("opacity", "1");
-						}, 600);
+							$(".book").imgLiquid({ fill: true });
 
-					}, 1000);
+							var w = 0, h = 0;
 
-					$("#nav-books").addClass("current");
+							$("#book-list li").each(function () {
+								w += $(this).outerWidth();
+								h += $(this).outerHeight();
+							});
 
-					NProgress.done();
+							w += 500;
 
-				});
+							if ($vW > "1024") {
+								$("#book-list").css("width", w - 320 + "px");
+							}
+
+							NProgress.done();
+
+							$("#book-list").css("opacity", "1");
+
+							// fades in the all the books after section width is added
+							$("#book-list li").fadeIn("100");
+							$("#book-list").fadeIn("100");
+
+						},
+
+						error: function (q, status, err) {
+
+							if (status == "timeout") {
+								// alert("Request timed out");
+							} else {
+								// alert("Some issue happened with your request: " + err);
+							}
+
+						}
+					});
+
+					// "fix" featured menu pop-in
+					setTimeout(function () {
+						$("#featured-panel, #featured-scroller").css("opacity", "1");
+					}, 600);
+
+				}, 1000);
+
+				$("#nav-books").addClass("current");
+
+				NProgress.done();
 
 				// Click "Books"
 				$("#nav-books").click(function (e) {

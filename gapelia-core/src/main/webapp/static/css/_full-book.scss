@@ -10,7 +10,7 @@
 
 	.mp-pushed {
 		#g-menu-toggle {
-			top: -5rem !important;
+			// top: -5rem !important;
 			z-index: 1;
 		}
 	}
@@ -59,58 +59,22 @@
 				}
 
 				&:last-child { margin: 0; }
-
-				// @include hide-text;
 			}
-
-			// .facebook	{ background-position: 96px 1px; }
-			// .twitter	{ background-position: 64px 1px; }
-			// .email		{ background-position: 39px -1285px; }
 		}
 	}
 
-	#g-menu-toggle, #header-toggle, #next-book-toggle { position: fixed; }
-
-	#g-menu-toggle {
+	#g-menu-toggle, #next-book-toggle {
 		color: $white;
-		left: 1rem;
 		padding: 0 !important;
+		position: fixed;
 		width: 45px;
 		z-index: 103;
 
-		.ion-drag { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
+		i { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
 	}
 
-	#header-toggle, #next-book-toggle {
-		// width: 47px; height: 47px;
-
-		// background-image: url("../images/sprite-sheet.png");
-		// background-size: 300px 750px;
-		opacity: 1;
-		top: 0.5rem;
-		transition: all 0.2s ease;
-		z-index: 101;
-
-		// @include hide-text;
-	}
-
-	#header-toggle {
-		// background-position: 204px -1177px;
-		cursor: default;
-		left: 48.2%;
-		text-align: center;
-	}
-
-	#next-book-toggle {
-		// background-position: 455px -1181px;
-		color: $white;
-		cursor: pointer;
-		font-size: 36px;
-		right: 1rem;
-		// text-shadow: 0 0 2px rgba($black, 0.3);
-
-		.ion-forward { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
-	}
+	#g-menu-toggle { left: 1rem; }
+	#next-book-toggle { right: 1rem; }
 
 	#header-info {
 		cursor: default;
@@ -232,7 +196,7 @@
 		#author-info {
 			font-size: 0.6rem;
 
-			#author-name {
+			.author-name {
 				cursor: default;
 				letter-spacing: 2px;
 				line-height: 1;
@@ -250,7 +214,7 @@
 				}
 			}
 
-			#author-avatar {
+			.author-avatar {
 				width: 40px; height: 40px;
 
 				border-radius: 300rem;
@@ -298,9 +262,9 @@
 			width: 13%;
 			margin: 0;
 
-			#author-avatar { float: right; }
+			.author-avatar { float: right; }
 
-			#author-name {
+			.author-name {
 				text-align: right;
 				&:before { text-align: right; }
 			}
@@ -320,7 +284,7 @@
 
 		.fluid-preview {
 			width: 100%; height: auto; // min-height: 53%;
-			top: 75%; /* 20% */ left: 0;
+			top: 75%; left: 0; bottom: 0;
 
 			background-color: $white;
 			padding: 1rem 2rem 0 2rem;
@@ -352,7 +316,7 @@
 			top: 3rem;
 			width: 13%;
 
-			#author-avatar { float: right; }
+			.author-avatar { float: right; }
 		}
 
 		#author-info, article {
@@ -404,11 +368,11 @@
 			top: -15%;
 			width: 20%;
 
-			#author-avatar {
+			.author-avatar {
 				float: right;
 			}
 
-			#author-name {
+			.author-name {
 				text-align: right;
 
 				&:before {
@@ -461,13 +425,13 @@
 			color: white;
 			left: 25%;
 
-			#author-avatar {
+			.author-avatar {
 				float: right;
 				margin-right: 45%; //
 				margin-top: 6px; //
 			}
 
-			#author-name {
+			.author-name {
 				text-align: center;
 				&:before { text-align: center; }
 			}
@@ -482,17 +446,17 @@
 		#author-info {
 			margin: -0.5rem 0 0 0;
 
-			#author-name, #author-avatar {
+			.author-name, .author-avatar {
 				display: inline-block !important;
 				vertical-align: middle;
 			}
 
-			#author-name {
+			.author-name {
 				margin: 0;
 				text-align: left;
 			}
 
-			#author-avatar { margin: 0 1rem 0 0; }
+			.author-avatar { margin: 0 1rem 0 0; }
 		}
 	}
 
@@ -717,7 +681,7 @@
 
 			section { margin: 0 0 5rem 0; }
 
-			#author-avatar, #library-avatar {
+			.author-avatar, #library-avatar {
 				width: 100px; height: 100px;
 				border-radius: 300rem;
 				overflow: hidden;
@@ -737,7 +701,7 @@
 				}
 			}
 
-			#author-avatar {
+			.author-avatar {
 				img {
 					width: auto; height: 100%;
 				}
@@ -749,13 +713,13 @@
 				}
 			}
 
-			#author-avatar, #author-name,
+			.author-avatar, .author-name,
 			#library-avatar, #library-name	{
 				display: inline-block;
 				vertical-align: top;
 			}
 
-			#author-name, #library-name {
+			.author-name, #library-name {
 				font-size: 24px;
 				margin: 0 0 0.5rem 2rem;
 
@@ -766,7 +730,7 @@
 				}
 			}
 
-			#author-name {
+			.author-name {
 				&:before { content: "by "; }
 			}
 

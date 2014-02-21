@@ -12,7 +12,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -41,44 +41,50 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
+
+					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a id="gpl-menu-me" href="/me">Me</a>
+						<li><a id="gpl-menu-me">Me</a>
 							<ul>
-								<li><a href="/accounts">Account Settings</a></li>
+								<li><a href="/me">Visit Profile</a></li>
+								<li class="not-mobile"><a href="/accounts">Account Settings</a></li>
 								<li><a href="#">Sign Out</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create" href="/create">Create</a></li>
+						<li><a id="gpl-menu-notify">Notifications</a>
+							<ul>
+								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
+								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
+								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
+								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
+								<li><a href="#">2 edit requests are pending for your review</a></li>
+							</ul>
+						</li>
 
-						<li><a id="gpl-menu-drafts">Drafts</a>
+						<li class="not-mobile"><a id="gpl-menu-create">Build</a>
+							<ul>
+								<li><a href="/create">Create your next opus</a></li>
+								<li><a href="#">Start a library</a></li>
+							</ul>
+						</li>
+
+						<li class="not-mobile"><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
 								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">007: The Diego Regules Story</a></li>
 								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
 						</li>
 					</ul>
+
 				</div>
 			</nav>
 			<!--//site-menu /-->
 
-			<button id="g-menu-toggle">
-				<i class="ion-drag"></i>
-			</button>
-
-			<div id="next-book-toggle"><i class="ion-forward"></i></div>
+			<button id="g-menu-toggle"><i class="ion-drag"></i></button>
+			<button id="next-book-toggle"><i class="ion-forward"></i></button>
 
 			<header>
 				<div id="header-info">
@@ -87,9 +93,11 @@
 				</div>
 
 				<ul class="share-book">
-					<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://gapelia.com" target="_blank"><i class="ion-social-facebook"></i></a></li>
-					<li><a href="http://twitter.com/home?status=Reading%20this%20book%20on%20Gapelia,%20check%20it%20out.%20http://gapelia.com" target="_blank"><i class="ion-social-twitter"></i></a></li>
-					<li><a href="mailto:?subject=Oh%20hai&body=Good%20morning!"><i class="ion-email"></i></a></li>
+					<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)"><i class="ion-social-facebook"></i></a></li>
+
+					<li><a href="javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)"><i class="ion-social-twitter"></i></a></li>
+
+					<li><a href="mailto:?subject=Oh%20hai&amp;body=Good%20morning!"><i class="ion-email"></i></a></li>
 				</ul>
 			</header>
 
@@ -112,8 +120,8 @@
 
 								<div class="fluid-preview">
 									<div id="author-info">
-										<div id="author-name">Paul Anthony Webb</div>
-										<img id="author-avatar" src="/static/images/users/11.jpg" alt=""/>
+										<div class="author-name">Paul Anthony Webb</div>
+										<img class="author-avatar" src="/static/images/users/11.jpg" alt=""/>
 									</div>
 
 									<article>
@@ -761,9 +769,9 @@
 									<hr/>
 
 									<section>
-										<div id="author-avatar"><img src="/static/images/users/11.jpg" alt=""/></div>
+										<div class="author-avatar"><img src="/static/images/users/11.jpg" alt=""/></div>
 
-										<div id="author-name"><a href="#">Paul Anthony Webb</a></div>
+										<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
 										<div id="author-bio-blurb">Super awesome kamehameha dude who is into art, Power Rangers, and hoverboards.</div>
 									</section>
 
@@ -801,10 +809,6 @@
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
-		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
-		</script>
-
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
 
@@ -813,12 +817,39 @@
 		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
-			$(document).ready(function() {
+			$(function () {
+
+				if ($vW > "1024") {
+					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+					$(".mp-pushed").ready(function () {
+						$("#book-scroller").css("z-index", "0");
+					});
+				}
+
+				// Dropdown menu for mobile
+				if ($vW < "1025") {
+
+					$("#g-menu-toggle").after('<ul id="book-menu" style="display: none;"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-notify"><a href="#">Notifications</a></li></ul>');
+
+					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+
+						$("#book-menu").toggle();
+
+						if ($("#book-menu").css("display") == "block") {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+						} else {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+						}
+
+					});
+
+				}
 
 				// Load Gapelia
 				NProgress.start();
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					var $vW = $(window).width(), $vH = $(window).height();
 
@@ -826,7 +857,7 @@
 
 						$("img").VimeoThumb();
 
-						setTimeout(function() {
+						setTimeout(function () {
 							$(".video-player-container").imgLiquid({ fill: true });
 						}, 1000); // prevent placeholder from appearing
 
@@ -837,7 +868,7 @@
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
 
-						$(document).on(".play-video", "click", function() {
+						$(document).on(".play-video", "click", function () {
 
 							$(".play-video").hide();
 
@@ -850,14 +881,15 @@
 
 					if ($vW < "1025") {
 
-						$("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+						// $("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+						$("#header-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
 						$(".video-player-container img").hide();
 						$(".video-player-container iframe").show();
 
 					}
 
-					var Page = (function() {
+					var Page = (function () {
 
 						var config = {
 							$bookBlock: $("#bb-bookblock"),
@@ -868,7 +900,7 @@
 							// $navLast: $('#bb-nav-last')
 						},
 
-						init = function() {
+						init = function () {
 
 							config.$bookBlock.bookblock({
 								speed: 1000,
@@ -880,28 +912,28 @@
 
 						},
 
-						initEvents = function() {
+						initEvents = function () {
 
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on("click touchstart", function() {
+							config.$navNext.on("click touchstart", function () {
 								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on("click touchstart", function() {
+							config.$navPrev.on("click touchstart", function () {
 								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on("click touchstart", function() {
+							config.$navFirst.on("click touchstart", function () {
 								config.$bookBlock.bookblock("first");
 								return false;
 							});
 
 							/*
-							config.$navLast.on("click touchstart", function() {
+							config.$navLast.on("click touchstart", function () {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});

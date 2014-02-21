@@ -43,47 +43,43 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
+
+					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a id="gpl-menu-me" href="/me">Me</a>
+						<li><a id="gpl-menu-me">Me</a>
 							<ul>
-								<li><a href="/accounts">Account Settings</a></li>
+								<li><a href="/me">Visit Profile</a></li>
+								<li class="not-mobile"><a href="/accounts">Account Settings</a></li>
 								<li><a href="#">Sign Out</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create">Create</a>
+						<li><a id="gpl-menu-notify">Notifications</a>
 							<ul>
-								<li><a href="/create">New Book</a></li>
-								<li><a href="/create">New Essay</a></li>
+								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
+								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
+								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
+								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
+								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-drafts">Drafts</a>
+						<li class="not-mobile"><a id="gpl-menu-create">Build</a>
+							<ul>
+								<li><a href="/create">Create your next opus</a></li>
+								<li><a href="#">Start a library</a></li>
+							</ul>
+						</li>
+
+						<li class="not-mobile"><a id="gpl-menu-drafts">Drafts</a>
 							<ul>
 								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">007: The Diego Regules Story</a></li>
 								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
 						</li>
 					</ul>
-
-					<!--/
-					<div id="account-links">
-						<a href="/accounts">Account</a>
-						<a href="#">Sign Out</a>
-					</div>
-					/-->
 
 				</div>
 			</nav>
@@ -160,11 +156,11 @@
 		<script>
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-			$(".mp-pushed").ready(function() {
+			$(".mp-pushed").ready(function () {
 				$("#book-scroller").css("z-index", "0");
 			});
 
-			$(function() {
+			$(function () {
 				$(".user-bg").imgLiquid({ fill: true });
 			});
 		</script>
@@ -176,13 +172,13 @@
 		/-->
 
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function () {
 
 				// Load Gapelia
 				$("#user-panel, #account-information").css("opacity", "0").show();
 				NProgress.start();
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					// $("#user-book-list").css("opacity", "0").show();
 

@@ -143,9 +143,8 @@
 		}
 	}
 
-	#g-menu-toggle {
+	#g-menu-toggle, #next-book-toggle {
 		width: 100%; height: auto;
-		top: 0.5rem; left: 0;
 
 		background-color: transparent;
 		color: $slate;
@@ -153,20 +152,15 @@
 		font-size: 36px;
 		padding: 0 !important;
 		position: absolute;
+		top: 0.5rem;
 		transition: all 0.5s ease;
 		z-index: 3;
 
-		span {
-			width: 36px; height: 4px;
-
-			background-color: $slate;
-			display: block;
-			margin: 0 auto 6px;
-			position: relative;
-		}
-
 		&:hover { opacity: 0.7; }
 	}
+
+	#g-menu-toggle { left: 0; }
+	#next-book-toggle { right: 0; }
 
 	#nav-wrapper {
 		top: 0; right: 0;
