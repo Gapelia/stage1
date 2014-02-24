@@ -8,11 +8,11 @@ public class DatabaseManager {
 
 	private static String DB_DRIVER = "org.postgresql.Driver";
 	private static String DB_CONN_STRING = "jdbc:postgresql://";
-	private static String DB_HOSTNAME = "ec2-54-204-37-92.compute-1.amazonaws.com";
+	private static String DB_HOSTNAME = "stage1.cxphkpoppwcv.us-west-2.rds.amazonaws.com";
 	private static String DB_PORT = "5432";
-	private static String DB_USER = "lmqyuqoyasrapq";
-	private static String DB_PASS = "5ELsYmpiso4HWAyj0SR_iaBQH4";
-	private static String DB_NAME = "d4fq8usu8kkech";
+	private static String DB_USER = "gapelia";
+	private static String DB_PASS = "alphalaunch";
+	private static String DB_NAME = "gapelia";
 
 	private static Logger LOG = Logger.getLogger(DatabaseManager.class);
 	private static DatabaseManager _instance;

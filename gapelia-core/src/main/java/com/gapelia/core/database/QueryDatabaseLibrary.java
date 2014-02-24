@@ -9,4 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class QueryDatabaseLibrary {
+	private static Logger LOG = Logger.getLogger(Book.class);
+	private static Connection connection = DatabaseManager.getInstance().getConnection();
+
+	public static Library [] getLibraries
 }

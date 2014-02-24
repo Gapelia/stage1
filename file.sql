@@ -107,12 +107,12 @@ CREATE INDEX library_books_book_id_idx ON library_books(book_id);
 
 CREATE TABLE IF NOT EXISTS contributors (
         user_id INT PRIMARY KEY REFERENCES users(id),
-        library_id INT PRIMARY KEY REFERENCES libraries(id)
+        library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX contributors_book_id_idx ON contributors(library_id);
 
 CREATE TABLE IF NOT EXISTS editors (
         editor_id INT PRIMARY KEY REFERENCES users(id),
-        library_id INT PRIMARY KEY REFERENCES libraries(id)
+        library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX editors_book_id_idx ON editors(library_id);
