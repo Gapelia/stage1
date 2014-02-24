@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS books, users, librarysubscriptions, bookmarks,libraries, pages;
 CREATE TABLE IF NOT EXISTS users (
         id serial PRIMARY KEY,
         name TEXT,
@@ -75,12 +74,6 @@ CREATE TABLE IF NOT EXISTS user_votes (
 );
 CREATE INDEX user_votes_book_id_idx ON user_votes(book_id);
 
-CREATE TABLE IF NOT EXISTS user_subscriptions (
-        user_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
-);
-CREATE INDEX user_subscriptions_book_id_idx ON user_subscriptions(book_id);
-
 CREATE TABLE IF NOT EXISTS user_bookmarks (
         user_id INT PRIMARY KEY REFERENCES users(id),
         book_id INT REFERENCES books(id) NOT NULL
@@ -114,12 +107,12 @@ CREATE INDEX library_books_book_id_idx ON library_books(book_id);
 
 CREATE TABLE IF NOT EXISTS contributors (
         user_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
+        library_id INT REFERENCES libraries(id)
 );
-CREATE INDEX contributors_book_id_idx ON contributors(book_id);
+CREATE INDEX contributors_book_id_idx ON contributors(library_id);
 
 CREATE TABLE IF NOT EXISTS editors (
         editor_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
+        library_id INT REFERENCES libraries(id)
 );
-CREATE INDEX editors_book_id_idx ON editors(book_id);
+CREATE INDEX editors_book_id_idx ON editors(library_id);
