@@ -1,118 +1,120 @@
 package com.gapelia.core.model;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 4:08 PM
- * Copyright Gapelia Inc
- */
+import java.sql.Date;
+
 public class Page {
-	private String pageId;
-	private String createdByUserId;
-	private String bookId;
-	private String title;
-	private String description;
-	private String location;
-	private String photo;
-	private String videoUrl;
-	private Integer templateId;
-	private Double marginX;
-	private Double marginY;
-	private Integer pageNumber;
 
-	public String getPageId() {
-		return pageId;
-	}
+    private int pageId;
+    private int bookId;
+    private int userId;
+    private int templateId;
+    private int pageNumber;
+    private String title;
+    private String content;
+    private String videoUrl;
+    private String photoUrl
+    private String photoId;
+    private String creativeCommons;
+    private Date created;
+    private Date lastUpdated;
 
-	public void setPageId(String pageId) {
-		this.pageId = pageId;
-	}
+    public int getPageId() {
+        return pageId;
+    }
 
-	public String getCreatedByUserId() {
-		return createdByUserId;
-	}
+    public void setPageId(int pageId) {
+        this.pageId = pageId;
+    }
 
-	public void setCreatedByUserId(String createdByUserId) {
-		this.createdByUserId = createdByUserId;
-	}
+    public int getBookId() {
+        return bookId;
+    }
 
-	public String getBookId() {
-		return bookId;
-	}
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public int getTemplateId() {
+        return templateId;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setTemplateId(int templateId) {
+        this.templateId = templateId;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public int getPageNumber() {
+        return pageNumber;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getPhoto() {
-		return photo;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public String getVideoUrl() {
-		return videoUrl;
-	}
+    public String getVideoUrl() {
+        return videoUrl;
+    }
 
-	public void setVideoUrl(String videoUrl) {
-		this.videoUrl = videoUrl;
-	}
+    public void setVideoURl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
 
-	public Integer getTemplateId() {
-		return templateId;
-	}
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 
-	public void setTemplateId(Integer templateId) {
-		this.templateId = templateId;
-	}
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 
-	public Double getMarginX() {
-		return marginX;
-	}
+    public String getPhotoId() {
+        return  photoId;
+    }
 
-	public void setMarginX(Double marginX) {
-		this.marginX = marginX;
-	}
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
+    }
 
-	public Double getMarginY() {
-		return marginY;
-	}
+    public String getCreativeCommons() {
+        return creativeCommons;
+    }
 
-	public void setMarginY(Double marginY) {
-		this.marginY = marginY;
-	}
+    public void setCreativeCommons(String creativeCommons) {
+        this.creativeCommons = creativeCommons;
+    }
 
-	public Integer getPageNumber() {
-		return pageNumber;
-	}
+    public Date getCreated() {
+        return created;
+    }
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
+    public void setContent(Date created) {
+        this.created = created;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 }

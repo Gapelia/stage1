@@ -11,12 +11,6 @@ import org.apache.log4j.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 9:53 PM
- * Copyright Gapelia Inc
- */
 @Path("/libraries")
 public class Libraries {
 

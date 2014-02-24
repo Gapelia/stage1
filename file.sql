@@ -12,26 +12,26 @@ CREATE TABLE IF NOT EXISTS users (
         display_name TEXT,
         validate_id TEXT,
         provider_id TEXT,
-        member_since TIMESTAMP WITH TIME ZONE,
-        last_login TIMESTAMP WITH TIME ZONE,
-        last_updated TIMESTAMP WITH TIME ZONE,
         personal_website TEXT,
         bio TEXT,
-        tags TEXT,
+        tags TEXT[],
         fb TEXT,
         gp TEXT,
         twt TEXT,
+        member_since TIMESTAMP WITH TIME ZONE,
+        last_login TIMESTAMP WITH TIME ZONE,
+        last_updated TIMESTAMP WITH TIME ZONE,
         is_public BOOLEAN
 );
 CREATE INDEX user_validate_id_idx ON users(validate_id);
 
 CREATE TABLE IF NOT EXISTS books (
         id serial PRIMARY KEY,
+        owned_by INT REFERENCES users(id) NOT NULL,
         cover_photo TEXT,
         title TEXT,
         language VARCHAR(2),
         tags TEXT[],
-        owned_by INT REFERENCES users(id) NOT NULL,
         created TIMESTAMP WITH TIME ZONE,
         last_updated TIMESTAMP WITH TIME ZONE,
         is_published BOOLEAN default false
@@ -59,13 +59,13 @@ CREATE INDEX user_bookmarks_book_id_idx ON user_bookmarks(book_id);
 
 CREATE TABLE IF NOT EXISTS pages (
         id serial PRIMARY KEY,
+        book_id INT REFERENCES books(id) NOT NULL,
+        user_id  INT REFERENCES users(id) NOT NULL,
+        page_number INT,
+        template_id INT,
         title TEXT,
         content TEXT,
-        template_id INT,
         video_url TEXT,
-        book_id INT REFERENCES books(id) NOT NULL,
-        page_number INT,
-        user_id  INT REFERENCES users(id) NOT NULL,
         photo_url TEXT,
         photo_id TEXT,
         creative_commons TEXT,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS libraries(
         id serial PRIMARY KEY,
         created_by INT REFERENCES users(id) NOT NULL,
         title TEXT NOT NULL,
-        tags TEXT,
+        tags TEXT[],
         cover_photo TEXT,
         description TEXT,
         num_subscribers INT default 0,

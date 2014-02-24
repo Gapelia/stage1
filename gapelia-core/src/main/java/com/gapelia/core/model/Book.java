@@ -2,137 +2,86 @@ package com.gapelia.core.model;
 
 import java.sql.Date;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 4:08 PM
- * Copyright Gapelia Inc
- */
 public class Book {
-	private String bookId;
-	private String [] createdByUserIds;
-	private String title;
-	private String coverPhoto;
-	private String dimension;
-	private String language;
-	private String library;
-	private String userId;
-	private String  tags;
-	private Page [] pages;
-	private Date createdDate;
-	private Date publishedDate;
-	private Date lastEditedDate;
-	private Boolean isPublished;
-	
-	public String getUserId(){
-		return userId;
-	}
+	private int bookId;
+    private int userId;
+    private String coverPhoto;
+    private String title;
+    private String language;
+    private String [] tags;
+    private Date created;
+    private Date lastUpdated;
+    private Boolean isPublished;
 
-	public void setUserId(String userId){
-		this.userId=userId;
-	}
+    public int getBookId() {
+        return bookId;
+    }
 
-	public String getLibrary(){
-		return library;
-	}
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
-	public void setLibrary(String library){
-		this.library=library;
-	}
-	
-	public String getCoverPhoto(){
-		return coverPhoto;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public void setCoverPhoto(String coverPhoto) {
-		this.coverPhoto = coverPhoto;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public String getBookId() {
-		return bookId;
-	}
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
 
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
 
-	public String[] getCreatedByUserIds() {
-		return createdByUserIds;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setCreatedByUserIds(String[] createdByUserIds) {
-		this.createdByUserIds = createdByUserIds;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getLanguague() {
+        return language;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setLanguague(String Languague) {
+        this.language = language;
+    }
 
-	public String getDimension() {
-		return dimension;
-	}
+    public String [] getTags() {
+        return tags;
+    }
 
-	public void setDimension(String dimension) {
-		this.dimension = dimension;
-	}
+    public void setTags(String [] tags) {
+        this.tags = tags;
+    }
 
-	public String getLanguage() {
-		return language;
-	}
+    public Date getCreated() {
+        return created;
+    }
 
-	public void setLanguage(String language) {
-		this.language = language;
-	}
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
-	public String getTags() {
-		return tags;
-	}
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
 
-	public void setTags(String tags) {
-		this.tags = tags;
-	}
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 
-	public Page[] getPages() {
-		return pages;
-	}
+    public Boolean getIsPublished() {
+        return isPublished;
+    }
 
-	public void setPages(Page[] pages) {
-		this.pages = pages;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getPublishedDate() {
-		return publishedDate;
-	}
-
-	public void setPublishedDate(Date publishedDate) {
-		this.publishedDate = publishedDate;
-	}
-
-	public Date getLastEditedDate() {
-		return lastEditedDate;
-	}
-
-	public void setLastEditedDate(Date lastEditedDate) {
-		this.lastEditedDate = lastEditedDate;
-	}
-
-	public Boolean getPublished() {
-		return isPublished;
-	}
-
-	public void setPublished(Boolean published) {
-		isPublished = published;
-	}
+    public void setIsPublished(Boolean isPublished) {
+        this.isPublished = isPublished;
+    }
 }

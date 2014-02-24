@@ -13,12 +13,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 3:50 PM
- * Copyright Gapelia
- */
 @Path("/me")
 public class Profile {
 	public static Logger LOG = Logger.getLogger(Profile.class);
@@ -30,10 +24,8 @@ public class Profile {
 	public String getUserInfo(@FormParam("sessionId") String sessionId) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
-			// Get UserId from SessionId
 			LOG.info("Trying to retrieve user from session id");
 			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-			// Retrieving user details
 			LOG.info("Trying to retrieve user details from id");
 			User user = QueryDatabase.getUser(profile);
 			String json = gson.toJson(user);

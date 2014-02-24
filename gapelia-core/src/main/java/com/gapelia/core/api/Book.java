@@ -5,18 +5,11 @@ import com.gapelia.core.database.QueryDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
-import com.gapelia.core.database.DatabaseManager;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.UUID;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 9:56 PM
- * Copyright Gapelia Inc
- */
 @Path("/book/")
 public class Book {
 	public static Logger LOG = Logger.getLogger(Book.class);

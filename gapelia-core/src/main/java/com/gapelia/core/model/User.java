@@ -1,167 +1,204 @@
 package com.gapelia.core.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 4:00 PM
- * Copyright Gapelia Inc
- */
-@XmlRootElement
 public class User {
-	private String name;
-	private String email;
-	private String bio;
-	private String photoUrl;
-	private String userId;
-	private String gender;
-	private String location;
-	private String dob;
-	private Double reputation;
-	private String facebookUrl;
-	private String twitterUrl;
-	private String googlePlusUrl;	
-	private String personalWebsite;
-	private String tags;
-	private Date memberSince;
-	private Date lastLoggedIn;
-	private Date lastUpdated;
+    private int userId;
+    private String name;
+    private String email;
+    private String fullName;
+    private Date dob;
+    private String gender;
+    private String location;
+    private String avatarImage;
+    private String coverImage;
+    private String displayName;
+    private String validateId;
+    private String providerId;
+    private String personalWebsite;
+    private String bio;
+    private String [] tags;
+    private String fb;
+    private String gp;
+    private String twt;
+    private Date memeberSince;
+    private Date lastLogin;
+    private Date lastUpdated;
+    private Boolean isPublic;
 
-	public String getPersonalWebsite() {
-		return personalWebsite;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public void setPersonalWebsite(String personalWebsite) {
-		this.personalWebsite = personalWebsite;
-	}
+    public void setUserId() {
+        this.userId = userId;
+    }
 
-	public String getTags() {
-		return tags;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setTags(String tags) {
-		this.tags = tags;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated =lastUpdated;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Date getLastUpdated() {
-		return lastUpdated;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    public void setEmail(String Email) {
+        this.email = email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getFullName() {
+        return fullName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Date getDob() {
+        return dob;
+    }
 
-	public String getBio() {
-		return bio;
-	}
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 
-	public void setBio(String bio) {
-		this.bio = bio;
-	}
+    public String getGender() {
+        return gender;
+    }
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
+    public String getLocation() {
+        return location;
+    }
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public String getAvatarImage() {
+        return  avatarImage;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    public void setAvatarImage(String avatarImage) {
+        this.avatarImage = avatarImage;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    public String getCoverImage() {
+        return  coverImage;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    public void setCoverImage(String coverImage) {
+        this.coverImage = coverImage;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public String getDisplayName() {
+        return displayName;
+    }
 
-	public String getDob() {
-		return dob;
-	}
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
+    public String getValidateId() {
+        return validateId;
+    }
 
-	public Double getReputation() {
-		return reputation;
-	}
+    public void setValidateId(String validateId) {
+        this.validateId = validateId;
+    }
 
-	public void setReputation(Double reputation) {
-		this.reputation = reputation;
-	}
+    public String getProviderId() {
+        return providerId;
+    }
 
-	public String getFacebookUrl() {
-		return facebookUrl;
-	}
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
 
-	public void setFacebookUrl(String facebookUrl) {
-		this.facebookUrl = facebookUrl;
-	}
+    public String getPersonalWebsite() {
+        return personalWebsite;
+    }
 
-	public String getTwitterUrl() {
-		return twitterUrl;
-	}
+    public void setPersonalWebsite(String personalWebsite) {
+        this.personalWebsite = personalWebsite;
+    }
 
-	public void setTwitterUrl(String twitterUrl) {
-		this.twitterUrl = twitterUrl;
-	}
+    public String getBio() {
+        return  bio;
+    }
 
-	public String getGooglePlusUrl() {
-		return googlePlusUrl;
-	}
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
-	public void setGooglePlusUrl(String googlePlusUrl) {
-		this.googlePlusUrl = googlePlusUrl;
-	}
+    public String [] getTags() {
+        return tags;
+    }
 
-	public Date getMemberSince() {
-		return memberSince;
-	}
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
 
-	public void setMemberSince(Date memberSince) {
-		this.memberSince = memberSince;
-	}
+    public String getFb() {
+        return fb;
+    }
 
-	public Date getLastLoggedIn() {
-		return lastLoggedIn;
-	}
+    public void setFb(String fb) {
+        this.fb = fb;
+    }
 
-	public void setLastLoggedIn(Date lastLoggedIn) {
-		this.lastLoggedIn = lastLoggedIn;
-	}
+    public String getGp() {
+        return gp;
+    }
+
+    public void setGp(String gp) {
+        this.gp = gp;
+    }
+
+    public String getTwt() {
+        return twt;
+    }
+
+    public void setTwt(String twt) {
+        this.twt = twt;
+    }
+
+    public Date getMemeberSince() {
+        return memeberSince;
+    }
+
+    public void setMemeberSince(Date memeberSince) {
+        this.memeberSince = memeberSince;
+    }
+
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public Boolean getIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
 }

@@ -2,7 +2,6 @@ package com.gapelia.core.database;
 
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Page;
-import com.gapelia.core.model.Event;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
@@ -16,6 +15,8 @@ import java.sql.ResultSet;
 public class QueryDatabase {
 	private static Logger LOG = Logger.getLogger(Book.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
+    //Library Queries
+
 	//Page Relate Queries
 	private static final String UPDATE_PAGE = "UPDATE pages set title = ?, description = ?, templateId = ?, bookId = ?, marginX = ?, marginY = ?, videoUrl = ?, pageNumber = ?, userId = ?, photoUrl = ?, photoId = ?, creativeCommons = ?, lastUpdated = ? WHERE pageId = ?";
 	private static final String INSERT_PAGE = "INSERT INTO pages (title, description,templateId,bookId,marginX,marginY,videoUrl,pageNumber,userId,photoUrl,photoId,pageId) "+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";

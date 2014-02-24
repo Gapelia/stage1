@@ -1,13 +1,9 @@
 package com.gapelia.core.database;
 
 import org.apache.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- * Author: Abhishek Tiwari (14/12/13)
- */
 public class DatabaseManager {
 
 	private static String DB_DRIVER = "org.postgresql.Driver";
