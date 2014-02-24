@@ -108,12 +108,12 @@
 				<div class="account-info-wrapper">
 
 					<form class="bl_form">
-						<input type="text" class="labelBetter" data-new-placeholder="Name" placeholder="Name" data-description="We are very personable here."/>
-						<input type="text" class="labelBetter" data-new-placeholder="Username" placeholder="Username" data-description="This will be your Gapelia URL"/>
+						<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
+						<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
 						<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
 						<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-						<input type="text" class="labelBetter" data-new-placeholder="Website" placeholder="Website"/>
-						<input type="text" class="labelBetter" data-new-placeholder="Twitter" placeholder="Twitter"/>
+						<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
+						<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
 
 						<input class="" name="commit" type="submit" value="Update Settings"/>
 					</form>
@@ -193,19 +193,6 @@
 				NProgress.start();
 
 				$(".labelBetter").labelBetter({ easing: "bounce" });
-
-				/*
-				$(".labelBetter").each(function () {
-
-					var subtext = $(this).data("description");
-
-					$(function () {
-						// $(".labelBetter", this).append("<span>" + subtext + "</span>");
-						$(".labelBetter", this).after("<small>" + subtext + "</small>");
-					});
-
-				});
-				*/
 
 				// Slide menu for desktop
 				if ($vW > "1024") {
