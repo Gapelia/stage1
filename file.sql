@@ -38,25 +38,6 @@ CREATE TABLE IF NOT EXISTS books (
 );
 CREATE INDEX book_owned_by_idx ON books(owned_by);
 
-CREATE TABLE IF NOT EXISTS user_votes (
-        user_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
-);
-CREATE INDEX user_votes_book_id_idx ON user_votes(book_id);
-
-CREATE TABLE IF NOT EXISTS user_subscriptions (
-        user_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
-);
-CREATE INDEX user_subscriptions_book_id_idx ON user_subscriptions(book_id);
-
-CREATE TABLE IF NOT EXISTS user_bookmarks (
-        user_id INT PRIMARY KEY REFERENCES users(id),
-        book_id INT REFERENCES books(id) NOT NULL
-);
-CREATE INDEX user_bookmarks_book_id_idx ON user_bookmarks(book_id);
-
-
 CREATE TABLE IF NOT EXISTS pages (
         id serial PRIMARY KEY,
         book_id INT REFERENCES books(id) NOT NULL,
@@ -75,15 +56,6 @@ CREATE TABLE IF NOT EXISTS pages (
 CREATE INDEX page_book_id_idx ON pages(book_id);
 CREATE INDEX page_user_id_idx ON pages(user_id);
 
-CREATE TABLE IF NOT EXISTS book_notifications (
-        recipient INT PRIMARY KEY REFERENCES users(id),
-        referenced_book INT REFERENCES books(id) NOT NULL,
-        sender INT REFERENCES users(id) NOT NULL,
-        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
-        accepted BOOLEAN default false
-);
-CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
-
 CREATE TABLE IF NOT EXISTS libraries(
         id serial PRIMARY KEY,
         created_by INT REFERENCES users(id) NOT NULL,
@@ -96,6 +68,43 @@ CREATE TABLE IF NOT EXISTS libraries(
         created TIMESTAMP WITH TIME ZONE
 );
 CREATE INDEX library_created_by_idx ON libraries(created_by);
+
+CREATE TABLE IF NOT EXISTS user_votes (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_votes_book_id_idx ON user_votes(book_id);
+
+CREATE TABLE IF NOT EXISTS user_subscriptions (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_subscriptions_book_id_idx ON user_subscriptions(book_id);
+
+CREATE TABLE IF NOT EXISTS user_bookmarks (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        book_id INT REFERENCES books(id) NOT NULL
+);
+CREATE INDEX user_bookmarks_book_id_idx ON user_bookmarks(book_id);
+
+CREATE TABLE IF NOT EXISTS book_notifications (
+        recipient INT PRIMARY KEY REFERENCES users(id),
+        referenced_book INT REFERENCES books(id) NOT NULL,
+        sender INT REFERENCES users(id) NOT NULL,
+        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
+        accepted BOOLEAN default false
+);
+CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
+
+CREATE TABLE IF NOT EXISTS library_notifications (
+        recipient INT PRIMARY KEY REFERENCES users(id),
+        referenced_library INT REFERENCES libraries(id) NOT NULL,
+        sender INT REFERENCES users(id) NOT NULL,
+        book_id INT REFERENCES books(id) NOT NULL,
+        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
+        accepted BOOLEAN
+);
+CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);
 
 CREATE TABLE IF NOT EXISTS library_books (
         library_id INT PRIMARY KEY REFERENCES libraries(id),
@@ -114,13 +123,3 @@ CREATE TABLE IF NOT EXISTS editors (
         book_id INT REFERENCES books(id) NOT NULL
 );
 CREATE INDEX editors_book_id_idx ON editors(book_id);
-
-CREATE TABLE IF NOT EXISTS library_notifications (
-        recipient INT PRIMARY KEY REFERENCES users(id),
-        referenced_library INT REFERENCES libraries(id) NOT NULL,
-        sender INT REFERENCES users(id) NOT NULL,
-        book_id INT REFERENCES books(id) NOT NULL,
-        date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
-        accepted BOOLEAN
-);
-CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);

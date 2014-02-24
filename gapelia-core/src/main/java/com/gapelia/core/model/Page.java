@@ -12,7 +12,7 @@ public class Page {
     private String title;
     private String content;
     private String videoUrl;
-    private String photoUrl
+    private String photoUrl;
     private String photoId;
     private String creativeCommons;
     private Date created;
