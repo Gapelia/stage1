@@ -107,16 +107,44 @@
 				<!--/ Personal Settings /-->
 				<div class="account-info-wrapper">
 
-					<form class="bl_form">
-						<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
-						<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
-						<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-						<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-						<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
-						<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
+					<div class="col-3">
+						<form class="bl_form">
+							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
+							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
+							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
 
-						<input class="" name="commit" type="submit" value="Update Settings"/>
-					</form>
+							<input class="" name="commit" type="submit" value="Update Settings"/>
+						</form>
+					</div>
+
+					<div class="col-3">
+						<form class="bl_form">
+							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
+							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
+							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
+
+							<input class="" name="commit" type="submit" value="Update Settings"/>
+						</form>
+					</div>
+
+					<div class="col-3">
+						<form class="bl_form">
+							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
+							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
+							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
+
+							<input class="" name="commit" type="submit" value="Update Settings"/>
+						</form>
+					</div>
 
 				</div>
 
@@ -155,7 +183,7 @@
 
 					<section id="import-content">
 						<h3>Import content</h3>
-						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content <a href="#">here</a>.</p>
+						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content to Gapelia <a href="#">here</a>.</p>
 					</section>
 
 				</div>
@@ -262,7 +290,6 @@
 
 					setTimeout(function () {
 
-						// $(".account-info-wrapper").hide();
 						$(".account-password-wrapper").hide();
 						$(".account-notifications-wrapper").hide();
 						$(".account-pro-wrapper").hide();

@@ -179,6 +179,7 @@
 	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
 		font-size: 1rem;
 		padding: 2rem;
+		width: 100%;
 
 		a {
 			color: $slate;
@@ -198,12 +199,20 @@
 		input { margin: 0.05rem 0.4rem 1rem 0; }
 		label { display: inline-block; }
 
-		// Form stuff
-		.bl_form {
-			.lb_wrap ~ small {
-				margin: -0.2rem 0 0 0;
+		.col-3 {
+			float: left;
+			padding: 0 1rem 0 0;
+			width: 33%;
+
+			.bl_form {
+				input { width: 100%; }
 			}
 
+			&:last-child { margin: 0; }
+		}
+
+		// Form stuff
+		.bl_form {
 			input {
 				margin: 0 0 2rem 0; padding: 10px 15px;
 
@@ -222,7 +231,7 @@
 				font-size: 0.6rem;
 				font-weight: 700;
 				text-transform: uppercase;
-				width: 500px;
+				width: 400px; // 500px
 			}
 
 			.lb_label.top, .lb_label.bottom { left: 0.3rem !important; }
