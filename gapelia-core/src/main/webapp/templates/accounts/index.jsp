@@ -30,7 +30,7 @@
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
 
@@ -93,13 +93,47 @@
 			</div>
 
 			<div id="account-information">
+				<div id="nav-wrapper">
+					<ul id="featured-nav">
+						<li id="nav-personal" class="current"><a href="#">Personal</a></li>
+						<li id="nav-password"><a href="#">Password</a></li>
+						<li id="nav-notify"><a href="#">Notifications</a></li>
+						<li id="nav-pro"><a href="#">Pro</a></li>
+						<li id="nav-billing"><a href="#">Billing</a></li>
+						<li id="nav-delete"><a href="#">Delete Account</a></li>
+					</ul>
+				</div>
+
+				<!--/ Personal Settings /-->
 				<div class="account-info-wrapper">
 
-					<section id="email-edit">
-						<h3>Your email</h3>
-						<p id="user-email" contenteditable="false">paul@dsgn.io</p>
-						<p><a href="#">Edit</a></p>
-					</section>
+					<form class="bl_form">
+						<input type="text" class="labelBetter" data-new-placeholder="Name" placeholder="Name" data-description="We are very personable here."/>
+						<input type="text" class="labelBetter" data-new-placeholder="Username" placeholder="Username" data-description="This will be your Gapelia URL"/>
+						<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+						<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
+						<input type="text" class="labelBetter" data-new-placeholder="Website" placeholder="Website"/>
+						<input type="text" class="labelBetter" data-new-placeholder="Twitter" placeholder="Twitter"/>
+
+						<input class="" name="commit" type="submit" value="Update Settings"/>
+					</form>
+
+				</div>
+
+				<!--/ Password Settings /-->
+				<div class="account-password-wrapper" style="display: none;">
+
+					<form class="bl_form">
+						<input type="password" class="labelBetter" data-new-placeholder="Old and busted" placeholder="Old password"/>
+						<input type="password" class="labelBetter" data-new-placeholder="New hotness" placeholder="New Password"/>
+
+						<input class="" name="commit" type="submit" value="Update Password"/>
+					</form>
+
+				</div>
+
+				<!--/ Notification Settings /-->
+				<div class="account-notifications-wrapper" style="display: none;">
 
 					<section id="email-notify">
 						<h3>Email notifications</h3>
@@ -114,10 +148,25 @@
 						</p>
 					</section>
 
+				</div>
+
+				<!--/ Professional Account Settings /-->
+				<div class="account-pro-wrapper" style="display: none;">
+
 					<section id="import-content">
 						<h3>Import content</h3>
 						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content <a href="#">here</a>.</p>
 					</section>
+
+				</div>
+
+				<!--/ Account Billing Settings /-->
+				<div class="account-billing-wrapper" style="display: none;">
+					<p>Billing stuff</p>
+				</div>
+
+				<!--/ Account Deletion Settings /-->
+				<div class="account-delete-wrapper" style="display: none;">
 
 					<section id="oh-noes" class="not-mobile">
 						<h3>Delete account</h3>
@@ -131,7 +180,8 @@
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
-		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/labelBetter.js"></script>
+		<!--/ <script src="/static/scripts/imgLiquid.js"></script> /-->
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
@@ -142,13 +192,30 @@
 				// Load Gapelia
 				NProgress.start();
 
+				$(".labelBetter").labelBetter({ easing: "bounce" });
+
+				/*
+				$(".labelBetter").each(function () {
+
+					var subtext = $(this).data("description");
+
+					$(function () {
+						// $(".labelBetter", this).append("<span>" + subtext + "</span>");
+						$(".labelBetter", this).after("<small>" + subtext + "</small>");
+					});
+
+				});
+				*/
+
 				// Slide menu for desktop
 				if ($vW > "1024") {
+
 					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
 					$(".mp-pushed").ready(function () {
 						$("#book-scroller").css("z-index", "0");
 					});
+
 				}
 
 				// Dropdown menu for mobile
@@ -191,6 +258,7 @@
 
 				}
 
+				// Make things fit nicely on iPhones
 				if ($vW < "322") {
 
 					$("#email-yay").text("Heck yeah!");
@@ -198,18 +266,194 @@
 
 				}
 
-				/*
-				setTimeout(function () {
+				NProgress.done();
 
-					// "fix" featured menu pop-in
+				// Click "Personal"
+				$("#nav-personal").click(function (e) {
+
+					NProgress.start();
+
 					setTimeout(function () {
-						$("#user-panel, #account-information").css("opacity", "1");
-					}, 450).show();
+
+						// $(".account-info-wrapper").hide();
+						$(".account-password-wrapper").hide();
+						$(".account-notifications-wrapper").hide();
+						$(".account-pro-wrapper").hide();
+						$(".account-billing-wrapper").hide();
+						$(".account-delete-wrapper").hide();
+
+						$(".account-info-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-personal").addClass("current");
+
+					$("#nav-password").removeClass("current");
+					$("#nav-notify").removeClass("current");
+					$("#nav-pro").removeClass("current");
+					$("#nav-billing").removeClass("current");
+					$("#nav-delete").removeClass("current");
+
+					NProgress.done();
 
 				});
-				*/
 
-				NProgress.done();
+				// Click "Password"
+				$("#nav-password").click(function (e) {
+
+					NProgress.start();
+
+					setTimeout(function () {
+
+						$(".account-info-wrapper").hide();
+						$(".account-notifications-wrapper").hide();
+						$(".account-pro-wrapper").hide();
+						$(".account-billing-wrapper").hide();
+						$(".account-delete-wrapper").hide();
+
+						$(".account-password-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-password").addClass("current");
+
+					$("#nav-personal").removeClass("current");
+					$("#nav-notify").removeClass("current");
+					$("#nav-pro").removeClass("current");
+					$("#nav-billing").removeClass("current");
+					$("#nav-delete").removeClass("current");
+
+					NProgress.done();
+
+				});
+
+				// Click "Notifications"
+				$("#nav-notify").click(function (e) {
+
+					NProgress.start();
+
+					setTimeout(function () {
+
+						$(".account-info-wrapper").hide();
+						$(".account-password-wrapper").hide();
+						$(".account-pro-wrapper").hide();
+						$(".account-billing-wrapper").hide();
+						$(".account-delete-wrapper").hide();
+
+						$(".account-notifications-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-notify").addClass("current");
+
+					$("#nav-personal").removeClass("current");
+					$("#nav-password").removeClass("current");
+					$("#nav-pro").removeClass("current");
+					$("#nav-billing").removeClass("current");
+					$("#nav-delete").removeClass("current");
+
+					NProgress.done();
+
+				});
+
+				// Click "Pro"
+				$("#nav-pro").click(function (e) {
+
+					NProgress.start();
+
+					setTimeout(function () {
+
+						$(".account-info-wrapper").hide();
+						$(".account-password-wrapper").hide();
+						$(".account-notifications-wrapper").hide();
+						$(".account-billing-wrapper").hide();
+						$(".account-delete-wrapper").hide();
+
+						$(".account-pro-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-pro").addClass("current");
+
+					$("#nav-personal").removeClass("current");
+					$("#nav-password").removeClass("current");
+					$("#nav-notify").removeClass("current");
+					$("#nav-billing").removeClass("current");
+					$("#nav-delete").removeClass("current");
+
+					NProgress.done();
+
+				});
+
+				// Click "Billing"
+				$("#nav-billing").click(function (e) {
+
+					NProgress.start();
+
+					setTimeout(function () {
+
+						$(".account-info-wrapper").hide();
+						$(".account-password-wrapper").hide();
+						$(".account-notifications-wrapper").hide();
+						$(".account-pro-wrapper").hide();
+						$(".account-delete-wrapper").hide();
+
+						$(".account-billing-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-billing").addClass("current");
+
+					$("#nav-personal").removeClass("current");
+					$("#nav-password").removeClass("current");
+					$("#nav-notify").removeClass("current");
+					$("#nav-pro").removeClass("current");
+					$("#nav-delete").removeClass("current");
+
+					NProgress.done();
+
+				});
+
+				// Click "Delete Account"
+				$("#nav-delete").click(function (e) {
+
+					NProgress.start();
+
+					setTimeout(function () {
+
+						$(".account-info-wrapper").hide();
+						$(".account-password-wrapper").hide();
+						$(".account-notifications-wrapper").hide();
+						$(".account-pro-wrapper").hide();
+						$(".account-billing-wrapper").hide();
+
+						$(".account-delete-wrapper").fadeIn("100");
+
+					}, 500);
+
+					e.preventDefault();
+
+					$("#nav-delete").addClass("current");
+
+					$("#nav-personal").removeClass("current");
+					$("#nav-password").removeClass("current");
+					$("#nav-notify").removeClass("current");
+					$("#nav-pro").removeClass("current");
+					$("#nav-billing").removeClass("current");
+
+					NProgress.done();
+
+				});
 
 			});
 		</script>

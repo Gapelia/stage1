@@ -26,16 +26,12 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<!--* if lt IE 9 *>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<!* endif *-->
-
-		<script src="/static/scripts/jquery-1.10.2.js"></script>
 		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+		<script>try { Typekit.load(); } catch(e) {}</script>
 
 	</head>
 

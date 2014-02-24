@@ -7,6 +7,7 @@
 
 	background-color: $white;
 	clear: left;
+	color: rgba($black, 0.95);
 	@include sans;
 	font-size: 15px;
 	overflow: hidden;
@@ -174,7 +175,7 @@
 		width: auto; height: auto;
 		margin: 0 0 1rem 1rem; padding: 1.05rem 0 0 0;
 
-		font-size: 1.1rem;
+		font-size: 1rem;
 		font-weight: 300;
 
 		li {
@@ -190,6 +191,7 @@
 			a {
 				color: $slate;
 				font-weight: 700;
+				letter-spacing: 0.05rem;
 				padding: 0 0 0.74rem 0;
 			}
 		}

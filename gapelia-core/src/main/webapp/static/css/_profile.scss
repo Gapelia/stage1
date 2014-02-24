@@ -171,11 +171,12 @@
 	#user-panel { display: block; }
 
 	#account-information {
-		overflow: hidden;
+		overflow: scroll;
 		width: 100%;
 	}
 
-	.account-info-wrapper {
+	.account-info-wrapper, .account-password-wrapper, .account-notifications-wrapper,
+	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
 		font-size: 1rem;
 		padding: 2rem;
 
@@ -188,7 +189,8 @@
 			border-bottom: 1px solid rgba($black, 0.1);
 			margin: 1rem 0 0 0;
 
-			&:first-child, &:last-child { margin: 0; }
+			// &:first-child, &:last-child { margin: 0; }
+			&:first-child { margin: 0; }
 		}
 
 		input, label { vertical-align: top; }
@@ -196,6 +198,41 @@
 		input { margin: 0.05rem 0.4rem 1rem 0; }
 		label { display: inline-block; }
 
+		// Form stuff
+		.bl_form {
+			.lb_wrap ~ small {
+				margin: -0.2rem 0 0 0;
+			}
+
+			input {
+				margin: 0 0 2rem 0; padding: 10px 15px;
+
+				border: none;
+				border: 1px solid rgba($black, 0.1);
+				border-radius: 5px;
+				display: block;
+				outline: none;
+				width: 500px;
+			}
+		}
+
+		.lb_wrap {
+			.lb_label {
+				color: rgba($black, 0.6);
+				font-size: 0.6rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				width: 500px;
+			}
+
+			.lb_label.top, .lb_label.bottom { left: 0.3rem !important; }
+			.lb_label.left { left: 0; }
+		}
+
+		// .lb_label.active { color: $white; }
+	}
+	
+	.account-delete-wrapper {
 		#oh-noes {
 			border: 0;
 			bottom: 0;
