@@ -1,6 +1,10 @@
 package com.gapelia.core.database;
 
-
+import com.gapelia.core.model.Book;
+import com.gapelia.core.model.BookNotifications;
+import com.gapelia.core.model.Page;
+import com.gapelia.core.model.User;
+import com.gapelia.core.model.UserVotes;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
