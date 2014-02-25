@@ -24,8 +24,7 @@ public class QueryDatabaseUser {
             statement.setInt(1, Integer.parseInt(profile.getValidatedId()));
             rs = statement.executeQuery();
             if (rs == null || rs.getFetchSize()==0) {
-                signUp(profile);
-                return false; // newly created
+                return signUp(profile);
             }
         } catch (SQLException ex) {
             LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
@@ -45,7 +44,7 @@ public class QueryDatabaseUser {
         return true;
     }
 
-    public static void signUp(Profile profile) {
+    public static boolean signUp(Profile profile) {
         PreparedStatement insert = null;
         ResultSet rs = null;
         try {
@@ -63,9 +62,12 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
+            LOG.info("Gapelia pre execute" + insert.toString());
             rs = insert.executeQuery();
         } catch (SQLException ex) {
+            LOG.info("Cannot check user profile: " + profile + " " + ex.getMessage());
             LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
+            return false;
         } finally {
             try {
                 if (rs != null) {
@@ -75,9 +77,12 @@ public class QueryDatabaseUser {
                     insert.close();
                 }
             } catch (SQLException ex) {
+                LOG.info("Error closing connection" + profile + " " + ex.getMessage());
                 LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                return false;
             }
         }
+        return true;
     }
 /*
     public static User getUser(Profile profile, int userId) {
