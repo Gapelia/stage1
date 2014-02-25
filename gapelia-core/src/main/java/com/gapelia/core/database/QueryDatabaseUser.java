@@ -27,18 +27,22 @@ public class QueryDatabaseUser {
                 signUp(profile);
                 return false; // newly created
             }
-            return true;
         } catch (SQLException ex) {
             LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
             return false;
         } finally {
             try {
-                rs.close();
-                statement.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
             } catch (SQLException ex) {
                 LOG.error("Error closing connection" + profile + " " + ex.getMessage());
             }
         }
+        return true;
     }
 
     public static void signUp(Profile profile) {
@@ -64,8 +68,12 @@ public class QueryDatabaseUser {
             LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
         } finally {
             try {
-                rs.close();
-                insert.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (insert != null) {
+                    insert.close();
+                }
             } catch (SQLException ex) {
                 LOG.error("Error closing connection" + profile + " " + ex.getMessage());
             }
