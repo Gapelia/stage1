@@ -57,7 +57,7 @@ public class QueryDatabaseUser {
             insert.setString(6, profile.getLocation());
             insert.setString(7, profile.getProfileImageURL());
             insert.setString(8, profile.getFirstName());
-            insert.setString(9, profile.getValidatedId());//Type of accont connected
+            insert.setInt(9, Integer.parseInt(profile.getValidatedId()));
             insert.setString(10, profile.getProviderId());
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
