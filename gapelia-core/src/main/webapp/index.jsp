@@ -36,7 +36,7 @@
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
 

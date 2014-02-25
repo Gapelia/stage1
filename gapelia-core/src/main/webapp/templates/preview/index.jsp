@@ -39,6 +39,7 @@
 		<div id="mp-pusher" class="super-wrapper">
 
 			<!--/ site-menu /-->
+			<!--/
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
 					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
@@ -72,11 +73,14 @@
 					</ul>
 				</div>
 			</nav>
+			/-->
 			<!--//site-menu /-->
 
+			<!--/
 			<button id="g-menu-toggle">
 				<i class="ion-drag"></i>
 			</button>
+			/-->
 
 			<div id="bb-nav-prev"><i class="ion-ios7-arrow-left"></i></div>
 			<div id="bb-nav-next"><i class="ion-ios7-arrow-right"></i></div>

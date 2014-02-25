@@ -66,7 +66,7 @@
 						<li class="not-mobile"><a id="gpl-menu-create">Build</a>
 							<ul>
 								<li><a href="/create">Create your next opus</a></li>
-								<li><a href="#">Start a library</a></li>
+								<li><a href="#" id="create-library">Start a library</a></li>
 							</ul>
 						</li>
 

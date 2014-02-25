@@ -68,7 +68,7 @@
 						<li class="not-mobile"><a id="gpl-menu-create">Build</a>
 							<ul>
 								<li><a href="/create">Create your next opus</a></li>
-								<li><a href="#">Start a library</a></li>
+								<li><a href="#" id="create-library">Start a library</a></li>
 							</ul>
 						</li>
 
@@ -198,12 +198,26 @@
 
 					<section id="oh-noes" class="not-mobile">
 						<h3>Delete account</h3>
-						<p>Are you sure? <a href="#">I sure am!</a></p>
+						<p>Are you sure? <a href="#" id="delete-account">I sure am!</a></p>
 					</section>
 
 				</div>
 			</div>
 
+		</div>
+
+		<!--/ Overlay — delete account /-->
+		<div id="delete-account-overlay" class="overlay">
+			<section>
+				<h1>Warning</h1>
+
+				<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
+
+				<p>
+					<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
+					<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
+				</p>
+			</section>
 		</div>
 
 		<!--/ scripts /-->
@@ -466,6 +480,14 @@
 					$("#nav-billing").removeClass("current");
 
 					NProgress.done();
+
+				});
+
+				// Modal — delete account
+				$("#delete-account").click(function (e) {
+
+					$("#delete-account-overlay").addClass("open");
+					e.preventDefault();
 
 				});
 
