@@ -219,6 +219,22 @@
 
 		});
 
+		// Open drafts drawer
+		$("#gpl-menu-drafts a").click(function (e) {
+
+			$("#gpl-menu-drafts ul").toggle();
+			e.preventDefault();
+
+		});
+
+		// Open notifications drawer
+		$("#gpl-menu-notify a").click(function (e) {
+
+			$("#gpl-menu-notify ul").toggle();
+			e.preventDefault();
+
+		});
+
 	});
 
 	$(window).ready(function () {

@@ -12,7 +12,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -47,36 +47,25 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a id="gpl-menu-me">Me</a>
+						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
+						<li><a href="/create">Create book</a></li>
+						<li><a href="#" id="create-library">Start library</a></li>
+
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
-								<li><a href="/me">Visit Profile</a></li>
-								<li class="not-mobile"><a href="/accounts">Account Settings</a></li>
-								<li><a href="#">Sign Out</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">007: The Diego Regules Story</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-notify">Notifications</a>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
 								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
 								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
 								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
 								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
 								<li><a href="#">2 edit requests are pending for your review</a></li>
-							</ul>
-						</li>
-
-						<li class="not-mobile"><a id="gpl-menu-create">Build</a>
-							<ul>
-								<li><a href="/create">Create your next opus</a></li>
-								<li><a href="#" id="create-library">Start a library</a></li>
-							</ul>
-						</li>
-
-						<li class="not-mobile"><a id="gpl-menu-drafts">Drafts</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">007: The Diego Regules Story</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
 						</li>
 					</ul>
