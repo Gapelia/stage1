@@ -12,8 +12,8 @@ public class QueryDatabaseUser {
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
     //User Related Queries
-    private static final String CHECK_USER = "SELECT * FROM users WHERE validateId= ?";
-    private static final String INSERT_USER = "INSERT INTO users (name, email, fullname, dob, gender, location, avatar_image, displayname, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
+    private static final String INSERT_USER = "INSERT INTO users (name, email, fullname, dob, gender, location, avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,providerId,validateId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
     private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
     public static boolean checkUser(Profile profile) {
@@ -22,9 +22,7 @@ public class QueryDatabaseUser {
         try {
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, profile.getValidatedId());
-            LOG.info("ABOUT TO CHECK");
             rs = statement.executeQuery();
-            LOG.info("DONE CHECKING");
             if (rs == null || rs.getFetchSize()==0) {
                 return signUp(profile);
             }
@@ -50,7 +48,6 @@ public class QueryDatabaseUser {
         PreparedStatement insert = null;
         ResultSet rs = null;
         try {
-            LOG.info("about to sign up");
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, profile.getFirstName());
             insert.setString(2, profile.getEmail());
