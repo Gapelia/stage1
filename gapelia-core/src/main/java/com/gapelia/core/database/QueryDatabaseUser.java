@@ -53,7 +53,11 @@ public class QueryDatabaseUser {
             insert.setString(2, profile.getEmail());
             insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
             insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
-            insert.setString(5, profile.getGender());
+            if(profile.getGender() == "male") {//write tool
+                insert.setString(5, "m");
+            } else {
+                insert.setString(5, "f");
+            }
             insert.setString(6, profile.getLocation());
             insert.setString(7, profile.getProfileImageURL());
             insert.setString(8, profile.getFirstName());
