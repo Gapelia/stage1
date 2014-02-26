@@ -21,8 +21,10 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         try {
             statement = connection.prepareStatement(CHECK_USER);
-            statement.setInt(1, Integer.parseInt(profile.getValidatedId()));
+            statement.setString(1, profile.getValidatedId());
+            LOG.info("ABOUT TO CHECK");
             rs = statement.executeQuery();
+            LOG.info("DONE CHECKING");
             if (rs == null || rs.getFetchSize()==0) {
                 return signUp(profile);
             }
@@ -48,6 +50,7 @@ public class QueryDatabaseUser {
         PreparedStatement insert = null;
         ResultSet rs = null;
         try {
+            LOG.info("about to sign up");
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, profile.getFirstName());
             insert.setString(2, profile.getEmail());
