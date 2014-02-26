@@ -31,7 +31,7 @@ public class AuthSuccessHandler extends HttpServlet {
 				AuthProvider provider = manager.connect(requestMap);
 
 				// get profile
-				profile = provider.getUserProfile();
+			profile = provider.getUserProfile();
 			// setup session
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);

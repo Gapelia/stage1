@@ -14,7 +14,7 @@ public class QueryDatabaseUser {
     //User Related Queries
     private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, fullname, dob, gender, location, avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SELECT_USER = "SELECT name, email,fullName,dob,gender,location,image,displayname,providerId,validateId,memberSince,lastLogin,lastUpdated,personalWebsite,bio,tags,fb,gp,twt FROM users WHERE id = ?";
+    private static final String GET_USER = "SELECT name, email, fullname, dob, gender, location, avatar_image, cover_image, display_name, validate_id, provider_id, personal_website, bio, tags, fb, gp, twt, member_since, last_login, last_updated, is_public where validate_id = ?";
     private static final String UPDATE_USER = "UPDATE user SET name = ?, dob = ?, gender = ?, location = ?, image = ?, validateId = ?, providerId = ?, lastupdated = ?, personalWebsite = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ? WHERE id = ?";
     public static boolean checkUser(Profile profile) {
         PreparedStatement statement = null;
@@ -88,42 +88,113 @@ public class QueryDatabaseUser {
         }
         return true;
     }
-/*
-    public static User getUser(Profile profile, int userId) {
+    //public looking into profile
+    public static User getUser(String userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         User user = new User();
         try {
-            PreparedStatement statement = connection.prepareStatement(SELECT_USER);
-            statement.setString(1, profile.getProviderId());
-            ResultSet rs = statement.executeQuery();
+            statement = connection.prepareStatement(GET_USER);
+            statement.setString(1, userId);
+            rs = statement.executeQuery();
             while (rs.next()) {
-                user.setUserId(rs.getString("proverId"));
+                user.setUserId(rs.getString("validate_id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
-                user.setBio(rs.getString("bio"));
-                user.setFacebookUrl(rs.getString("fb"));
-                user.setGooglePlusUrl(rs.getString("gp"));
-                user.setTwitterUrl(rs.getString("twt"));
-                user.setPhotoUrl(rs.getString("poc"));
+                user.setFullName(rs.getString("fullname"));
+                user.setDob(rs.getDate("dob"));
                 user.setGender(rs.getString("gender"));
                 user.setLocation(rs.getString("location"));
-                user.setDob(rs.getString("dob"));
-                //user.setReputation(rs.getDouble("rep"));
-                user.setLastUpdated(rs.getDate("lastUpdated"));
-                user.setLastLoggedIn(rs.getDate("lastLogin"));
-                user.setMemberSince(rs.getDate("memberSince"));
-                user.setPersonalWebsite(rs.getString("personalWebsite"));
-                user.setTags(rs.getString("tags"));
-                break;
+                user.setAvatarImage(rs.getString("avatar_image"));
+                user.setCoverImage(rs.getString("cover_image"));
+                user.setValidateId(rs.getString("validate_id"));
+                user.setProviderId(rs.getString("provider_id"));
+                user.setPersonalWebsite(rs.getString("personal_website"));
+                user.setBio(rs.getString("bio"));
+                Array a = rs.getArray("tags");
+                user.setTags((String[])a.getArray());
+                user.setFb(rs.getString("fb"));
+                user.setGp(rs.getString("gp"));
+                user.setTwt(rs.getString("twt"));
+                user.setMemeberSince(rs.getDate("member_since"));
+                user.setLastLogin(rs.getDate("last_login"));
+                user.setLastUpdated(rs.getDate("last_updated"));
+                user.setIsPublic(rs.getBoolean("is_public"));
             }
             return user;
-        } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + profile, ex);
+        } catch (SQLException ex) {
+            LOG.info("Cannot check user profile: " + profile + " " + ex.getMessage());
+            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
             return null;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.info("Error closing connection" + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                return null;
+            }
         }
     }
 
+    public static User getUser(Profile profile) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        User user = new User();
+        try {
+            statement = connection.prepareStatement(GET_USER);
+            statement.setString(1, profile.getValidatedId());
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                user.setUserId(rs.getString("validate_id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setFullName(rs.getString("fullname"));
+                user.setDob(rs.getDate("dob"));
+                user.setGender(rs.getString("gender"));
+                user.setLocation(rs.getString("location"));
+                user.setAvatarImage(rs.getString("avatar_image"));
+                user.setCoverImage(rs.getString("cover_image"));
+                user.setValidateId(rs.getString("validate_id"));
+                user.setProviderId(rs.getString("provider_id"));
+                user.setPersonalWebsite(rs.getString("personal_website"));
+                user.setBio(rs.getString("bio"));
+                Array a = rs.getArray("tags");
+                user.setTags((String[])a.getArray());
+                user.setFb(rs.getString("fb"));
+                user.setGp(rs.getString("gp"));
+                user.setTwt(rs.getString("twt"));
+                user.setMemeberSince(rs.getDate("member_since"));
+                user.setLastLogin(rs.getDate("last_login"));
+                user.setLastUpdated(rs.getDate("last_updated"));
+                user.setIsPublic(rs.getBoolean("is_public"));
+            }
+            return user;
+        } catch (SQLException ex) {
+            LOG.info("Cannot check user profile: " + profile + " " + ex.getMessage());
+            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
+            return null;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.info("Error closing connection" + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                return null;
+            }
+        }
+    }
+/*
     public static boolean updateUser(String name, String email. String fullname,
                                      Date dob, String gender, String location, String avatarImage,
                                      String coverImage, String displayName, String personalWebsite,

@@ -3,7 +3,7 @@ package com.gapelia.core.model;
 import java.sql.Date;
 
 public class User {
-    private int userId;
+    private String userId;
     private String name;
     private String email;
     private String fullName;
@@ -26,11 +26,11 @@ public class User {
     private Date lastUpdated;
     private Boolean isPublic;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId() {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
