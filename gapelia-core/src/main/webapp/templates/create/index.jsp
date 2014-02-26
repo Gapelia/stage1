@@ -67,7 +67,7 @@
 
 					<section>
 						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
-						<span id="page0Title">0 &middot; New Page</span>
+						<span id="page0Title">0 &middot; <span class="page-thumb-title">New Page</span></span>
 					</section>
 				</li>
 
@@ -113,23 +113,6 @@
 					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
-
-				<!--/
-				<li id="select-frontcover-layout">
-					<div id="frontcover-layout">Front Cover Layout</div>
-					<span>Front Cover</span>
-				</li>
-
-				<li id="select-text-layout">
-					<div id="text-layout">Text Layout</div>
-					<span>Text</span>
-				</li>
-
-				<li id="select-horizontal-layout">
-					<div id="horizontal-layout">Horizontal Layout</div>
-					<span>Horizontal</span>
-				</li>
-				/-->
 			</ul>
 		</div>
 
@@ -137,7 +120,6 @@
 		<section id="main-content">
 			<div id="book-creation-wrapper">
 
-				<!--/ <img src="/static/images/loader.gif" id="imgLoader" alt=""/> /-->
 				<div id="notify-saving">Saving...</div>
 
 				<div id="create-book">
@@ -220,15 +202,6 @@
 		</section>
 
 		<!--/ scripts /-->
-		<!--/
-		<script src="/static/scripts/grande.js"></script>
-
-		<script>
-			grande.bind(document.querySelectorAll(".page-title-elem"));
-			grande.bind(document.querySelectorAll(".page-desc"));
-		</script>
-		/-->
-
 		<script src="/static/scripts/filepicker2.js"></script>
 		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script> /-->
 		
@@ -245,6 +218,7 @@
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script src="/static/scripts/embedly.js"></script>
+		<script src="/static/scripts/sortable.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
@@ -253,20 +227,7 @@
 		<script>
 			// $("img").VimeoThumb();
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
-		</script>
 
-		<!--/ scripts/page-sorter /-->
-		<script src="/static/scripts/sortable.js"></script>
-
-		<script>
-			$(function() {
-				$("#pages-scroller ul").sortable({ items: ":not(.disable-sort)" }).bind("sortupdate", function() {});
-				// $("#pages-scroller").sortable().bind("sortupdate", function(evt, ui) { changePosition(ui); });
-			});
-		</script>
-
-		<!--/ scripts/dialog /-->
-		<script>
 			$("#publish-this").on("click", function(e) {
 
 				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");

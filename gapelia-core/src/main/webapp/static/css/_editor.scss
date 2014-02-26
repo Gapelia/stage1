@@ -1,5 +1,5 @@
 
-/******************************************************************************** BOOK-CREATION/SCSS **/
+//////////////////////////////////////////////////////////////////////////////// BOOK-CREATION/SCSS ///
 
 .book-creation {
 
@@ -172,9 +172,8 @@
 			top: 1rem;
 			z-index: 1;
 
-			i {
-				text-shadow: 0 0 0.13rem $black !important; // creates outline
-			}
+			// creates outline
+			i { text-shadow: 0 0 0.13rem $black !important; }
 		}
 
 		.delete-page { left: 1rem; }
@@ -190,7 +189,13 @@
 			width: 100%;
 			z-index: 1;
 
-			@include ellipsis;
+			.page-thumb-title {
+				background-color: transparent;
+				padding: 0;
+				position: relative;
+
+				@include ellipsis;
+			}
 		}
 
 		.delete-page-confirm {
@@ -958,7 +963,7 @@
 
 }
 
-/******************************************************************************** IN-PLACE EDIT/SCSS **/
+/// IN-PLACE EDIT /////////////////////////////////////////////////////////////////////////////////////
 
 .g-body {
 
@@ -1245,6 +1250,7 @@
 }
 
 /**************************************************************************************** MODAL/SCSS **/
+/// TO BE DELETED LATER
 
 .modal {
 	width: 10%; height: 10%;

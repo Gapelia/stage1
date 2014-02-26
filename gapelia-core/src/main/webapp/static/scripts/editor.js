@@ -12,11 +12,9 @@
 	$("#pages-scroller").css("height", $vH + "px");
 	$("#layout-scroller").css("height", $vH + "px");
 
-	$(document).ready(function () {
+	$(function () {
 
-		pages = {
-			"page": [{}]
-		};
+		pages = { "page": [{}] };
 
 		pageId = 0;
 		bookId = 0;
@@ -105,7 +103,6 @@
 		});
 		*/
 
-		// frontCoverLayout();
 		fluidLayout();
 
 		pages.page[0] = {
@@ -174,6 +171,7 @@
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
+		attribution = pages.page[currentPage].attribution;
 
 		switch(templateId) {
 			case 0:
@@ -305,12 +303,13 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
-		geotag = $("geotag").html();
+		geotag = $(".geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
+		attribution = $(".image-attribution").html();
 
 		if(geotag == undefined) {
 			geotag = "BUUUGGG";
@@ -324,7 +323,8 @@
 				"title": null,
 				"text": null,
 				"image": "/static/images/blankBG.jpg",
-				"video": "null"
+				"video": "null",
+				"attribution": null
 			};
 
 			templateId = 0;
@@ -336,6 +336,7 @@
 			pages.page[pagesCreated-1].text = text;
 			pages.page[pagesCreated-1].image = imageURL;
 			pages.page[pagesCreated-1].video = videoURL;
+			pages.page[pagesCreated-1].attribution = attribution;
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
@@ -344,7 +345,8 @@
 				"title": null,
 				"text": null,
 				"image": "/static/images/blankBG.jpg",
-				"video": "null"
+				"video": "null",
+				"attribution": null
 			};
 
 			templateId = 0;
@@ -352,6 +354,7 @@
 			text = null;
 			imageURL = null;
 			videoURL = null;
+			attribution = null;
 		}
 
 		/*
@@ -420,10 +423,16 @@
 		});
 		*/
 
+		// Page Sorter
+		$("#pages-scroller ul").sortable({
+			items: ":not(.disable-sort)"
+		}).bind("sortupdate", function() {});
+
 		e.preventDefault();
 
 	});
 
+	// Delete page
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
 		currentPage = $(this).closest("img").attr("id");
@@ -437,6 +446,7 @@
 
 	});
 
+	// Confirm page deletion
 	$(document).on("click", ".yay-delete-page", function (e) {
 
 		$(this).closest("li").remove();
@@ -444,6 +454,7 @@
 
 	});
 
+	// Cancel page deletion
 	$(document).on("click", ".nay-delete-page", function (e) {
 
 		$(this).closest(".delete-page-confirm").remove();
@@ -524,6 +535,7 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
@@ -534,22 +546,23 @@
 			$(this).css("overflow-y", "auto");
 		});
 
-		// $(function () {
+		// Update title in page menu
+		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
 
-			// var section = document.getElementById("some-section");
-			// var section = document.getElementsByClassName("page-desc");
-			// var after = document.createElement("div");
-			// after.className = "text-fade";
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
 
-			// section.append(after);
+			// Remove <p> from h1s
+			$(".fluid-preview-wrapper .page-title-elem p").each(function () {
 
-			$(".page-desc").after("<div class='text-fade'></div>");
+				var content = $(this).html();
 
-			$(".page-desc").on("scroll", function() {
-				$(".text-fade").style.bottom = -$(".page-desc").scrollTop + "px";
+				$(this).parent().prepend(content);
+				$(this).remove();
+
 			});
 
-		// });
+		});
 
 		/*
 		//
@@ -584,13 +597,8 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) { e.preventDefault(); }
 		}
-
-		// Google Maps Autocomplete list positioning
-		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -638,10 +646,29 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".photo-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s
+			$(".photo-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		/*
 		// Check to see if image is vertical or horizontal
@@ -689,9 +716,6 @@
 				e.preventDefault();
 			}
 		}
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -752,10 +776,19 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".overlay-preview-wrapper .page-desc", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+		});
 
 		// description input limiter
 		var descElem = "page-desc";
@@ -768,9 +801,6 @@
 				e.preventDefault();
 			}
 		}
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -829,10 +859,29 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".phototext-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s
+			$(".phototext-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -845,9 +894,6 @@
 				e.preventDefault();
 			}
 		}
-
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -877,8 +923,6 @@
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
@@ -907,10 +951,29 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".vertical-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s
+			$(".vertical-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -924,9 +987,6 @@
 			}
 		}
 
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Video Layout
@@ -938,9 +998,7 @@
 		var insert = "";
 
 		insert += "<section class=\"video-preview-wrapper\">";
-
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\"></span>";
-
 		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker video-btn\">&#xf256;</button>";
 
 		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
@@ -958,8 +1016,6 @@
 		} else {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -984,10 +1040,29 @@
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
 		var editor = new GapeliaEditor('[contenteditable="true"]');
 
 		$("button.photo-picker.video-btn").html("&#xf256;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".video-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s
+			$(".video-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -1037,9 +1112,6 @@
 
 		});
 
-		// Google Maps Autocomplete list positioning
-		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Layout Constants
@@ -1061,6 +1133,7 @@
 			pages.page[currentPage].text = text;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
+			pages.page[currentPage].attribution = attribution;
 		}
 
 	}, 1000);
@@ -1079,6 +1152,7 @@
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		geotag = pages.page[currentPage].geotag;
+		attribution = $(".image-attribution").html();
 
 	}, 5000);
 
@@ -1144,6 +1218,7 @@
 					pageId: pages.page[i].pageId,
 					title: pages.page[i].title,
 					description: pages.page[i].text,
+					attribution: pages.page[i].attribution,
 					location: "TODO",
 					templateId: pages.page[i].templateId,
 					marginX: "TODO",
@@ -1169,6 +1244,7 @@
 			});
 		}
 
+		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",
@@ -1231,35 +1307,6 @@
 	// page load starts delay timer
 	_delay = setInterval(delayCheck, 500);
 
-	// Placeholders
-	/*
-	(function ($) {
-		$(function () {
-
-			$('[contenteditable="true"]').blur(function () {
-
-				var text = $.trim($(this).text());
-
-				var ph = $("<span/>", {
-					"class": "placeholder"
-				}).text($(this).data("placeholder") || "");
-
-				if (text == "") {
-					$(this).html(ph);
-				}
-
-			}).focus(function () {
-
-				if ($(this).children(".placeholder").length > 0) {
-					$(this).html("<span>&nbsp;</span>");
-				}
-
-			});
-
-		});
-	})(jQuery);
-	*/
-
 	// Character Limiter
 	////////////////
 
@@ -1311,36 +1358,4 @@
 		}
 
 	}
-	*/
-
-	// Video Layout
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	// Google Maps stuff, might not need
-	/*
-	$(".video-preview input").keydown(function (e) {
-
-		setTimeout(function () {
-			$(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
-		}, 1000);
-
-		if (e.which == 13 && $(".pac-container:visible").length) return false;
-
-	});
-	*/
-
-	// Live Preview
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	/*
-	$(document).ready(function () {
-
-		// h1 = page-title-elem // span = livepreview-thing in page thumb
-		$(".page-title-elem").keypress(function () {
-			$(".livepreview-thing").text($(this).text());
-		});
-
-	});
 	*/

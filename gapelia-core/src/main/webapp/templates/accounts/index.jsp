@@ -101,6 +101,13 @@
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
 							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+
+							<input class="" name="commit" type="submit" value="Update Settings"/>
+						</form>
+					</div>
+
+					<div class="col-3">
+						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
 							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
@@ -110,6 +117,8 @@
 					</div>
 
 					<div class="col-3">
+						<div><div>
+						<!--/
 						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
@@ -120,19 +129,7 @@
 
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>
-					</div>
-
-					<div class="col-3">
-						<form class="bl_form">
-							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
-							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
-							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-
-							<input class="" name="commit" type="submit" value="Update Settings"/>
-						</form>
+						/-->
 					</div>
 
 				</div>
