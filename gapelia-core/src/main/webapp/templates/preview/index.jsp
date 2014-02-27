@@ -25,6 +25,18 @@
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+		
+		<style>
+			#close-preview {
+				top: 1rem; right: 1rem;
+
+				color: #07d0eb;
+				cursor: pointer;
+				font-size: 3rem;
+				position: fixed;
+				z-index: 9999;
+			}
+		</style>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
@@ -37,6 +49,8 @@
 	<body class="app full-book g-body">
 
 		<div id="mp-pusher" class="super-wrapper">
+
+			<div id="close-preview" title="Exit preview" onclick="window.close();">&times;</div>
 
 			<div id="bb-nav-prev"><i class="ion-ios7-arrow-left"></i></div>
 			<div id="bb-nav-next"><i class="ion-ios7-arrow-right"></i></div>

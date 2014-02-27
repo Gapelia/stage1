@@ -30,7 +30,7 @@
 			}
 
 			var isHandle, index, items = $(this).children(options.items);
-			var placeholder = $('<' + (/^ul|ol$/i.test(this.tagName) ? 'li' : 'div') + ' class="sortable-placeholder">');
+			var placeholder = $('<' + (/^ul|ol$/i.test(this.tagName) ? 'li' : 'div') + ' class="sortable-placeholder"><span>Moving!</span>');
 
 			items.find(options.handle).mousedown(function () {
 				isHandle = true;

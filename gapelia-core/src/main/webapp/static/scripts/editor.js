@@ -285,8 +285,16 @@
 
 	$("#preview-book").click(function () {
 
-		var temp = JSON.stringify(pages);
-		localStorage.setItem("pages", temp);
+		// var temp = JSON.stringify(pages);
+		// localStorage.setItem("pages", temp);
+
+		// Page Sorter
+		$("#pages-scroller ul").sortable({
+			items: ":not(.disable-sort)"
+		}).bind("sortupdate", function() {
+			var temp = JSON.stringify(pages);
+			localStorage.setItem("pages", temp);
+		});
 
 	});
 
@@ -426,7 +434,9 @@
 		// Page Sorter
 		$("#pages-scroller ul").sortable({
 			items: ":not(.disable-sort)"
-		}).bind("sortupdate", function() {});
+		}).bind("sortupdate", function() {
+		
+		});
 
 		e.preventDefault();
 
@@ -489,7 +499,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.page-bg, button.photo-picker').css('opacity','1'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.page-bg, button.photo-picker').css('opacity', '1'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span></section><div class=\"fluid-preview\"><article>";
 
@@ -499,7 +509,7 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+		// insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
 		
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
@@ -524,10 +534,12 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
+		/*
 		var element2 = $(".inline-image-insert");
 		element2 = element2[0];
 		element2.type = "filepicker";
 		filepicker.constructWidget(element2);
+		*/
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
@@ -537,14 +549,39 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// $(".fluid-preview-wrapper").load(function () {
+
+		/*
+		$(function () {
+			$(".fluid-preview").parent(section).addClass("no-img");
+			// $(".fluid-preview-wrapper").addClass("no-img");
+		});
+		*/
+
+		/*
+		$(document).one("load", ".fluid-preview-wrapper", function () {
+			// $(this).addClass("no-img");
+			$(".fluid-preview").parent().addClass("no-img");
+			// $("section.fluid-preview-wrapper").addClass("no-img");
+		});
+		*/
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
-		$("button.inline-image-insert").html("Add inline photo");
+		// $("button.inline-image-insert").html("Add inline photo");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
+
+		/*
+		$(document).one("keydown", ".fluid-preview-wrapper", function () {
+			$(this).addClass("no-img");
+		});
+		*/
 
 		// Update title in page menu
 		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
@@ -648,7 +685,8 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -778,7 +816,8 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -861,7 +900,9 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -953,7 +994,10 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		// .serialize(): returns a JSON object with element's contents
+		// var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -1042,7 +1086,9 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker.video-btn").html("&#xf256;");
 

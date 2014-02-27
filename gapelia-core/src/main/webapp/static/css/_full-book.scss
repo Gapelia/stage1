@@ -1,5 +1,5 @@
 
-/************************************************************************************ FULL-BOOK/SCSS **/
+//////////////////////////////////////////////////////////////////////////////////// FULL-BOOK/SCSS ///
 
 .full-book {
 
@@ -21,7 +21,7 @@
 		}
 	}
 
-	/** CONTROLS ****************************************************************************************/
+	/// CONTROLS ////////////////////////////////////////////////////////////////////////////////////////
 
 	header {
 		width: 100%; height: 50px;
@@ -112,7 +112,7 @@
 	#bb-nav-prev { left: 0; }
 	#bb-nav-next { right: 0; }
 
-	/** LAYOUT ******************************************************************************************/
+	/// LAYOUT //////////////////////////////////////////////////////////////////////////////////////////
 
 	.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper,
 	.video-wrapper, .backcover-wrapper {
@@ -129,43 +129,25 @@
 		iframe { height: 100%; }
 		.page-bg { height: auto; }
 
-		.page-title-elem, .page-geotag-elem, .page-desc {
+		.page-title-elem, .page-desc {
 			color: rgba($black, 0.95);
 			display: block;
 		}
 
-		.page-title-elem, .page-geotag-elem { margin: 0 0 0.5rem 0; }
-
 		.page-title-elem {
-			font-size: 2rem;
+			font-size: 2.3rem;
 			font-weight: 700;
-			line-height: 2.5rem;
-		}
-
-		.page-geotag-elem {
-			background-color: transparent;
-			border: 0;
-			color: $white;
-			font-size: 0.65em;
-			font-weight: 600;
-			text-transform: uppercase;
-			width: 100%;
-
-			&:before {
-				content: "in ";
-				@include serif;
-				font-style: italic;
-				text-transform: lowercase;
-			}
+			line-height: 2.8rem;
+			margin: 0 0 0.5rem 0;
 		}
 
 		.page-desc {
 			@include serif;
-			font-size: 1.2rem;
-			line-height: 2rem;
+			font-size: 1.5rem;
+			letter-spacing: 0.006rem;
+			line-height: 2.3rem;
 			margin: 1rem 0 0 0;
 			text-align: center;
-			// white-space: pre-wrap; // preserve line breaks!
 		}
 
 		p {
@@ -177,17 +159,17 @@
 
 		.image-attribution {
 			background-color: rgba($white, 0.3);
-			bottom: -1px; // 0
+			bottom: -1px;
 			cursor: default;
 			font-size: 0.8rem;
-			line-height: 1;
+			line-height: 1rem;
 			padding: 0.5rem 1rem;
 			position: absolute;
 			z-index: 1;
 
 			p {
 				margin: 0; padding: 0;
-				color: rgba($black, 0.9);
+				color: rgba($black, 0.95);
 
 				a { font-weight: 700; }
 			}
@@ -220,14 +202,6 @@
 				border-radius: 300rem;
 				display: block !important;
 			}
-		}
-
-		.text-fade {
-			bottom: 0; left: 0; right: 0;
-
-			background-image: linear-gradient(rgba($white, 0), $white);
-			height: 150px;
-			position: absolute;
 		}
 	}
 
@@ -270,14 +244,13 @@
 			}
 		}
 
-		.button-wrapper, section, .fluid-preview { transition: all 0.2s ease; }
+		section, .fluid-preview { transition: all 0.2s ease; }
 
 		section {
-			width: 100%; height: 15%; // height: 65%;
+			width: 100%; height: 15%;
 		}
 
 		.draggable-placeholder {
-			// background-image: linear-gradient(to top, $white, transparent); // Tommy
 			height: 75%;
 			position: absolute;
 		}
@@ -290,7 +263,15 @@
 			padding: 1rem 2rem 0 2rem;
 			position: absolute;
 
-			article { margin: 0 0 4rem 0; }
+			article {
+				// margin: 0 0 4rem 0;
+
+				background-color: $white;
+				padding: 0 0 4rem 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+			}
 
 			.page-title-elem, .page-desc {
 				color: rgba($black, 0.8); //
@@ -318,10 +299,6 @@
 
 			.author-avatar { float: right; }
 		}
-
-		#author-info, article {
-			// display: inline-block;
-		}	
 	}
 
 	.photo-wrapper {
@@ -352,7 +329,7 @@
 			color: $black;
 			position: relative;
 
-			.page-title-elem, .page-geotag-elem, .page-desc { text-align: center; }
+			.page-title-elem, .page-desc { text-align: center; }
 
 			.page-title-elem, h5 {
 				margin: 0 auto 0.5rem;
@@ -786,7 +763,7 @@
 
 }
 
-/** BOOKBLOCK *****************************************************************************************/
+/// BOOKBLOCK /////////////////////////////////////////////////////////////////////////////////////////
 
 .bb-bookblock {
 	width: 400px; height: 300px;
