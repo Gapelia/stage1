@@ -1,10 +1,13 @@
 package com.gapelia.core.database;
 
+import com.gapelia.core.model.Book;
+import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
@@ -12,10 +15,21 @@ public class QueryDatabaseUser {
 
     //User Related Queries
     private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
-    private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
+            "avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" +
+            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validate_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
-    private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, member_since = ?, last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ?, is_public = ? WHERE id = ?";
+    private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, " +
+            "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, " +
+            "member_since = ?, last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
+            "gp = ?, twt = ?, is_public = ? WHERE id = ?";
+
+    private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
+    private static final String GET_CREATED_BOOKS = "SELECT * FROM books where owned_by = ?";
+    private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
+
     public static boolean checkUser(Profile profile) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -229,91 +243,40 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + user + " " + ex.getMessage());
+                LOG.error("Error closing connection" + user + " " + ex.getMessage());ƒ
                 return false;
             }
         }
 
         return false;
     }
-/*
-    public static boolean bookmarkBook(Profile profile, int bookId) {
-
-        return true;
-    }
-
-    public static boolean unbookmarkBook(Profile profile, int bookId) {
-        return true;
-    }
-
-    public static boolean subscribeLibrary(Profile profile, int libraryId) {
-        return true;
-    }
-
-    public static boolean unsubscribeLibrary(Profile profile, int libraryId) {
-        return true;
-    }
-
-    public static boolean voteBook(Profile profile, int bookId) {
-        return true;
-    }
-
-    public static boolean removeVoteBook(Profile profile, int bookId) {
-        return true;
-    }
-
-    public static Book [] getBookmarkedBooks(Profile profile) {
-        return null;
-    }
-
-    public static Book [] getBooksCreated(Profile profile) {
-        return null;
-    }
-
-    public static Library [] getLibrariesSubscribed(Profile profile) {
-        return null;
-    }
-    */
-    /*
-    //public looking into profile
-    public static User getUser(String userId) {
+    public static ArrayList<Book> getBookmarkedBooks(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
-        User user = new User();
+        ArrayList<Book> bookList = new ArrayList<Book>();
         try {
-            statement = connection.prepareStatement(GET_USER);
-            statement.setString(1, userId);
+            statement = connection.prepareStatement(GET_BOOKMARKED_BOOKS);
+            statement.setString(1, Integer.toString(userId));
             rs = statement.executeQuery();
             while (rs.next()) {
-                user.setUserId(rs.getString("validate_id"));
-                user.setName(rs.getString("name"));
-                user.setEmail(rs.getString("email"));
-                user.setFullName(rs.getString("fullname"));
-                user.setDob(rs.getDate("dob"));
-                user.setGender(rs.getString("gender"));
-                user.setLocation(rs.getString("location"));
-                user.setAvatarImage(rs.getString("avatar_image"));
-                user.setCoverImage(rs.getString("cover_image"));
-                user.setValidateId(rs.getString("validate_id"));
-                user.setProviderId(rs.getString("provider_id"));
-                user.setPersonalWebsite(rs.getString("personal_website"));
-                user.setBio(rs.getString("bio"));
-                Array a = rs.getArray("tags");
-                user.setTags((String[])a.getArray());
-                user.setFb(rs.getString("fb"));
-                user.setGp(rs.getString("gp"));
-                user.setTwt(rs.getString("twt"));
-                user.setMemeberSince(rs.getDate("member_since"));
-                user.setLastLogin(rs.getDate("last_login"));
-                user.setLastUpdated(rs.getDate("last_updated"));
-                user.setIsPublic(rs.getBoolean("is_public"));
+                Book book = new Book();
+                book.setBookId(rs.getInt("id"));
+                book.setUserId(rs.getInt("owned_by"));
+                book.setCoverPhoto(rs.getString("cover_photo"));
+                book.setTitle(rs.getString("title"));
+                book.setLanguague(rs.getString("language"));
+                book.setTags(rs.getString("tags"));
+                book.setCreated(rs.getTimestamp("created"));
+                book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setIsPublished(rs.getBoolean("is_published"));
+                bookList.add(book);
             }
-            return user;
-        } catch (SQLException ex) {
-            LOG.info("Cannot check user profile: " + profile + " " + ex.getMessage());
-            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
-            return null;
-        } finally {
+
+            return bookList;
+        } catch (Exception ex) {
+            LOG.error("Cannot check user profile: " + userId, ex);
+        }
+        finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -322,51 +285,40 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.info("Error closing connection" + profile + " " + ex.getMessage());
-                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
-                return null;
+                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
             }
         }
+
+        return null;
     }
 
-    public static User getUser(Profile profile) {
+    public static ArrayList<Book> getCreatedBooks(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
-        User user = new User();
+        ArrayList<Book> bookList = new ArrayList<Book>();
         try {
-            statement = connection.prepareStatement(GET_USER);
-            statement.setString(1, profile.getValidatedId());
+            statement = connection.prepareStatement(GET_CREATED_BOOKS);
+            statement.setString(1, Integer.toString(userId));
             rs = statement.executeQuery();
             while (rs.next()) {
-                user.setUserId(rs.getString("validate_id"));
-                user.setName(rs.getString("name"));
-                user.setEmail(rs.getString("email"));
-                user.setFullName(rs.getString("fullname"));
-                user.setDob(rs.getDate("dob"));
-                user.setGender(rs.getString("gender"));
-                user.setLocation(rs.getString("location"));
-                user.setAvatarImage(rs.getString("avatar_image"));
-                user.setCoverImage(rs.getString("cover_image"));
-                user.setValidateId(rs.getString("validate_id"));
-                user.setProviderId(rs.getString("provider_id"));
-                user.setPersonalWebsite(rs.getString("personal_website"));
-                user.setBio(rs.getString("bio"));
-                Array a = rs.getArray("tags");
-                user.setTags((String[])a.getArray());
-                user.setFb(rs.getString("fb"));
-                user.setGp(rs.getString("gp"));
-                user.setTwt(rs.getString("twt"));
-                user.setMemeberSince(rs.getDate("member_since"));
-                user.setLastLogin(rs.getDate("last_login"));
-                user.setLastUpdated(rs.getDate("last_updated"));
-                user.setIsPublic(rs.getBoolean("is_public"));
+                Book book = new Book();
+                book.setBookId(rs.getInt("id"));
+                book.setUserId(rs.getInt("owned_by"));
+                book.setCoverPhoto(rs.getString("cover_photo"));
+                book.setTitle(rs.getString("title"));
+                book.setLanguague(rs.getString("language"));
+                book.setTags(rs.getString("tags"));
+                book.setCreated(rs.getTimestamp("created"));
+                book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setIsPublished(rs.getBoolean("is_published"));
+                bookList.add(book);
             }
-            return user;
-        } catch (SQLException ex) {
-            LOG.info("Cannot check user profile: " + profile + " " + ex.getMessage());
-            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
-            return null;
-        } finally {
+
+            return bookList;
+        } catch (Exception ex) {
+            LOG.error("Cannot check user profile: " + userId, ex);
+        }
+        finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -375,10 +327,53 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.info("Error closing connection" + profile + " " + ex.getMessage());
-                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
-                return null;
+                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
             }
         }
-    }*/
+
+        return null;
+    }
+
+    public static ArrayList<Library> getSubscribedLibraries(int userId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Library> libraryList = new ArrayList<Library>();
+        try {
+            statement = connection.prepareStatement(GET_SUBSCRIBED_LIBRARIES);
+            statement.setString(1, Integer.toString(userId));
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Library library = new Library();
+                library.setLibraryId(rs.getInt("id"));
+                library.setUserId(rs.getInt("created_by"));
+                library.setCoverPhoto(rs.getString("cover_photo"));
+                library.setTitle(rs.getString("title"));
+                library.setDescription(rs.getString("description"));
+                library.setTags(rs.getString("tags"));
+                library.setNumSubscribers(rs.getInt("num_subscriber"));
+                library.setCreated(rs.getTimestamp("created"));
+                library.setFeatutedBook(rs.getInt("featured_book"));
+                libraryList.add(library);
+            }
+
+            return libraryList;
+        } catch (Exception ex) {
+            LOG.error("Cannot check user profile: " + userId, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+            }
+        }
+
+        return null;
+    }
+*/
 }

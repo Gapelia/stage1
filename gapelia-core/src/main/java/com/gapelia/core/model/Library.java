@@ -1,5 +1,7 @@
 package com.gapelia.core.model;
 
+
+import java.sql.Timestamp;
 import java.sql.Date;
 
 public class Library {
@@ -11,7 +13,7 @@ public class Library {
     private String [] tags;
     private String coverPhoto;
     private String description;
-    private Date created;
+    private Timestamp created;
 
 	public int getLibraryId() {
 		return libraryId;
@@ -53,12 +55,18 @@ public class Library {
         this.title = title;
     }
 
-    public String [] getTags() {
-        return tags;
+    public static final String COMMA = ",";
+    public String getTags() {
+
+        StringBuilder strb = new StringBuilder();
+        for(String s : tags){
+            strb.append(s + COMMA);
+        }
+        return strb.substring(0,strb.length()-1);
     }
 
-    public void setTags(String [] tags) {
-        this.tags = tags;
+    public void setTags(String tags) {
+        this.tags = tags.split(COMMA);
     }
 
     public String getCoverPhoto() {
@@ -77,11 +85,11 @@ public class Library {
         this.description = description;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 }

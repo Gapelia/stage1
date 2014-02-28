@@ -1,5 +1,6 @@
 package com.gapelia.core.model;
 
+import java.sql.Timestamp;
 import java.sql.Date;
 
 public class Book {
@@ -9,8 +10,8 @@ public class Book {
     private String title;
     private String language;
     private String [] tags;
-    private Date created;
-    private Date lastUpdated;
+    private Timestamp created;
+    private Timestamp lastUpdated;
     private Boolean isPublished;
 
     public int getBookId() {
@@ -53,27 +54,33 @@ public class Book {
         this.language = language;
     }
 
-    public String [] getTags() {
-        return tags;
+    public static final String COMMA = ",";
+    public String getTags() {
+
+        StringBuilder strb = new StringBuilder();
+        for(String s : tags){
+            strb.append(s + COMMA);
+        }
+        return strb.substring(0,strb.length()-1);
     }
 
-    public void setTags(String [] tags) {
-        this.tags = tags;
+    public void setTags(String tags) {
+        this.tags = tags.split(COMMA);
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-    public Date getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

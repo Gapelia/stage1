@@ -116,3 +116,9 @@ CREATE TABLE IF NOT EXISTS editors (
         library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX editors_book_id_idx ON editors(library_id);
+
+CREATE TABLE IF NOT EXISTS user_subscriptions (
+        user_id INT PRIMARY KEY REFERENCES users(id),
+        library_id INT REFERENCES libraries(id)
+);
+CREATE INDEX contributors_book_id_idx ON user_subscriptions(library_id);
