@@ -41,7 +41,7 @@ public class QueryDatabaseUser {
                 return signUp(profile);
             }
         } catch (SQLException ex) {
-            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
+            LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
             return false;
         } finally {
             try {
@@ -52,7 +52,7 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
             }
         }
         return true;
@@ -80,10 +80,9 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
-            LOG.info("Gapelia pre execute" + insert.toString());
             rs = insert.executeQuery();
         } catch (SQLException ex) {
-            LOG.error("Cannot check user profile: " + profile + " " + ex.getMessage());
+            LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
             return false;
         } finally {
             try {
@@ -94,7 +93,7 @@ public class QueryDatabaseUser {
                     insert.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
                 return false;
             }
         }
@@ -135,7 +134,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + profile, ex);
+            LOG.error("Cannot check user profile:" + profile, ex);
         }
         finally {
             try {
@@ -146,7 +145,7 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
             }
         }
 
@@ -187,7 +186,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + userId, ex);
+            LOG.error("Cannot check user profile:" + userId, ex);
         }
         finally {
             try {
@@ -198,7 +197,7 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+                LOG.error("Error closing connection " + userId + " " + ex.getMessage());
             }
         }
 
@@ -212,7 +211,6 @@ public class QueryDatabaseUser {
             statement = connection.prepareStatement(UPDATE_USER);
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
-
             statement.setString(3, user.getFullName());
             statement.setDate(4, user.getDob());
             statement.setString(5, user.getGender());
@@ -235,7 +233,7 @@ public class QueryDatabaseUser {
             statement.setInt(22, user.getUserId());
             return statement.execute();
         } catch (Exception ex) {
-            LOG.error("Cannot update user profile: " + user, ex);
+            LOG.error("Cannot update user profile:" + user, ex);
         }
         finally {
             try {
@@ -243,7 +241,7 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + user + " " + ex.getMessage());ƒ
+                LOG.error("Error closing connection " + user + " " + ex.getMessage());
                 return false;
             }
         }
@@ -271,10 +269,9 @@ public class QueryDatabaseUser {
                 book.setIsPublished(rs.getBoolean("is_published"));
                 bookList.add(book);
             }
-
             return bookList;
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + userId, ex);
+            LOG.error("Cannot check user profile:" + userId, ex);
         }
         finally {
             try {
@@ -285,7 +282,7 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+                LOG.error("Error closing connection " + userId + " " + ex.getMessage());
             }
         }
 
@@ -313,7 +310,6 @@ public class QueryDatabaseUser {
                 book.setIsPublished(rs.getBoolean("is_published"));
                 bookList.add(book);
             }
-
             return bookList;
         } catch (Exception ex) {
             LOG.error("Cannot check user profile: " + userId, ex);
@@ -355,7 +351,6 @@ public class QueryDatabaseUser {
                 library.setFeatutedBook(rs.getInt("featured_book"));
                 libraryList.add(library);
             }
-
             return libraryList;
         } catch (Exception ex) {
             LOG.error("Cannot check user profile: " + userId, ex);
@@ -375,5 +370,4 @@ public class QueryDatabaseUser {
 
         return null;
     }
-*/
 }
