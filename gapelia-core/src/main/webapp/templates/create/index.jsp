@@ -125,16 +125,6 @@
 				<div id="create-book">
 					<div id="create-content">
 
-						<section id="test-blank" class="blank-preview-wrapper">
-							<img class="page-bg" src="/static/images/blankBG.jpg" alt="" data-adaptive-background="1"/>
-
-							<div class="blank-preview">
-								<article>
-									<p contenteditable="false">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style="font-size: 50%">We can't wait to see it. (:</small></p>
-								</article>
-							</div>
-						</section>
-
 					</div>
 				</div>
 

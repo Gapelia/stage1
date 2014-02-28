@@ -431,6 +431,7 @@
 						background-color: rgba($white, 0.3);
 						bottom: -1px; // 0
 						cursor: default;
+						display: none;
 						font-size: 0.8rem;
 						line-height: 1rem;
 						padding: 0.5rem 1rem;
@@ -573,6 +574,15 @@
 						display: none;
 						opacity: 0;
 					}
+
+					/*
+					.fluid-preview {
+						padding: 2rem 2rem 0 2rem;
+						top: 0;
+
+						article { padding: 4rem 0; }
+					}
+					*/
 
 					.fluid-preview {
 						width: 100%; height: auto; // min-height: 53%;
