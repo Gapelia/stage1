@@ -18,7 +18,7 @@ public class User {
     private String providerId;
     private String personalWebsite;
     private String bio;
-    private String [] tags;
+    private String[] tags;
     private String fb;
     private String gp;
     private String twt;
@@ -139,12 +139,19 @@ public class User {
         this.bio = bio;
     }
 
-    public String [] getTags() {
-        return tags;
+
+    public static final String COMMA = ",";
+    public String getTags() {
+
+        StringBuilder strb = new StringBuilder();
+        for(String s : tags){
+            strb.append(s + COMMA);
+        }
+        return strb.substring(0,strb.length()-1);
     }
 
-    public void setTags(String[] tags) {
-        this.tags = tags;
+    public void setTags(String tags) {
+        this.tags = tags.split(COMMA);
     }
 
     public String getFb() {

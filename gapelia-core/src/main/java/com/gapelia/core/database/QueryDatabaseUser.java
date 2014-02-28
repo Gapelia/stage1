@@ -12,9 +12,10 @@ public class QueryDatabaseUser {
 
     //User Related Queries
     private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
-    private static final String INSERT_USER = "INSERT INTO users (name, email, fullname, dob, gender, location, avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validate_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
-    private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, fullname = ?, dob = ?, gender = ?, location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, member_since = ?, last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ?, is_public = ? WHERE id = ?";
+    private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, member_since = ?, last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, gp = ?, twt = ?, is_public = ? WHERE id = ?";
     public static boolean checkUser(Profile profile) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -52,7 +53,7 @@ public class QueryDatabaseUser {
             insert.setString(2, profile.getEmail());
             insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
             insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
-            if(profile.getGender() == "male") {//write tool
+            if("male".equals(profile.getGender())) {//write tool
                 insert.setString(5, "M");
             } else {
                 insert.setString(5, "F");
@@ -86,13 +87,13 @@ public class QueryDatabaseUser {
         return true;
     }
 
-    public static User getUser(Profile profile, int userId) {
+    public static User getUserByValidateId(Profile profile) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         User user = new User();
         try {
-            statement = connection.prepareStatement(SELECT_USER);
-            statement.setString(1, profile.getProviderId());
+            statement = connection.prepareStatement(SELECT_VALIDATE);
+            statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
             if (rs.next()) {
                 user.setUserId(rs.getInt("id"));
@@ -116,7 +117,7 @@ public class QueryDatabaseUser {
                 user.setMemeberSince(rs.getTimestamp("member_since"));
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
-                // user.setTags(rs.getString("tags"));   TODO: figure out schema change for tags + full_name
+                user.setTags(rs.getString("tags"));
                 return user;
             }
         } catch (Exception ex) {
@@ -132,6 +133,58 @@ public class QueryDatabaseUser {
                 }
             } catch (SQLException ex) {
                 LOG.error("Error closing connection" + profile + " " + ex.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    public static User getUserById(int userId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        User user = new User();
+        try {
+            statement = connection.prepareStatement(SELECT_USER);
+            statement.setString(1, Integer.toString(userId));
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                user.setUserId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setDisplayName(rs.getString("display_name"));
+                user.setFullName(rs.getString("full_name"));
+                user.setCoverImage(rs.getString("cover_image"));
+                user.setProviderId(rs.getString("provider_id"));
+                user.setValidateId(rs.getString("validate_id"));
+                user.setBio(rs.getString("bio"));
+                user.setFb(rs.getString("fb"));
+                user.setGp(rs.getString("gp"));
+                user.setTwt(rs.getString("twt"));
+                user.setAvatarImage(rs.getString("avatar_image"));
+                user.setGender(rs.getString("gender"));
+                user.setLocation(rs.getString("location"));
+                user.setDob(rs.getDate("dob"));
+                user.setLastUpdated(rs.getTimestamp("last_updated"));
+                user.setLastLogin(rs.getTimestamp("last_login"));
+                user.setMemeberSince(rs.getTimestamp("member_since"));
+                user.setPersonalWebsite(rs.getString("personal_website"));
+                user.setIsPublic(rs.getBoolean("is_public"));
+                user.setTags(rs.getString("tags"));
+                return user;
+            }
+        } catch (Exception ex) {
+            LOG.error("Cannot check user profile: " + userId, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
             }
         }
 
@@ -160,7 +213,7 @@ public class QueryDatabaseUser {
             statement.setTimestamp(14, user.getLastUpdated());
             statement.setString(15, user.getPersonalWebsite());
             statement.setString(16, user.getBio());
-//			statement.setString(17, user.getTags());   TODO: figure out tags
+			statement.setString(17, user.getTags());
             statement.setString(18, user.getFb());
             statement.setString(19, user.getGp());
             statement.setString(20, user.getTwt());
