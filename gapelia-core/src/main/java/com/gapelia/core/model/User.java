@@ -1,9 +1,10 @@
 package com.gapelia.core.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class User {
-    private String userId;
+    private int userId;
     private String name;
     private String email;
     private String fullName;
@@ -21,16 +22,16 @@ public class User {
     private String fb;
     private String gp;
     private String twt;
-    private Date memeberSince;
-    private Date lastLogin;
-    private Date lastUpdated;
+    private Timestamp memeberSince;
+    private Timestamp lastLogin;
+    private Timestamp lastUpdated;
     private Boolean isPublic;
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -170,27 +171,27 @@ public class User {
         this.twt = twt;
     }
 
-    public Date getMemeberSince() {
+    public Timestamp getMemeberSince() {
         return memeberSince;
     }
 
-    public void setMemeberSince(Date memeberSince) {
+    public void setMemeberSince(Timestamp memeberSince) {
         this.memeberSince = memeberSince;
     }
 
-    public Date getLastLogin() {
+    public Timestamp getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(Date lastLogin) {
+    public void setLastLogin(Timestamp lastLogin) {
         this.lastLogin = lastLogin;
     }
 
-    public Date getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 
