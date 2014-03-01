@@ -387,7 +387,7 @@
 					.placeholder { color: rgba($black, 0.6); }
 
 					.page-title-elem, .page-desc {
-						color: rgba($black, 0.95);
+						color: rgba($black, 0.8);
 						display: block;
 					}
 
@@ -405,7 +405,7 @@
 
 					.page-desc {
 						@include serif;
-						font-size: 1.5rem;
+						font-size: 1.3rem;
 						letter-spacing: 0.006rem;
 						line-height: 2.3rem;
 						margin: 1rem 0 0 0;
@@ -527,13 +527,15 @@
 						}
 
 						article {
-							margin: 20% auto; padding: 0;
+							margin: 20% auto;
+              padding: 0;
+              right: 10%;
+              width: 60%;
 
 							font-size: 36px;
 							line-height: 40px;
 							position: relative;
 							text-align: center;
-							width: 60%;
 						}
 					}
 				}
@@ -559,7 +561,7 @@
 						position: relative;
 						text-align: left;
 						top: 2.5rem;
-						width: 68%;
+						width: 66%;
 					}
 
 					/*
@@ -706,9 +708,13 @@
 						::-o-input-placeholder			{ color: $black; }
 						::-moz-placeholder					{ color: $black; }
 						::-webkit-input-placeholder	{ color: $black; }
-
-						.page-title-elem, .page-desc { text-align: center; }
-
+            
+            .page-title-elem, .page-desc {
+              font-size: 2.2rem;
+              text-align: center;
+              line-height: 1.7rem;
+            }
+            
 						.page-title-elem, h5 {
 							margin: 0 auto 0.5rem;
 							width: 52%;
@@ -744,8 +750,8 @@
 							margin: 0 0 0.5rem 0; padding: 0;
 
 							color: $white;
-							font-size: 36px;
-							line-height: 40px;
+							font-size: 2rem;
+							line-height: 2.5rem;
 						}
 
 						.image-attribution {
@@ -841,8 +847,6 @@
 
 						background-color: $white;
 						border-left: 1px solid $gray-ii;
-						color: $black;
-						font-size: 1.5em;
 						line-height: 2.5em;
 						overflow-y: auto;
 						padding: 4rem 2rem 2rem 2rem;
