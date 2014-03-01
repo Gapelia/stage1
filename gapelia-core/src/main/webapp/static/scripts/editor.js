@@ -12,15 +12,23 @@
 	$("#pages-scroller").css("height", $vH + "px");
 	$("#layout-scroller").css("height", $vH + "px");
 
-	$(function () {
+	$(document).ready(function () {
 
-		pages = { "page": [{}] };
+		pages = {
+			"page": [{}]
+		};
 
 		pageId = 0;
 		bookId = 0;
 		pagesCreated = 0;
 		author = "William Gibson";
 		templateId = 0;
+		currentPage =0;
+		imageURL=0;
+		attribution = null;
+		title=null;
+		text =null;
+		videoURL=null;
 
 		/*
 		$.ajax({
@@ -103,8 +111,7 @@
 		});
 		*/
 
-		// fluidLayout();
-		welcomeLayout();
+		fluidLayout();
 
 		pages.page[0] = {
 			"pageNumber": 0,
@@ -112,7 +119,7 @@
 			"templateId": "0",
 			"title": null,
 			"text": null,
-			"image": "/static/images/blankBG.jpg",
+			"image": "0",
 			"video": "null"
 		};
 
@@ -150,7 +157,7 @@
 
 	$(document).on("click", "#pages-scroller ul li", function (ev) {
 
-		$("#pages-scroller ul li").css("border", "3px solid transparent");
+		$("#pages-scroller ul li").css("border", "3px solid transparent; border-bottom: 1px solid rgba(12, 12, 12, 0.3)");
 
 		var e = $(this).closest("li");
 		e = e[0];
@@ -286,8 +293,8 @@
 
 	$("#preview-book").click(function () {
 
-		// var temp = JSON.stringify(pages);
-		// localStorage.setItem("pages", temp);
+		var temp = JSON.stringify(pages);
+		localStorage.setItem("pages", temp);
 
 		// Page Sorter
 		$("#pages-scroller ul").sortable({
@@ -312,7 +319,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
 		geotag = $(".geotag").html();
@@ -331,14 +338,13 @@
 				"templateId": 0,
 				"title": null,
 				"text": null,
-				"image": "/static/images/blankBG.jpg",
+				"image": "/static/images/whiteBG.jpg",
 				"video": "null",
 				"attribution": null
 			};
 
 			templateId = 0;
-			// fluidLayout();
-			baseLayout();
+			fluidLayout();
 		} else {
 			pages.page[pagesCreated-1].geotag = geotag;
 			pages.page[pagesCreated-1].templateId = templateId;
@@ -354,7 +360,7 @@
 				"templateId": "0",
 				"title": null,
 				"text": null,
-				"image": "/static/images/blankBG.jpg",
+				"image": "null",
 				"video": "null",
 				"attribution": null
 			};
@@ -477,34 +483,9 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
-	function welcomeLayout() {
-
-		/*
-		<section id="test-blank" class="blank-preview-wrapper">
-			<img class="page-bg" src="/static/images/blankBG.jpg" alt="" data-adaptive-background="1"/>
-
-			<div class="blank-preview">
-				<article>
-					<p contenteditable="false">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style="font-size: 50%">We can't wait to see it. (:</small></p>
-				</article></div></section>
-		*/
-
-		var insert = "";
-
-		insert += "<section class=\"blank-preview-wrapper\">";
-		// insert += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\" alt=\"\" data-adaptive-background=\"1\"/>";
-		insert += "<div class=\"blank-preview\">";
-		insert += "<article>";
-		insert += "<p contenteditable=\"false\">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style=\"font-size: 50%\">We can't wait to see it. (:</small></p>";
-		insert += "</article></div></section>";
-
-		$("#create-content").html(insert);
-
-	}
-
 	function baseLayout() {
 
-		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">ヾ(＠⌒ー⌒＠)ノ</p></article></div></section>";
+		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"> menu</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
@@ -794,7 +775,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
@@ -918,7 +899,7 @@
 		insert += "<section class=\"overlay-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
@@ -1015,7 +996,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
@@ -1121,7 +1102,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}

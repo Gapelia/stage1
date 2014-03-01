@@ -66,14 +66,13 @@
 					<a class="edit-page"><i class="ion-gear-b"></i></a>
 
 					<section>
-						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
+						<img src="/static/images/whiteBG.jpg" id="page0Image" alt="">
 						<span id="page0Title">0 &middot; <span class="page-thumb-title">New Page</span></span>
 					</section>
 				</li>
 
 				<li id="add-page" class="new-thumb disable-sort">
 					<div>+</div>
-					<span>Add New Page</span>
 				</li>
 			</ul>
 
