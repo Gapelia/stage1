@@ -154,7 +154,7 @@
 		font-size: 36px;
 		padding: 0 !important;
 		position: absolute;
-		top: 0.5rem;
+		top: 0.35rem;
 		transition: all 0.5s ease;
 		z-index: 3;
 
@@ -724,7 +724,7 @@
 .notification-time {
 	i {
 		animation: colors 5s ease infinite;
-		color: $white;
+		color: #70a1b1;
 
 		-o-animation: colors 5s ease infinite;
 		-ms-animation: colors 5s ease infinite;

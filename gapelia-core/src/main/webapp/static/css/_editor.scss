@@ -561,7 +561,7 @@
 						position: relative;
 						text-align: left;
 						top: 2.5rem;
-						width: 66%;
+						width: 67.5%;
 					}
 
 					/*
@@ -807,11 +807,10 @@
 							color: $white;
 							border-bottom: 1px dotted $white;
 						}
-            
-            //Tommy: font sizing for photo-text needed to be adjusted//
+          
 						.page-desc {
               text-align: left;
-              font-size: 16px;
+              font-size: 1rem;
             }
             
             .page-title-elem { font-size: 1.6rem; }
@@ -907,7 +906,12 @@
 							color: $black;
 						}
 
-						.page-desc { text-align: left; }
+						.page-desc {
+              text-align: left;
+              font-size: 1rem;
+            }
+            
+            .page-title-elem { font-size: 1.6rem; }
 					}
 
 					.play-video { display: none; }
