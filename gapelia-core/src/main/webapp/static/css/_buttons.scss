@@ -63,9 +63,10 @@
 }
 
 .green {
-	background-color: $green !important;
+	//background-color: $green !important;
 	//background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
-	color: $white !important;
+	color: grey !important;
+	border: 1px solid rgba(25,25,25,0.3);
 }
 
 .blue {

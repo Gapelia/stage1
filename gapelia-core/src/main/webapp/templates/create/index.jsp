@@ -133,7 +133,9 @@
 
 		<section id="publish-modal" class="modal" style="display: none;">
 			<div class="wrapper">
-				<h1>*BOOK TITLE*</h1>
+				<h1>The book title goes here</h1>
+				
+				<div id="add-description" contenteditable="true">Write a summary of your story</div>
 
 				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
 
