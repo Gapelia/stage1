@@ -12,7 +12,7 @@
 	$("#pages-scroller").css("height", $vH + "px");
 	$("#layout-scroller").css("height", $vH + "px");
 
-	$(document).ready(function () {
+	$(function () {
 
 		pages = {
 			"page": [{}]
@@ -23,12 +23,12 @@
 		pagesCreated = 0;
 		author = "William Gibson";
 		templateId = 0;
-		currentPage =0;
-		imageURL=0;
+		currentPage = 0;
+		imageURL = 0;
 		attribution = null;
-		title=null;
-		text =null;
-		videoURL=null;
+		title = null;
+		text = null;
+		videoURL = null;
 
 		/*
 		$.ajax({
@@ -115,7 +115,7 @@
 
 		pages.page[0] = {
 			"pageNumber": 0,
-			"geotag": null,
+			// "geotag": null,
 			"templateId": "0",
 			"title": null,
 			"text": null,
@@ -157,7 +157,8 @@
 
 	$(document).on("click", "#pages-scroller ul li", function (ev) {
 
-		$("#pages-scroller ul li").css("border", "3px solid transparent; border-bottom: 1px solid rgba(12, 12, 12, 0.3)");
+		// $("#pages-scroller ul li").css("border", "3px solid transparent; border-bottom: 1px solid rgba(12, 12, 12, 0.3)");
+		$("#pages-scroller ul li").css("border", "3px solid transparent");
 
 		var e = $(this).closest("li");
 		e = e[0];
@@ -175,7 +176,7 @@
 
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
-		geotag = pages.page[currentPage].geotag;
+		// geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
@@ -319,34 +320,35 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
+		// $(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
+
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
-		geotag = $(".geotag").html();
+		// geotag = $(".geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
 
-		if(geotag == undefined) {
-			geotag = "BUUUGGG";
-		}
+		// if(geotag == undefined) { geotag = "BUUUGGG"; }
 
 		if(pagesCreated == 0) {
 			pages.page[0] = {
 				"pageNumber": pagesCreated,
-				"geotag": geotag,
+				// "geotag": geotag,
 				"templateId": 0,
 				"title": null,
 				"text": null,
-				"image": "/static/images/whiteBG.jpg",
-				"video": "null",
+				// "image": "/static/images/whiteBG.jpg",
+				"image": "/static/images/blankBG.jpg",
+				"video": null,
 				"attribution": null
 			};
 
 			templateId = 0;
 			fluidLayout();
 		} else {
-			pages.page[pagesCreated-1].geotag = geotag;
+			// pages.page[pagesCreated-1].geotag = geotag;
 			pages.page[pagesCreated-1].templateId = templateId;
 			pages.page[pagesCreated-1].title = title;
 			pages.page[pagesCreated-1].text = text;
@@ -356,7 +358,7 @@
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
-				"geotag": null,
+				// "geotag": null,
 				"templateId": "0",
 				"title": null,
 				"text": null,
@@ -401,7 +403,7 @@
 					templateId = 0;
 					frontCoverLayout();
 				} else {
-					pages.page[pagesCreated-1].geotag = geotag;
+					// pages.page[pagesCreated-1].geotag = geotag;
 					pages.page[pagesCreated-1].templateId = templateId;
 					pages.page[pagesCreated-1].title = title;
 					pages.page[pagesCreated-1].text = text;
@@ -483,9 +485,29 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	/*
+	function welcomeLayout() {
+
+		var insert = "";
+
+		insert += "<section class=\"blank-preview-wrapper\">";
+		// insert += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\" alt=\"\" data-adaptive-background=\"1\"/>";
+		insert += "<div class=\"blank-preview\">";
+		insert += "<article>";
+		insert += "<p contenteditable=\"false\">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style=\"font-size: 50%\">We can't wait to see it. (:</small></p>";
+		insert += "</article></div></section>";
+
+		$("#create-content").html(insert);
+
+	}
+	*/
+
 	function baseLayout() {
 
-		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"> menu</p></article></div></section>";
+		// var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"> menu</p></article></div></section>";
+		// $("#create-content").html(insert);
+
+		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">ヾ(＠⌒ー⌒＠)ノ</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
@@ -498,112 +520,49 @@
 
 		var insert = "";
 
-		// insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
-		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
-
 		/*
-		if(imageURL == null) {
-
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
-
-			// Image attribution
-			$(".image-attribution").css("display", "none");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "2rem 2rem 0 2rem",
-				"top": "0"
-			});
-
-			$(".fluid-preview article").css("padding", "4rem 0");
-
-		} else {
-
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
-
-			// Image attribution
-			$(".image-attribution").css("display", "block");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "1rem 2rem 0 2rem",
-				"top": "75%"
-			});
-
-			$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-		}
-		*/
-
-		/*
-		<section class="fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready" style="overflow-y: auto; background-image: url(https://www.filepicker.io/api/file/vt6lgixHTjOqfcNIN7Ll); background-size: cover; height: 75%; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-		*/
-
-		// "/static/images/blankBG.jpg"
-		// if(imageURL == "static/images/whiteBG.jpg") {
-		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
-
-		// if(imageURL = "http://localhost:8080/static/images/whiteBG.jpg") {
 		if(imageURL == null) {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 			// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
 
-			/*
-			$(function () {
+		} else {
 
-				// Image attribution
-				$(".image-attribution").css("display", "none");
+			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+ imageURL +");";
+			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat;\"><section class=\"draggable-placeholder\">";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 
-				// Content positioning
-				$(".fluid-preview").css({
-					"padding": "2rem 2rem 0 2rem",
-					"top": "0"
-				});
+		}
+		*/
 
-				$(".fluid-preview article").css("padding", "4rem 0");
+		if(imageURL == "null") {
 
-			});
-			*/
+			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
+			// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
 
 		} else {
 
 			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+ imageURL +");";
 
-			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
+			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat;\"><section class=\"draggable-placeholder\" style=\"height: 75%;\">";
 
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 
-			// insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
-
-			// $(".page-bg").attr("src", url).attr("data-adaptive-background", "1");
-
-			/*
-			$(function () {
-
-				$(".page-bg").attr("data-adaptive-background", "1");
-				$(".fluid-preview-wrapper").imgLiquid({ fill: true });
-
-				// Image attribution
-				$(".image-attribution").css("display", "block");
-
-				// Content positioning
-				$(".fluid-preview").css({
-					"padding": "1rem 2rem 0 2rem",
-					"top": "75%"
-				});
-
-				$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-			});
-			*/
-
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+		// insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span></section><div class=\"fluid-preview\"><article>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span></section>";
+
+		if(imageURL == "0") {
+			insert += "<div class=\"fluid-preview\"><article>";
+		} else {
+			insert += "<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0 2rem; top: 75%;\"><article style=\"padding: 0 0 4rem 0;\">";
+		}
 
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
@@ -645,19 +604,47 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+		/*
+		var BG = $("#page"+(pagesCreated)+"Image");
+
+		if (BG.src == "static/images/blankBG.jpg") {
+
+			// Image attribution
+			$(".image-attribution").css("display", "block");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "1rem 2rem 0 2rem",
+				"top": "75%"
+			});
+
+			$(".fluid-preview article").css("padding", "0 0 4rem 0");
+
+		} else {
+
+			// Image attribution
+			$(".image-attribution").css("display", "none");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "2rem 2rem 0 2rem",
+				"top": "0"
+			});
+
+			$(".fluid-preview article").css("padding", "4rem 0");
+
+		}
+		*/
+
+		/*
 		var pageBG = $(".page-bg");
 
-		// if (pageBG.src != "static/images/whiteBG.jpg") {
-		// if(imageURL == "static/images/whiteBG.jpg") {
-
-		// if (pageBG.src != "static/images/whiteBG.jpg") {
 		if ($(".page-bg").data("adaptive-background") == 1) {
 
 			// Image attribution
@@ -685,6 +672,7 @@
 			$(".fluid-preview article").css("padding", "4rem 0");
 
 		}
+		*/
 
 		// Empty attribution field when user clicks in it
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
@@ -699,12 +687,6 @@
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
-
-		/*
-		$(document).one("keydown", ".fluid-preview-wrapper", function () {
-			$(this).addClass("no-img");
-		});
-		*/
 
 		// Update title in page menu
 		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
@@ -775,7 +757,8 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
+			// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
@@ -800,7 +783,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -899,7 +882,8 @@
 		insert += "<section class=\"overlay-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
@@ -941,7 +925,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -996,7 +980,8 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
@@ -1035,7 +1020,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1102,7 +1087,8 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
+			// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}
@@ -1139,7 +1125,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1241,7 +1227,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
+		// pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1346,7 +1332,7 @@
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
-			pages.page[currentPage].geotag = geotag;
+			// pages.page[currentPage].geotag = geotag;
 			pages.page[currentPage].text = text;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
@@ -1368,7 +1354,7 @@
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
-		geotag = pages.page[currentPage].geotag;
+		// geotag = pages.page[currentPage].geotag;
 		attribution = $(".image-attribution").html();
 
 	}, 5000);

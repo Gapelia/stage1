@@ -102,11 +102,13 @@
 
 							if (i == 0) {
 								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-								insertPage(1);
+								insertPage(1); //
 							} else {
 								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-								insertPage(0);
+								insertPage(0); //
 							}
+
+							// insertPage();
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
@@ -122,6 +124,42 @@
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
 					});
+
+					/*
+					function insertPage() {
+
+						switch (current.templateId) {
+							case 0:
+								fluidLayout();
+								break;
+
+							case 1:
+								photoLayout();
+								break;
+
+							case 2:
+								overlayLayout();
+								break;
+
+							case 3:
+								photoTextLayout();
+								break;
+
+							case 4:
+								verticalLayout();
+								break;
+
+							case 5:
+								videoLayout();
+								break;
+
+							default:
+								fluidLayout();
+								break;
+						}
+
+					}
+					*/
 
 					function insertPage(isFirst) {
 
@@ -165,12 +203,14 @@
 						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "<div class=\"fluid-preview\">";
-						if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
@@ -189,12 +229,14 @@
 						htmlToInsert += "<div class=\"photo-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-												if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div>";
 						htmlToInsert += "</section>";
@@ -209,12 +251,14 @@
 						htmlToInsert += "<div class=\"overlay-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "</section>";
@@ -230,12 +274,14 @@
 						htmlToInsert += "<div class=\"phototext-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";
@@ -252,12 +298,14 @@
 						htmlToInsert += "<div class=\"vertical-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "</div></section>";
@@ -276,12 +324,14 @@
 						htmlToInsert += "</div>";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
+
+						if (isFirst == 1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
+
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";

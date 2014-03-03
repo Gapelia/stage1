@@ -1,5 +1,5 @@
 
-/************************************************************************************** BUTTONS/SCSS **/
+////////////////////////////////////////////////////////////////////////////////////// BUTTONS/SCSS ///
 
 .button, button {
 	margin: 0 !important; padding: 0.5rem 1rem !important;
@@ -46,7 +46,7 @@
 
 .red {
 	background-color: $red !important;
-	//background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
+	background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
 	color: $white !important;
 }
 
@@ -63,10 +63,9 @@
 }
 
 .green {
-	//background-color: $green !important;
-	//background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
-	color: grey !important;
-	border: 1px solid rgba(25,25,25,0.3);
+	background-color: $green !important;
+	background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
+	color: $white !important;
 }
 
 .blue {
@@ -82,9 +81,8 @@
 }
 
 .slate {
-	background-color: rgba(112, 161, 177, 0) !important;
-	//background-image: linear-gradient(to bottom, saturate($slate, 100%), darken($slate, 10%)) !important;
-	border: 1px solid rgba(255, 255, 255, 0.5) !important ;
+	background-color: $slate !important;
+	background-image: linear-gradient(to bottom, saturate($slate, 100%), darken($slate, 10%)) !important;
 	color: $white !important;
 }
 
@@ -92,6 +90,12 @@
 	background-color: $gray !important;
 	background-image: linear-gradient(to bottom, saturate($gray, 100%), darken($gray, 10%)) !important;
 	color: $black !important;
+}
+
+.border {
+	background-color: transparent;
+	border: 1px solid rgba($black, 0.3);
+	color: $gray !important;
 }
 
 .transparent {

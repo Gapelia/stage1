@@ -154,7 +154,7 @@
 		font-size: 36px;
 		padding: 0 !important;
 		position: absolute;
-		top: 0.35rem;
+		top: 0.5rem; // 0.35rem
 		transition: all 0.5s ease;
 		z-index: 3;
 
@@ -666,19 +666,35 @@
 	}
 
 	#library-splash {
-		
     #library-info {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-      left:20%; width: 60%;
-      padding: 0 !important;
-      top: 45%;
+			top: 45%; left: 20%;
+
+			border-bottom: 1px solid rgba($white, 0.5);
+			padding: 0; // !important
+			width: 60%;
     }
-    
-    #library-info h2 { font-size: 42px; font-weight: 700; }
-      h1 { font-size: 0.9rem; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
-      p { font-weight: 200; font-size: 1.1em; padding-top: 12px; }
-      section { font-weight: bold; padding-bottom: 15px; }
-      
+
+		section {
+			font-weight: 700;
+			padding: 0 0 15px 0;
+		}
+
+		h2 {
+			font-size: 42px;
+			font-weight: 700;
+		}
+
+		h5 {
+			border-bottom: 1px solid rgba($white, 0.5);
+			font-size: 0.9rem;
+		}
+
+		p {
+			font-size: 1.1rem;
+			font-weight: 200;
+			padding: 12px 0 0 0;
+		}
+
     button {
 			top: 2rem; right: 2rem;
 
@@ -724,7 +740,7 @@
 .notification-time {
 	i {
 		animation: colors 5s ease infinite;
-		color: #70a1b1;
+		color: $white; // $slate
 
 		-o-animation: colors 5s ease infinite;
 		-ms-animation: colors 5s ease infinite;
