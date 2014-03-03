@@ -1,18 +1,33 @@
 package com.gapelia.core.api;
 
-import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.QueryDatabase;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.apache.log4j.Logger;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.UUID;
+
+import com.gapelia.core.auth.AuthHelper;
+import com.gapelia.core.database.QueryDatabaseBook;
+import org.apache.log4j.Logger;
 
 @Path("/book/")
 public class Book {
-//	public static Logger LOG = Logger.getLogger(Book.class);
+
+    public static Logger LOG = Logger.getLogger(Book.class);
+    @Path("createBook")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String createBook(@FormParam('sessionId') String sessionId) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try {
+            LOG.info("Retrieving userId from sessionId");
+            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
+            String userId = profile.getValidatedId();
+            bookId == UUID.randomUUID().toString();
+            QueryDatabaseBook.createBook(bookId,userID)
+
+        }
+
+    }
+
 //	@Path("createBook")
 //	@POST
 //	@Produces(MediaType.APPLICATION_JSON)

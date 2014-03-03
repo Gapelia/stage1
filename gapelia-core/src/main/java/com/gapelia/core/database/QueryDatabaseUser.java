@@ -23,7 +23,7 @@ public class QueryDatabaseUser {
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, " +
-            "member_since = ?, last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
+            "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
     private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
@@ -220,7 +220,6 @@ public class QueryDatabaseUser {
             statement.setString(9, user.getDisplayName());
             statement.setString(10, user.getValidateId());
             statement.setString(11, user.getProviderId());
-            statement.setTimestamp(12, user.getMemeberSince());
             statement.setTimestamp(13, user.getLastLogin());
             statement.setTimestamp(14, user.getLastUpdated());
             statement.setString(15, user.getPersonalWebsite());

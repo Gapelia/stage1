@@ -1,13 +1,8 @@
 package com.gapelia.core.api;
 
-import com.gapelia.core.auth.AuthHelper;
-import com.gapelia.core.database.QueryDatabase;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 
 @Path("/notification")
 public class Notification {
