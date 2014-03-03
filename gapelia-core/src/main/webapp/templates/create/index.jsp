@@ -66,14 +66,13 @@
 					<a class="edit-page"><i class="ion-gear-b"></i></a>
 
 					<section>
-						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
+						<img src="/static/images/whiteBG.jpg" id="page0Image" alt="">
 						<span id="page0Title">0 &middot; <span class="page-thumb-title">New Page</span></span>
 					</section>
 				</li>
 
 				<li id="add-page" class="new-thumb disable-sort">
 					<div>+</div>
-					<span>Add New Page</span>
 				</li>
 			</ul>
 
@@ -134,7 +133,9 @@
 
 		<section id="publish-modal" class="modal" style="display: none;">
 			<div class="wrapper">
-				<h1>*BOOK TITLE*</h1>
+				<h1>The book title goes here</h1>
+				
+				<div id="add-description" contenteditable="true">Write a summary of your story</div>
 
 				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
 
