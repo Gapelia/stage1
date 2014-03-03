@@ -15,16 +15,16 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
-public class User {
+public class Users {
     public static Logger LOG = Logger.getLogger(User.class);
-
+/*
     @Path("getUser")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getUser(@FormParam("sessionId") String sessionId) {
         try {
-            getUserByValidateId
+            //getUserByValidateId
         } catch (Exception ex) {
 			LOG.error("Failed to retrieve User", ex);
 			return gson.toJson("Failed to retrieve User"+ ex);
@@ -57,10 +57,7 @@ public class User {
                              @FormParam("location") String location,
                              @FormParam("avatarImage") String avatarImage,
                              @FormParam("coverImage") String coverImage,
-                             @FormParam("userId") String userId
-                             @FormParam("userId") String userId
-
-                                @FormParam("userId") String userId ) {
+                             @FormParam("userId") String userId) {
         try {
 
         } catch (Exception ex) {
@@ -234,4 +231,5 @@ public class User {
 
         return null;
     }
+    */
 }

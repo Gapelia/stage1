@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 
 @Path("/book/")
 public class Book {
-
+/*
     public static Logger LOG = Logger.getLogger(Book.class);
     @Path("createBook")
 	@POST
@@ -26,7 +26,7 @@ public class Book {
 
         }
 
-    }
+    }*/
 
 //	@Path("createBook")
 //	@POST
