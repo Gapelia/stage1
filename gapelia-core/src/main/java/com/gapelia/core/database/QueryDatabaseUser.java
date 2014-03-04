@@ -8,13 +8,13 @@ import org.brickred.socialauth.Profile;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+//TODO make functions produce json
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
     //User Related Queries
-    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
+    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
             "avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
