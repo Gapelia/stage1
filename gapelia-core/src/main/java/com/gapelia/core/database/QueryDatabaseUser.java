@@ -37,7 +37,7 @@ public class QueryDatabaseUser {
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
-            if (rs == null || rs.getFetchSize()==0) {
+            if (rs.isBeforeFirst()) {
                 return signUp(profile);
             }
         } catch (SQLException ex) {
