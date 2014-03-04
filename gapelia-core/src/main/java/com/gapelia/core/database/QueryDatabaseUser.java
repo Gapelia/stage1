@@ -37,7 +37,7 @@ public class QueryDatabaseUser {
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
-            if (rs == null || rs.getFetchSize()==0) {
+            if (rs == null) {
                 return signUp(profile);
             }
         } catch (SQLException ex) {
@@ -61,6 +61,7 @@ public class QueryDatabaseUser {
     public static boolean signUp(Profile profile) {
         PreparedStatement insert = null;
         ResultSet rs = null;
+        LOG.info(profile.toString());
         try {
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, profile.getFirstName());
