@@ -162,7 +162,9 @@
 						htmlToInsert += "<section class=\"fluid-wrapper\">";
 						htmlToInsert += "<section class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "</section>";
 						htmlToInsert += "<div class=\"fluid-preview\">";
 						if (isFirst==1) {
@@ -184,7 +186,9 @@
 
 						htmlToInsert += "<section class=\"photo-wrapper\">";
 						htmlToInsert += "<div class=\"page-bg-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/></div>";
 						htmlToInsert += "<div class=\"photo-preview\">";
 						htmlToInsert += "<article>";
@@ -216,7 +220,9 @@
 							htmlToInsert += "</div>";
 						}
 						htmlToInsert += "</article></div>";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "</section>";
 						htmlToInsert += "</div></div>";
 
@@ -225,7 +231,9 @@
 					function photoTextLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"phototext-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"phototext-preview\">";
 						htmlToInsert += "<article>";
@@ -246,7 +254,9 @@
 					function verticalLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"vertical-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "<div class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"vertical-preview\">";
@@ -268,7 +278,9 @@
 					function videoLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"video-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						if(attribution!="" || attribution !="undefined") {
+							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+						}
 						htmlToInsert += "<div class=\"video-preview\">";
 						htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
 						htmlToInsert += "<div class=\"video-player-container\">";

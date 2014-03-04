@@ -62,7 +62,6 @@
 
 				pageId = data;
 				console.log(data);
-				geotag = "BUGGGGGG";
 				book = {
 					"author" : "AUTHOR",
 					"title" : null,
@@ -88,7 +87,6 @@
 
 				pages.page[0] = {
 					"pageNumber": pagesCreated,
-					"geotag": null,
 					"templateId": "0",
 					"title": null,
 					"text": null,
@@ -115,7 +113,6 @@
 
 		pages.page[0] = {
 			"pageNumber": 0,
-			"geotag": null,
 			"templateId": "0",
 			"title": null,
 			"text": null,
@@ -175,7 +172,6 @@
 
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
-		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
@@ -322,19 +318,13 @@
 		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
-		geotag = $(".geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
 
-		if(geotag == undefined) {
-			geotag = "BUUUGGG";
-		}
-
 		if(pagesCreated == 0) {
 			pages.page[0] = {
 				"pageNumber": pagesCreated,
-				"geotag": geotag,
 				"templateId": 0,
 				"title": null,
 				"text": null,
@@ -346,17 +336,15 @@
 			templateId = 0;
 			fluidLayout();
 		} else {
-			pages.page[pagesCreated-1].geotag = geotag;
-			pages.page[pagesCreated-1].templateId = templateId;
-			pages.page[pagesCreated-1].title = title;
-			pages.page[pagesCreated-1].text = text;
-			pages.page[pagesCreated-1].image = imageURL;
-			pages.page[pagesCreated-1].video = videoURL;
-			pages.page[pagesCreated-1].attribution = attribution;
+			pages.page[currentPage].templateId = templateId;
+			pages.page[currentPage].title = title;
+			pages.page[currentPage].text = text;
+			pages.page[currentPage].image = imageURL;
+			pages.page[currentPage].video = videoURL;
+			pages.page[currentPage].attribution = attribution;
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
-				"geotag": null,
 				"templateId": "0",
 				"title": null,
 				"text": null,
@@ -372,6 +360,19 @@
 			videoURL = null;
 			attribution = null;
 		}
+		currentPage = pagesCreated;
+
+		if(templateId == undefined || templateId == null) {
+			templateId = 0;
+		}
+
+		title = pages.page[currentPage].title;
+		text = pages.page[currentPage].text;
+		imageURL = pages.page[currentPage].image;
+		videoURL = pages.page[currentPage].video;
+		pageNumber = pages.page[currentPage].pageNumber;
+		attribution = pages.page[currentPage].attribution;
+		fluidLayout();
 
 		/*
 		$.ajax({
@@ -389,7 +390,6 @@
 				if(pagesCreated == 0) {
 					pages.page[0] = {
 						"pageNumber": pagesCreated,
-						"geotag": geotag,
 						"templateId": 0,
 						"title": null,
 						"text": null,
@@ -401,7 +401,6 @@
 					templateId = 0;
 					frontCoverLayout();
 				} else {
-					pages.page[pagesCreated-1].geotag = geotag;
 					pages.page[pagesCreated-1].templateId = templateId;
 					pages.page[pagesCreated-1].title = title;
 					pages.page[pagesCreated-1].text = text;
@@ -410,7 +409,6 @@
 
 					pages.page[pagesCreated] = {
 						"pageNumber": pagesCreated,
-						"geotag": null,
 						"templateId": "0",
 						"title": null,
 						"text": null,
@@ -611,7 +609,7 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		// insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + currentPage + "><img></div>'); $('.inserted-img " + currentPage + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
@@ -636,16 +634,15 @@
 		element.type = "filepicker";
 		filepicker.constructWidget(element);
 
-		/*
+		
 		var element2 = $(".inline-image-insert");
 		element2 = element2[0];
 		element2.type = "filepicker";
 		filepicker.constructWidget(element2);
-		*/
+		
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -694,7 +691,7 @@
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
-		// $("button.inline-image-insert").html("Add inline photo");
+	    $("button.inline-image-insert").html("Add inline photo");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
@@ -724,14 +721,13 @@
 
 		});
 
-		/*
-		//
+
 		$(".page-desc").click(function () {
 
 			// var string = "";
 			// string += "</p><div class='inserted-img'><img src=" + url + "></div><p>";
 
-			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + currentPage + "><img></div>'); $('.inserted-img " + currentPage + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
 
 			$(".page-desc p").each(function () {
 				// $(this).before(htmlISH);
@@ -747,8 +743,6 @@
 			$("button.inline-image-insert").html("Add inline photo");
 
 		});
-		//
-		*/
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -800,7 +794,6 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -941,7 +934,6 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1009,8 +1001,6 @@
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
-
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
@@ -1035,7 +1025,6 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1139,7 +1128,6 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1241,7 +1229,6 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1346,7 +1333,6 @@
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
-			pages.page[currentPage].geotag = geotag;
 			pages.page[currentPage].text = text;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
@@ -1362,15 +1348,12 @@
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
-
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
-		geotag = pages.page[currentPage].geotag;
 		attribution = $(".image-attribution").html();
-
 	}, 5000);
 
 	// Toggle layout switcher
