@@ -26,24 +26,11 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			.app #featured-panel h2 {
-				margin: 4rem 0; padding: 0;
-
-				background-image: none;
-				color: #fcfcfc;
-				font-size: 28px;
-				left: -2.5rem;
-				line-height: 40px;
-				width: auto;
-			}
-		</style>
-
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
 
@@ -56,42 +43,32 @@
 			<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
-					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
+
+					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a id="gpl-menu-me" href="/me">Me</a>
+						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
+						<li><a href="/create">Create book</a></li>
+						<li><a href="#" id="create-library">Start library</a></li>
+
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
-								<li><a href="/accounts">Account Settings</a></li>
-								<li><a href="#">Sign Out</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">007: The Diego Regules Story</a></li>
+								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
 						</li>
 
-						<li><a id="gpl-menu-create" href="/createbook">Create</a></li>
-
-						<li><a id="gpl-menu-drafts">Drafts</a>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
+								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
+								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
+								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
+								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
 					</ul>
-
-					<!--/
-					<div id="account-links">
-						<a href="/accounts">Account</a>
-						<a href="#">Sign Out</a>
-					</div>
-					/-->
 
 				</div>
 			</nav>
@@ -333,6 +310,7 @@
 				stuff += "<section id=\"library-splash\">";
 				stuff += "<button class=\"subscribe slate\">Subscribe</button>";
 				stuff += "<div id=\"library-info\">";
+				stuff += "<h1>Editor's Name</h2>";
 				stuff += "<h2>Library Name</h2>";
 				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
 				stuff += "<section>";
@@ -366,11 +344,11 @@
 
 			} else {
 
-				$(function() {
+				$(function () {
 
 					$("#library-splash").swipe({
 						// Generic swipe handler for all directions
-						swipeUp: function(event, direction, distance, duration, fingerCount) {
+						swipeUp: function (event, direction, distance, duration, fingerCount) {
 
 							$("#close-splash").css({
 								"height": "0",

@@ -7,6 +7,7 @@
 
 	background-color: $white;
 	clear: left;
+	color: rgba($black, 0.95);
 	@include sans;
 	font-size: 15px;
 	overflow: hidden;
@@ -16,12 +17,13 @@
 
 	#site-menu {
 		h2 {
-			width: 100%; height: 100px;
+			width: 100%; height: 80px;
 
 			background-image: url("../images/sprite-sheet.png");
-			background-position: 0 -333px;
+			background-position: 42px -342px;
 			background-repeat: no-repeat;
 			background-size: 200px 500px;
+			margin: 2rem 0 0 0;
 			transition: all 0.2s ease;
 
 			@include hide-text;
@@ -143,9 +145,8 @@
 		}
 	}
 
-	#g-menu-toggle {
+	#g-menu-toggle, #next-book-toggle {
 		width: 100%; height: auto;
-		top: 0.5rem; left: 0;
 
 		background-color: transparent;
 		color: $slate;
@@ -153,20 +154,15 @@
 		font-size: 36px;
 		padding: 0 !important;
 		position: absolute;
+		top: 0.35rem;
 		transition: all 0.5s ease;
 		z-index: 3;
 
-		span {
-			width: 36px; height: 4px;
-
-			background-color: $slate;
-			display: block;
-			margin: 0 auto 6px;
-			position: relative;
-		}
-
 		&:hover { opacity: 0.7; }
 	}
+
+	#g-menu-toggle { left: 0; }
+	#next-book-toggle { right: 0; }
 
 	#nav-wrapper {
 		top: 0; right: 0;
@@ -180,7 +176,7 @@
 		width: auto; height: auto;
 		margin: 0 0 1rem 1rem; padding: 1.05rem 0 0 0;
 
-		font-size: 1.1rem;
+		font-size: 1rem;
 		font-weight: 300;
 
 		li {
@@ -196,6 +192,7 @@
 			a {
 				color: $slate;
 				font-weight: 700;
+				letter-spacing: 0.05rem;
 				padding: 0 0 0.74rem 0;
 			}
 		}
@@ -219,7 +216,7 @@
 		-webkit-transform: translateY(-50%);
 	}
 
-	#book-scroller, #dimension-scroller, #featured-scroller, #account-information {
+	#book-scroller, #dimension-scroller, #featured-scroller {
 		overflow-y: hidden;
 		overflow-x: auto;
 		width: 75%;
@@ -669,9 +666,18 @@
 	}
 
 	#library-splash {
-		#library-info h2 { font-size: 42px; font-weight: 700; }
+		
+    #library-info {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      left:20%; width: 60%;
+      padding: 0 !important;
+      top: 45%;
+    }
+    
+    #library-info h2 { font-size: 42px; font-weight: 700; }
+      h1 { font-size: 0.9rem; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
       p { font-weight: 200; font-size: 1.1em; padding-top: 12px; }
-      section { font-weight: bold; } 
+      section { font-weight: bold; padding-bottom: 15px; }
       
     button {
 			top: 2rem; right: 2rem;
@@ -713,4 +719,24 @@
 	.twitter, .ion-social-twitter { color: $twitter; }
 	.email, .ion-email, .ion-ios7-at { color: $slate; }
 
+}
+
+.notification-time {
+	i {
+		animation: colors 5s ease infinite;
+		color: #70a1b1;
+
+		-o-animation: colors 5s ease infinite;
+		-ms-animation: colors 5s ease infinite;
+		-moz-animation: colors 5s ease infinite;
+		-webkit-animation: colors 5s ease infinite;
+	}
+}
+
+@keyframes colors {
+	0% { text-shadow: 0 0 10px $red; }
+	25% { text-shadow: 0 0 10px $orange; }
+	50% { text-shadow: 0 0 10px $green; }
+	75% { text-shadow: 0 0 10px $blue; }
+	100% { text-shadow: 0 0 10px $purple; }
 }

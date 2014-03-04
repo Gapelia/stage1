@@ -6,20 +6,19 @@
  * Released under the MIT license.
 **/
 
-(function($) {
+(function ($) {
 
 	"use strict";
 
 	var dragging, placeholders = $();
 
-	$.fn.sortable = function(options) {
+	$.fn.sortable = function (options) {
+
 		var method = String(options);
+		options = $.extend({ connectWith: false }, options);
 
-		options = $.extend({
-			connectWith: false
-		}, options);
+		return this.each(function () {
 
-		return this.each(function() {
 			if (/^enable|disable|destroy$/.test(method)) {
 				var items = $(this).children($(this).data("items")).attr("draggable", method === "enable");
 
@@ -31,11 +30,11 @@
 			}
 
 			var isHandle, index, items = $(this).children(options.items);
-			var placeholder = $('<' + (/^ul|ol$/i.test(this.tagName) ? 'li' : 'div') + ' class="sortable-placeholder">');
+			var placeholder = $('<' + (/^ul|ol$/i.test(this.tagName) ? 'li' : 'div') + ' class="sortable-placeholder"><span>Moving!</span>');
 
-			items.find(options.handle).mousedown(function() {
+			items.find(options.handle).mousedown(function () {
 				isHandle = true;
-			}).mouseup(function() {
+			}).mouseup(function () {
 				isHandle = false;
 			});
 
@@ -46,17 +45,19 @@
 				$(options.connectWith).add(this).data("connectWith", options.connectWith);
 			}
 
-			items.attr("draggable", "true").on("dragstart.h5s", function(e) {
-				if (options.handle && !isHandle) {
-					return false;
-				}
+			items.attr("draggable", "true").on("dragstart.h5s", function (e) {
 
+				if (options.handle && !isHandle) { return false; }
 				isHandle = false;
+
 				var dt = e.originalEvent.dataTransfer;
 				dt.effectAllowed = "move";
 				dt.setData("Text", "dummy");
+
 				index = (dragging = $(this)).addClass("sortable-dragging").index();
-			}).on("dragend.h5s", function() {
+
+			}).on("dragend.h5s", function () {
+
 				dragging.removeClass("sortable-dragging").show();
 				placeholders.detach();
 
@@ -65,10 +66,14 @@
 				}
 
 				dragging = null;
-			}).not("a[href], img").on("selectstart.h5s", function() {
+
+			}).not("a[href], img").on("selectstart.h5s", function () {
+
 				this.dragDrop && this.dragDrop();
 				return false;
-			}).end().add([this, placeholder]).on("dragover.h5s dragenter.h5s drop.h5s", function(e) {
+
+			}).end().add([this, placeholder]).on("dragover.h5s dragenter.h5s drop.h5s", function (e) {
+
 				if (!items.is(dragging) && options.connectWith !== $(dragging).parent().data("connectWith")) {
 					return true;
 				}
@@ -96,8 +101,11 @@
 				}
 
 				return false;
+
 			});
+
 		});
+
 	};
 
 })(jQuery);

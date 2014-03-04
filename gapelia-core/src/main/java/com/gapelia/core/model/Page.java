@@ -1,6 +1,7 @@
 package com.gapelia.core.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Page {
 
@@ -15,8 +16,8 @@ public class Page {
     private String photoUrl;
     private String photoId;
     private String creativeCommons;
-    private Date created;
-    private Date lastUpdated;
+    private Timestamp created;
+    private Timestamp lastUpdated;
 
     public int getPageId() {
         return pageId;
@@ -102,19 +103,19 @@ public class Page {
         this.creativeCommons = creativeCommons;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setContent(Date created) {
+    public void setContent(Timestamp created) {
         this.created = created;
     }
 
-    public Date getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 }

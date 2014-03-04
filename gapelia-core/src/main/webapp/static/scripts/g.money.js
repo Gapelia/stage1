@@ -6,18 +6,15 @@
 	// General
 	var $vW = $(window).width(), $vH = $(window).height();
 
-	// Reload Gapelia when device orientation changes
-	window.onorientationchange = function () {
-		window.location.reload();
-	};
+	$(function () {
 
-	$(document).ready(function () {
+		// Reload Gapelia when device orientation changes
+		window.onorientationchange = function () {
+			window.location.reload();
+		};
 
-		$(".super-wrapper").css("height", $vH + "px");
-		$(".super-wrapper").show();
-
-		// Reload Gapelia when browser window resizing occurs
 		/*
+		// Reload Gapelia when browser window resizing occurs
 		$(window).resize(function () {
 			if($vW != $(window).width()) {
 				location.reload();
@@ -26,10 +23,12 @@
 		});
 		*/
 
-		// if ($vW > "801") {
+		$(".super-wrapper").css("height", $vH + "px");
+		$(".super-wrapper").show();
+
 		if ($vW > "1024") {
 
-			$(document).on("ready", function () {
+			$(function () {
 				// Set height of books in feed on "Me" page
 				$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 				$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
@@ -37,25 +36,9 @@
 
 				// Set height of books in feed on "Featured" page
 				$("#book-list .book").css("height", $vH - 97 + "px");
-				$("#dimension-list .portal").css("height", $vH - 97 + "px");
 				$("#library-list .library").css("height", $vH - 97 + "px");
 				$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
 			});
-
-		} else {
-
-			/*
-			// Set width of books in feed on "Me" page
-			$("#user-book-list .book, #user-book-list .new").css();
-			$("#user-library-list .library, #user-library-list .new").css();
-			$("#user-draft-list .draft").css();
-
-			// Set width of books in feed on "Featured" page
-			$("#book-list .book").css();
-			$("#dimension-list .portal").css();
-			$("#library-list .library").css();
-			$("#bookmark-list .collection, #bookmark-list .new").css();
-			*/
 
 		}
 
@@ -158,6 +141,7 @@
 
 		});
 
+		// Remove bookmark
 		$(document).on("click", ".bookmarked", function () {
 
 			$(this).removeClass("bookmarked");
@@ -196,6 +180,67 @@
 				$(this).find(".right-bm").css("width", "52px");
 
 			}
+
+		});
+
+		$(function () {
+
+			// Initialize "Overlay — create library"
+			ocl = "";
+			ocl += "<div id=\"create-library-overlay\" class=\"overlay\">";
+			ocl += "<div class=\"overlay-controls\">";
+			ocl += "<a href=\"#\" class=\"overlay-close oc-01\">Cancel</a>";
+			ocl += "<button class=\"overlay-close oc-02\">Create</button>";
+			ocl += "</div>";
+			ocl += "<section>";
+			ocl += "<h2>Library Creation</h2>";
+			ocl += "<div id=\"create-library-name\" contenteditable=\"true\">Library name</div>";
+			ocl += "<div id=\"create-library-desc\" contenteditable=\"true\">Description of library</div>";
+			ocl += "</section>";
+			ocl += "</div>";
+
+			$("body").append(ocl);
+
+		});
+
+		// Overlay — create library
+		$("#create-library").click(function (e) {
+
+			$("#create-library-overlay").addClass("open");
+
+			$("#mp-pusher").css({
+				"transform": "translate3d(0, 0, 0)",
+				"-o-transform": "translate3d(0, 0, 0)",
+				"-ms-transform": "translate3d(0, 0, 0)",
+				"-moz-transform": "translate3d(0, 0, 0)",
+				"-webkit-transform": "translate3d(0, 0, 0)"
+			});
+
+			e.preventDefault();
+
+		});
+
+		// Close any opened overlay
+		$(document).on("click", ".overlay-close", function (e) {
+
+			$(".overlay").removeClass("open");
+			e.preventDefault();
+
+		});
+
+		// Open drafts drawer
+		$("#gpl-menu-drafts a").click(function (e) {
+
+			$("#gpl-menu-drafts ul").toggle();
+			e.preventDefault();
+
+		});
+
+		// Open notifications drawer
+		$("#gpl-menu-notify a").click(function (e) {
+
+			$("#gpl-menu-notify ul").toggle();
+			e.preventDefault();
 
 		});
 
@@ -238,7 +283,6 @@
 
 			}, 1000);
 
-		} else {
 		}
 
 	});

@@ -30,7 +30,7 @@
   <script>try { Typekit.load(); } catch(e) {}</script>
 
   <script src="/static/scripts/modernizr.custom.js"></script>
-  <script src="/static/scripts/jquery-2.0.3.min.js"></script>
+  <script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
  </head>
 
@@ -51,7 +51,7 @@
        </ul>
       </li>
 
-      <li><a id="gpl-menu-create" href="/createbook">Create</a></li>
+      <li><a id="gpl-menu-create" href="/create">Create</a></li>
 
       <li><a id="gpl-menu-drafts">Drafts</a>
        <ul>
@@ -349,7 +349,7 @@
                                                         htmlToInsert = "";
 
                      $.ajax({
-                      url: "http://gapss-609817464.us-west-2.elb.amazonaws.com/api/book/getBook",
+                      url: "http://gapelia-dev.herokuapp.com/api/book/getBook",
                       contentType: "application/x-www-form-urlencoded;charset=utf-8",
                       type: "POST",
                       data: {
