@@ -67,7 +67,11 @@ public class QueryDatabaseUser {
             insert.setString(1, profile.getFirstName());
             insert.setString(2, profile.getEmail());
             insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
-            insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
+            if(profile.getDob() != null) {
+                insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
+            } else {
+                insert.setDate(4, null);
+            }
             if("male".equals(profile.getGender())) {//write tool
                 insert.setString(5, "M");
             } else {
@@ -83,6 +87,7 @@ public class QueryDatabaseUser {
             insert.setDate(13, new Date(System.currentTimeMillis()));
             rs = insert.executeQuery();
         } catch (SQLException ex) {
+            LOG.info("Cannot check user profile:" + profile + " " + ex.getMessage());
             LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
             return false;
         } finally {
