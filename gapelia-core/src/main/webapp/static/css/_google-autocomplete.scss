@@ -1,0 +1,88 @@
+
+// Google Autocomplete
+.pac-container {
+	border: none !important;
+	display: table; //
+	overflow: hidden;
+	width: 100%;
+
+	&:after {
+		// background-image: url("http://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png");
+		background-image: none;
+		background-position: right;
+		background-repeat: no-repeat;
+		background-size: 104px 16px;
+		content: "";
+		display: none; // block
+		font-size: 0;
+		height: 16px;
+		padding-top: 3px;
+		text-align: right;
+	}
+}
+
+.pac-item, .pac-item-refresh {
+	overflow: hidden;
+	padding: 0 4px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+
+	&:hover {
+		background-color: $slate;
+		color: $white;
+	}
+}
+
+.pac-item {
+	cursor: pointer;
+	display: table;
+	padding: 0 4px;
+	text-overflow: ellipsis;
+}
+
+.pac-item-refresh {
+	border-top: 1px solid #e6e6e6;
+	cursor: default;
+	font-family: Roboto, Arial, sans-serif;
+	line-height: 30px;
+	text-align: left;
+}
+
+.pac-item-bold { font-weight: 700; }
+
+.pac-item-query {
+	font-size: 13px;
+	margin-right: 3px;
+}
+
+.pac-item-location {
+	color: $black;
+	font-size: 11px;
+}
+
+.pac-icon-container {
+	width: 15px; height: 20px;
+
+	background-image: url("https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png");
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+
+.pac-icon-search {
+	background-position: -1px -1px;
+	&:hover { background-position: -18px -1px; }
+}
+
+.pac-icon-location {
+	background-position: -1px -161px;
+	&:hover { background-position: -18px -161px; }
+}
+
+.pac-item-selected { background-color: $slate; }
+
+.pac-placeholder {
+	color: $gray-v;
+	&:hover { color: $white; }
+}

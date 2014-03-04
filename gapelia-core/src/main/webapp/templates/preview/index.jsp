@@ -25,12 +25,24 @@
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
+		
+		<style>
+			#close-preview {
+				top: 1rem; right: 1rem;
+
+				color: #07d0eb;
+				cursor: pointer;
+				font-size: 3rem;
+				position: fixed;
+				z-index: 9999;
+			}
+		</style>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 	</head>
 
@@ -38,50 +50,11 @@
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<!--/ site-menu /-->
-			<nav id="site-menu" class="mp-menu">
-				<div class="mp-level">
-					<h2 class=""><a class="" href="/featured">Gapelia</a></h2>
-
-					<ul>
-						<li><a id="gpl-menu-me" href="/me">Me</a>
-							<ul>
-								<li><a href="/accounts">Account Settings</a></li>
-								<li><a href="#">Sign Out</a></li>
-							</ul>
-						</li>
-
-						<li><a id="gpl-menu-create" href="/createbook">Create</a></li>
-
-						<li><a id="gpl-menu-drafts">Drafts</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!--//site-menu /-->
-
-			<button id="g-menu-toggle">
-				<i class="ion-drag"></i>
-			</button>
+			<div id="close-preview" title="Exit preview" onclick="window.close();">&times;</div>
 
 			<div id="bb-nav-prev"><i class="ion-ios7-arrow-left"></i></div>
 			<div id="bb-nav-next"><i class="ion-ios7-arrow-right"></i></div>
 
-			<!--/ div id="the-book" /-->
 			<div id="the-book" class="bb-custom-wrapper">
 				<div id="bb-bookblock" class="bb-bookblock">
 
@@ -96,13 +69,6 @@
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/books.js"></script>
 
-		<script src="/static/scripts/classie.js"></script>
-		<script src="/static/scripts/mlpushmenu.js"></script>
-
-		<script>
-			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
-		</script>
-
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 
 		<script src="/static/scripts/vimeothumb.js"></script>
@@ -113,18 +79,18 @@
 		<script src="/static/scripts/bookblock.js"></script>
 
 		<script>
-			$(document).ready(function() {
+			$(function () {
 
 				// Load Gapelia
 				NProgress.start();
 
-				setTimeout(function() {
+				setTimeout(function () {
 
 					var htmlToInsert = "";
 					var current;
 					var $vW = $(window).width(), $vH = $(window).height();
 
-					$(document).ready(function() {
+					$(function () {
 
 						pages = JSON.parse(localStorage.getItem("pages"));
 						console.log(pages);
@@ -141,8 +107,6 @@
 								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
 								insertPage(0);
 							}
-
-							
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
@@ -198,7 +162,7 @@
 						htmlToInsert += "<section class=\"fluid-wrapper\">";
 						htmlToInsert += "<section class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "<div class=\"fluid-preview\">";
 						if (isFirst==1) {
@@ -220,12 +184,12 @@
 
 						htmlToInsert += "<section class=\"photo-wrapper\">";
 						htmlToInsert += "<div class=\"page-bg-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/></div>";
 						htmlToInsert += "<div class=\"photo-preview\">";
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
+												if (isFirst==1) {
 							htmlToInsert += "<div id=\"author-info\">";
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
@@ -252,7 +216,7 @@
 							htmlToInsert += "</div>";
 						}
 						htmlToInsert += "</article></div>";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "</div></div>";
 
@@ -261,7 +225,7 @@
 					function photoTextLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"phototext-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"phototext-preview\">";
 						htmlToInsert += "<article>";
@@ -271,7 +235,7 @@
 							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
-						};
+						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
 						htmlToInsert += "</article>";
 						htmlToInsert += "</div></section>";
@@ -282,7 +246,7 @@
 					function verticalLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"vertical-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">*Photo Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "<div class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 						htmlToInsert += "<div class=\"vertical-preview\">";
@@ -304,7 +268,7 @@
 					function videoLayout(isFirst) {
 
 						htmlToInsert += "<section class=\"video-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">*Video Credit*</span>";
+						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						htmlToInsert += "<div class=\"video-preview\">";
 						htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
 						htmlToInsert += "<div class=\"video-player-container\">";
@@ -325,7 +289,7 @@
 
 					}
 
-					var Page = (function() {
+					var Page = (function () {
 
 						var config = {
 							$bookBlock: $("#bb-bookblock"),
@@ -334,7 +298,7 @@
 							$navFirst: $("#bb-nav-first")
 						},
 
-						init = function() {
+						init = function () {
 
 							config.$bookBlock.bookblock({
 								speed: 1000,
@@ -346,22 +310,22 @@
 
 						},
 
-						initEvents = function() {
+						initEvents = function () {
 
 							var $slides = config.$bookBlock.children();
 
 							// add navigation events
-							config.$navNext.on("click touchstart", function() {
+							config.$navNext.on("click touchstart", function () {
 								config.$bookBlock.bookblock("next");
 								return false;
 							});
 
-							config.$navPrev.on("click touchstart", function() {
+							config.$navPrev.on("click touchstart", function () {
 								config.$bookBlock.bookblock("prev");
 								return false;
 							});
 
-							config.$navFirst.on("click touchstart", function() {
+							config.$navFirst.on("click touchstart", function () {
 								config.$bookBlock.bookblock("first");
 								return false;
 							});

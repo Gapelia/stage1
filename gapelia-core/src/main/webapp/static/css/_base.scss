@@ -1,6 +1,7 @@
-/***************************************************************************************** BASE/SCSS **/
 
-/** [-] Reset *****************************************************************************************/
+///////////////////////////////////////////////////////////////////////////////////////// BASE/SCSS ///
+
+/// RESET /////////////////////////////////////////////////////////////////////////////////////////////
 
 * {
 	margin: 0; padding: 0;
@@ -20,7 +21,7 @@ html, body {
 	-webkit-overflow-scrolling: touch;
 
 	::-webkit-scrollbar {
-		width: 10px; height: 10px;
+		width: 2px; height: 2px;
 	}
 
 	::-webkit-scrollbar-thumb {
@@ -75,7 +76,7 @@ table {
 	border-spacing: 0;
 }
 
-/** [-] Clearfix **************************************************************************************/
+/// CLEARFIX //////////////////////////////////////////////////////////////////////////////////////////
 
 .cf {
 	zoom: 1;
@@ -88,7 +89,7 @@ table {
 	&:after { clear: both; }
 }
 
-/** [-] Colours ***************************************************************************************/
+/// COLOURS ///////////////////////////////////////////////////////////////////////////////////////////
 
 $black:     rgba(25, 25, 25, 1);    // #191919;
 $gray:			rgba(228, 228, 228, 1);	// #e4e4e4;
@@ -116,7 +117,7 @@ $facebook:	rgba(59, 89, 152, 1);		// #3b5998;
 $twitter:		rgba(0, 172, 238, 1);		// #0acee;
 $google:		rgba(221, 75, 57, 1);		// #dd4b39;
 
-/** [-] Mixins ****************************************************************************************/
+/// MIXINS ////////////////////////////////////////////////////////////////////////////////////////////
 
 @mixin sans { font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif; }
 @mixin serif { font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
@@ -137,12 +138,9 @@ $google:		rgba(221, 75, 57, 1);		// #dd4b39;
 	white-space: nowrap;
 }
 
-/** [-] Generic ***************************************************************************************/
+/// GENERAL ///////////////////////////////////////////////////////////////////////////////////////////
 
-p {
-  // font-size: 16px/1.5em;
-  margin: 0 0 1.5rem 0;
-}
+p { margin: 0 0 1.5rem 0; }
 
 a {
 	color: inherit;
@@ -172,29 +170,37 @@ strong, .strong, b {
 pre, code { @include mono; }
 small { font-size: 80%; }
 
-.hide-text { @include hide-text; }
-.unicode-char { @include unicode; }
+hr {
+	border: 1px solid #ddd;
+	clear: both;
+	height: 0;
+	margin: 10px 0 30px;
+}
 
-/** [-] Titles ****************************************************************************************/
+.icon					{ @include icon; }
+.hide-text		{ @include hide-text; }
+.unicode-char	{ @include unicode; }
+
+/// TITLES ////////////////////////////////////////////////////////////////////////////////////////////
 
 h1, h2, h3, h4, h5, h6 {
 	a { font-weight: inherit; }
 }
 
 h1 {
-	font-size: 3rem; /* 46px */
+	font-size: 3rem;
 	line-height: 50px;
 	margin: 0 0 14px 0;
 }
 
 h2 {
-	font-size: 28px; /* 2rem ~ 35px */
+	font-size: 2rem;
 	line-height: 40px;
 	margin: 0 0 10px 0;
 }
 
 h3 {
-	font-size: 1.7em; /* 28px */
+	font-size: 1.7rem;
 	line-height: 34px;
 	margin: 0 0 8px 0;
 }
@@ -215,7 +221,7 @@ h6 {
 	line-height: 21px;
 }
 
-/** [-] Lists *****************************************************************************************/
+/// LISTS /////////////////////////////////////////////////////////////////////////////////////////////
 
 ul, ol {
 	margin: 0; padding: 0;
@@ -236,49 +242,3 @@ ol { list-style: decimal; }
 .square { list-style: square outside; }
 .circle { list-style: circle outside; }
 .disc { list-style: disc outside; }
-
-hr {
-	border: 1px solid #ddd;
-	clear: both;
-	height: 0;
-	margin: 10px 0 30px;
-}
-
-/** [-] Quotes ****************************************************************************************/
-/*
-blockquote {
-	margin: 1.5em 10px; padding: 0.5em 10px;
-
-	background-color: $l-gray;
-	border-left: 10px solid $gray-i;
-  line-height: 25px;
-	quotes: "\201C""\201D""\2018""\2019";
-
-  &:before {
-    color: $gray-i;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin: 0 0.25em 0 0;
-    vertical-align: -0.4em;
-  }
-}
-*/
-/** [-] Video *****************************************************************************************/
-
-.video-container {
-	margin: 0 0 20px 0; padding-bottom: 56.25%; padding-top: 30px;
-
-	height: 0;
-	overflow: hidden;
-	position: relative;
-
-	iframe, object, embed {
-		width: 100%; height: 100%;
-		top: 0; left: 0;
-
-		border: none;
-		clear: left;
-		position: absolute;
-	}
-}

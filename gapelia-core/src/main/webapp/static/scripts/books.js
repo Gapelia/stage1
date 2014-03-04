@@ -217,6 +217,7 @@
 	});
 
 	// Text fade
+	/*
 	$(function () {
 
 		$(".fluid-wrapper .page-desc").after("<div class='text-fade'></div>");
@@ -226,6 +227,7 @@
 		});
 
 	});
+	*/
 
 	$(".video-preview .play-video").click(function() {
 
