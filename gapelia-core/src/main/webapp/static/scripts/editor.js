@@ -23,12 +23,12 @@
 		pagesCreated = 0;
 		author = "William Gibson";
 		templateId = 0;
-		currentPage =0;
-		imageURL=0;
+		currentPage = 0;
+		imageURL = 0;
 		attribution = null;
-		title=null;
-		text =null;
-		videoURL=null;
+		title = null;
+		text = null;
+		videoURL = null;
 
 		/*
 		$.ajax({
@@ -360,20 +360,6 @@
 			videoURL = null;
 			attribution = null;
 		}
-		currentPage = pagesCreated;
-
-		if(templateId == undefined || templateId == null) {
-			templateId = 0;
-		}
-
-		title = pages.page[currentPage].title;
-		text = pages.page[currentPage].text;
-		imageURL = pages.page[currentPage].image;
-		videoURL = pages.page[currentPage].video;
-		pageNumber = pages.page[currentPage].pageNumber;
-		attribution = pages.page[currentPage].attribution;
-		fluidLayout();
-		break;
 
 		/*
 		$.ajax({
@@ -488,7 +474,7 @@
 		$("#create-content").html(insert);
 
 	}
-function handleFile(file) {
+	function handleFile(file) {
 			console.log(file);
 			pasteHtmlAtCaret('<p><div class=inserted-img><img src=' + file + '></div></p>'); 
 		}
