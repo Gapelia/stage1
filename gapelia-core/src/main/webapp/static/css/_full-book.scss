@@ -161,9 +161,9 @@
 			background-color: rgba($white, 0.3);
 			bottom: -1px;
 			cursor: default;
-			font-size: 0.8rem;
-			line-height: 1rem;
-			padding: 0.5rem 1rem;
+			font-size: 0.6rem;
+			line-height: initial;
+			padding: 0.2rem 1rem;
 			position: absolute;
 			z-index: 1;
 
@@ -175,7 +175,7 @@
 			}
 		}
 
-		#author-info {
+		.author-info {
 			font-size: 0.6rem;
 
 			.author-name {
@@ -217,7 +217,7 @@
 			overflow-y: auto;
 		}
 
-		#author-info {
+		.author-info {
 			margin: -0.5rem 0 0 0;
 
 			.author-name, .author-avatar {
@@ -276,19 +276,21 @@
 				margin: 0 auto;
 				width: 70%;
 			}
-		}
 
-		#author-info {
-			margin: 0;
-			position: absolute;
-			top: 2.35rem;
-			width: 13%;
+			.author-info {
+				top: 2.35rem; left: 0;
 
-			.author-avatar { float: right; }
+				margin: 0;
+				position: absolute;
+				width: 13.5%;
+				z-index: 1;
 
-			.author-name {
-				text-align: right;
-				&:before { text-align: right; }
+				.author-avatar { float: right; }
+
+				.author-name {
+					text-align: right;
+					&:before { text-align: right; }
+				}
 			}
 		}
 	}
@@ -298,7 +300,7 @@
 	}
 
 	.photo-wrapper, .overlay-wrapper {
-		#author-info {
+		.author-info {
 			position: absolute;
 			top: 3rem;
 			width: 13%;
@@ -342,7 +344,7 @@
 			}
 		}
 
-		#author-info {
+		.author-info {
 			color: $black;
 			position: absolute;
 			top: -15%;
@@ -391,7 +393,7 @@
 		}
 
 		// Tommy
-		#author-info {
+		.author-info {
 			position: relative;
 			top: 1rem;
 			width: 50%;
