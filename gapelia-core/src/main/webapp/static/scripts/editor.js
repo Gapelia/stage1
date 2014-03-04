@@ -13,7 +13,7 @@
 	$("#layout-scroller").css("height", $vH + "px");
 
 	$(document).ready(function () {
-
+		inlineInsertCounter = 0;
 		pages = {
 			"page": [{}]
 		};
@@ -609,7 +609,7 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + currentPage + "><img></div>'); $('.inserted-img " + currentPage + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + inlineInsertCounter + "><img></div>'); $('.inserted-img " + inlineInsertCounter + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
@@ -726,8 +726,8 @@
 
 			// var string = "";
 			// string += "</p><div class='inserted-img'><img src=" + url + "></div><p>";
-
-			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + currentPage + "><img></div>'); $('.inserted-img " + currentPage + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
+			inlineInsertCounter++;
+			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img " + inlineInsertCounter + "><img></div>'); $('.inserted-img " + inlineInsertCounter + " img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
 
 			$(".page-desc p").each(function () {
 				// $(this).before(htmlISH);
