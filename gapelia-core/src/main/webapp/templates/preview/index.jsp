@@ -25,7 +25,7 @@
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
-		
+
 		<style>
 			#close-preview {
 				top: 1rem; right: 1rem;

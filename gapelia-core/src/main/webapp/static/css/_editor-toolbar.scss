@@ -214,12 +214,9 @@
 	&:after {
 		top: 0; left: 0;
 
-		color: rgba($black, 0.6) !important; // #b3b3b1
+		color: rgba($black, 0.6);
 		content: attr(data-placeholder);
-		// font-style: italic;
 		position: absolute;
-		// text-align: center;
-		// text-shadow: 1px 0 1px rgba($black, 0.4);
 		width: 100%;
 	}
 }
