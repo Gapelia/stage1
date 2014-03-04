@@ -62,6 +62,7 @@
 
 				pageId = data;
 				console.log(data);
+				geotag = "BUGGGGGG";
 				book = {
 					"author" : "AUTHOR",
 					"title" : null,
@@ -87,6 +88,7 @@
 
 				pages.page[0] = {
 					"pageNumber": pagesCreated,
+					"geotag": null,
 					"templateId": "0",
 					"title": null,
 					"text": null,
@@ -173,6 +175,7 @@
 
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
+		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
@@ -319,13 +322,19 @@
 		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
+		geotag = $(".geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
 
+		if(geotag == undefined) {
+			geotag = "BUUUGGG";
+		}
+
 		if(pagesCreated == 0) {
 			pages.page[0] = {
 				"pageNumber": pagesCreated,
+				"geotag": geotag,
 				"templateId": 0,
 				"title": null,
 				"text": null,
@@ -337,15 +346,17 @@
 			templateId = 0;
 			fluidLayout();
 		} else {
-			pages.page[currentPage].templateId = templateId;
-			pages.page[currentPage].title = title;
-			pages.page[currentPage].text = text;
-			pages.page[currentPage].image = imageURL;
-			pages.page[currentPage].video = videoURL;
-			pages.page[currentPage].attribution = attribution;
+			pages.page[pagesCreated-1].geotag = geotag;
+			pages.page[pagesCreated-1].templateId = templateId;
+			pages.page[pagesCreated-1].title = title;
+			pages.page[pagesCreated-1].text = text;
+			pages.page[pagesCreated-1].image = imageURL;
+			pages.page[pagesCreated-1].video = videoURL;
+			pages.page[pagesCreated-1].attribution = attribution;
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
+				"geotag": null,
 				"templateId": "0",
 				"title": null,
 				"text": null,
@@ -361,6 +372,7 @@
 			videoURL = null;
 			attribution = null;
 		}
+<<<<<<< HEAD
 		currentPage = pagesCreated;
 
 		if(templateId == undefined || templateId == null) {
@@ -375,6 +387,8 @@
 		attribution = pages.page[currentPage].attribution;
 		fluidLayout();
 		break;
+=======
+>>>>>>> 387dde5d66beb78492127e9eda5d4cccccea0e3d
 
 		/*
 		$.ajax({
@@ -392,6 +406,7 @@
 				if(pagesCreated == 0) {
 					pages.page[0] = {
 						"pageNumber": pagesCreated,
+						"geotag": geotag,
 						"templateId": 0,
 						"title": null,
 						"text": null,
@@ -403,6 +418,7 @@
 					templateId = 0;
 					frontCoverLayout();
 				} else {
+					pages.page[pagesCreated-1].geotag = geotag;
 					pages.page[pagesCreated-1].templateId = templateId;
 					pages.page[pagesCreated-1].title = title;
 					pages.page[pagesCreated-1].text = text;
@@ -411,6 +427,7 @@
 
 					pages.page[pagesCreated] = {
 						"pageNumber": pagesCreated,
+						"geotag": null,
 						"templateId": "0",
 						"title": null,
 						"text": null,
@@ -641,6 +658,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -719,8 +737,11 @@
 
 		});
 
+<<<<<<< HEAD
+=======
 		/*
 	
+>>>>>>> 387dde5d66beb78492127e9eda5d4cccccea0e3d
 		$(".page-desc").click(function () {
 
 			// var string = "";
@@ -795,6 +816,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -935,6 +957,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1002,6 +1025,8 @@
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
+		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
+
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
@@ -1026,6 +1051,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1129,6 +1155,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1230,6 +1257,7 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
+		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
@@ -1334,6 +1362,7 @@
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
+			pages.page[currentPage].geotag = geotag;
 			pages.page[currentPage].text = text;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
@@ -1349,12 +1378,15 @@
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
+
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
+		geotag = pages.page[currentPage].geotag;
 		attribution = $(".image-attribution").html();
+
 	}, 5000);
 
 	// Toggle layout switcher
