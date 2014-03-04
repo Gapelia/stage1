@@ -6,12 +6,6 @@ import javax.servlet.http.HttpSessionListener;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * User: Abhishek Tiwari
- * Date: 6/12/13
- * Time: 9:55 PM
- * Copyright Gapelia
- */
 public class SessionManager implements HttpSessionListener {
 	private static final Map<String, HttpSession> sessions = new HashMap<String, HttpSession>();
 

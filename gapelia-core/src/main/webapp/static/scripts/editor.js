@@ -23,16 +23,16 @@
 		pagesCreated = 0;
 		author = "William Gibson";
 		templateId = 0;
-		currentPage =0;
-		imageURL=0;
+		currentPage = 0;
+		imageURL = 0;
 		attribution = null;
-		title=null;
-		text =null;
-		videoURL=null;
+		title = null;
+		text = null;
+		videoURL = null;
 
 		/*
 		$.ajax({
-			url: "http://gapss-609817464.us-west-2.elb.amazonaws.com//api/book/createBook",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -52,7 +52,7 @@
 		});
 
 		$.ajax({
-			url: "http://gapss-609817464.us-west-2.elb.amazonaws.com//api/book/createPage",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -62,7 +62,6 @@
 
 				pageId = data;
 				console.log(data);
-				geotag = "BUGGGGGG";
 				book = {
 					"author" : "AUTHOR",
 					"title" : null,
@@ -88,7 +87,6 @@
 
 				pages.page[0] = {
 					"pageNumber": pagesCreated,
-					"geotag": null,
 					"templateId": "0",
 					"title": null,
 					"text": null,
@@ -110,17 +108,16 @@
 			}
 		});
 		*/
+
 		fluidLayout();
 
 		pages.page[0] = {
 			"pageNumber": 0,
-			"geotag": null,
 			"templateId": "0",
 			"title": null,
 			"text": null,
-			"image": "/static/images/blankBG.jpg",
-			"video": null,
-			"attribution":null
+			"image": "0",
+			"video": "null"
 		};
 
 	});
@@ -157,7 +154,7 @@
 
 	$(document).on("click", "#pages-scroller ul li", function (ev) {
 
-		$("#pages-scroller ul li").css("border", "3px solid transparent");
+		$("#pages-scroller ul li").css("border", "3px solid transparent; border-bottom: 1px solid rgba(12, 12, 12, 0.3)");
 
 		var e = $(this).closest("li");
 		e = e[0];
@@ -175,12 +172,11 @@
 
 		title = pages.page[currentPage].title;
 		text = pages.page[currentPage].text;
-		geotag = pages.page[currentPage].geotag;
 		imageURL = pages.page[currentPage].image;
 		videoURL = pages.page[currentPage].video;
 		pageNumber = pages.page[currentPage].pageNumber;
-		draggable = pages.page[currentPage].draggable;
 		attribution = pages.page[currentPage].attribution;
+
 		switch(templateId) {
 			case 0:
 				fluidLayout();
@@ -207,7 +203,7 @@
 				break;
 
 			default:
-				fluidLayout();
+				baseLayout();
 		}
 
 		ev.preventDefault();
@@ -296,6 +292,14 @@
 		var temp = JSON.stringify(pages);
 		localStorage.setItem("pages", temp);
 
+		// Page Sorter
+		$("#pages-scroller ul").sortable({
+			items: ":not(.disable-sort)"
+		}).bind("sortupdate", function() {
+			var temp = JSON.stringify(pages);
+			localStorage.setItem("pages", temp);
+		});
+
 	});
 
 	// Layout and page interaction
@@ -311,50 +315,42 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/blankBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; New Page</span></section>"));
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
 
 		title = $(".page-title-elem").html();
-		geotag = $("geotag").html();
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
 
-		if(geotag == undefined) {
-			geotag = "BUUUGGG";
-		}
-
 		if(pagesCreated == 0) {
 			pages.page[0] = {
 				"pageNumber": pagesCreated,
-				"geotag": geotag,
 				"templateId": 0,
 				"title": null,
 				"text": null,
-				"image": "/static/images/blankBG.jpg",
+				"image": "/static/images/whiteBG.jpg",
 				"video": "null",
-				"attribution":null
+				"attribution": null
 			};
 
 			templateId = 0;
 			fluidLayout();
 		} else {
-			pages.page[pagesCreated-1].geotag = geotag;
-			pages.page[pagesCreated-1].templateId = templateId;
-			pages.page[pagesCreated-1].title = title;
-			pages.page[pagesCreated-1].text = text;
-			pages.page[pagesCreated-1].image = imageURL;
-			pages.page[pagesCreated-1].video = videoURL;
-			pages.page[pagesCreated-1].attribution = attribution;
+			pages.page[currentPage].templateId = templateId;
+			pages.page[currentPage].title = title;
+			pages.page[currentPage].text = text;
+			pages.page[currentPage].image = imageURL;
+			pages.page[currentPage].video = videoURL;
+			pages.page[currentPage].attribution = attribution;
 
 			pages.page[pagesCreated] = {
 				"pageNumber": pagesCreated,
-				"geotag": null,
 				"templateId": "0",
 				"title": null,
 				"text": null,
-				"image": "/static/images/blankBG.jpg",
+				"image": "null",
 				"video": "null",
-				"attribution" : "attribution"
+				"attribution": null
 			};
 
 			templateId = 0;
@@ -362,11 +358,12 @@
 			text = null;
 			imageURL = null;
 			videoURL = null;
+			attribution = null;
 		}
 
 		/*
 		$.ajax({
-			url: "http://gapss-609817464.us-west-2.elb.amazonaws.com/api/book/createPage",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -380,7 +377,6 @@
 				if(pagesCreated == 0) {
 					pages.page[0] = {
 						"pageNumber": pagesCreated,
-						"geotag": geotag,
 						"templateId": 0,
 						"title": null,
 						"text": null,
@@ -392,7 +388,6 @@
 					templateId = 0;
 					frontCoverLayout();
 				} else {
-					pages.page[pagesCreated-1].geotag = geotag;
 					pages.page[pagesCreated-1].templateId = templateId;
 					pages.page[pagesCreated-1].title = title;
 					pages.page[pagesCreated-1].text = text;
@@ -401,7 +396,6 @@
 
 					pages.page[pagesCreated] = {
 						"pageNumber": pagesCreated,
-						"geotag": null,
 						"templateId": "0",
 						"title": null,
 						"text": null,
@@ -430,10 +424,17 @@
 		});
 		*/
 
+		// Page Sorter
+		$("#pages-scroller ul").sortable({
+			items: ":not(.disable-sort)"
+		}).bind("sortupdate", function() {
+		});
+
 		e.preventDefault();
 
 	});
 
+	// Delete page
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
 		currentPage = $(this).closest("img").attr("id");
@@ -447,6 +448,7 @@
 
 	});
 
+	// Confirm page deletion
 	$(document).on("click", ".yay-delete-page", function (e) {
 
 		$(this).closest("li").remove();
@@ -454,6 +456,7 @@
 
 	});
 
+	// Cancel page deletion
 	$(document).on("click", ".nay-delete-page", function (e) {
 
 		$(this).closest(".delete-page-confirm").remove();
@@ -467,31 +470,127 @@
 
 	function baseLayout() {
 
-		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">ヾ(＠⌒ー⌒＠)ノ</p></article></div></section>";
+		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"> menu</p></article></div></section>";
 		$("#create-content").html(insert);
 
 	}
-
+	function handleFile(file) {
+			console.log(file);
+			pasteHtmlAtCaret('<p><div class=inserted-img><img src=' + file + '></div></p>'); 
+		}
 	// Fluid Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
 	function fluidLayout() {
 
-		insert = "";
+		var insert = "";
 
+		// insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
+		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
+
+		/*
 		if(imageURL == null) {
-			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
+
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+
+			// Image attribution
+			$(".image-attribution").css("display", "none");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "2rem 2rem 0 2rem",
+				"top": "0"
+			});
+
+			$(".fluid-preview article").css("padding", "4rem 0");
+
 		} else {
-			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(\"" + imageURL;
-			insert += "\");background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
+
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
+
+			// Image attribution
+			$(".image-attribution").css("display", "block");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "1rem 2rem 0 2rem",
+				"top": "75%"
+			});
+
+			$(".fluid-preview article").css("padding", "0 0 4rem 0");
+
 		}
+		*/
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.button-wrapper').css('bottom', '8%'); $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.page-bg, button.photo-picker').css('opacity','1'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+		/*
+		<section class="fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready" style="overflow-y: auto; background-image: url(https://www.filepicker.io/api/file/vt6lgixHTjOqfcNIN7Ll); background-size: cover; height: 75%; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
+		*/
 
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span></section><div class=\"fluid-preview\"><article>";
+		// "/static/images/blankBG.jpg"
+		// if(imageURL == "static/images/whiteBG.jpg") {
+		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
+
+		// if(imageURL = "http://localhost:8080/static/images/whiteBG.jpg") {
+		if(imageURL == null) {
+
+			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
+			// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
+
+			/*
+			$(function () {
+
+				// Image attribution
+				$(".image-attribution").css("display", "none");
+
+				// Content positioning
+				$(".fluid-preview").css({
+					"padding": "2rem 2rem 0 2rem",
+					"top": "0"
+				});
+
+				$(".fluid-preview article").css("padding", "4rem 0");
+
+			});
+			*/
+
+		} else {
+
+			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+ imageURL +");";
+
+			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
+
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
+
+			// insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
+
+			// $(".page-bg").attr("src", url).attr("data-adaptive-background", "1");
+
+			/*
+			$(function () {
+
+				$(".page-bg").attr("data-adaptive-background", "1");
+				$(".fluid-preview-wrapper").imgLiquid({ fill: true });
+
+				// Image attribution
+				$(".image-attribution").css("display", "block");
+
+				// Content positioning
+				$(".fluid-preview").css({
+					"padding": "1rem 2rem 0 2rem",
+					"top": "75%"
+				});
+
+				$(".fluid-preview article").css("padding", "0 0 4rem 0");
+
+			});
+			*/
+
+		}
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span></section><div class=\"fluid-preview\"><article>";
 
 		if(title == null) {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
@@ -499,8 +598,8 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
-		
+		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
+	
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 			insert += "</article></div></section>";
@@ -509,7 +608,12 @@
 			insert += "</article></div></section>";
 		}
 
-
+		// no video in this view, but having this allows it to keep between layout switching
+		if(videoURL == null) {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
+		} else {
+			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
+		}
 
 		$("#create-content").html(insert);
 		templateId = 0;
@@ -526,63 +630,85 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+		var pageBG = $(".page-bg");
+
+		// if (pageBG.src != "static/images/whiteBG.jpg") {
+		// if(imageURL == "static/images/whiteBG.jpg") {
+
+		// if (pageBG.src != "static/images/whiteBG.jpg") {
+		if ($(".page-bg").data("adaptive-background") == 1) {
+
+			// Image attribution
+			$(".image-attribution").css("display", "block");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "1rem 2rem 0 2rem",
+				"top": "75%"
+			});
+
+			$(".fluid-preview article").css("padding", "0 0 4rem 0");
+
+		} else if ($(".page-bg").data("adaptive-background") == 0) {
+
+			// Image attribution
+			$(".image-attribution").css("display", "none");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "2rem 2rem 0 2rem",
+				"top": "0"
+			});
+
+			$(".fluid-preview article").css("padding", "4rem 0");
+
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
-		$("button.inline-image-insert").html("Add inline photo");
+	    $("button.inline-image-insert").html("Add inline photo");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
 		});
 
-		// $(function () {
-
-			// var section = document.getElementById("some-section");
-			// var section = document.getElementsByClassName("page-desc");
-			// var after = document.createElement("div");
-			// after.className = "text-fade";
-
-			// section.append(after);
-
-			$(".page-desc").after("<div class='text-fade'></div>");
-
-			$(".page-desc").on("scroll", function() {
-				$(".text-fade").style.bottom = -$(".page-desc").scrollTop + "px";
-			});
-
-		// });
-
 		/*
-		//
-		$(".page-desc").click(function () {
-
-			// var string = "";
-			// string += "</p><div class='inserted-img'><img src=" + url + "></div><p>";
-
-			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
-
-			$(".page-desc p").each(function () {
-				// $(this).before(htmlISH);
-				$(".page-desc").before(htmlISH);
-			});
-
-			var element2 = $(".inline-image-insert");
-
-			element2 = element2[0];
-			element2.type = "filepicker";
-			filepicker.constructWidget(element2);
-
-			$("button.inline-image-insert").html("Add inline photo");
-
+		$(document).one("keydown", ".fluid-preview-wrapper", function () {
+			$(this).addClass("no-img");
 		});
-		//
 		*/
 
+		// Update title in page menu
+		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
+			$(".fluid-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
+
+		
 		// title input limiter
 		var titleElem = "page-title-elem";
 		titleMax = 69;
@@ -590,13 +716,8 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
-				e.preventDefault();
-			}
+			if(e.which != 8 && $("." + titleElem).text().length > titleMax) { e.preventDefault(); }
 		}
-
-		// Google Maps Autocomplete list positioning
-		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
 
 	}
 
@@ -610,23 +731,21 @@
 
 		insert += "<section class=\"photo-preview-wrapper\">";
 		insert += "<div class=\"page-bg-wrapper\">";
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/></article></div></section>";
 
 		insert += "</article></div></section>";
 
@@ -640,14 +759,43 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// Image attribution
+		if ($(".page-bg").data("adaptive-background") == 1) {
+			$(".image-attribution").css("display", "block");
+		} else {
+			$(".image-attribution").css("display", "none");
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".photo-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
+			$(".photo-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		/*
 		// Check to see if image is vertical or horizontal
@@ -696,9 +844,6 @@
 			}
 		}
 
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Overlay Layout
@@ -712,12 +857,12 @@
 		insert += "<section class=\"overlay-preview-wrapper\">";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -727,7 +872,7 @@
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div>";
 		}
 
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 		insert += "</article></div></section>";
 
 		// no title in this view, but having this allows it to keep between layout switching
@@ -754,14 +899,33 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// Image attribution
+		if ($(".page-bg").data("adaptive-background") == 1) {
+			$(".image-attribution").css("display", "block");
+		} else {
+			$(".image-attribution").css("display", "none");
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".overlay-preview-wrapper .page-desc", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+		});
 
 		// description input limiter
 		var descElem = "page-desc";
@@ -775,9 +939,6 @@
 			}
 		}
 
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Photo/Text Layout
@@ -789,23 +950,21 @@
 		var insert = "";
 
 		insert += "<section class=\"phototext-preview-wrapper\">";
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -831,14 +990,44 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// Image attribution
+		if ($(".page-bg").data("adaptive-background") == 1) {
+			$(".image-attribution").css("display", "block");
+		} else {
+			$(".image-attribution").css("display", "none");
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".phototext-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
+			$(".phototext-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -852,9 +1041,6 @@
 			}
 		}
 
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Vertical Layout
@@ -867,23 +1053,21 @@
 
 		insert += "<section class=\"vertical-preview-wrapper\">";
 
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\"></span>";
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -909,14 +1093,45 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		// Image attribution
+		if ($(".page-bg").data("adaptive-background") == 1) {
+			$(".image-attribution").css("display", "block");
+		} else {
+			$(".image-attribution").css("display", "none");
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// .serialize(): returns a JSON object with element's contents
+		// var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".vertical-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
+			$(".vertical-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -930,9 +1145,6 @@
 			}
 		}
 
-		// Google Maps Autocomplete list positioning
-		$(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Video Layout
@@ -944,12 +1156,10 @@
 		var insert = "";
 
 		insert += "<section class=\"video-preview-wrapper\">";
-
-		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\"></span>";
-
+		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\">"+ attribution +"</span>";
 		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker video-btn\">&#xf256;</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('.image-attribution').show(); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page"+ currentPage +"Image').addClass('large'); $('#page"+ currentPage +"Image').VimeoThumb(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -964,8 +1174,6 @@
 		} else {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
-
-		// insert += "<input id=\"geotag\" class=\"page-geotag-elem\" placeholder=\"Select your location\"/>";
 
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
@@ -986,14 +1194,44 @@
 
 		pages.page[currentPage].templateId = templateId;
 		pages.page[currentPage].title = title;
-		pages.page[currentPage].geotag = geotag;
 		pages.page[currentPage].text = text;
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
+		pages.page[currentPage].attribution = attribution;
 
-		var editor = new GapeliaEditor('[contenteditable="true"]');
+		// Image attribution
+		if ($(".page-bg").data("adaptive-background") == 1) {
+			$(".image-attribution").css("display", "block");
+		} else {
+			$(".image-attribution").css("display", "none");
+		}
+
+		// Empty attribution field when user clicks in it
+		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+
+		// var editor = new GapeliaEditor('[contenteditable="true"]');
+		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker.video-btn").html("&#xf256;");
+
+		// Update title in page menu
+		$(document).on("keyup", ".video-preview-wrapper .page-title-elem", function () {
+
+			var titleThing = $("#page"+ currentPage +"Title .page-thumb-title");
+			$(titleThing).text($(this).text());
+
+			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
+			$(".video-preview-wrapper .page-title-elem p").each(function () {
+
+				var content = $(this).html();
+
+				$(this).parent().prepend(content);
+				$(this).remove();
+
+			});
+
+		});
 
 		// title input limiter
 		var titleElem = "page-title-elem";
@@ -1043,9 +1281,6 @@
 
 		});
 
-		// Google Maps Autocomplete list positioning
-		// $(".pac-container").css("margin-top", "-210px").css("position", "absolute");
-
 	}
 
 	// Layout Constants
@@ -1063,10 +1298,10 @@
 
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
-			pages.page[currentPage].geotag = geotag;
 			pages.page[currentPage].text = text;
 			pages.page[currentPage].image = imageURL;
 			pages.page[currentPage].video = videoURL;
+			pages.page[currentPage].attribution = attribution;
 		}
 
 	}, 1000);
@@ -1078,14 +1313,12 @@
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
-
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
-		geotag = pages.page[currentPage].geotag;
-
+		attribution = $(".image-attribution").html();
 	}, 5000);
 
 	// Toggle layout switcher
@@ -1108,7 +1341,7 @@
 
 		// Save book
 		$.ajax({
-			url: "http://gapss-609817464.us-west-2.elb.amazonaws.com//api/book/createBook",
+			url: "http://gapelia-dev.herokuapp.com/api/book/createBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
@@ -1141,7 +1374,7 @@
 			console.log("attempting to save page number" + i);
 
 			$.ajax({
-				url: "http://gapss-609817464.us-west-2.elb.amazonaws.com//api/book/createPage",
+				url: "http://gapelia-dev.herokuapp.com/api/book/createPage",
 				contentType: "application/x-www-form-urlencoded;charset=utf-8",
 				async: false,
 				type: "POST",
@@ -1150,6 +1383,7 @@
 					pageId: pages.page[i].pageId,
 					title: pages.page[i].title,
 					description: pages.page[i].text,
+					attribution: pages.page[i].attribution,
 					location: "TODO",
 					templateId: pages.page[i].templateId,
 					marginX: "TODO",
@@ -1175,6 +1409,7 @@
 			});
 		}
 
+		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",
@@ -1237,35 +1472,6 @@
 	// page load starts delay timer
 	_delay = setInterval(delayCheck, 500);
 
-	// Placeholders
-	/*
-	(function ($) {
-		$(function () {
-
-			$('[contenteditable="true"]').blur(function () {
-
-				var text = $.trim($(this).text());
-
-				var ph = $("<span/>", {
-					"class": "placeholder"
-				}).text($(this).data("placeholder") || "");
-
-				if (text == "") {
-					$(this).html(ph);
-				}
-
-			}).focus(function () {
-
-				if ($(this).children(".placeholder").length > 0) {
-					$(this).html("<span>&nbsp;</span>");
-				}
-
-			});
-
-		});
-	})(jQuery);
-	*/
-
 	// Character Limiter
 	////////////////
 
@@ -1317,36 +1523,4 @@
 		}
 
 	}
-	*/
-
-	// Video Layout
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	// Google Maps stuff, might not need
-	/*
-	$(".video-preview input").keydown(function (e) {
-
-		setTimeout(function () {
-			$(".video-preview input").val($(".pac-container").find(".pac-item").eq(0).text());
-		}, 1000);
-
-		if (e.which == 13 && $(".pac-container:visible").length) return false;
-
-	});
-	*/
-
-	// Live Preview
-	// @Gapelia
-	// ------------------------------------------------------------------------------------
-
-	/*
-	$(document).ready(function () {
-
-		// h1 = page-title-elem // span = livepreview-thing in page thumb
-		$(".page-title-elem").keypress(function () {
-			$(".livepreview-thing").text($(this).text());
-		});
-
-	});
 	*/

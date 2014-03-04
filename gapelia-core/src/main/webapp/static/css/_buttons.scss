@@ -46,7 +46,7 @@
 
 .red {
 	background-color: $red !important;
-	background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
 	color: $white !important;
 }
 
@@ -64,7 +64,7 @@
 
 .green {
 	background-color: $green !important;
-	background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
 	color: $white !important;
 }
 
@@ -81,8 +81,9 @@
 }
 
 .slate {
-	background-color: $slate !important;
-	background-image: linear-gradient(to bottom, saturate($slate, 100%), darken($slate, 10%)) !important;
+	background-color: rgba(112, 161, 177, 0) !important;
+	//background-image: linear-gradient(to bottom, saturate($slate, 100%), darken($slate, 10%)) !important;
+	border: 1px solid rgba(255, 255, 255, 0.5) !important ;
 	color: $white !important;
 }
 

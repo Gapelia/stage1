@@ -1,102 +1,95 @@
 package com.gapelia.core.model;
 
+
+import java.sql.Timestamp;
 import java.sql.Date;
 
-/**
- * User: Abhishek Tiwari
- * Date: 26/10/13
- * Time: 4:07 PM
- * Copyright Gapelia Inc
- */
 public class Library {
-	private String libraryId;
-	private String createdByUserId;
-	private String title;
-	private String description;
-	private Book [] books;
-	private Date created;
-	private Date lastEdited;
-	private Double reputation;
-	private Boolean isPrivate;
-	private Boolean isDisabled;
+	private int libraryId;
+    private int userId;
+    private int numSubscribers;
+    private int featutedBook;
+    private String title;
+    private String [] tags;
+    private String coverPhoto;
+    private String description;
+    private Timestamp created;
 
-	public String getLibraryId() {
+	public int getLibraryId() {
 		return libraryId;
 	}
 
-	public void setLibraryId(String libraryId) {
-		this.libraryId = libraryId;
-	}
+    public void setLibraryId(int libraryId) {
+        this.libraryId = libraryId;
+    }
 
-	public String getCreatedByUserId() {
-		return createdByUserId;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public void setCreatedByUserId(String createdByUserId) {
-		this.createdByUserId = createdByUserId;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public  int getNumSubscribers() {
+        return numSubscribers;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setNumSubscribers(int numSubscribers) {
+        this.numSubscribers = numSubscribers;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public int getFeatutedBook() {
+        return featutedBook;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setFeatutedBook(int featutedBook) {
+        this.featutedBook = featutedBook;
+    }
 
-	public Book[] getBooks() {
-		return books;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setBooks(Book[] books) {
-		this.books = books;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public Date getCreated() {
-		return created;
-	}
+    public static final String COMMA = ",";
+    public String getTags() {
 
-	public void setCreated(Date created) {
-		this.created = created;
-	}
+        StringBuilder strb = new StringBuilder();
+        for(String s : tags){
+            strb.append(s + COMMA);
+        }
+        return strb.substring(0,strb.length()-1);
+    }
 
-	public Date getLastEdited() {
-		return lastEdited;
-	}
+    public void setTags(String tags) {
+        this.tags = tags.split(COMMA);
+    }
 
-	public void setLastEdited(Date lastEdited) {
-		this.lastEdited = lastEdited;
-	}
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
 
-	public Double getReputation() {
-		return reputation;
-	}
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
 
-	public void setReputation(Double reputation) {
-		this.reputation = reputation;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Boolean getPrivate() {
-		return isPrivate;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setPrivate(Boolean aPrivate) {
-		isPrivate = aPrivate;
-	}
+    public Timestamp getCreated() {
+        return created;
+    }
 
-	public Boolean getDisabled() {
-		return isDisabled;
-	}
-
-	public void setDisabled(Boolean disabled) {
-		isDisabled = disabled;
-	}
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
 }

@@ -1,6 +1,6 @@
 package com.gapelia.core.auth;
 
-import com.gapelia.core.database.QueryDatabase;
+import com.gapelia.core.database.QueryDatabaseUser;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.*;
 import org.brickred.socialauth.util.BirthDate;
@@ -12,12 +12,6 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- * User: Abhishek Tiwari
- * Date: 6/12/13
- * Time: 1:30 AM
- * Copyright Gapelia
- */
 public class AuthSuccessHandler extends HttpServlet {
 	public static Logger LOG = Logger.getLogger(AuthSuccessHandler.class);
 	private static final long serialVersionUID = 1L;
@@ -37,7 +31,7 @@ public class AuthSuccessHandler extends HttpServlet {
 				AuthProvider provider = manager.connect(requestMap);
 
 				// get profile
-				profile = provider.getUserProfile();
+			profile = provider.getUserProfile();
 			// setup session
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
@@ -49,10 +43,7 @@ public class AuthSuccessHandler extends HttpServlet {
 
 			// RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/me");
 			// dispatcher.forward(request, response);
-			System.out.println(session);
-			System.out.println("Pre Quering the database");
-			boolean isntFirstTime = QueryDatabase.checkProfile(profile);
-			System.out.println("post quering the databse");
+			boolean isntFirstTime = QueryDatabaseUser.checkUser(profile);
 
 			if (!isntFirstTime) {
 				response.sendRedirect("/me");

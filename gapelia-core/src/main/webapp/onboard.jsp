@@ -1,7 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 

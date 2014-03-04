@@ -8,12 +8,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- * User: Abhishek Tiwari
- * Date: 5/12/13
- * Time: 11:36 PM
- * Copyright Gapelia
- */
 public class AuthHelper {
 	public static Logger LOG = Logger.getLogger(AuthHelper.class);
 
