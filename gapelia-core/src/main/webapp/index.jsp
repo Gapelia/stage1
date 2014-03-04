@@ -1,3 +1,9 @@
+<%@ page import="com.gapelia.core.auth.AuthHelper" %>
+<%
+	if (AuthHelper.isSessionAvailable(request) ) {
+		response.sendRedirect("/me");
+	}
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,9 +11,9 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia &middot; Your Book Preview</title>
+		<title>Gapelia &middot; Better stories, together</title>
 
-		<!--/
+		<!--/ FEATURED VIEW
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
@@ -19,24 +25,12 @@
 		/-->
 
 		<meta name="author" content="Gapelia"/>
-		<meta name="description" content="This should be a synopsis about the book"/>
-		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
+		<meta name="description" content="Better stories, together."/>
+		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
-		
-		<style>
-			#close-preview {
-				top: 1rem; right: 1rem;
-
-				color: #07d0eb;
-				cursor: pointer;
-				font-size: 3rem;
-				position: fixed;
-				z-index: 9999;
-			}
-		</style>
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
@@ -44,342 +38,138 @@
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
+		<script src="/static/scripts/nprogress.js"></script>
+
 	</head>
 
-	<body class="app full-book g-body">
+	<body class="app profile">
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<div id="close-preview" title="Exit preview" onclick="window.close();">&times;</div>
+			<section id="featured-splash">
+				<h1 id="gapelia"><a href="/">Gapelia</a></h1>
 
-			<div id="bb-nav-prev"><i class="ion-ios7-arrow-left"></i></div>
-			<div id="bb-nav-next"><i class="ion-ios7-arrow-right"></i></div>
+				<div id="login-greet"><a href="#" class="login-link">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div>
 
-			<div id="the-book" class="bb-custom-wrapper">
-				<div id="bb-bookblock" class="bb-bookblock">
+				<div id="featured-info">
+					<h2 id="pick-story"><a href="#">How will books look like in 2050?</a></h2>
 
+					<p id="snippet-book">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>
+
+					<h5 id="meta-book"><span class="author-name"><a href="#">Diego Regules</a></span><span class="library-name"><a href="#">Psychochromatic</a></span></h5>
+
+					<h2 id="pick-library"><a href="#">The Matrix Has You</a></h2>
+
+					<p id="snippet-library">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>
 				</div>
-			</div>
+
+				<div id="close-splash"><a href="/featured"><i class="ion-ios7-arrow-right"></i></a></div>
+				<img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/>
+			</section>
 
 		</div>
 
+		<div class="modal-login">
+			<h1>Welcome to Gapelia!</h1>
+
+			<ul id="login-platforms">
+				<li class="facebook" id="login-fb"><a href="/login?type=facebook">Facebook</a></li>
+				<li class="googleplus" id="login-gp"><a href="/login?type=google">Google+</a></li>
+				<li class="twitter" id="login-tw"><a href="/login?type=twitter">Twitter</a></li>
+				<!--/ <li class="email" id="login-at"><a href="#">Email</a></li> /-->
+			</ul>
+
+			<p><a href="#" class="login-link">Nevermind</a></p>
+		</div>
+
 		<!--/ scripts /-->
-		<script src="/static/scripts/nprogress.js"></script>
-		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
-		<script src="/static/scripts/books.js"></script>
-
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-
-		<script src="/static/scripts/vimeothumb.js"></script>
-		<script>$("img").VimeoThumb();</script>
-
-		<!--/ scripts/page-flip /-->
-		<script src="/static/scripts/jquerypp.custom.js"></script>
-		<script src="/static/scripts/bookblock.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
+			// Load Gapelia
 			$(function () {
 
-				// Load Gapelia
 				NProgress.start();
 
-				setTimeout(function () {
+				$(document).on("ready", function () {
+					$("#featured-splash").imgLiquid({ fill: true });
+				});
 
-					var htmlToInsert = "";
-					var current;
-					var $vW = $(window).width(), $vH = $(window).height();
+				$(document).on("click", ".login-link", function (e) {
 
-					$(function () {
-
-						pages = JSON.parse(localStorage.getItem("pages"));
-						console.log(pages);
-						size = pages.page.length;
-
-						for (i = 0; i < size; i++) {
-							console.log("Read Item");
-							current = pages.page[i];
-
-							if (i == 0) {
-								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-								insertPage(1);
-							} else {
-								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-								insertPage(0);
-							}
-						}
-
-						$("#bb-bookblock").html(htmlToInsert);
-
-						$(".content").css({
-							"width": $vW + "px",
-							"height": $vH + "px"
-						});
-
-						$(".fluid-wrapper").imgLiquid({ fill: true });
-						$(".overlay-wrapper").imgLiquid({ fill: true });
-						$(".phototext-wrapper").imgLiquid({ fill: true });
-						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
-					});
-
-					function insertPage(isFirst) {
-
-						switch (current.templateId) {
-							case 0:
-								fluidLayout(isFirst);
-								break;
-
-							case 1:
-								photoLayout(isFirst);
-								break;
-
-							case 2:
-								overlayLayout(isFirst);
-								break;
-
-							case 3:
-								photoTextLayout(isFirst);
-								break;
-
-							case 4:
-								verticalLayout(isFirst);
-								break;
-
-							case 5:
-								videoLayout(isFirst);
-								break;
-
-							default:
-								fluidLayout(isFirst);
-								break;
-						}
-
-					}
-
-					function fluidLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"fluid-wrapper\">";
-						htmlToInsert += "<section class=\"draggable-placeholder\">";
-						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "</section>";
-						htmlToInsert += "<div class=\"fluid-preview\">";
-						if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "<article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "</article></div>";
-						htmlToInsert += "</section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					function photoLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"photo-wrapper\">";
-						htmlToInsert += "<div class=\"page-bg-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/></div>";
-						htmlToInsert += "<div class=\"photo-preview\">";
-						htmlToInsert += "<article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-												if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "</article>";
-						htmlToInsert += "</div>";
-						htmlToInsert += "</section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					function overlayLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"overlay-wrapper\">";
-						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<div class=\"overlay-preview\">";
-						htmlToInsert += "<article>";
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "</article></div>";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "</section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					function photoTextLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"phototext-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<div class=\"phototext-preview\">";
-						htmlToInsert += "<article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "</article>";
-						htmlToInsert += "</div></section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					function verticalLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"vertical-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "<div class=\"draggable-placeholder\">";
-						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-						htmlToInsert += "<div class=\"vertical-preview\">";
-						htmlToInsert += "<article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "</article></div>";
-						htmlToInsert += "</div></section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					function videoLayout(isFirst) {
-
-						htmlToInsert += "<section class=\"video-wrapper\">";
-						htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-						htmlToInsert += "<div class=\"video-preview\">";
-						htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
-						htmlToInsert += "<div class=\"video-player-container\">";
-						htmlToInsert += "<iframe src=\"" + current.video + "\"></iframe>";
-						htmlToInsert += "</div>";
-						htmlToInsert += "<article>";
-						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						if (isFirst==1) {
-							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
-							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-							htmlToInsert += "</div>";
-						}
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-						htmlToInsert += "</article>";
-						htmlToInsert += "</div></section>";
-						htmlToInsert += "</div></div>";
-
-					}
-
-					var Page = (function () {
-
-						var config = {
-							$bookBlock: $("#bb-bookblock"),
-							$navNext: $("#bb-nav-next"),
-							$navPrev: $("#bb-nav-prev"),
-							$navFirst: $("#bb-nav-first")
-						},
-
-						init = function () {
-
-							config.$bookBlock.bookblock({
-								speed: 1000,
-								shadowSides: 0.8,
-								shadowFlip: 0.4
-							});
-
-							initEvents();
-
-						},
-
-						initEvents = function () {
-
-							var $slides = config.$bookBlock.children();
-
-							// add navigation events
-							config.$navNext.on("click touchstart", function () {
-								config.$bookBlock.bookblock("next");
-								return false;
-							});
-
-							config.$navPrev.on("click touchstart", function () {
-								config.$bookBlock.bookblock("prev");
-								return false;
-							});
-
-							config.$navFirst.on("click touchstart", function () {
-								config.$bookBlock.bookblock("first");
-								return false;
-							});
-
-							// add swipe events
-							$slides.on({
-								"swipeleft": function (event) {
-									config.$bookBlock.bookblock("next");
-									return false;
-								},
-
-								"swiperight": function (event) {
-									config.$bookBlock.bookblock("prev");
-									return false;
-								}
-							});
-
-							// add keyboard events
-							$(document).keydown(function (e) {
-
-								var
-								keyCode = e.keyCode || e.which,
-								arrow = {
-									left: 37,
-									up: 38,
-									right: 39,
-									down: 40
-								};
-
-								switch (keyCode) {
-									case arrow.left:
-										config.$bookBlock.bookblock("prev");
-										break;
-
-									case arrow.right:
-										config.$bookBlock.bookblock("next");
-										break;
-								}
-
-							});
-
-						};
-
-						return { init: init };
-
-					})();
-
-					Page.init();
-					NProgress.done();
+					$(".modal-login").toggleClass("active");
+					e.preventDefault();
 
 				});
 
+				if ($vW > "1024") {
+
+					$(document).on("click", "#close-splash", function () {
+
+						window.location.href = "/featured";
+
+						/*
+						$("#close-splash").css({
+							"left": "-200%",
+							"right": "initial"
+						});
+
+						$("#featured-splash").css("left", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
+						*/
+
+					});
+
+				} else {
+
+					$(function() {
+
+						$("#featured-splash").swipe({
+							swipeUp: function(event, direction, distance, duration, fingerCount) {
+
+								window.location.href = "/featured";
+
+								/*
+								$("#close-splash").css({
+									"height": "0",
+									"top": "-200%"
+								});
+
+								$("#featured-splash").css("top", "-200%");
+								$("#g-menu-toggle").css("color", "#70a1b1");
+								*/
+
+							}, threshold: 0
+						});
+
+						$(document).on("click", "#close-splash", function () {
+
+							window.location.href = "/featured";
+
+							/*
+							$("#close-splash").css({
+								"height": "0",
+								"top": "-200%"
+							});
+
+							$("#featured-splash").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+							*/
+
+						});
+
+					});
+
+				}
+
+				NProgress.done();
+
 			});
 		</script>
+		<!--//scripts /-->
 
 	</body>
 
