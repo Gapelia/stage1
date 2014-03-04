@@ -113,7 +113,6 @@
 
 		pages.page[0] = {
 			"pageNumber": 0,
-			"geotag": null,
 			"templateId": "0",
 			"title": null,
 			"text": null,
@@ -489,7 +488,10 @@
 		$("#create-content").html(insert);
 
 	}
-
+function handleFile(file) {
+			console.log(file);
+			pasteHtmlAtCaret('<p><div class=inserted-img><img src=' + file + '></div></p>'); 
+		}
 	// Fluid Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -579,6 +581,7 @@
 
 			// $(".page-bg").attr("src", url).attr("data-adaptive-background", "1");
 
+			/*
 			$(function () {
 
 				$(".page-bg").attr("data-adaptive-background", "1");
@@ -596,9 +599,9 @@
 				$(".fluid-preview article").css("padding", "0 0 4rem 0");
 
 			});
+			*/
 
 		}
-
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('section').css('height', '75%'); $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span></section><div class=\"fluid-preview\"><article>";
@@ -609,8 +612,8 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
-
+		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
+	
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 			insert += "</article></div></section>";
@@ -689,7 +692,7 @@
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
-		$("button.inline-image-insert").html("Add inline photo");
+	    $("button.inline-image-insert").html("Add inline photo");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
@@ -719,32 +722,7 @@
 
 		});
 
-		/*
-	
-		$(".page-desc").click(function () {
-
-			// var string = "";
-			// string += "</p><div class='inserted-img'><img src=" + url + "></div><p>";
-
-			var htmlISH = "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); pasteHtmlAtCaret('<div class=inserted-img><img></div>'); $('.inserted-img img').attr('src', url); $('.inserted-img').wrapInner('</p><p>');\">";
-
-			$(".page-desc p").each(function () {
-				// $(this).before(htmlISH);
-				$(".page-desc").before(htmlISH);
-			});
-
-			var element2 = $(".inline-image-insert");
-
-			element2 = element2[0];
-			element2.type = "filepicker";
-			filepicker.constructWidget(element2);
-
-			$("button.inline-image-insert").html("Add inline photo");
-
-		});
-		//
-		*/
-
+		
 		// title input limiter
 		var titleElem = "page-title-elem";
 		titleMax = 69;
@@ -898,7 +876,7 @@
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
