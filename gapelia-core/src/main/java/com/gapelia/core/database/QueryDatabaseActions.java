@@ -5,6 +5,8 @@ import org.brickred.socialauth.Profile;
 
 import java.sql.*;
 
+
+//TODO make functions produce json
 public class QueryDatabaseActions {
     private static Logger LOG = Logger.getLogger(QueryDatabaseActions.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();

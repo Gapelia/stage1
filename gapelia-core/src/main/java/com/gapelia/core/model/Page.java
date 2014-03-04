@@ -71,6 +71,8 @@ public class Page {
         return content;
     }
 
+    public void setContent(String content) { this.content = content;}
+
     public String getVideoUrl() {
         return videoUrl;
     }
@@ -107,7 +109,7 @@ public class Page {
         return created;
     }
 
-    public void setContent(Timestamp created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 

@@ -8,7 +8,7 @@ import org.brickred.socialauth.Profile;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+//TODO make functions produce json
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();

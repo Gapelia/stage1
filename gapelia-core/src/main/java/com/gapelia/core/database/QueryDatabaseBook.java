@@ -5,17 +5,18 @@ import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
 import java.sql.*;
-
+//TODO make functions produce json
 public class QueryDatabaseBook {
     private static Logger LOG = Logger.getLogger(QueryDatabaseBook.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     //Page Relate Queries
     private static final String CREATE_PAGE = "INSERT INTO pages (id, title,content,template_id,video_url,book_id,page_number,user_id,photo_url,photo_id,creative_commons,created,last_updated) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,book_id = ?,page_number = ?,user_id = ?,photo_url = ?,photo_id = ?,creative_commons = ?,created = ?,last_updated = ? WHERE id = ?";
+    private static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,book_id = ?,page_number = ?,user_id = ?,photo_url = ?,photo_id = ?,creative_commons = ?,last_updated = ? WHERE id = ?";
+    private static final String DELETE_PAGE = "DELETE FROM pages WHERE id = ?";
     // Book Related Queries
     private static final String CREATE_BOOK = "INSERT INTO books (id,cover_photo, title,language,tags,owned_by,created,last_updated,is_published) VALUES (?,?,?,?,?,?,?,?)";
-    private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, owned_by = ?, created = ?, last_updated = ?, is_published = ? WHERE id = ?";
-
+    private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, owned_by = ?, last_updated = ?, is_published = ? WHERE id = ?";
+    private static final String DELETE_BOOK = "DELETE FROM books WHERE id = ?";
 
     public static boolean updatePage(Page page){
         PreparedStatement insert = null;
@@ -31,9 +32,8 @@ public class QueryDatabaseBook {
             insert.setString(8, page.getPhotoUrl());
             insert.setString(9, page.getPhotoId());
             insert.setString(10, page.getCreativeCommons());
-            insert.setTimestamp(11, page.getCreated());
-            insert.setTimestamp(12, page.getLastUpdated());
-            insert.setInt(13, page.getPageId());
+            insert.setTimestamp(11, page.getLastUpdated());
+            insert.setInt(12, page.getPageId());
 
             insert.executeUpdate();
             return true;
@@ -84,6 +84,27 @@ public class QueryDatabaseBook {
         return false;
     }
 
+    public static boolean deletePage(int pageId){
+        PreparedStatement delete = null;
+        try {
+            delete = connection.prepareStatement(DELETE_PAGE);
+            delete.setInt(1, pageId);
+            delete.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            LOG.error("ERROR: : " + pageId + " " + ex.getMessage());
+        } finally {
+            try {
+                if (delete != null) {
+                    delete.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("error closing connection: " + pageId + " " + ex.getMessage());
+            }
+        }
+        return false;
+    }
+
     public static boolean createBook(Book book){
         PreparedStatement insert = null;
         try {
@@ -122,10 +143,9 @@ public class QueryDatabaseBook {
             insert.setString(3, book.getLanguague());
             insert.setString(4, book.getTags());
             insert.setInt(5, book.getUserId());
-            insert.setTimestamp(6, book.getCreated());
-            insert.setTimestamp(7, book.getLastUpdated());
-            insert.setBoolean(8, book.getIsPublished());
-            insert.setInt(9, book.getBookId());
+            insert.setTimestamp(6, book.getLastUpdated());
+            insert.setBoolean(7, book.getIsPublished());
+            insert.setInt(8, book.getBookId());
             insert.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -137,6 +157,27 @@ public class QueryDatabaseBook {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: "  + book.getBookId() + " " + ex.getMessage());
+            }
+        }
+        return false;
+    }
+
+    public static boolean deleteBook(int bookId){
+        PreparedStatement delete = null;
+        try {
+            delete = connection.prepareStatement(DELETE_BOOK);
+            delete.setInt(1, bookId);
+            delete.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            LOG.error("ERROR: : " + bookId + " " + ex.getMessage());
+        } finally {
+            try {
+                if (delete != null) {
+                    delete.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("error closing connection: " + bookId + " " + ex.getMessage());
             }
         }
         return false;
