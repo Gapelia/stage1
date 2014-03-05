@@ -3,14 +3,14 @@
 
 .book-creation {
 
-	//background-image: url("../images/blankBG.jpg");
+	// background-image: url("../images/blankBG.jpg");
 	@include sans;
 	overflow: hidden;
 
-	//::selection {
-		//background-color: $slate;
-		//color: $white;
-	//}
+	::selection {
+		background-color: $slate;
+		color: $white;
+	}
 
 	.spinner {
 		top: 50% !important; left: 50% !important;
@@ -25,12 +25,6 @@
 		display: none;
 		position: fixed;
 		z-index: 10;
-	}
-
-	button.inline-image-insert {
-		@include serif;
-		font-size: 1rem !important;
-		font-style: italic;
 	}
 
 	header {
@@ -467,6 +461,74 @@
 							position: relative;
 						}
 					}
+
+					.add-inline-content {
+						bottom: 1rem; left: 1.5rem;
+
+						@include icon;
+						font-size: 2rem !important;
+						position: fixed;
+					}
+
+					.add-inline-content-wrapper {
+						width: auto; height: auto;
+						bottom: 3.7rem; left: 0.8rem;
+
+						background-color: $black;
+						border-radius: 5px;
+						color: $white;
+						display: none;
+						@include serif;
+						padding: 0.5rem;
+						position: fixed;
+						text-align: center;
+
+						button {
+							color: $white !important;
+							display: block;
+							height: 50px;
+							opacity: 1 !important;
+
+							// &:after { display: none; }
+
+							&:after {
+								color: $black !important;
+								position: absolute;
+								text-align: left;
+								vertical-align: bottom;
+								width: 200px;
+							}
+
+							&:hover { color: inherit; }
+							&:last-child { margin: 0 !important; }
+						}
+
+						.inline-image-insert {
+							font-size: 2rem !important;
+							&:after { content: "Insert an image"; }
+						}
+
+						.inline-embed-insert {
+							border-bottom: 1px solid $white;
+							font-family: inherit !important;
+							font-size: 1rem !important;
+
+							&:after { content: "Embed rich media"; }
+						}
+
+						.gapelia-editor-toolbar-form-anchor {
+							top: 0; left: 50px;
+
+							// display: block !important;
+							position: absolute;
+							z-index: 2;
+
+							a {
+								position: absolute;
+								right: 0;
+							}
+						}
+					}
 				}
 
 				.fluid-preview-wrapper, .overlay-preview-wrapper, .photo-preview-wrapper {
@@ -554,8 +616,8 @@
 					}
 
 					.inline-image-insert {
-						bottom: 1rem; left: 1.5rem;
-						position: fixed;
+						// bottom: 1rem; left: 1.5rem;
+						// position: fixed;
 					}
 
 					.page-bg {
