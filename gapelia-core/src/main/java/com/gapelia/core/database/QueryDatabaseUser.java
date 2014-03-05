@@ -39,7 +39,7 @@ public class QueryDatabaseUser {
             statement.setString(1, tem);
             rs = statement.executeQuery();
             LOG.info("FETCH SIZe :" + rs.getFetchSize());
-            if (rs.getFetchSize() == 0) {
+            if (!rs.next()) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
