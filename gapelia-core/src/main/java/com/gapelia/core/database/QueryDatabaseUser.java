@@ -35,7 +35,8 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         try {
             statement = connection.prepareStatement(CHECK_USER);
-            statement.setString(1, '678601209');
+            String tem = "678601209";
+            statement.setString(1, tem);
             rs = statement.executeQuery();
             LOG.info(rs.wasNull());
             LOG.info(rs.getRow());
