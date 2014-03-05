@@ -40,7 +40,7 @@ public class QueryDatabaseUser {
             LOG.info(rs.wasNull());
             LOG.info(rs.getRow());
             LOG.info(rs.getFetchSize());
-            if (rs == null || rs.wasNull()) {
+            if (rs.getFetchSize() == 0) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
