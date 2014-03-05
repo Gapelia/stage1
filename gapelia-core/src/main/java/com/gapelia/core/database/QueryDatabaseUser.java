@@ -35,7 +35,7 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         try {
             statement = connection.prepareStatement(CHECK_USER);
-            statement.setString(1, profile.getValidatedId());
+            statement.setString(1, '678601209');
             rs = statement.executeQuery();
             LOG.info(rs.wasNull());
             LOG.info(rs.getRow());
