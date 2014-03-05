@@ -722,9 +722,10 @@
 }
 
 .notification-time {
+	color: $white !important;
+
 	i {
 		animation: colors 5s ease infinite;
-		color: #70a1b1;
 
 		-o-animation: colors 5s ease infinite;
 		-ms-animation: colors 5s ease infinite;

@@ -7,7 +7,7 @@ import com.gapelia.core.model.Book;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+//TODO make functions produce json
 public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();

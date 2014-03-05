@@ -8,13 +8,13 @@ import org.brickred.socialauth.Profile;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+//TODO make functions produce json
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
     //User Related Queries
-    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id= ?";
+    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
             "avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -37,7 +37,9 @@ public class QueryDatabaseUser {
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
-            if (rs == null || rs.getFetchSize()==0) {
+            LOG.info(rs.toString());
+            if (rs.isBeforeFirst()) {
+                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n")
                 return signUp(profile);
             }
         } catch (SQLException ex) {
@@ -61,12 +63,17 @@ public class QueryDatabaseUser {
     public static boolean signUp(Profile profile) {
         PreparedStatement insert = null;
         ResultSet rs = null;
+        LOG.info(profile.toString());
         try {
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, profile.getFirstName());
             insert.setString(2, profile.getEmail());
             insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
-            insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
+            if(profile.getDob() != null) {
+                insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
+            } else {
+                insert.setDate(4, null);
+            }
             if("male".equals(profile.getGender())) {//write tool
                 insert.setString(5, "M");
             } else {
@@ -82,6 +89,7 @@ public class QueryDatabaseUser {
             insert.setDate(13, new Date(System.currentTimeMillis()));
             rs = insert.executeQuery();
         } catch (SQLException ex) {
+            LOG.info("Cannot check user profile:" + profile + " " + ex.getMessage());
             LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
             return false;
         } finally {
