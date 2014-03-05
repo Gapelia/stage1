@@ -1,4 +1,4 @@
-B1;3406;0cpackage com.gapelia.core.database;
+package com.gapelia.core.database;
 
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
