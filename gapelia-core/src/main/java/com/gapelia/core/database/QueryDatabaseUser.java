@@ -14,7 +14,7 @@ public class QueryDatabaseUser {
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
     //User Related Queries
-    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id = ?";
+    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id = ? WHERE EXISTS";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
             "avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -38,7 +38,7 @@ public class QueryDatabaseUser {
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
             LOG.info(rs.toString());
-            if (rs == null || rs.getFetchSize()==0) {
+            if (rs == null || rs.wasNull()) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
