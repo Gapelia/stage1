@@ -1,7 +1,4 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%/*@include file="../../auth.jsp" */ %>
-<% /* *********************************************** */ %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -221,7 +218,7 @@
 
 			$("#publish-this").on("click", function(e) {
 
-				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
+				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href=featured>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
 				e.preventDefault();
 
 			});
