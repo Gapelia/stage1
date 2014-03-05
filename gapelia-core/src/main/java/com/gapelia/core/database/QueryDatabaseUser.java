@@ -41,17 +41,7 @@ public class QueryDatabaseUser {
             LOG.info(rs.wasNull());
             LOG.info(rs.getRow());
             LOG.info(rs.getFetchSize());
-            LOG.info(rs.getInt("id"));
-            statement = null;
-            rs = null;
-            LOG.info("\n\nNOW REAL CHECK\n");
-            statement = connection.prepareStatement(CHECK_USER);
-            statement.setString(1, profile.getValidatedId());
-            rs = statement.executeQuery();
-            LOG.info(rs.wasNull());
-            LOG.info(rs.getRow());
-            LOG.info(rs.getFetchSize());
-            LOG.info(rs.getInt("id"));
+            LOG.info("FATTHTTH" + rs.getInt("id"));
             if (rs.getFetchSize() == 0) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
