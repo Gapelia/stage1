@@ -42,9 +42,11 @@ public class QueryDatabaseUser {
             LOG.info(rs.getRow());
             LOG.info(rs.getFetchSize());
             LOG.info(rs.getInt("id"));
+            statement = null;
+            rs = null;
+            LOG.info("\n\nNOW REAL CHECK\n");
             statement = connection.prepareStatement(CHECK_USER);
-
-            statement.setString(1, tem);
+            statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
             LOG.info(rs.wasNull());
             LOG.info(rs.getRow());
