@@ -284,10 +284,20 @@
 				margin: 0 auto;
 				width: 70%;
 			}
+
+			.inserted-img {
+				overflow: hidden;
+
+				img {
+					display: block !important;
+					width: 100%;
+				}
+			}
     }
+
     .image-attribution {
-      border-top-left-radius: 8px !important ;
-      max-width: 35% !important ; 
+			border-top-left-radius: 8px !important;
+			max-width: 35% !important;
 		}
 	}
 
