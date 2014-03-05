@@ -1,4 +1,4 @@
-package com.gapelia.core.database;
+B1;3406;0cpackage com.gapelia.core.database;
 
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
@@ -39,7 +39,7 @@ public class QueryDatabaseUser {
             rs = statement.executeQuery();
             LOG.info(rs.toString());
             if (rs.isBeforeFirst()) {
-                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n")
+                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
         } catch (SQLException ex) {
