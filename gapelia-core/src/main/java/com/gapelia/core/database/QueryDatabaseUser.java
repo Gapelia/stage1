@@ -38,7 +38,7 @@ public class QueryDatabaseUser {
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
             LOG.info(rs.toString());
-            if (rs.isBeforeFirst()) {
+            if (rs == null || rs.getFetchSize()==0) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
