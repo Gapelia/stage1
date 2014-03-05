@@ -38,6 +38,7 @@ public class QueryDatabaseUser {
             String tem = "678601209";
             statement.setString(1, tem);
             rs = statement.executeQuery();
+            rs.beforeFirst();
             LOG.info("FETCH SIZe :" + rs.getFetchSize());
             if (!rs.next()) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
