@@ -987,7 +987,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
 		}
@@ -1090,7 +1090,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/blankBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
 		}

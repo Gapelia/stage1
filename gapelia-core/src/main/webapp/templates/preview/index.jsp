@@ -232,8 +232,8 @@
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						if (isFirst==1) {
 							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "</div>";
 						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
@@ -254,8 +254,8 @@
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						if (isFirst==1) {
 							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "</div>";
 						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
@@ -278,8 +278,8 @@
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 						if (isFirst==1) {
 							htmlToInsert += "<div id=\"author-info\">";
-							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img id=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "<div id=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "</div>";
 						}
 						htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
