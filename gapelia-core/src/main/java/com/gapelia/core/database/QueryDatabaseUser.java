@@ -39,7 +39,7 @@ public class QueryDatabaseUser {
             rs = statement.executeQuery();
             LOG.info(rs.toString());
             if (rs.isBeforeFirst()) {
-                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n")
+                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
             }
         } catch (SQLException ex) {
