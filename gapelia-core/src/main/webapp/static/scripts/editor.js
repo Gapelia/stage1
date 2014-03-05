@@ -603,8 +603,24 @@
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
+		insert += "<a href=\"#\" class=\"add-inline-content\">&#xf218;</a>";
+
+		insert += "<div class=\"add-inline-content-wrapper\">";
+
+		insert += "<button class=\"inline-embed-insert\">< # ></button>";
+
 		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
-	
+
+		insert += "<div class=\"gapelia-editor-toolbar-form-anchor\">";
+		insert += "<input type=\"text\" value=\"Paste or type link here\" placeholder=\"Paste or type link here\">";
+		insert += "<a href=\"#\">&#xf2bb;</a>";
+		insert += "</div>";
+		// insert += "";
+		// insert += "";
+		// insert += "";
+
+		insert += "</div>";
+
 		if(text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 			insert += "</article></div></section>";
@@ -712,10 +728,67 @@
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
-	    $("button.inline-image-insert").html("Add inline photo");
+		$("button.inline-image-insert").html("&#xf147;");
 
 		$(document).on("keydown", ".fluid-preview-wrapper", function () {
 			$(this).css("overflow-y", "auto");
+		});
+
+		$(".add-inline-content").click(function (e) {
+
+			$(".add-inline-content-wrapper").toggle();
+			e.preventDefault();
+
+		});
+
+		$(".inline-embed-insert").click(function () {
+			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
+		});
+
+		/*
+		// function createLink {
+		createLink: function (input) {
+
+			restoreSelection(this.savedSelection);
+			document.execCommand("createLink", false, input.value);
+
+			if (this.options.targetBlank) {
+				this.setTargetBlank();
+			}
+
+			this.showToolbarActions();
+			input.value = "";
+
+		}
+		*/
+
+		var anchorInput = $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input");
+		// https://soundcloud.com/iknowbitfunk/just-kiddin-paloma-bit-funk-remix
+		anchorInput.keyup(function (e) {
+		// this.anchorInput.addEventListener("keyup", function (e) {
+		// $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").addEventListener("keyup", function (e) {
+
+			if (e.keyCode === 13) {
+				e.preventDefault();
+				self.createLink(this);
+
+				// Embedly
+				var regex;
+
+				regex = /((http:\/\/(www\.flickr\.com\/photos\/.*|flic\.kr\/.*|instagr\.am\/p\/.*|instagram\.com\/p\/.*|gist\.github\.com\/.*|www\.kickstarter\.com\/projects\/.*\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|tumblr\.com\/.*|.*\.tumblr\.com\/post\/.*|cl\.ly\/.*|cl\.ly\/.*\/content|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|youtu\.be\/.*|.*\.youtube\.com\/user\/.*|.*\.youtube\.com\/.*#.*\/.*|m\.youtube\.com\/watch.*|m\.youtube\.com\/index.*|.*\.youtube\.com\/profile.*|.*\.youtube\.com\/view_play_list.*|.*\.youtube\.com\/playlist.*|.*twitch\.tv\/.*|.*justin\.tv\/.*\/b\/.*|.*justin\.tv\/.*\/w\/.*|.*twitch\.tv\/.*|.*twitch\.tv\/.*\/b\/.*|www\.ustream\.tv\/recorded\/.*|www\.ustream\.tv\/channel\/.*|www\.ustream\.tv\/.*|ustre\.am\/.*|.*revision3\.com\/.*|www\.vimeo\.com\/groups\/.*\/videos\/.*|www\.vimeo\.com\/.*|vimeo\.com\/groups\/.*\/videos\/.*|vimeo\.com\/.*|vimeo\.com\/m\/#\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*|open\.spotify\.com\/.*|spoti\.fi\/.*|play\.spotify\.com\/.*|www\.last\.fm\/music\/.*|www\.last\.fm\/music\/+videos\/.*|www\.last\.fm\/music\/+images\/.*|www\.last\.fm\/music\/.*\/_\/.*|www\.last\.fm\/music\/.*\/.*|www\.mixcloud\.com\/.*\/.*\/|www\.rdio\.com\/#\/artist\/.*\/album\/.*|www\.rdio\.com\/artist\/.*\/album\/.*|.*\.bandcamp\.com\/|.*\.bandcamp\.com\/track\/.*|.*\.bandcamp\.com\/album\/.*|grooveshark\.com\/.*))|(https:\/\/(gist\.github\.com\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|www\.vimeo\.com\/.*|vimeo\.com\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|open\.spotify\.com\/.*|play\.spotify\.com\/.*)))/i;
+
+				$("a").embedly({
+					urlRe: regex,
+					method: "after"
+				});
+			}
+
+		});
+		//
+
+		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor a").click(function (e) {
+			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").hide();
+			e.preventDefault();
 		});
 
 		/*
@@ -1477,7 +1550,7 @@
 		if (timedelay == 2) {
 			$(".book-creation header").fadeOut("slow");
 
-			$(".fluid-preview-wrapper button.photo-picker, button.inline-image-insert, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
+			$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
 
 			// Video layout doesn't really need this, and the button doesn't appear when moving mouse over iframe
 			// $(".video-preview-wrapper button.photo-picker").css("opacity", "0");
@@ -1493,7 +1566,7 @@
 
 		$(".book-creation header").fadeIn();
 
-		$(".fluid-preview-wrapper button.photo-picker, button.inline-image-insert, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
+		$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
 
 		// $(".video-preview-wrapper button.photo-picker").css("opacity", "1");
 
