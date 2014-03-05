@@ -38,10 +38,6 @@ public class QueryDatabaseUser {
             String tem = "678601209";
             statement.setString(1, tem);
             rs = statement.executeQuery();
-            LOG.info(rs.wasNull());
-            LOG.info(rs.getRow());
-            LOG.info(rs.getFetchSize());
-            LOG.info("FATTHTTH" + rs.getInt("id"));
             if (rs.getFetchSize() == 0) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
