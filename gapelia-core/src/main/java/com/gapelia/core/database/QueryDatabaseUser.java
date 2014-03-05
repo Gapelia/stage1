@@ -37,7 +37,9 @@ public class QueryDatabaseUser {
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
-            LOG.info(rs.toString());
+            LOG.info(rs.wasNull());
+            LOG.info(rs.getRow());
+            LOG.info(rs.getFetchSize());
             if (rs == null || rs.wasNull()) {
                 LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
                 return signUp(profile);
