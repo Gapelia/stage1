@@ -1,8 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<% /* @include file="../../auth.jsp"									*/ %>
-<% /* *********************************************** */ %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +56,7 @@
 
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/create">Create book</a></li>
+						<li><a href="/createbook">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
