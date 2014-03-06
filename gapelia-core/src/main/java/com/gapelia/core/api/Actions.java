@@ -1,8 +1,11 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.AuthHelper;
+import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.DatabaseManager;
 import com.gapelia.core.database.QueryDatabaseActions;
+import com.gapelia.core.database.QueryDatabaseLibrary;
+import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -15,8 +18,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-//TODO make all function consume json and make the related functions produce json, better logging
 @Path("/actions/")
 public class Actions {
     private static Logger LOG = Logger.getLogger(Actions.class);
@@ -25,95 +26,83 @@ public class Actions {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean bookmarkBook(@FormParam("sessionId") String sessionId,
+    public String bookmarkBook(@FormParam("sessionId") String sessionId,
 							 @FormParam("bookId") int bookId) {
- 	     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-         try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.bookmarkBook(profile, bookId);
-         } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-         }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.bookmarkBook(u, bookId);
     }
 
-    @Path("unbookmarkBook")
+    @Path("removeBookmarkBook")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean unbookmarkBook(@FormParam("sessionId") String sessionId,
+    public String removeBookmarkBook(@FormParam("sessionId") String sessionId,
                                 @FormParam("bookId") int bookId) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.unbookmarkBook(profile, bookId);
-        } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-        }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.removeBookmarkBook(u, bookId);
     }
 
     @Path("subscribeLibrary")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean subscribeLibrary(@FormParam("sessionId") String sessionId,
+    public String subscribeLibrary(@FormParam("sessionId") String sessionId,
                                 @FormParam("bookId") int libraryId) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.subscribeLibrary(profile, libraryId);
-        } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-        }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.subscribeLibrary(u, libraryId);
     }
 
-    @Path("unsubscribeLibrary")
+    @Path("removeSubscriptionLibrary")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean unsubscribeLibrary(@FormParam("sessionId") String sessionId,
+    public String removeSubscriptionLibrary(@FormParam("sessionId") String sessionId,
                                 @FormParam("bookId") int libraryId) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.unsubscribeLibrary(profile, libraryId);
-        } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-        }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.removeSubscriptionLibrary(u, libraryId);
     }
 
     @Path("voteBook")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean voteBook(@FormParam("sessionId") String sessionId,
+    public String voteBook(@FormParam("sessionId") String sessionId,
                                 @FormParam("bookId") int bookId) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.voteBook(profile, bookId);
-        } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-        }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.voteBook(u, bookId);
     }
 
     @Path("removeVoteBook")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public boolean removeVoteBook(@FormParam("sessionId") String sessionId,
+    public String removeVoteBook(@FormParam("sessionId") String sessionId,
                                 @FormParam("bookId") int bookId) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-            return QueryDatabaseActions.removeVoteBook(profile, bookId);
-        } catch (Exception ex) {
-            LOG.error("Failed to bookmark book " +  ex.getMessage());
-        }
-        return false;
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return QueryDatabaseActions.removeVoteBook(u, bookId);
     }
 }

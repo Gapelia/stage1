@@ -14,7 +14,7 @@ public class User {
     private String avatarImage;
     private String coverImage;
     private String displayName;
-    private String validateId;
+    private String validatedId;
     private String providerId;
     private String personalWebsite;
     private String bio;
@@ -107,12 +107,12 @@ public class User {
         this.displayName = displayName;
     }
 
-    public String getValidateId() {
-        return validateId;
+    public String getValidatedId() {
+        return validatedId;
     }
 
-    public void setValidateId(String validateId) {
-        this.validateId = validateId;
+    public void setValidatedId(String validatedId) {
+        this.validatedId = validatedId;
     }
 
     public String getProviderId() {

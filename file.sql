@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
         avatar_image TEXT,
         cover_image TEXT,
         display_name TEXT,
-        validate_id TEXT,
+        validated_id TEXT,
         provider_id TEXT,
         personal_website TEXT,
         bio TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS users (
         last_updated TIMESTAMP WITH TIME ZONE,
         is_public BOOLEAN
 );
-CREATE INDEX user_validate_id_idx ON users(validate_id);
+CREATE INDEX user_validated_id_idx ON users(validated_id);
 
 CREATE TABLE IF NOT EXISTS books (
         id serial PRIMARY KEY,
@@ -62,8 +62,7 @@ CREATE TABLE IF NOT EXISTS libraries(
         tags TEXT,
         cover_photo TEXT,
         description TEXT,
-        num_subscribers INT default 0,
-        featured_book INT REFERENCES books(id) NOT NULL,
+        featured_book INT REFERENCES books(id),
         created TIMESTAMP WITH TIME ZONE
 );
 CREATE INDEX library_created_by_idx ON libraries(created_by);
@@ -121,4 +120,4 @@ CREATE TABLE IF NOT EXISTS user_subscriptions (
         user_id INT PRIMARY KEY REFERENCES users(id),
         library_id INT REFERENCES libraries(id)
 );
-CREATE INDEX contributors_book_id_idx ON user_subscriptions(library_id);
+CREATE INDEX user_subscriptions_id_idx ON user_subscriptions(library_id);

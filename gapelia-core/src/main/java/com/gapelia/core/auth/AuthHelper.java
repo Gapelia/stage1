@@ -13,7 +13,6 @@ public class AuthHelper {
 
 	public static final String APP_FACEBOOK = "facebook";
 	public static final String APP_GOOGLE = "google";
-	public static final String APP_TWITTER = "twitter";
 
 	public static String getUserIdFromSessionId(String sessionId) {
 		Profile profile = getUserProfileFromSessionId(sessionId);

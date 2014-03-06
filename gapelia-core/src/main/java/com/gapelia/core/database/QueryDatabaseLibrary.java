@@ -7,7 +7,6 @@ import com.gapelia.core.model.Book;
 
 import java.sql.*;
 import java.util.ArrayList;
-//TODO make functions produce json
 public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
@@ -18,7 +17,7 @@ public class QueryDatabaseLibrary {
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (id,created_by,title,tags,cover_photo,description,num_subscribers,featured_book,created) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_LIBRARY = "UPDATE libraries created_by = ?,title = ?,tags = ?,cover_photo = ?,description = ?,num_subscribers = ?,featured_book = ?,created = ? WHERE id = ?";
-    // getbooks in library
+
     public static ArrayList<Book> getBooksInLibrary(int libraryId){
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -59,15 +58,14 @@ public class QueryDatabaseLibrary {
         return null;
     }
 
-    //add book to library
-    public static boolean addBookToLibrary(int libraryId, int bookId){
+    public static String addBookToLibrary(int libraryId, int bookId){
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(ADD_BOOK_TO_LIBRARY);
             insert.setInt(1, libraryId);
             insert.setInt(2, bookId);
             insert.executeUpdate();
-            return true;
+            return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + libraryId + " " + bookId + " " + ex.getMessage());
         } finally {
@@ -77,20 +75,20 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: " + libraryId + " " + bookId + " " + ex.getMessage());
+                return "Error closing connection";
             }
         }
-        return false;
+        return "Failure";
     }
 
-    //delete book from lib
-    public static boolean removeBookFromLibrary(int libraryId, int bookId){
+    public static String removeBookFromLibrary(int libraryId, int bookId){
         PreparedStatement delete = null;
         try {
             delete = connection.prepareStatement(REMOVE_BOOK_FROM_LIBRARY);
             delete.setInt(1, libraryId);
             delete.setInt(2, bookId);
             delete.executeUpdate();
-            return true;
+            return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + libraryId + " " + bookId + " " + ex.getMessage());
         } finally {
@@ -100,14 +98,13 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: " + libraryId + " " + bookId + " " + ex.getMessage());
+                return "Error closing connection";
             }
         }
-        return false;
+        return "Success";
     }
 
-
-    //create lib
-    public static boolean createLibrary(Library library){
+    public static String createLibrary(Library library){
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(CREATE_LIBRARY);
@@ -117,11 +114,10 @@ public class QueryDatabaseLibrary {
             insert.setString(4, library.getTags());
             insert.setString(5, library.getCoverPhoto());
             insert.setString(6, library.getDescription());
-            insert.setInt(7, library.getNumSubscribers());
-            insert.setInt(8, library.getFeatutedBook());
+            insert.setInt(8, library.getFeaturedBook());
             insert.setTimestamp(9, library.getCreated());
             insert.executeUpdate();
-            return true;
+            return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + library.getLibraryId() + " "  + ex.getMessage());
         } finally {
@@ -131,14 +127,13 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: "  + library.getLibraryId() + " " + ex.getMessage());
+                return "Error closing connection";
             }
         }
-        return false;
+        return "Failure";
     }
 
-
-    //update lib
-    public static boolean updateLibrary(Library library){
+    public static String updateLibrary(Library library){
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(UPDATE_LIBRARY);
@@ -147,12 +142,11 @@ public class QueryDatabaseLibrary {
             insert.setString(3, library.getTags());
             insert.setString(4, library.getCoverPhoto());
             insert.setString(5, library.getDescription());
-            insert.setInt(6, library.getNumSubscribers());
-            insert.setInt(7, library.getFeatutedBook());
+            insert.setInt(7, library.getFeaturedBook());
             insert.setTimestamp(8, library.getCreated());
             insert.setInt(9, library.getLibraryId());
             insert.executeUpdate();
-            return true;
+            return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + library.getLibraryId() + " "  + ex.getMessage());
         } finally {
@@ -162,20 +156,19 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: "  + library.getLibraryId() + " " + ex.getMessage());
+                return "Error closing connection";
             }
         }
-        return false;
+        return "Failure";
     }
 
-
-    //delete lib
-    public static boolean deleteLibrary(int libraryId){
+    public static String deleteLibrary(int libraryId){
         PreparedStatement delete = null;
         try {
             delete = connection.prepareStatement(DELETE_LIBRARY);
             delete.setInt(1, libraryId);
             delete.executeUpdate();
-            return true;
+            return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + libraryId + " " + ex.getMessage());
         } finally {
@@ -185,8 +178,9 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: " + libraryId + " " + ex.getMessage());
+                return "Error closing connection";
             }
         }
-        return false;
+        return "Failure";
     }
 }
