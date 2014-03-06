@@ -463,12 +463,12 @@
 					}
 
 					.add-inline-content {
+						width: 50px !important; height: auto !important;
 						bottom: 1rem; left: 1.5rem;
 
 						@include icon;
 						font-size: 2rem !important;
 						position: fixed;
-						width: 50px;
 					}
 
 					.add-inline-content-wrapper {
