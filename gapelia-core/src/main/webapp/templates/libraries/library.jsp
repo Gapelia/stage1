@@ -295,8 +295,12 @@
 				});
 			}
 
-			$(function () {
+			$(document).on("ready", function () {
 				$(".book").imgLiquid({ fill: true });
+
+				if ($vW > "300") {
+					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
+				}
 			});
 		</script>
 
