@@ -35,13 +35,9 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         try {
             statement = connection.prepareStatement(CHECK_USER);
-            String tem = "678601209";
-            statement.setString(1, tem);
+            statement.setString(1, profile.getValidatedId());
             rs = statement.executeQuery();
-            rs.beforeFirst();
-            LOG.info("FETCH SIZe :" + rs.getFetchSize());
-            if (!rs.next()) {
-                LOG.info("\n\n\n\n\nNO PREVIOUS ENTRY\n\n\n\n\n\n");
+            if (rs.isBeforeFirst()) {
                 return signUp(profile);
             }
         } catch (SQLException ex) {
