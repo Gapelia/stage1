@@ -507,7 +507,9 @@
 
 						.inline-image-insert {
 							font-size: 2rem !important;
+
 							&:after { content: "Insert an image"; }
+							&:hover:after { margin: 0.4rem 0 0 -11rem; }
 						}
 
 						.inline-embed-insert {
@@ -522,13 +524,30 @@
 							top: 0; left: 50px;
 
 							position: absolute;
+							width: 316px;
 							z-index: 30;
+
+							input {
+								padding: 6px 46px 6px 12px;
+								width: 95%;
+							}
 
 							a {
 								position: absolute;
 								right: 0;
 							}
 						}
+					}
+
+					.embed {
+						width: 100%; height: auto;
+
+						iframe {
+							width: 100%; height: auto;
+							position: relative;
+						}
+
+						iframe.embedly-embed { height: 480px; }
 					}
 				}
 
