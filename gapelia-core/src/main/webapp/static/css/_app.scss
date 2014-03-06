@@ -520,7 +520,7 @@
 		font-weight: 300;
 	}
 
-	#featured-splash, #library-splash, #user-splash {
+	#featured-splash, #library-splash, #new-library, #user-splash {
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
@@ -530,7 +530,7 @@
 		transition: top 1.3s ease, left 1.3s ease;
 		z-index: 3;
 
-		#library-info, #featured-info, #splash-user-info {
+		#library-info, #new-library-info, #featured-info, #splash-user-info {
 			color: $white;
 			padding: 0 15rem; //
 			position: relative;
@@ -678,7 +678,7 @@
       h1 { font-size: 0.9rem; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
       p { font-weight: 200; font-size: 1.1em; padding-top: 12px; }
       section { font-weight: bold; padding-bottom: 15px; }
-      
+    
     button {
 			top: 2rem; right: 2rem;
 
@@ -686,6 +686,75 @@
 			z-index: 11;
 		}
 	}
+
+  #new-library {
+  
+    #new-library-info {
+      //border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      left:20%; width: 60%;
+      padding: 0 !important;
+      top: 45%;
+    }
+    
+    #new-library-info h2 { font-size: 42px; font-weight: 700;
+      &:empty:after {
+			color: rgba(255,255,255,0.5);
+			content : "Name your library";
+			}
+    }  
+    
+    #new-library-info h1 { font-size: 0.9rem; } //border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+    
+    #new-library-info p { font-weight: 200; font-size: 1.1em; padding-top: 12px;
+      &:empty:after {
+			color: rgba(255,255,255,0.5);
+			content : "Add a description here...";
+			}
+    }
+    
+    #new-library-info section { font-weight: bold; padding-bottom: 15px; }
+    
+    button {
+      //display: none;
+		}
+    
+    .button-wrapper {
+      position: absolute;
+			text-align: center;
+			width: 100%;
+      margin: 0 auto;
+			position: relative;
+			top: 2.5rem;
+		}
+    
+    #close-splash {
+      display: none;
+    }
+    
+    .library-controls {
+      top: 2rem; right: 2rem;
+
+      position: fixed;
+      z-index: 100;
+
+      .library-close {
+          font-size: 0.8rem;
+          padding: 0.2rem 0.5rem;
+      }
+
+      .oc-01 {
+          margin: 0 1rem 0 0;
+          color: white;
+          display: inline !important ;
+      }
+
+      .oc-02 {
+          background-color: transparent !important ;
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          color: $white;
+      }
+    }
+  }  
 
 	#user-splash {
 		padding: 0;
