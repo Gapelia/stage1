@@ -464,6 +464,13 @@
 
 	});
 
+	function handleFile(file) {
+
+		pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+		console.log(file);
+
+	}
+
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -472,13 +479,6 @@
 
 		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"></i> menu</p></article></div></section>";
 		$("#create-content").html(insert);
-
-	}
-
-	function handleFile(file) {
-
-		console.log(file);
-		pasteHtmlAtCaret('<p><div class=inserted-img><img src=' + file + '></div></p>'); 
 
 	}
 
@@ -604,9 +604,7 @@
 		}
 
 		insert += "<a href=\"#\" class=\"add-inline-content\">&#xf218;</a>";
-
 		insert += "<div class=\"add-inline-content-wrapper\">";
-
 		insert += "<button class=\"inline-embed-insert\">< # ></button>";
 
 		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
@@ -615,10 +613,6 @@
 		insert += "<input type=\"text\" value=\"Paste or type link here\" placeholder=\"Paste or type link here\">";
 		insert += "<a href=\"#\">&#xf2bb;</a>";
 		insert += "</div>";
-		// insert += "";
-		// insert += "";
-		// insert += "";
-
 		insert += "</div>";
 
 		if(text == null) {
@@ -655,8 +649,16 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
+		pages.page[currentPage].file = file;
 
 		/*
+		function handleFile(file) {
+
+			pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+			console.log(file);
+
+		}
+
 		var BG = $("#page"+(pagesCreated)+"Image");
 
 		if (BG.src == "static/images/blankBG.jpg") {
@@ -762,7 +764,9 @@
 		}
 		*/
 
-		var anchorInput = $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input");
+		// var anchorInput = $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input");
+
+		/*
 		// https://soundcloud.com/iknowbitfunk/just-kiddin-paloma-bit-funk-remix
 		anchorInput.keyup(function (e) {
 		// this.anchorInput.addEventListener("keyup", function (e) {
@@ -785,6 +789,11 @@
 
 		});
 		//
+		*/
+
+		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").click(function () {
+			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").val("");
+		});
 
 		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor a").click(function (e) {
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").hide();
