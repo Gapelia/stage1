@@ -204,6 +204,24 @@
 				display: block !important;
 			}
 		}
+
+		.embed {
+			width: 100%; height: auto;
+
+			iframe {
+				width: 100%; height: auto;
+				position: relative;
+			}
+
+			iframe.embedly-embed { height: 480px; }
+
+			a {
+				img {
+					width: 100%; height: auto;
+					display: block !important;
+				}
+			}
+		}
 	}
 
 	.fluid-wrapper, .overlay-wrapper, .photo-wrapper {

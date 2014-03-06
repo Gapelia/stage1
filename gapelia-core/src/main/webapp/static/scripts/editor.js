@@ -464,6 +464,8 @@
 
 	});
 
+	var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+
 	function handleFile(file) {
 
 		pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
@@ -490,74 +492,11 @@
 
 		var insert = "";
 
-		// insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
-		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
-
-		/*
-		if(imageURL == null) {
-
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
-
-			// Image attribution
-			$(".image-attribution").css("display", "none");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "2rem 2rem 0 2rem",
-				"top": "0"
-			});
-
-			$(".fluid-preview article").css("padding", "4rem 0");
-
-		} else {
-
-			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
-
-			// Image attribution
-			$(".image-attribution").css("display", "block");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "1rem 2rem 0 2rem",
-				"top": "75%"
-			});
-
-			$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-		}
-		*/
-
-		/*
-		<section class="fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready" style="overflow-y: auto; background-image: url(https://www.filepicker.io/api/file/vt6lgixHTjOqfcNIN7Ll); background-size: cover; height: 75%; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-		*/
-
-		// "/static/images/blankBG.jpg"
-		// if(imageURL == "static/images/whiteBG.jpg") {
-		// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
-
-		// if(imageURL = "http://localhost:8080/static/images/whiteBG.jpg") {
 		if(imageURL == null) {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 			// insert += "<section class=\"fluid-preview-wrapper no-img\"><section class=\"draggable-placeholder\">";
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
-
-			/*
-			$(function () {
-
-				// Image attribution
-				$(".image-attribution").css("display", "none");
-
-				// Content positioning
-				$(".fluid-preview").css({
-					"padding": "2rem 2rem 0 2rem",
-					"top": "0"
-				});
-
-				$(".fluid-preview article").css("padding", "4rem 0");
-
-			});
-			*/
 
 		} else {
 
@@ -566,30 +505,6 @@
 			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
 
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
-
-			// insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
-
-			// $(".page-bg").attr("src", url).attr("data-adaptive-background", "1");
-
-			/*
-			$(function () {
-
-				$(".page-bg").attr("data-adaptive-background", "1");
-				$(".fluid-preview-wrapper").imgLiquid({ fill: true });
-
-				// Image attribution
-				$(".image-attribution").css("display", "block");
-
-				// Content positioning
-				$(".fluid-preview").css({
-					"padding": "1rem 2rem 0 2rem",
-					"top": "75%"
-				});
-
-				$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-			});
-			*/
 
 		}
 
@@ -722,6 +637,10 @@
 		}
 		*/
 
+		$(window).ready(function () {
+			$(".page-desc").focus();
+		});
+
 		// Empty attribution field when user clicks in it
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
 
@@ -736,6 +655,7 @@
 			$(this).css("overflow-y", "auto");
 		});
 
+		// Inline content embedder
 		$(".add-inline-content").click(function (e) {
 
 			$(".add-inline-content-wrapper").toggle();
@@ -747,49 +667,28 @@
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
 		});
 
-		/*
-		// function createLink {
-		createLink: function (input) {
-
-			restoreSelection(this.savedSelection);
-			document.execCommand("createLink", false, input.value);
-
-			if (this.options.targetBlank) {
-				this.setTargetBlank();
-			}
-
-			this.showToolbarActions();
-			input.value = "";
-
-		}
-		*/
-
-		// var anchorInput = $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input");
-
-		/*
 		// https://soundcloud.com/iknowbitfunk/just-kiddin-paloma-bit-funk-remix
-		anchorInput.keyup(function (e) {
-		// this.anchorInput.addEventListener("keyup", function (e) {
-		// $(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").addEventListener("keyup", function (e) {
+		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").on("keyup", function(ev) {
 
-			if (e.keyCode === 13) {
-				e.preventDefault();
-				self.createLink(this);
+			if(ev.which === 13) {
+				$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
+				$(".fluid-preview-wrapper .page-desc").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
 
 				// Embedly
 				var regex;
 
 				regex = /((http:\/\/(www\.flickr\.com\/photos\/.*|flic\.kr\/.*|instagr\.am\/p\/.*|instagram\.com\/p\/.*|gist\.github\.com\/.*|www\.kickstarter\.com\/projects\/.*\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|tumblr\.com\/.*|.*\.tumblr\.com\/post\/.*|cl\.ly\/.*|cl\.ly\/.*\/content|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|youtu\.be\/.*|.*\.youtube\.com\/user\/.*|.*\.youtube\.com\/.*#.*\/.*|m\.youtube\.com\/watch.*|m\.youtube\.com\/index.*|.*\.youtube\.com\/profile.*|.*\.youtube\.com\/view_play_list.*|.*\.youtube\.com\/playlist.*|.*twitch\.tv\/.*|.*justin\.tv\/.*\/b\/.*|.*justin\.tv\/.*\/w\/.*|.*twitch\.tv\/.*|.*twitch\.tv\/.*\/b\/.*|www\.ustream\.tv\/recorded\/.*|www\.ustream\.tv\/channel\/.*|www\.ustream\.tv\/.*|ustre\.am\/.*|.*revision3\.com\/.*|www\.vimeo\.com\/groups\/.*\/videos\/.*|www\.vimeo\.com\/.*|vimeo\.com\/groups\/.*\/videos\/.*|vimeo\.com\/.*|vimeo\.com\/m\/#\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*|open\.spotify\.com\/.*|spoti\.fi\/.*|play\.spotify\.com\/.*|www\.last\.fm\/music\/.*|www\.last\.fm\/music\/+videos\/.*|www\.last\.fm\/music\/+images\/.*|www\.last\.fm\/music\/.*\/_\/.*|www\.last\.fm\/music\/.*\/.*|www\.mixcloud\.com\/.*\/.*\/|www\.rdio\.com\/#\/artist\/.*\/album\/.*|www\.rdio\.com\/artist\/.*\/album\/.*|.*\.bandcamp\.com\/|.*\.bandcamp\.com\/track\/.*|.*\.bandcamp\.com\/album\/.*|grooveshark\.com\/.*))|(https:\/\/(gist\.github\.com\/.*|maps\.google\.com\/maps\?.*|maps\.google\.com\/\?.*|maps\.google\.com\/maps\/ms\?.*|.*youtube\.com\/watch.*|.*\.youtube\.com\/v\/.*|www\.vimeo\.com\/.*|vimeo\.com\/.*|player\.vimeo\.com\/.*|www\.facebook\.com\/photo\.php.*|www\.facebook\.com\/video\/video\.php.*|www\.facebook\.com\/.*\/posts\/.*|fb\.me\/.*|soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|open\.spotify\.com\/.*|play\.spotify\.com\/.*)))/i;
 
-				$("a").embedly({
+				$(".embedded-embedly").embedly({
 					urlRe: regex,
 					method: "after"
 				});
+
+				// Avoid form submit
+				return false;
 			}
 
 		});
-		//
-		*/
 
 		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").click(function () {
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").val("");
