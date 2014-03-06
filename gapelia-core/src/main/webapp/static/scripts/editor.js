@@ -657,7 +657,14 @@
 		// Inline content embedder
 		$(".add-inline-content").click(function (e) {
 
-			$(".add-inline-content-wrapper").toggle();
+			// $(".add-inline-content-wrapper").toggle();
+
+			$(".add-inline-content-wrapper").toggle(function () {
+				$(this).css("bottom", "-13.7rem");
+			}, function () {
+				$(this).css("bottom", "3.7rem");
+			});
+
 			e.preventDefault();
 
 		});
