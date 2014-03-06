@@ -520,7 +520,9 @@
 
 						.gapelia-editor-toolbar-form-anchor {
 							top: 0; left: 50px;
+
 							position: absolute;
+							z-index: 30;
 
 							a {
 								position: absolute;

@@ -271,20 +271,21 @@
 
 	// direct API dealing directly with Embedly's Display API.
 	var ImageAPI = function () {};
-	ImageAPI.prototype = {
 
-		// Based on the method and options, build the image url,
+	ImageAPI.prototype = {
+		// Based on the method and options, build the image url
 		build: function (method, url, options) {
-			options = $.extend({}, $.embedly.defaults, typeof options === 'object' && options);
+
+			options = $.extend({}, $.embedly.defaults, typeof options === "object" && options);
 
 			var secure = options.secure;
+
+			// If the secure param was not seen, use the protocol instead
 			if (none(secure)) {
-				// If the secure param was not seen, use the protocol instead.
 				secure = window.location.protocol === 'https:' ? true : false;
 			}
 
-			var base = (secure ? 'https' : 'http') +
-				'://i.embed.ly/' + (method === 'display' ? '1/' : '1/display/') + method;
+			var base = (secure ? 'https' : 'http') + '://i.embed.ly/' + (method === 'display' ? '1/' : '1/display/') + method;
 
 			// Base Query
 			var query = none(options.query) ? {} : options.query;
@@ -295,19 +296,24 @@
 			base += '&url=' + encodeURIComponent(url);
 
 			return base;
+
 		},
+
 		// Wrappers around build image url function.
 		display: function (url, options) {
-			return this.build('display', url, options);
+			return this.build("display", url, options);
 		},
+
 		resize: function (url, options) {
-			return this.build('resize', url, options);
+			return this.build("resize", url, options);
 		},
+
 		fill: function (url, options) {
-			return this.build('fill', url, options);
+			return this.build("fill", url, options);
 		},
+
 		crop: function (url, options) {
-			return this.build('crop', url, options);
+			return this.build("crop", url, options);
 		}
 	};
 
@@ -317,6 +323,7 @@
 
 	Embedly.prototype = {
 		init: function (elem, original_url, options) {
+
 			this.elem = elem;
 			this.$elem = $(elem);
 			this.original_url = original_url;
@@ -325,48 +332,63 @@
 
 			// Sets up some triggers.
 			var self = this;
+
 			this.loaded.done(function () {
-				self.$elem.trigger('loaded', [self]);
+
+				self.$elem.trigger("loaded", [self]);
+				$(".embedded-embedly").remove();
+
 			});
 
 			// So you can listen when the tag has been initialized;
-			this.$elem.trigger('initialized', [this]);
+			this.$elem.trigger("initialized", [this]);
+
 		},
+
 		progress: function (obj) {
+
 			$.extend(this, obj);
 
 			// if there is a custom display method, use it.
 			if (this.options.display) {
 				this.options.display.apply(this.elem, [this, this.elem]);
 			}
+
 			// We only have a simple case for oEmbed. Everything else should be a custom
 			// success method.
-			else if (this.options.endpoint === 'oembed') {
+			else if (this.options.endpoint === "oembed") {
 				this.display();
 			}
 
 			// Notifies all listeners that the data has been loaded.
 			this.loaded.resolve(this);
+
 		},
+
 		imageStyle: function () {
-			var style = [],
-				units;
+
+			var style = [], units;
+
 			if (this.options.addImageStyles) {
 				if (this.options.query.maxwidth) {
-					units = isNaN(parseInt(this.options.query.maxwidth, 10)) ? '' : 'px';
+					units = isNaN(parseInt(this.options.query.maxwidth, 10)) ? "" : "px";
 					style.push("max-width: " + (this.options.query.maxwidth) + units);
 				}
+
 				if (this.options.query.maxheight) {
-					units = isNaN(parseInt(this.options.query.maxheight, 10)) ? '' : 'px';
+					units = isNaN(parseInt(this.options.query.maxheight, 10)) ? "" : "px";
 					style.push("max-height: " + (this.options.query.maxheight) + units);
 				}
 			}
-			return style.join(';');
+
+			return style.join(";");
+
 		},
 
 		display: function () {
+
 			// Ignore errors
-			if (this.type === 'error') {
+			if (this.type === "error") {
 				return false;
 			}
 
@@ -374,7 +396,8 @@
 			this.style = this.imageStyle();
 
 			var html;
-			if (this.type === 'photo') {
+
+			if (this.type === "photo") {
 				html = "<a href='" + this.original_url + "' target='_blank'>";
 				html += "<img style='" + this.style + "' src='" + this.url + "' alt='" + this.title + "' /></a>";
 			} else if (this.type === 'video' || this.type === 'rich') {
@@ -392,19 +415,22 @@
 			}
 
 			this.code = html;
-			// Yay.
-			if (this.options.method === 'replace') {
+
+			// Yay
+			if (this.options.method === "replace") {
 				this.$elem.replaceWith(this.code);
-			} else if (this.options.method === 'after') {
+			} else if (this.options.method === "after") {
 				this.$elem.after(this.code);
-			} else if (this.options.method === 'afterParent') {
+			} else if (this.options.method === "afterParent") {
 				this.$elem.parent().after(this.code);
-			} else if (this.options.method === 'replaceParent') {
+			} else if (this.options.method === "replaceParent") {
 				this.$elem.parent().replaceWith(this.code);
 			}
+
 			// for DOM elements we add the oembed object as a data field to that element and trigger a custom event called oembed
 			// with the custom event, developers can do any number of custom interactions with the data that is returned.
-			this.$elem.trigger('displayed', [this]);
+			this.$elem.trigger("displayed", [this]);
+
 		}
 	};
 
