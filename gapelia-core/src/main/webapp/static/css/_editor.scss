@@ -468,6 +468,7 @@
 						@include icon;
 						font-size: 2rem !important;
 						position: fixed;
+						width: 50px;
 					}
 
 					.add-inline-content-wrapper {
@@ -482,6 +483,7 @@
 						padding: 0.5rem;
 						position: fixed;
 						text-align: center;
+						// z-index: 2;
 
 						button {
 							color: $white !important;
@@ -518,10 +520,7 @@
 
 						.gapelia-editor-toolbar-form-anchor {
 							top: 0; left: 50px;
-
-							// display: block !important;
 							position: absolute;
-							z-index: 2;
 
 							a {
 								position: absolute;

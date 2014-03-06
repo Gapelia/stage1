@@ -724,6 +724,10 @@
 		}
 		*/
 
+		$(window).ready(function () {
+			$(".page-desc").focus();
+		});
+
 		// Empty attribution field when user clicks in it
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
 
