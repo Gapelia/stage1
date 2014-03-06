@@ -2,22 +2,20 @@ package com.gapelia.core.model;
 
 
 import java.sql.Timestamp;
-import java.sql.Date;
 
 public class Library {
-	private int libraryId;
+    private int libraryId;
     private int userId;
-    private int numSubscribers;
-    private int featutedBook;
+    private int featuredBook;
     private String title;
     private String [] tags;
     private String coverPhoto;
     private String description;
     private Timestamp created;
 
-	public int getLibraryId() {
-		return libraryId;
-	}
+    public int getLibraryId() {
+        return libraryId;
+    }
 
     public void setLibraryId(int libraryId) {
         this.libraryId = libraryId;
@@ -31,20 +29,12 @@ public class Library {
         this.userId = userId;
     }
 
-    public  int getNumSubscribers() {
-        return numSubscribers;
+    public int getFeaturedBook() {
+        return featuredBook;
     }
 
-    public void setNumSubscribers(int numSubscribers) {
-        this.numSubscribers = numSubscribers;
-    }
-
-    public int getFeatutedBook() {
-        return featutedBook;
-    }
-
-    public void setFeatutedBook(int featutedBook) {
-        this.featutedBook = featutedBook;
+    public void setFeaturedBook(int featuredBook) {
+        this.featuredBook = featuredBook;
     }
 
     public String getTitle() {

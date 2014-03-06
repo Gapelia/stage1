@@ -1,168 +1,147 @@
 package com.gapelia.core.api;
 
+import com.gapelia.core.auth.SessionManager;
+import com.gapelia.core.database.QueryDatabaseLibrary;
+import com.gapelia.core.database.QueryDatabaseUser;
+import com.gapelia.core.model.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.UUID;
 
 @Path("/libraries")
 public class Libraries {
 
-	public static Logger LOG = Logger.getLogger(Libraries.class);
+    public static Logger LOG = Logger.getLogger(Libraries.class);
 
-//	@Path("getFeaturedBooks")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String getFeaturedBooks(@FormParam("sessionId") String sessionId,
-//								   @FormParam("dimension") String dimension) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			// Retrieving user details
-//			LOG.info("Trying to retrieve featured top books for user");
-//			Book[] books = QueryDatabase.getFeaturedBooks(profile);
-//			String json = gson.toJson(books);
-//			LOG.info("Response json: " + json);
-//			return json;
-//		} catch (Exception ex) {
-//			LOG.error("Failed to retrieve top featured books", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
-//
-//	@Path("getAllBooks")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String getAllBooks(@FormParam("sessionId") String sessionId,
-//							  @FormParam("dimension") String dimension,
-//							  @FormParam("pageNo") String page) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			// Retrieving user details
-//			LOG.info("Trying to retrieve all books for user");
-//			Book[] books = QueryDatabase.getAllBooks();
-//			String json = gson.toJson(books);
-//			//String json = gson.toJson("NOT HERE");
-//			LOG.info("Response json: " + json);
-//			return json;
-//		} catch (Exception ex) {
-//			LOG.error("Failed to retrieve all books", ex);
-//			return gson.toJson("Failed"+ex.toString());
-//		}
-//	}
-//
-//	@Path("getLibrary")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String getLibrary(@FormParam("sessionId") String sessionId,
-//							  @FormParam("libraryId") String libraryId) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			// Retrieving user details
-//			LOG.info("Trying to retrieve library");
-//			Library library = QueryDatabase.getLibraryById(profile, libraryId);
-//			String json = gson.toJson(library);
-//			LOG.info("Response json: " + json);
-//			return json;
-//		} catch (Exception ex) {
-//			LOG.error("Failed to retrieve library", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
-//
-//	@Path("getAllLibraries")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String getAllLibraries(@FormParam("sessionId") String sessionId,
-//								  @FormParam("pageNo") String page) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			// Retrieving user details
-//			Library [] libraries = QueryDatabase.getAllLibraries(profile, page);
-//			String json = gson.toJson(libraries);
-//			LOG.info("Response json: " + json);
-//			return json;
-//		} catch (Exception ex) {
-//			LOG.error("Failed to retrieve library", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
-//
-//	@Path("getLibrariesByPrefix")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String getLibrariesByPrefix(@FormParam("sessionId") String sessionId,
-//									   @FormParam("prefix") String prefix) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			// Retrieving user details
-//			Library [] libraries = QueryDatabase.getLibraryByPrefix(profile, prefix);
-//			String json = gson.toJson(libraries);
-//			LOG.info("Response json: " + json);
-//			return json;
-//		} catch (Exception ex) {
-//			LOG.error("Failed to retrieve library", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
-//
-//	@Path("subscribe")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String subscribe(@FormParam("sessionId") String sessionId,
-//							@FormParam("libraryId") String libraryId
-//	) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user id from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			LOG.info("Trying to subscribe");
-//			boolean status = QueryDatabase.subscribeLibrary(profile, libraryId);
-//			return gson.toJson(status ? "Success" : "Failure");
-//		} catch (Exception ex) {
-//			LOG.error("Failed to subscribe", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
-//
-//	@Path("unsubscribe")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public String unsubscribe(@FormParam("sessionId") String sessionId,
-//							@FormParam("libraryId") String libraryId
-//	) {
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//		try {
-//			// Get UserId from SessionId
-//			LOG.info("Trying to retrieve user id from session id");
-//			org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
-//			LOG.info("Trying to un-subscribe");
-//			boolean status = QueryDatabase.unSubscribeLibrary(profile, libraryId);
-//			return gson.toJson(status ? "Success" : "Failure");
-//		} catch (Exception ex) {
-//			LOG.error("Failed to unsubscribe", ex);
-//			return gson.toJson("Failed");
-//		}
-//	}
+    @Path("getCreatedLibraries")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getCreatedLibraries(@FormParam("sessionId") String sessionId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseUser.getCreatedLibraries(u.getUserId()));
+    }
+
+
+    @Path("getBooksInLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getBooksInLibrary(@FormParam("sessionId") String sessionId,
+                                    @FormParam("libraryId") int libraryId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseLibrary.getBooksInLibrary(libraryId));
+    }
+
+    @Path("addBookToLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String addBookToLibrary(@FormParam("sessionId") String sessionId,
+                                   @FormParam("libraryId") int libraryId,
+                                   @FormParam("bookId") int bookId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseLibrary.addBookToLibrary(libraryId, bookId));
+    }
+
+    @Path("removeBookFromLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String removeBookFromLibrary(@FormParam("sessionId") String sessionId,
+                                        @FormParam("libraryId") int libraryId,
+                                        @FormParam("bookId") int bookId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseLibrary.removeBookFromLibrary(libraryId, bookId));
+    }
+
+    @Path("deleteLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String deleteLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("libraryId") int libraryId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseLibrary.deleteLibrary(libraryId));
+    }
+
+    @Path("createLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String createLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("title") String title,
+                                @FormParam("description") String description,
+                                @FormParam("coverPhoto") String coverPhoto,
+                                @FormParam("tags") String tags) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        Gson gson = new GsonBuilder().create();
+        int libraryId = Integer.parseInt(UUID.randomUUID().toString());
+        Library library = new Library();
+        Date date = new Date();
+        library.setLibraryId(libraryId);
+        library.setUserId(u.getUserId());
+        library.setTitle(title);
+        library.setDescription(description);
+        library.setTags(tags);
+        library.setCoverPhoto(coverPhoto);
+        library.setCreated(new Timestamp(date.getTime()));
+        return gson.toJson(QueryDatabaseLibrary.createLibrary(library));
+    }
+
+    @Path("updateLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String updateLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("title") String title,
+                                @FormParam("featuredBook") Integer featuredBook,
+                                @FormParam("description") String description,
+                                @FormParam("coverPhoto") String coverPhoto,
+                                @FormParam("tags") String tags) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        Gson gson = new GsonBuilder().create();
+        int libraryId = Integer.parseInt(UUID.randomUUID().toString());
+        Library library = new Library();
+        Date date = new Date();
+        library.setLibraryId(libraryId);
+        library.setUserId(u.getUserId());
+        library.setTitle(title);
+        library.setFeaturedBook(featuredBook);
+        library.setDescription(description);
+        library.setTags(tags);
+        library.setCoverPhoto(coverPhoto);
+        library.setCreated(new Timestamp(date.getTime()));
+        return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
+    }
+
+//	@Path("getFeaturedBooks") //TODO with recommendations
 }

@@ -27,10 +27,11 @@ public class AuthSuccessHandler extends HttpServlet {
 			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
 			sessionCookie.setMaxAge(31557600);
 			response.addCookie(sessionCookie);
-			if (QueryDatabaseUser.checkUser(profile)) {
+            String answer = QueryDatabaseUser.checkUser(profile, session.getId());
+			if (answer =="Success") {
 				response.sendRedirect("/me");
 				return;
-			} else {
+			} else if(answer == "New") {
 				response.sendRedirect("/onboard");
 			}
 		} catch (Exception e) {

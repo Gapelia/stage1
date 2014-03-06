@@ -27,7 +27,7 @@ public class SessionManager implements HttpSessionListener {
 		return sessions.get(sessionId);
 	}
 
-    public void addUserToSessionIdToUser(User user, String session) {
+    public static void addUserToSessionIdToUser(User user, String session) {
         sessionIdToUser.put(session, user);
     }
 

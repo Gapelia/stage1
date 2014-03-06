@@ -1,14 +1,16 @@
 package com.gapelia.core.database;
 
+import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
+import com.gapelia.core.model.Page;
 import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
 import java.sql.*;
 import java.util.ArrayList;
-//TODO make functions produce json
+
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
@@ -27,23 +29,28 @@ public class QueryDatabaseUser {
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
     private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
-    private static final String GET_CREATED_BOOKS = "SELECT * FROM books where owned_by = ?";
+    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ?";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
-    private static final String GET_CREATED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
+    private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
+    private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
 
-    public static boolean checkUser(Profile profile) {
+    public static String checkUser(Profile p, String sessionId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
             statement = connection.prepareStatement(CHECK_USER);
-            statement.setString(1, profile.getValidatedId());
+            statement.setString(1, p.getValidatedId());
             rs = statement.executeQuery();
             if (rs.isBeforeFirst()) {
-                return signUp(profile);
+                return signUp(p);
+            } else {
+                User u = getUserByValidatedId(p.getValidatedId());
+                SessionManager.addUserToSessionIdToUser(u, sessionId);
+                return "Success";
             }
         } catch (SQLException ex) {
-            LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
-            return false;
+            LOG.error("Cannot check user u:" + p + " " + ex.getMessage());
+            return "Cannot check user u:";
         } finally {
             try {
                 if (rs != null) {
@@ -53,44 +60,43 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection " + p + " " + ex.getMessage());
+                return "Error closing connection ";
             }
         }
-        return true;
     }
 
-    public static boolean signUp(Profile profile) {
+    public static String signUp(Profile p) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        LOG.info(profile.toString());
         try {
             insert = connection.prepareStatement(INSERT_USER);
-            insert.setString(1, profile.getFirstName());
-            insert.setString(2, profile.getEmail());
-            insert.setString(3, profile.getFirstName() + " " + profile.getLastName());
-            if(profile.getDob() != null) {
-                insert.setDate(4, SQLUtil.convertBirthDate(profile.getDob()));
+            insert.setString(1, p.getFirstName());
+            insert.setString(2, p.getEmail());
+            insert.setString(3, p.getFirstName() + " " + p.getLastName());
+            if(p.getDob() != null) {
+                insert.setDate(4, SQLUtil.convertBirthDate(p.getDob()));
             } else {
                 insert.setDate(4, null);
             }
-            if("male".equals(profile.getGender())) {//write tool
+            if("male".equals(p.getGender())) {//write tool
                 insert.setString(5, "M");
             } else {
                 insert.setString(5, "F");
             }
-            insert.setString(6, profile.getLocation());
-            insert.setString(7, profile.getProfileImageURL());
-            insert.setString(8, profile.getFirstName());
-            insert.setString(9, profile.getValidatedId());
-            insert.setString(10, profile.getProviderId());
+            insert.setString(6, p.getLocation());
+            insert.setString(7, p.getProfileImageURL());
+            insert.setString(8, p.getFirstName());
+            insert.setString(9, p.getValidatedId());
+            insert.setString(10, p.getProviderId());
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
             rs = insert.executeQuery();
+            return "New";
         } catch (SQLException ex) {
-            LOG.info("Cannot check user profile:" + profile + " " + ex.getMessage());
-            LOG.error("Cannot check user profile:" + profile + " " + ex.getMessage());
-            return false;
+            LOG.info("Cannot check user u:" + p + " " + ex.getMessage());
+            return "Cannot check user u:" + p + " " + ex.getMessage();
         } finally {
             try {
                 if (rs != null) {
@@ -100,20 +106,19 @@ public class QueryDatabaseUser {
                     insert.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
-                return false;
+                LOG.error("Error closing connection " + p + " " + ex.getMessage());
+                return "Error closing connection ";
             }
         }
-        return true;
     }
 
-    public static User getUserByValidateId(Profile profile) {
+    public static User getUserByValidatedId(String validatedId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         User user = new User();
         try {
             statement = connection.prepareStatement(SELECT_VALIDATE);
-            statement.setString(1, profile.getValidatedId());
+            statement.setString(1, validatedId);
             rs = statement.executeQuery();
             if (rs.next()) {
                 user.setUserId(rs.getInt("id"));
@@ -123,7 +128,7 @@ public class QueryDatabaseUser {
                 user.setFullName(rs.getString("full_name"));
                 user.setCoverImage(rs.getString("cover_image"));
                 user.setProviderId(rs.getString("provider_id"));
-                user.setValidateId(rs.getString("validate_id"));
+                user.setValidatedId(rs.getString("validate_id"));
                 user.setBio(rs.getString("bio"));
                 user.setFb(rs.getString("fb"));
                 user.setGp(rs.getString("gp"));
@@ -141,7 +146,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile:" + profile, ex);
+            LOG.error("Cannot check user u:" + user, ex);
         }
         finally {
             try {
@@ -152,10 +157,60 @@ public class QueryDatabaseUser {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection " + profile + " " + ex.getMessage());
+                LOG.error("Error closing connection " + user + " " + ex.getMessage());
             }
         }
 
+        return null;
+    }
+    public static User getUserByValidatedId(User u) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        User user = new User();
+        try {
+            statement = connection.prepareStatement(SELECT_VALIDATE);
+            statement.setString(1, u.getValidatedId());
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                user.setUserId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setDisplayName(rs.getString("display_name"));
+                user.setFullName(rs.getString("full_name"));
+                user.setCoverImage(rs.getString("cover_image"));
+                user.setProviderId(rs.getString("provider_id"));
+                user.setValidatedId(rs.getString("validate_id"));
+                user.setBio(rs.getString("bio"));
+                user.setFb(rs.getString("fb"));
+                user.setGp(rs.getString("gp"));
+                user.setTwt(rs.getString("twt"));
+                user.setAvatarImage(rs.getString("avatar_image"));
+                user.setGender(rs.getString("gender"));
+                user.setLocation(rs.getString("location"));
+                user.setDob(rs.getDate("dob"));
+                user.setLastUpdated(rs.getTimestamp("last_updated"));
+                user.setLastLogin(rs.getTimestamp("last_login"));
+                user.setMemeberSince(rs.getTimestamp("member_since"));
+                user.setPersonalWebsite(rs.getString("personal_website"));
+                user.setIsPublic(rs.getBoolean("is_public"));
+                user.setTags(rs.getString("tags"));
+                return user;
+            }
+        } catch (Exception ex) {
+            LOG.error("Cannot check user u:" + u, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + u + " " + ex.getMessage());
+            }
+        }
         return null;
     }
 
@@ -175,7 +230,7 @@ public class QueryDatabaseUser {
                 user.setFullName(rs.getString("full_name"));
                 user.setCoverImage(rs.getString("cover_image"));
                 user.setProviderId(rs.getString("provider_id"));
-                user.setValidateId(rs.getString("validate_id"));
+                user.setValidatedId(rs.getString("validated_id"));
                 user.setBio(rs.getString("bio"));
                 user.setFb(rs.getString("fb"));
                 user.setGp(rs.getString("gp"));
@@ -193,7 +248,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile:" + userId, ex);
+            LOG.error("Cannot check user u:" + userId, ex);
         }
         finally {
             try {
@@ -212,7 +267,7 @@ public class QueryDatabaseUser {
     }
 
 
-    public static boolean updateUserProfile(User user) {
+    public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(UPDATE_USER);
@@ -225,7 +280,7 @@ public class QueryDatabaseUser {
             statement.setString(7, user.getAvatarImage());
             statement.setString(8, user.getCoverImage());
             statement.setString(9, user.getDisplayName());
-            statement.setString(10, user.getValidateId());
+            statement.setString(10, user.getValidatedId());
             statement.setString(11, user.getProviderId());
             statement.setTimestamp(13, user.getLastLogin());
             statement.setTimestamp(14, user.getLastUpdated());
@@ -237,9 +292,11 @@ public class QueryDatabaseUser {
             statement.setString(20, user.getTwt());
             statement.setBoolean(21, user.getIsPublic());
             statement.setInt(22, user.getUserId());
-            return statement.execute();
+            statement.execute();
+            return "Success";
         } catch (Exception ex) {
-            LOG.error("Cannot update user profile:" + user, ex);
+            LOG.error("Cannot update user u:" + user, ex);
+            return "Cannot update user u:";
         }
         finally {
             try {
@@ -248,11 +305,9 @@ public class QueryDatabaseUser {
                 }
             } catch (SQLException ex) {
                 LOG.error("Error closing connection " + user + " " + ex.getMessage());
-                return false;
+                return "Error closing connection ";
             }
         }
-
-        return false;
     }
     public static ArrayList<Book> getBookmarkedBooks(int userId) {
         PreparedStatement statement = null;
@@ -261,23 +316,17 @@ public class QueryDatabaseUser {
         try {
             statement = connection.prepareStatement(GET_BOOKMARKED_BOOKS);
             statement.setString(1, Integer.toString(userId));
+            statement = connection.prepareStatement(GET_SUBSCRIBED_LIBRARIES);
+            statement.setString(1, Integer.toString(userId));
             rs = statement.executeQuery();
             while (rs.next()) {
-                Book book = new Book();
-                book.setBookId(rs.getInt("id"));
-                book.setUserId(rs.getInt("owned_by"));
-                book.setCoverPhoto(rs.getString("cover_photo"));
-                book.setTitle(rs.getString("title"));
-                book.setLanguague(rs.getString("language"));
-                book.setTags(rs.getString("tags"));
-                book.setCreated(rs.getTimestamp("created"));
-                book.setLastUpdated(rs.getTimestamp("last_updated"));
-                book.setIsPublished(rs.getBoolean("is_published"));
+                int bookId = rs.getInt("book_id");
+                Book book = getBookByID(bookId);
                 bookList.add(book);
             }
             return bookList;
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile:" + userId, ex);
+            LOG.error("Cannot check user u:" + userId, ex);
         }
         finally {
             try {
@@ -300,7 +349,7 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         ArrayList<Book> bookList = new ArrayList<Book>();
         try {
-            statement = connection.prepareStatement(GET_CREATED_BOOKS);
+            statement = connection.prepareStatement(GET_OWNED_BOOKS);
             statement.setString(1, Integer.toString(userId));
             rs = statement.executeQuery();
             while (rs.next()) {
@@ -318,7 +367,7 @@ public class QueryDatabaseUser {
             }
             return bookList;
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + userId, ex);
+            LOG.error("Cannot check user u: " + userId, ex);
         }
         finally {
             try {
@@ -336,6 +385,126 @@ public class QueryDatabaseUser {
         return null;
     }
 
+    public static Book getBookByID(int id) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        Book book = new Book();
+        try{
+            statement = connection.prepareStatement(GET_OWNED_BOOKS);
+            statement.setInt(1, id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                book.setBookId(rs.getInt("id"));
+                book.setUserId(rs.getInt("owned_by"));
+                book.setCoverPhoto(rs.getString("cover_photo"));
+                book.setTitle(rs.getString("title"));
+                book.setLanguague(rs.getString("language"));
+                book.setTags(rs.getString("tags"));
+                book.setCreated(rs.getTimestamp("created"));
+                book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setIsPublished(rs.getBoolean("is_published"));
+            }
+            return book;
+        } catch (Exception ex) {
+            LOG.error("ERROR: :" + id, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + id + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+
+    public static ArrayList<Page>  getPages(int bookId){
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Page> pageList = new ArrayList<Page>();
+        try{
+            statement = connection.prepareStatement(GET_PAGES);
+            statement.setInt(1, bookId);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Page page = new Page();
+                page.setBookId(rs.getInt("book_id"));
+                page.setPageId(rs.getInt("id"));
+                page.setUserId(rs.getInt("user_id"));
+                page.setPageNumber(rs.getInt("page_number"));
+                page.setTemplateId(rs.getInt("template_id"));
+                page.setTitle(rs.getString("title"));
+                page.setContent(rs.getString("content"));
+                page.setVideoURl(rs.getString("video_url"));
+                page.setPhotoUrl(rs.getString("photo_url"));
+                page.setPhotoId(rs.getString("photo_id"));
+                page.setCreativeCommons(rs.getString("creative_commons"));
+                page.setCreated(rs.getTimestamp("created"));
+                page.setLastUpdated(rs.getTimestamp("last_updated"));
+                pageList.add(page);
+            }
+            return pageList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + bookId + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public static Library getLibraryByID(int id) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        Library library = new Library();
+        try{
+            statement = connection.prepareStatement(GET_OWNED_LIBRARIES);
+            statement.setInt(1, id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                library.setLibraryId(rs.getInt("id"));
+                library.setUserId(rs.getInt("created_by"));
+                library.setTitle(rs.getString("title"));
+                library.setTags(rs.getString("tags"));
+                library.setCoverPhoto(rs.getString("cover_photo"));
+                library.setDescription(rs.getString("description"));
+                library.setFeaturedBook(rs.getInt("featured_book"));
+                library.setCreated(rs.getTimestamp("created"));
+            }
+            return library;
+        } catch (Exception ex) {
+        LOG.error("ERROR: :" + id, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + id + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<Library> getSubscribedLibraries(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -345,21 +514,13 @@ public class QueryDatabaseUser {
             statement.setString(1, Integer.toString(userId));
             rs = statement.executeQuery();
             while (rs.next()) {
-                Library library = new Library();
-                library.setLibraryId(rs.getInt("id"));
-                library.setUserId(rs.getInt("created_by"));
-                library.setCoverPhoto(rs.getString("cover_photo"));
-                library.setTitle(rs.getString("title"));
-                library.setDescription(rs.getString("description"));
-                library.setTags(rs.getString("tags"));
-                library.setNumSubscribers(rs.getInt("num_subscriber"));
-                library.setCreated(rs.getTimestamp("created"));
-                library.setFeatutedBook(rs.getInt("featured_book"));
+                int libraryId = rs.getInt("library_id");
+                Library library = getLibraryByID(libraryId);
                 libraryList.add(library);
             }
             return libraryList;
         } catch (Exception ex) {
-            LOG.error("Cannot check user profile: " + userId, ex);
+            LOG.error("Cannot check user u: " + userId, ex);
         }
         finally {
             try {
@@ -383,20 +544,12 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         ArrayList<Library> libraryList = new ArrayList<Library>();
         try {
-            statement = connection.prepareStatement(GET_CREATED_LIBRARIES);
+            statement = connection.prepareStatement(GET_OWNED_LIBRARIES);
             statement.setInt(1, userId);
             rs = statement.executeQuery();
             while (rs.next()) {
-                Library library = new Library();
-                library.setLibraryId(rs.getInt("id"));
-                library.setUserId(rs.getInt("created_by"));
-                library.setTitle(rs.getString("title"));
-                library.setTags(rs.getString("tags"));
-                library.setCoverPhoto(rs.getString("cover_photo"));
-                library.setDescription(rs.getString("description"));
-                library.setNumSubscribers(rs.getInt("num_subscribers"));
-                library.setFeatutedBook(rs.getInt("featured_book"));
-                library.setCreated(rs.getTimestamp("created"));
+                int libraryId = rs.getInt("library_id");
+                Library library = getLibraryByID(libraryId);
                 libraryList.add(library);
             }
             return libraryList;

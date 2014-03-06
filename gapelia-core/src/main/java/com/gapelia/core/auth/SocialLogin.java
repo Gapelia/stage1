@@ -12,7 +12,6 @@ import java.net.InetAddress;
 
 import static com.gapelia.core.auth.AuthHelper.APP_FACEBOOK;
 import static com.gapelia.core.auth.AuthHelper.APP_GOOGLE;
-import static com.gapelia.core.auth.AuthHelper.APP_TWITTER;
 
 public class SocialLogin extends HttpServlet {
 	public static Logger LOG = Logger.getLogger(SocialLogin.class);
@@ -42,8 +41,6 @@ public class SocialLogin extends HttpServlet {
 			String url = null;
 			if (APP_FACEBOOK.equals(type)) {
 				url = manager.getAuthenticationUrl(APP_FACEBOOK, successUrl, Permission.AUTHENTICATE_ONLY);
-			} else if (APP_TWITTER.equals(type)) {
-				url = manager.getAuthenticationUrl(APP_TWITTER, successUrl, Permission.AUTHENTICATE_ONLY);
 			} else {
 				url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
 			}
