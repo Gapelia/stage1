@@ -119,8 +119,8 @@
 				stuff = "";
 				stuff += "<section id=\"new-library\">";
 				stuff += "<div class=\"library-controls\">";
-				stuff += "<a href=\"#\" class=\"library-close oc-01\">Cancel</a>";
-				stuff += "<button class=\"library-close oc-02\">Create</button>";
+				stuff += "<a href=\"#\" class=\"library-buttons cancel\">Cancel</a>";
+				stuff += "<a class=\"library-buttons create\" href=\"#\" id=\"create-library\" title=\"Create library\">Create</a>";
 				stuff += "</div>";
 				//stuff += "<button class=\"subscribe slate\">Subscribe</button>";
 				stuff += "<div id=\"new-library-info\">";
