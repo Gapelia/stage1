@@ -464,6 +464,8 @@
 
 	});
 
+	var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+
 	function handleFile(file) {
 
 		pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
