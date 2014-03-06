@@ -1456,6 +1456,20 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	// Hide inline-wrapper when click outisde
+	
+	$(document).mouseup(function (e)
+	{
+		var container = $(".add-inline-content-wrapper");
+
+		if (!container.is(e.target) // if the target of the click isn't the container...
+			&& container.has(e.target).length === 0) // ... nor a descendant of the container
+		{
+			container.hide();
+		}
+	});
+	
+	
 	// Hide editor, show when mouse moves
 	var timedelay = 1;
 
