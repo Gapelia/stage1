@@ -29,6 +29,7 @@ public class QueryDatabaseUser {
     private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
     private static final String GET_CREATED_BOOKS = "SELECT * FROM books where owned_by = ?";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
+    private static final String GET_CREATED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
 
     public static boolean checkUser(Profile profile) {
         PreparedStatement statement = null;
@@ -375,4 +376,46 @@ public class QueryDatabaseUser {
 
         return null;
     }
+
+    //public static Library [] getLibraries
+    public static ArrayList<Library> getCreatedLibraries(int userId){
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Library> libraryList = new ArrayList<Library>();
+        try {
+            statement = connection.prepareStatement(GET_CREATED_LIBRARIES);
+            statement.setInt(1, userId);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Library library = new Library();
+                library.setLibraryId(rs.getInt("id"));
+                library.setUserId(rs.getInt("created_by"));
+                library.setTitle(rs.getString("title"));
+                library.setTags(rs.getString("tags"));
+                library.setCoverPhoto(rs.getString("cover_photo"));
+                library.setDescription(rs.getString("description"));
+                library.setNumSubscribers(rs.getInt("num_subscribers"));
+                library.setFeatutedBook(rs.getInt("featured_book"));
+                library.setCreated(rs.getTimestamp("created"));
+                libraryList.add(library);
+            }
+            return libraryList;
+        } catch (Exception ex) {
+            LOG.error("ERROR: :" + userId, ex);
+        }
+        finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + userId + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
 }

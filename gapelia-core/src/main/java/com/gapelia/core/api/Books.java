@@ -66,7 +66,7 @@ public class Books {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getBookmarkedBooks(@FormParam("sessionId") String sessionId) {
+    public String createPage(@FormParam("sessionId") String sessionId) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         org.brickred.socialauth.Profile profile = AuthHelper.getUserProfileFromSessionId(sessionId);
         String pageId = UUID.randomUUID().toString();

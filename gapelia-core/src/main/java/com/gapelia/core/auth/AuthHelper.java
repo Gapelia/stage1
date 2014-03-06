@@ -72,7 +72,6 @@ public class AuthHelper {
 		basicJs.append("\tvar _validatedId = '").append(validatedId).append("'; \n");
 		basicJs.append("\tvar _providerId = '").append(providerId).append("'; \n");
 		basicJs.append("</script> \n");
-
 		return basicJs.toString();
 	}
 	
