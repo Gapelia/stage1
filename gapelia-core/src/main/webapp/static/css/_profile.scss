@@ -134,6 +134,8 @@
 		padding: 0;
 		z-index: 4;
 
+		[contenteditable] { transition: background-color 0.5s ease; }
+
 		.user-avatar {
 			position: relative;
 			top: 12%;
@@ -179,6 +181,19 @@
 			}
 		}
 
+		h1 { margin: 0 0 0.5rem 0; }
+
+		h5 {
+			font-size: 0.8rem;
+			margin: 0 0 1rem 0;
+
+			a {
+				border-bottom: 2px solid $white;
+				@include serif;
+				font-style: italic;
+			}
+		}
+
 		#splash-user-info {
 			text-align: center;
 			top: 42%;
@@ -192,17 +207,15 @@
 			line-height: 2.1rem;
 		}
 
-		#splash-user-location {
+		#splash-user-location, #splash-user-website, #splash-user-twitter {
 			font-size: 1.5rem;
-			margin: 0 0 1.5rem 0;
+			padding: 0.5rem;
 		}
 
-		#splash-user-website {
-			font-size: 1.5rem;
-			margin: 0 2rem 0 0;
-		}
+		#splash-user-website, #splash-user-twitter { display: inline-block; }
 
-		#splash-user-twitter { font-size: 1.5rem; }
+		#splash-user-location { margin: 0 0 1.5rem 0; }
+		#splash-user-website { margin: 0 2rem 0 0; }
 
 		#close-splash {
 			top: 0; right: 3rem;
