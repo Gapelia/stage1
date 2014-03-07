@@ -38,13 +38,20 @@ public class QueryDatabaseUser {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
+            LOG.info("Creating check user call;");
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, p.getValidatedId());
+            LOG.info(statement.toString());
             rs = statement.executeQuery();
+            LOG.info(rs.toString());
+            LOG
             if (rs.isBeforeFirst()) {
+                LOG.info("User Not in Database");
                 return signUp(p);
             } else {
+                LOG.info("user in database adding their info to the map");
                 User u = getUserByValidatedId(p.getValidatedId());
+                LOG.info("got user object and has a userId of " + u.getUserId());
                 SessionManager.addUserToSessionIdToUser(u, sessionId);
                 return "Success";
             }
@@ -70,6 +77,7 @@ public class QueryDatabaseUser {
         PreparedStatement insert = null;
         ResultSet rs = null;
         try {
+            LOG.info("trying to sign shit up");
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, p.getFirstName());
             insert.setString(2, p.getEmail());
@@ -92,7 +100,10 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
+            LOG.info("attempting to execute");
+            LOG.info(insert.toString());
             rs = insert.executeQuery();
+            LOG.info(rs.toString());
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
@@ -117,6 +128,7 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         User user = new User();
         try {
+            LOG.info("Trying to find user by their validate id");
             statement = connection.prepareStatement(SELECT_VALIDATE);
             statement.setString(1, validatedId);
             rs = statement.executeQuery();
@@ -146,7 +158,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot get user u:" + user, ex);
+            LOG.error("Cannot get user by validate Id u:" + user, ex);
         }
         finally {
             try {
