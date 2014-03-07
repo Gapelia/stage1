@@ -19,14 +19,14 @@ public class QueryDatabaseUser {
     private static final String CHECK_USER = "SELECT * FROM users WHERE validated_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
             "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated)" +
-            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validated_id = ?, provider_id = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
-            "gp = ?, twt = ?, is_public = ? WHERE id = ?";
+	"gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
     private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
     private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ?";
@@ -38,13 +38,20 @@ public class QueryDatabaseUser {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
+            LOG.info("Creating check user call;");
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, p.getValidatedId());
+            LOG.info(statement.toString());
             rs = statement.executeQuery();
-            if (rs.isBeforeFirst()) {
+            LOG.info(rs.toString());
+            LOG.info(String.valueOf(rs.isBeforeFirst()) +" is before first"); 
+            if (!rs.isBeforeFirst()) {
+                LOG.info("User Not in Database");
                 return signUp(p);
             } else {
+                LOG.info("user in database adding their info to the map");
                 User u = getUserByValidatedId(p.getValidatedId());
+                LOG.info("got user object and has a userId of ");
                 SessionManager.addUserToSessionIdToUser(u, sessionId);
                 return "Success";
             }
@@ -70,6 +77,7 @@ public class QueryDatabaseUser {
         PreparedStatement insert = null;
         ResultSet rs = null;
         try {
+            LOG.info("trying to sign shit up");
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, p.getFirstName());
             insert.setString(2, p.getEmail());
@@ -92,7 +100,10 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
+            LOG.info("attempting to execute");
+            LOG.info(insert.toString());
             rs = insert.executeQuery();
+            LOG.info(rs.toString());
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
@@ -117,6 +128,7 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         User user = new User();
         try {
+            LOG.info("Trying to find user by their validate id");
             statement = connection.prepareStatement(SELECT_VALIDATE);
             statement.setString(1, validatedId);
             rs = statement.executeQuery();
@@ -146,7 +158,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot get user u:" + user, ex);
+            LOG.error("Cannot get user by validate Id u:" + user, ex);
         }
         finally {
             try {
@@ -286,7 +298,7 @@ public class QueryDatabaseUser {
             statement.setTimestamp(14, user.getLastUpdated());
             statement.setString(15, user.getPersonalWebsite());
             statement.setString(16, user.getBio());
-			statement.setString(17, user.getTags());
+	    statement.setString(17, user.getTags());
             statement.setString(18, user.getFb());
             statement.setString(19, user.getGp());
             statement.setString(20, user.getTwt());
@@ -488,7 +500,7 @@ public class QueryDatabaseUser {
             }
             return library;
         } catch (Exception ex) {
-        LOG.error("ERROR: :" + id, ex);
+	    LOG.error("ERROR: :" + id, ex);
         }
         finally {
             try {
