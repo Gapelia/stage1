@@ -95,8 +95,8 @@ public class QueryDatabaseUser {
             rs = insert.executeQuery();
             return "New";
         } catch (SQLException ex) {
-            LOG.info("Cannot check user u:" + p + " " + ex.getMessage());
-            return "Cannot check user u:" + p + " " + ex.getMessage();
+            LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
+            return "Cannot sign up user u:" + p + " " + ex.getMessage();
         } finally {
             try {
                 if (rs != null) {
@@ -146,7 +146,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user u:" + user, ex);
+            LOG.error("Cannot get user u:" + user, ex);
         }
         finally {
             try {
@@ -197,7 +197,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user u:" + u, ex);
+            LOG.error("Cannot get user u:" + u, ex);
         }
         finally {
             try {
@@ -220,7 +220,7 @@ public class QueryDatabaseUser {
         User user = new User();
         try {
             statement = connection.prepareStatement(SELECT_USER);
-            statement.setString(1, Integer.toString(userId));
+            statement.setInt(1, userId);
             rs = statement.executeQuery();
             if (rs.next()) {
                 user.setUserId(rs.getInt("id"));
@@ -248,7 +248,7 @@ public class QueryDatabaseUser {
                 return user;
             }
         } catch (Exception ex) {
-            LOG.error("Cannot check user u:" + userId, ex);
+            LOG.error("Cannot get user u:" + userId, ex);
         }
         finally {
             try {
