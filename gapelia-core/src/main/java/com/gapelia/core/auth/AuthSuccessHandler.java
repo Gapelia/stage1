@@ -28,6 +28,7 @@ public class AuthSuccessHandler extends HttpServlet {
 			sessionCookie.setMaxAge(31557600);
 			response.addCookie(sessionCookie);
             String answer = QueryDatabaseUser.checkUser(profile, session.getId());
+            LOG.info("Answer is :" + answer);
 			if (answer =="Success") {
 				response.sendRedirect("/me");
 				return;

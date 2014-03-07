@@ -38,20 +38,13 @@ public class QueryDatabaseUser {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
-            LOG.info("Creating check user call;");
             statement = connection.prepareStatement(CHECK_USER);
             statement.setString(1, p.getValidatedId());
-            LOG.info(statement.toString());
             rs = statement.executeQuery();
-            LOG.info(rs.toString());
-            LOG.info(String.valueOf(rs.isBeforeFirst()) +" is before first"); 
             if (!rs.isBeforeFirst()) {
-                LOG.info("User Not in Database");
                 return signUp(p);
             } else {
-                LOG.info("user in database adding their info to the map");
                 User u = getUserByValidatedId(p.getValidatedId());
-                LOG.info("got user object and has a userId of ");
                 SessionManager.addUserToSessionIdToUser(u, sessionId);
                 return "Success";
             }
