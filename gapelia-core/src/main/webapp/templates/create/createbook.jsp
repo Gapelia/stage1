@@ -50,7 +50,7 @@
 			<div id="finish">
 				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
         <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish your book">Publish</a>
-				<a class="button b transparent" href="/me" id="close-button" title="Save changes and quit">Save + Close</a>
+				<a class="button b transparent" href="/featured" id="close-button" title="Save changes and quit">Save + Close</a>
 			</div>
 		</header>
 
