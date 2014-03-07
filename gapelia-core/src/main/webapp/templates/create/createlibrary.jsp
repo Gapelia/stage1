@@ -89,16 +89,15 @@
 
 			<section id="new-library">
 				<div class="library-controls">
-					<!--/
-					<a href="#" class="library-buttons cancel">Cancel</a>
-					<a class="library-buttons create" href="#" id="create-library" title="Create library">Create</a>
-					/-->
-
 					<button id="confirm-cancel-library" class="blank">Cancel</button>
 					<button id="confirm-create-library" class="outline">Create</button>
 				</div>
 
 				<div id="new-library-info">
+					<div class="button-wrapper">
+						<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
+					</div>
+
 					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 					<p data-placeholder="Add a description" contenteditable="true"></p>
 
@@ -112,7 +111,8 @@
 		</div>
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/touchSwipe.min.js"></script>
+		<script src="/static/scripts/filepicker2.js"></script>
+		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
@@ -127,96 +127,21 @@
 					$("#book-scroller").css("z-index", "0");
 				});
 			}
+			
+			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
 
 			$(function () {
-				$(".book").imgLiquid({ fill: true });
-			});
-		</script>
 
-		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/mousewheel.js"></script>
-
-		<script>
-			$(document).ready(function () {
-
-				/*
-				stuff = "";
-				stuff += "<section id=\"new-library\">";
-				stuff += "<div class=\"library-controls\">";
-				stuff += "<a href=\"#\" class=\"library-buttons cancel\">Cancel</a>";
-				stuff += "<a class=\"library-buttons create\" href=\"#\" id=\"create-library\" title=\"Create library\">Create</a>";
-				stuff += "</div>";
-				//stuff += "<button class=\"subscribe slate\">Subscribe</button>";
-				stuff += "<div id=\"new-library-info\">";
-				//stuff += "<h1>Editor's Name</h1>";
-				stuff += "<h2 data-placeholder=\"Write your title here\" contenteditable=\"true\"></h2>"
-				stuff += "<p data-placeholder=\"Add a description...\" contenteditable=\"true\"></p>";
-				stuff += "<section>";
-				//stuff += "<a id=\"featured-library\" href=\"#\">hikari: The Future of the Operating System</a>";
-				stuff += "</section>";
-				stuff += "</div>";
-				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/wheat-field-by-phk-dan-10.jpg\"/>";
-				stuff += "</section>";
-
-				$("#mp-pusher").prepend(stuff);
-				*/
-
+				$("button.photo-picker").html("&#xf2e4;");
 				$("#new-library").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
+		</script>
 
-			if ($vW > "1024") {
-
-				$(document).on("click", "#close-splash", function () {
-
-					$("#close-splash").css({
-						"left": "-200%",
-						"right": "initial"
-					});
-
-					$("#library-splash").css("left", "-200%");
-					$("#g-menu-toggle").css("color", "#70a1b1");
-
-				});
-
-			} else {
-
-				$(function () {
-
-					$("#library-splash").swipe({
-						// Generic swipe handler for all directions
-						swipeUp: function (event, direction, distance, duration, fingerCount) {
-
-							$("#close-splash").css({
-								"height": "0",
-								"top": "-200%"
-							});
-
-							$("#library-splash").css("top", "-200%");
-							$("#g-menu-toggle").css("color", "#70a1b1");
-
-						}, threshold: 0
-					});
-
-					$(document).on("click", "#close-splash", function () {
-
-						$("#close-splash").css({
-							"height": "0",
-							"top": "-200%"
-						});
-
-						$("#library-splash, #library-splash button").css("top", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
-
-					});
-
-				});
-
-			}
-
-			$(document).ready(function () {
+		<script>
+			/*
+			$(function () {
 
 				var
 				$vW = $(window).width(),
@@ -232,6 +157,7 @@
 				});
 
 			});
+			*/
 		</script>
 		<!--//scripts /-->
 
