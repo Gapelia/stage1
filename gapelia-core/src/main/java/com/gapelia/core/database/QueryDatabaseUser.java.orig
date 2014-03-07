@@ -44,14 +44,23 @@ public class QueryDatabaseUser {
             LOG.info(statement.toString());
             rs = statement.executeQuery();
             LOG.info(rs.toString());
+<<<<<<< HEAD
+            LOG
+            if (rs.isBeforeFirst()) {
+=======
             LOG.info(String.valueOf(rs.isBeforeFirst()) +" is before first"); 
             if (!rs.isBeforeFirst()) {
+>>>>>>> 601cf1933b10f43527b6776f41b7436d2939aa4c
                 LOG.info("User Not in Database");
                 return signUp(p);
             } else {
                 LOG.info("user in database adding their info to the map");
                 User u = getUserByValidatedId(p.getValidatedId());
+<<<<<<< HEAD
+                LOG.info("got user object and has a userId of " + u.getUserId());
+=======
                 LOG.info("got user object and has a userId of ");
+>>>>>>> 601cf1933b10f43527b6776f41b7436d2939aa4c
                 SessionManager.addUserToSessionIdToUser(u, sessionId);
                 return "Success";
             }
