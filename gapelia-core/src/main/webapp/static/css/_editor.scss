@@ -466,7 +466,8 @@
 						width: 50px !important; height: auto !important;
 						bottom: 1rem; left: 1.5rem;
 
-						@include icon;
+						color: rgba(25,25,25,0.6);
+            @include icon;
 						font-size: 2rem !important;
 						position: fixed;
 					}
@@ -507,6 +508,7 @@
 
 						.inline-image-insert {
 							font-size: 2rem !important;
+              margin-top: 5px !important;
 
 							&:after {
 								content: "Insert an image";
@@ -518,8 +520,13 @@
 							border-bottom: 1px solid $white;
 							font-family: inherit !important;
 							font-size: 1rem !important;
+              font-weight: 700;
+              width: 100%;
 
-							&:after { content: "Embed rich media"; }
+							&:after {
+                content: "Embed rich media";
+                font-weight: lighter;
+              }
 						}
 
 						.gapelia-editor-toolbar-form-anchor {
@@ -677,6 +684,7 @@
             .page-desc img {
               width: 100%;
               height: auto;
+              display: initial !important;
             }
 
 						h5 {

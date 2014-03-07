@@ -521,7 +521,7 @@
 
 		insert += "<a href=\"#\" class=\"add-inline-content\">&#xf218;</a>";
 		insert += "<div class=\"add-inline-content-wrapper\">";
-		insert += "<button class=\"inline-embed-insert\">< # ></button>";
+		insert += "<button class=\"inline-embed-insert\">< ></button>";
 
 		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
 
@@ -1456,6 +1456,20 @@
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
 
+	// Hide inline-wrapper when click outisde
+	
+	$(document).mouseup(function (e)
+	{
+		var container = $(".add-inline-content-wrapper");
+
+		if (!container.is(e.target) // if the target of the click isn't the container...
+			&& container.has(e.target).length === 0) // ... nor a descendant of the container
+		{
+			container.hide();
+		}
+	});
+	
+	
 	// Hide editor, show when mouse moves
 	var timedelay = 1;
 
@@ -1464,7 +1478,7 @@
 		if (timedelay == 2) {
 			$(".book-creation header").fadeOut("slow");
 
-			$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
+			$(".add-inline-content, .fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
 
 			// Video layout doesn't really need this, and the button doesn't appear when moving mouse over iframe
 			// $(".video-preview-wrapper button.photo-picker").css("opacity", "0");
@@ -1480,7 +1494,7 @@
 
 		$(".book-creation header").fadeIn();
 
-		$(".fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
+		$(".add-inline-content, .fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "1");
 
 		// $(".video-preview-wrapper button.photo-picker").css("opacity", "1");
 
