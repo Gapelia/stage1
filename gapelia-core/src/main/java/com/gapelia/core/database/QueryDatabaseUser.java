@@ -16,15 +16,15 @@ public class QueryDatabaseUser {
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
     //User Related Queries
-    private static final String CHECK_USER = "SELECT * FROM users WHERE validate_id = ?";
+    private static final String CHECK_USER = "SELECT * FROM users WHERE validated_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
-            "avatar_image, display_name, validate_id, provider_id, member_since, last_login, last_updated)" +
+            "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated)" +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validate_id = ?";
+    private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, " +
-            "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validate_id = ?, provider_id = ?, " +
+            "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validated_id = ?, provider_id = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
@@ -128,7 +128,7 @@ public class QueryDatabaseUser {
                 user.setFullName(rs.getString("full_name"));
                 user.setCoverImage(rs.getString("cover_image"));
                 user.setProviderId(rs.getString("provider_id"));
-                user.setValidatedId(rs.getString("validate_id"));
+                user.setValidatedId(rs.getString("validated_id"));
                 user.setBio(rs.getString("bio"));
                 user.setFb(rs.getString("fb"));
                 user.setGp(rs.getString("gp"));
@@ -179,7 +179,7 @@ public class QueryDatabaseUser {
                 user.setFullName(rs.getString("full_name"));
                 user.setCoverImage(rs.getString("cover_image"));
                 user.setProviderId(rs.getString("provider_id"));
-                user.setValidatedId(rs.getString("validate_id"));
+                user.setValidatedId(rs.getString("validated_id"));
                 user.setBio(rs.getString("bio"));
                 user.setFb(rs.getString("fb"));
                 user.setGp(rs.getString("gp"));
