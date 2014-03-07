@@ -113,12 +113,11 @@
 
 		pages.page[0] = {
 			"pageNumber": 0,
-			"templateId": "0",
+			"templateId":0,
 			"title": null,
 			"text": null,
-			"image": "0",
-			"video": "null"
-		};
+		    "image":null,
+		    "video":null		};
 
 	});
 
