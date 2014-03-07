@@ -80,11 +80,34 @@
 					<i class="ion-drag"></i>
 				</button>
 
+				<!--/
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
 				</div>
-
+				/-->
 			</div>
+
+			<section id="new-library">
+				<div class="library-controls">
+					<!--/
+					<a href="#" class="library-buttons cancel">Cancel</a>
+					<a class="library-buttons create" href="#" id="create-library" title="Create library">Create</a>
+					/-->
+
+					<button id="confirm-cancel-library" class="blank">Cancel</button>
+					<button id="confirm-create-library" class="outline">Create</button>
+				</div>
+
+				<div id="new-library-info">
+					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
+					<p data-placeholder="Add a description" contenteditable="true"></p>
+
+					<section></section>
+				</div>
+
+				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
+				<img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/>
+			</section>
 
 		</div>
 
@@ -116,6 +139,7 @@
 		<script>
 			$(document).ready(function () {
 
+				/*
 				stuff = "";
 				stuff += "<section id=\"new-library\">";
 				stuff += "<div class=\"library-controls\">";
@@ -136,6 +160,7 @@
 				stuff += "</section>";
 
 				$("#mp-pusher").prepend(stuff);
+				*/
 
 				$("#new-library").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");

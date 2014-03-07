@@ -520,7 +520,7 @@
 		font-weight: 300;
 	}
 
-	#featured-splash, #library-splash, #new-library, #user-splash {
+	#featured-splash, #library-splash, #user-splash, #new-library {
 		width: 100%; height: 100%;
 		top: 0; left: 0;
 
@@ -530,7 +530,7 @@
 		transition: top 1.3s ease, left 1.3s ease;
 		z-index: 3;
 
-		#library-info, #new-library-info, #featured-info, #splash-user-info {
+		#library-info, #featured-info, #splash-user-info, #new-library-info {
 			color: $white;
 			padding: 0 15rem; //
 			position: relative;
@@ -587,7 +587,7 @@
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			background-image: linear-gradient(to bottom, rgba($black, 0.4), $black);
+			background-image: linear-gradient(to bottom, rgba($black, 0), $black);
 			content: "";
 			opacity: 1;
 			position: absolute;
@@ -645,7 +645,6 @@
 
 			.author-name {
 				margin: 0 0.8rem 0 0;
-
 				&:before { content: "by"; }
 			}
 
@@ -687,84 +686,65 @@
 		}
 	}
 
-  #new-library {
-  
-    #new-library-info {
-      left:20%; width: 60%;
-      padding: 0 !important;
-      top: 45%;
-      
-      h2 {
-          font-size: 42px;
-          font-weight: 700;
-          
-          &:empty:after {
-            color: rgba(255,255,255,0.5);
-            content : "Name your library";
-          }  
-      }
-      
-      h1 { font-size: 0.9rem; }
-      
-      p {
-          font-weight: 200;
-          font-size: 1.1em;
-          padding-top: 12px;
-        
-          &:empty:after {
-            color: rgba(255,255,255,0.5);
-            content : "Add a description here...";
-          }
-      }
-      
-      section {
-          font-weight: bold;
-          padding-bottom: 15px;
-      }  
-    }
-    
-    button {
-      //display: none;
+	#new-library {
+		#new-library-info {
+			top: 45%; left:20%;
+
+			padding: 0;
+			width: 60%;
+
+			h2 {
+				font-weight: 700;
+
+				&:empty:after {
+					color: rgba($white, 0.7);
+					content: "Name your library";
+				}
+			}
 		}
-    
-    .button-wrapper {
-      position: absolute;
+
+		// h1 { font-size: 0.9rem; }
+
+		p {
+			/*
+			font-weight: 200;
+			font-size: 1.1em;
+			padding-top: 12px;
+			*/
+			font-size: 1.3rem;
+			letter-spacing: 0.006rem;
+			line-height: 2.3rem;
+
+			&:empty:after {
+				color: rgba($white, 0.7);
+				content: "Add a description here";
+			}
+		}
+
+		section {
+			// font-weight: 700;
+			// padding-bottom: 15px;
+		}
+
+		.button-wrapper {
+			margin: 0 auto;
+			position: relative; // absolute
 			text-align: center;
-			width: 100%;
-      margin: 0 auto;
-			position: relative;
 			top: 2.5rem;
+			width: 100%;
 		}
-    
-    #close-splash {
-      display: none;
-    }
-    
-    .library-controls {
-      top: 2rem; right: 2rem;
 
-      position: fixed;
-      z-index: 100;
+		.library-controls {
+			top: 2rem; right: 2rem;
 
-      .library-buttons {
-          font-size: 1.0rem;
-          padding: 0.2rem 0.5rem;
-      }
+			position: fixed;
+			z-index: 100;
 
-      .cancel {
-          margin: 0 1rem 0 0;
-          color: white;
-          display: inline !important ;
-      }
+			.outline { border: 1px solid $white !important; }
+		}
 
-      .create {
-          background-color: transparent !important ;
-          border: 1px solid rgba(255, 255, 255, 0.5);
-          border-radius: 5px;
-          color: $white;
-      }
-    }
-  }  
+		#close-splash { display: none; }
+	}
 
 	.facebook, .ion-social-facebook			{ color: $facebook; }
 	.googleplus, .ion-social-googleplus	{ color: $google; }
