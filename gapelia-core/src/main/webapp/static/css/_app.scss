@@ -766,37 +766,10 @@
     }
   }  
 
-	#user-splash {
-		padding: 0;
-		z-index: 4;
-
-		.user-avatar {
-			position: relative;
-			top: 20%;
-		}
-
-		#splash-user-info {
-			text-align: center;
-			top: 40%;
-		}
-
-		#splash-user-bio {
-			margin: 0 0 3rem 0; padding: 1rem;
-
-			display: block;
-			font-size: 1.2rem;
-			line-height: 1.5rem;
-		}
-
-		#close-splash {
-			top: 0; right: 3rem;
-		}
-	}
-
-	.facebook, .ion-social-facebook { color: $facebook; }
-	.googleplus, .ion-social-googleplus { color: $google; }
-	.twitter, .ion-social-twitter { color: $twitter; }
-	.email, .ion-email, .ion-ios7-at { color: $slate; }
+	.facebook, .ion-social-facebook			{ color: $facebook; }
+	.googleplus, .ion-social-googleplus	{ color: $google; }
+	.twitter, .ion-social-twitter				{ color: $twitter; }
+	.email, .ion-email, .ion-ios7-at		{ color: $slate; }
 
 }
 

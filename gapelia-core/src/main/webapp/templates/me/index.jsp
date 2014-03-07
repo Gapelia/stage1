@@ -269,11 +269,22 @@
 
 				stuff = "";
 				stuff += "<section id=\"user-splash\">";
-				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\"></div></div>";
+				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
+				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
+				stuff += "<div id=\"splash-edit-wrapper\">";
+				// stuff += "<button class=\"edit-profile slate\">Edit Profile</button>";
+				// stuff += "<button class=\"edit-profile slate\">Quick Edit Profile</button>";
+				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Edit Profile</a>";
+				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Quick Edit Profile</a>";
+				stuff += "</div>";
+				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
-				stuff += "<h2>Paul Anthony Webb</h2>";
-				stuff += "<span id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>";
-				stuff += "<div class=\"button-wrapper\"><button class=\"edit-profile slate\">Edit Profile</button></div>";
+				stuff += "<h1>Paul Anthony Webb</h1>";
+				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
+				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+				stuff += "<a id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</a>";
+				stuff += "<a id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</a>";
+				// stuff += "<div class=\"button-wrapper\"><button class=\"edit-profile slate\">Edit Profile</button></div>";
 				stuff += "</div>";
 				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
 				stuff += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";

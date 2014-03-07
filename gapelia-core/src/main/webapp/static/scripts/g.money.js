@@ -56,6 +56,7 @@
 		}
 
 		// Edit Profile on "Me" page
+		/*
 		$(document).on("click", "button.edit-profile", function () {
 
 			$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
@@ -69,6 +70,96 @@
 			$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
 			$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+
+		});
+		*/
+
+		// "Me" splash functionality
+		$(document).on("click", "#splash-edit-profile", function (e) {
+
+			$("#splash-edit-wrapper").css({
+				"opacity": "1",
+				"right": "-135px"
+			});
+
+			$("#splash-edit-profile").css({
+				"right": "-9.4rem",
+				"transform": "rotate(180deg)",
+				"-o-transform": "rotate(180deg)",
+				"-moz-transform": "rotate(180deg)",
+				"-webkit-transform": "rotate(180deg)"
+			});
+
+			if ($("#splash-edit-wrapper").css("opacity") == "1") {
+
+				$("#splash-edit-wrapper").css({
+					"opacity": "0",
+					"right": "0"
+				});
+
+				$("#splash-edit-profile").css({
+					"right": "-0.85rem",
+					"transform": "rotate(0deg)",
+					"-o-transform": "rotate(0deg)",
+					"-moz-transform": "rotate(0deg)",
+					"-webkit-transform": "rotate(0deg)"
+				});
+
+			}
+
+			e.preventDefault();
+
+		});
+
+		var descElem = "splash-user-bio";
+		descMax = 151;
+
+		$("#" + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
+
+		function check_charcount(titleElem, titleMax, e) {
+			if(e.which != 8 && $("#" + titleElem).text().length > titleMax) {
+				e.preventDefault();
+			}
+		}
+
+		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile", function (e) {
+
+			$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
+				"background-color": "#4cd964",
+				"border-bottom-right-radius": "5px"
+			}).addClass("quick-save-profile");
+
+			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
+
+			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
+			$("#splash-user-website").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
+			$("#splash-user-twitter").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
+
+			if ($("#splash-edit-wrapper .quick-edit-profile").css("background-color") == "#4cd964") {
+
+				$("#splash-edit-wrapper .quick-edit-profile").text("Quick Edit Profile").css("background-color", "transparent");
+
+				$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+				$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");
+				$("#splash-user-website").attr("contenteditable", "false").css("background-color", "transparent");
+				$("#splash-user-twitter").attr("contenteditable", "false").css("background-color", "transparent");
+
+			}
+
+			e.preventDefault();
+
+		});
+
+		$(document).on("click", "#splash-edit-wrapper .quick-save-profile", function (e) {
+
+			$("#splash-edit-wrapper .quick-edit-profile").text("Quick Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
+
+			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+			$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");
+			$("#splash-user-website").attr("contenteditable", "false").css("background-color", "transparent");
+			$("#splash-user-twitter").attr("contenteditable", "false").css("background-color", "transparent");
+
+			e.preventDefault();
 
 		});
 
