@@ -93,7 +93,7 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
-            insert.executeQuery();
+            insert.executeUpdate();
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
