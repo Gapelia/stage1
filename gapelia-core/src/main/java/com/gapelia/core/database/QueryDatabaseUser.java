@@ -96,7 +96,6 @@ public class QueryDatabaseUser {
             LOG.info("attempting to execute");
             LOG.info(insert.toString());
             rs = insert.executeQuery();
-            LOG.info(rs.toString());
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());

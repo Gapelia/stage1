@@ -134,14 +134,4 @@
 		<to>/library/$1</to>
 	</outbound-rule>
 
-    <rule>
-        <from>^/librarymanager$</from>
-        <to>/templates/edit/libraryManager.jsp</to>
-    </rule>
-
-    <outbound-rule>
-        <from>^/templates/edit/libraryManager.jsp</from>
-        <to>/librarymanager</to>
-    </outbound-rule>
-
 </urlrewrite>
