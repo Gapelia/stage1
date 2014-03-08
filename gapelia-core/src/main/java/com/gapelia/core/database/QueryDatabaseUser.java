@@ -93,9 +93,7 @@ public class QueryDatabaseUser {
             insert.setDate(11, new Date(System.currentTimeMillis()));
             insert.setDate(12, new Date(System.currentTimeMillis()));
             insert.setDate(13, new Date(System.currentTimeMillis()));
-            LOG.info("attempting to execute");
-            LOG.info(insert.toString());
-            rs = insert.executeQuery();
+            insert.executeQuery();
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
