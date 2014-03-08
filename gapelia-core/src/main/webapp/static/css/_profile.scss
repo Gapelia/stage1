@@ -224,6 +224,27 @@
 
 	//
 
+	.book-buttons {
+		top: 0; right: 0;
+
+		padding: 1rem;
+		position: absolute;
+		z-index: 1;
+
+		.delete-this-book, .edit-this-book {
+			width: 32px !important; height: 32px !important;
+
+			color: $white;
+			display: inline-block !important;
+			@include icon;
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 0;
+			text-align: center;
+			text-shadow: 0 0 0.13rem $black !important;
+		}
+	}
+
 	.new-inner-wrapper {
 		height: auto;
 		top: 15%;

@@ -314,7 +314,7 @@
 				stuff += "<section id=\"library-splash\">";
 				stuff += "<button class=\"subscribe slate\">Subscribe</button>";
 				stuff += "<div id=\"library-info\">";
-				stuff += "<h1>Editor's Name</h2>";
+				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
 				stuff += "<h2>Library Name</h2>";
 				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
 				stuff += "<section>";

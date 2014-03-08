@@ -120,6 +120,11 @@
 					<ul id="user-book-list">
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
 
 							<div class="book-info">
@@ -131,6 +136,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
 
 							<div class="book-info">
@@ -142,6 +152,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
 
 							<div class="book-info">
@@ -153,6 +168,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
 
 							<div class="book-info">
@@ -164,6 +184,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head × Beats Take Significance</a></div>
 
 							<div class="book-info">
@@ -175,6 +200,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Save the trees, too!</a></div>
 
 							<div class="book-info">
@@ -186,6 +216,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">BOkeH!</a></div>
 
 							<div class="book-info">
@@ -197,6 +232,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">The Wild Thornberrys!</a></div>
 
 							<div class="book-info">
@@ -208,6 +248,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Crying Rivers: The Justin Timberlake Story</a></div>
 
 							<div class="book-info">
@@ -219,6 +264,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Trees Yo</a></div>
 
 							<div class="book-info">

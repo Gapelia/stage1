@@ -156,7 +156,7 @@
 		position: absolute;
 		top: 0.35rem;
 		transition: all 0.5s ease;
-		z-index: 3;
+		z-index: 5 !important;
 
 		&:hover { opacity: 0.7; }
 	}
@@ -528,7 +528,7 @@
 		padding: 2rem;
 		position: absolute;
 		transition: top 1.3s ease, left 1.3s ease;
-		z-index: 3;
+		z-index: 1;
 
 		#library-info, #featured-info, #splash-user-info, #new-library-info {
 			color: $white;
@@ -687,6 +687,59 @@
 	}
 
 	#new-library {
+		.spinner {
+			top: 50% !important; left: 50% !important;
+			display: none;
+		}
+
+		.button-wrapper {
+			position: absolute;
+			text-align: center;
+			top: -6rem;
+			width: 100%;
+		}
+
+		.photo-picker {
+			margin: 0 !important; padding: 0 !important;
+
+			background-color: transparent;
+			background-repeat: initial;
+			border: 0;
+			border-radius: 0;
+			color: rgba($white, 0.7);
+			cursor: pointer;
+			font-size: 3rem;
+			@include icon;
+			font-weight: normal;
+			left: 0;
+			opacity: 1;
+			position: absolute;
+			transition: all 0.2s ease;
+			z-index: 2;
+
+			&:after {
+				content: "Enhance your story with imagery";
+				@include serif;
+				font-size: 0.8rem;
+				font-style: italic;
+				letter-spacing: initial;
+				margin: 0 0 0 -11rem;
+				opacity: 0;
+				text-transform: initial;
+				transition: all 0.5s ease;
+				vertical-align: middle;
+			}
+
+			&:hover {
+				color: inherit; // $black
+
+				&:after {
+					margin: 0 0 0 1rem;
+					opacity: 1;
+				}
+			}
+		}
+
 		#new-library-info {
 			top: 45%; left:20%;
 
@@ -726,6 +779,7 @@
 			// padding-bottom: 15px;
 		}
 
+		/*
 		.button-wrapper {
 			margin: 0 auto;
 			position: relative; // absolute
@@ -733,6 +787,7 @@
 			top: 2.5rem;
 			width: 100%;
 		}
+		*/
 
 		.library-controls {
 			top: 2rem; right: 2rem;
