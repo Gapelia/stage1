@@ -17,7 +17,7 @@
 		width: 100%;
 
 		#g-menu-toggle {
-			left: 1rem;
+			left: 2rem;
 			width: auto;
 		}
 
@@ -321,7 +321,10 @@
 
 .accounts {
 
-	#user-panel { display: block; }
+	#user-panel {
+		display: block;
+		width: 96px;
+	}
 
 	#account-information {
 		overflow: scroll;

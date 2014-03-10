@@ -58,7 +58,7 @@
 // Open menu
 .super-wrapper.mp-pushed {
 	#g-menu-toggle {
-		color: $white;
+		color: $white !important; // stop changing this, white is the only color that makes sense
 		opacity: 1;
 	}
 

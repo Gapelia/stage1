@@ -12,7 +12,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -37,7 +37,7 @@
 	</head>
 
 	<body class="app profile accounts">
-	
+
 		<div id="mp-pusher" class="super-wrapper">
 
 			<!--/ site-menu /-->
@@ -51,7 +51,9 @@
 						<li><a href="/createlibrary">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-drafts" class="not-mobile">
+							<a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+
 							<ul>
 								<li><a href="#">hikari: The Future of the Operating System</a></li>
 								<li><a href="#">007: The Diego Regules Story</a></li>
@@ -59,7 +61,9 @@
 							</ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-notify">
+							<a>Notifications</a><a class="icon" href="#">&#xf104;</a>
+
 							<ul>
 								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
 								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
@@ -82,6 +86,7 @@
 			</div>
 
 			<div id="account-information">
+
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Personal</a></li>
@@ -116,22 +121,6 @@
 						</form>
 					</div>
 
-					<div class="col-3">
-						<div><div>
-						<!--/
-						<form class="bl_form">
-							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
-							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
-							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-
-							<input class="" name="commit" type="submit" value="Update Settings"/>
-						</form>
-						/-->
-					</div>
-
 				</div>
 
 				<!--/ Password Settings /-->
@@ -158,7 +147,7 @@
 							<label for="yay-email" id="email-yay">Sweet, I love email</label><br/>
 
 							<input type="radio" name="email-opt" id="nay-email">
-							<label for="nav-email" id="email-nay">Nah, I get enough fan-mail already</label>
+							<label for="nay-email" id="email-nay">Nah, I get enough fan-mail already</label>
 						</p>
 					</section>
 
@@ -188,22 +177,23 @@
 					</section>
 
 				</div>
+
 			</div>
 
-		</div>
+			<!--/ Overlay — delete account /-->
+			<div id="delete-account-overlay" class="overlay">
+				<section>
+					<h1>Warning</h1>
 
-		<!--/ Overlay — delete account /-->
-		<div id="delete-account-overlay" class="overlay">
-			<section>
-				<h1>Warning</h1>
+					<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
 
-				<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
+					<p>
+						<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
+						<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
+					</p>
+				</section>
+			</div>
 
-				<p>
-					<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
-					<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
-				</p>
-			</section>
 		</div>
 
 		<!--/ scripts /-->
@@ -215,269 +205,269 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			$(function () {
+		$(function () {
 
-				// Load Gapelia
+			// Load Gapelia
+			NProgress.start();
+
+			$(".labelBetter").labelBetter({ easing: "bounce" });
+
+			// Slide menu for desktop
+			if ($vW > "1024") {
+
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+
+			}
+
+			// Dropdown menu for mobile
+			if ($vW < "1025") {
+
+				menu = "";
+				menu += "<ul id=\"menu\" style=\"display: none;\">";
+				menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+				menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
+				menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+				menu += "<ul>";
+				menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
+				menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
+				menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
+				menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
+				menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
+				menu += "</ul>";
+				menu += "</li>";
+				menu += "</ul>";
+
+				$("#g-menu-toggle").after(menu);
+
+				$(document).on("click", "#g-menu-toggle", function () {
+					$("#menu").toggle();
+				});
+
+				$(document).on("click", "#nav-notify", function (e) {
+
+					$("#nav-notify ul").toggle();
+
+					if ($("#nav-notify ul").css("display") == "block") {
+						$("#nav-notify").css("padding", "1rem 0 0 0");
+					} else {
+						$("#nav-notify").css("padding", "1rem");
+					}
+
+					e.preventDefault();
+
+				});
+
+			}
+
+			// Make things fit nicely on iPhones
+			if ($vW < "322") {
+
+				$("#email-yay").text("Heck yeah!");
+				$("#email-nay").text("Erm, no thanks");
+
+			}
+
+			NProgress.done();
+
+			// Click "Personal"
+			$("#nav-personal").click(function (e) {
+
 				NProgress.start();
 
-				$(".labelBetter").labelBetter({ easing: "bounce" });
+				setTimeout(function () {
 
-				// Slide menu for desktop
-				if ($vW > "1024") {
+					$(".account-password-wrapper").hide();
+					$(".account-notifications-wrapper").hide();
+					$(".account-pro-wrapper").hide();
+					$(".account-billing-wrapper").hide();
+					$(".account-delete-wrapper").hide();
 
-					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+					$(".account-info-wrapper").fadeIn("100");
 
-					$(".mp-pushed").ready(function () {
-						$("#book-scroller").css("z-index", "0");
-					});
+				}, 500);
 
-				}
+				e.preventDefault();
 
-				// Dropdown menu for mobile
-				if ($vW < "1025") {
+				$("#nav-personal").addClass("current");
 
-					menu = "";
-					menu += "<ul id=\"menu\" style=\"display: none;\">";
-					menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
-					menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
-					menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
-					menu += "<ul>";
-					menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
-					menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
-					menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
-					menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
-					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
-					menu += "</ul>";
-					menu += "</li>";
-					menu += "</ul>";
-
-					$("#g-menu-toggle").after(menu);
-
-					$(document).on("click", "#g-menu-toggle", function () {
-						$("#menu").toggle();
-					});
-
-					$(document).on("click", "#nav-notify", function (e) {
-
-						$("#nav-notify ul").toggle();
-
-						if ($("#nav-notify ul").css("display") == "block") {
-							$("#nav-notify").css("padding", "1rem 0 0 0");
-						} else {
-							$("#nav-notify").css("padding", "1rem");
-						}
-
-						e.preventDefault();
-
-					});
-
-				}
-
-				// Make things fit nicely on iPhones
-				if ($vW < "322") {
-
-					$("#email-yay").text("Heck yeah!");
-					$("#email-nay").text("Erm, no thanks");
-
-				}
+				$("#nav-password").removeClass("current");
+				$("#nav-notify").removeClass("current");
+				$("#nav-pro").removeClass("current");
+				$("#nav-billing").removeClass("current");
+				$("#nav-delete").removeClass("current");
 
 				NProgress.done();
 
-				// Click "Personal"
-				$("#nav-personal").click(function (e) {
+			});
 
-					NProgress.start();
+			// Click "Password"
+			$("#nav-password").click(function (e) {
 
-					setTimeout(function () {
+				NProgress.start();
 
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
+				setTimeout(function () {
 
-						$(".account-info-wrapper").fadeIn("100");
+					$(".account-info-wrapper").hide();
+					$(".account-notifications-wrapper").hide();
+					$(".account-pro-wrapper").hide();
+					$(".account-billing-wrapper").hide();
+					$(".account-delete-wrapper").hide();
 
-					}, 500);
+					$(".account-password-wrapper").fadeIn("100");
 
-					e.preventDefault();
+				}, 500);
 
-					$("#nav-personal").addClass("current");
+				e.preventDefault();
 
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
+				$("#nav-password").addClass("current");
 
-					NProgress.done();
+				$("#nav-personal").removeClass("current");
+				$("#nav-notify").removeClass("current");
+				$("#nav-pro").removeClass("current");
+				$("#nav-billing").removeClass("current");
+				$("#nav-delete").removeClass("current");
 
-				});
-
-				// Click "Password"
-				$("#nav-password").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-password-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-password").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Notifications"
-				$("#nav-notify").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-notifications-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-notify").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Pro"
-				$("#nav-pro").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-pro-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-pro").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Billing"
-				$("#nav-billing").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-billing-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-billing").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Delete Account"
-				$("#nav-delete").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-
-						$(".account-delete-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-delete").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Modal — delete account
-				$("#delete-account").click(function (e) {
-
-					$("#delete-account-overlay").addClass("open");
-					e.preventDefault();
-
-				});
+				NProgress.done();
 
 			});
+
+			// Click "Notifications"
+			$("#nav-notify").click(function (e) {
+
+				NProgress.start();
+
+				setTimeout(function () {
+
+					$(".account-info-wrapper").hide();
+					$(".account-password-wrapper").hide();
+					$(".account-pro-wrapper").hide();
+					$(".account-billing-wrapper").hide();
+					$(".account-delete-wrapper").hide();
+
+					$(".account-notifications-wrapper").fadeIn("100");
+
+				}, 500);
+
+				e.preventDefault();
+
+				$("#nav-notify").addClass("current");
+
+				$("#nav-personal").removeClass("current");
+				$("#nav-password").removeClass("current");
+				$("#nav-pro").removeClass("current");
+				$("#nav-billing").removeClass("current");
+				$("#nav-delete").removeClass("current");
+
+				NProgress.done();
+
+			});
+
+			// Click "Pro"
+			$("#nav-pro").click(function (e) {
+
+				NProgress.start();
+
+				setTimeout(function () {
+
+					$(".account-info-wrapper").hide();
+					$(".account-password-wrapper").hide();
+					$(".account-notifications-wrapper").hide();
+					$(".account-billing-wrapper").hide();
+					$(".account-delete-wrapper").hide();
+
+					$(".account-pro-wrapper").fadeIn("100");
+
+				}, 500);
+
+				e.preventDefault();
+
+				$("#nav-pro").addClass("current");
+
+				$("#nav-personal").removeClass("current");
+				$("#nav-password").removeClass("current");
+				$("#nav-notify").removeClass("current");
+				$("#nav-billing").removeClass("current");
+				$("#nav-delete").removeClass("current");
+
+				NProgress.done();
+
+			});
+
+			// Click "Billing"
+			$("#nav-billing").click(function (e) {
+
+				NProgress.start();
+
+				setTimeout(function () {
+
+					$(".account-info-wrapper").hide();
+					$(".account-password-wrapper").hide();
+					$(".account-notifications-wrapper").hide();
+					$(".account-pro-wrapper").hide();
+					$(".account-delete-wrapper").hide();
+
+					$(".account-billing-wrapper").fadeIn("100");
+
+				}, 500);
+
+				e.preventDefault();
+
+				$("#nav-billing").addClass("current");
+
+				$("#nav-personal").removeClass("current");
+				$("#nav-password").removeClass("current");
+				$("#nav-notify").removeClass("current");
+				$("#nav-pro").removeClass("current");
+				$("#nav-delete").removeClass("current");
+
+				NProgress.done();
+
+			});
+
+			// Click "Delete Account"
+			$("#nav-delete").click(function (e) {
+
+				NProgress.start();
+
+				setTimeout(function () {
+
+					$(".account-info-wrapper").hide();
+					$(".account-password-wrapper").hide();
+					$(".account-notifications-wrapper").hide();
+					$(".account-pro-wrapper").hide();
+					$(".account-billing-wrapper").hide();
+
+					$(".account-delete-wrapper").fadeIn("100");
+
+				}, 500);
+
+				e.preventDefault();
+
+				$("#nav-delete").addClass("current");
+
+				$("#nav-personal").removeClass("current");
+				$("#nav-password").removeClass("current");
+				$("#nav-notify").removeClass("current");
+				$("#nav-pro").removeClass("current");
+				$("#nav-billing").removeClass("current");
+
+				NProgress.done();
+
+			});
+
+			// Modal — delete account
+			$("#delete-account").click(function (e) {
+
+				$("#delete-account-overlay").addClass("open");
+				e.preventDefault();
+
+			});
+
+		});
 		</script>
 
 	</body>
