@@ -163,6 +163,74 @@
 
 		});
 
+		// "Me" Dashboard
+		// @Gapelia
+		// ----------------------------------------------------------------------------------
+
+		// Delete book
+		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
+
+			$(this).closest("li").prepend("<div class=\"delete-book-confirm\"><h3>Hold on there, are you *sure* you want to delete your book?</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-book\">Yes, delete</a><a href=\"#\" class=\"button b green nay-delete-book\">Nope, cancel</a></div></div>");
+
+			e.preventDefault();
+
+		});
+
+		// Confirm book deletion
+		$(document).on("click", ".yay-delete-book", function (e) {
+
+			if ($vW > "1024") {
+
+				// Recalculate horizontal list width
+				$("#user-book-list").css({
+					"opacity": "0",
+					"margin": "2px 0 0 0"
+				});
+
+				$(this).closest("li").remove();
+
+				// gets all books in a section
+				var allBooks = $("#user-book-list li");
+
+				// holds function for one second and then adds width to body tag
+				setTimeout(function () {
+
+					var w = 0;
+
+					$("#user-book-list li").each(function () { w += $(this).outerWidth(); });
+
+					w += 500;
+
+					$("#user-book-list").css("width", w - 320 + "px");
+
+					$("#user-book-list").css({
+						"opacity": "1",
+						"margin": "2px 0 0 0"
+					});
+
+				}, 500);
+
+			} else {
+
+				// Carry on
+				$(this).closest("li").remove();
+
+			}
+
+			e.preventDefault();
+
+		});
+
+		// Cancel book deletion
+		$(document).on("click", ".nay-delete-book", function (e) {
+
+			$(this).closest(".delete-book-confirm").remove();
+			$(this).closest(".image-overlay").css("display", "block");
+
+			e.preventDefault();
+
+		});
+
 		// Edit Email in "Accounts"
 		$(document).on("click", "#email-edit a", function (e) {
 
@@ -341,14 +409,14 @@
 
 		if ($vW > "1024") {
 
-			// gets all photos in a post
-			var allpics = $("#user-book-list li, #library-list li, #bookmark-list li");
+			// gets all books in a section
+			var allBooks = $("#user-book-list li, #library-list li, #bookmark-list li");
 
-			// gets first photo in list
-			var firstpic = $(allpics).first();
+			// gets first book in list
+			var firstBook = $(allBooks).first();
 
-			// hides all photos in a post except the first photo
-			$(allpics).not(firstpic).hide();
+			// hides all books in a section, except the first one
+			$(allBooks).not(firstBook).hide();
 
 			// holds function for one second and then adds width to body tag
 			setTimeout(function () {

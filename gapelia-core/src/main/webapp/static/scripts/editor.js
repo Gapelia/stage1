@@ -116,8 +116,9 @@
 			"templateId":0,
 			"title": null,
 			"text": null,
-		    "image":null,
-		    "video":null		};
+			"image": null,
+			"video": null
+		};
 
 	});
 
@@ -161,7 +162,8 @@
 		if(e.id == "add-page") {
 			return;
 		}
-        e.style.border = "3px solid #70a1b1";
+
+		e.style.border = "3px solid #70a1b1";
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
 
@@ -351,14 +353,16 @@
 				"video": "null",
 				"attribution": null
 			};
-            currentPage=pagesCreated;
+
+			currentPage = pagesCreated;
 			templateId = 0;
 			title = null;
 			text = null;
 			imageURL = null;
 			videoURL = null;
 			attribution = null;
-            fluidLayout();
+
+			fluidLayout();
 		}
 
 		/*
@@ -464,6 +468,7 @@
 
 	});
 
+	// Image insertion
 	var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
 
 	function handleFile(file) {

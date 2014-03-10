@@ -88,6 +88,8 @@
 					<i class="ion-drag"></i>
 				</button>
 
+				<span id="user-header">USERNAME</span>
+
 				<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
 				<div id="user-wrapper">

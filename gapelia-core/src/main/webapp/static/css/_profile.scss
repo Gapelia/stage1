@@ -14,6 +14,12 @@
 	#user-panel {
 		color: rgba($black, 0.9);
 		display: none; //
+		width: 100%;
+
+		#g-menu-toggle {
+			left: 1rem;
+			width: auto;
+		}
 
 		.button-wrapper {
 			bottom: 5%;
@@ -22,6 +28,9 @@
 			width: 100%;
 			z-index: 1;
 		}
+	}
+
+	#user-book-list {
 	}
 
 	#user-wrapper { display: none; } //
@@ -126,6 +135,32 @@
 			&:hover { padding: 0.5rem 1.5rem; }
 		}
 	}
+
+	#user-header {
+		display: inherit;
+		font-size: 1.4rem;
+		line-height: 3.5rem;
+		padding: 0 14rem;
+		text-align: center;
+
+		@include ellipsis;
+	}
+
+	.delete-book-confirm {
+		width: 100%; height: 100%;
+
+		background: linear-gradient(180deg, #47565f 0%, #5b625a 15%, #947461 38%, #f98056 70%, #f7ec86 100%);
+		color: $white;
+		padding: 4rem 2rem;
+		position: relative;
+		text-align: center;
+		// top: 100%;
+		transition: all 0.2s ease;
+		z-index: 2;
+
+		h3 { margin: 8rem 0 0 0; }
+	}
+
 	// End User Code
 
 	// Splash page
