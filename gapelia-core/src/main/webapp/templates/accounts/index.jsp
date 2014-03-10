@@ -90,10 +90,10 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Personal</a></li>
-						<li id="nav-password"><a href="#">Password</a></li>
-						<li id="nav-notify"><a href="#">Notifications</a></li>
-						<li id="nav-pro"><a href="#">Pro</a></li>
-						<li id="nav-billing"><a href="#">Billing</a></li>
+						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
+						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
+						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
+						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
 						<li id="nav-delete"><a href="#">Delete Account</a></li>
 					</ul>
 				</div>
@@ -101,7 +101,42 @@
 				<!--/ Personal Settings /-->
 				<div class="account-info-wrapper">
 
-					<div class="col-3">
+					<div class="col-2">
+
+						<div id="account-splash-wrapper">
+							<section id="account-user-splash">
+								<div class="account-user-avatar">
+									<div class="account-avatar-wrapper">
+										<a href="#" id="account-splash-edit-profile">&#xf13d;</a>
+										<img src="/static/images/users/11.jpg"/>
+
+										<!--/
+										<div id="splash-edit-wrapper">
+											<a class="edit-profile" href="/accounts">Edit Profile</a>
+											<a class="quick-edit-profile" href="#">Quick Edit Profile</a>
+										</div>
+										/-->
+									</div>
+								</div>
+
+								<div id="account-splash-user-info">
+									<h1>Paul Anthony Webb</h1>
+									<h5>Contributes to <a href="">S P A C E</a>, <a href="">Technological Marvels</a>, and others.</h5>
+
+									<div id="account-splash-user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>
+
+									<div id="account-splash-user-location" contenteditable="false">Boston, MA</div>
+									<div id="account-splash-user-website" contenteditable="false">dsgn.io</div>
+									<div id="account-splash-user-twitter" contenteditable="false">@NetOpWibby</div>
+								</div>
+
+								<img class="page-bg" src="/static/images/bg-05.jpg"/>
+							</section>
+						</div>
+
+					</div>
+
+					<div class="col-1">
 						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
@@ -111,7 +146,7 @@
 						</form>
 					</div>
 
-					<div class="col-3">
+					<div class="col-1">
 						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>

@@ -333,6 +333,7 @@
 
 	.account-info-wrapper, .account-password-wrapper, .account-notifications-wrapper,
 	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
+		display: inline-block;
 		font-size: 1rem;
 		padding: 2rem;
 		width: 100%;
@@ -355,10 +356,9 @@
 		input { margin: 0.05rem 0.4rem 1rem 0; }
 		label { display: inline-block; }
 
-		.col-3 {
+		.col-1, .col-2, .col-3 {
 			float: left;
 			padding: 0 1rem 0 0;
-			width: 33%;
 
 			.bl_form {
 				input { width: 100%; }
@@ -366,6 +366,10 @@
 
 			&:last-child { margin: 0; }
 		}
+
+		.col-1 { width: 25%; }
+		.col-2 { width: 50%; }
+		.col-3 { width: 33%; }
 
 		// Form stuff
 		.bl_form {
@@ -394,6 +398,85 @@
 		}
 
 		// .lb_label.active { color: $white; }
+	}
+
+	#account-splash-wrapper {
+		border-radius: 5px;
+		color: $white;
+		height: 400px;
+		overflow: hidden;
+		// padding: 2rem;
+		position: relative;
+		text-align: center;
+
+		.account-user-avatar, #account-splash-user-info {
+			z-index: 1;
+		}
+
+		.account-avatar-wrapper {
+			width: 100px; height: 100px;
+
+			margin: 0 auto;
+			position: relative;
+
+			#account-splash-edit-profile {
+				width: auto !important;
+				height: auto !important;
+				top: 38%;
+				right: -0.71rem;
+				color: $white;
+				@include icon;
+				font-size: 2rem;
+				position: absolute;
+				text-shadow: 0 0 0.13rem $black !important;
+				transition: all 0.5s ease;
+				z-index: 2;
+			}
+		}
+
+		.account-user-avatar {
+			width: 100%; height: auto;
+
+			margin: 8% 0 0 0;
+			position: relative;
+			text-align: center;
+
+			img {
+				width: auto; height: 100%;
+
+				border: 1px solid rgba($black, 0.05);
+				border-radius: 300rem;
+			}
+		}
+
+		#account-splash-user-info {
+			padding: 2rem;
+			position: relative;
+
+			h1 {
+				font-size: 2rem;
+			}
+
+			h5 {
+				font-size: 0.8rem;
+			}
+		}
+
+		/*
+		.page-desc {
+			width: 100%; height: auto;
+			top: 0; left: 0;
+
+			position: relative;
+		}
+		*/
+
+		.page-bg {
+			width: 100%; height: auto;
+			top: 0; left: 0;
+
+			position: absolute;
+		}
 	}
 	
 	.account-delete-wrapper {
