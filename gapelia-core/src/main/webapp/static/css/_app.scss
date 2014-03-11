@@ -747,7 +747,8 @@
 			width: 60%;
 
 			h2 {
-				font-weight: 700;
+				font-size: 42px;
+        font-weight: 700;
 
 				&:empty:after {
 					color: rgba($white, 0.7);
@@ -764,7 +765,8 @@
 			font-size: 1.1em;
 			padding-top: 12px;
 			*/
-			font-size: 1.3rem;
+			font-size: 1.1rem;
+      font-weight: 200;
 			letter-spacing: 0.006rem;
 			line-height: 2.3rem;
 
