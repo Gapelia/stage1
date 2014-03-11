@@ -409,15 +409,40 @@
 		position: relative;
 		text-align: center;
 
+		&:hover {
+			#account-user-splash {
+				.button-wrapper { opacity: 1; }
+			}
+		}
+
+		#account-user-splash {
+			height: 100%;
+
+			.button-wrapper {
+				bottom: 8%;
+				opacity: 0;
+				position: absolute;
+				transition: all 0.2s ease;
+				width: 100%;
+				z-index: 1;
+
+				button:hover { padding: 0.5rem 1.5rem !important; }
+			}
+		}
+
 		.account-user-avatar, #account-splash-user-info {
 			z-index: 1;
 		}
 
 		.account-avatar-wrapper {
-			width: 100px; height: 100px;
+			width: 200px; height: 200px;
 
 			margin: 0 auto;
 			position: relative;
+
+			.button-wrapper {
+				top: 42%;
+			}
 
 			#account-splash-edit-profile {
 				width: auto !important;
@@ -437,7 +462,7 @@
 		.account-user-avatar {
 			width: 100%; height: auto;
 
-			margin: 8% 0 0 0;
+			margin: 16% 0 0 0;
 			position: relative;
 			text-align: center;
 
@@ -446,30 +471,9 @@
 
 				border: 1px solid rgba($black, 0.05);
 				border-radius: 300rem;
+				position: initial;
 			}
 		}
-
-		#account-splash-user-info {
-			padding: 2rem;
-			position: relative;
-
-			h1 {
-				font-size: 2rem;
-			}
-
-			h5 {
-				font-size: 0.8rem;
-			}
-		}
-
-		/*
-		.page-desc {
-			width: 100%; height: auto;
-			top: 0; left: 0;
-
-			position: relative;
-		}
-		*/
 
 		.page-bg {
 			width: 100%; height: auto;
@@ -477,16 +481,6 @@
 
 			position: absolute;
 		}
-	}
-	
-	.account-delete-wrapper {
-		/*
-		#oh-noes {
-			border: 0;
-			bottom: 0;
-			position: absolute;
-		}
-		*/
 	}
 
 }
