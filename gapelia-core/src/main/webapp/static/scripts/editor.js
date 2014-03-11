@@ -24,7 +24,7 @@
 		author = "William Gibson";
 		templateId = 0;
 		currentPage = 0;
-		imageURL = 0;
+		imageURL = null;
 		attribution = null;
 		title = null;
 		text = null;
