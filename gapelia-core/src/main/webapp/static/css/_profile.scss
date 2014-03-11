@@ -415,6 +415,8 @@
 			}
 		}
 
+		.spinner { display: none; }
+
 		#account-user-splash {
 			height: 100%;
 
@@ -437,7 +439,9 @@
 		.account-avatar-wrapper {
 			width: 200px; height: 200px;
 
+			border-radius: 300rem;
 			margin: 0 auto;
+			overflow: hidden;
 			position: relative;
 
 			.button-wrapper {
@@ -467,10 +471,9 @@
 			text-align: center;
 
 			img {
-				width: auto; height: 100%;
+				width: 100%; height: auto;
 
 				border: 1px solid rgba($black, 0.05);
-				border-radius: 300rem;
 				position: initial;
 			}
 		}
