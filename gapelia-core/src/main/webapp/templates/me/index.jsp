@@ -88,7 +88,7 @@
 					<i class="ion-drag"></i>
 				</button>
 
-				<span id="user-header">USERNAME</span>
+				<span id="user-header">Paul Anthony Webb</span>
 
 				<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
