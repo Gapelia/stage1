@@ -173,7 +173,7 @@
 
 		.user-avatar {
 			position: relative;
-			top: 15%;
+			top: 12%;
 		}
 
 		.avatar-wrapper {
@@ -223,7 +223,7 @@
 			margin: 0 0 1rem 0;
 
 			a {
-				border-bottom: 1px solid $white;
+				border-bottom: 2px solid $white;
 				@include serif;
 				font-style: italic;
 			}
@@ -231,22 +231,20 @@
 
 		#splash-user-info {
 			text-align: center;
-			top: 48%;
+			top: 42%;
 		}
 
 		#splash-user-bio {
 			margin: 0 0 3rem 0; padding: 1rem;
 
 			display: block;
-			font-size: 1.4rem;
-			font-weight: 100;
+			font-size: 1.8rem;
 			line-height: 2.1rem;
 		}
 
 		#splash-user-location, #splash-user-website, #splash-user-twitter {
 			font-size: 1.5rem;
 			padding: 0.5rem;
-			visibility: hidden;
 		}
 
 		#splash-user-website, #splash-user-twitter { display: inline-block; }

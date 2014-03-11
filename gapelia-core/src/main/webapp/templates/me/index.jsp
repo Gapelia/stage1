@@ -88,7 +88,7 @@
 					<i class="ion-drag"></i>
 				</button>
 
-				<span id="user-header">Paul Anthony Webb</span>
+				<span id="user-header">USERNAME</span>
 
 				<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
@@ -324,8 +324,8 @@
 				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
-				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
-				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Edit Profile</a>";
+				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Quick Edit Profile</a>";
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
