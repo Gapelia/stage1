@@ -773,11 +773,15 @@
 								</div>
 
 								<div id="fin-next">
-									<img class="page-bg" src="/static/images/test-book/2651.jpg" alt=""/>
+									<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
 
-									<section>
-										<h2><a href="#">Roadtripping California</a></h2>
-									</section>
+									<div class="book-info">
+										<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+										<div class="library-location"><a href="#">Camp Awesome</a></div>
+									</div>
+
+									<span class="image-overlay"></span>
+									<img src="/static/images/book-thumb-01.jpg" alt=""/>
 								</div>
 							</section>
 
