@@ -9,10 +9,7 @@
 	}
 
 	.mp-pushed {
-		#g-menu-toggle {
-			// top: -5rem !important;
-			z-index: 1;
-		}
+		#g-menu-toggle { z-index: 1; }
 	}
 
 	.bb-item {
@@ -80,7 +77,7 @@
 		padding: 0 !important;
 		position: fixed;
 		width: 45px;
-		z-index: 103;
+		z-index: 103 !important;
 
 		i { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
 	}

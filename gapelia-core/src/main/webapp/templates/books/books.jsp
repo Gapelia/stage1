@@ -26,15 +26,6 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<style>
-			#last-page-toggle {
-				top: 1rem; left: 4rem;
-
-				position: fixed;
-				z-index: 9999999;
-			}
-		</style>
-
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
@@ -86,8 +77,6 @@
 
 			<button id="g-menu-toggle"><i class="ion-drag"></i></button>
 			<button id="next-book-toggle"><i class="ion-forward"></i></button>
-
-			<button id="last-page-toggle">LAST</button>
 
 			<header>
 				<div id="header-info">
@@ -974,8 +963,7 @@
 							$bookBlock:	$("#bb-bookblock"),
 							$navNext:		$("#bb-nav-next"),
 							$navPrev:		$("#bb-nav-prev"),
-							$navFirst:	$("#bb-nav-first"),
-							$navLast:		$("#last-page-toggle")
+							$navFirst:	$("#bb-nav-first")
 							// $navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
@@ -1012,10 +1000,12 @@
 								return false;
 							});
 
+							/*
 							config.$navLast.on("click touchstart", function () {
 								config.$bookBlock.bookblock("last");
 								return false;
 							});
+							*/
 
 							// add swipe events
 							$slides.on({
