@@ -111,7 +111,7 @@
 								</section>
 
 								<div class="fluid-preview">
-									<div id="author-info">
+									<div class="author-info">
 										<div class="author-name">Paul Anthony Webb</div>
 										<img class="author-avatar" src="/static/images/users/11.jpg" alt=""/>
 									</div>
@@ -930,11 +930,13 @@
 						}, 1000); // prevent placeholder from appearing
 
 						$(".fluid-wrapper").imgLiquid({ fill: true });
-						$(".no-img").imgLiquid({ fill: true });
+						$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
 						$(".overlay-wrapper").imgLiquid({ fill: true });
 						$(".phototext-wrapper").imgLiquid({ fill: true });
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+
+						$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 
 						$(document).on("click", ".play-video", function () {
 

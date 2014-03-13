@@ -141,11 +141,11 @@
 
 		.page-title-elem, .page-desc {
 			color: rgba($black, 0.8);
-			display: block;
+			// display: block; // why is this here? they are divs by default
 		}
 
 		.page-title-elem {
-			font-size: 2.6rem;
+			font-size: 2.3rem;
 			font-weight: 700;
 			line-height: 2.8rem;
 			margin: 0 0 0.5rem 0;
@@ -153,11 +153,10 @@
 
 		.page-desc {
 			@include serif;
-			font-size: 1.3rem;
+			font-size: 1.5rem;
 			letter-spacing: 0.006rem;
 			line-height: 2.3rem;
 			margin: 1rem 0 0 0;
-			text-align: center;
 		}
 
 		p {
@@ -167,13 +166,16 @@
 			margin: 0 0 1.5rem 0;
 		}
 
-		.image-attribution {
+		.image-attribution { // this is secondary information and doesn't need to be so prominent
 			background-color: rgba($white, 0.5);
+			// border: 1px solid rgba($white, 0.3);
+			// border-radius: 3rem;
 			bottom: 0;
 			color: rgba($black, 0.95);
 			cursor: default;
 			font-size: 0.6rem;
 			line-height: 1.1rem;
+			// margin: 10px;
 			padding: 0.2rem 1rem;
 			position: absolute;
 			z-index: 1;
@@ -239,7 +241,7 @@
 		.image-attribution { right: 0; }
 	}
 
-	.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+	.phototext-wrapper, .vertical-wrapper {
 		.image-attribution { left: 0; }
 
 		.page-desc {
@@ -260,21 +262,7 @@
 		background-color: $white;
 		height: 100%;
 
-		.author-info {
-			position: absolute;
-			top: 2.35rem;
-			width: 12%;
-			margin: 0;
-
-			.author-avatar { float: right; }
-
-			.author-name {
-				text-align: right;
-				&:before { text-align: right; }
-			}
-		}
-
-		.button-wrapper, section, .fluid-preview { transition: all 0.2s ease; }
+		section, .fluid-preview { transition: all 0.2s ease; }
 
 		section {
 			width: 100%; height: 15%;
@@ -305,7 +293,6 @@
 
 			.page-title-elem, .page-desc {
 				margin: 1rem auto 0;
-				text-align: left;
 				width: 66%;
 			}
 
@@ -324,7 +311,21 @@
 			}
     }
 
-		.image-attribution { right: 10px; }
+		.author-info {
+			position: absolute;
+			top: 2.35rem;
+			width: 12%;
+			margin: 0;
+
+			.author-avatar { float: right; }
+
+			.author-name {
+				text-align: right;
+				&:before { text-align: right; }
+			}
+		}
+
+		.image-attribution { right: 10px; } // takes into account the scrollbar
 	}
 
 	.no-img {
@@ -345,42 +346,29 @@
 		background-color: $white;
 
 		.page-bg-wrapper {
-			width: 50%; height: inherit; max-height: 66%;
-			top: 45vh; left: 25%; // top: 50%
+			width: 50%; height: 400px;
 
-			position: relative;
-			transform: translateY(-50%);
-
-			-o-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			-moz-transform: translateY(-50%);
-			-webkit-transform: translateY(-50%);
-		}
-
-		.page-bg {
-			width: 100%; height: 100%;
 			box-shadow: 0 0 5px 0 rgba($black, 0.3);
+			left: 25%;
+			line-height: 400px;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
 		}
 
-    .image-attribution {
-			// border-top-left-radius: 8px; //
-      // max-width: 50%; //
-		}
-    
+		.page-bg { vertical-align: middle; }
+
 		.photo-preview {
-			width: 100%; height: 100%;
-			margin: 6.5rem 0 0 0; padding: 1rem 2rem;
+			width: 100%; height: 100%; // height: auto
+			margin: 9.5rem 0 0 0; padding: 1rem 2rem; 
 
-			color: $black;
 			position: relative;
 
-			.page-title-elem, .page-desc {
-        text-align: center;
-        font-size: 2.2rem;
-      }  
-
-			.page-title-elem, h5 {
+			.page-title-elem {
+				font-size: 2.3rem;
+				line-height: 2.8rem;
 				margin: 0 auto 0.5rem;
+				text-align: center;
 				width: 52%;
 			}
 		}
@@ -391,9 +379,7 @@
 			top: -15%;
 			width: 20%;
 
-			.author-avatar {
-				float: right;
-			}
+			.author-avatar { float: right; } //
 
 			.author-name {
 				text-align: right;
@@ -428,13 +414,8 @@
 				margin: 0 0 0.5rem 0; padding: 0;
 
 				color: $white;
-				font-size: 2.2rem;
-				line-height: 2.5rem;
-			}
-
-			.page-geotag-elem {
-				color: $white;
-				margin: 2rem 0 0 0;
+				font-size: 2.3rem;
+				line-height: 2.8rem;
 				text-align: center;
 			}
 		}
@@ -450,8 +431,7 @@
 
 			.author-avatar {
 				float: right;
-				margin-right: 45%; //
-				margin-top: 6px; //
+				margin: 6px 45% 0 0; //
 			}
 
 			.author-name {
@@ -496,28 +476,15 @@
 			position: absolute;
 
 			.page-title-elem {
-				font-size: 1.6rem;
+				font-size: 1.5rem;
 				line-height: 1.7rem;
-			}
-
-			.page-geotag-elem {
-				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-
-				color: $white;
-				border-bottom: 1px dotted $white;
 			}
 
 			.page-desc {
 				font-size: 1rem;
 				line-height: 1.7rem;
-				text-align: left;
 			}
     }
-
-    .image-attribution {
-			// border-top-right-radius: 8px;
-			// max-width: 30%; 
-    }  
 	}
 
 	.vertical-wrapper {
@@ -527,13 +494,6 @@
 
 		.draggable-placeholder {
 			width: 25%; height: 100%;
-		}
-
-    .image-attribution {
-			// background-color: transparent; //
-			// background-image: linear-gradient(to bottom, transparent, rgba(252, 250, 250, 0.7)); //
-      // color: rgba(0, 0, 0, 0.8);
-      // width: 25%;
 		}
 
 		.page-bg {
@@ -552,15 +512,6 @@
 			position: absolute;
 
 			article { width: 90%; } //
-
-			.page-geotag-elem {
-				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-
-				border-bottom: 1px dotted $black;
-				color: $black;
-			}
-
-			.page-desc { text-align: left; }
 		}
 	}
 
@@ -571,8 +522,6 @@
 			background-color: $white;
 			position: absolute;
 		}
-
-    .image-attribution { visibility: hidden; }
 
 		article {
 			width: 30%; height: 100%;
@@ -585,21 +534,13 @@
 			position: absolute;
 
 			.page-title-elem {
-				font-size: 1.6rem;
+				font-size: 1.5rem;
 				line-height: 1.7rem;
-			}
-
-			.page-geotag-elem {
-				margin: 0 0 1rem 0; padding: 0 0 1rem 0;
-
-				color: $black;
-				border-bottom: 1px dotted $black;
 			}
 
 			.page-desc {
 				font-size: 1rem;
 				line-height: 1.7rem;
-				text-align: left;
 			}
 		}
 
@@ -614,8 +555,6 @@
 				background-color: $gray-i;
 			}
 		}
-
-		// .play-video { display: none; }
 
 		.button-wrapper {
 			bottom: 10%;
@@ -638,6 +577,8 @@
 				z-index: 2;
 			}
 		}
+
+		.image-attribution { visibility: hidden; }
 	}
 
 	.backcover-wrapper {
