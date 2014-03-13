@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia &middot; Featured Books</title>
+		<title>Welcome to Gapelia!</title>
 
 		<!--/ FEATURED VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -23,7 +23,6 @@
 		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-		<!--/ <link href="/static/css/style.splash.css" rel="stylesheet"/> /-->
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
