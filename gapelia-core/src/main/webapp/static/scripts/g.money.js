@@ -350,6 +350,7 @@
 
 		});
 
+		/*
 		$(function () {
 
 			// Initialize "Overlay — create library"
@@ -369,6 +370,7 @@
 			$("body").append(ocl);
 
 		});
+		*/
 
 		// Overlay — create library
 		$("#create-library").click(function (e) {
