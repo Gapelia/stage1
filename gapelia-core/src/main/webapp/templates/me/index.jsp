@@ -1,3 +1,8 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -314,6 +319,7 @@
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
+		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
 			// Splash page
@@ -329,7 +335,8 @@
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
-				stuff += "<h1>Paul Anthony Webb</h1>";
+				// stuff += "<h1>Paul Anthony Webb</h1>";
+				stuff += "<h1>"_fullName"</h1>";
 				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
 				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
@@ -401,7 +408,7 @@
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				// Scrolling on desktop
+				/*
 				$(function () {
 					$("#book-scroller").mousewheel(function (event, delta) {
 
@@ -409,6 +416,26 @@
 						event.preventDefault();
 
 					});
+				});
+				*/
+
+				// Scrolling on desktop
+				$("#book-scroller").mousewheel(function (event, delta) {
+
+					if ($vW > "1024") {
+
+						// this.scrollLeft -= (delta * 40);
+
+						$("#book-scroller").stop().animate({
+							scrollLeft: "-=" + (75 * delta) + "px"
+						}, "150", "easeOutCubic");
+
+					} else {
+						this.scroll -= (delta * 40);
+					}
+
+					event.preventDefault();
+
 				});
 
 				// Dropdown menu for mobile
