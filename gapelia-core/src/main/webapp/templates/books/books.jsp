@@ -32,9 +32,6 @@
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
-		<script src="/static/scripts/cookie.js"></script>
-		<script src="/static/scripts/merci.js"></script>
-
 	</head>
 
 	<body class="app full-book">
@@ -49,7 +46,7 @@
 
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/createbook">Create book</a></li>
+						<li><a href="/createlibrary">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
@@ -111,7 +108,7 @@
 								</section>
 
 								<div class="fluid-preview">
-									<div class="author-info">
+									<div id="author-info">
 										<div class="author-name">Paul Anthony Webb</div>
 										<img class="author-avatar" src="/static/images/users/11.jpg" alt=""/>
 									</div>
@@ -748,21 +745,7 @@
 
 							<section class="backcover-wrapper">
 								<div id="fin">
-									<!--/ <div class="appreciate"><span>Vote</span></div> /-->
-
-									<figure class="merci merciful" data-id="1">
-										<a class="mercibject">
-											<div class="opening">
-												<div class="circle"></div>
-											</div>
-										</a>
-
-										<a href="#merci" class="count">
-											<span class="num">0</span>
-											<span class="txt">merci'd</span>
-											<span class="dont-move">Don't move</span>
-										</a>
-									</figure>
+									<div class="appreciate"><span>Vote</span></div>
 
 									<h2>Hayao Miyazaki</h2>
 
@@ -790,15 +773,11 @@
 								</div>
 
 								<div id="fin-next">
-									<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
+									<img class="page-bg" src="/static/images/test-book/2651.jpg" alt=""/>
 
-									<div class="book-info">
-										<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-										<div class="library-location"><a href="#">Camp Awesome</a></div>
-									</div>
-
-									<span class="image-overlay"></span>
-									<img src="/static/images/book-thumb-01.jpg" alt=""/>
+									<section>
+										<h2><a href="#">Roadtripping California</a></h2>
+									</section>
 								</div>
 							</section>
 
@@ -930,13 +909,11 @@
 						}, 1000); // prevent placeholder from appearing
 
 						$(".fluid-wrapper").imgLiquid({ fill: true });
-						$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+						$(".no-img").imgLiquid({ fill: true });
 						$(".overlay-wrapper").imgLiquid({ fill: true });
 						$(".phototext-wrapper").imgLiquid({ fill: true });
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
-
-						$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 
 						$(document).on("click", ".play-video", function () {
 
@@ -962,10 +939,10 @@
 					var Page = (function () {
 
 						var config = {
-							$bookBlock:	$("#bb-bookblock"),
-							$navNext:		$("#bb-nav-next"),
-							$navPrev:		$("#bb-nav-prev"),
-							$navFirst:	$("#bb-nav-first")
+							$bookBlock: $("#bb-bookblock"),
+							$navNext: $("#bb-nav-next"),
+							$navPrev: $("#bb-nav-prev"),
+							$navFirst: $("#bb-nav-first")
 							// $navLast: $("#next-book-toggle")
 							// $navLast: $('#bb-nav-last')
 						},
@@ -1065,77 +1042,6 @@
 					}
 
 					NProgress.done();
-
-				});
-
-			});
-
-			// "Merci" code
-			// needs to be a string for jquery.cookie
-			var postId = "1";
-
-			$(function () {
-
-				// initialize merci
-				$("figure.merciful").merciful();
-
-				// check to see if user has already merci'd
-				// fyi cookies do not work when you are viewing this as a file
-				if ($.cookie(postId) == "true") {
-					// make merci already mercid
-					$("figure.merciful").removeClass("animate").addClass("complete");
-
-					// your server would take care of the proper merci count, but because this is a
-					// static page, we need to set it here so it doesn't become -1 when you remove
-					// the merci after a reload
-					$(".num").html(1);
-				}
-
-				// when merci'ing
-				$("figure.merci").bind("merci:active", function (e) {
-
-					$("span.num, span.txt").hide();
-					$("span.dont-move").show();
-
-					console.log("merci'ing active");
-
-				});
-
-				// when not merci'ing
-				$("figure.merci").bind("merci:inactive", function (e) {
-
-					console.log("merci'ing inactive");
-
-					$("span.num, span.txt").show();
-					$("span.dont-move").hide();
-
-				});
-
-				// after merci'd
-				$("figure.merci").bind("merci:added", function (e) {
-
-					var element = $(this);
-
-					// ajax'y stuff or whatever you want
-					console.log("Merci'd:", element.data("id"), ":)");
-
-					// set cookie so user cannot merci again for 7 days
-					$.cookie(postId, "true", { expires: 7 });
-
-					$("span.num, span.txt").show();
-					$("span.dont-move").hide();
-
-				});
-
-				// after removing a merci
-				$("figure.merci").bind("merci:removed", function (e) {
-
-					var element = $(this);
-					// ajax'y stuff or whatever you want
-					console.log("Un-merci'd:", element.data("id"), ":(");
-
-					// remove cookie
-					$.removeCookie(postId);
 
 				});
 
