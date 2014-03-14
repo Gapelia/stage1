@@ -45,13 +45,13 @@
 
 	</head>
 
-	<body class="app profile">
+	<body class="app profile onboard">
 
 		<!--/ main-content /-->
 		<div id="featured-scroller">
 			<div id="header-message">
 				Welcome to Gapelia, *USERNAME*!<br/>Personalize your experience by subscribing to your favorite libraries.
-				<button class="green"><a href="/finalize-setup">Ready to go</a></button>
+				<button id="onboard-next" class="green">Next step</button>
 			</div>
 
 			<!--/ Featured Libraries /-->
@@ -345,8 +345,11 @@
 		<!--//main-content /-->
 
 		<!--/ scripts /-->
+		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
+
+		<script src="/static/scripts/spin.js"></script>
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
@@ -356,6 +359,8 @@
 			$(function () {
 
 				var $vW = $(window).width(), $vH = $(window).height();
+
+				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
 				// Scrolling on desktop
 				$("#featured-scroller").mousewheel(function (event, delta) {
@@ -408,25 +413,59 @@
 
 				}, 1000);
 
+				$(".library").imgLiquid({ fill: true });
+
 				NProgress.done();
 
-				//
-
+				// Initialize "Overlay — onboard photos"
+				oop = "";
+				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\">";
+				oop += "<div class=\"overlay-controls\">";
+				oop += "<button class='green' id='finalize-setup'>Ready to go</button>";
+				oop += "</div>";
 				/*
-				NProgress.start();
+				oop += "<section>";
+				oop += "<h2>Library Creation</h2>";
+				oop += "<div id=\"create-library-name\" contenteditable=\"true\">Library name</div>";
+				oop += "<div id=\"create-library-desc\" contenteditable=\"true\">Description of library</div>";
+				oop += "</section>";
+				*/
+				oop += "<div class=\"account-user-avatar\">";
+				oop += "<div class=\"account-avatar-wrapper\">";
+				oop += "<div class=\"button-wrapper avatar-button\">";
+				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();\">";
+				oop += "</div>";
+				oop += "<img class=\"user-avatar\" src=\"/static/images/users/11.jpg\"/>";
+				oop += "</div></div>";
+				oop += "<div class=\"button-wrapper cover-button\">";
+				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();\">";
+				oop += "</div>";
+				oop += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
+				oop += "</div>";
 
-				setTimeout(function () {
+				$("body").append(oop);
 
-					$("#library-list").css("opacity", "0").show();
+				// Overlay — onboard photos
+				$("#onboard-next").click(function (e) {
 
-					NProgress.done();
+					$("#onboard-photos-overlay").addClass("open");
 
-					$("#library-list").css("opacity", "1");
+					$("#mp-pusher").css({
+						"transform": "translate3d(0, 0, 0)",
+						"-o-transform": "translate3d(0, 0, 0)",
+						"-ms-transform": "translate3d(0, 0, 0)",
+						"-moz-transform": "translate3d(0, 0, 0)",
+						"-webkit-transform": "translate3d(0, 0, 0)"
+					});
+
+					e.preventDefault();
 
 				});
-				*/
 
-				$(".library").imgLiquid({ fill: true });
+				// Finish onboarding process
+				$("#finalize-setup").click(function () {
+					document.location.href = "/finalize-setup";
+				});
 
 			});
 		</script>
