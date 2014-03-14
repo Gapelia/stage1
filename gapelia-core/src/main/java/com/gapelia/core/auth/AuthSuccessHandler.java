@@ -20,6 +20,7 @@ public class AuthSuccessHandler extends HttpServlet {
 			SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
 			Profile profile = null;
 			Map requestMap = SocialAuthUtil.getRequestParametersMap(request);
+			LOG.info("is manager null? " + (manager == null) + " requestmap? " + (requestMap == null));
 			AuthProvider provider = manager.connect(requestMap);
 			profile = provider.getUserProfile();
 			session.setAttribute("login", "true");
@@ -36,6 +37,7 @@ public class AuthSuccessHandler extends HttpServlet {
 				response.sendRedirect("/onboard");
 			}
 		} catch (Exception e) {
+			LOG.error(e.getMessage());
 			throw new ServletException(e);
 		}
 	}
