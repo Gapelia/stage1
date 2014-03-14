@@ -345,7 +345,6 @@
 		<!--//main-content /-->
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
@@ -420,27 +419,25 @@
 				// Initialize "Overlay — onboard photos"
 				oop = "";
 				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\">";
+
 				oop += "<div class=\"overlay-controls\">";
-				oop += "<button class='green' id='finalize-setup'>Ready to go</button>";
+				oop += "<button class=\"green\" id=\"finalize-setup\">Ready to go</button>";
 				oop += "</div>";
-				/*
-				oop += "<section>";
-				oop += "<h2>Library Creation</h2>";
-				oop += "<div id=\"create-library-name\" contenteditable=\"true\">Library name</div>";
-				oop += "<div id=\"create-library-desc\" contenteditable=\"true\">Description of library</div>";
-				oop += "</section>";
-				*/
+
 				oop += "<div class=\"account-user-avatar\">";
-				oop += "<div class=\"account-avatar-wrapper\">";
+				oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				oop += "<div class=\"button-wrapper avatar-button\">";
-				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();\">";
+				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.user-avatar').hide(); $('.spinner').hide();\">";
 				oop += "</div>";
-				oop += "<img class=\"user-avatar\" src=\"/static/images/users/11.jpg\"/>";
-				oop += "</div></div>";
+				oop += "<img class=\"user-avatar\" src=\"/static/images/users/avatar.jpg\"/>";
+				oop += "</div>";
+				oop += "</div>";
+
 				oop += "<div class=\"button-wrapper cover-button\">";
-				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();\">";
+				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#onboard-photos-overlay').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();\">";
 				oop += "</div>";
-				oop += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
+				oop += "<img class=\"page-bg\" src=\"/static/images/blankBG.jpg\"/>";
+
 				oop += "</div>";
 
 				$("body").append(oop);
@@ -466,6 +463,17 @@
 				$("#finalize-setup").click(function () {
 					document.location.href = "/finalize-setup";
 				});
+
+			});
+		</script>
+
+		<script src="/static/scripts/filepicker2.js"></script>
+
+		<script>
+			$(function () {
+
+				$(".avatar-button button").addClass("slate").html("Change avatar");
+				$(".cover-button button").addClass("slate").html("Change cover photo");
 
 			});
 		</script>
