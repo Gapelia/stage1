@@ -29,7 +29,6 @@ public class SocialLogin extends HttpServlet {
 				mode = System.getProperty("gapeliaMode");
 			} catch (Exception ex) {
 				// Ignore mode is null
-				LOG.error(ex.getMessage());
             }
 			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";
@@ -37,15 +36,13 @@ public class SocialLogin extends HttpServlet {
 			} else {
 				hostName = "http://gapss-609817464.us-west-2.elb.amazonaws.com";
 			}
-			String successUrl = hostName + "/success?jsessionid=" + request.getSession().getId();
+			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			String type = request.getParameter("type");
 			String url = null;
 			if (APP_FACEBOOK.equals(type)) {
 				url = manager.getAuthenticationUrl(APP_FACEBOOK, successUrl, Permission.AUTHENTICATE_ONLY);
-				LOG.info("Facebook Login chosen: " + successUrl);
 			} else {
 				url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
-				LOG.info("Google Login chosen: " + successUrl);
 			}
 			if (null != mode && "local".equals(mode)) {
 				response.sendRedirect("/me");
@@ -53,13 +50,9 @@ public class SocialLogin extends HttpServlet {
 				return;
 			}
 			HttpSession session = request.getSession();
-
-			LOG.info("is manager null? " + (manager == null));
-
 			session.setAttribute("authManager", manager);
 			response.sendRedirect(response.encodeRedirectURL(url));
 		} catch (Exception e) {
-			LOG.error(e.getMessage());
 			throw new ServletException(e);
 		}
 	}
