@@ -25,9 +25,17 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+		<% /* ******************************* */ %>
+		<% /* Copy this on all jsp get sessionId %>
+		<!--/ To get session id /-->
+		<script>
+			<% String id = session.getId(); %>
+			var sessionId = '<%= id %>'
+		</script>
+		<% /* ******************************* */ %>
 	</head>
 
 	<body class="app profile">
