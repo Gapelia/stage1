@@ -1,7 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -333,7 +329,7 @@
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
-				stuff += "<h1>"_fullName"</h1>";
+				stuff += "<h1>Paul Anthony Webb</h1>";
 				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
 				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
