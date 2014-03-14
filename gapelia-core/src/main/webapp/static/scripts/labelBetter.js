@@ -6,7 +6,7 @@
 		position: "top",
 		animationTime: 500,
 		easing: "ease-in-out",
-		offset: 72,
+		offset: 2, // 72
 		hidePlaceholderOnFocus: true
 	};
 

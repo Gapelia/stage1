@@ -131,6 +131,23 @@
 
 					</div>
 
+					<div class="col-2">
+						<form class="bl_form">
+							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
+							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
+
+							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
+							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
+							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
+
+							<input class="" name="commit" type="submit" value="Update Settings"/>
+						</form>
+
+						<input type="checkbox" class="js-switch" checked/>
+					</div>
+
+					<!--/
 					<div class="col-1">
 						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
@@ -149,7 +166,10 @@
 
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>
+
+						<input type="checkbox" class="js-switch" checked />
 					</div>
+					/-->
 
 				</div>
 
@@ -232,6 +252,7 @@
 		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script src="/static/scripts/labelBetter.js"></script>
+		<script src="/static/scripts/switchery.min.js"></script>
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
@@ -242,6 +263,9 @@
 		$(function () {
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
+
+			var elem = document.querySelector(".js-switch");
+			var init = new Switchery(elem);
 
 			// Load Gapelia
 			NProgress.start();

@@ -435,7 +435,6 @@
 
 				oop += "<div id=\"user-info\">";
 				oop += "<div id=\"user-bio\" contenteditable=\"true\">Tell us about yourself!</div>";
-				// oop += "<div class=\"charsLeft\"></div>";
 				oop += "</div>";
 
 				oop += "<div class=\"button-wrapper cover-button\">";
