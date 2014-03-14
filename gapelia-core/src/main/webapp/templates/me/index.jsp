@@ -318,7 +318,6 @@
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
-		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
 			// Splash page
@@ -406,7 +405,7 @@
 				$vW = $(window).width(),
 				$vH = $(window).height();
 
-				/*
+				// Scrolling on desktop
 				$(function () {
 					$("#book-scroller").mousewheel(function (event, delta) {
 
@@ -414,26 +413,6 @@
 						event.preventDefault();
 
 					});
-				});
-				*/
-
-				// Scrolling on desktop
-				$("#book-scroller").mousewheel(function (event, delta) {
-
-					if ($vW > "1024") {
-
-						// this.scrollLeft -= (delta * 40);
-
-						$("#book-scroller").stop().animate({
-							scrollLeft: "-=" + (75 * delta) + "px"
-						}, "150", "easeOutCubic");
-
-					} else {
-						this.scroll -= (delta * 40);
-					}
-
-					event.preventDefault();
-
 				});
 
 				// Dropdown menu for mobile

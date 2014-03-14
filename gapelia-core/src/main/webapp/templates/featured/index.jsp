@@ -792,7 +792,6 @@
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
-		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
 			$(function () {
@@ -803,13 +802,7 @@
 				$("#featured-scroller").mousewheel(function (event, delta) {
 
 					if ($vW > "1024") {
-
-						// this.scrollLeft -= (delta * 40);
-
-						$("#featured-scroller").stop().animate({
-							scrollLeft: "-=" + (75 * delta) + "px"
-						}, "150", "easeOutCubic");
-
+						this.scrollLeft -= (delta * 40);
 					} else {
 						this.scroll -= (delta * 40);
 					}
