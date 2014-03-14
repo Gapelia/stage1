@@ -48,7 +48,7 @@
 
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/createlibrary">Create book</a></li>
+						<li><a href="/createbook">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile">
@@ -105,32 +105,27 @@
 
 						<div id="account-splash-wrapper">
 							<section id="account-user-splash">
+
 								<div class="account-user-avatar">
 									<div class="account-avatar-wrapper">
-										<a href="#" id="account-splash-edit-profile">&#xf13d;</a>
-										<img src="/static/images/users/11.jpg"/>
 
-										<!--/
-										<div id="splash-edit-wrapper">
-											<a class="edit-profile" href="/accounts">Edit Profile</a>
-											<a class="quick-edit-profile" href="#">Quick Edit Profile</a>
+										<div class="button-wrapper avatar-button">
+											<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();">
 										</div>
-										/-->
+
+										<img class="user-avatar" src="/static/images/users/11.jpg"/>
+
 									</div>
 								</div>
 
-								<div id="account-splash-user-info">
-									<h1>Paul Anthony Webb</h1>
-									<h5>Contributes to <a href="">S P A C E</a>, <a href="">Technological Marvels</a>, and others.</h5>
+								<div class="button-wrapper cover-button">
+									<!--/ <input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').imgLiquid({ fill: true });"> /-->
 
-									<div id="account-splash-user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>
-
-									<div id="account-splash-user-location" contenteditable="false">Boston, MA</div>
-									<div id="account-splash-user-website" contenteditable="false">dsgn.io</div>
-									<div id="account-splash-user-twitter" contenteditable="false">@NetOpWibby</div>
+									<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();">
 								</div>
 
 								<img class="page-bg" src="/static/images/bg-05.jpg"/>
+
 							</section>
 						</div>
 
@@ -232,15 +227,21 @@
 		</div>
 
 		<!--/ scripts /-->
+		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
+
 		<script src="/static/scripts/labelBetter.js"></script>
-		<!--/ <script src="/static/scripts/imgLiquid.js"></script> /-->
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
+		<script src="/static/scripts/spin.js"></script>
+
 		<script>
 		$(function () {
+
+			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
 			// Load Gapelia
 			NProgress.start();
