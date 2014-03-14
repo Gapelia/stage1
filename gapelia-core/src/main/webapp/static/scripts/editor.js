@@ -653,7 +653,7 @@
 		});
 
 		// Empty attribution field when user clicks in it
-		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
+		$(document).one("click", ".image-attribution", function () { $(this).text(""); });
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
 		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });

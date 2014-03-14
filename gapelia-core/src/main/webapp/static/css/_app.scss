@@ -855,7 +855,7 @@
 		.spinner { display: none; }
 
 		.button-wrapper {
-			bottom: 16%; left: 0;
+			bottom: 6%; left: 0;
 
 			opacity: 0;
 			position: absolute;
@@ -899,7 +899,7 @@
 		.account-user-avatar {
 			width: 100%; height: auto;
 
-			margin: 13% 0 0 0;
+			margin: 10% 0 0 0;
 			position: relative;
 			text-align: center;
 
@@ -916,6 +916,34 @@
 			top: 0; left: 0;
 
 			position: absolute;
+		}
+
+		#user-info {
+			margin: 1rem 0 0 0;
+			text-align: center;
+			top: 42%;
+
+			#user-bio, .chars-remaining {
+				background-color: rgba($white, 0.6);
+				color: rgba($black, 0.95);
+			}
+
+			#user-bio {
+				display: block;
+				font-size: 1.8rem;
+				line-height: 2.1rem;
+				padding: 1rem;
+			}
+
+			.chars-remaining {
+				float: right;
+				@include serif;
+				font-size: 0.7rem;
+				font-style: italic;
+				padding: 0 0.5rem 0.3rem 0.5rem;
+				text-align: right;
+				width: 110px;
+			}
 		}
 	}
 
