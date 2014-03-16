@@ -104,23 +104,24 @@
 	}
 
 	#bb-nav-prev, #bb-nav-next {
-		width: 32px; height: 64px;
+		width: 50px; height: 50px;
+    top: 40% !important;
 
-		background-color: rgba($black, 0.7);
 		background-image: none;
 		bottom: 0;
 		color: $white;
 		cursor: pointer;
 		font-family: "Ionicons";
-		font-size: 2rem;
-		padding: 1rem 0 0 0;
+		font-size: 2.5rem;
+		padding: 2.6rem 0 0 0;
 		position: fixed;
 		text-align: center;
+    text-shadow: 0 0 3px #70a1b1 !important;
 		z-index: 2000;
 	}
 
 	#bb-nav-prev { left: 0; }
-	#bb-nav-next { right: 0; }
+	#bb-nav-next { right: 0; padding: 2.6rem; }
 
 	/// LAYOUT //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -145,7 +146,7 @@
 		}
 
 		.page-title-elem {
-			font-size: 2.3rem;
+			font-size: 2.6rem;
 			font-weight: 700;
 			line-height: 2.8rem;
 			margin: 0 0 0.5rem 0;
@@ -153,7 +154,7 @@
 
 		.page-desc {
 			@include serif;
-			font-size: 1.5rem;
+			font-size: 1.3rem;
 			letter-spacing: 0.006rem;
 			line-height: 2.3rem;
 			margin: 1rem 0 0 0;
@@ -173,7 +174,7 @@
 			bottom: 0;
 			color: rgba($black, 0.95);
 			cursor: default;
-			font-size: 0.6rem;
+			font-size: 0.7rem;
 			line-height: 1.1rem;
 			// margin: 10px;
 			padding: 0.2rem 1rem;
@@ -344,23 +345,28 @@
 
 	.photo-wrapper {
 		background-color: $white;
+    
+    .page-bg-wrapper {
+			width: 50%; height: inherit; max-height: 66%;
+			top: 45vh !important; left: 25%; // top: 50%
 
-		.page-bg-wrapper {
-			width: 50%; height: 400px;
-
-			box-shadow: 0 0 5px 0 rgba($black, 0.3);
-			left: 25%;
-			line-height: 400px;
-			overflow: hidden;
 			position: relative;
-			text-align: center;
-		}
+			transform: translateY(-50%);
 
-		.page-bg { vertical-align: middle; }
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+    }    
 
+		.page-bg {
+      width: 100%; height: 100%;
+			box-shadow: 0 0 5px 0 rgba($black, 0.3);
+    }
+      
 		.photo-preview {
 			width: 100%; height: 100%; // height: auto
-			margin: 9.5rem 0 0 0; padding: 1rem 2rem; 
+			margin: 6.5rem 0 0 0; padding: 1rem 2rem; 
 
 			position: relative;
 
@@ -476,12 +482,12 @@
 			position: absolute;
 
 			.page-title-elem {
-				font-size: 1.5rem;
+				font-size: 2rem;
 				line-height: 1.7rem;
 			}
 
 			.page-desc {
-				font-size: 1rem;
+				font-size: 1.2rem;
 				line-height: 1.7rem;
 			}
     }
@@ -534,12 +540,12 @@
 			position: absolute;
 
 			.page-title-elem {
-				font-size: 1.5rem;
+				font-size: 2rem;
 				line-height: 1.7rem;
 			}
 
 			.page-desc {
-				font-size: 1rem;
+				font-size: 1.2rem;
 				line-height: 1.7rem;
 			}
 		}

@@ -89,12 +89,11 @@
 
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
-						<li id="nav-personal" class="current"><a href="#">Personal</a></li>
+						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
 						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
 						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
-						<li id="nav-delete"><a href="#">Delete Account</a></li>
 					</ul>
 				</div>
 
@@ -118,14 +117,6 @@
 									</div>
 								</div>
 
-								<div class="button-wrapper cover-button">
-									<!--/ <input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').imgLiquid({ fill: true });"> /-->
-
-									<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url); $('#account-user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();">
-								</div>
-
-								<img class="page-bg" src="/static/images/bg-05.jpg"/>
-
 							</section>
 						</div>
 
@@ -136,43 +127,40 @@
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
 							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-
 							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
 							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-
+							
+							<input type="checkbox" class="js-switch" checked/>
+							
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>
+						
+						<div class="account-delete-wrapper">
 
-						<input type="checkbox" class="js-switch" checked/>
+							<section id="oh-noes" class="not-mobile">
+								<p>Delete account? <a href="#" id="delete-account">I sure am!</a></p>
+							</section>
+						</div>
 					</div>
 
-					<!--/
-					<div class="col-1">
-						<form class="bl_form">
-							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
-							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-
-							<input class="" name="commit" type="submit" value="Update Settings"/>
-						</form>
-					</div>
-
-					<div class="col-1">
-						<form class="bl_form">
-							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
-							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-
-							<input class="" name="commit" type="submit" value="Update Settings"/>
-						</form>
-
-						<input type="checkbox" class="js-switch" checked />
-					</div>
-					/-->
 
 				</div>
 
+				<!--/ Overlay — delete account /-->
+				<div id="delete-account-overlay" class="overlay">
+					<section>
+						<h1>Warning</h1>
+	
+						<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
+	
+						<p>
+							<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
+							<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
+						</p>
+					</section>
+				</div>
+				
 				<!--/ Password Settings /-->
 				<div class="account-password-wrapper" style="display: none;">
 
@@ -217,31 +205,6 @@
 				<div class="account-billing-wrapper" style="display: none;">
 					<p>Billing stuff</p>
 				</div>
-
-				<!--/ Account Deletion Settings /-->
-				<div class="account-delete-wrapper" style="display: none;">
-
-					<section id="oh-noes" class="not-mobile">
-						<h3>Delete account</h3>
-						<p>Are you sure? <a href="#" id="delete-account">I sure am!</a></p>
-					</section>
-
-				</div>
-
-			</div>
-
-			<!--/ Overlay — delete account /-->
-			<div id="delete-account-overlay" class="overlay">
-				<section>
-					<h1>Warning</h1>
-
-					<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
-
-					<p>
-						<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
-						<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
-					</p>
-				</section>
 			</div>
 
 		</div>

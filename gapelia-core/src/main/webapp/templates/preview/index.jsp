@@ -283,8 +283,8 @@
 
 						if (isFirst == 1) {
 							htmlToInsert += "<div class=\"author-info\">";
-							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "</div>";
 						}
 
@@ -314,8 +314,8 @@
 
 						if (isFirst == 1) {
 							htmlToInsert += "<div class=\"author-info\">";
-							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
 							htmlToInsert += "</div>";
 						}
 

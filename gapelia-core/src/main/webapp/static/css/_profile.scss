@@ -175,7 +175,20 @@
 			position: relative;
 			top: 12%;
 		}
+		
+		.button-wrapper {
+			bottom: 6%; left: 0;
+			
+			opacity: 0;
+			position: absolute;
+			text-align: center;
+			transition: all 0.2s ease;
+			width: 100%;
+			z-index: 100;
 
+			button:hover { padding: 0.5rem 1.5rem !important; }
+		}
+		
 		.avatar-wrapper {
 			#splash-edit-profile {
 				width: auto !important; height: auto !important;
@@ -223,7 +236,7 @@
 			margin: 0 0 1rem 0;
 
 			a {
-				border-bottom: 2px solid $white;
+				border-bottom: 1px solid $white;
 				@include serif;
 				font-style: italic;
 			}
@@ -238,7 +251,7 @@
 			margin: 0 0 3rem 0; padding: 1rem;
 
 			display: block;
-			font-size: 1.8rem;
+			font-size: 1.5rem;
 			line-height: 2.1rem;
 		}
 
@@ -320,10 +333,13 @@
 }
 
 .accounts {
+	
+	overflow-y: auto;
 
 	#user-panel {
 		display: block;
 		width: 96px;
+		position: fixed;
 	}
 
 	#account-information {
@@ -332,9 +348,8 @@
 
 	.account-info-wrapper, .account-password-wrapper, .account-notifications-wrapper,
 	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
-		display: inline-block;
+		//display: inline-block;
 		font-size: 1rem;
-		padding: 2rem;
 		width: 100%;
 
 		a {
@@ -343,10 +358,8 @@
 		}
 
 		section {
-			border-bottom: 1px solid rgba($black, 0.1);
 			margin: 1rem 0 0 0;
 
-			// &:first-child, &:last-child { margin: 0; }
 			&:first-child { margin: 0; }
 		}
 
@@ -360,27 +373,23 @@
 			padding: 0 1rem 0 0;
 
 			.bl_form {
-				// input { width: 100%; }
+				input { width: 100%; }
 			}
 
-			&:last-child { margin: 0; }
+			&:last-child { margin-left: 30%; }
 		}
 
-		.col-1 { width: 25%; }
-
 		.col-2 {
-			width: 50%;
+			width: 100%;
 
 			.bl_form {
 				input {
-					display: inline-block;
+					//display: inline-block;
 					margin: 0 1rem 2rem 0;
 					width: 40%;
 				}
 			}
 		}
-
-		.col-3 { width: 33%; }
 
 		// Form stuff
 		.bl_form {
@@ -390,6 +399,7 @@
 				border: 1px solid rgba($black, 0.1);
 				border-radius: 5px;
 				display: block;
+				font-size: 0.8rem;
 				outline: none;
 				width: 500px;
 			}
@@ -401,7 +411,9 @@
 				font-size: 0.6rem;
 				font-weight: 700;
 				text-transform: uppercase;
+				-webkit-transform: translate3d(-0px, -85px, 0px) !important;
 				width: 400px; // 500px
+				
 			}
 
 			.lb_label.top, .lb_label.bottom { left: 0.3rem !important; }
@@ -411,12 +423,18 @@
 		// .lb_label.active { color: $white; }
 	}
 
+	.account-delete-wrapper {
+		color: gray;
+		font-size: 100%;
+		padding-top: 5rem; 
+	}	
+	
 	#account-splash-wrapper {
 		border-radius: 5px;
 		color: $white;
-		height: 400px;
+		height: 250px;
 		overflow: hidden;
-		// padding: 2rem;
+		padding: 2rem;
 		position: relative;
 		text-align: center;
 
@@ -443,12 +461,8 @@
 			}
 		}
 
-		.account-user-avatar, #account-splash-user-info {
-			z-index: 1;
-		}
-
 		.account-avatar-wrapper {
-			width: 200px; height: 200px;
+			width: 150px; height: 150px;
 
 			border-radius: 300rem;
 			margin: 0 auto;
@@ -477,12 +491,12 @@
 		.account-user-avatar {
 			width: 100%; height: auto;
 
-			margin: 16% 0 0 0;
+			margin: 0;
 			position: relative;
 			text-align: center;
 
 			img {
-				width: 100%; height: auto;
+				width: 150px; height: 150px;
 
 				border: 1px solid rgba($black, 0.05);
 				position: initial;
@@ -505,6 +519,7 @@
 		border-radius: 20px;
 		cursor: pointer;
 		display: inline-block;
+		margin-bottom: 30px;
 		position: relative;
 		vertical-align: middle;
 	}
@@ -517,7 +532,6 @@
 		box-shadow: 0 1px 3px rgba(25, 25, 25, 0.4);
 		position: absolute;
 		top: -1px;
-		
 	}
 
 }
