@@ -34,7 +34,7 @@ public class SocialLogin extends HttpServlet {
 				hostName = "http://localhost:8080";
 				response.sendRedirect("/me");
 			} else {
-				hostName = "http://gapss-609817464.us-west-2.elb.amazonaws.com";
+				hostName = "http://gapeliaalpha-1815355907.us-east-1.elb.amazonaws.com/";
 			}
 			String successUrl = hostName + "/success;jsessionid=" + request.getSession().getId();
 			String type = request.getParameter("type");
