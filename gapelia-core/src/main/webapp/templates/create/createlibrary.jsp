@@ -32,6 +32,7 @@
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
+		<script src="/static/scripts/selectize.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
 	</head>
@@ -101,7 +102,23 @@
 					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 					<p data-placeholder="Add a description" contenteditable="true"></p>
 
-					<section></section>
+					<section>
+						<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
+
+						<script>
+							$("#input-tags").selectize({
+								delimiter: ",",
+								maxItems: 3,
+								persist: false,
+								create: function(input) {
+									return {
+										value: input,
+										text: input
+									}
+								}
+							});
+						</script>
+					</section>
 				</div>
 
 				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
@@ -137,27 +154,6 @@
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
-		</script>
-
-		<script>
-			/*
-			$(function () {
-
-				var
-				$vW = $(window).width(),
-				$vH = $(window).height();
-
-				$(function () {
-					$("#featured-scroller").mousewheel(function (event, delta) {
-
-						this.scrollLeft -= (delta * 40);
-						event.preventDefault();
-
-					});
-				});
-
-			});
-			*/
 		</script>
 		<!--//scripts /-->
 

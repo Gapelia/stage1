@@ -267,8 +267,7 @@
 		// Bookmarking
 		$(document).on("click", ".bookmark-this", function () {
 
-			$(this).addClass("bookmarked");
-			// $(this).closest("li").remove(); for Me page
+			$(this).closest("li").addClass("bookmarked");
 
 			$(this).find(".right-bm").css({
 				"background-color": "#ff3b30",
@@ -307,6 +306,7 @@
 
 		});
 
+		/*
 		// Remove bookmark
 		$(document).on("click", ".bookmarked", function () {
 
@@ -345,6 +345,50 @@
 				});
 
 				$(this).find(".right-bm").css("width", "52px");
+
+			}
+
+		});
+		*/
+
+		// Remove bookmark in Bookmarks section on /featured
+		$(document).on("click", ".bookmarked .bookmark-this", function () {
+
+			if ($vW > "1024") {
+
+				// Recalculate horizontal list width
+				$("#bookmark-list").css({
+					"opacity": "0",
+					"margin": "2px 0 0 0"
+				});
+
+				$(this).closest("li").remove();
+
+				// gets all books in a section
+				var allBooks = $("#user-book-list li");
+
+				// holds function for one second and then adds width to body tag
+				setTimeout(function () {
+
+					var w = 0;
+
+					$("#bookmark-list li").each(function () { w += $(this).outerWidth(); });
+
+					w += 500;
+
+					$("#bookmark-list").css("width", w - 320 + "px");
+
+					$("#bookmark-list").css({
+						"opacity": "1",
+						"margin": "2px 0 0 0"
+					});
+
+				}, 500);
+
+			} else {
+
+				// Carry on
+				$(this).closest("li").remove();
 
 			}
 

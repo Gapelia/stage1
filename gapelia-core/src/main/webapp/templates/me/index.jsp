@@ -319,10 +319,14 @@
 
 		<script>
 			// Splash page
-			$(document).ready(function () {
+			$(function () {
 
 				stuff = "";
 				stuff += "<section id=\"user-splash\">";
+				stuff += "<div class=\"overlay-controls\">";
+				// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
+				stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+				stuff += "</div>";
 				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
@@ -627,6 +631,17 @@
 					return html;
 
 				}
+
+			});
+		</script>
+
+		<script src="/static/scripts/filepicker2.js"></script>
+
+		<script>
+			$(function () {
+
+				$(".overlay-controls button").addClass("slate").text("Change cover photo");
+				// $("#change-cover-photo").text("Change cover photo");
 
 			});
 		</script>

@@ -3,6 +3,26 @@
 
 @media all and (min-width: 1025px), screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	.app {
+
+		.bookmarked {
+			.bookmark-this {
+				.right-bm { width: 47px; }
+
+				.top-bm {
+					border-top: 20px solid $red;
+					right: 30px;
+				}
+
+				.bottom-bm {
+					border-bottom: 20px solid $red;
+					right: 30px;
+				}
+			}
+		}
+
+	}
+
 	.full-book {
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
@@ -280,6 +300,22 @@
 				.right-bm {
 					width: 50px; height: 50px;
 					top: -10px; right: -32px;
+				}
+			}
+		}
+
+		.bookmarked {
+			.bookmark-this {
+				.right-bm { width: 60px; }
+
+				.top-bm {
+					border-top: 40px solid $red;
+					right: 60px;
+				}
+
+				.bottom-bm {
+					border-bottom: 40px solid $red;
+					right: 60px;
 				}
 			}
 		}

@@ -576,7 +576,7 @@
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list">
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -594,7 +594,7 @@
 							<img src="/static/images/book-thumb-11.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -612,7 +612,7 @@
 							<img src="/static/images/book-thumb-12.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -630,7 +630,7 @@
 							<img src="/static/images/book-thumb-13.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -648,7 +648,7 @@
 							<img src="/static/images/book-thumb.JPG" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -666,7 +666,7 @@
 							<img src="/static/images/book-thumb-01.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -684,7 +684,7 @@
 							<img src="/static/images/book-thumb-02.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -702,7 +702,7 @@
 							<img src="/static/images/book-thumb-03.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -720,7 +720,7 @@
 							<img src="/static/images/book-thumb-04.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
@@ -738,7 +738,7 @@
 							<img src="/static/images/book-thumb-05.jpg" alt=""/>
 						</li>
 
-						<li class="collection">
+						<li class="collection bookmarked">
 							<div class="bookmark-this">
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
