@@ -121,6 +121,8 @@
 						$(".phototext-wrapper").imgLiquid({ fill: true });
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
+						$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+
 					});
 
 					function insertPage(isFirst) {

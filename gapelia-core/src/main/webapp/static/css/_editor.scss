@@ -386,7 +386,7 @@
 					}
 
 					.page-title-elem {
-						font-size: 2.6rem;
+						font-size: 2.3rem;
 						font-weight: 700;
 						line-height: 2.8rem;
 						margin: 0 0 0.5rem 0;
@@ -399,7 +399,7 @@
 
 					.page-desc {
 						@include serif;
-						font-size: 1.3rem;
+						font-size: 1.5rem;
 						letter-spacing: 0.006rem;
 						line-height: 2.3rem;
 						margin: 1rem 0 0 0;
@@ -429,11 +429,11 @@
 					*/
 
 					.image-attribution {
-						background-color: rgba($white, 0.4);
-						bottom: -1px; // 0
+						background-color: rgba($white, 0.5);
+						bottom: 0;
 						cursor: default;
 						display: none;
-						font-size: 0.7rem; // 0.8
+						font-size: 0.6rem;
 						line-height: 1rem;
 						padding: 0.5rem 1rem;
 						position: absolute;
@@ -586,8 +586,8 @@
 						width: 100%; height: 100%;
 						top: 0; left: 0;
 
-						background-color: #FFFFFF;
-						color: $gray-iv;
+						background-color: $white;
+						color: rgba($black, 0.5);
 						position: absolute;
 						z-index: 1;
 
@@ -742,7 +742,6 @@
 					}
 
           .image-attribution {
-						// border-top-left-radius: 8px; //
 						right: 0;
 						width: auto;
             max-width: 50%; //
@@ -814,12 +813,12 @@
 						position: absolute;
 
 						.page-title-elem {
-							font-size: 1.5rem; // 2rem, Tommy
+							font-size: 1.5rem;
 							line-height: 1.7rem;
 						}
 
 						.page-desc {
-							font-size: 1rem; // 1.2rem, Tommy
+							font-size: 1rem;
 							line-height: 1.7rem;
 							text-align: left;
 						}
@@ -858,7 +857,6 @@
 
 						background-color: $white;
 						border-left: 1px solid $gray-ii;
-						line-height: 2.5em;
 						overflow-y: auto;
 						padding: 4rem 2rem 2rem 2rem;
 						position: absolute;
@@ -896,13 +894,13 @@
 						position: absolute;
 
 						.page-title-elem {
-							font-size: 1.5rem; // 2rem, Tommy
+							font-size: 1.5rem;
 							line-height: 1.7rem;
 							text-align: left;
 						}
 
 						.page-desc {
-							font-size: 1rem; // 1.2rem
+							font-size: 1rem;
 							line-height: 1.7rem;
 							text-align: left;
 						}
@@ -1276,7 +1274,7 @@
 	}
 
 	h1 {
-    font-size: 2.6rem;
+    font-size: 2.3rem;
     font-weight: 600;
     color: rgba(25, 25, 25, 0.8);
     
