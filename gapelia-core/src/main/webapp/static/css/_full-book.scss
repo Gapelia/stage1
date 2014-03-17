@@ -118,6 +118,8 @@
 		text-align: center;
     text-shadow: 0 0 3px #70a1b1 !important;
 		z-index: 2000;
+    
+    .ion-ios7-arrow-left, .ion-ios7-arrow-right { text-shadow: 0 0 3px #70a1b1 !important; }
 	}
 
 	#bb-nav-prev { left: 0; }
@@ -596,7 +598,7 @@
 		#fin {
 			background-color: $white;
 			color: $black;
-			padding: 8rem 4rem 0 4rem;
+			padding: 6rem 4rem 0 5rem;
 			width: 65%;
 
 			.merci, h2 {
@@ -625,7 +627,7 @@
 			}
 
 			.share-book {
-				margin: -2rem 0 2rem 8.5rem;
+				margin: -2rem 0 3rem 8.5rem;
 
 				&:before {
 					content: "Share this";
@@ -634,6 +636,7 @@
 					font-style: italic;
 					line-height: inherit;
 					margin: 0 0.5rem 0 0;
+          margin-top: 1px;
 					vertical-align: bottom;
 				}
 
