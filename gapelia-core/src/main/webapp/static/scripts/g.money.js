@@ -113,6 +113,8 @@
 
 		$(".avatar-button button").addClass("white").html("+ Avatar");
 		$(".cover-button button").addClass("white").html("+ Cover photo");
+		// $(".avatar-button button").addClass("slate").html("Change avatar");
+		// $(".cover-button button").addClass("slate").html("Change cover photo");
 
 		var descElem = "splash-user-bio";
 		descMax = 151;
@@ -137,7 +139,6 @@
 			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-website").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-twitter").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
-			
 
 			if ($("#splash-edit-wrapper .quick-edit-profile").css("background-color") == "#4cd964") {
 
@@ -255,10 +256,12 @@
 		// Library Subscriptions
 		$(document).on("click", "button.subscribe", function () {
 			$(this).text("Unsubscribe").removeClass("subscribe transparent-ii").addClass("unsubscribe red");
+			// $(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
 		$(document).on("click", "button.unsubscribe", function () {
 			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe transparent-ii");
+			// $(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
 
 		// Bookmarking
@@ -327,6 +330,7 @@
 				});
 
 				$(this).find(".right-bm").css("width", "27px");
+				// $(this).find(".right-bm").css("width", "26px");
 
 			} else {
 
@@ -451,4 +455,3 @@
 		}
 
 	});
-

@@ -94,22 +94,23 @@
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
 						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
+						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->
 					</ul>
 				</div>
 
 				<!--/ Personal Settings /-->
 				<div class="account-info-wrapper">
 
-					<div class="col-2">
+					<div class="col-0">
 
 						<div id="account-splash-wrapper">
 							<section id="account-user-splash">
 
 								<div class="account-user-avatar">
-									<div class="account-avatar-wrapper">
+									<div class="account-avatar-wrapper" style="background-image: url(/static/images/users/11.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
 
 										<div class="button-wrapper avatar-button">
-											<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'contain' }); $('.spinner').hide();">
+											<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();">
 										</div>
 
 										<img class="user-avatar" src="/static/images/users/11.jpg"/>
@@ -122,7 +123,7 @@
 
 					</div>
 
-					<div class="col-2">
+					<div class="col-0">
 						<form class="bl_form">
 							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
@@ -130,16 +131,15 @@
 							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
 							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-							
+
 							<input type="checkbox" class="js-switch" checked/>
-							
+
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>
-						
-						<div class="account-delete-wrapper">
 
+						<div class="account-delete-wrapper">
 							<section id="oh-noes" class="not-mobile">
-								<p>Delete account? <a href="#" id="delete-account">I sure am!</a></p>
+								<p>Delete account? <a href="#" id="delete-account">Yes please!</a></p>
 							</section>
 						</div>
 					</div>

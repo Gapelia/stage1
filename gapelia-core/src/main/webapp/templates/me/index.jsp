@@ -328,11 +328,14 @@
 				stuff += "<div id=\"splash-edit-wrapper\">";
 				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
 				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+				// stuff += "<a class=\"edit-profile\" href=\"/accounts\">Edit Profile</a>";
+				// stuff += "<a class=\"quick-edit-profile\" href=\"#\">Quick Edit Profile</a>";
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
 				stuff += "<h1>Paul Anthony Webb</h1>";
-				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, and <a href=\"\">Technological Marvels</a></h5>";
+				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
 				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
 				stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
@@ -397,7 +400,7 @@
 
 			}
 
-			$(document).ready(function () {
+			$(function () {
 
 				var
 				$vW = $(window).width(),

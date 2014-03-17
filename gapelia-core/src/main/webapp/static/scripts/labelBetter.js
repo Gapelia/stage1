@@ -7,7 +7,7 @@
 		animationTime: 500,
 		easing: "ease-in-out",
 		offset: 2, // 72
-		hidePlaceholderOnFocus: false
+		hidePlaceholderOnFocus: false // true
 	};
 
 	$.fn.animateLabel = function (settings, btn) {

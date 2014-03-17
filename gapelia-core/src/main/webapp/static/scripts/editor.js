@@ -24,7 +24,7 @@
 		author = "William Gibson";
 		templateId = 0;
 		currentPage = 0;
-		imageURL =  null;
+		imageURL = null;
 		attribution = null;
 		title = null;
 		text = null;
@@ -577,6 +577,7 @@
 		pages.page[currentPage].image = imageURL;
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
+
 		/*
 		function handleFile(file) {
 
@@ -1074,6 +1075,8 @@
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		
+		// insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if(title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -1448,19 +1451,18 @@
 	// ------------------------------------------------------------------------------------
 
 	// Hide inline-wrapper when click outisde
-	
-	$(document).mouseup(function (e)
-	{
+
+	$(document).mouseup(function (e) {
+
 		var container = $(".add-inline-content-wrapper");
 
 		if (!container.is(e.target) // if the target of the click isn't the container...
-			&& container.has(e.target).length === 0) // ... nor a descendant of the container
-		{
-			container.hide();
+		&& container.has(e.target).length === 0) {
+		container.hide(); // ... nor a descendant of the container
 		}
+
 	});
-	
-	
+
 	// Hide editor, show when mouse moves
 	var timedelay = 1;
 

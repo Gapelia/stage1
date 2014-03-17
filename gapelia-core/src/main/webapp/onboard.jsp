@@ -421,12 +421,15 @@
 				oop = "";
 				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/whiteBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
+				// oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/blankBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+
 				oop += "<div class=\"overlay-controls\">";
 				oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
 				oop += "</div>";
 
 				oop += "<div class=\"account-user-avatar\">";
 				oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/whiteBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				// oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				oop += "<div class=\"button-wrapper avatar-button\">";
 				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.user-avatar').hide(); $('.spinner').hide();\">";
 				oop += "</div>";
@@ -434,12 +437,12 @@
 				oop += "</div>";
 
 				oop += "<div id=\"user-info\">";
-				oop += "<h2>Paul Anthony Webb</h2>"
+				oop += "<h2>Paul Anthony Webb</h2>";
 				oop += "<div id=\"user-bio\" contenteditable=\"true\">Add your bio...</div>";
 				oop += "</div>";
 
 				oop += "<div class=\"button-wrapper cover-button\">";
-				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#onboard-photos-overlay').css({ 'background-color': 'white', 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#onboard-photos-overlay').css({ 'background-color': '#fcfcfc', 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
 				oop += "</div>";
 
 				oop += "</div>";
@@ -483,9 +486,10 @@
 
 				$(".avatar-button button").addClass("white").html("+ Avatar");
 				$(".cover-button button").addClass("white").html("+ Cover Photo");
+				// $(".avatar-button button").addClass("slate").html("Change avatar");
+				// $(".cover-button button").addClass("slate").html("Change cover photo");
 
-			});	
-			
+			});
 		</script>
 		<!--//scripts /-->
 

@@ -285,6 +285,8 @@
 							htmlToInsert += "<div class=\"author-info\">";
 							htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+							// htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+							// htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
 
@@ -316,6 +318,8 @@
 							htmlToInsert += "<div class=\"author-info\">";
 							htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+							// htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+							// htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
 							htmlToInsert += "</div>";
 						}
 

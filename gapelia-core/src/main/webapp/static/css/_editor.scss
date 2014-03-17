@@ -433,7 +433,7 @@
 						bottom: -1px; // 0
 						cursor: default;
 						display: none;
-						font-size: 0.7rem;
+						font-size: 0.7rem; // 0.8
 						line-height: 1rem;
 						padding: 0.5rem 1rem;
 						position: absolute;
@@ -466,7 +466,7 @@
 						width: 50px !important; height: auto !important;
 						bottom: 1rem; left: 1.5rem;
 
-						color: rgba(25,25,25,0.6);
+						color: rgba($black, 0.6);
             @include icon;
 						font-size: 2rem !important;
 						position: fixed;
@@ -641,7 +641,7 @@
             
             color: rgba($black, 0.95); 
 						margin: 0 auto;
-            //border-top-left-radius: 8px; //
+            // border-top-left-radius: 8px; //
 						max-width: 35%; //
 					}
 
@@ -709,26 +709,21 @@
 					.button-wrapper { bottom: 45%; } // 30%
 
           .page-bg-wrapper {
-            width: 50%; height: inherit; max-height: 66%;
-            top: 45vh !important; left: 25%; // top: 50%
+						width: 50%; height: 400px;
 
-            position: relative;
-            transform: translateY(-50%);
+						box-shadow: 0 0 5px 0 rgba($black, 0.3);
+						left: 25%;
+						line-height: 400px;
+						overflow: hidden;
+						position: relative;
+						text-align: center;
+					}
 
-            -o-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-          }    
-
-					.page-bg {
-            width: 100%; height: 100%;
-            box-shadow: 0 0 5px 0 rgba($black, 0.3);
-          }  
+					.page-bg { vertical-align: middle; }
 
 					.photo-preview {
 						width: 100%; height: 100%; // height: auto
-						margin: 6.5rem 0 0 0; padding: 1rem 2rem; 
+						margin: 9.5rem 0 0 0; padding: 1rem 2rem; 
 
 						color: $black;
 						position: relative;
@@ -747,7 +742,7 @@
 					}
 
           .image-attribution {
-						//border-top-left-radius: 8px; //
+						// border-top-left-radius: 8px; //
 						right: 0;
 						width: auto;
             max-width: 50%; //
@@ -788,15 +783,17 @@
 						::-moz-placeholder					{ color: $white; }
 						::-webkit-input-placeholder	{ color: $white; }
 					}
-          
-          .image-attribution {
+
+					.image-attribution {
 						bottom: 0; right: 0;
 
-            background-color: transparent !important;
-            color: white !important; 
-            max-width: 30%;
+						background-color: transparent !important;
+						color: $white !important; //
+						max-width: 30%;
 						position: fixed;
 						width: auto;
+
+						// p { color: $white !important; }
 					}
 				}
 
@@ -817,12 +814,12 @@
 						position: absolute;
 
 						.page-title-elem {
-							font-size: 2rem;
+							font-size: 1.5rem; // 2rem, Tommy
 							line-height: 1.7rem;
 						}
 
 						.page-desc {
-							font-size: 1.2rem;
+							font-size: 1rem; // 1.2rem, Tommy
 							line-height: 1.7rem;
 							text-align: left;
 						}
@@ -837,7 +834,7 @@
 					}
 
           .image-attribution {
-						//border-top-right-radius: 8px; //
+						// border-top-right-radius: 8px; //
 						max-width: 30%; //
           }
 				}
@@ -876,6 +873,7 @@
 					}
 
           .image-attribution {
+						// background-color: transparent; //
             color: rgba($black, 0.8);
 					}
 				}
@@ -898,13 +896,13 @@
 						position: absolute;
 
 						.page-title-elem {
-							font-size: 2rem;
+							font-size: 1.5rem; // 2rem, Tommy
 							line-height: 1.7rem;
 							text-align: left;
 						}
 
 						.page-desc {
-							font-size: 1.2rem;
+							font-size: 1rem; // 1.2rem
 							line-height: 1.7rem;
 							text-align: left;
 						}
