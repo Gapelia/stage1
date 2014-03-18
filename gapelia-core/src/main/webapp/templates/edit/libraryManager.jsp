@@ -84,8 +84,8 @@
 				<h4>[Library Name]</h4>
 
 				<ul>
-					<li><a href="">Submissions</a></li>
-					<li><a href="">Add my stories</a></li>
+					<li><a id="other-submissions" href="#">Submissions</a></li>
+					<li><a id="my-submissions" href="#">Add my stories</a></li>
 				</ul>
 			</div>
 			<!--//main-panel /-->
@@ -134,16 +134,6 @@
 
 			<!--/ main-content /-->
 			<div id="featured-scroller">
-				<!--/
-				<div id="nav-wrapper">
-					<ul id="featured-nav">
-						<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
-						<li id="nav-dimensions"><a href="#">Dimensions</a></li>
-						<li id="nav-libraries"><a href="#">Libraries</a></li>
-					</ul>
-				</div>
-				/-->
-
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
 					<ul id="book-list">
