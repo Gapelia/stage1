@@ -20,7 +20,15 @@ public class AuthSuccessHandler extends HttpServlet {
 			SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
 			Profile profile = null;
 			Map requestMap = SocialAuthUtil.getRequestParametersMap(request);
-			AuthProvider provider = manager.connect(requestMap);
+			AuthProvider provider;
+			try{
+				provider = manager.connect(requestMap);
+			}catch(Exception e ){
+				LOG.warn("user trying to log in with other social media account...redirecting." + e.getMessage());
+				response.sendRedirect("/");
+				return;
+			}
+
 			profile = provider.getUserProfile();
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
