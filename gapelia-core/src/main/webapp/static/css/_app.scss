@@ -740,9 +740,10 @@
 		}
 
 		.button-wrapper {
+			top: 20%; left: 20%;
+
 			position: absolute;
 			text-align: center;
-			top: -6rem;
 			width: 100%;
 		}
 
@@ -779,7 +780,7 @@
 			}
 
 			&:hover {
-				color: inherit; // $black
+				color: $white; // $black
 
 				&:after {
 					margin: 0 0 0 1rem;
@@ -789,10 +790,21 @@
 		}
 
 		#new-library-info {
-			top: 45%; left: 20%;
+			top: 55%; left: 20%;
 
-			padding: 0;
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			padding: 2rem 0;
+			position: absolute;
+			transition: all 0.5s ease;
 			width: 60%;
+
+			small {
+				margin: -3.5rem 0 0 0;
+				opacity: 0;
+				position: absolute;
+				transition: opacity 0.5s ease;
+			}
 
 			h2 {
 				font-size: 42px; //
@@ -805,15 +817,14 @@
 			}
 
 			section {
-				bottom: -10rem;
-				position: absolute;
+				position: relative;
 
 				.selectize-input {
 					background-color: transparent;
+					border: 0;
+					outline: none;
+					padding: 8px 0;
 					width: 500px;
-
-					input {
-					}
 				}
 			}
 		}
@@ -821,20 +832,14 @@
 		// h1 { font-size: 0.9rem; }
 
 		p {
-			font-size: 1.1rem; // 1.3rem
-      font-weight: 200; //
+			font-size: 1.3rem;
 			letter-spacing: 0.006rem;
-			line-height: 2.3rem;
+			line-height: 2rem;
 
 			&:empty:after {
 				color: rgba($white, 0.7);
 				content: "Add a description here";
 			}
-		}
-
-		section {
-			// font-weight: 700;
-			// padding-bottom: 15px;
 		}
 
 		/*
@@ -854,9 +859,19 @@
 			z-index: 100;
 
 			.outline { border: 1px solid $white !important; }
+
+			#confirm-edit-library {
+				top: 0; right: -10rem;
+
+				position: absolute;
+				transition: right 0.5s ease;
+			}
 		}
 
-		#close-splash { display: none; }
+		#close-splash {
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
 	}
 
 	#user-splash {
