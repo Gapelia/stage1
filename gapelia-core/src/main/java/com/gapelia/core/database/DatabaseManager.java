@@ -8,7 +8,7 @@ public class DatabaseManager {
 
 	private static String DB_DRIVER = "org.postgresql.Driver";
 	private static String DB_CONN_STRING = "jdbc:postgresql://";
-	private static String DB_HOSTNAME = "stage1.cxphkpoppwcv.us-west-2.rds.amazonaws.com";
+	private static String DB_HOSTNAME = "stage1.chxnadlmqc14.us-east-1.rds.amazonaws.com";
 	private static String DB_PORT = "5432";
 	private static String DB_USER = "gapelia";
 	private static String DB_PASS = "alphalaunch";
@@ -40,19 +40,7 @@ public class DatabaseManager {
 			String connectionString = DB_CONN_STRING + DB_HOSTNAME + ":" + DB_PORT + "/" + DB_NAME;
 			String userName = DB_USER;
 			String password = DB_PASS;
-			String mode = null;
-            /*
-			try {
-				mode = System.getProperty("gapeliaMode");
-			} catch (Exception ex) {
-				// Ignore mode is null
-			}
-			if (null != mode && "local".equals(mode)) {
-				LOG.error("we are in local mode:");
-				connectionString = "jdbc:postgresql://lmqyuqoyasrapq:5ELsYmpiso4HWAyj0SR_iaBQH4@ec2-54-204-37-92.compute-1.amazonaws.com:5432/d4fq8usu8kkech?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-			}*/
 			connection = DriverManager.getConnection(connectionString, userName, password);
-			LOG.info("Got database connection");
 		} catch (Exception ex) {
 			LOG.error(connection);
 			LOG.error("Cannot get database connection", ex);
