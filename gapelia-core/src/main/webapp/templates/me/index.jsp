@@ -354,6 +354,8 @@
 				$("#user-splash").imgLiquid({ fill: true });
 				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/11.jpg"/>');
 
+				$("#g-menu-toggle").css("color", "#fcfcfc");
+
 			});
 
 			if ($vW > "1024") {
@@ -366,6 +368,7 @@
 					});
 
 					$("#user-splash").css("left", "-200%");
+					$("#user-splash .overlay-controls").css("left", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
 
 				});
@@ -406,9 +409,7 @@
 
 			$(function () {
 
-				var
-				$vW = $(window).width(),
-				$vH = $(window).height();
+				var $vW = $(window).width(), $vH = $(window).height();
 
 				/*
 				$(function () {

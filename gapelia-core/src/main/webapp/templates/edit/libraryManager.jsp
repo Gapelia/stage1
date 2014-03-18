@@ -37,7 +37,7 @@
 
 	</head>
 
-	<body class="app">
+	<body class="app library-manager">
 
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -49,8 +49,8 @@
 
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/createlibrary">Create book</a></li>
-						<li><a href="#" id="create-library">Start library</a></li>
+						<li><a href="/createbook">Create book</a></li>
+						<li><a href="/librarymanager" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
@@ -80,8 +80,17 @@
 				<button id="g-menu-toggle">
 					<i class="ion-drag"></i>
 				</button>
-			</div>
 
+				<h4>[Library Name]</h4>
+
+				<ul>
+					<li><a href="">Submissions</a></li>
+					<li><a href="">Add my stories</a></li>
+				</ul>
+			</div>
+			<!--//main-panel /-->
+
+			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
 					<button id="confirm-cancel-library" class="blank">Delete</button>
@@ -121,17 +130,204 @@
 				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
 				<img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/>
 			</section>
+			<!--//library-editing /-->
+
+			<!--/ main-content /-->
+			<div id="featured-scroller">
+				<!--/
+				<div id="nav-wrapper">
+					<ul id="featured-nav">
+						<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
+						<li id="nav-dimensions"><a href="#">Dimensions</a></li>
+						<li id="nav-libraries"><a href="#">Libraries</a></li>
+					</ul>
+				</div>
+				/-->
+
+				<!--/ Featured Books /-->
+				<div class="book-list-wrapper">
+					<ul id="book-list">
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Daria Morgendorffer</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-01.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Jane Lane</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-02.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Hub Hikari</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-03.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Dimmi Bolling</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-04.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head × Beats Take Significance</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">The Kitchen Collective</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-05.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Save the trees, too!</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">National Geographic</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-06.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">BOkeH!</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Lan Hikari</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-07.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">The Wild Thornberrys!</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Eliza Thornberry</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-08.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Crying Rivers: The Justin Timberlake Story</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Doug Funnie</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-09.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="delete-this-book">&#xf252;</a>
+								<a href="#" class="edit-this-book">&#xf13d;</a>
+							</div>
+
+							<div class="book-title"><a href="#">Trees Yo</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-10.jpg" alt=""/>
+						</li>
+
+					</ul>
+				</div>
+				<!--//Featured Books /-->
+			</div>
+			<!--//main-content /-->
 
 		</div>
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/spin.js"></script>
+		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
+
+		<!--/ scripts/layout-scroller /-->
+		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
 			if ($vW > "1024") {
@@ -153,8 +349,12 @@
 				// Click "Save" button
 				$("#confirm-create-library").click(function () {
 
+					// Disable
 					$(".button-wrapper").css("opacity", "0").hide();
+					$("#confirm-cancel-library, #confirm-create-library").hide();
+					$("[contenteditable='true']").attr("contenteditable", "false");
 
+					// Enable
 					$("#new-library-info").css({
 						"border-top": "1px solid #fcfcfc",
 						"border-bottom": "1px solid #fcfcfc"
@@ -163,16 +363,19 @@
 					$("#new-library-info small").css("opacity", "1");
 					$("#close-splash").css("opacity", "1");
 
-					$("[contenteditable='true']").attr("contenteditable", "false");
-
 					$("#confirm-edit-library").css("right", "0");
-					$("#confirm-cancel-library, #confirm-create-library").hide();
 
 				});
 
 				// Click "Edit" button
 				$("#confirm-edit-library").click(function () {
 
+					// Disable
+					$("#new-library-info small").css("opacity", "0");
+					$("#close-splash").css("opacity", "0");
+					$("#confirm-edit-library").css("right", "-10rem");
+
+					// Enable
 					$(".button-wrapper").css("opacity", "1").show();
 
 					$("#new-library-info").css({
@@ -180,15 +383,187 @@
 						"border-bottom": "1px solid transparent"
 					});
 
-					$("#new-library-info small").css("opacity", "0");
-					$("#close-splash").css("opacity", "0");
-
 					$("[contenteditable='false']").attr("contenteditable", "true");
-
-					$("#confirm-edit-library").css("right", "-10rem");
 					$("#confirm-cancel-library, #confirm-create-library").show();
 
 				});
+
+				// Close overlay and get to bookshelf
+				if ($vW > "1024") {
+
+					$(document).on("click", "#close-splash", function () {
+
+						$("#close-splash").css({
+							"left": "-200%",
+							"right": "initial"
+						});
+
+						$("#new-library").css("left", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
+						$("#featured-panel h4").css("opacity", "1");
+						$("#featured-panel ul").css("right", "2rem");
+
+						$(".library-controls #confirm-edit-library").css("right", "-20rem");
+
+					});
+
+				} else {
+
+					$(function () {
+
+						$("#new-library").swipe({
+							// Generic swipe handler for all directions
+							swipeUp: function (event, direction, distance, duration, fingerCount) {
+
+								$("#close-splash").css({
+									"height": "0",
+									"top": "-200%"
+								});
+
+								$("#new-library").css("top", "-200%");
+								$("#g-menu-toggle").css("color", "#70a1b1");
+
+							}, threshold: 0
+						});
+
+						$(document).on("click", "#close-splash", function () {
+
+							$("#close-splash").css({
+								"height": "0",
+								"top": "-200%"
+							});
+
+							$("#new-library, #new-library button").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
+
+						});
+
+					});
+
+				}
+
+				$("#featured-scroller").mousewheel(function (event, delta) {
+
+					this.scrollLeft -= (delta * 40);
+					event.preventDefault();
+
+				});
+
+				// Dropdown menu for mobile
+				if ($vW < "1025") {
+
+					$("#featured-panel .featured-info").remove();
+					$("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
+
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
+
+					$(document).on("click", "#g-menu-toggle", function () {
+						$("#featured-nav").toggle();
+					});
+
+				}
+
+				if ($vW < "321") {
+
+					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
+
+				}
+
+				// Load Gapelia
+				$(function () {
+
+					if ($vW > "1024") {
+
+						NProgress.start();
+
+						$("#featured-panel, #featured-scroller").css("opacity", "0").show();
+
+						var
+						allBooks = $("#book-list li"),			// gets all books in a section
+						firstBook = $(allBooks).first();		// gets first book in list
+
+						$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+						setTimeout(function () {
+
+							$("#book-list").hide();
+							$("#library-list").hide();
+							$("#bookmark-list").hide();
+
+							var w = 0;
+
+							$("#book-list li").each(function () {
+								w += $(this).outerWidth();
+							});
+
+							w += 500;
+
+							$("#book-list").css("width", w - 320 + "px");
+
+							// fades in the all the books after section width is added
+							$("#book-list li").fadeIn("100");
+							$("#book-list").fadeIn("100");
+
+							// "fix" featured menu pop-in
+							setTimeout(function () {
+								$("#featured-panel, #featured-scroller").css("opacity", "1");
+							}, 400);
+
+						}, 1000);
+
+						$("#nav-books").addClass("current");
+
+						NProgress.done();
+
+					} else {
+					}
+
+				});
+
+			});
+
+			// Confirm book deletion
+			$(document).on("click", ".yay-delete-book", function (e) {
+
+				if ($vW > "1024") {
+
+					// Recalculate horizontal list width
+					$("#book-list").css({
+						"opacity": "0",
+						"margin": "2px 0 0 0"
+					});
+
+					$(this).closest("li").remove();
+
+					// gets all books in a section
+					var allBooks = $("#book-list li");
+
+					// holds function for one second and then adds width to body tag
+					setTimeout(function () {
+
+						var w = 0;
+
+						$("#book-list li").each(function () { w += $(this).outerWidth(); });
+
+						w += 500;
+
+						$("#book-list").css("width", w - 320 + "px");
+
+						$("#book-list").css({
+							"opacity": "1",
+							"margin": "2px 0 0 0"
+						});
+
+					}, 500);
+
+				} else {
+
+					// Carry on
+					$(this).closest("li").remove();
+
+				}
+
+				e.preventDefault();
 
 			});
 		</script>

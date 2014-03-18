@@ -83,7 +83,6 @@
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
 				</div>
-
 			</div>
 			<!--//main-panel /-->
 
@@ -308,7 +307,7 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			$(document).ready(function () {
+			$(function () {
 
 				stuff = "";
 				stuff += "<section id=\"library-splash\">";
@@ -381,11 +380,9 @@
 
 			}
 
-			$(document).ready(function () {
+			$(function () {
 
-				var
-				$vW = $(window).width(),
-				$vH = $(window).height();
+				var $vW = $(window).width(), $vH = $(window).height();
 
 				$(function () {
 					$("#featured-scroller").mousewheel(function (event, delta) {
@@ -467,39 +464,6 @@
 					}
 
 				});
-
-				/*
-				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
-				NProgress.start();
-
-				setTimeout(function () {
-
-					$("#book-list").css("opacity", "0").show();
-
-					$("#book-list").mCustomScrollbar({
-						autoHideScrollbar: false,
-						horizontalScroll: true,
-						theme: "dark-thin",
-						callbacks: {
-						},
-						advanced: { autoExpandHorizontalScroll: true }
-					});
-
-					if ($vW < "801") { $("#book-list").mCustomScrollbar("destroy"); }
-
-					NProgress.done();
-
-					$("#book-list").css("opacity", "1");
-
-					// "fix" featured menu pop-in
-					setTimeout(function () {
-						$("#featured-panel, #featured-scroller").css("opacity", "1");
-					}, 400);
-
-				});
-
-				$("#nav-books").addClass("current");
-				*/
 
 			});
 		</script>

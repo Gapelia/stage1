@@ -1,0 +1,74 @@
+
+////////////////////////////////////////////////////////////////////////////// LIBRARY.MANAGER/SCSS ///
+
+.library-manager {
+
+	#featured-panel {
+		overflow: initial;
+
+		h4 {
+			top: 0.55rem; left: 6rem;
+
+			// color: $white;
+			// display: none;
+			opacity: 0;
+			position: absolute;
+			transition: opacity 5s ease;
+			width: 800px;
+		}
+
+		ul {
+			top: 1.5rem; right: -20rem;
+
+			font-size: 1.2rem;
+			position: fixed;
+			transition: right 0.2s ease;
+
+			li {
+				display: inline-block;
+				&:first-child { margin: 0 1rem 0 0; }
+			}
+		}
+	}
+
+	#featured-scroller {
+		.book {
+			.book-buttons {
+				top: 0; right: 0;
+
+				padding: 1rem;
+				position: absolute;
+				z-index: 1;
+
+				.delete-this-book, .edit-this-book {
+					width: 32px !important; height: 32px !important;
+
+					color: $white;
+					display: inline-block !important;
+					@include icon;
+					font-size: 1.5rem;
+					line-height: 2rem;
+					padding: 0;
+					text-align: center;
+					text-shadow: 0 0 0.13rem $black !important;
+				}
+			}
+
+			.delete-book-confirm {
+				width: 100%; height: 100%;
+
+				background: linear-gradient(180deg, #47565f 0%, #5b625a 15%, #947461 38%, #f98056 70%, #f7ec86 100%);
+				color: $white;
+				padding: 4rem 2rem;
+				position: relative;
+				text-align: center;
+				transition: all 0.2s ease;
+				z-index: 2;
+
+				h3 { margin: 8rem 0 0 0; }
+				.wrapper { width: 100%; }
+			}
+		}
+	}
+
+}
