@@ -23,16 +23,15 @@ public class SocialLogin extends HttpServlet {
 			config.load();
 			SocialAuthManager manager = new SocialAuthManager();
 			manager.setSocialAuthConfig(config);
-			String hostName = InetAddress.getLocalHost().getHostName();
+			String hostName = null;
 			String mode = null;
 			try {
 				mode = System.getProperty("gapeliaMode");
 			} catch (Exception ex) {
-				// Ignore mode is null
+
             }
 			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";
-				response.sendRedirect("/me");
 			} else {
 				hostName = "http://gapeliaalpha-1815355907.us-east-1.elb.amazonaws.com/";
 			}
@@ -43,11 +42,6 @@ public class SocialLogin extends HttpServlet {
 				url = manager.getAuthenticationUrl(APP_FACEBOOK, successUrl, Permission.AUTHENTICATE_ONLY);
 			} else {
 				url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
-			}
-			if (null != mode && "local".equals(mode)) {
-				response.sendRedirect("/me");
-				response.sendRedirect(response.encodeRedirectURL(successUrl));
-				return;
 			}
 			HttpSession session = request.getSession();
 			session.setAttribute("authManager", manager);

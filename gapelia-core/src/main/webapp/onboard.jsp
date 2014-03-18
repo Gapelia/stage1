@@ -473,7 +473,7 @@
 
 				// Finish onboarding process
 				$("#finalize-setup").click(function () {
-					document.location.href = "/finalize-setup";
+					document.location.href = "/featured";
 				});
 
 			});
