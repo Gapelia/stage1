@@ -80,19 +80,21 @@ public class QueryDatabaseUser {
             } else {
                 insert.setDate(4, null);
             }
+
             if("male".equals(p.getGender())) {//write tool
                 insert.setString(5, "M");
-            } else {
+            } else if("female".equals(p.getGender())) {
                 insert.setString(5, "F");
             }
+
             insert.setString(6, p.getLocation());
             insert.setString(7, p.getProfileImageURL());
             insert.setString(8, p.getFirstName());
             insert.setString(9, p.getValidatedId());
             insert.setString(10, p.getProviderId());
-            insert.setDate(11, new Date(System.currentTimeMillis()));
-            insert.setDate(12, new Date(System.currentTimeMillis()));
-            insert.setDate(13, new Date(System.currentTimeMillis()));
+            insert.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
+            insert.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
+            insert.setTimestamp(13, new Timestamp(System.currentTimeMillis()));
             insert.executeUpdate();
             return "New";
         } catch (SQLException ex) {
