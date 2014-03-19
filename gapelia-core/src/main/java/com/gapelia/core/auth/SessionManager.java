@@ -38,7 +38,6 @@ public class SessionManager implements HttpSessionListener {
         for(String key: sortedKeys){
             LOG.info(key  + "  :    " + sessionId);
         }
-        LOG.info(sessionIdToUser.get(sessionId).getUserId());
         sessionIdToUser.put(sessionId, user);
     }
 
