@@ -1,7 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<% @include file="../../auth.jsp"; %>
-<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -423,7 +419,7 @@
 
 				// Initialize "Overlay — onboard photos"
 				oop = "";
-				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/whiteBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/libraries/wheat-field-by-phk-dan-10.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
 				// oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/blankBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
@@ -432,7 +428,7 @@
 				oop += "</div>";
 
 				oop += "<div class=\"account-user-avatar\">";
-				oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/whiteBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/user-avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				// oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				oop += "<div class=\"button-wrapper avatar-button\">";
 				oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.user-avatar').hide(); $('.spinner').hide();\">";
@@ -453,7 +449,7 @@
 
 				$("body").append(oop);
 
-				$("#user-info h2").html(_fullName);
+				//$("#user-info h2").html(_fullName);
 				// $("#user-bio img").attr("src", _image);
 
 				// Empty bio field when user clicks in it
@@ -491,7 +487,7 @@
 		<script>
 			$(function () {
 
-				$(".avatar-button button").addClass("white").html("+ Avatar");
+				$(".avatar-button button").addClass("white").html("Add Avatar");
 				$(".cover-button button").addClass("white").html("+ Cover Photo");
 				// $(".avatar-button button").addClass("slate").html("Change avatar");
 				// $(".cover-button button").addClass("slate").html("Change cover photo");
