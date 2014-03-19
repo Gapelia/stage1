@@ -1,6 +1,6 @@
 <% /* *********************************************** */ %>
 <% /* Include this line below to make page login-safe */ %>
-<% @include file="../../auth.jsp"; %>
+<%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
 
 <!DOCTYPE html>
@@ -375,6 +375,8 @@
 					$("#user-splash .overlay-controls").css("left", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
 
+					$("#user-header").css("opacity", "1");
+
 				});
 
 			} else {
@@ -491,8 +493,9 @@
  				featuredBooks = "";
  				parsedHtml = "";
 
-				// $(".user-data h2").html(_fullName);
-				// $(".user-avatar img").attr("src", _image);
+				// User details
+				$("#splash-user-info h1, #user-header").html(_fullName);
+				$(".avatar-wrapper img").attr("src", _image);
 
 				$.ajax({
 					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",

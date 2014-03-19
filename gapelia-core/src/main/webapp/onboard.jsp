@@ -449,8 +449,8 @@
 
 				$("body").append(oop);
 
-				//$("#user-info h2").html(_fullName);
-				// $("#user-bio img").attr("src", _image);
+				$("#user-info h2").html(_fullName);
+				$("#user-bio img").attr("src", _image);
 
 				// Empty bio field when user clicks in it
 				$(document).one("click", "#user-bio", function () { $(this).text(""); });
