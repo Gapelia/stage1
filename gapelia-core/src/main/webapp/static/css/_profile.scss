@@ -140,8 +140,10 @@
 		display: inherit;
 		font-size: 1.4rem;
 		line-height: 3.5rem;
+		opacity: 0.001;
 		padding: 0 14rem;
 		text-align: center;
+		transition: opacity 0.5s ease;
 
 		@include ellipsis;
 	}

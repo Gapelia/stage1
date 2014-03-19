@@ -59,6 +59,7 @@
 .super-wrapper.mp-pushed {
 	#g-menu-toggle {
 		color: $white !important; // stop changing this, white is the only color that makes sense
+		display: none; // having the white hamburger when menu is open is distracting
 		opacity: 1;
 	}
 

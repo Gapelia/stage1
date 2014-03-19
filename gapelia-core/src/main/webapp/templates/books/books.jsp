@@ -50,7 +50,7 @@
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
 						<li><a href="/createbook">Create book</a></li>
-						<li><a href="/librarymanager" id="create-library">Start library</a></li>
+						<li><a href="/librarymanager" id="create-library">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>

@@ -20,13 +20,41 @@
 		ul {
 			top: 1.5rem; right: -20rem;
 
+			display: inline-flex;
 			font-size: 1.2rem;
 			position: fixed;
 			transition: right 0.2s ease;
 
 			li {
 				display: inline-block;
+				text-align: right;
+
+				a { padding: 0 1rem; }
 				&:first-child { margin: 0 1rem 0 0; }
+
+				ul {
+					top: initial; right: 0 !important;
+
+					background-color: $white;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+					display: none;
+					position: relative;
+					width: auto;
+
+					li {
+						display: block;
+						padding: 0.5rem 1rem;
+
+						a { padding: 0; }
+						
+						&:first-child {
+							margin: 0; padding-top: 1rem;
+						}
+
+						&:last-child { padding-bottom: 1rem; }
+					}
+				}
 			}
 		}
 	}
