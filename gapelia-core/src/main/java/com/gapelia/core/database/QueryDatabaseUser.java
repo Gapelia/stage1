@@ -146,7 +146,7 @@ public class QueryDatabaseUser {
                 user.setMemeberSince(rs.getTimestamp("member_since"));
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
-                user.setTags(rs.getString("tags"));
+                //user.setTags(rs.getString("tags"));
                 return user;
             }
         } catch (Exception ex) {

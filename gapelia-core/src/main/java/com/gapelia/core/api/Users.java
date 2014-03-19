@@ -22,7 +22,6 @@ import java.util.ArrayList;
 @Path("/users/")
 public class Users {
     public static Logger LOG = Logger.getLogger(User.class);
-
     @Path("getUser")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

@@ -34,7 +34,7 @@ public class SocialLogin extends HttpServlet {
                 config.load("oauth_consumer_local.properties");
             } else {
                 config.load();
-                hostName = "http://gapeliaalpha-1815355907.us-east-1.elb.amazonaws.com/";
+                hostName = "http://gapeliaalpha-1815355907.us-east-1.elb.amazonaws.com";
             }
             manager.setSocialAuthConfig(config);
 
