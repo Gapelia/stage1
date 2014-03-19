@@ -1,3 +1,7 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<% @include file="../../auth.jsp"; %>
+<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -448,6 +452,9 @@
 				oop += "</div>";
 
 				$("body").append(oop);
+
+				$("#user-info h2").html(_fullName);
+				// $("#user-bio img").attr("src", _image);
 
 				// Empty bio field when user clicks in it
 				$(document).one("click", "#user-bio", function () { $(this).text(""); });

@@ -84,8 +84,26 @@
 				<h4>[Library Name]</h4>
 
 				<ul>
-					<li><a id="other-submissions" href="#">Submissions</a></li>
-					<li><a id="my-submissions" href="#">Add my stories</a></li>
+					<li id="other-submissions"><a href="#">Submissions</a>
+						<ul>
+							<li><a href="">Test book #01</a></li>
+							<li><a href="">Test book #02</a></li>
+							<li><a href="">Test book #03</a></li>
+							<li><a href="">Test book #04</a></li>
+							<li><a href="">Test book #05</a></li>
+						</ul>
+					</li>
+
+					<li id="my-submissions">
+						<a href="#">Add my stories</a>
+						<ul>
+							<li><a href="">Test book #06</a></li>
+							<li><a href="">Test book #07</a></li>
+							<li><a href="">Test book #08</a></li>
+							<li><a href="">Test book #09</a></li>
+							<li><a href="">Test book #10</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<!--//main-panel /-->
@@ -431,6 +449,22 @@
 					});
 
 				}
+
+				// Click "Submissions"
+				$("#other-submissions a").click(function (e) {
+
+					$("#other-submissions ul").toggle();
+					e.preventDefault();
+
+				});
+
+				// Click "Add my stories"
+				$("#my-submissions a").click(function (e) {
+
+					$("#my-submissions ul").toggle();
+					e.preventDefault();
+
+				});
 
 				$("#featured-scroller").mousewheel(function (event, delta) {
 
