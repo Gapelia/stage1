@@ -9,7 +9,10 @@
 	}
 
 	.mp-pushed {
-		#g-menu-toggle { z-index: 1; }
+		#g-menu-toggle {
+      dislay: none;
+      z-index: 1;
+    }  
 	}
 
 	.bb-item {
@@ -73,13 +76,13 @@
 	}
 
 	#g-menu-toggle, #next-book-toggle {
-		color: $white;
+		color: $white !important ;
 		padding: 0 !important;
 		position: fixed;
 		width: 45px;
 		z-index: 103 !important;
 
-		i { text-shadow: 0 0 1px rgba($black, 0.4) !important; }
+		i { text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important }
 	}
 
 	#g-menu-toggle { left: 1rem; }
