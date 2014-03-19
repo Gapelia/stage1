@@ -49,7 +49,7 @@
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
 						<li><a href="/createbook">Create book</a></li>
-						<li><a href="/librarymanager" id="create-library">Start library</a></li>
+						<li><a href="/librarymanager" id="create-library">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
@@ -90,7 +90,7 @@
 			<div id="featured-scroller">
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
-						<li id="nav-books" class="current"><a href="#">Bookshelf</a></li>
+						<li id="nav-books" class="current"><a href="#">Library Name</a></li>
 						<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li><li id="nav-libraries"><a href="#">Libraries</a></li> /-->
 					</ul>
 				</div>
@@ -311,8 +311,9 @@
 
 				stuff = "";
 				stuff += "<section id=\"library-splash\">";
-				stuff += "<button class=\"subscribe slate\">Subscribe</button>";
+				//stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
 				stuff += "<div id=\"library-info\">";
+				stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
 				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
 				stuff += "<h2>Library Name</h2>";
 				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
