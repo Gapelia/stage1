@@ -891,24 +891,18 @@
 }
 
 .notification-time {
-	color: $white !important;
+	#notification-count {
+		min-width: 20px; min-height: 20px;
+		top: 0; right: 1rem;
 
-	i {
-		animation: colors 5s ease infinite;
-
-		-o-animation: colors 5s ease infinite;
-		-ms-animation: colors 5s ease infinite;
-		-moz-animation: colors 5s ease infinite;
-		-webkit-animation: colors 5s ease infinite;
+		background-color: $red;
+		border-radius: 50%;
+		color: $white;
+		font-size: 0.8rem;
+		padding: 0.1rem 0.1rem 0.1rem 0.3rem;
+		position: absolute;
+		text-align: center;
 	}
-}
-
-@keyframes colors {
-	0% { text-shadow: 0 0 10px $red; }
-	25% { text-shadow: 0 0 10px $orange; }
-	50% { text-shadow: 0 0 10px $green; }
-	75% { text-shadow: 0 0 10px $blue; }
-	100% { text-shadow: 0 0 10px $purple; }
 }
 
 .onboard {
