@@ -407,91 +407,6 @@
 
 				var $vW = $(window).width(), $vH = $(window).height();
 
-				/*
-				// Splash page
-				stuff = "";
-				stuff += "<section id=\"library-splash\">";
-				// stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
-				stuff += "<div id=\"library-info\">";
-				stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
-				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
-				stuff += "<h2>Library Name</h2>";
-				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
-				stuff += "<section>";
-				stuff += "<a id=\"featured-library\" href=\"#\">hikari: The Future of the Operating System</a>";
-				stuff += "</section>";
-				stuff += "</div>";
-				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/wheat-field-by-phk-dan-10.jpg\"/>";
-				stuff += "</section>";
-
-				$("#mp-pusher").prepend(stuff);
-
-				$("#library-splash").imgLiquid({ fill: true });
-				$("#g-menu-toggle").css("color", "#fcfcfc");
-
-				if ($vW > "1024") {
-
-					// Close splash on desktops
-					$(document).on("click", "#close-splash", function () {
-
-						$("#close-splash").css({
-							"left": "-200%",
-							"right": "initial"
-						});
-
-						$("#library-splash").css("left", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
-
-					});
-
-				} else {
-
-					$(function () {
-
-						// Close splash on mobile
-						$("#library-splash").swipe({
-							// Generic swipe handler for all directions
-							swipeUp: function (event, direction, distance, duration, fingerCount) {
-
-								$("#close-splash").css({
-									"height": "0",
-									"top": "-200%"
-								});
-
-								$("#library-splash").css("top", "-200%");
-								$("#g-menu-toggle").css("color", "#70a1b1");
-
-							}, threshold: 0
-						});
-
-						$(document).on("click", "#close-splash", function () {
-
-							$("#close-splash").css({
-								"height": "0",
-								"top": "-200%"
-							});
-
-							$("#library-splash, #library-splash button").css("top", "-200%");
-							$("#g-menu-toggle").css("color", "#70a1b1");
-
-						});
-
-					});
-
-				}
-				*/
-
-				/*
-				// Click "Add my stories"
-				$("#my-submissions a").click(function (e) {
-
-					$("#my-submissions ul").toggle();
-					e.preventDefault();
-
-				});
-				*/
-
 				// Controlled scrolling speed
 				$("#featured-scroller").mousewheel(function (event, delta) {
 
@@ -631,28 +546,50 @@
 
 				});
 
-				/*
-				// Dropdown menu for mobile
-				if ($vW < "1025") {
+			});
 
-					$("#featured-panel .featured-info").remove();
-					$("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
+			// Unsubscribe from library
+			$(document).on("click", "button.unsubscribe", function (e) {
 
-					$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li></ul>');
+				if ($vW > "1024") {
 
-					// $(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
-					$(document).on("click", "#g-menu-toggle", function () {
-						$("#featured-nav").toggle();
+					// Recalculate horizontal list width
+					$("#subscription-list").css({
+						"opacity": "0",
+						"margin": "2px 0 0 0"
 					});
 
+					$(this).closest("li").remove();
+
+					// gets all books in a section
+					var allBooks = $("#subscription-list li");
+
+					// holds function for one second and then adds width to body tag
+					setTimeout(function () {
+
+						var w = 0;
+
+						$("#subscription-list li").each(function () { w += $(this).outerWidth(); });
+
+						w += 500;
+
+						$("#subscription-list").css("width", w - 250 + "px");
+
+						$("#subscription-list").css({
+							"opacity": "1",
+							"margin": "2px 0 0 0"
+						});
+
+					}, 500);
+
+				} else {
+
+					// Carry on
+					$(this).closest("li").remove();
+
 				}
 
-				if ($vW < "321") {
-
-					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
-
-				}
-				*/
+				e.preventDefault();
 
 			});
 		</script>

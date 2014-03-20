@@ -92,12 +92,11 @@
 						<ul id="stay-right">
 							<li id="my-submissions">
 								<a href="#">Add my stories</a>
+
 								<ul>
-									<li><a href="">Test book #06</a></li>
-									<li><a href="">Test book #07</a></li>
-									<li><a href="">Test book #08</a></li>
-									<li><a href="">Test book #09</a></li>
-									<li><a href="">Test book #10</a></li>
+									<li><a href="/">hikari: The Future of the Operating System</a></li>
+									<li><a href="/">007: The Diego Regules Story</a></li>
+									<li><a href="/">From the Rennaisance, to the Future of Blogging</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -288,6 +287,11 @@
 					<ul id="submission-list">
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #01</a></div>
 
 							<div class="book-info">
@@ -299,6 +303,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #02</a></div>
 
 							<div class="book-info">
@@ -310,6 +319,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #03</a></div>
 
 							<div class="book-info">
@@ -321,6 +335,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #04</a></div>
 
 							<div class="book-info">
@@ -332,6 +351,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #05</a></div>
 
 							<div class="book-info">
@@ -343,6 +367,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #06</a></div>
 
 							<div class="book-info">
@@ -354,6 +383,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #07</a></div>
 
 							<div class="book-info">
@@ -365,6 +399,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #08</a></div>
 
 							<div class="book-info">
@@ -376,6 +415,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #09</a></div>
 
 							<div class="book-info">
@@ -387,6 +431,11 @@
 						</li>
 
 						<li class="book">
+							<div class="book-buttons">
+								<a href="#" class="approve-this-book">&#xf120;</a>
+								<a href="#" class="deny-this-book">&#xf128;</a>
+							</div>
+
 							<div class="book-title"><a href="#">Submitted Book #10</a></div>
 
 							<div class="book-info">

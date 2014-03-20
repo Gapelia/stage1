@@ -464,7 +464,7 @@
 		if ($vW > "1024") {
 
 			// gets all books in a section
-			var allBooks = $("#user-book-list li, #library-list li, #bookmark-list li");
+			var allBooks = $("#user-book-list li, #library-list li, #bookmark-list li, #subscription-list li");
 
 			// gets first book in list
 			var firstBook = $(allBooks).first();
@@ -480,16 +480,16 @@
 
 				var w = 0;
 
-				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").each(function () {
+				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li, #subscription-list li").each(function () {
 					w += $(this).outerWidth();
 				});
 
 				w += 500;
 
-				$("#user-book-list, #book-list, #library-list, #bookmark-list").css("width", w - 320 + "px");
+				$("#user-book-list, #book-list, #library-list, #bookmark-list, #subscription-list").css("width", w - 320 + "px");
 
 				// fades in the all the photos after body width is added
-				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li").fadeIn("100");
+				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li, #subscription-list li").fadeIn("100");
 
 				$("#user-book-list").css("margin", "2px 0 0 0").fadeIn("100");
 				// $("#book-list, #library-list, #bookmark-list").fadeIn("100");

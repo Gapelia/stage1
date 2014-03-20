@@ -37,6 +37,7 @@ body.library {
 			text-align: right;
 
 			a { padding: 0 1rem; }
+
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
@@ -53,7 +54,10 @@ body.library {
 					display: block;
 					padding: 0.5rem 1rem;
 
-					a { padding: 0; }
+					a {
+						color: rgba($black, 0.95);
+						padding: 0;
+					}
 					
 					&:first-child {
 						margin: 0; padding-top: 1rem;
@@ -65,46 +69,37 @@ body.library {
 		}
 	}
 
-	/*
-	#featured-scroller {
-		.book {
-			.book-buttons {
-				top: 0; right: 0;
+	.book-buttons {
+		top: 0; right: 0;
 
-				padding: 1rem;
-				position: absolute;
-				z-index: 1;
+		padding: 1rem;
+		position: absolute;
+		z-index: 1;
 
-				.delete-this-book, .edit-this-book {
-					width: 32px !important; height: 32px !important;
+		.approve-this-book, .deny-this-book {
+			width: 32px !important; height: 32px !important;
 
-					color: $white;
-					display: inline-block !important;
-					@include icon;
-					font-size: 1.5rem;
-					line-height: 2rem;
-					padding: 0;
-					text-align: center;
-					text-shadow: 0 0 0.13rem $black !important;
-				}
-			}
+			color: $white;
+			display: inline-block !important;
+			@include icon;
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 0;
+			text-align: center;
+			transition: text-shadow 0.2s ease;
 
-			.delete-book-confirm {
-				width: 100%; height: 100%;
+			&:hover { opacity: 1; }
+		}
 
-				background: linear-gradient(180deg, #47565f 0%, #5b625a 15%, #947461 38%, #f98056 70%, #f7ec86 100%);
-				color: $white;
-				padding: 4rem 2rem;
-				position: relative;
-				text-align: center;
-				transition: all 0.2s ease;
-				z-index: 2;
+		.approve-this-book {
+			text-shadow: 0 0 0.13rem $green !important;
+			&:hover { text-shadow: 0 0 3rem $green !important; }
+		}
 
-				h3 { margin: 8rem 0 0 0; }
-				.wrapper { width: 100%; }
-			}
+		.deny-this-book {
+			text-shadow: 0 0 0.13rem $red !important;
+			&:hover { text-shadow: 0 0 3rem $red !important; }
 		}
 	}
-	*/
 
 }

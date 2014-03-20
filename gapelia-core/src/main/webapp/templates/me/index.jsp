@@ -122,8 +122,6 @@
 
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
-					<!--/ <div><br/>&nbsp;<br/></div> /-->
-
 					<ul id="user-book-list">
 
 						<li class="book">
@@ -345,9 +343,9 @@
 				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
-				//stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-				//stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-				//stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+				stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+				stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 				stuff += "</div>";
 				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
 				stuff += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
@@ -648,7 +646,7 @@
 		<script>
 			$(function () {
 
-				$(".overlay-controls button").addClass("transparent-ii").text("Change cover photo");
+				$(".overlay-controls button").addClass("slate").text("Change cover photo");
 				// $("#change-cover-photo").text("Change cover photo");
 
 			});
