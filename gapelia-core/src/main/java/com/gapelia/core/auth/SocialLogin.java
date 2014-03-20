@@ -49,6 +49,8 @@ public class SocialLogin extends HttpServlet {
             }
 
             HttpSession session = request.getSession();
+            LOG.info("SOCIAL LOGIN JSESSION:"+request.getSession());
+            LOG.info("SOCIAL LOGIN JSESSION:"+request.getSession());
             session.setAttribute("authManager", manager);
             response.sendRedirect(response.encodeRedirectURL(url));
         } catch (Exception e) {

@@ -19,7 +19,6 @@ public class SessionManager implements HttpSessionListener {
 	public void sessionCreated(HttpSessionEvent event) {
 		HttpSession session = event.getSession();
 		sessions.put(session.getId(), session);
-        LOG.info("session created : " + session.getId());
 	}
 
 	@Override
@@ -32,22 +31,23 @@ public class SessionManager implements HttpSessionListener {
         return sessions.get(sessionId);
 	}
 
-    public static void addUserToSessionIdToUser(User user, String sessionId) {
-        Set<String> sortedKeys = new TreeSet<String>();
-        sortedKeys.addAll(sessionIdToUser.keySet());
-        for(String key: sortedKeys){
-            LOG.info(key  + "  :    " + sessionId);
-        }
+    public static void addSessionIdToUser(User user, String sessionId) {
+//        Set<String> sortedKeys = new TreeSet<String>();
+//        sortedKeys.addAll(sessionIdToUser.keySet());
+//        for(String key: sortedKeys){
+            LOG.info("adding session:"  + sessionId);
+//        }
         sessionIdToUser.put(sessionId, user);
     }
 
     public static User getUserFromSessionId(String sessionId) {
-        Set<String> sortedKeys = new TreeSet<String>();
-        sortedKeys.addAll(sessionIdToUser.keySet());
-        for(String key: sortedKeys){
-            LOG.info(key  + "  :    " + sessionId);
-        }
-        LOG.info(sessionIdToUser.get(sessionId).getUserId());
+//        Set<String> sortedKeys = new TreeSet<String>();
+//        sortedKeys.addAll(sessionIdToUser.keySet());
+//        for(String key: sortedKeys){
+//            LOG.info(key  + "  :    " + sessionId);
+//        }
+//        LOG.info(sessionIdToUser.get(sessionId).getUserId());
+        LOG.info("getting session:"  + sessionId);
         return sessionIdToUser.get(sessionId);
     }
 
