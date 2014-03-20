@@ -37,7 +37,7 @@
 
 	</head>
 
-	<body class="app library"><!--/ library-manager /-->
+	<body class="app library-manager"><!--/ library-manager /-->
 
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -89,6 +89,10 @@
 					<ul id="featured-nav">
 						<li id="nav-libraries" class="current"><a href="#">My Libraries</a></li>
 						<li id="nav-subscriptions"><a href="#">My Subscriptions</a></li>
+
+						<div id="stay-right">
+							<button id="add-new-library" class="slate">New Library</button>
+						</div>
 					</ul>
 				</div>
 

@@ -105,6 +105,12 @@
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
+					<!--/
+					<section>
+						<p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p>
+					</section>
+					/-->
+
 					<ul id="book-list">
 
 						<li class="book">
@@ -670,14 +676,15 @@
 					NProgress.start();
 
 					var
-					allBooks = $("#submission-list li"),		// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
+					allBooks = $("#submission-list li"),	// gets all books in a section
+					firstBook = $(allBooks).first();			// gets first book in list
 
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+					$(allBooks).not(firstBook).hide();		// hides all books in a section, except the first book
 
 					setTimeout(function () {
 
 						$("#book-list").hide();
+						$(".book-list-wrapper section").hide(); // need to create conditional, later
 
 						var w = 0, h = 0;
 

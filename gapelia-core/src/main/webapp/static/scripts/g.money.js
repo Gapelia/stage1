@@ -29,6 +29,7 @@
 		if ($vW > "1024") {
 
 			$(function () {
+
 				// Set height of books in feed on "Me" page
 				$("#user-book-list .book, #user-book-list .new").css("height", $vH - 97 + "px"); // 100
 				$("#user-library-list .library, #user-library-list .new").css("height", $vH - 97 + "px");
@@ -38,6 +39,9 @@
 				$("#book-list .book, #submission-list .book, #subscription-list .library").css("height", $vH - 97 + "px");
 				$("#library-list .library").css("height", $vH - 97 + "px");
 				$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
+
+				$(".book-list-wrapper section").css("width", $vW + "px");
+
 			});
 
 		}
