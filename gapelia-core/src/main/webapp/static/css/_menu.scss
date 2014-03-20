@@ -57,11 +57,10 @@
 
 // Open menu
 .super-wrapper.mp-pushed {
-	#g-menu-toggle {
-		color: $white !important; // stop changing this, white is the only color that makes sense
-		display: none; // having the white hamburger when menu is open is distracting
-		opacity: 1;
-	}
+
+	#g-menu-toggle { color: $white !important; } // stop changing this, white is the only color that makes sense
+
+	#featured-panel, #user-panel { z-index: 0; }
 
 	.book-info, .collection-info, .library-info, .new-inner-wrapper, .portal-info, canvas, .add-this, .wrapper,
 	.user-avatar, .user-data, .button-wrapper, #the-book, .book-title {
@@ -73,6 +72,7 @@
 		opacity: 0.1;
 		transition: all 0.2s ease;
 	}
+
 }
 
 .super-wrapper.mp-pushed::after, .mp-level.mp-level-overlay::after {

@@ -80,30 +80,28 @@
 				<button id="g-menu-toggle">
 					<i class="ion-drag"></i>
 				</button>
-
-				<!--/
-				<div class="featured-info">
-					<h2>[Library Name]</h2>
-				</div>
-				/-->
 			</div>
 
+			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
-					<button id="confirm-cancel-library" class="blank">Cancel</button>
-					<button id="confirm-create-library" class="outline">Create</button>
+					<button id="confirm-cancel-library" class="blank">Delete</button>
+					<button id="confirm-create-library" class="outline">Save</button>
+					<button id="confirm-edit-library" class="outline">Edit</button>
+				</div>
+
+				<div class="button-wrapper">
+					<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
 				</div>
 
 				<div id="new-library-info">
-					<div class="button-wrapper">
-						<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
-					</div>
+					<small>Editor's Name &middot; 8,349 subscribers</small>
 
 					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 					<p data-placeholder="Add a description" contenteditable="true"></p>
 
 					<section>
-						<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
+						<input type="text" id="input-tags" placeholder="Add up to three tags" value=""/>
 
 						<script>
 							$("#input-tags").selectize({
@@ -124,6 +122,7 @@
 				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
 				<img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/>
 			</section>
+			<!--//library-editing /-->
 
 		</div>
 
@@ -144,7 +143,7 @@
 					$("#book-scroller").css("z-index", "0");
 				});
 			}
-			
+
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
 
 			$(function () {
@@ -152,6 +151,53 @@
 				$("button.photo-picker").html("&#xf2e4;");
 				$("#new-library").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
+
+				// Click "Save" button
+				$("#confirm-create-library").click(function () {
+
+					// Disable
+					$(".button-wrapper").css("opacity", "0").hide();
+					$("#confirm-cancel-library, #confirm-create-library").hide();
+					$("[contenteditable='true']").attr("contenteditable", "false");
+
+					// Enable
+					$("#new-library-info").css({
+						"border-top": "1px solid #fcfcfc",
+						"border-bottom": "1px solid #fcfcfc"
+					});
+
+					$("#new-library-info small").css("opacity", "1");
+					$("#close-splash").css("opacity", "1");
+
+					$("#confirm-edit-library").css("right", "0");
+
+				});
+
+				// Click "Edit" button
+				$("#confirm-edit-library").click(function () {
+
+					// Disable
+					$("#new-library-info small").css("opacity", "0");
+					$("#close-splash").css("opacity", "0");
+					$("#confirm-edit-library").css("right", "-10rem");
+
+					// Enable
+					$(".button-wrapper").css("opacity", "1").show();
+
+					$("#new-library-info").css({
+						"border-top": "1px solid transparent",
+						"border-bottom": "1px solid transparent"
+					});
+
+					$("[contenteditable='false']").attr("contenteditable", "true");
+					$("#confirm-cancel-library, #confirm-create-library").show();
+
+				});
+
+				// Close overlay and get to user's library manager
+				$(document).on("click", "#close-splash", function () {
+					window.location.href = "/librarymanager";
+				});
 
 			});
 		</script>

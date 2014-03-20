@@ -190,15 +190,14 @@
 		width: 100%;
 	}
 
-	#book-nav, #dimension-nav, #featured-nav {
+	#book-nav, #featured-nav {
 		width: auto; height: auto;
 		margin: 0 0 1rem 1rem; padding: 1.05rem 0 0 0;
 
 		font-size: 1rem;
-		font-weight: 300;
 
 		li {
-			display: inline-block;
+			display: inline-flex; // inline-block
 			margin: 0.5rem 1rem 0 0;
 		}
 
@@ -223,7 +222,7 @@
 		position: fixed;
 	}
 
-	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
+	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper {
 		position: absolute;
 		top: 53.5%;
 		transform: translateY(-50%);
@@ -234,7 +233,7 @@
 		-webkit-transform: translateY(-50%);
 	}
 
-	#book-scroller, #dimension-scroller, #featured-scroller {
+	#book-scroller, #featured-scroller {
 		overflow-y: hidden;
 		overflow-x: auto;
 		width: 75%;
@@ -246,7 +245,7 @@
 	}
 
 	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-	#book-list, #dimension-list, #library-list, #bookmark-list {
+	#book-list, #library-list, #bookmark-list, #submission-list {
 		display: none;
 		position: relative; // absolute
 		top: 50%;
@@ -260,8 +259,7 @@
 		-webkit-transform: translateY(-50%);
 	}
 
-	.book, .collection, .library, .new, .draft,
-	.portal {
+	.book, .collection, .library, .new, .draft {
 		width: 400px; height: auto;
 		margin: 0 0 0 1rem; padding: 0;
 
@@ -401,7 +399,7 @@
 	}
 
 	.library-info, .new-inner-wrapper, .draft-info,
-	.portal-info, .featured-info {
+	.featured-info, .submission-info {
 		color: $white;
 		padding: 0 2rem; // 0 1rem
 		position: absolute;

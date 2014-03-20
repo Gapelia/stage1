@@ -1,7 +1,9 @@
 
-////////////////////////////////////////////////////////////////////////////// LIBRARY.MANAGER/SCSS ///
+////////////////////////////////////////////////////////////////////////////////////// LIBRARY/SCSS ///
 
-body.library-manager {
+body.library {
+
+	#nav-wrapper { z-index: 1; }
 
 	#featured-panel {
 		overflow: initial;
@@ -16,49 +18,50 @@ body.library-manager {
 			transition: opacity 5s ease;
 			width: 800px;
 		}
+	}
 
-		ul {
-			top: 1.5rem; right: -20rem;
+	#stay-right {
+		top: 0; right: 0;
 
-			display: inline-flex;
-			font-size: 1.2rem;
-			position: fixed;
-			transition: right 0.2s ease;
+		display: inline-flex;
+		margin: 1.5rem 1rem 0 0;
+		position: absolute;
 
-			li {
-				display: inline-block;
-				text-align: right;
+		li {
+			display: inline-block;
+			margin: 0;
+			text-align: right;
 
-				a { padding: 0 1rem; }
-				&:first-child { margin: 0 1rem 0 0; }
+			a { padding: 0 1rem; }
+			&:first-child { margin: 0 1rem 0 0; }
 
-				ul {
-					top: initial; right: 0 !important;
+			ul {
+				top: initial; right: 0 !important;
 
-					background-color: $white;
-					border-bottom-left-radius: 5px;
-					border-bottom-right-radius: 5px;
-					display: none;
-					position: relative;
-					width: auto;
+				background-color: $white;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+				display: none;
+				position: relative;
+				width: auto;
 
-					li {
-						display: block;
-						padding: 0.5rem 1rem;
+				li {
+					display: block;
+					padding: 0.5rem 1rem;
 
-						a { padding: 0; }
-						
-						&:first-child {
-							margin: 0; padding-top: 1rem;
-						}
-
-						&:last-child { padding-bottom: 1rem; }
+					a { padding: 0; }
+					
+					&:first-child {
+						margin: 0; padding-top: 1rem;
 					}
+
+					&:last-child { padding-bottom: 1rem; }
 				}
 			}
 		}
 	}
 
+	/*
 	#featured-scroller {
 		.book {
 			.book-buttons {
@@ -98,5 +101,6 @@ body.library-manager {
 			}
 		}
 	}
+	*/
 
 }

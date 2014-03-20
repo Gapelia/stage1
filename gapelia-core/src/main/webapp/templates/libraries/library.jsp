@@ -36,7 +36,7 @@
 
 	</head>
 
-	<body class="app">
+	<body class="app library">
 
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -80,9 +80,38 @@
 					<i class="ion-drag"></i>
 				</button>
 
+				<!--/
 				<div class="featured-info">
 					<h2>[Library Name]</h2>
 				</div>
+				/-->
+
+				<!--/ <h4>[Library Name]</h4> /-->
+
+				<!--/
+				<ul>
+					<li id="other-submissions"><a href="#">Submissions</a>
+						<ul>
+							<li><a href="">Test book #01</a></li>
+							<li><a href="">Test book #02</a></li>
+							<li><a href="">Test book #03</a></li>
+							<li><a href="">Test book #04</a></li>
+							<li><a href="">Test book #05</a></li>
+						</ul>
+					</li>
+
+					<li id="my-submissions">
+						<a href="#">Add my stories</a>
+						<ul>
+							<li><a href="">Test book #06</a></li>
+							<li><a href="">Test book #07</a></li>
+							<li><a href="">Test book #08</a></li>
+							<li><a href="">Test book #09</a></li>
+							<li><a href="">Test book #10</a></li>
+						</ul>
+					</li>
+				</ul>
+				/-->
 			</div>
 			<!--//main-panel /-->
 
@@ -91,7 +120,20 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-books" class="current"><a href="#">Library Name</a></li>
-						<!--/ <li id="nav-dimensions"><a href="#">Dimensions</a></li><li id="nav-libraries"><a href="#">Libraries</a></li> /-->
+						<li id="nav-submissions"><a href="#">Submissions</a></li>
+
+						<ul id="stay-right">
+							<li id="my-submissions">
+								<a href="#">Add my stories</a>
+								<ul>
+									<li><a href="">Test book #06</a></li>
+									<li><a href="">Test book #07</a></li>
+									<li><a href="">Test book #08</a></li>
+									<li><a href="">Test book #09</a></li>
+									<li><a href="">Test book #10</a></li>
+								</ul>
+							</li>
+						</ul>
 					</ul>
 				</div>
 
@@ -272,6 +314,126 @@
 					</ul>
 				</div>
 				<!--//Featured Books /-->
+
+
+				<!--/ Submission List /-->
+				<div class="submission-list-wrapper">
+					<ul id="submission-list">
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #01</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Jane Lane</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #02</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Daria Morgendorffer</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #03</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Hub Hikari</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/covers/cinema-matrix.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #04</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Lan Hikari</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/covers/cuisine-traceysculinaryadventures.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #05</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Doug Funnie</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/covers/era-akasped.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #06</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">The Most Fantabulous</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-11.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #07</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-12.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #08</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">the Wibby</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-13.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #09</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb-13.jpg" alt=""/>
+						</li>
+
+						<li class="book">
+							<div class="book-title"><a href="#">Submitted Book #10</a></div>
+
+							<div class="book-info">
+								<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
+							</div>
+
+							<span class="image-overlay"></span>
+							<img src="/static/images/book-thumb.JPG" alt=""/>
+						</li>
+
+					</ul>
+				</div>
+				<!--//Submission List /-->
+
 			</div>
 			<!--//main-content /-->
 
@@ -309,9 +471,12 @@
 		<script>
 			$(function () {
 
+				var $vW = $(window).width(), $vH = $(window).height();
+
+				// Splash page
 				stuff = "";
 				stuff += "<section id=\"library-splash\">";
-				//stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
+				// stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
 				stuff += "<div id=\"library-info\">";
 				stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
 				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
@@ -330,68 +495,202 @@
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
-			});
+				if ($vW > "1024") {
 
-			if ($vW > "1024") {
+					// Close splash on desktops
+					$(document).on("click", "#close-splash", function () {
 
-				$(document).on("click", "#close-splash", function () {
+						$("#close-splash").css({
+							"left": "-200%",
+							"right": "initial"
+						});
 
-					$("#close-splash").css({
-						"left": "-200%",
-						"right": "initial"
+						$("#library-splash").css("left", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
+
 					});
 
-					$("#library-splash").css("left", "-200%");
-					$("#g-menu-toggle").css("color", "#70a1b1");
+				} else {
 
-				});
+					$(function () {
 
-			} else {
+						// Close splash on mobile
+						$("#library-splash").swipe({
+							// Generic swipe handler for all directions
+							swipeUp: function (event, direction, distance, duration, fingerCount) {
 
-				$(function () {
+								$("#close-splash").css({
+									"height": "0",
+									"top": "-200%"
+								});
 
-					$("#library-splash").swipe({
-						// Generic swipe handler for all directions
-						swipeUp: function (event, direction, distance, duration, fingerCount) {
+								$("#library-splash").css("top", "-200%");
+								$("#g-menu-toggle").css("color", "#70a1b1");
+
+							}, threshold: 0
+						});
+
+						$(document).on("click", "#close-splash", function () {
 
 							$("#close-splash").css({
 								"height": "0",
 								"top": "-200%"
 							});
 
-							$("#library-splash").css("top", "-200%");
+							$("#library-splash, #library-splash button").css("top", "-200%");
 							$("#g-menu-toggle").css("color", "#70a1b1");
 
-						}, threshold: 0
-					});
-
-					$(document).on("click", "#close-splash", function () {
-
-						$("#close-splash").css({
-							"height": "0",
-							"top": "-200%"
 						});
 
-						$("#library-splash, #library-splash button").css("top", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
-
 					});
+
+				}
+
+				// Click "Add my stories"
+				$("#my-submissions a").click(function (e) {
+
+					$("#my-submissions ul").toggle();
+					e.preventDefault();
 
 				});
 
-			}
+				// Controlled scrolling speed
+				$("#featured-scroller").mousewheel(function (event, delta) {
 
-			$(function () {
+					this.scrollLeft -= (delta * 40);
+					event.preventDefault();
 
-				var $vW = $(window).width(), $vH = $(window).height();
+				});
 
-				$(function () {
-					$("#featured-scroller").mousewheel(function (event, delta) {
+				// Load Gapelia
+				NProgress.start();
 
-						this.scrollLeft -= (delta * 40);
-						event.preventDefault();
+				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
+				var
+				allBooks = $("#book-list li"),			// gets all books in a section
+				firstBook = $(allBooks).first();		// gets first book in list
+
+				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+				setTimeout(function () {
+
+					$("#book-list").hide();
+					$("#submission-list").hide();
+
+					var w = 0;
+
+					$("#book-list li").each(function () {
+						w += $(this).outerWidth();
 					});
+
+					w += 500;
+
+					$("#book-list").css("width", w - 320 + "px");
+
+					// fades in the all the books after section width is added
+					$("#book-list li").fadeIn("100");
+					$("#book-list").fadeIn("100");
+
+					// "fix" featured menu pop-in
+					setTimeout(function () {
+						$("#featured-panel, #featured-scroller").css("opacity", "1");
+					}, 400);
+
+				}, 1000);
+
+				$("#nav-books").addClass("current");
+
+				NProgress.done();
+
+				// Click "Books"
+				$("#nav-books").click(function (e) {
+
+					NProgress.start();
+
+					var
+					allBooks = $("#book-list li"),			// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+					setTimeout(function () {
+
+						$("#submission-list").hide();
+
+						var w = 0, h = 0;
+
+						$("#book-list li").each(function () {
+							w += $(this).outerWidth();
+							h += $(this).outerHeight();
+						});
+
+						w += 500;
+
+						if ($vW > "1024") {
+							$("#book-list").css("width", w - 320 + "px");
+						} else {
+							// $("#book-list").css("height", h + 219 + "px");
+						}
+
+						// fades in the all the books after section width is added
+						$("#book-list li").fadeIn("100");
+						$("#book-list").fadeIn("100");
+
+					}, 1000);
+
+					e.preventDefault();
+
+					$("#nav-books").addClass("current");
+					$("#nav-submissions").removeClass("current");
+
+					NProgress.done();
+
+				});
+
+				// Click "Submissions"
+				$("#nav-submissions").click(function (e) {
+
+					NProgress.start();
+
+					var
+					allBooks = $("#submission-list li"),		// gets all books in a section
+					firstBook = $(allBooks).first();		// gets first book in list
+
+					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+					setTimeout(function () {
+
+						$("#book-list").hide();
+
+						var w = 0, h = 0;
+
+						$("#submission-list li").each(function () {
+							w += $(this).outerWidth();
+							h += $(this).outerHeight();
+						});
+
+						w += 500;
+
+						if ($vW > "1024") {
+							$("#submission-list").css("width", w - 155 + "px");
+						} else {
+							// $("#submission-list").css("height", h + 379 + "px");
+						}
+
+						// fades in the all the books after section width is added
+						$("#submission-list li").fadeIn("100");
+						$("#submission-list").fadeIn("100");
+
+					}, 1000);
+
+					e.preventDefault();
+
+					$("#nav-books").removeClass("current");
+					$("#nav-submissions").addClass("current");
+
+					NProgress.done();
+
 				});
 
 				// Dropdown menu for mobile
@@ -414,57 +713,6 @@
 					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
 
 				}
-
-				// Load Gapelia
-				$(function () {
-
-					if ($vW > "1024") {
-
-						NProgress.start();
-
-						$("#featured-panel, #featured-scroller").css("opacity", "0").show();
-
-						var
-						allBooks = $("#book-list li"),			// gets all books in a section
-						firstBook = $(allBooks).first();		// gets first book in list
-
-						$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-
-						setTimeout(function () {
-
-							$("#book-list").hide();
-							$("#library-list").hide();
-							$("#bookmark-list").hide();
-
-							var w = 0;
-
-							$("#book-list li").each(function () {
-								w += $(this).outerWidth();
-							});
-
-							w += 500;
-
-							$("#book-list").css("width", w - 320 + "px");
-
-							// fades in the all the books after section width is added
-							$("#book-list li").fadeIn("100");
-							$("#book-list").fadeIn("100");
-
-							// "fix" featured menu pop-in
-							setTimeout(function () {
-								$("#featured-panel, #featured-scroller").css("opacity", "1");
-							}, 400);
-
-						}, 1000);
-
-						$("#nav-books").addClass("current");
-
-						NProgress.done();
-
-					} else {
-					}
-
-				});
 
 			});
 		</script>

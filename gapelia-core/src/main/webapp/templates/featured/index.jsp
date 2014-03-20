@@ -488,7 +488,7 @@
 						<li class="library">
 							<div class="library-info">
 								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
-								<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world. </div>
+								<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world.</div>
 							</div>
 
 							<div class="wrapper">
