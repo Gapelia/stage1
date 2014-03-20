@@ -222,7 +222,8 @@
 		position: fixed;
 	}
 
-	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper {
+	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
+	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
 		position: absolute;
 		top: 53.5%;
 		transform: translateY(-50%);
@@ -245,7 +246,7 @@
 	}
 
 	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-	#book-list, #library-list, #bookmark-list, #submission-list {
+	#book-list, #library-list, #bookmark-list, #submission-list, #subscription-list {
 		display: none;
 		position: relative; // absolute
 		top: 50%;

@@ -1,3 +1,7 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +33,7 @@
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
+		<%@include file="../../userDetails.jsp" %>
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
@@ -481,28 +486,33 @@
 
 			});
 		</script>
-        <script>
-             <% String id = session.getId(); %>
-             sessionId = '<%= id %>';
-             $.ajax({
-             			url: "http://localhost:8080/api/users/getUser",
-             			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-             			type: "POST",
-             			data: {
-             				sessionId: sessionId
-             			},
-             			success: function (data) {
-             				console.log(data);
-             			},
-             			error: function (q, status, err) {
-             				if (status == "timeout") {
-             					alert("Request timed out");
-             				} else {
-             					alert("Some issue happened with your request: " + err);
-             				}
-             			}
-             });
-        </script>
+
+		<!--/
+		<script>
+			<% String id = session.getId(); %>
+			sessionId = '<%= id %>';
+
+			$.ajax({
+				url: "http://localhost:8080/api/users/getUser",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				type: "POST",
+				data: {
+					sessionId: sessionId
+				},
+				success: function (data) {
+					console.log(data);
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						alert("Request timed out");
+					} else {
+						alert("Some issue happened with your request: " + err);
+					}
+				}
+			});
+		</script>
+		/-->
+
 		<script src="/static/scripts/filepicker2.js"></script>
 
 		<script>

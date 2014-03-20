@@ -5,6 +5,10 @@ body.library {
 
 	#nav-wrapper { z-index: 1; }
 
+	.book, .library {
+		.wrapper { width: 100%; }
+	}
+
 	#featured-panel {
 		overflow: initial;
 
