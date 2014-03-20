@@ -19,7 +19,7 @@ public class SessionManager implements HttpSessionListener {
 	public void sessionCreated(HttpSessionEvent event) {
 		HttpSession session = event.getSession();
 		sessions.put(session.getId(), session);
-
+        LOG.info("session created : " + session.getId());
 	}
 
 	@Override

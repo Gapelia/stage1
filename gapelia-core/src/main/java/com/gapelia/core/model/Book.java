@@ -65,7 +65,9 @@ public class Book {
     }
 
     public void setTags(String tags) {
-        this.tags = tags.split(COMMA);
+        if (tags != null) {
+            this.tags = tags.split(COMMA);
+        }
     }
 
     public Timestamp getCreated() {
