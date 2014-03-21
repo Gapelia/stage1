@@ -138,6 +138,11 @@
 				"border-bottom-right-radius": "5px"
 			}).addClass("quick-save-profile");
 
+			$(".overlay-controls").css({
+				"opacity": "1",
+				"z-index": "1"
+			});
+
 			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
 
 			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
@@ -162,6 +167,11 @@
 		$(document).on("click", "#splash-edit-wrapper .quick-save-profile", function (e) {
 
 			$("#splash-edit-wrapper .quick-edit-profile").text("Quick Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
+
+			$(".overlay-controls").css({
+				"opacity": "0.001",
+				"z-index": "-1"
+			});
 
 			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");

@@ -877,8 +877,10 @@
 		.overlay-controls {
 			top: 2rem; right: 2rem;
 
+			opacity: 0.001;
 			position: fixed;
-			z-index: 100;
+			transition: all 0.2s ease;
+			z-index: -1;
 		}
 	}
 

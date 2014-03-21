@@ -370,6 +370,7 @@
 					});
 
 					$("#user-splash").css("left", "-200%");
+					$("#user-panel").css("width", "100%");
 					$("#user-splash .overlay-controls").css("left", "-200%");
 					$("#g-menu-toggle").css("color", "#70a1b1");
 
