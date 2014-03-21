@@ -132,7 +132,7 @@
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
 							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
 
-							<input type="checkbox" class="js-switch" checked/>
+							<div id="notifications-toggle"><span>Would you like email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
 
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>

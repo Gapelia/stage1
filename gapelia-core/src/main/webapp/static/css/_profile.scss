@@ -548,6 +548,15 @@
 		}
 	}
 
+	#notifications-toggle {
+		span, input {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		span { padding: 0.5rem 2rem 0 0; }
+	}
+
 	.switchery {
 		width: 50px; height: 30px;
 

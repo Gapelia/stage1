@@ -13,7 +13,7 @@
 		<meta charset="utf-8"/>
 		<title>Gapelia &middot; Better stories, together</title>
 
-		<!--/ FEATURED VIEW
+		<!--/ WELCOME TO GAPELIA
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
@@ -42,51 +42,36 @@
 
 	</head>
 
-	<body class="app profile">
+	<body class="app landing">
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<section id="featured-splash">
-				<h1 id="gapelia"><a href="/">Gapelia</a></h1>
+			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
+			<h4>Better stories, together.</h4>
 
-				<div id="login-greet"><a href="#" class="login-link">Sign in as a storyteller</a><br/><a href="#">Learn more</a></div>
+			<div class="wrapper">
+				<button class="fb-btn">Sign in with Facebook</button>
+				<button class="gplus-btn">Sign in with Google+</button>
+			</div>
 
-				<div id="featured-info">
-					<h2 id="pick-story"><a href="#">How will books look like in 2050?</a></h2>
+			<img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/>
 
-					<p id="snippet-book">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>
+			<footer>
+				<nav>
+					<ul>
+						<li><a href="">About</a></li>
+						<li><a href="">Contact</a></li>
+						<li><a href="">Privacy</a></li>
+						<li><a href="">Terms</a></li>
+					</ul>
+				</nav>
+			</footer>
 
-					<h5 id="meta-book"><span class="author-name"><a href="#">Diego Regules</a></span><span class="library-name"><a href="#">Psychochromatic</a></span></h5>
-
-					<h2 id="pick-library"><a href="#">The Matrix Has You</a></h2>
-
-					<p id="snippet-library">A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p>
-				</div>
-
-				<div id="close-splash"><a href="/featured"><i class="ion-ios7-arrow-right"></i></a></div>
-				<img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/>
-			</section>
-
-		</div>
-
-		<div class="modal-login">
-			<h1>Welcome to Gapelia!</h1>
-
-			<ul id="login-platforms">
-				<li class="facebook" id="login-fb"><a href="/login?type=facebook">Facebook</a></li>
-				<li class="googleplus" id="login-gp"><a href="/login?type=google">Google+</a></li>
-				<!--/<li class="twitter" id="login-tw"><a href="/login?type=twitter">Twitter</a></li>
-				 <li class="email" id="login-at"><a href="#">Email</a></li> /-->
-			</ul>
-
-			<p><a href="#" class="login-link">Nevermind</a></p>
 		</div>
 
 		<!--/ scripts /-->
-		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
-		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
 			// Load Gapelia
@@ -94,76 +79,11 @@
 
 				NProgress.start();
 
-				$(document).on("ready", function () {
-					$("#featured-splash").imgLiquid({ fill: true });
-				});
+				$("#mp-pusher").imgLiquid({ fill: true });
 
-				$(document).on("click", ".login-link", function (e) {
+				$(".fb-btn").click(function () { window.location.href = "/login?type=facebook"; });
+				$(".gplus-btn").click(function () { window.location.href = "/login?type=google"; });
 
-					$(".modal-login").toggleClass("active");
-					e.preventDefault();
-
-				});
-
-				if ($vW > "1024") {
-
-					$(document).on("click", "#close-splash", function () {
-
-						window.location.href = "/featured";
-
-						/*
-						$("#close-splash").css({
-							"left": "-200%",
-							"right": "initial"
-						});
-
-						$("#featured-splash").css("left", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
-						*/
-
-					});
-
-				} else {
-
-					$(function() {
-
-						$("#featured-splash").swipe({
-							swipeUp: function(event, direction, distance, duration, fingerCount) {
-
-								window.location.href = "/featured";
-
-								/*
-								$("#close-splash").css({
-									"height": "0",
-									"top": "-200%"
-								});
-
-								$("#featured-splash").css("top", "-200%");
-								$("#g-menu-toggle").css("color", "#70a1b1");
-								*/
-
-							}, threshold: 0
-						});
-
-						$(document).on("click", "#close-splash", function () {
-
-							window.location.href = "/featured";
-
-							/*
-							$("#close-splash").css({
-								"height": "0",
-								"top": "-200%"
-							});
-
-							$("#featured-splash").css("top", "-200%");
-							$("#g-menu-toggle").css("color", "#70a1b1");
-							*/
-
-						});
-
-					});
-
-				}
 
 				NProgress.done();
 
