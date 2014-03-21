@@ -310,51 +310,6 @@
 
 		});
 
-		/*
-		// Remove bookmark
-		$(document).on("click", ".bookmarked", function () {
-
-			$(this).removeClass("bookmarked");
-
-			$(this).find(".right-bm").css({
-				"background-color": "#fcfcfc",
-				"border-right": "0"
-			});
-
-			if ($vW > "1024") {
-
-				$(this).find(".top-bm").css({
-					"border-top": "20px solid #fcfcfc",
-					"right": "10px"
-				});
-
-				$(this).find(".bottom-bm").css({
-					"border-bottom": "20px solid #fcfcfc",
-					"right": "10px"
-				});
-
-				$(this).find(".right-bm").css("width", "27px");
-				// $(this).find(".right-bm").css("width", "26px");
-
-			} else {
-
-				$(this).find(".top-bm").css({
-					"border-top": "40px solid #fcfcfc",
-					"right": "20px"
-				});
-
-				$(this).find(".bottom-bm").css({
-					"border-bottom": "40px solid #fcfcfc",
-					"right": "20px"
-				});
-
-				$(this).find(".right-bm").css("width", "52px");
-
-			}
-
-		});
-		*/
-
 		// Remove bookmark in Bookmarks section on /featured
 		$(document).on("click", ".bookmarked .bookmark-this", function () {
 
@@ -395,6 +350,74 @@
 				$(this).closest("li").remove();
 
 			}
+
+		});
+
+		// "Library Manager" Dashboard
+		// @Gapelia
+		// ----------------------------------------------------------------------------------
+
+		// Delete book
+		$(document).on("click", ".library-buttons .delete-this-library", function (e) {
+
+			$(this).closest("li").prepend("<div class=\"delete-library-confirm\"><h3>Hold on there, are you *sure* you want to delete your library?</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-library\">Yes, delete</a><a href=\"#\" class=\"button b green nay-delete-library\">Nope, cancel</a></div></div>");
+
+			e.preventDefault();
+
+		});
+
+		// Confirm book deletion
+		$(document).on("click", ".yay-delete-library", function (e) {
+
+			if ($vW > "1024") {
+
+				// Recalculate horizontal list width
+				$("#library-list").css({
+					"opacity": "0",
+					"margin": "2px 0 0 0"
+				});
+
+				$(this).closest("li").remove();
+
+				// gets all books in a section
+				var allBooks = $("#library-list li");
+
+				// holds function for one second and then adds width to body tag
+				setTimeout(function () {
+
+					var w = 0;
+
+					$("#library-list li").each(function () { w += $(this).outerWidth(); });
+
+					w += 500;
+
+					$("#library-list").css("width", w - 320 + "px");
+
+					$("#library-list").css({
+						"opacity": "1",
+						"margin": "2px 0 0 0"
+					});
+
+				}, 500);
+
+			} else {
+
+				// Carry on
+				$(this).closest("li").remove();
+
+			}
+
+			e.preventDefault();
+
+		});
+
+		// Cancel book deletion
+		$(document).on("click", ".nay-delete-library", function (e) {
+
+			$(this).closest(".delete-library-confirm").remove();
+			$(this).closest(".image-overlay").css("display", "block");
+
+			e.preventDefault();
 
 		});
 

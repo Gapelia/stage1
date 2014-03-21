@@ -101,6 +101,11 @@
 					<ul id="library-list">
 
 						<li class="library">
+							<div class="library-buttons">
+								<a href="#" class="delete-this-library">&#xf252;</a>
+								<a href="#" class="edit-this-library">&#xf13d;</a>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
 								<div class="lib-blurb">Gaia was the great mother of all: the primal Greek Mother Goddess; creator and giver of birth to the Earth and all the Universe.</div>
@@ -111,6 +116,11 @@
 						</li>
 
 						<li class="library">
+							<div class="library-buttons">
+								<a href="#" class="delete-this-library">&#xf252;</a>
+								<a href="#" class="edit-this-library">&#xf13d;</a>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/017/museum">Museum</a></div>
 								<div class="lib-blurb">A museum is an institution that cares for artifacts and other objects of scientific, artistic, cultural, or historical importance.</div>
@@ -121,6 +131,11 @@
 						</li>
 
 						<li class="library">
+							<div class="library-buttons">
+								<a href="#" class="delete-this-library">&#xf252;</a>
+								<a href="#" class="edit-this-library">&#xf13d;</a>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
 								<div class="lib-blurb">Today, modern road tripping is a fast growing hobby, and not just a means of vacationing.</div>
@@ -131,6 +146,11 @@
 						</li>
 
 						<li class="library">
+							<div class="library-buttons">
+								<a href="#" class="delete-this-library">&#xf252;</a>
+								<a href="#" class="edit-this-library">&#xf13d;</a>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
 								<div class="lib-blurb">Cyberpunk features advanced science, such as information technology and cybernetics, coupled with a degree of breakdown or radical change.</div>
@@ -141,6 +161,11 @@
 						</li>
 
 						<li class="library">
+							<div class="library-buttons">
+								<a href="#" class="delete-this-library">&#xf252;</a>
+								<a href="#" class="edit-this-library">&#xf13d;</a>
+							</div>
+
 							<div class="library-info">
 								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
 								<div class="lib-blurb">In sociology + cultural studies, a subculture is a group of people within a culture that differentiates themselves from the larger culture.</div>
@@ -418,6 +443,8 @@
 					event.preventDefault();
 
 				});
+
+				$("#add-new-library").click(function () { window.location.href = "/createlibrary"; });
 
 				// Load Gapelia
 				NProgress.start();

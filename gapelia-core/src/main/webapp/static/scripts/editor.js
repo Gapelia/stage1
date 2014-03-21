@@ -767,7 +767,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
 		if(imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" style=\"display: none;\" data-adaptive-background=\"0\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
@@ -798,10 +798,10 @@
 		pages.page[currentPage].attribution = attribution;
 
 		// Image attribution
-		if ($(".page-bg").data("adaptive-background") == 1) {
-			$(".image-attribution").css("display", "block");
-		} else {
+		if ($(".page-bg").attr("src") === "static/images/whiteBG.jpg") {
 			$(".image-attribution").css("display", "none");
+		} else {
+			$(".image-attribution").css("display", "block");
 		}
 
 		// Empty attribution field when user clicks in it
