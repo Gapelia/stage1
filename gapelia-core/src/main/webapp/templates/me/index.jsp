@@ -100,7 +100,7 @@
 				<div id="user-wrapper">
 					<div class="user-avatar">
 						<div class="avatar-wrapper">
-							<img src="/static/images/users/11.jpg"/>
+							<img src="/static/images/users/user-avatar.jpg"/>
 						</div>
 					</div>
 
