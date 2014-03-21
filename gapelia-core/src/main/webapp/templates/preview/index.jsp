@@ -81,14 +81,12 @@
 		<script>
 			$(function () {
 
+				var $vW = $(window).width(), $vH = $(window).height(), htmlToInsert = "", current;
+
 				// Load Gapelia
 				NProgress.start();
 
 				setTimeout(function () {
-
-					var htmlToInsert = "";
-					var current;
-					var $vW = $(window).width(), $vH = $(window).height();
 
 					$(function () {
 
@@ -165,7 +163,7 @@
 						htmlToInsert += "<section class=\"draggable-placeholder\">";
 						htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
@@ -181,7 +179,15 @@
 
 						htmlToInsert += "<article>";
 						htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
-						htmlToInsert += "<div class=\"page-desc\">" + current.text + + current.file + "</div>";
+
+						htmlToInsert += "<div class=\"page-desc\">" + current.text + "";
+
+						if (current.file != undefined) {
+							htmlToInsert += "" + current.file + "";
+						}
+
+						htmlToInsert += "</div>";
+
 						htmlToInsert += "</article></div>";
 						htmlToInsert += "</section>";
 						htmlToInsert += "</div></div>";
@@ -193,7 +199,7 @@
 						htmlToInsert += "<section class=\"photo-wrapper\">";
 						htmlToInsert += "<div class=\"page-bg-wrapper\">";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
@@ -233,7 +239,7 @@
 
 						htmlToInsert += "</article></div>";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
@@ -246,7 +252,7 @@
 
 						htmlToInsert += "<section class=\"phototext-wrapper\">";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
@@ -273,7 +279,7 @@
 
 						htmlToInsert += "<section class=\"vertical-wrapper\">";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
@@ -303,7 +309,7 @@
 
 						htmlToInsert += "<section class=\"video-wrapper\">";
 
-						if(current.attribution != "Add photo credit?") {
+						if (current.attribution != "Add photo credit?") {
 							htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
 						}
 
