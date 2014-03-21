@@ -86,6 +86,9 @@ public class QueryDatabaseUser {
             } else if("female".equals(p.getGender())) {
                 insert.setString(5, "F");
             }
+			else{
+				insert.setString(5, null);
+			}
 
             insert.setString(6, p.getLocation());
             insert.setString(7, p.getProfileImageURL() );
