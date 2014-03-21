@@ -46,7 +46,7 @@ public class AuthHelper {
         String lastName = profile.getLastName();
         String location = profile.getLocation();
         String gender = profile.getGender();
-        String image = profile.getProfileImageURL();
+        String image = profile.getProfileImageURL() + "?width=1000&height=1000";
         String displayName = profile.getDisplayName();
         String validatedId = profile.getValidatedId();
         String providerId = profile.getProviderId();

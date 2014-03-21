@@ -88,7 +88,7 @@ public class QueryDatabaseUser {
             }
 
             insert.setString(6, p.getLocation());
-            insert.setString(7, p.getProfileImageURL() + "?type=large");
+            insert.setString(7, p.getProfileImageURL() );
             insert.setString(8, p.getFirstName());
             insert.setString(9, p.getValidatedId());
             insert.setString(10, p.getProviderId());
