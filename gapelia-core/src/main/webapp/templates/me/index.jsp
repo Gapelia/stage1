@@ -354,7 +354,7 @@
 				$("#mp-pusher").prepend(stuff);
 
 				$("#user-splash").imgLiquid({ fill: true });
-				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/11.jpg"/>');
+				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
 
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 

@@ -51,6 +51,7 @@ body.landing {
 
 		button {
 			display: block;
+			font-size: 0.8rem;
 			letter-spacing: 0.03rem;
 			margin: 1rem auto !important;
 			text-transform: none;
@@ -59,14 +60,15 @@ body.landing {
 
 	footer {
 		width: 100%; height: auto;
-		bottom: 2rem; left: 0;
+		bottom: 1rem; left: 1rem;
 
 		position: absolute;
+		text-align: left;
 
 		ul {
 			li {
 				display: inline-block;
-				margin: 0 1.5rem 0 0;
+				margin: 0 1rem 0 0;
 
 				a { color: $white; }
 

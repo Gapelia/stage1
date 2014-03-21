@@ -128,13 +128,13 @@
 
 .fb-btn {
 	background-color: $facebook !important;
-	background-image: linear-gradient(to bottom, saturate($facebook, 100%), darken($facebook, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($facebook, 100%), darken($facebook, 10%)) !important;
 	color: $white !important;
 }
 
 .gplus-btn {
 	background-color: $google !important;
-	background-image: linear-gradient(to bottom, saturate($google, 100%), darken($google, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($google, 100%), darken($google, 10%)) !important;
 	color: $white !important;
 }
 

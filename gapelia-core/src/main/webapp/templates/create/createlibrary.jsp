@@ -120,7 +120,7 @@
 				</div>
 
 				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
-				<img class="page-bg" src="/static/images/libraries/wheat-field-by-phk-dan-10.jpg"/>
+				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
 

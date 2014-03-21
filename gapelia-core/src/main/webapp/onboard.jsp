@@ -425,7 +425,7 @@
 
 				// Initialize "Overlay — onboard photos"
 				oop = "";
-				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/libraries/wheat-field-by-phk-dan-10.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
 				// oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/blankBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
