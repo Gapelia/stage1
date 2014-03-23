@@ -64,7 +64,7 @@
 			<div class="library-list-wrapper">
 				<ul id="library-list">
 
-					<li class="library">
+					<li class="library" id="1">
 						<div class="library-info">
 							<div class="title"><a href="/library/001/architecture">Architecture</a></div>
 							<div class="lib-blurb">Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
@@ -78,7 +78,7 @@
 						<img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="2">
 						<div class="library-info">
 							<div class="title"><a href="/library/002/biography">Biography</a></div>
 							<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
@@ -92,7 +92,7 @@
 						<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="3">
 						<div class="library-info">
 							<div class="title"><a href="/library/003/cinema">Cinema</a></div>
 							<div class="lib-blurb">Filmmaking takes place in many places around the world in a range of contexts, and using a variety of technologies and cinematic techniques.</div>
@@ -106,7 +106,7 @@
 						<img src="/static/images/covers/cinema-matrix.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="4">
 						<div class="library-info">
 							<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
 							<div class="lib-blurb">Cuisine is a characteristic style of cooking practices and traditions, often associated with a specific culture.</div>
@@ -120,7 +120,7 @@
 						<img src="/static/images/covers/cuisine-traceysculinaryadventures.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="5">
 						<div class="library-info">
 							<div class="title"><a href="/library/005/era">Era</a></div>
 							<div class="lib-blurb">An era is a period of time marked by distinctive character, events, &amp;c.</div>
@@ -134,7 +134,7 @@
 						<img src="/static/images/covers/era-akasped.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="6">
 						<div class="library-info">
 							<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
 							<div class="lib-blurb">The term evokes cultural as well as geographic separation; the Far East is not just geographically distant, but also culturally exotic.</div>
@@ -148,7 +148,7 @@
 						<img src="/static/images/book-thumb-11.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="7">
 						<div class="library-info">
 							<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
 							<div class="lib-blurb">A person who creates or promotes high fashion, i.e. a fashion designer or fashion editor, + who dresses according to the trends of fashion.</div>
@@ -162,7 +162,7 @@
 						<img src="/static/images/book-thumb-12.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="8">
 						<div class="library-info">
 							<div class="title"><a href="/library/008/future">Future</a></div>
 							<div class="lib-blurb">The future is the indefinite time period after the present. Its arrival is considered inevitable due to the existence of time + the physics.</div>
@@ -176,7 +176,7 @@
 						<img src="/static/images/book-thumb-13.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="9">
 						<div class="library-info">
 							<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
 							<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
@@ -190,7 +190,7 @@
 						<img src="/static/images/book-thumb-13.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="10">
 						<div class="library-info">
 							<div class="title"><a href="/library/010/historian">Historian</a></div>
 							<div class="lib-blurb">Historians are concerned with the continuous, methodical narrative and research of past events as relating to the human race.</div>
@@ -204,7 +204,7 @@
 						<img src="/static/images/book-thumb.JPG" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="11">
 						<div class="library-info">
 							<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
 							<div class="lib-blurb">The Age of Discovery (a/k/a the Age of Exploration) was a period starting in the early 15th century and continuing to the 17th century.</div>
@@ -218,7 +218,7 @@
 						<img src="/static/images/book-thumb-01.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="12">
 						<div class="library-info">
 							<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
 							<div class="lib-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
@@ -232,7 +232,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="13">
 						<div class="library-info">
 							<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
 							<div class="lib-blurb">Kawaii is the quality of cuteness in the context of Japanese culture.</div>
@@ -246,7 +246,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="14">
 						<div class="library-info">
 							<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
 							<div class="lib-blurb">A manifesto is a published verbal declaration of the intentions, motives, or views of the issuer, be it an individual, group, or government.</div>
@@ -260,7 +260,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="15">
 						<div class="library-info">
 							<div class="title"><a href="/library/015/modernism">Modernism</a></div>
 							<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world. </div>
@@ -274,7 +274,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="16">
 						<div class="library-info">
 							<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
 							<div class="lib-blurb">Gaia was the great mother of all: the primal Greek Mother Goddess; creator and giver of birth to the Earth and all the Universe.</div>
@@ -288,7 +288,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="17">
 						<div class="library-info">
 							<div class="title"><a href="/library/017/museum">Museum</a></div>
 							<div class="lib-blurb">A museum is an institution that cares for artifacts and other objects of scientific, artistic, cultural, or historical importance.</div>
@@ -302,7 +302,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="18">
 						<div class="library-info">
 							<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
 							<div class="lib-blurb">Today, modern road tripping is a fast growing hobby, and not just a means of vacationing.</div>
@@ -316,7 +316,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="19">
 						<div class="library-info">
 							<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
 							<div class="lib-blurb">Cyberpunk features advanced science, such as information technology and cybernetics, coupled with a degree of breakdown or radical change.</div>
@@ -330,7 +330,7 @@
 						<img src="/static/images/book-thumb-02.jpg" alt=""/>
 					</li>
 
-					<li class="library">
+					<li class="library" id="20">
 						<div class="library-info">
 							<div class="title"><a href="/library/020/subculture">Subculture</a></div>
 							<div class="lib-blurb">In sociology + cultural studies, a subculture is a group of people within a culture that differentiates themselves from the larger culture.</div>
@@ -353,7 +353,7 @@
 		<!--/ scripts /-->
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
-
+        <script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/charLimiter.js"></script>
 
@@ -487,32 +487,6 @@
 
 			});
 		</script>
-
-		<!--/
-		<script>
-			<% String id = session.getId(); %>
-			sessionId = '<%= id %>';
-
-			$.ajax({
-				url: "http://localhost:8080/api/users/getUser",
-				contentType: "application/x-www-form-urlencoded;charset=utf-8",
-				type: "POST",
-				data: {
-					sessionId: sessionId
-				},
-				success: function (data) {
-					console.log(data);
-				},
-				error: function (q, status, err) {
-					if (status == "timeout") {
-						alert("Request timed out");
-					} else {
-						alert("Some issue happened with your request: " + err);
-					}
-				}
-			});
-		</script>
-		/-->
 
 		<script src="/static/scripts/filepicker2.js"></script>
 
