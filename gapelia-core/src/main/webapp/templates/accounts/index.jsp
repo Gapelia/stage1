@@ -90,11 +90,12 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
+						<li id="nav-logout"><a href="#">Log Out</a></li>
 						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
 						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
-						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->
+						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->	
 					</ul>
 				</div>
 

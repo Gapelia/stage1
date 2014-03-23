@@ -349,6 +349,10 @@
 	#account-information {
 		width: 100%; height: 100%;
 	}
+	
+	#stay-right {
+		right: 2rem;
+	}
 
 	.account-info-wrapper, .account-password-wrapper, .account-notifications-wrapper,
 	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
@@ -361,6 +365,11 @@
 		a {
 			color: $slate;
 			font-weight: 700;
+		}
+		
+		.account-delete-wrapper {
+			color: rgba(128, 128, 128, 0.75);
+			font-size: 0.9rem;
 		}
 
 		section {
@@ -475,6 +484,7 @@
 		// padding: 2rem; //
 		position: relative;
 		text-align: center;
+		top: 1.2rem;
 
 		&:hover {
 			#account-user-splash {
@@ -550,7 +560,9 @@
 
 	#notifications-toggle {
 		span, input {
+			color: rgba(128, 128, 128, 0.75);
 			display: inline-block;
+			font-size: 0.9rem;
 			vertical-align: top;
 		}
 

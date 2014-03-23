@@ -58,7 +58,7 @@
 // Open menu
 .super-wrapper.mp-pushed {
 
-	#g-menu-toggle { color: $white !important; } // stop changing this, white is the only color that makes sense
+	#g-menu-toggle { color: $white !important; } 
 
 	#featured-panel, #user-panel { z-index: 0; }
 
@@ -112,6 +112,10 @@
 
 		list-style: none;
 		overflow: hidden;
+		
+		#log-out {
+			margin-top: 80%;
+		}
 
 		li {
 			position: relative;

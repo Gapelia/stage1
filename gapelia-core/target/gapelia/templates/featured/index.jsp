@@ -68,6 +68,10 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
+						
+						<ul id="log-out">
+							<li><a href="/#">Log out</a></li>
+						<ul>	
 					</ul>
 
 				</div>
