@@ -12,7 +12,7 @@ public class AuthHelper {
     public static Logger LOG = Logger.getLogger(AuthHelper.class);
 
     public static final String APP_FACEBOOK = "facebook";
-    public static final String APP_GOOGLE = "google";
+    public static final String APP_GOOGLE = "googleplus";
 
     public static String getUserIdFromSessionId(String sessionId) {
         Profile profile = getUserProfileFromSessionId(sessionId);

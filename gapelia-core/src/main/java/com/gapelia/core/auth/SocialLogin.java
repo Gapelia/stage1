@@ -8,7 +8,6 @@ import org.brickred.socialauth.SocialAuthManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.net.InetAddress;
 
 import static com.gapelia.core.auth.AuthHelper.APP_FACEBOOK;
 import static com.gapelia.core.auth.AuthHelper.APP_GOOGLE;
@@ -45,14 +44,18 @@ public class SocialLogin extends HttpServlet {
             if (APP_FACEBOOK.equals(type)) {
                 url = manager.getAuthenticationUrl(APP_FACEBOOK, successUrl, Permission.AUTHENTICATE_ONLY);
             } else {
-                url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
+				successUrl = hostName + "/success";
+				url = manager.getAuthenticationUrl(APP_GOOGLE, successUrl, Permission.AUTHENTICATE_ONLY);
             }
 
+			Cookie sessionCookie = new Cookie("JSESSIONID", request.getSession().getId());
+			LOG.info("social login making cookie for jsessionid:"+request.getSession().getId());
+			sessionCookie.setMaxAge(31557600);
+			response.addCookie(sessionCookie);
+
             HttpSession session = request.getSession();
-            LOG.info("SOCIAL LOGIN JSESSION:"+request.getSession());
-            LOG.info("SOCIAL LOGIN JSESSION:"+request.getSession());
             session.setAttribute("authManager", manager);
-            response.sendRedirect(response.encodeRedirectURL(url));
+			response.sendRedirect(response.encodeRedirectURL(url));
         } catch (Exception e) {
             throw new ServletException(e);
         }

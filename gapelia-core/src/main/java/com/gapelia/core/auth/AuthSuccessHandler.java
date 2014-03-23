@@ -16,7 +16,13 @@ public class AuthSuccessHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			HttpSession session = request.getSession();
+			HttpSession session = null;
+			for(Cookie c : request.getCookies()){
+				LOG.info(c.getName() + c.getValue());
+				if(c.getName().equals("JSESSIONID"))
+					session = SessionManager.find(c.getValue());
+			}
+
 			SocialAuthManager manager = (SocialAuthManager)session.getAttribute("authManager");
 			Profile profile = null;
 			Map requestMap = SocialAuthUtil.getRequestParametersMap(request);
