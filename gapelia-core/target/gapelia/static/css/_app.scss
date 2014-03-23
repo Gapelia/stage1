@@ -1,0 +1,1038 @@
+
+////////////////////////////////////////////////////////////////////////////////////////// APP/SCSS ///
+
+.app {
+
+	width: 100%; height: 100%;
+
+	background-color: $white;
+	clear: left;
+	color: rgba($black, 0.95);
+	@include sans;
+	font-size: 15px;
+	overflow: hidden;
+	position: relative;
+
+	.super-wrapper { display: none; }
+
+	#site-menu {
+		h2 {
+			width: 100%; height: 80px;
+
+			background-image: url("../images/sprite-sheet.png");
+			background-position: 42px -342px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			margin: 2rem 0 0 0;
+			transition: all 0.2s ease;
+
+			@include hide-text;
+
+			a {
+				width: 100%; height: 100%;
+
+				display: block;
+				margin: 1rem 0;
+			}
+
+			&:hover { opacity: 0.3; }
+		}
+
+		#account-links {
+			width: 100%; height: auto;
+			bottom: 1.5rem; left: 0;
+
+			position: absolute;
+			text-align: center;
+
+			a {
+				&:first-child {
+					// nbsp and middot
+					&:after { content: "\00a0\00b7"; }
+				}
+			}
+		}
+	}
+
+	button {
+		margin: 0 auto; padding: 0.5rem 1rem;
+
+		background-color: $slate;
+		border: 0;
+		color: $white;
+		cursor: pointer;
+		font-weight: 300;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: all 0.2s ease;
+
+		&:hover { padding: 0.5rem 1.5rem; }
+	}
+
+	#header-message {
+		width: 97.7%; height: auto;
+		margin: 0 0 1rem 1rem; padding: 1.5rem 0 0.5rem 0; // 1rem 0 0.5rem 0
+
+		color: $slate; //
+    font-size: 1.5rem; //
+    font-weight: 400;
+		line-height: 1.2rem;
+		position: fixed;
+
+		button {
+			width: auto; height: auto;
+			top: 1.3rem; /* 1rem */ right: 1rem;
+
+			position: absolute;
+		}
+	}
+
+	#user-panel, #book-scroller,
+	#dimension-panel, #dimension-scroller,
+	#featured-panel, #featured-scroller {
+		float: left;
+		height: 100%;
+		position: relative;
+	}
+
+	#user-panel, #dimension-panel, #featured-panel {
+		background-color: $white;
+		box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05);
+		overflow: hidden;
+		width: 25%;
+	}
+
+	#featured-panel, #user-panel {
+		width: 96px; /* 7% */ height: 48px;
+
+		background-color: transparent;
+		// border-bottom: 1px solid $white;
+		box-shadow: none; //
+		margin: 0.4rem 0 0 0;
+		// position: fixed;
+		transition: all 0.1s ease;
+		z-index: 5;
+
+		-o-transition: all 0.1s ease;
+		-ms-transition: all 0.1s ease;
+		-moz-transition: all 0.1s ease;
+		-webkit-transition: all 0.1s ease;
+
+		h2 {
+			margin: 2rem 0; padding: 0 0 5rem 0;
+			bottom: 2rem; left: -3.8rem;
+
+			background-image: url("/static/images/sprite-sheet.png");
+			background-position: 0 -410px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			color: $slate !important;
+			position: fixed;
+			transform: rotate(-90deg);
+			width: 214px;
+
+			@include hide-text;
+
+			-o-transform: rotate(-90deg);
+			-ms-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-webkit-transform: rotate(-90deg);
+		}
+
+		.featured-info {
+			padding: 0; // 0 2rem // Tommy
+			text-align: left;
+			top: 55%; // 38% // Tommy
+			z-index: 2;
+
+			p { line-height: 1.3em; }
+		}
+
+		canvas, img {
+			top: 0; left: 0;
+			position: absolute;
+		}
+
+		canvas {
+			opacity: 0.7;
+			z-index: 1;
+		}
+
+		img {
+			width: auto; height: 100%;
+		}
+	}
+
+	#g-menu-toggle, #next-book-toggle {
+		width: 100%; height: auto;
+
+		background-color: transparent;
+		color: $slate;
+		cursor: pointer;
+		font-size: 36px;
+		padding: 0 !important;
+		position: absolute;
+		top: 0.35rem;
+		transition: all 0.5s ease;
+		z-index: 5 !important;
+
+		&:hover { opacity: 0.7; }
+	}
+
+	#g-menu-toggle { left: 0; }
+	#next-book-toggle { right: 0; }
+
+	#nav-wrapper {
+		top: 0; right: 0;
+
+		height: 50px;
+		position: fixed;
+		width: 100%;
+	}
+
+	#book-nav, #featured-nav {
+		width: auto; height: auto;
+		margin: 0 0 1rem 1rem; padding: 1.05rem 0 0 0;
+
+		font-size: 1rem;
+
+		li {
+			display: inline-flex; // inline-block
+			margin: 0.5rem 1rem 0 0;
+		}
+
+		a { color: rgba($black, 0.1); }
+
+		.current {
+			padding: 0 0 1rem 0;
+
+			a {
+				color: $slate;
+				font-weight: 700;
+				letter-spacing: 0.05rem;
+				padding: 0 0 0.74rem 0;
+			}
+		}
+	}
+
+	#featured-nav {
+		top: 0; right: 0; left: 6rem;
+
+		margin: 0;
+		position: fixed;
+	}
+
+	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
+	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
+		position: absolute;
+		top: 53.5%;
+		transform: translateY(-50%);
+
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+	}
+
+	#book-scroller, #featured-scroller {
+		overflow-y: hidden;
+		overflow-x: auto;
+		width: 75%;
+	}
+
+	#featured-scroller, #book-scroller {
+		width: 100%; height: 100%;
+		position: fixed;
+	}
+
+	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+	#book-list, #library-list, #bookmark-list, #submission-list, #subscription-list {
+		display: none;
+		position: relative; // absolute
+		top: 50%;
+		transform: translateY(-50%);
+		transition: all 0.5s ease;
+		width: 100%;
+
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+	}
+
+	.book, .collection, .library, .new, .draft {
+		width: 400px; height: auto;
+		margin: 0 0 0 1rem; padding: 0;
+
+		background-color: rgba($gray-i, 0.4);
+		box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine"
+		// display: inline-block;
+		float: left;
+		overflow: hidden;
+		position: relative;
+		transition: box-shadow 0.2s ease;
+
+		&:hover {
+			// ooh factor
+			box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6);
+			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
+		}
+
+		.author-avatar {
+			width: 50px; height: auto;
+
+			border-radius: 300rem;
+      display: inherit; //
+			margin: 0 0 1rem 0;
+		}
+
+		.bookmark-this {
+			width: auto; height: auto;
+			top: 1rem; right: 2rem;
+
+			background-color: $black;
+			cursor: pointer;
+			position: absolute;
+			transform: rotate(-90deg);
+			z-index: 1;
+
+			-o-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-webkit-transform: rotate(-90deg);
+
+			&:hover {
+				.top-bm, .bottom-bm { right: 30px; }
+				.right-bm { width: 46px; }
+			}
+
+			.top-bm, .bottom-bm, .right-bm { transition: all 0.2s ease; }
+
+			.top-bm, .bottom-bm {
+				width: 0; height: 0;
+
+				border-left: 20px solid transparent;
+				right: 8px;
+				position: absolute;
+			}
+
+			.top-bm {
+				border-top: 20px solid $white;
+				bottom: -15px;
+			}
+
+			.bottom-bm { border-bottom: 20px solid $white; }
+
+			.right-bm {
+				width: 25px; height: 25px;
+				top: -5px; right: -16px;
+
+				background-color: $white;
+				border-right: 1px solid $gray;
+				position: absolute;
+			}
+		}
+
+		.wrapper {
+			bottom: 6rem; left: 0;
+
+			position: absolute;
+			text-align: center;
+			z-index: 1;
+		}
+
+		.image-overlay {
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+
+			background-color: rgba($black, 0.3);
+			display: block;
+			position: absolute;
+		}
+
+		img {
+			width: 100%; height: auto;
+		}
+
+		&:after {
+			top: 0; right: 0;
+			bottom: 0; left: 0;
+
+			background-image: linear-gradient(to bottom, transparent, $black);
+			content: "";
+			opacity: 0.6;
+			position: absolute;
+		}
+	}
+
+	.new {
+		border: 1px solid rgba($black, 0.1);
+		font-size: 2em;
+		line-height: 1.3;
+		padding: 8rem 3rem;
+
+		&:after { background: none; }
+		&:hover { box-shadow: none; }
+	}
+
+	.bookmarked {
+		.bookmark-this {
+			.right-bm {
+				background-color: $red;
+				border-right: 0;
+			}
+		}
+	}
+
+	.book-title {
+		margin: 0 0 0.5rem 0; padding: 0 2rem; // 0 1rem
+
+		font-weight: 600;
+		font-size: 200%;
+		position: absolute;
+		text-align: left; // center
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 35%;
+		width: 100%;
+		z-index: 1;
+
+		a { color: $white; }
+	}
+
+	.library-info, .new-inner-wrapper, .draft-info,
+	.featured-info, .submission-info {
+		color: $white;
+		padding: 0 2rem; // 0 1rem
+		position: absolute;
+		text-align: left; // center
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 35%;
+		width: 100%;
+		z-index: 1;
+
+		.title {
+			font-weight: 600;
+			font-size: 200%;
+			margin: 0 0 0.5rem 0;
+
+			a { color: $white; }
+		}
+
+		.explore-book, .collect-close {
+			margin: 1rem auto; padding: 0.5rem;
+
+			background-color: $white;
+			color: $black;
+			display: block;
+			font-size: 70%;
+			text-shadow: none;
+			text-transform: uppercase;
+			transition: visibility 0.1s ease-in-out;
+			visibility: hidden;
+			width: 50%;
+
+			&:hover { opacity: 0.7; }
+		}
+
+		.lib-blurb {
+			@include sans;
+			font-style: italic;
+			line-height: 1.2em;
+			// padding: 0 2rem;
+
+			a {
+				color: $white;
+				font-style: normal;
+				text-transform: none;
+			}
+		}
+	}
+
+	.featured-info { display: none; }
+
+	.book-info, .collection-info {
+		color: $white;
+		padding: 0 2rem;
+		position: absolute;
+		text-align: left;
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		bottom: 5%;
+		width: 100%;
+		z-index: 1;
+
+		.author-name, .library-location {
+			display: inline; //
+      @include sans;
+			font-style: italic;
+			line-height: 1.2em;
+
+			a {
+				color: $white;
+				font-style: normal;
+				text-transform: none;
+			}
+
+			&:before { @include serif; }
+		}
+
+		.author-name {
+			&:before { content: "by "; }
+		}
+
+		.library-location {
+			&:before { content: "in "; }
+		}
+	}
+
+	#bookmarks-scroller {
+		width: 300px; height: 100%;
+		top: 0; right: -300px;
+
+		background-color: $white;
+		border-left: 1px solid $gray-i;
+		color: $black;
+		position: absolute;
+		transition: all 0.5s ease;
+		z-index: 2;
+	}
+
+	#bookmarks-header {
+		width: 100%; height: 49px;
+		top: 0; right: 0;
+
+		background-color: $white;
+		border-bottom: 1px solid $gray-i;
+		position: absolute;
+		text-align: center;
+
+		h3 { margin: 7px 0 0 0; }
+	}
+
+	#bm-wrapper {
+		margin: 4rem 0 0 0; // 50
+
+		dl {
+			dt {
+				span {
+					width: 50px; height: auto;
+
+					display: inline-block;
+					font-weight: 600;
+					overflow: hidden;
+					text-align: center;
+				}
+			}
+
+			dd {
+				display: none;
+				font-size: 80%;
+				margin: 0.5rem 0 0 50px;
+				transition: all 0.2s ease;
+
+				li {
+					margin: 0 0 0.5rem 0;
+
+					&:last-child { margin: 0; }
+				}
+			}
+		}
+	}
+
+	#bm-notifications, #bm-books, #bm-collections, #bm-libraries, #bm-drafts {
+		display: block;
+		margin: 0 0 1rem 0;
+	}
+
+	.bm-section-title {
+		font-size: 1.3em;
+		font-weight: 300;
+	}
+
+	#featured-splash, #library-splash, #user-splash, #new-library {
+		width: 100%; height: 100%;
+		top: 0; left: 0;
+
+		background-color: transparent;
+		padding: 2rem;
+		position: absolute;
+		transition: top 1.3s ease, left 1.3s ease;
+		z-index: 1;
+
+		#library-info, #featured-info, #splash-user-info, #new-library-info {
+			color: $white;
+			padding: 0 15rem; //
+			position: relative;
+			text-align: left; // center
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 10;
+
+			h2 { font-weight: 300; }
+
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+		}
+
+		#featured-library {
+			&:before {
+				content: "Featured";
+				display: block;
+				@include serif;
+				font-style: italic;
+				margin: 0 0 0.5rem 0;
+				text-transform: lowercase;
+        font-weight: 500;
+        color: rgba($white, 0.5);
+			}
+		}
+
+		p {
+			font-size: 1.3em; // 2em
+			line-height: 1.5em;
+			padding: 0; // 0 10rem
+		}
+
+		#close-splash {
+			width: auto; height: 100%;
+			top: 0; right: 2rem;
+
+			color: $white;
+			cursor: pointer;
+			font-size: 5rem;
+			position: fixed;
+			transition: top 1.3s ease, left 1.3s ease;
+			z-index: 10;
+
+			i {
+				position: relative;
+				top: 45%;
+			}
+		}
+
+		&:after {
+			top: 0; right: 0;
+			bottom: 0; left: 0;
+
+			background-image: linear-gradient(to bottom, rgba($black, 0), $black);
+			content: "";
+			opacity: 1;
+			position: absolute;
+		}
+	}
+
+	#featured-splash {
+		#gapelia {
+			width: 214px; height: 56px;
+
+			background-image: url("/static/images/sprite-sheet.png");
+			background-position: -20px -349px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			position: absolute;
+			// transform: rotate(-90deg);
+			z-index: 1;
+
+			@include hide-text;
+		}
+
+		#login-greet {
+			top: 2rem; right: 2rem;
+
+			line-height: 1.5rem;
+			position: absolute;
+			text-align: right;
+			z-index: 11;
+
+			a { color: $white; }
+		}
+
+		h2 {
+			&:before {
+				color: $slate; // Tommy
+				display: block;
+				@include serif;
+				font-size: 1rem;
+				font-style: italic;
+				margin: 0 0 -0.4rem 0.05rem;
+			}
+		}
+
+		#meta-book {
+			font-size: 0.8rem;
+			margin: -1rem 0 2rem 0;
+
+			.author-name, .library-name {
+				&:before {
+					@include serif;
+					font-style: italic;
+					margin: 0 0.3rem 0 0;
+				}
+			}
+
+			.author-name {
+				margin: 0 0.8rem 0 0;
+				&:before { content: "by"; }
+			}
+
+			.library-name {
+				&:before { content: "in"; }
+			}
+		}
+
+		#snippet-book, #snippet-library { cursor: default; }
+
+		#pick-story {
+			&:before { content: "Story of the day"; }
+		}
+
+		#pick-library {
+			&:before { content: "Library of the day"; }
+		}
+	}
+
+	#library-splash {
+		#library-info {
+			border-bottom: 1px solid rgba($white, 0.5);
+			left: 20%;
+			padding: 0 !important;
+			top: 45%;
+			width: 60%;
+
+			h2 {
+				font-size: 42px;
+				font-weight: 700;
+			}
+		}
+
+		h1 {
+			border-bottom: 1px solid rgba($white, 0.5);
+			font-size: 0.9rem;
+		}
+
+		p {
+			font-size: 1.5rem;
+			font-weight: 200;
+			padding: 12px 0 0 0;
+		}
+
+		section {
+			font-weight: 700;
+			padding: 0 0 15px 0;
+		}
+
+		button {
+			top: 0.4rem; right: 0;
+
+			position: absolute;
+			z-index: 11;
+		}
+	}
+
+	#new-library {
+		.spinner {
+			top: 50% !important; left: 50% !important;
+			display: none;
+		}
+
+		.button-wrapper {
+			top: 20%; left: 20%;
+
+			position: absolute;
+			text-align: center;
+			width: 100%;
+		}
+
+		.photo-picker {
+			margin: 0 !important; padding: 0 !important;
+
+			background-color: transparent;
+			background-repeat: initial;
+			border: 0;
+			border-radius: 0;
+			color: rgba($white, 0.7);
+			cursor: pointer;
+			font-size: 3rem;
+			@include icon;
+			font-weight: normal;
+			left: 0;
+			opacity: 1;
+			position: absolute;
+			transition: all 0.2s ease;
+			z-index: 2;
+
+			&:after {
+				background-image: none;
+				content: "Add a cover photo to your library"; // Enhance your story with imagery
+				@include serif;
+				font-size: 0.8rem;
+				font-style: italic;
+				letter-spacing: initial;
+				margin: 0 0 0 -11rem;
+				opacity: 0;
+				text-transform: initial;
+				transition: all 0.5s ease;
+				vertical-align: middle;
+			}
+
+			&:hover {
+				color: $white; // $black
+
+				&:after {
+					margin: 0 0 0 1rem;
+					opacity: 1;
+				}
+			}
+		}
+
+		#new-library-info {
+			top: 55%; left: 20%;
+
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			padding: 2rem 0;
+			position: absolute;
+			transition: all 0.5s ease;
+			width: 60%;
+
+			small {
+				margin: -3.5rem 0 0 0;
+				opacity: 0;
+				position: absolute;
+				transition: opacity 0.5s ease;
+			}
+
+			h2 {
+				font-size: 42px; //
+				font-weight: 700;
+
+				&:empty:after {
+					color: rgba($white, 0.7);
+					content: "Name your library";
+				}
+			}
+
+			section {
+				position: relative;
+
+				.selectize-input {
+					background-color: transparent;
+					border: 0;
+					outline: none;
+					padding: 8px 0;
+					width: 500px;
+				}
+			}
+		}
+
+		// h1 { font-size: 0.9rem; }
+
+		p {
+			font-size: 1.3rem;
+			letter-spacing: 0.006rem;
+			line-height: 2rem;
+
+			&:empty:after {
+				color: rgba($white, 0.7);
+				content: "Add a description here";
+			}
+		}
+
+		/*
+		.button-wrapper {
+			margin: 0 auto;
+			position: relative; // absolute
+			text-align: center;
+			top: 2.5rem;
+			width: 100%;
+		}
+		*/
+
+		.library-controls {
+			top: 2rem; right: 2rem;
+
+			position: fixed;
+			z-index: 100;
+
+			.outline { border: 1px solid $white !important; }
+
+			#confirm-edit-library {
+				top: 0; right: -10rem;
+
+				position: absolute;
+				transition: right 0.5s ease;
+			}
+		}
+
+		#close-splash {
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+	}
+
+	#user-splash {
+		.overlay-controls {
+			top: 2rem; right: 2rem;
+
+			opacity: 0.001;
+			position: fixed;
+			transition: all 0.2s ease;
+			z-index: -1;
+		}
+	}
+
+	.facebook, .ion-social-facebook			{ color: $facebook; }
+	.googleplus, .ion-social-googleplus	{ color: $google; }
+	.twitter, .ion-social-twitter				{ color: $twitter; }
+	.email, .ion-email, .ion-ios7-at		{ color: $slate; }
+
+}
+
+.notification-time {
+	#notification-count {
+		min-width: 20px; min-height: 20px;
+		top: 0; right: 1rem;
+
+		background-color: $red;
+		border-radius: 50%;
+		color: $white;
+		font-size: 0.8rem;
+		padding: 0.1rem 0.1rem 0.1rem 0.3rem;
+		position: absolute;
+		text-align: center;
+	}
+}
+
+.onboard {
+  
+  #onboard-photos-overlay {
+		&:hover {
+			.cover-button { opacity: 1; }
+			// .button-wrapper { opacity: 1; }
+		}
+
+		.spinner { display: none; }
+
+		.button-wrapper {
+			bottom: 6%; left: 0;
+
+			opacity: 0;
+			position: absolute;
+			text-align: center;
+			transition: all 0.2s ease;
+			width: 100%;
+			z-index: 100; // 1
+
+			button:hover { padding: 0.5rem 1.5rem !important; }
+		}
+
+		.account-user-avatar, #account-splash-user-info {
+			z-index: 100; // 1
+		}
+
+		.account-avatar-wrapper {
+			width: 150px; height: 150px; // width: 200px; height: 200px;
+
+			border-radius: 300rem;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+
+			.button-wrapper { top: 42%; }
+
+			#account-splash-edit-profile {
+				width: auto !important;
+				height: auto !important;
+				top: 38%;
+				right: -0.71rem;
+				color: $white;
+				@include icon;
+				font-size: 2rem;
+				position: absolute;
+				text-shadow: 0 0 0.13rem $black !important;
+				transition: all 0.5s ease;
+				z-index: 100; // 2
+			}
+
+			&:hover {
+				.button-wrapper { opacity: 1; } //
+			}
+		}
+    
+		.account-user-avatar {
+			width: 100%; height: auto;
+
+
+			// margin: 10% 0 0 0;
+			position: relative;
+			text-align: center;
+      top: 12%; //
+
+			img {
+				width: 100%; height: auto;
+
+				border: 1px solid rgba($black, 0.05);
+				position: initial;
+			}
+		}
+
+		.page-bg {
+			width: 100%; height: auto;
+			top: 0; left: 0;
+
+			position: absolute;
+		}
+
+		#user-info {
+			// margin: 1rem 0 0 0;
+			padding: 0 15rem; //
+			position: relative;
+			text-align: center;
+			top: 16%; // 42%
+      z-index: 500; //
+
+			#user-bio, .chars-remaining {
+				// background-color: rgba($white, 0.6);
+				// color: rgba($black, 0.95);
+				color: $white;
+			}
+
+			h2 {
+				color: $white; //
+				font-size: 3rem; //
+			}
+
+			#user-bio {
+				display: block;
+				font-size: 1.5rem; // 1.8rem
+				line-height: 2.1rem;
+				padding: 1rem;
+			}
+
+			.chars-remaining {
+				float: right;
+				@include serif;
+				font-size: 0.7rem;
+				font-style: italic;
+				padding: 0 0.5rem 0.3rem 0.5rem;
+				text-align: right;
+				width: 110px;
+			}
+		}
+
+		.overlay-controls {
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+
+			background-color: rgba($black, 0.5);
+			display: block;
+			padding: 1rem 1rem 1rem 0;
+			position: absolute;
+			text-align: right;
+		}
+	}
+
+}

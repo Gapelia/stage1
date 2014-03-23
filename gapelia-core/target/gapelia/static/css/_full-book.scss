@@ -1,0 +1,926 @@
+
+//////////////////////////////////////////////////////////////////////////////////// FULL-BOOK/SCSS ///
+
+.full-book {
+
+	#the-book {
+		width: 100%; height: 100%;
+		position: relative;
+	}
+
+	.mp-pushed {
+		#g-menu-toggle {
+			display: none;
+			z-index: 1;
+		}
+	}
+
+	.bb-item {
+		.content {
+			width: 100%; height: 100%;
+		}
+	}
+
+	/// CONTROLS ////////////////////////////////////////////////////////////////////////////////////////
+
+	header {
+		width: 100%; height: 25px;
+		top: -50px; left: 0;
+
+		background-color: $white; // rgba($black, 0.3)
+		border-bottom: 1px solid rgba($black, 0.01);
+		color: $black;
+		position: absolute;
+		text-align: center;
+		transition: all 0.2s ease;
+		z-index: 102;
+
+		&:hover {
+			height: 50px;
+
+			.share-book { display: block; }
+
+			#header-info {
+				font-size: 1.3rem;
+				line-height: 3.2rem;
+			}
+		}
+
+		.share-book {
+			top: 50%; right: 1rem;
+
+			display: none;
+			position: absolute;
+			transform: translateY(-50%);
+
+			-o-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+
+			li {
+				width: 32px; height: 32px;
+
+				display: inline-block;
+				font-size: 32px;
+				margin: 0 1rem 0 0;
+
+				a {
+					width: 100%; height: 100%;
+					display: block;
+				}
+
+				&:last-child { margin: 0; }
+			}
+		}
+	}
+
+	#g-menu-toggle, #next-book-toggle {
+		color: $white !important ;
+		padding: 0 !important;
+		position: fixed;
+		width: 45px;
+		z-index: 103 !important;
+
+		i { text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important }
+	}
+
+	#g-menu-toggle { left: 1rem; }
+	#next-book-toggle { right: 1rem; }
+
+	#header-info {
+		cursor: default;
+		font-size: 0.8rem;
+		font-weight: 300;
+		line-height: 1.6rem;
+		transition: all 0.2s ease;
+	}
+
+	#header-author {
+		&:before {
+			content: "by ";
+			@include serif;
+			font-size: 0.8em;
+			font-style: italic;
+			text-transform: lowercase;
+		}
+	}
+
+	#bb-nav-prev, #bb-nav-next {
+		width: 50px; height: 50px;
+
+		// background-color: rgba($black, 0.7);
+		background-image: none;
+		bottom: 0;
+		color: $white;
+		cursor: pointer;
+		font-family: "Ionicons";
+		font-size: 2rem; // 2.5rem, Tommy
+		padding: 1rem 0 0 0; // 2.6rem 0 0 0, Tommy, this messes up the JavaScript positioning
+		position: fixed;
+		text-align: center;
+		text-shadow: 0 0 3px rgba($black, 0.8) !important;
+    // text-shadow: 0 0 3px $slate !important; // blue shadow is terrible
+		// top: 40% !important; // positioning is determined by JavaScript, which takes into account user's browser height. This line doesn't.
+		z-index: 2000;
+    
+    // .ion-ios7-arrow-left, .ion-ios7-arrow-right { text-shadow: 0 0 3px $slate !important; } // redundant
+	}
+
+	#bb-nav-prev { left: 0; }
+	#bb-nav-next { right: 0; } // did you look at this? Your padding made it not level with the previous button
+
+	/// LAYOUT //////////////////////////////////////////////////////////////////////////////////////////
+
+	.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper,
+	.video-wrapper, .backcover-wrapper {
+		overflow: hidden;
+		width: 100%;
+
+		.page-bg, iframe {
+			bottom: 0; left: 0;
+
+			position: absolute;
+			width: 100%;
+		}
+
+		iframe { height: 100%; }
+		.page-bg { height: auto; }
+
+		.page-title-elem, .page-desc {
+			color: rgba($black, 0.8);
+			// display: block; // why is this here? they are divs by default
+		}
+
+		.page-title-elem {
+			font-size: 2.3rem; // I don't understand the constant changing of font sizes...
+			font-weight: 700;
+			line-height: 2.8rem;
+			margin: 0 0 0.5rem 0;
+		}
+
+		.page-desc {
+			@include serif;
+			font-size: 1.5rem; // The font sizing and line height go together for a reason...
+			letter-spacing: 0.006rem;
+			line-height: 2.3rem;
+			margin: 1rem 0 0 0;
+		}
+
+		p {
+			color: inherit;
+			font-size: inherit;
+			line-height: inherit;
+			margin: 0 0 1.5rem 0;
+		}
+
+		.image-attribution { // this is secondary information and doesn't need to be so prominent
+			background-color: rgba($white, 0.5);
+			bottom: 0;
+			color: rgba($black, 0.95);
+			cursor: default;
+			font-size: 0.6rem;
+			line-height: 1.1rem;
+			// margin: 10px;
+			padding: 0.2rem 1rem;
+			position: absolute;
+			z-index: 1;
+
+			p {
+				margin: 0; padding: 0;
+				color: rgba($black, 0.95);
+
+				a { font-weight: 700; }
+			}
+		}
+
+		.author-info {
+			font-size: 0.6rem;
+      z-index: 1;
+
+			.author-name {
+				cursor: default;
+				letter-spacing: 2px;
+				line-height: 1;
+				margin: 0 0 0.5rem 0;
+				text-align: right;
+				text-transform: uppercase;
+
+				&:before {
+					content: "written by";
+					display: block;
+					@include serif;
+					font-style: italic;
+					margin: 0 0 0.5rem 0;
+					text-transform: lowercase;
+				}
+			}
+
+			.author-avatar {
+				width: 40px; height: 40px;
+
+				border-radius: 300rem;
+				display: block !important;
+			}
+		}
+
+		.embed {
+			width: 100%; height: auto;
+
+			iframe {
+				width: 100%; height: auto;
+				position: relative;
+			}
+
+			iframe.embedly-embed { height: 480px; }
+
+			a {
+				img {
+					width: 100%; height: auto;
+					display: block !important;
+				}
+			}
+		}
+	}
+
+	.overlay-wrapper, .photo-wrapper {
+		.image-attribution { right: 0; }
+	}
+
+	.phototext-wrapper, .vertical-wrapper {
+		.image-attribution { left: 0; }
+
+		.page-desc {
+			overflow-x: hidden;
+			overflow-y: auto;
+			// padding: 0 1rem 1rem 0;
+		}
+	}
+
+	.scroller-wrapper {
+		width: 100%; height: 100%;
+
+		overflow-y: auto;
+		position: absolute;
+	}
+
+	.fluid-wrapper {
+		background-color: $white;
+		height: 100%;
+
+		section, .fluid-preview { transition: all 0.2s ease; }
+
+		section {
+			width: 100%; height: 15%;
+		}
+
+		.draggable-placeholder {
+			height: 75%;
+			position: absolute;
+		}
+
+		.fluid-preview {
+			width: 100%; height: auto; // min-height: 53%;
+			top: 75%; left: 0; bottom: 0;
+
+			background-color: $white;
+			padding: 1rem 2rem 0 2rem;
+			position: absolute;
+
+			article {
+				// margin: 0 0 4rem 0;
+
+				background-color: $white;
+				padding: 0 0 4rem 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+			}
+
+			.page-title-elem, .page-desc {
+				margin: 1rem auto 0;
+				width: 66%;
+			}
+
+			h5 {
+				margin: 0 auto;
+				width: 70%;
+			}
+
+			.inserted-img {
+				overflow: hidden;
+
+				img {
+					display: block !important;
+					width: 100%;
+				}
+			}
+    }
+
+		.author-info {
+			position: absolute;
+			top: 2.35rem;
+			width: 12%;
+			margin: 0;
+
+			.author-avatar { float: right; }
+
+			.author-name {
+				text-align: right;
+				&:before { text-align: right; }
+			}
+		}
+
+		.image-attribution { right: 10px; } // takes into account the scrollbar
+	}
+
+	.no-img {
+		.fluid-preview { top: 2%; }
+	}
+
+	.photo-wrapper, .overlay-wrapper {
+		.author-info {
+			position: absolute;
+			top: 3rem;
+			width: 13%;
+
+			.author-avatar { float: right; }
+		}
+	}
+
+	.photo-wrapper { // this is superior to the old Photo Layout
+		background-color: $white;
+
+		.page-bg-wrapper {
+			width: 50%; height: 65%;
+
+			box-shadow: 0 0 5px 0 rgba($black, 0.3);
+			left: 25%;
+			line-height: 400px;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+      top: 15% !important;
+		}
+
+		.page-bg { vertical-align: middle; }
+
+		.photo-preview {
+			width: 100%; height: 100%; // height: auto
+			margin: 8% 0 0 0; padding: 1rem 2rem; 
+
+			position: relative;
+
+			.page-title-elem {
+				font-size: 2rem;
+				line-height: 2.5rem;
+				margin: 0 auto 0.5rem;
+				text-align: center;
+				width: 52%;
+			}
+		}
+
+		.author-info {
+			color: $black;
+			position: absolute;
+			top: -10%;
+			width: 20%;
+
+			.author-avatar { float: right; } //
+
+			.author-name {
+				text-align: right;
+
+				&:before {
+					content: "by";
+					text-align: right;
+					display: inline;
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+
+	.overlay-wrapper {
+		.overlay-preview {
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+
+			background-color: rgba($black, 0.7);
+			position: absolute;
+
+			article {
+				margin: 15% auto; padding: 2rem;
+
+				position: relative;
+				text-align: center;
+				width: 60%;
+			}
+
+			.page-desc {
+				margin: 0 0 0.5rem 0; padding: 0;
+
+				color: $white;
+				font-size: 2.3rem;
+				line-height: 2.8rem;
+				text-align: center;
+			}
+		}
+
+		// Tommy
+		.author-info {
+			position: relative;
+			top: 1rem;
+			width: 50%;
+			text-align: center;
+			color: white;
+			left: 25%;
+
+			.author-avatar {
+				float: right;
+				margin: 6px 45% 0 0; //
+			}
+
+			.author-name {
+				text-align: center;
+				&:before { text-align: center; }
+			}
+		}
+
+		.image-attribution {
+      background-color: transparent;
+      color: $white;
+		}
+	}
+
+	.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+		.author-info {
+			margin: 0;
+
+			.author-name, .author-avatar {
+				display: inline-block !important;
+				vertical-align: middle;
+			}
+
+			.author-name {
+				margin: 0;
+				text-align: left;
+			}
+
+			.author-avatar { margin: 0 1rem 0 0; }
+		}
+	}
+
+	.phototext-wrapper {
+		.phototext-preview {
+			width: 30%; height: 100%;
+			top: 0; right: 0;
+
+			background-color: rgba($white, 0.7);
+			color: $black;
+			overflow-y: auto; //
+			padding: 4rem 2rem 2rem 2rem;
+			position: absolute;
+
+			.page-title-elem {
+				font-size: 1.5rem;
+				line-height: 1.7rem;
+			}
+
+			.page-desc {
+				font-size: 1rem;
+				line-height: 1.7rem;
+			}
+    }
+	}
+
+	.vertical-wrapper {
+		section {
+			width: 25%; height: 100%;
+		}
+
+		.draggable-placeholder {
+			width: 25%; height: 100%;
+		}
+
+		.page-bg {
+			width: auto; height: 100%;
+		}
+
+		.vertical-preview {
+			width: 75%; height: 100%;
+			top: 0; right: 0;
+
+			background-color: $white;
+			border-left: 1px solid transparent;
+			overflow-y: auto; //
+			padding: 4rem 2rem 2rem 2rem; // 4rem 4rem 2rem 2rem
+			position: absolute;
+
+			article { width: 90%; } //
+		}
+	}
+
+	.video-wrapper {
+		.video-preview {
+			width: 100%; height: 100%;
+
+			background-color: $white;
+			position: absolute;
+		}
+
+		article {
+			width: 30%; height: 100%;
+			top: 0; right: 0;
+
+			border-left: 1px solid transparent;
+			color: $black;
+			overflow-y: auto; //
+			padding: 4rem 2rem 2rem 2rem;
+			position: absolute;
+
+			.page-title-elem {
+				font-size: 1.5rem;
+				line-height: 1.7rem;
+			}
+
+			.page-desc {
+				font-size: 1rem;
+				line-height: 1.7rem;
+			}
+		}
+
+		.video-player-container {
+			width: 70%; height: 100%;
+			top: 0; left: 0;
+
+			position: absolute;
+
+			iframe {
+				width: 100%; height: 100%;
+				background-color: $gray-i;
+			}
+		}
+
+		.button-wrapper {
+			bottom: 10%;
+			position: absolute;
+			text-align: center;
+			width: 70%;
+			z-index: 1;
+
+			input {
+				margin: 0 auto; padding: 0.5rem;
+
+				background-color: rgba($white, 0.3);
+				border: 3px solid $black;
+				color: $black;
+				font-weight: 700;
+				position: relative;
+				text-align: center;
+				text-transform: uppercase;
+				transition: all 0.2s ease;
+				z-index: 2;
+			}
+		}
+
+		.image-attribution { visibility: hidden; }
+	}
+
+	.backcover-wrapper {
+		#fin, #fin-next {
+			float: left;
+			height: 100%;
+		}
+
+		#fin {
+			background-color: $white;
+			color: $black;
+			padding: 6rem 4rem 0 5rem; // 8rem 4rem 0 4rem
+			width: 65%;
+
+			.merci, h2 {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.merci {
+				top: initial; right: initial; left: initial;
+
+				margin: 0 2rem 2rem 0;
+				position: relative;
+				width: 100px;
+			}
+
+			h2 {
+				margin: 0;
+
+				&:before {
+					content: "You just read";
+					display: block;
+					font-size: 0.5em;
+					line-height: 1em;
+					margin: 0 0 0 0.1rem;
+				}
+			}
+
+			.share-book {
+				margin: -2rem 0 3rem 8.5rem; // -2rem 0 2rem 8.5rem
+
+				&:before {
+					content: "Share this";
+					@include serif;
+					float: left;
+					font-style: italic;
+					line-height: inherit;
+					margin: 1px 0.5rem 0 0; // 0 0.5rem 0 0
+					vertical-align: bottom;
+				}
+
+				li {
+					width: auto; height: auto;
+
+					background-image: none;
+					color: $black;
+					float: left;
+					font: initial;
+					font-size: inherit;
+					line-height: inherit;
+					margin: 0;
+
+					a { display: initial; }
+
+					&:after {
+						content: "\00b7";
+						display: inline-block;
+						font-style: italic;
+						opacity: 0.3;
+						margin: 0 0.3rem;
+					}
+
+					&:first-child { color: $facebook; }
+					&:nth-child(2) { color: $twitter; }
+
+					&:last-child {
+						color: $slate;
+						&:after { content: ""; }
+					}
+				}
+			}
+
+			section { margin: 0 0 5rem 0; }
+
+			.author-avatar, #library-avatar {
+				width: 100px; height: 100px;
+				border-radius: 300rem;
+				overflow: hidden;
+				position: relative;
+
+				&:after {
+					width: 100%; height: 100%;
+					top: 0; left: 0;
+					bottom: 0; right: 0;
+
+					box-shadow: inset 0 0 1px rgba($black, 0.5),inset 0 20px 50px 0 rgba($black, 0.95);
+					border-radius: 300rem;
+					content: "";
+					margin: 0 auto;
+					opacity: 0.3;
+					position: absolute;
+				}
+			}
+
+			.author-avatar {
+				img {
+					width: auto; height: 100%;
+				}
+			}
+
+			#library-avatar {
+				img {
+					width: 100%; height: auto;
+				}
+			}
+
+			.author-avatar, .author-name,
+			#library-avatar, #library-name	{
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.author-name, #library-name {
+				font-size: 24px;
+				margin: 0 0 0.5rem 2rem;
+
+				&:before {
+					@include serif;
+					font-size: 0.8em;
+					font-style: italic;
+				}
+			}
+
+			.author-name {
+				&:before { content: "by "; }
+			}
+
+			#library-name {
+				&:before { content: "found in "; }
+			}
+
+			#author-bio-blurb, #library-info-blurb {
+				font-size: 1.2rem;
+				line-height: 1.5rem;
+				margin: -4rem 0 0 8.5rem;
+			}
+		}
+
+		#fin-next {
+			color: $white;
+			position: relative;
+			text-align: left;
+			width: 35%;
+
+			h2, section { z-index: 1; }
+
+			h2 {
+				line-height: 1.1em;
+				width: auto;
+
+				&:before {
+					content: "Read next";
+					display: block;
+					font-size: 0.5em;
+					line-height: 1em;
+					margin: 0 0 0 0.1rem;
+				}
+			}
+
+			section {
+				top: 8.6rem; left: 2rem;
+				position: absolute;
+			}
+
+			&:after {
+				top: 0; right: 0;
+				bottom: 0; left: 0;
+
+				background-image: linear-gradient(to right, $black, transparent);
+				content: "";
+				opacity: 0.8;
+				position: absolute;
+				z-index: 0;
+			}
+		}
+	}
+
+}
+
+/// BOOKBLOCK /////////////////////////////////////////////////////////////////////////////////////////
+
+.bb-bookblock {
+	width: 400px; height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	backface-visibility: hidden;
+	margin: 0 auto;
+	// overflow: hidden; // stops 1px scroll jump
+	perspective: 1300px;
+	position: relative;
+	z-index: 100;
+
+	.content { position: absolute; }
+}
+
+.bb-page {
+	position: absolute;
+	transform-style: preserve-3d;
+	transition-property: transform;
+}
+
+.bb-vertical {
+	.bb-content {
+		bottom: 0; left: 0;
+
+		position: absolute;
+		width: 200%;
+	}
+
+	.bb-back { transform: rotateY(-180deg); }
+
+	.bb-page {
+		width: 50%; height: 100%;
+
+		left: 50%;
+		transform-origin: left center;
+	}
+}
+
+.bb-horizontal {
+	.bb-content { height: 200%; }
+
+	.bb-back { transform: rotateX(-180deg); }
+
+	.bb-page {
+		width: 100%; height: 50%;
+
+		top: 50%;	
+		transform-origin: center top;
+	}
+}
+
+.bb-page > div,
+.bb-outer,
+.bb-content,
+.bb-inner {
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+
+	background: $white;
+	position: absolute;
+}
+
+.bb-page > div {
+	transform-style: preserve-3d;
+	width: 100%;
+}
+
+.bb-page > div:not(:only-child) { backface-visibility: hidden; }
+
+.bb-outer {
+	overflow: hidden;
+	width: 100%;
+	z-index: 999;
+}
+
+.bb-overlay, 
+.bb-flipoverlay {
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+
+	background-color: rgba($black, 0.7);
+	opacity: 0;
+	position: absolute;
+}
+
+.bb-flipoverlay { background-color: rgba($black, 0.2); }
+
+.bb-bookblock.bb-vertical > div.bb-page:first-child,
+.bb-bookblock.bb-vertical > div.bb-page:first-child .bb-back {
+	transform: rotateY(180deg);
+}
+
+.bb-bookblock.bb-horizontal > div.bb-page:first-child,
+.bb-bookblock.bb-horizontal > div.bb-page:first-child .bb-back {
+	transform: rotateX(180deg);
+}
+
+.bb-vertical .bb-front .bb-content { left: -100%; }
+.bb-horizontal .bb-front .bb-content { top: -100%; }
+
+.bb-vertical {
+	.bb-flip-next, .bb-flip-initial { transform: rotateY(-180deg); }
+
+	.bb-flip-prev { transform: rotateY(0deg); }
+	.bb-flip-next-end { transform: rotateY(-15deg); }
+	.bb-flip-prev-end { transform: rotateY(-165deg); }
+}
+
+.bb-horizontal {
+	.bb-flip-next, .bb-flip-initial { transform: rotateX(180deg); }
+
+	.bb-flip-prev { transform: rotateX(0deg); }
+	.bb-flip-next-end { transform: rotateX(15deg); }
+	.bb-flip-prev-end { transform: rotateX(165deg); }
+}
+
+.bb-item {
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+
+	background: $white;
+	display: none;
+	position: absolute;
+}
+
+.bb-custom-wrapper {
+	width: 100%; height: 100%;
+	position: relative;
+
+	.bb-bookblock {
+		width: 100%; height: 100%;
+		perspective: 2000px;
+	}
+}
+
+.bb-custom-side {
+	width: 50%; height: 100%;
+
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	float: left;
+	justify-content: center;
+	overflow: hidden;
+}
