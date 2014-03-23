@@ -3583,7 +3583,10 @@ body.library-manager #stay-right {
   font-weight: 700; }
 .accounts .account-info-wrapper .account-delete-wrapper, .accounts .account-password-wrapper .account-delete-wrapper, .accounts .account-notifications-wrapper .account-delete-wrapper, .accounts .account-pro-wrapper .account-delete-wrapper, .accounts .account-billing-wrapper .account-delete-wrapper, .accounts .account-delete-wrapper .account-delete-wrapper {
   color: rgba(128, 128, 128, 0.75);
-  font-size: 0.9rem; }
+  font-size: 1rem;
+  margin-left: 28%;
+  margin-top: 75px;
+  text-align: left; }
 .accounts .account-info-wrapper section, .accounts .account-password-wrapper section, .accounts .account-notifications-wrapper section, .accounts .account-pro-wrapper section, .accounts .account-billing-wrapper section, .accounts .account-delete-wrapper section {
   margin: 1rem 0 0 0; }
 .accounts .account-info-wrapper section:first-child, .accounts .account-password-wrapper section:first-child, .accounts .account-notifications-wrapper section:first-child, .accounts .account-pro-wrapper section:first-child, .accounts .account-billing-wrapper section:first-child, .accounts .account-delete-wrapper section:first-child {
@@ -3623,7 +3626,7 @@ body.library-manager #stay-right {
   border: 1px solid rgba(25, 25, 25, 0.1);
   border-radius: 5px;
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   outline: none;
   width: 500px; }
 .accounts .account-info-wrapper .lb_wrap, .accounts .account-password-wrapper .lb_wrap, .accounts .account-notifications-wrapper .lb_wrap, .accounts .account-pro-wrapper .lb_wrap, .accounts .account-billing-wrapper .lb_wrap, .accounts .account-delete-wrapper .lb_wrap {
@@ -3632,7 +3635,7 @@ body.library-manager #stay-right {
 .accounts .account-info-wrapper .lb_wrap .lb_label, .accounts .account-password-wrapper .lb_wrap .lb_label, .accounts .account-notifications-wrapper .lb_wrap .lb_label, .accounts .account-pro-wrapper .lb_wrap .lb_label, .accounts .account-billing-wrapper .lb_wrap .lb_label, .accounts .account-delete-wrapper .lb_wrap .lb_label {
   color: rgba(25, 25, 25, 0.6);
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 700;
   position: relative !important;
   text-align: center !important;
@@ -3694,7 +3697,8 @@ body.library-manager #stay-right {
 .accounts #account-splash-wrapper .account-user-avatar img {
   width: 100%;
   height: auto;
-  border: 1px solid rgba(25, 25, 25, 0.05);
+  border: 1px solid rgba(25, 25, 25, 0.2);
+  border-radius: 300rem;
   position: initial; }
 .accounts #account-splash-wrapper .page-bg {
   width: 100%;
@@ -3702,10 +3706,13 @@ body.library-manager #stay-right {
   top: 0;
   left: 0;
   position: absolute; }
+.accounts #notifications-toggle {
+  text-align: left;
+  margin-left: 31%; }
 .accounts #notifications-toggle span, .accounts #notifications-toggle input {
   color: rgba(128, 128, 128, 0.75);
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   vertical-align: top; }
 .accounts #notifications-toggle span {
   padding: 0.5rem 2rem 0 0; }
