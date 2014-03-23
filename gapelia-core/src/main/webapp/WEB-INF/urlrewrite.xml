@@ -27,15 +27,6 @@
 		<to>/onboard</to>
 	</outbound-rule>
 
-    <rule>
-        <from>^/finalize-setup$</from>
-        <to>/fin.jsp</to>
-    </rule>
-    <outbound-rule>
-        <from>^/fin.jsp$</from>
-        <to>/finalize-setup</to>
-    </outbound-rule>
-
 	<rule>
 		<from>^/preview$</from>
 		<to>/templates/preview/index.jsp</to>
