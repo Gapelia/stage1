@@ -49,7 +49,7 @@
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
 						<li><a href="/createbook">Create book</a></li>
-						<li><a href="/librarymanager" id="create-library">Start library</a></li>
+						<li><a href="/librarymanager" id="create-library">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile">
 							<a>Drafts</a><a class="icon" href="#">&#xf104;</a>
@@ -90,7 +90,7 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
-						<li id="nav-logout"><a href="#">Log Out</a></li>
+						<li id="nav-logout"><a href="/">Log Out</a></li>
 						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
