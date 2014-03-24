@@ -1,3 +1,7 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +33,7 @@
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
+		<%@include file="../../userDetails.jsp" %>
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
@@ -114,7 +119,7 @@
 											<input type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();">
 										</div>
 
-										<img class="user-avatar" src="/static/images/users/user-avatar.jpg"/>
+										<!--/ <img class="user-avatar" src="/static/images/users/user-avatar.jpg"/> /-->
 
 									</div>
 								</div>
@@ -235,6 +240,9 @@
 			NProgress.start();
 
 			$(".labelBetter").labelBetter({ easing: "bounce" });
+
+			// $("#user-info h2").html(_fullName);
+			$(".account-avatar-wrapper").css("background-image", "url(" + _image + ")");
 
 			// Slide menu for desktop
 			if ($vW > "1024") {
