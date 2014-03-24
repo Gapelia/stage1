@@ -160,7 +160,7 @@
 
 		.user-avatar {
 			position: relative;
-			top: 12%;
+			top: 20%;
 		}
 
 		/* Removed by Tommy
@@ -181,7 +181,7 @@
 		.avatar-wrapper {
 			#splash-edit-profile {
 				width: auto !important; height: auto !important;
-				top: 38%; right: -0.85rem;
+				top: 36%; right: -0.85rem;
 
 				color: $white;
 				@include icon;
@@ -233,7 +233,7 @@
 
 		#splash-user-info {
 			text-align: center;
-			top: 42%;
+			top: 36%;
 		}
 
 		#splash-user-bio {
