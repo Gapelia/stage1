@@ -37,6 +37,7 @@ ehthumbs.db
 Thumbs.db
 
 # ignore folders
+/gapelia-core/*
 
 # don't ignore this folder
 !/gapelia-core/src

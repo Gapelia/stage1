@@ -19,7 +19,7 @@
 
 .selectize-dropdown-header {	
 	background: #f8f8f8;
-	//border-bottom: 1px solid lighten($black, 90%);
+	border-bottom: 1px solid lighten($black, 90%);
 	border-radius: 3px 3px 0 0;
 	padding: 5px 8px;
 	position: relative;
@@ -134,7 +134,7 @@
 	margin: 0 3px 3px 0; padding: 2px 6px;
 
 	background-color: lighten($blue, 50%);
-	//border: 1px solid $blue;
+	border: 1px solid $blue;
 	color: $white;
 	cursor: pointer;
 }
@@ -148,7 +148,7 @@
 .selectize-control.multi .selectize-input.disabled > div,
 .selectize-control.multi .selectize-input.disabled > div.active {
 	background: lighten($black, 90%);
-	//border: 1px solid lighten($black, 70%);
+	border: 1px solid lighten($black, 70%);
 	color: $white;
 }
 
@@ -187,7 +187,7 @@
 
 .selectize-dropdown {
 	background: $white;
-	//border: 1px solid lighten($black, 70%);
+	border: 1px solid lighten($black, 70%);
 	border-radius: 0 0 3px 3px;
 	border-top: 0 none;
 	box-shadow: 0 1px 3px rgba($black, 0.1);
@@ -251,9 +251,9 @@
 	width: 0;
 	height: 0;
 	margin-top: -3px;
-	//border-color: lighten($black, 50%) transparent transparent transparent;
-	//border-style: solid;
-	//border-width: 5px 5px 0 5px;
+	border-color: lighten($black, 50%) transparent transparent transparent;
+	border-style: solid;
+	border-width: 5px 5px 0 5px;
 	content: ' ';
 }
 
@@ -280,8 +280,8 @@
 	}
 
 	.selectize-input [data-value] {
-		background-color: #70a1b1;
-		//background-image: linear-gradient(to bottom, lighten($blue, 10%), darken($blue, 10%));
+		background-color: $blue;
+		background-image: linear-gradient(to bottom, lighten($blue, 10%), darken($blue, 10%));
 		background-repeat: repeat-x;
 		border-radius: 3px;
 		box-shadow: 0 1px 0 rgba($black, 0.2), inset 0 1px rgba($white, 0.03);
@@ -289,8 +289,8 @@
 	}
 
 	.selectize-input [data-value].active {
-		background-color: #70a1b1;
-		//background-image: linear-gradient(to bottom, saturate($blue, 100%), darken($slate, 10%));
+		background-color: $blue;
+		background-image: linear-gradient(to bottom, saturate($blue, 100%), darken($slate, 10%));
 		background-repeat: repeat-x;
 	}
 }

@@ -349,10 +349,6 @@
 	#account-information {
 		width: 100%; height: 100%;
 	}
-	
-	#stay-right {
-		right: 2rem;
-	}
 
 	.account-info-wrapper, .account-password-wrapper, .account-notifications-wrapper,
 	.account-pro-wrapper, .account-billing-wrapper, .account-delete-wrapper {
@@ -365,14 +361,6 @@
 		a {
 			color: $slate;
 			font-weight: 700;
-		}
-		
-		.account-delete-wrapper {
-			color: rgba(128, 128, 128, 0.75);
-			font-size: 1rem;
-			margin-left: 28%;
-			margin-top: 75px;
-			text-align: left;	
 		}
 
 		section {
@@ -442,7 +430,7 @@
 				border: 1px solid rgba($black, 0.1);
 				border-radius: 5px;
 				display: block;
-				font-size: 0.9rem; //
+				font-size: 0.8rem; //
 				outline: none;
 				width: 500px;
 			}
@@ -455,7 +443,7 @@
 			.lb_label {
 				color: rgba($black, 0.6);
 				display: inline-block;
-				font-size: 0.7rem;
+				font-size: 0.6rem;
 				font-weight: 700;
 				position: relative !important;
 				text-align: center !important;
@@ -487,7 +475,6 @@
 		// padding: 2rem; //
 		position: relative;
 		text-align: center;
-		top: 1.2rem;
 
 		&:hover {
 			#account-user-splash {
@@ -548,8 +535,7 @@
 			img {
 				width: 100%; height: auto;
 
-				border: 1px solid rgba($black, 0.2);
-				border-radius: 300rem;
+				border: 1px solid rgba($black, 0.05);
 				position: initial;
 			}
 		}
@@ -563,13 +549,8 @@
 	}
 
 	#notifications-toggle {
-		text-align: left;
-		margin-left: 31%;
-		
 		span, input {
-			color: rgba(128, 128, 128, 0.75);
 			display: inline-block;
-			font-size: 1rem;
 			vertical-align: top;
 		}
 

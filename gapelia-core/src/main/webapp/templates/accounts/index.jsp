@@ -49,7 +49,7 @@
 					<ul>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
 						<li><a href="/createbook">Create book</a></li>
-						<li><a href="/librarymanager" id="create-library">Library Manager</a></li>
+						<li><a href="/librarymanager" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile">
 							<a>Drafts</a><a class="icon" href="#">&#xf104;</a>
@@ -90,12 +90,11 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
-						<li id="nav-logout"><a href="/">Log Out</a></li>
 						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
 						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
-						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->	
+						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->
 					</ul>
 				</div>
 
@@ -133,8 +132,8 @@
 							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
 							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
 
-							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
-						
+							<div id="notifications-toggle"><span>Would you like email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
+
 							<input class="" name="commit" type="submit" value="Update Settings"/>
 						</form>
 
@@ -156,7 +155,7 @@
 						<p>Account deletion is <strong>final</strong>. All of your books will be deleted and there will be no way to recover them. Are you <strong>sure</strong> you want to delete your account?</p>
 	
 						<p>
-							<a href="#" class="overlay-close oc-01">No, I changed my mind</a>
+							<a href="#" class="overlay-close oc-01">Nope, changed my mind</a>
 							<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
 						</p>
 					</section>
