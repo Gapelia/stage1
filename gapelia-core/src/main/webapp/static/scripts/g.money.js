@@ -164,7 +164,7 @@
 
 			if ($("#splash-edit-wrapper .quick-edit-profile").css("background-color") == "#4cd964") {
 
-				$("#splash-edit-wrapper .quick-edit-profile").text("Quick Edit Profile").css("background-color", "transparent");
+				$("#splash-edit-wrapper .quick-edit-profile").text("Edit Profile").css("background-color", "transparent");
 
 				$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 				$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");
@@ -179,7 +179,7 @@
 
 		$(document).on("click", "#splash-edit-wrapper .quick-save-profile", function (e) {
 
-			$("#splash-edit-wrapper .quick-edit-profile").text("Quick Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
+			$("#splash-edit-wrapper .quick-edit-profile").text("Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
 
 			$(".overlay-controls").css({
 				"opacity": "0.001",
