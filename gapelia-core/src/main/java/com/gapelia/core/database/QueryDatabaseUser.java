@@ -276,6 +276,7 @@ public class QueryDatabaseUser {
 
     public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
+        LOG.info("updating db for user");
         try {
             statement = connection.prepareStatement(UPDATE_USER);
             statement.setString(1, user.getName());
@@ -293,7 +294,7 @@ public class QueryDatabaseUser {
             statement.setTimestamp(14, user.getLastUpdated());
             statement.setString(15, user.getPersonalWebsite());
             statement.setString(16, user.getBio());
-	    statement.setString(17, user.getTags());
+	        statement.setString(17, user.getTags());
             statement.setString(18, user.getFb());
             statement.setString(19, user.getGp());
             statement.setString(20, user.getTwt());

@@ -32,21 +32,10 @@
 
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
-
-		<%@include file="../../userDetails.jsp" %><!--/ Dont use this. It is for testing only /-->
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
-
-		<% /* ******************************* */ %>
-		<% /* Copy this on all jsp get sessionId %>
-		<!--/ To get session id /-->
-		<script>
-			<% String id = session.getId(); %>
-			var sessionId = '<%= id %>'
-		</script>
-		<% /* ******************************* */ %>
-
+		<script src="/static/scripts/ajax.js"></script>
 	</head>
 
 	<body class="app profile">
@@ -60,9 +49,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
-						<li class="not-mobile"><a href="/createbook">Create book</a></li>
-						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
+						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
+						<li><a href="/createbook">Create book</a></li>
+						<li><a href="/librarymanager" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
@@ -93,7 +82,7 @@
 					<i class="ion-drag"></i>
 				</button>
 
-				<span id="user-header">USERNAME</span>
+				<span id="user-header"></span>
 
 				<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
@@ -105,7 +94,7 @@
 					</div>
 
 					<div class="user-data">
-						<h2>Paul Anthony Webb</h2>
+						<h2 id="user-name"></h2>
 
 						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 					</div>
@@ -332,31 +321,23 @@
 				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
-
-				if ($vW > "1024") {
-
-					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
-					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
-
-				} else {
-
-					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
-
-				}
-
+				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
+				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+				// stuff += "<a class=\"edit-profile\" href=\"/accounts\">Edit Profile</a>";
+				// stuff += "<a class=\"quick-edit-profile\" href=\"#\">Quick Edit Profile</a>";
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
 				stuff += "<h1>Paul Anthony Webb</h1>";
-				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-				// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-				// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-				// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
+				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+				stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+				stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 				stuff += "</div>";
 				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
+				stuff += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
 				stuff += "</section>";
 
 				$("#mp-pusher").prepend(stuff);
@@ -399,7 +380,6 @@
 							});
 
 							$("#user-splash").css("top", "-200%");
-							$("#user-splash .overlay-controls").css("top", "-200%");
 							$("#g-menu-toggle").css("color", "#70a1b1");
 
 						}, threshold: 0
@@ -413,7 +393,6 @@
 						});
 
 						$("#user-splash").css("top", "-200%");
-						$("#user-splash .overlay-controls").css("top", "-200%");
 						$("#g-menu-toggle").css("color", "#70a1b1");
 
 					});
@@ -468,7 +447,27 @@
 						}
 
 						$("#g-menu-toggle").click(function () {
+
+							/*
+							if ($vW > "320") {
+								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
+							}
+
+							$("#user-panel h2").css({
+								"top": "1.2rem",
+								"left": "0",
+								"padding": "0 6rem",
+								"position": "fixed",
+								"width": "100%"
+							});
+							*/
+
+							// $("#user-panel .button-wrapper").css("bottom", "inherit");
+							// $("#user-panel").css("height", "75px");
+
+							// $("#user-panel").css("height", "188px");
 							$("#featured-nav").toggle();
+
 						});
 
 					});
@@ -636,7 +635,10 @@
 
 		<script>
 			$(function () {
-				$(".overlay-controls button").addClass("transparent-ii").text("Change cover photo");
+
+				$(".overlay-controls button").addClass("slate").text("Change cover photo");
+				// $("#change-cover-photo").text("Change cover photo");
+
 			});
 		</script>
 

@@ -73,24 +73,43 @@ public class Users {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
+        LOG.info("CHECK");
         User u = SessionManager.getUserFromSessionId(sessionId);
+        LOG.info("CHECK");
         u.setName(name);
+        LOG.info("CHECK");
         u.setEmail(email);
+        LOG.info("CHECK");
         u.setDob(dob);
+        LOG.info("CHECK");
         u.setGender(gender);
+        LOG.info("CHECK");
         u.setLocation(location);
+        LOG.info("CHECK");
         u.setAvatarImage(avatarImage);
+        LOG.info("CHECK");
         u.setCoverImage(coverImage);
+        LOG.info("CHECK");
         u.setDisplayName(displayName);
+        LOG.info("CHECK");
         u.setValidatedId(validatedId);
+        LOG.info("CHECK");
         u.setProviderId(providerId);
+        LOG.info("CHECK");
         u.setPersonalWebsite(personalWebsite);
+        LOG.info("CHECK");
         u.setBio(bio);
+        LOG.info("CHECK");
         u.setTags(tags);
+        LOG.info("CHECK");
         u.setFb(fb);
+        LOG.info("CHECK");
         u.setGp(gp);
+        LOG.info("CHECK");
         u.setTwt(twt);
+        LOG.info("CHECK");
         u.setIsPublic(isPublic);
+        LOG.info("finished making user object");
         return QueryDatabaseUser.updateUserProfile(u);
     }
 
