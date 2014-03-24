@@ -333,7 +333,7 @@
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
 
-				if ($vW > "1280") {
+				if ($vW > "1000") {
 
 					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
 					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
@@ -636,7 +636,7 @@
 
 		<script>
 			$(function () {
-				$(".overlay-controls button").addClass("slate").text("Change cover photo");
+				$(".overlay-controls button").addClass("transparent-ii").text("Change cover photo");
 			});
 		</script>
 
