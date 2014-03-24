@@ -348,15 +348,15 @@
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
 				stuff += "<h1>Paul Anthony Webb</h1>";
-				stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+				//stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</div>";
-				stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-				stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-				stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+				//stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+				//stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+				//stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 				stuff += "</div>";
 				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/bg-05.jpg\"/>";
+				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
 				stuff += "</section>";
 
 				$("#mp-pusher").prepend(stuff);
