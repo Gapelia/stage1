@@ -69,9 +69,9 @@ public class Users {
                              @FormParam("gp") String gp,
                              @FormParam("twt") String twt,
                              @FormParam("isPublic") boolean isPublic) {
+        LOG.info("CHECK");
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         LOG.info("CHECK");
         User u = SessionManager.getUserFromSessionId(sessionId);

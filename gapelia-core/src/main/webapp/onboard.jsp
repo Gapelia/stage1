@@ -41,7 +41,8 @@
 		<!--/ main-content /-->
 		<div id="featured-scroller">
 			<div id="header-message">
-				Subscribe to your favorite libraries. Customize your experience. 
+				<!--/ Personalize your experience by subscribing to your favorite libraries. /-->
+				Subscribe to at least 3 libraries, so we can personalize your experience.
 				<button id="onboard-next" class="branded">Next step</button>
 			</div>
 
@@ -56,7 +57,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -70,7 +71,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -84,7 +85,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -98,7 +99,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -112,7 +113,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -126,7 +127,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -140,7 +141,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -154,7 +155,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -168,7 +169,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -182,7 +183,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -196,7 +197,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -210,7 +211,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -224,7 +225,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -238,7 +239,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -252,7 +253,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -266,7 +267,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -280,7 +281,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -294,7 +295,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -308,7 +309,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -322,7 +323,7 @@
 						</div>
 
 						<div class="wrapper">
-							<button class="subscribe white">Subscribe</button>
+							<button class="subscribe transparent-ii">Subscribe</button>
 						</div>
 
 						<span class="image-overlay"></span>
@@ -347,13 +348,12 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-			$(function () {
+		    $( document ).ready(function() {
+		        var first = getUser();
+		    });
+		    function load () {
 				var $vW = $(window).width(), $vH = $(window).height();
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
-                var first = getUser();
-                if(first) {
-
-
                     // Scrolling on desktop
                     $("#featured-scroller").mousewheel(function (event, delta) {
 
@@ -372,52 +372,36 @@
                         event.preventDefault();
 
                     });
-
                     // Load Gapelia
-                    NProgress.start();
-
-                    var
-                    allBooks = $("#library-list li"),		// gets all books in a section
-                    firstBook = $(allBooks).first();		// gets first book in list
-
-                    $(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-
-                    setTimeout(function () {
-
+                NProgress.start();
+                var allBooks = $("#library-list li"),		// gets all books in a section
+                firstBook = $(allBooks).first();		// gets first book in list
+                $(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+                setTimeout(function () {
                         var w = 0, h = 0;
-
                         $("#library-list li").each(function () {
                             w += $(this).outerWidth();
                             h += $(this).outerHeight();
                         });
-
                         w += 500;
-
                         if ($vW > "1024") {
                             $("#library-list").css("width", w - 155 + "px");
                         } else {
                             // $("#library-list").css("height", h + 379 + "px");
                         }
-
                         // fades in the all the books after section width is added
                         $("#library-list li").fadeIn("100");
                         $("#library-list").fadeIn("100");
 
-                    }, 1000);
-
-                    $(".library").imgLiquid({ fill: true });
-
-                    NProgress.done();
-
-                    // Initialize "Overlay — onboard photos"
-                    oop = "";
-                    oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-
-                    // oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/blankBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-
-                    oop += "<div class=\"overlay-controls\">";
-                    oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
-                    oop += "</div>";
+                }, 1000);
+                $(".library").imgLiquid({ fill: true });
+                NProgress.done();
+                // Initialize "Overlay — onboard photos"
+                oop = "";
+                oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                oop += "<div class=\"overlay-controls\">";
+                oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
+                oop += "</div>";
 
                     oop += "<div class=\"account-user-avatar\">";
                     oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/user-avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
@@ -439,8 +423,7 @@
 
                     oop += "</div>";
 
-				$("#user-info h2").html(_fullName);
-				$(".account-avatar-wrapper").css("background-image", "url(" + _image + ")");
+                    $("body").append(oop);
 
                     $("#user-info h2").html(user.fullName);
                     $("#user-bio img").attr("src", user.avatarImage);
@@ -472,8 +455,7 @@
                         updateUserOnboard();
                         document.location.href = "/featured";
                     });
-                }
-			});
+			    }
 		</script>
 
 		<script src="/static/scripts/filepicker2.js"></script>
