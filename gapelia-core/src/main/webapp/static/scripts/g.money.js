@@ -133,10 +133,22 @@
 
 		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile", function (e) {
 
-			$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
-				"background-color": "#4cd964",
-				"border-bottom-right-radius": "5px"
-			}).addClass("quick-save-profile");
+			if ($vW > "1280") {
+
+				$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
+					"background-color": "#4cd964",
+					"border-bottom-right-radius": "5px"
+				}).addClass("quick-save-profile");
+
+			} else {
+
+				$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
+					"background-color": "#4cd964",
+					"border-top-right-radius": "5px",
+					"border-bottom-right-radius": "5px"
+				}).addClass("quick-save-profile");
+
+			}
 
 			$(".overlay-controls").css({
 				"opacity": "1",

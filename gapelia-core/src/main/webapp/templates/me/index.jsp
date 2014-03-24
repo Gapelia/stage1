@@ -60,9 +60,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/createbook">Create book</a></li>
-						<li><a href="/librarymanager" id="create-library">Start library</a></li>
+						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+						<li class="not-mobile"><a href="/createbook">Create book</a></li>
+						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
@@ -332,10 +332,18 @@
 				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
-				stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
-				stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
-				// stuff += "<a class=\"edit-profile\" href=\"/accounts\">Edit Profile</a>";
-				// stuff += "<a class=\"quick-edit-profile\" href=\"#\">Quick Edit Profile</a>";
+
+				if ($vW > "1280") {
+
+					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
+					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+
+				} else {
+
+					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+
+				}
+
 				stuff += "</div>";
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";

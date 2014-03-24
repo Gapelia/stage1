@@ -1,7 +1,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
-@media all and (min-width: 1025px), screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (min-width: 1281px), screen and (min-width: 1281px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	.app {
 
@@ -34,6 +34,67 @@
 
 }
 
+@media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+
+	.app {
+
+		.not-mobile { display: none; }
+
+		.book, .collection, .library, .new, .draft, .bookmarked {
+			.bookmark-this {
+				.top-bm {
+					bottom: -15px; right: 30px;
+					border-top: 20px solid $red;
+				}
+
+				.bottom-bm {
+					border-bottom: 20px solid $red;
+					right: 30px;
+				}
+
+				.right-bm {
+					width: 47px; height: 25px;
+
+					background-color: $red;
+					border-right: 0;
+				}
+
+				&:hover {
+					.top-bm {
+						bottom: -15px; right: 30px;
+					}
+
+					.bottom-bm { right: 30px; }
+
+					.right-bm {
+						width: 47px; height: 25px;
+					}
+				}
+			}
+
+			&:hover {
+				box-shadow: inset 10px 0 0 0 $slate;
+			}
+		}
+
+	}
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		#user-splash {
+			.avatar-wrapper {
+				#splash-edit-wrapper { top: 3.85rem; }
+			}
+		}
+
+	}
+
+}
+
 @media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
@@ -54,7 +115,6 @@
 	.app {
 
 		#site-menu { display: none; }
-		.not-mobile { display: none; }
 
 		.mp-menu {
 			#gpl-menu-me {
@@ -76,6 +136,54 @@
 
 		#g-menu-toggle { left: 1rem; }
 		#next-book-toggle { right: 1rem; }
+
+		/*
+		.bookmark-this {
+			width: auto; height: auto;
+			top: 1rem; right: 2rem;
+
+			background-color: $black;
+			cursor: pointer;
+			position: absolute;
+			transform: rotate(-90deg);
+			z-index: 1;
+
+			-o-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-webkit-transform: rotate(-90deg);
+
+			&:hover {
+				.top-bm, .bottom-bm { right: 30px; }
+				.right-bm { width: 46px; }
+			}
+
+			.top-bm, .bottom-bm, .right-bm { transition: all 0.2s ease; }
+
+			.top-bm, .bottom-bm {
+				width: 0; height: 0;
+
+				border-left: 20px solid transparent;
+				right: 8px;
+				position: absolute;
+			}
+
+			.top-bm {
+				border-top: 20px solid $white;
+				bottom: -15px;
+			}
+
+			.bottom-bm { border-bottom: 20px solid $white; }
+
+			.right-bm {
+				width: 25px; height: 25px;
+				top: -5px; right: -16px;
+
+				background-color: $white;
+				border-right: 1px solid $gray;
+				position: absolute;
+			}
+		}
+		*/
 
 		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
 			position: relative;
