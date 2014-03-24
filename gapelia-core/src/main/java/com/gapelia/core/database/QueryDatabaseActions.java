@@ -19,17 +19,21 @@ public class QueryDatabaseActions {
 
     public static String bookmarkBook(User u, int bookId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(BOOKMARK_BOOK);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, bookId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot bookmark book:" + u + " " + bookId + " " + ex.getMessage());
             return "Could not bookmark book";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -42,17 +46,21 @@ public class QueryDatabaseActions {
 
     public static String removeBookmarkBook(User u, int bookId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(REMOVE_BOOKMARK_BOOK);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, bookId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot remove bookmark book:" + u + " " + bookId + " " + ex.getMessage());
             return "Could not remove bookmark";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -65,17 +73,21 @@ public class QueryDatabaseActions {
 
     public static String subscribeLibrary(User u, int libraryId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(SUBSCRIBE_LIBRARY);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot subscribe to library:" + u + " " + libraryId + " " + ex.getMessage());
             return "Could not subscribe to library";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -88,17 +100,21 @@ public class QueryDatabaseActions {
 
     public static String removeSubscriptionLibrary(User u, int libraryId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(REMOVE_SUBCRIPTION_LIBRARY);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot remove bookmark book:" + u + " " + libraryId + " " + ex.getMessage());
             return "Could remove bookmark";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -111,17 +127,21 @@ public class QueryDatabaseActions {
 
     public static String voteBook(User u, int bookId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(VOTE_BOOK);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, bookId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot vote for book:" + u + " " + bookId + " " + ex.getMessage());
             return "Could not vote for book";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -134,17 +154,21 @@ public class QueryDatabaseActions {
 
     public static String removeVoteBook(User u, int bookId) {
         PreparedStatement insert = null;
+        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(REMOVE_VOTE_BOOK);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, bookId);
-            insert.executeUpdate();
+            rs = insert.executeQuery();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("Cannot remove vote:" + u + " " + bookId + " " + ex.getMessage());
             return "Could not remove vote";
         } finally {
             try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (insert != null) {
                     insert.close();
                 }

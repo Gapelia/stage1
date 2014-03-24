@@ -11,51 +11,12 @@ public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
 
-    private static final String GET_LIBRARIES_INITIAL = "SELECT * FROM libraries where created_by=22";
     private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
     private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
     private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (id,created_by,title,tags,cover_photo,description,num_subscribers,featured_book,created) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_LIBRARY = "UPDATE libraries created_by = ?,title = ?,tags = ?,cover_photo = ?,description = ?,num_subscribers = ?,featured_book = ?,created = ? WHERE id = ?";
-
-    public static ArrayList<Library> getMainLibraries() {
-        PreparedStatement statement = null;
-        ResultSet rs = null;
-        ArrayList<Library> libraryList = new ArrayList<Library>();
-        try {
-            statement = connection.prepareStatement(GET_LIBRARIES_INITIAL);
-            rs = statement.executeQuery();
-            while (rs.next()) {
-                Library library = new Library();
-                library.setLibraryId(rs.getInt("id"));
-                library.setUserId(rs.getInt("created_by"));
-                library.setTitle(rs.getString("title"));
-                library.setTags(rs.getString("tags"));
-                library.setCoverPhoto(rs.getString("cover_photo"));
-                library.setDescription(rs.getString("description"));
-                library.setFeaturedBook(rs.getInt("featured_book"));
-                library.setCreated(rs.getTimestamp("created"));
-                libraryList.add(library);
-            }
-            return libraryList;
-        } catch (Exception ex) {
-            LOG.error("ERROR: : ", ex);
-        }
-        finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException ex) {
-                LOG.error("Error closing connection " + ex.getMessage());
-            }
-        }
-        return null;
-    }
 
     public static ArrayList<Book> getBooksInLibrary(int libraryId){
         PreparedStatement statement = null;
