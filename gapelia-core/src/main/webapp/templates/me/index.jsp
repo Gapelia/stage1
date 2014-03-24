@@ -333,7 +333,7 @@
 				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
 				stuff += "<div id=\"splash-edit-wrapper\">";
 
-				if ($vW > "1000") {
+				if ($vW > "1024") {
 
 					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
 					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
@@ -348,12 +348,12 @@
 				stuff += "</div></div>";
 				stuff += "<div id=\"splash-user-info\">";
 				stuff += "<h1>Paul Anthony Webb</h1>";
-				//stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-				//stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-				//stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-				//stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+				// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+				// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+				// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 				stuff += "</div>";
 				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
 				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
