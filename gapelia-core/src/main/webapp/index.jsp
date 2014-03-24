@@ -47,14 +47,14 @@
 		<div id="mp-pusher" class="super-wrapper">
 
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>Better stories, together.</h4>
+			<h4>Collaborative publishing. Create as you would never do on your own. Follow stories and ideas you value.</h4>
 
 			<div class="wrapper">
 				<button class="fb-btn">Sign in with Facebook</button>
 				<button class="gplus-btn">Sign in with Google+</button>
 			</div>
 
-			<img class="page-bg" src="/static/images/libraries/design-tech-beyond.jpg"/>
+			<img class="page-bg" src="/static/images/splash-bg.jpg"/>
 
 			<footer>
 				<nav>
