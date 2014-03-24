@@ -91,7 +91,7 @@
 						<li id="nav-subscriptions"><a href="#">My Subscriptions</a></li>
 
 						<div id="stay-right">
-							<button id="add-new-library" class="slate">New Library</button>
+							<button id="add-new-library" class="black-border">New Library</button>
 						</div>
 					</ul>
 				</div>

@@ -53,7 +53,7 @@
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
+								<li><a href="#">hikari: The Future of the Operating System</a></li><input type="checkbox" class="js-switch" checked/>
 								<li><a href="#">007: The Diego Regules Story</a></li>
 								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
 							</ul>
