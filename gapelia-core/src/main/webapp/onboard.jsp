@@ -55,8 +55,7 @@
 		<!--/ main-content /-->
 		<div id="featured-scroller">
 			<div id="header-message">
-				<!--/ Personalize your experience by subscribing to your favorite libraries. /-->
-				Subscribe to at least 3 libraries, so we can personalize your experience.
+				Subscribe to your favorite libraries. Customize your experience. 
 				<button id="onboard-next" class="branded">Next step</button>
 			</div>
 

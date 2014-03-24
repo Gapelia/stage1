@@ -51,7 +51,8 @@
 
 .red {
 	background-color: $red !important;
-	background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
+	border: 1px solid $red !important;
+	//background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
 	color: $white !important;
 }
 
