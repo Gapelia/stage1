@@ -1,26 +1,14 @@
 package com.gapelia.core.auth;
 
 import com.gapelia.core.database.QueryDatabaseUser;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.sun.java.swing.plaf.gtk.resources.gtk_pt_BR;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.*;
 import org.brickred.socialauth.util.BirthDate;
 import org.brickred.socialauth.util.SocialAuthUtil;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.client.ResponseHandler;

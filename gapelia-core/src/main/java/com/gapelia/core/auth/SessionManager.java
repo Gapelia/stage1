@@ -8,8 +8,6 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class SessionManager implements HttpSessionListener {
     public static Logger LOG = Logger.getLogger(SessionManager.class);
