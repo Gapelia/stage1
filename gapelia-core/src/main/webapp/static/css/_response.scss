@@ -40,9 +40,13 @@
 
 	.app {
 
-		.not-mobile { display: none; }
-
-		.book, .collection, .library, .new, .draft, .bookmarked {
+		.book, .collection, .library, .new, .draft {
+			&:hover {
+				box-shadow: inset 10px 0 0 0 $slate;
+			}
+		}
+		
+		.bookmarked {
 			.bookmark-this {
 				.top-bm {
 					bottom: -15px; right: 30px;
@@ -72,10 +76,6 @@
 						width: 47px; height: 25px;
 					}
 				}
-			}
-
-			&:hover {
-				box-shadow: inset 10px 0 0 0 $slate;
 			}
 		}
 
@@ -113,6 +113,8 @@
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
+
+		.not-mobile { display: none; }
 
 		#site-menu { display: none; }
 
@@ -197,7 +199,7 @@
 		}
 
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-		#book-list, #dimension-list, #library-list, #bookmark-list {
+		#book-list, #library-list, #bookmark-list {
 			width: 100%; height: 100% !important; // auto
 			top: initial; bottom: 0; // 75px
 
@@ -388,11 +390,6 @@
 			.bookmark-this {
 				right: 4rem;
 
-				&:hover {
-					.top-bm, .bottom-bm { right: 18px; }
-					.right-bm { width: 50px; }
-				}
-
 				.top-bm, .bottom-bm {
 					border-left: 40px solid transparent;
 					right: 18px;
@@ -409,12 +406,19 @@
 					width: 50px; height: 50px;
 					top: -10px; right: -32px;
 				}
+
+				&:hover {
+					.top-bm, .bottom-bm { right: 18px; }
+					.right-bm { width: 50px; }
+				}
 			}
 		}
 
 		.bookmarked {
 			.bookmark-this {
-				.right-bm { width: 60px; }
+				z-index: 5;
+
+				.right-bm { width: 92px; }
 
 				.top-bm {
 					border-top: 40px solid $red;
@@ -425,18 +429,40 @@
 					border-bottom: 40px solid $red;
 					right: 60px;
 				}
+
+				&:hover {
+					.right-bm {
+						width: 92px; height: 50px;
+						top: -10px; right: -32px;
+					}
+
+					.top-bm {
+						bottom: -30px; right: 60px;
+						border-top: 40px solid $red;
+					}
+
+					.bottom-bm {
+						border-bottom: 40px solid $red;
+						right: 60px;
+					}
+				}
 			}
 		}
 
+		.book-title, .book-info {
+			position: relative;
+		}
+
 		.book-title {
-			font-size: 2.5rem; // 3em
-			padding: 0 5rem 0 4rem; // 0 4rem
-			top: 20%;
+			margin: 2rem 0 1.5rem 0; padding: 0 5rem 0 4rem;
+
+			font-size: 2.5rem;
+			top: initial;
 		}
 
 		.book-info, .collection-info {
-			bottom: 20%; // 10%
-			font-size: 1.2rem; // 1.5em
+			bottom: initial;
+			font-size: 1.2rem;
 			padding: 0 4rem;
 		}
 
@@ -462,8 +488,7 @@
 
 		#user-splash {
 			#splash-user-info { top: 33%; }
-			// #close-splash { bottom: -10rem; }
-			.user-avatar { top: 15%; }
+			.user-avatar { top: 6%; }
 		}
 
 	}
@@ -761,12 +786,13 @@
 
 	.profile {
 
+		#user-splash { z-index: 10; }
 		.user-book-list-wrapper { top: initial !important; }
 
 		#featured-nav {
 			width: 100%; height: auto;
 			margin: 0; padding: 0;
-			top: 65px; left: 0;
+			top: 74px; left: 0;
 
 			border-bottom: 1px solid rgba($black, 0.07);
 			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
@@ -822,10 +848,11 @@
 			#user-wrapper {
 				width: 100%; height: 100%;
 				margin: 0; padding: 0;
+				top: 0; right: 0;
 
 				display: block;
 				overflow: hidden;
-				position: relative;
+				position: absolute;
 
 				.user-avatar {
 					width: 100%; height: auto;
@@ -834,13 +861,20 @@
 					position: relative;
 					text-align: center;
 					top: initial;
+					z-index: 5;
 
 					.avatar-wrapper {
 						width: 75px; height: 75px;
+						top: 0; right: 0;
+
 						border: 0;
+						position: absolute;
 
 						img {
 							left: initial; right: 0;
+
+							border: 0;
+							border-radius: 0;
 						}
 
 						&:after {
@@ -901,6 +935,21 @@
 			}
 		}
 
+		.delete-book-confirm {
+			margin: 0;
+
+			h3 {
+				margin: 1rem 0 3rem 0;
+				position: relative;
+			}
+
+			.wrapper {
+				bottom: initial;
+				position: relative;
+				text-align: center;
+			}
+		}
+
 		/*
 		#user-wrapper {
 			width: 100%; height: 100%; // 40%
@@ -932,7 +981,8 @@
 
 	}
 
-	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////// ACCOUNTS ///
 
 	.accounts {
 
@@ -974,6 +1024,14 @@
 			}
 		}
 
+	}
+
+	/// MISCELLANEOUS ///////////////////////////////////////////////////////////////////////////////////
+
+	.notification-time {
+		#notification-count {
+			top: 1rem; right: 0;
+		}
 	}
 
 }

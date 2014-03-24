@@ -399,6 +399,7 @@
 							});
 
 							$("#user-splash").css("top", "-200%");
+							$("#user-splash .overlay-controls").css("top", "-200%");
 							$("#g-menu-toggle").css("color", "#70a1b1");
 
 						}, threshold: 0
@@ -412,6 +413,7 @@
 						});
 
 						$("#user-splash").css("top", "-200%");
+						$("#user-splash .overlay-controls").css("top", "-200%");
 						$("#g-menu-toggle").css("color", "#70a1b1");
 
 					});
@@ -466,27 +468,7 @@
 						}
 
 						$("#g-menu-toggle").click(function () {
-
-							/*
-							if ($vW > "320") {
-								$("#user-panel .user-avatar, #user-panel #user-bio, #user-panel .button-wrapper").css("margin", "-100rem 0 0 0").fadeOut();
-							}
-
-							$("#user-panel h2").css({
-								"top": "1.2rem",
-								"left": "0",
-								"padding": "0 6rem",
-								"position": "fixed",
-								"width": "100%"
-							});
-							*/
-
-							// $("#user-panel .button-wrapper").css("bottom", "inherit");
-							// $("#user-panel").css("height", "75px");
-
-							// $("#user-panel").css("height", "188px");
 							$("#featured-nav").toggle();
-
 						});
 
 					});
@@ -654,10 +636,7 @@
 
 		<script>
 			$(function () {
-
 				$(".overlay-controls button").addClass("slate").text("Change cover photo");
-				// $("#change-cover-photo").text("Change cover photo");
-
 			});
 		</script>
 

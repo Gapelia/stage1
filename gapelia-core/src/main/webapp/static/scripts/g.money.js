@@ -133,7 +133,8 @@
 
 		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile", function (e) {
 
-			if ($vW > "1280") {
+			// if ($vW > "1280") {
+			if ($vW > "1024") {
 
 				$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
 					"background-color": "#4cd964",
