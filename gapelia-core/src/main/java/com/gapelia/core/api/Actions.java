@@ -58,9 +58,10 @@ public class Actions {
                                 @FormParam("libraryId") int libraryId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
+        LOG.info("subscribing");
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
+        LOG.info("subscribing");
         return QueryDatabaseActions.subscribeLibrary(u, libraryId);
     }
 

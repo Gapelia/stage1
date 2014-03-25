@@ -33,19 +33,10 @@
 		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
-		<%@include file="../../userDetails.jsp" %><!--/ Dont use this. It is for testing only /-->
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
 
-		<% /* ******************************* */ %>
-		<% /* Copy this on all jsp get sessionId %>
-		<!--/ To get session id /-->
-		<script>
-			<% String id = session.getId(); %>
-			var sessionId = '<%= id %>'
-		</script>
-		<% /* ******************************* */ %>
 
 	</head>
 
@@ -105,7 +96,7 @@
 					</div>
 
 					<div class="user-data">
-						<h2>Paul Anthony Webb</h2>
+						<h2 id="user-info">Paul Anthony Webb</h2>
 
 						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 					</div>
@@ -300,6 +291,7 @@
 
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
+		<script src="/static/scripts/ajax.js"></script>
 
 		<script>
 			if ($vW > "1024") {
@@ -320,316 +312,269 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
+		     $( document ).ready(function() {
+            		        var first = getUser();
+            		    });
 			// Splash page
-			$(function () {
+			function load() {
 
-				stuff = "";
-				stuff += "<section id=\"user-splash\">";
-				stuff += "<div class=\"overlay-controls\">";
-				// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
-				stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
-				stuff += "</div>";
-				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
-				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
-				stuff += "<div id=\"splash-edit-wrapper\">";
+				// Splash page
+                			$(function () {
 
-				if ($vW > "1024") {
+                				stuff = "";
+                				stuff += "<section id=\"user-splash\">";
+                				stuff += "<div class=\"overlay-controls\">";
+                				// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
+                				stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+                				stuff += "</div>";
+                				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
+                				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
+                				stuff += "<div id=\"splash-edit-wrapper\">";
 
-					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
-					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+                				if ($vW > "1000") {
 
-				} else {
+                					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
+                					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
 
-					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+                				} else {
 
-				}
+                					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
 
-				stuff += "</div>";
-				stuff += "</div></div>";
-				stuff += "<div id=\"splash-user-info\">";
-				stuff += "<h1>Paul Anthony Webb</h1>";
-				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
-				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-				// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-				// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-				// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
-				stuff += "</div>";
-				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
-				stuff += "</section>";
+                				}
 
-				$("#mp-pusher").prepend(stuff);
+                				stuff += "</div>";
+                				stuff += "</div></div>";
+                				stuff += "<div id=\"splash-user-info\">";
+                				stuff += "<h1>Paul Anthony Webb</h1>";
+                				//stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+                				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
+                				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+                				//stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+                				//stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+                				//stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+                				stuff += "</div>";
+                				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+                				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
+                				stuff += "</section>";
 
-				$("#user-splash").imgLiquid({ fill: true });
-				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
+                				$("#mp-pusher").prepend(stuff);
 
-				$("#g-menu-toggle").css("color", "#fcfcfc");
+                				$("#user-splash").imgLiquid({ fill: true });
+                				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
 
-			});
+                				$("#g-menu-toggle").css("color", "#fcfcfc");
 
-			if ($vW > "1024") {
+                			});
 
-				$(document).on("click", "#close-splash", function () {
+                			if ($vW > "1024") {
 
-					$("#close-splash").css({
-						"left": "-200%",
-						"right": "initial"
-					});
+                				$(document).on("click", "#close-splash", function () {
 
-					$("#user-splash").css("left", "-200%");
-					$("#user-panel").css("width", "100%");
-					$("#user-splash .overlay-controls").css("left", "-200%");
-					$("#g-menu-toggle").css("color", "#70a1b1");
+                					$("#close-splash").css({
+                						"left": "-200%",
+                						"right": "initial"
+                					});
 
-					$("#user-header").css("opacity", "1");
+                					$("#user-splash").css("left", "-200%");
+                					$("#user-panel").css("width", "100%");
+                					$("#user-splash .overlay-controls").css("left", "-200%");
+                					$("#g-menu-toggle").css("color", "#70a1b1");
 
-				});
+                					$("#user-header").css("opacity", "1");
 
-			} else {
+                				});
 
-				$(function () {
+                			} else {
 
-					$("#user-splash").swipe({
-						swipeUp: function (event, direction, distance, duration, fingerCount) {
+                				$(function () {
 
-							$("#close-splash").css({
-								"height": "0",
-								"top": "-200%"
-							});
+                					$("#user-splash").swipe({
+                						swipeUp: function (event, direction, distance, duration, fingerCount) {
 
-							$("#user-splash").css("top", "-200%");
-							$("#user-splash .overlay-controls").css("top", "-200%");
-							$("#g-menu-toggle").css("color", "#70a1b1");
+                							$("#close-splash").css({
+                								"height": "0",
+                								"top": "-200%"
+                							});
 
-						}, threshold: 0
-					});
+                							$("#user-splash").css("top", "-200%");
+                							$("#user-splash .overlay-controls").css("top", "-200%");
+                							$("#g-menu-toggle").css("color", "#70a1b1");
 
-					$(document).on("click", "#close-splash", function () {
+                						}, threshold: 0
+                					});
 
-						$("#close-splash").css({
-							"height": "0",
-							"top": "-200%"
-						});
+                					$(document).on("click", "#close-splash", function () {
 
-						$("#user-splash").css("top", "-200%");
-						$("#user-splash .overlay-controls").css("top", "-200%");
-						$("#g-menu-toggle").css("color", "#70a1b1");
+                						$("#close-splash").css({
+                							"height": "0",
+                							"top": "-200%"
+                						});
 
-					});
+                						$("#user-splash").css("top", "-200%");
+                						$("#user-splash .overlay-controls").css("top", "-200%");
+                						$("#g-menu-toggle").css("color", "#70a1b1");
 
-				});
+                					});
+
+                				});
+
+                			}
+
+                			$(function () {
+
+                				var $vW = $(window).width(), $vH = $(window).height();
+
+                				/*
+                				$(function () {
+                					$("#book-scroller").mousewheel(function (event, delta) {
+
+                						this.scrollLeft -= (delta * 40);
+                						event.preventDefault();
+
+                					});
+                				});
+                				*/
+
+                				// Scrolling on desktop
+                				$("#book-scroller").mousewheel(function (event, delta) {
+
+                					if ($vW > "1024") {
+
+                						// this.scrollLeft -= (delta * 40);
+
+                						$("#book-scroller").stop().animate({
+                							scrollLeft: "-=" + (75 * delta) + "px"
+                						}, "150", "easeOutCubic");
+
+                					} else {
+                						this.scroll -= (delta * 40);
+                					}
+
+                					event.preventDefault();
+
+                				});
+
+                				// Dropdown menu for mobile
+                				if ($vW < "1025") {
+
+                					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
+
+                					$(function () {
+
+                						if ($vW < "321") {
+                							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
+                						}
+
+                						$("#g-menu-toggle").click(function () {
+                							$("#featured-nav").toggle();
+                						});
+
+                					});
+
+                				}
+
+                				<% String id = session.getId(); %>
+                				var sessionId = '<%= id %>'
+
+
+                				// User details
+                				$("#splash-user-info h1, #user-header").html(user.fullName);
+                				$(".avatar-wrapper img").attr("src",user.avatarImage);
+                				$("#user-splash").css('background-image', 'url('+user.coverImage+')')
+                				$("#splash-user-bio").html(user.bio);
+
+                				// Load Gapelia
+                				$(function () {
+
+                					NProgress.start();
+
+                					$("#user-panel, #book-scroller").css("opacity", "0").show();
+
+                					var
+                					allBooks = $("#user-book-list li"),	// gets all books in a section
+                					firstBook = $(allBooks).first();		// gets first book in list
+
+                					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+
+                					setTimeout(function () {
+
+                						// $("#user-book-list").hide();
+                						$("#user-book-list").css("opacity", "0").show();
+
+                						if ($vW > "1024") {
+                							$("#user-book-list .book").css("height", $vH - 97 + "px");
+                						}
+
+                						$(".book").imgLiquid({ fill: true });
+
+                						var w = 0, h = 0;
+
+                						$("#user-book-list li").each(function () {
+                							w += $(this).outerWidth();
+                							h += $(this).outerHeight();
+                						});
+
+                						w += 500;
+
+                						if ($vW > "1024") {
+                							$("#user-book-list").css("width", w - 320 + "px");
+                						}
+
+                						NProgress.done();
+
+                						$("#user-book-list").css("opacity", "1");
+
+                						// fades in the all the books after section width is added
+                						$("#user-book-list li").fadeIn("100");
+                						$("#user-book-list").fadeIn("100");
+
+                						// "fix" featured menu pop-in
+                						setTimeout(function () {
+                							$("#user-panel, #book-scroller").css("opacity", "1");
+                						}, 600);
+
+                					});
+
+                				});
+
+                				function parseJsonToStringForBooks(books) {
+
+                					i = 0;
+
+                					$.each(books, function () {
+
+                						currentUrl = document.URL;
+                						currentUrl = currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+
+                						if(books[i] == null) {
+                							return false;
+                						}
+
+                						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
+
+                						html += "<div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">"+books[i].library+"</a></div></div>";
+
+                						html += "<span class=\"image-overlay\"></span>";
+
+                						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
+
+                						html += "</li>";
+
+                						i++;
+
+                					});
+
+                					html += "</ul>";
+
+                					return html;
+
+                				}
+
+                			});
 
 			}
 
-			$(function () {
 
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				/*
-				$(function () {
-					$("#book-scroller").mousewheel(function (event, delta) {
-
-						this.scrollLeft -= (delta * 40);
-						event.preventDefault();
-
-					});
-				});
-				*/
-
-				// Scrolling on desktop
-				$("#book-scroller").mousewheel(function (event, delta) {
-
-					if ($vW > "1024") {
-
-						// this.scrollLeft -= (delta * 40);
-
-						$("#book-scroller").stop().animate({
-							scrollLeft: "-=" + (75 * delta) + "px"
-						}, "150", "easeOutCubic");
-
-					} else {
-						this.scroll -= (delta * 40);
-					}
-
-					event.preventDefault();
-
-				});
-
-				// Dropdown menu for mobile
-				if ($vW < "1025") {
-
-					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
-
-					$(function () {
-
-						if ($vW < "321") {
-							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
-						}
-
-						$("#g-menu-toggle").click(function () {
-							$("#featured-nav").toggle();
-						});
-
-					});
-
-				}
-
-				<% String id = session.getId(); %>
-				var sessionId = '<%= id %>'
-
-				html = "<ul id=\"user-book-list\">";
- 				featuredBooks = "";
- 				parsedHtml = "";
-
-				// User details
-				$("#splash-user-info h1, #user-header").html(_fullName);
-				$(".avatar-wrapper img").attr("src", _image);
-
-				$.ajax({
-					url: "http://gapelia-dev.herokuapp.com/api/me/getUserBooks",
-					contentType: "application/x-www-form-urlencoded;charset=utf-8",
-					type: "POST",
-					data: {
-						sessionId: sessionId
-					},
-
-					success: function (data) {
-
-						featuredBooks = data;
-						parsedHtml = parseJsonToStringForBooks(featuredBooks);
-
-						$(".user-book-list-wrapper").html(parsedHtml);
-						$("#user-book-list").css("opacity", "0").show();
-
-						if ($vW > "1024") {
-							$("#user-book-list .book").css("height", $vH - 97 + "px");
-						}
-
-						$(".book").imgLiquid({ fill: true });
-
-						var w = 0, h = 0;
-
-						$("#user-book-list li").each(function () {
-							w += $(this).outerWidth();
-							h += $(this).outerHeight();
-						});
-
-						w += 500;
-
-						if ($vW > "1024") {
-							$("#user-book-list").css("width", w - 320 + "px");
-						}
-
-						NProgress.done();
-
-						$("#user-book-list").css("opacity", "1");
-
-						// fades in the all the books after section width is added
-						$("#user-book-list li").fadeIn("100");
-						$("#user-book-list").fadeIn("100");
-
-					},
-
-					error: function (q, status, err) {
-
-						if (status == "timeout") {
-							// alert("Request timed out");
-						} else {
-							// alert("Some issue happened with your request: " + err);
-						}
-
-					}
-				});
-
-				// Load Gapelia
-				$(function () {
-
-					NProgress.start();
-
-					$("#user-panel, #book-scroller").css("opacity", "0").show();
-
-					var
-					allBooks = $("#user-book-list li"),	// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
-
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-
-					setTimeout(function () {
-
-						// $("#user-book-list").hide();
-						$("#user-book-list").css("opacity", "0").show();
-
-						if ($vW > "1024") {
-							$("#user-book-list .book").css("height", $vH - 97 + "px");
-						}
-
-						$(".book").imgLiquid({ fill: true });
-
-						var w = 0, h = 0;
-
-						$("#user-book-list li").each(function () {
-							w += $(this).outerWidth();
-							h += $(this).outerHeight();
-						});
-
-						w += 500;
-
-						if ($vW > "1024") {
-							$("#user-book-list").css("width", w - 320 + "px");
-						}
-
-						NProgress.done();
-
-						$("#user-book-list").css("opacity", "1");
-
-						// fades in the all the books after section width is added
-						$("#user-book-list li").fadeIn("100");
-						$("#user-book-list").fadeIn("100");
-
-						// "fix" featured menu pop-in
-						setTimeout(function () {
-							$("#user-panel, #book-scroller").css("opacity", "1");
-						}, 600);
-
-					});
-
-				});
-
-				function parseJsonToStringForBooks(books) {
-
-					i = 0;
-
-					$.each(books, function () {
-
-						currentUrl = document.URL;
-						currentUrl = currentUrl.slice(0,(currentUrl.length-2)); // removes the end
-
-						if(books[i] == null) {
-							return false;
-						}
-
-						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
-
-						html += "<div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">"+books[i].library+"</a></div></div>";
-
-						html += "<span class=\"image-overlay\"></span>";
-
-						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
-
-						html += "</li>";
-
-						i++;
-
-					});
-
-					html += "</ul>";
-
-					return html;
-
-				}
-
-			});
 		</script>
 
 		<script src="/static/scripts/filepicker2.js"></script>

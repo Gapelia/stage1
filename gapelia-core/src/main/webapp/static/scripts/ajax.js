@@ -128,6 +128,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 	e = $(this).closest("button");
 	library = e.parent().parent();
 	libraryId = library.attr("id");
+    libraryId =parseInt(libraryId);
 	sessionId = readCookie("JSESSIONID");
 	if (e.html() == "Subscribe") {
 	    console.log("unsubscribe");

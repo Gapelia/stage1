@@ -65,10 +65,13 @@ public class QueryDatabaseActions {
 
     public static String subscribeLibrary(User u, int libraryId) {
         PreparedStatement insert = null;
+        LOG.info("subscribing");
         try {
             insert = connection.prepareStatement(SUBSCRIBE_LIBRARY);
+            LOG.info("subscribing");
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
+            LOG.info("subscribing");
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {
