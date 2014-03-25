@@ -472,10 +472,12 @@
 		border-radius: 5px;
 		color: $white;
 		height: 250px; // 400px
+		margin-bottom: 5rem;
 		overflow: hidden;
 		// padding: 2rem; //
 		position: relative;
 		text-align: center;
+		top: 3em;
 
 		&:hover {
 			#account-user-splash {
