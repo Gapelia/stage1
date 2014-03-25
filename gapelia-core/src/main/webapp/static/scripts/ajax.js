@@ -248,3 +248,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 		});
 	}
 });
+
+$(document).on("click", ".update-user", function () {
+    updateUser();
+});

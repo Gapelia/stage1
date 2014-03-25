@@ -139,7 +139,7 @@
 							<input id="user-fb" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Facebook" placeholder="Facebook"></input>
 							<input id="user-gp" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Google Plus" placeholder="Google Plus"></input>
 							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
-							<button class="update-user" name="commit" onclick="updateUser()" value="Update Settings"/>
+							<input type='button' class="update-user" name="commit" onclick="updateUser()" value="Update Settings"/>
 						</form>
 
 						<div class="account-delete-wrapper">
