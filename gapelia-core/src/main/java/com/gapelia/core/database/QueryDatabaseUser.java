@@ -271,6 +271,7 @@ public class QueryDatabaseUser {
         LOG.info("updating db for user");
         try {
             statement = connection.prepareStatement(UPDATE_USER);
+            LOG.info(user.getEmail());
             statement.setString(1, user.getEmail());
             statement.setString(2, user.getFullName());
             statement.setString(3, user.getLocation());
