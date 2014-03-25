@@ -14,7 +14,7 @@ function readCookie(name){
      return null;
 }
 function getLibraries() {
-	var sessionId=readCookie("JSESSIONID");
+	sessionId=readCookie("JSESSIONID");
 	$.ajax({
 		url: "http://localhost:8080/api/libraries/getMainLibraries",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -38,41 +38,20 @@ function setUserMe() {
     getUser();
     $("#user-header").html(user.name);
 }
-function month(month) {
-    if(month=='Jan') {
-        return 0;
-    } else if(month=='Feb') {
-        return 1;
-    } else if(month=='Mar') {
-        return 2;
-    }
-}
-
-function dateHelper(dob) {
-    if (dob== null) {
-        return null;
-    }
-    var todate = user.dob.split(" ");
-    return d = todate[2] + "-" + month(todate[0]) + "-" + todate[1].replace(',','') + " 00:00:00";
-}
 function callUpdate() {
-    var sessionId=readCookie("JSESSIONID");
+    sessionId=readCookie("JSESSIONID");
   	$.ajax({
   		url: "http://localhost:8080/api/users/updateUser",
   		contentType: "application/x-www-form-urlencoded;charset=utf-8",
   		type: "POST",
   		data: {
   			sessionId: sessionId,
-  			name: name,
+  			fullName: name,
   			email: email,
-  			dob: dob,
-  			gender: gender,
-  			location: currentlocation,
+  			location: current,
   		    avatarImage: avatarImage,
   			coverImage: coverImage,
   			displayName: displayName,
-  			validatedId: validatedId,
-  			providerId: providerId,
   			personalWebsite: personalWebsite,
   			bio: bio,
   			tags: tags,
@@ -96,12 +75,10 @@ function callUpdate() {
 function updateUserOnboard() {
   name = user.name
   email = null;
-  dob = dateHelper(user.dob);
-  gender = user.gender;
-  currentlocation =  user.location; //if not redirect
+  current =  user.location; //if not redirect
   var bg = $('.account-avatar-wrapper').css('background-image');
   if(bg == null) {
-  avatarImage = user.avatarImage;
+    avatarImage = user.avatarImage;
   } else {
     bg = bg.replace('url(','').replace(')','');
     avatarImage = bg
@@ -114,8 +91,6 @@ function updateUserOnboard() {
         coverImage = bg;
    }
   displayName = $('#user-name').html();
-  validatedId = user.validatedId;
-  providerId = user.providerId;
   personalWebsite = null;
   bio = $('#user-bio').html();
   tags = null;
@@ -123,9 +98,10 @@ function updateUserOnboard() {
   gp = null;
   twt = null;
   isPublic = true;
+  callUpdate();
 };
 function getUser() {
-	var sessionId=readCookie("JSESSIONID");
+     sessionId=readCookie("JSESSIONID");
 	$.ajax({
 		url: "http://localhost:8080/api/users/getUser",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -149,19 +125,19 @@ function getUser() {
 }
 
 $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
-	var e = $(this).closest("button");
-	var library = e.parent().parent();
-	var libraryId = library.attr("id");
-	var sessionId = readCookie("JSESSIONID");
-	console.log(libraryId+sessionId);
+	e = $(this).closest("button");
+	library = e.parent().parent();
+	libraryId = library.attr("id");
+	sessionId = readCookie("JSESSIONID");
 	if (e.html() == "Subscribe") {
+	    console.log("unsubscribe");
 		$.ajax({
 			url: "http://localhost:8080/api/actions/removeSubscriptionLibrary",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 				sessionId: sessionId,
-				bookId: libraryId
+				libraryId: libraryId
 			},
 			success: function (data) {
 				console.log(data);
@@ -175,13 +151,14 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 			}
 		});
 	} else if (e.html() == "Unsubscribe" ){
+	    console.log("subscribe");
 		$.ajax({
 			url: "http://localhost:8080/api/actions/subscribeLibrary",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 				sessionId: sessionId,
-				bookId: libraryId
+				libraryId: libraryId
 			},
 			success: function (data) {
 				console.log(data);

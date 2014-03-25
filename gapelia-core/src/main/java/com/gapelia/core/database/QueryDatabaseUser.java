@@ -23,8 +23,8 @@ public class QueryDatabaseUser {
 
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
-    private static final String UPDATE_USER = "UPDATE user SET name = ?, email = ?, full_name = ?, dob = ?, gender = ?, " +
-            "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, validated_id = ?, provider_id = ?, " +
+    private static final String UPDATE_USER = "UPDATE users set email = ?, full_name = ?, " +
+            "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
 	"gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
@@ -68,9 +68,7 @@ public class QueryDatabaseUser {
 
     public static String signUp(Profile p) {
         PreparedStatement insert = null;
-        ResultSet rs = null;
         try {
-            LOG.info("trying to sign shit up");
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, p.getFirstName());
             insert.setString(2, p.getEmail());
@@ -80,7 +78,6 @@ public class QueryDatabaseUser {
             } else {
                 insert.setDate(4, null);
             }
-
             if("male".equals(p.getGender())) {//write tool
                 insert.setString(5, "M");
             } else if("female".equals(p.getGender())) {
@@ -105,9 +102,6 @@ public class QueryDatabaseUser {
             return "Cannot sign up user u:" + p + " " + ex.getMessage();
         } finally {
             try {
-                if (rs != null) {
-                    rs.close();
-                }
                 if (insert != null) {
                     insert.close();
                 }
@@ -149,7 +143,7 @@ public class QueryDatabaseUser {
                 user.setMemeberSince(rs.getTimestamp("member_since"));
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
-                //user.setTags(rs.getString("tags"));
+                user.setTags(rs.getString("tags"));
                 return user;
             }
         } catch (Exception ex) {
@@ -272,35 +266,29 @@ public class QueryDatabaseUser {
 
         return null;
     }
-
-
     public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
         LOG.info("updating db for user");
         try {
             statement = connection.prepareStatement(UPDATE_USER);
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getFullName());
-            statement.setDate(4, user.getDob());
-            statement.setString(5, user.getGender());
-            statement.setString(6, user.getLocation());
-            statement.setString(7, user.getAvatarImage());
-            statement.setString(8, user.getCoverImage());
-            statement.setString(9, user.getDisplayName());
-            statement.setString(10, user.getValidatedId());
-            statement.setString(11, user.getProviderId());
-            statement.setTimestamp(13, user.getLastLogin());
-            statement.setTimestamp(14, user.getLastUpdated());
-            statement.setString(15, user.getPersonalWebsite());
-            statement.setString(16, user.getBio());
-	        statement.setString(17, user.getTags());
-            statement.setString(18, user.getFb());
-            statement.setString(19, user.getGp());
-            statement.setString(20, user.getTwt());
-            statement.setBoolean(21, user.getIsPublic());
-            statement.setInt(22, user.getUserId());
-            statement.execute();
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getFullName());
+            statement.setString(3, user.getLocation());
+            statement.setString(4, user.getAvatarImage());
+            statement.setString(5, user.getCoverImage());
+            statement.setString(6, user.getDisplayName());
+            statement.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
+            statement.setTimestamp(8, new Timestamp(System.currentTimeMillis()));
+            statement.setString(9, user.getPersonalWebsite());
+            statement.setString(10, user.getBio());
+	        statement.setString(11, user.getTags());
+            statement.setString(12, user.getFb());
+            statement.setString(13, user.getGp());
+            statement.setString(14, user.getTwt());
+            statement.setBoolean(15, user.getIsPublic());
+            statement.setInt(16, user.getUserId());
+            LOG.info(statement.toString());
+            statement.executeUpdate();
             return "Success";
         } catch (Exception ex) {
             LOG.error("Cannot update user u:" + user, ex);

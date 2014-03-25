@@ -55,7 +55,7 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String subscribeLibrary(@FormParam("sessionId") String sessionId,
-                                @FormParam("bookId") int libraryId) {
+                                @FormParam("libraryId") int libraryId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
@@ -69,7 +69,7 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String removeSubscriptionLibrary(@FormParam("sessionId") String sessionId,
-                                @FormParam("bookId") int libraryId) {
+                                @FormParam("libraryId") int libraryId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 

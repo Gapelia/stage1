@@ -52,16 +52,12 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String updateUser(@FormParam("sessionId") String sessionId,
-                             @FormParam("name") String name,
+                             @FormParam("fullName") String fullName,
                              @FormParam("email") String email,
-                             @FormParam("dob") Date dob,
-                             @FormParam("gender") String gender,
                              @FormParam("location") String location,
                              @FormParam("avatarImage") String avatarImage,
                              @FormParam("coverImage") String coverImage,
                              @FormParam("displayName") String displayName,
-                             @FormParam("validatedId") String validatedId,
-                             @FormParam("providerId") String providerId,
                              @FormParam("personalWebsite") String personalWebsite,
                              @FormParam("bio") String bio,
                              @FormParam("tags") String tags,
@@ -69,47 +65,23 @@ public class Users {
                              @FormParam("gp") String gp,
                              @FormParam("twt") String twt,
                              @FormParam("isPublic") boolean isPublic) {
-        LOG.info("CHECK");
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
-        LOG.info("CHECK");
         User u = SessionManager.getUserFromSessionId(sessionId);
-        LOG.info("CHECK");
-        u.setName(name);
-        LOG.info("CHECK");
+        u.setFullName(fullName);
         u.setEmail(email);
-        LOG.info("CHECK");
-        u.setDob(dob);
-        LOG.info("CHECK");
-        u.setGender(gender);
-        LOG.info("CHECK");
         u.setLocation(location);
-        LOG.info("CHECK");
         u.setAvatarImage(avatarImage);
-        LOG.info("CHECK");
         u.setCoverImage(coverImage);
-        LOG.info("CHECK");
         u.setDisplayName(displayName);
-        LOG.info("CHECK");
-        u.setValidatedId(validatedId);
-        LOG.info("CHECK");
-        u.setProviderId(providerId);
-        LOG.info("CHECK");
         u.setPersonalWebsite(personalWebsite);
-        LOG.info("CHECK");
         u.setBio(bio);
-        LOG.info("CHECK");
         u.setTags(tags);
-        LOG.info("CHECK");
         u.setFb(fb);
-        LOG.info("CHECK");
         u.setGp(gp);
-        LOG.info("CHECK");
         u.setTwt(twt);
-        LOG.info("CHECK");
         u.setIsPublic(isPublic);
-        LOG.info("finished making user object");
         return QueryDatabaseUser.updateUserProfile(u);
     }
 

@@ -111,7 +111,6 @@ public class QueryDatabaseActions {
 
     public static String voteBook(User u, int bookId) {
         PreparedStatement insert = null;
-        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(VOTE_BOOK);
             insert.setInt(1, u.getUserId());
@@ -135,7 +134,6 @@ public class QueryDatabaseActions {
 
     public static String removeVoteBook(User u, int bookId) {
         PreparedStatement insert = null;
-        ResultSet rs = null;
         try {
             insert = connection.prepareStatement(REMOVE_VOTE_BOOK);
             insert.setInt(1, u.getUserId());

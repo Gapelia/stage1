@@ -352,109 +352,134 @@
 		        var first = getUser();
 		    });
 		    function load () {
-				var $vW = $(window).width(), $vH = $(window).height();
-				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
-                    // Scrolling on desktop
-                    $("#featured-scroller").mousewheel(function (event, delta) {
 
-                        if ($vW > "1024") {
+		        var $vW = $(window).width(), $vH = $(window).height();
 
-                            // this.scrollLeft -= (delta * 40);
+                				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
-                            $("#featured-scroller").stop().animate({
-                                scrollLeft: "-=" + (75 * delta) + "px"
-                            }, "150", "easeOutCubic");
+                				// Scrolling on desktop
+                				$("#featured-scroller").mousewheel(function (event, delta) {
 
-                        } else {
-                            this.scroll -= (delta * 40);
-                        }
+                					if ($vW > "1024") {
 
-                        event.preventDefault();
+                						// this.scrollLeft -= (delta * 40);
 
-                    });
-                    // Load Gapelia
-                NProgress.start();
-                var allBooks = $("#library-list li"),		// gets all books in a section
-                firstBook = $(allBooks).first();		// gets first book in list
-                $(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-                setTimeout(function () {
-                        var w = 0, h = 0;
-                        $("#library-list li").each(function () {
-                            w += $(this).outerWidth();
-                            h += $(this).outerHeight();
-                        });
-                        w += 500;
-                        if ($vW > "1024") {
-                            $("#library-list").css("width", w - 155 + "px");
-                        } else {
-                            // $("#library-list").css("height", h + 379 + "px");
-                        }
-                        // fades in the all the books after section width is added
-                        $("#library-list li").fadeIn("100");
-                        $("#library-list").fadeIn("100");
+                						$("#featured-scroller").stop().animate({
+                							scrollLeft: "-=" + (75 * delta) + "px"
+                						}, "150", "easeOutCubic");
 
-                }, 1000);
-                $(".library").imgLiquid({ fill: true });
-                NProgress.done();
-                // Initialize "Overlay — onboard photos"
-                oop = "";
-                oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                oop += "<div class=\"overlay-controls\">";
-                oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
-                oop += "</div>";
+                					} else {
+                						this.scroll -= (delta * 40);
+                					}
 
-                    oop += "<div class=\"account-user-avatar\">";
-                    oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/user-avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                    // oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                    oop += "<div class=\"button-wrapper avatar-button\">";
-                    oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.user-avatar').hide(); $('.spinner').hide();\">";
-                    oop += "</div>";
-                    oop += "</div>";
-                    oop += "</div>";
+                					event.preventDefault();
 
-                    oop += "<div id=\"user-info\">";
-                    oop += "<h2 id=\"user-name\">" + user.name + "</h2>";
-                    oop += "<div id=\"user-bio\" contenteditable=\"true\">Add your bio...</div>";
-                    oop += "</div>";
+                				});
 
-                    oop += "<div class=\"button-wrapper cover-button\">";
-                    oop += "<input type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#onboard-photos-overlay').css({ 'background-color': '#fcfcfc', 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
-                    oop += "</div>";
+                				// Load Gapelia
+                				NProgress.start();
 
-                    oop += "</div>";
+                				var
+                				allBooks = $("#library-list li"),		// gets all books in a section
+                				firstBook = $(allBooks).first();		// gets first book in list
 
-                    $("body").append(oop);
+                				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-                    $("#user-info h2").html(user.fullName);
-                    $("#user-bio img").attr("src", user.avatarImage);
+                				setTimeout(function () {
 
-                    // Empty bio field when user clicks in it
-                    $(document).one("click", "#user-bio", function () { $(this).text(""); });
+                					var w = 0, h = 0;
 
-                    $("#user-bio").limit({ maxlength: 150 });
+                					$("#library-list li").each(function () {
+                						w += $(this).outerWidth();
+                						h += $(this).outerHeight();
+                					});
 
-                    // Overlay — onboard photos
-                    $("#onboard-next").click(function (e) {
+                					w += 500;
 
-                        $("#onboard-photos-overlay").addClass("open");
+                					if ($vW > "1024") {
+                						$("#library-list").css("width", w - 155 + "px");
+                					} else {
+                						// $("#library-list").css("height", h + 379 + "px");
+                					}
 
-                        $("#mp-pusher").css({
-                            "transform": "translate3d(0, 0, 0)",
-                            "-o-transform": "translate3d(0, 0, 0)",
-                            "-ms-transform": "translate3d(0, 0, 0)",
-                            "-moz-transform": "translate3d(0, 0, 0)",
-                            "-webkit-transform": "translate3d(0, 0, 0)"
-                        });
+                					// fades in the all the books after section width is added
+                					$("#library-list li").fadeIn("100");
+                					$("#library-list").fadeIn("100");
 
-                        e.preventDefault();
+                				}, 1000);
 
-                    });
+                				$(".library").imgLiquid({ fill: true });
 
-                    // Finish onboarding process
-                    $("#finalize-setup").click(function () {
-                        updateUserOnboard();
-                        document.location.href = "/featured";
-                    });
+                				NProgress.done();
+
+                				// Initialize "Overlay — onboard photos"
+                				oop = "";
+                				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+
+                				// oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/blankBG.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+
+                				oop += "<div class=\"overlay-controls\">";
+                				oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
+                				oop += "</div>";
+
+                				oop += "<div class=\"account-user-avatar\">";
+                				oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/user-avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                				// oop += "<div class=\"account-avatar-wrapper\" style=\"background-image: url(/static/images/users/avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                				oop += "<div class=\"button-wrapper avatar-button\">";
+                				oop += "<input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.user-avatar').hide(); $('.spinner').hide();\">";
+                				oop += "</div>";
+                				oop += "</div>";
+                				oop += "</div>";
+
+                				oop += "<div id=\"user-info\">";
+                				oop += "<h2 id=\"user-name\">Paul Anthony Webb</h2>";
+                				oop += "<div id=\"user-bio\" contenteditable=\"true\">Add your bio...</div>";
+                				oop += "</div>";
+
+                				oop += "<div class=\"button-wrapper cover-button\">";
+                				oop += "<input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#onboard-photos-overlay').css({ 'background-color': '#fcfcfc', 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+                				oop += "</div>";
+
+                				oop += "</div>";
+
+                				$("body").append(oop);
+
+                				$("#user-info h2").html(user.name);
+                				$(".account-avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
+
+                				// Empty bio field when user clicks in it
+                				$(document).one("click", "#user-bio", function () { $(this).text(""); });
+
+                				$("#user-bio").limit({ maxlength: 150 });
+
+                				// Overlay — onboard photos
+                				$("#onboard-next").click(function (e) {
+    var element = $(".photo-picker");
+                                    element1 = element[0];
+                                    element2 = element[1];
+                                    element1.type = "filepicker";
+                                    filepicker.constructWidget(element1);
+                                    element2.type = "filepicker";
+                                    filepicker.constructWidget(element2);
+                					$("#onboard-photos-overlay").addClass("open");
+
+                					$("#mp-pusher").css({
+                						"transform": "translate3d(0, 0, 0)",
+                						"-o-transform": "translate3d(0, 0, 0)",
+                						"-ms-transform": "translate3d(0, 0, 0)",
+                						"-moz-transform": "translate3d(0, 0, 0)",
+                						"-webkit-transform": "translate3d(0, 0, 0)"
+                					});
+
+                					e.preventDefault();
+
+                				});
+
+                				// Finish onboarding process
+                				$("#finalize-setup").click(function () {
+                				updateUserOnboard();
+                					document.location.href = "/featured";
+                				});
 			    }
 		</script>
 
