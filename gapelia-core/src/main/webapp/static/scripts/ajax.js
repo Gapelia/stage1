@@ -16,7 +16,7 @@ function readCookie(name){
 function getLibraries() {
 	sessionId=readCookie("JSESSIONID");
 	$.ajax({
-		url: "http://localhost:8080/api/libraries/getMainLibraries",
+		url: "/api/libraries/getMainLibraries",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		data: {
@@ -41,7 +41,7 @@ function setUserMe() {
 function callUpdate() {
     sessionId=readCookie("JSESSIONID");
   	$.ajax({
-  		url: "http://localhost:8080/api/users/updateUser",
+  		url: "/api/users/updateUser",
   		contentType: "application/x-www-form-urlencoded;charset=utf-8",
   		type: "POST",
   		data: {
@@ -103,7 +103,7 @@ function updateUserOnboard() {
 function getUser() {
      sessionId=readCookie("JSESSIONID");
 	$.ajax({
-		url: "http://localhost:8080/api/users/getUser",
+		url: "/api/users/getUser",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		data: {
@@ -133,7 +133,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 	if (e.html() == "Subscribe") {
 	    console.log("unsubscribe");
 		 $.ajax({
-        			url: "http://localhost:8080/api/actions/removeSubscriptionLibrary",
+        			url: "/api/actions/removeSubscriptionLibrary",
         			contentType: "application/x-www-form-urlencoded;charset=utf-8",
         			type: "POST",
         			data: {
@@ -150,7 +150,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
         		});
 	} else if (e.html() == "Unsubscribe" ) {
 		$.ajax({
-			url: "http://localhost:8080/api/actions/subscribeLibrary",
+			url: "/api/actions/subscribeLibrary",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
