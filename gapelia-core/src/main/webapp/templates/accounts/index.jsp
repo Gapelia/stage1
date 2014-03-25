@@ -131,16 +131,15 @@
 
 					<div class="col-0">
 						<form class="bl_form">
-							<input type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Name"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your Gapelia URL, e.g. http://gapelia.com/nokadota" placeholder="Username"/>
-							<input type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"/>
-							<input type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"/>
-							<input type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"/>
-
+							<input id="user-name" type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Username"></input>
+							<input id="user-email" type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"></input>
+							<input id="user-location" type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"></input>
+							<input id="user-personal-website" type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"></input>
+							<input id="user-twt" type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"></input>
+							<input id="user-fb" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Facebook" placeholder="Facebook"></input>
+							<input id="user-gp" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Google Plus" placeholder="Google Plus"></input>
 							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
-						
-							<input class="" name="commit" type="submit" value="Update Settings"/>
+							<input type='button' class="update-user" name="commit" onclick="updateUser()" value="Update Settings"/>
 						</form>
 
 						<div class="account-delete-wrapper">
@@ -219,6 +218,7 @@
 		<script src="/static/scripts/filepicker2.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
+				<script src="/static/scripts/ajax.js"></script>
 
 		<script src="/static/scripts/labelBetter.js"></script>
 		<script src="/static/scripts/switchery.min.js"></script>
@@ -229,7 +229,11 @@
 		<script src="/static/scripts/spin.js"></script>
 
 		<script>
-		$(function () {
+		$( document ).ready(function() {
+                    		       getUser();
+
+                    		    });
+		function load() {
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
@@ -242,7 +246,7 @@
 			$(".labelBetter").labelBetter({ easing: "bounce" });
 
 			// $("#user-info h2").html(_fullName);
-			$(".account-avatar-wrapper").css("background-image", "url(" + _image + ")");
+			$(".account-avatar-wrapper").css("background-image", "url(" + user.coverImage + ")");
 
 			// Slide menu for desktop
 			if ($vW > "1024") {
@@ -304,6 +308,7 @@
 			}
 
 			NProgress.done();
+			getUserAccounts();
 
 			// Click "Personal"
 			$("#nav-personal").click(function (e) {
@@ -504,7 +509,7 @@
 				document.cookie = "JSESSIONID" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 				window.location = "";	
 			});
-		});
+		}
 		</script>
 
 	</body>
