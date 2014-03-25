@@ -157,7 +157,8 @@
 			});
 
 			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
-
+				$(document).one("click", "#splash-user-bio", function () { $(this).text(""); });
+				
 			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-website").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-twitter").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
@@ -282,12 +283,12 @@
 
 		// Library Subscriptions
 		$(document).on("click", "button.subscribe", function () {
-			$(this).text("Unsubscribe").removeClass("subscribe transparent-ii").addClass("unsubscribe red");
+			$(this).text("Unsubscribe").removeClass("subscribe white").addClass("unsubscribe red");
 			// $(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
 		$(document).on("click", "button.unsubscribe", function () {
-			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe transparent-ii");
+			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe white");
 			// $(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
 
