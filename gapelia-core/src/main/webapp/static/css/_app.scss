@@ -268,7 +268,7 @@
 		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: rgba($gray-i, 0.4);
-		box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine"
+		//box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine"
 		// display: inline-block;
 		float: left;
 		overflow: hidden;
@@ -277,7 +277,7 @@
 
 		&:hover {
 			// ooh factor
-			box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6);
+			//box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6); lets use this once we add the animation
 			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
 		}
 

@@ -42,7 +42,7 @@
 
 		.book, .collection, .library, .new, .draft {
 			&:hover {
-				box-shadow: inset 10px 0 0 0 $slate;
+				//box-shadow: inset 10px 0 0 0 $slate;
 			}
 		}
 		
@@ -903,35 +903,6 @@
 			}
 		}
 
-		/*
-		#user-wrapper {
-			width: 100%; height: 100%; // 40%
-
-			display: block;
-			margin: 0;
-			padding: 5rem 0;
-			position: relative;
-		}
-
-		.user-avatar, .user-data { position: relative; }
-
-		.user-avatar {
-			margin: 0 0 2rem 0;
-			top: initial;
-		}
-
-		.user-data {
-			top: initial; bottom: initial;
-
-			#user-bio {
-				margin: 0; padding: 1rem 6rem;
-
-				display: none;
-				font-size: 1rem;
-			}
-		}
-		*/
-
 	}
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
@@ -991,6 +962,12 @@
 
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+		h4 { width: 80%; }
+	}
+
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 	/// Review all this at a later date
 
@@ -1028,11 +1005,15 @@
 			font-size: 1rem;
 			.author-name, .library-location { display: block; }
 		}
+		
+		.book-list {
+			background-color: $white;
+		}
 
 		.library {
 			.library-info {
 				.title {
-					margin: 2rem 0 0.5rem 0; padding: 0 6rem 0 0;
+					margin: 1rem 0 0.5rem 0; padding: 0;
 					font-size: 1.8rem;
 				}
 
@@ -1129,6 +1110,12 @@
 
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+		.super-wrapper { padding: 30% 10%; }
+	}
+
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
@@ -1136,12 +1123,15 @@
 		.book-title {
 			font-size: 1.8rem;
 			line-height: 2.3rem;
+			margin: 2rem 0 1rem 0;
 		}
-		
+
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
+				top: 55%; left: 5%;
+
 				padding: 0;
-				top: 55%;
+				width: 90%;
 			}
 		}
 
@@ -1157,11 +1147,13 @@
 			}
 		}
 
-		.book, .collection, .library {
-			.library-info, .draft-info, .featured-info {
+		.library {
+			.library-info {
+				padding: 0 2rem;
+
 				.title {
 					font-size: 2rem;
-					margin: 0 0 1.4rem 0;
+					margin: 0 0 0.5rem 0;
 				}
 
 				.lib-blurb {
@@ -1233,6 +1225,11 @@
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
+
+		.book-title {
+			margin: 4.5rem 0 0.5rem 0;
+		}
+
 	}
 
 }
@@ -1245,23 +1242,29 @@
 		}
 	}
 
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+
+		.super-wrapper { padding: 20% 10%; }
+
+		h4 {
+			font-size: 1rem !important;
+			width: 90%;
+		}
+
+		footer {
+			bottom: 2rem; left: 0;
+			text-align: center;
+		}
+
+	}
+
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
-	/// Review all this at a later date
 
 	.app {
 
-		.super-wrapper.mp-pushed {
-			transform: translate3d(250px, 0, 0) !important;
-
-			-o-transform: translate3d(250px, 0, 0) !important;
-			-ms-transform: translate3d(250px, 0, 0) !important;
-			-moz-transform: translate3d(250px, 0, 0) !important;
-			-webkit-transform: translate3d(250px, 0, 0) !important;
-
-			.mp-menu { width: 250px; }
-			#g-menu-toggle { left: 0.3rem; }
-		}
-
+		// Splash pages
 		#featured-splash, #library-splash, #user-splash {
 			font-size: 1rem;
 			padding: 2rem;
@@ -1274,232 +1277,52 @@
 			#featured-info { top: 50%; }
 			#library-info { top: 50%; }
 		}
-		
-		
-		#featured-splash {
-			#gapelia {
-				width: 100%;
-				height: 55px;
-				top: 3rem;
-				left: 0;
-
-				background-image: url("/static/images/logo-white.png");
-				background-position: 50px 0;
-				background-size: 200px 55px;
-				text-align: center;
-
-				&:after {
-					color: $white;
-					content: "The Art of Storytelling";
-					display: none;
-					@include serif;
-					font-size: 1rem;
-					font-style: italic;
-					margin: 1rem 0 0 0;
-				}
-			}
-
-			#login-greet {
-				top: 8rem; left: 0; right: initial;
-				
-				text-align: center;
-				width: 100%;
-
-				a {
-					&:first-child:after { content: "\00a0\00a0\00a0\00b7\00a0\00a0\00a0"; }
-				}
-
-				br { display: none; }
-			}
-
-			h2 {
-				font-size: 1.4rem;
-				line-height: 1.5rem;
-
-				&:before {
-					// content: "";
-					display: block;
-					font-size: 0.8rem;
-				}
-			}
-
-			#meta-book {
-				margin: -0.4rem 0 1rem 0;
-				// margin: -0.4rem 0 2rem 0;
-
-				.author-name {
-					display: block;
-					margin: 0 0 -0.5rem 0;
-				}
-			}
-
-			#close-splash {
-				top: 80%;
-				margin: 0;
-				position: fixed;
-			}
-		}
 
 		#library-splash {
+			button { font-size: 0.6rem; }
+
 			#library-info {
 				h2 { font-size: 26px; }
-				p { font-size: 0.9em; }
-			}
-			section { font-size: 1.0em; line-height: initial; }
-		}
-		
-		.library .wrapper button, #library-splash button {
-			font-size: 0.6em;
-		}
-		
-		#user-splash {
-			.user-avatar {
-				top: 15%; left: 0;
-
-				position: absolute;
-				text-align: center;
-
-				.avatar-wrapper {
-					left: 0;
-					position: relative;
-					width: 110px;
-					height: 110px;
-				}
+				p { font-size: 0.9rem; }
 			}
 
-			#splash-user-info {
-				margin: 0 0 1rem 0; padding: 0;
-				top: 36%;
-
-				h2 {
-					font-size: 1.4rem;
-					line-height: 1.5rem;
-					font-weight: 600;
-					position: fixed;
-					width: 100%;
-				}
-			}
-
-			#splash-user-bio {
-				margin: 2.3rem 0 0 0; padding: 0;
-
-				font-size: 0.9rem;
-				position: fixed;
-				width: 100%;
-			}
-
-			#close-splash {
-				margin: 0;
-				position: fixed;
-				bottom: 10rem;
-				font-size: 3.5rem;
-			}
+			section { font-size: 1rem; line-height: initial; }
 		}
 
-		#book-cta {
-			padding: 2rem;
- 
-			p {
-				font-size: 1.2rem;
-				top: initial;
-				transform: translateY(0);
-
-				-o-transform: translateY(0);
-				-ms-transform: translateY(0);
-				-moz-transform: translateY(0);
-				-webkit-transform: translateY(0);
-			}
-		}
-
-		#featured-panel, #user-panel {
-			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-			height: 65px; // 53
-			// background-color: $slate;
-
+		// Header
+		#featured-panel {
 			#category-title {
-				font-size: 1.2rem;
-				padding: 1.6rem 2rem 1.6rem 5rem;
+				font-size: 1rem;
+				height: 65px;
+				padding: 1.6rem 1rem 0 0;
 				text-align: right;
-				color: white;
 			}
-
-			#category-switcher {
-				width: 64px; height: 65px;
-				top: 0; right: 1rem;
-
-				background-color: transparent;
-				border-radius: 0;
-				color: $slate;
-				font-size: 36px;
-				position: absolute;
-			}
-
-			#featured-nav {
-				top: 65px; left: 0;
-
-				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-				font-size: 1.2rem;
-				height: auto;
-				z-index: 1;
-
-				li {
-					margin: 0; padding: 1rem;
-
-					// border-bottom: 1px solid rgba($black, 0.3);
-					background-color: $slate;
-					box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
-					display: block;
-					top: 0;
-					translate: translateY(0);
-
-					-o-translate: translateY(0);
-					-ms-translate: translateY(0);
-					-moz-translate: translateY(0);
-					-webkit-translate: translateY(0);
-				}
-
-				/*
-				a {
-					color: white !important;
-					text-align: right !important;
-				}
-				*/
-
-				.current {
-					background-color: white;
-					border-bottom: 0;
-					padding: 1rem;
-
-					a {
-						border: 0;
-						color: $slate;
-					}
-				}
-			}
-
-			.featured-info, small { display: none; }
 		}
-		
+
+		// Lists
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #dimension-list, #library-list, #bookmark-list {
 			background-color: transparent;
-			display: block; // block
-			padding: 75px 0 0 0;
+			display: block;
+			padding: 65px 0 0 0;
 		}
 
-		#g-menu-toggle { left: 0.5rem; }
+		#g-menu-toggle { left: 1rem; }
 		#next-book-toggle { right: 0; }
 
-		.book .author-avatar, .collection .author-avatar { width: 35px; }
+		// Books
+		.book, .collection, .library {
+			margin: 0; padding: 1.2rem;
 
-		.book, .library, .collection {
 			background-color: transparent;
-			border-bottom: 1px solid $slate;
-			box-shadow: none; // inset 10px 0 0 0 #70d0eb
+			border-bottom: 1px solid rgba($slate, 0.3);
+			box-shadow: none;
 			height: auto;
-			padding: 1.2rem;
-			margin: 0 0 0rem 0;
-			
+
+			&:last-child { border-bottom: none; }
+
+			a { color: $slate; }
+
 			.book-title, .book-info, .collection-info, .library-info {
 				padding: 0;
 				position: relative;
@@ -1511,8 +1334,6 @@
 				line-height: 1.6rem;
 				margin: 0 0 1rem 0;
 				top: 25%;
-
-				a { color: rgba(51, 51, 50, 0.9); }
 			}
 
 			.book-info, .collection-info, .library-info {
@@ -1525,8 +1346,13 @@
 					margin: 0 0 1rem 0;
 				}
 
-				.library-location a,
-				.author-name a, .title a { color: $slate; }
+				.library-location, .author-name, .title {
+					a { color: $slate; }
+				}
+
+				.author-name, .library-location {
+					&:before { margin: 0 0.1rem 0 0; }
+				}
 			}
 
 			.book-snippet {
@@ -1557,85 +1383,72 @@
 			&:last-child { margin: 0; }
 		}
 
-		.book, .collection { background-image: none !important; top: -2px; }
-		
-		.book .book-snippet p, .collection .book-snippet p {
-			font-size: 0.8rem;
-			font-weight: lighter;
+		.book, .collection {
+			background-image: none !important;
+			top: -2px; //
+
+			.book-snippet {
+				p {
+					font-size: 0.8rem;
+					font-weight: lighter;
+				}
+			}
+
+			.author-avatar { width: 35px; }
 		}
-		
+
+		#book-cta {
+			padding: 2rem;
+ 
+			p {
+				font-size: 1.2rem;
+				top: initial;
+				transform: translateY(0);
+
+				-o-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+			}
+
+			.book-snippet { display: none; }
+		}
+
+		// Libraries
 		.library {
-			border-bottom: 10px solid $white;
-			height: 200px;
-			margin: 0;
-			top: 0;
+			border-bottom: none;
+			// margin: 0 0 1rem 0;
 
 			.library-info {
-				top: 50%; left: 0;
-
-				position: absolute;
-				text-align: center;
-				transform: translateY(-50%);
-				z-index: 1;
-
-				-o-transform: translateY(-50%);
-				-moz-transform: translateY(-50%);
-				-webkit-transform: translateY(-50%);
+				margin: 1rem 0;
 
 				.title {
-					a { color: $white; }
+					font-size: 1.4rem;
+					line-height: 1.6rem;
 				}
 			}
 
-			.wrapper {
-				display: none;
-				top: 75%;
-				text-align: center;
-				
-				.wrapper-button {
-				font-size: 0.7em;
-				}
-			}
+			.wrapper { margin: 0 0 1rem 0; }
 
-			&:after {
-				top: 0; right: 0;
-				bottom: 0; left: 0;
-
-				background-image: linear-gradient(to bottom, transparent, $black);
-				content: "";
-				opacity: 0.5;
-				position: absolute;
-			}
+			a { color: $white !important; }
+			button { font-size: 0.6rem !important; }
 		}
 
 	}
 
-	.modal-login {
-		margin: -150px 0 0 -150px; padding: 1rem;
-		width: 300px;
+	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
-		h1 {
-			font-size: 1.5rem;
-			margin: 0 0 0.8rem 0;
-		}
+	.library {
 
-		#login-platforms {
-			margin: 3rem 0 3rem 7rem;
-			text-align: left;
-
-			&:before {
-				margin: -1.8rem 0 0 -3rem;
-				position: absolute;
-			}
-
-			li {
-				&:before {
-					margin: -0.2rem 0.5rem 0 -2rem;
-					position: absolute;
-					width: 20px;
-				}
+		#library-splash {
+			button {
+				top: -6rem; right: 0;
+				position: fixed;
 			}
 		}
+
+		#close-splash { bottom: 2rem !important; }
+
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -1795,6 +1608,35 @@
 
 	.profile {
 
+		#user-book-list { padding: 65px 0 0 0; }
+
+		#user-panel {
+			background-color: $slate;
+			height: 65px;
+
+			#g-menu-toggle {
+				color: $white;
+				left: 1rem;
+				width: 64px;
+			}
+
+			#user-header { display: none; }
+
+			#user-wrapper {
+				.user-data { display: none; }
+			}
+		}
+
+		.book {
+			padding: 1.2rem 1.2rem 0 1.2rem;
+			.book-buttons { display: none; }
+		}
+
+	}
+
+	/*
+	.profile {
+
 		#user-book-list {
 			width: 100%; height: 100% !important; // auto
 			top: initial; bottom: 0; // 75px
@@ -1841,7 +1683,9 @@
 		.user-data, .button-wrapper { display: none; } //
 
 	}
+	*/
 
+	/*
 	.accounts {
 
 		overflow: hidden;
@@ -1873,5 +1717,6 @@
 		}
 
 	}
+	*/
 
 }
