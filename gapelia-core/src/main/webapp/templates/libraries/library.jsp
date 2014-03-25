@@ -500,7 +500,7 @@
 				stuff += "<section id=\"library-splash\">";
 				// stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
 				stuff += "<div id=\"library-info\">";
-				stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
+				stuff += "<button class=\"subscribe white\">Subscribe</button>";
 				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
 				stuff += "<h2>Library Name</h2>";
 				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
