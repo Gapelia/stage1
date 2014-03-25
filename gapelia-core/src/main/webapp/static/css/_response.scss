@@ -415,6 +415,10 @@
 			padding: 0 4rem;
 		}
 
+		#featured-splash, #library-splash, #user-splash, #new-library {
+			z-index: 10;
+		}
+
 		#featured-splash, #library-splash, #user-splash {
 			#library-info, #splash-user-info { padding: 0 10rem; }
 
