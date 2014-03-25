@@ -95,7 +95,7 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
-						<li id="nav-logout"><a href="/">Log Out</a></li>
+						<li id="nav-logout"><a href="#" id="logout">Log Out</a></li>
 						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
 						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
 						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
@@ -498,7 +498,12 @@
 				e.preventDefault();
 
 			});
-
+			
+			// Log Out
+			$("#logout").click(function (e) {
+				document.cookie = "JSESSIONID" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+				window.location = "";	
+			});
 		});
 		</script>
 
