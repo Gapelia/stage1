@@ -16,7 +16,7 @@ function readCookie(name){
 function getLibraries() {
 	sessionId=readCookie("JSESSIONID");
 	$.ajax({
-		url: "/api/libraries/getMainLibraries",
+		url: "http://localhost:8080/api/libraries/getMainLibraries",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		data: {
@@ -41,7 +41,7 @@ function setUserMe() {
 function callUpdate() {
     sessionId=readCookie("JSESSIONID");
   	$.ajax({
-  		url: "/api/users/updateUser",
+  		url: "http://localhost:8080/api/users/updateUser",
   		contentType: "application/x-www-form-urlencoded;charset=utf-8",
   		type: "POST",
   		data: {
@@ -103,7 +103,7 @@ function updateUserOnboard() {
 function getUser() {
      sessionId=readCookie("JSESSIONID");
 	$.ajax({
-		url: "/api/users/getUser",
+		url: "http://localhost:8080/api/users/getUser",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		data: {
@@ -128,41 +128,34 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 	e = $(this).closest("button");
 	library = e.parent().parent();
 	libraryId = library.attr("id");
-    libraryId =parseInt(libraryId);
+    a = parseInt(libraryId);
 	sessionId = readCookie("JSESSIONID");
 	if (e.html() == "Subscribe") {
 	    console.log("unsubscribe");
+		 $.ajax({
+        			url: "http://localhost:8080/api/actions/removeSubscriptionLibrary",
+        			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        			type: "POST",
+        			data: {
+        				sessionId: sessionId,
+        				libraryId: a
+        			},
+        			error: function (q, status, err) {
+        				if (status == "timeout") {
+        					alert("Request timed out");
+        				} else {
+        					alert("Some issue happened with your request: " + err);
+        				}
+        			}
+        		});
+	} else if (e.html() == "Unsubscribe" ) {
 		$.ajax({
-			url: "/api/actions/removeSubscriptionLibrary",
+			url: "http://localhost:8080/api/actions/subscribeLibrary",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 				sessionId: sessionId,
-				libraryId: libraryId
-			},
-			success: function (data) {
-				console.log(data);
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					alert("Request timed out");
-				} else {
-					alert("Some issue happened with your request: " + err);
-				}
-			}
-		});
-	} else if (e.html() == "Unsubscribe" ){
-	    console.log("subscribe");
-		$.ajax({
-			url: "/api/actions/subscribeLibrary",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-				sessionId: sessionId,
-				libraryId: libraryId
-			},
-			success: function (data) {
-				console.log(data);
+				libraryId: a
 			},
 			error: function (q, status, err) {
 				if (status == "timeout") {
