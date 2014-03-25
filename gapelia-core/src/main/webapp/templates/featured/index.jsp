@@ -108,12 +108,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -126,12 +126,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>	
 							<div class="book-title"><a href="#">Editor's Picks: Snowstorm Pictures</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -144,12 +144,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">The Legend of Mick Dodge</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -162,12 +162,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Secret Ski Towns</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -180,12 +180,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Exploring the Ancient World in 2013</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -199,11 +199,11 @@
 								<span class="right-bm"></span>
 							</div>
 
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Best New Space Pictures</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -216,12 +216,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Connecting Tribes From the Yukon to the Amazon</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -234,12 +234,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -252,12 +252,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Going for Gold</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -270,12 +270,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Exploring Animals in 2013</a></div>
 
 							<div class="book-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -584,12 +584,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">7 Routes to Extended-Layover Bliss</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -602,12 +602,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">5 Layover-Worthy Airports</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -620,12 +620,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Going Dutch in the Off Season</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -638,12 +638,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -656,12 +656,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">I Heart My City (And So Should You)</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -674,12 +674,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">The Best of Intelligent Travel</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -692,12 +692,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">January Event-o-Rama</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -710,12 +710,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">4 Realistic Travel Resolutions</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -728,12 +728,12 @@
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
 							</div>
-
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Top 10 Compact Cameras for Travelers</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -745,13 +745,13 @@
 								<span class="top-bm"></span>
 								<span class="bottom-bm"></span>
 								<span class="right-bm"></span>
-							</div>
-
+							</div>	
+							
+							<div class="library-location"><a href="#">Camp Awesome</a></div>
 							<div class="book-title"><a href="#">Canada's 50 Places of a Lifetime</a></div>
 
 							<div class="collection-info">
 								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-								<div class="library-location"><a href="#">Camp Awesome</a></div>
 							</div>
 
 							<span class="image-overlay"></span>

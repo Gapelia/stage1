@@ -2300,7 +2300,6 @@ body.landing footer ul li:last-child {
   position: relative; }
 .app #user-panel, .app #dimension-panel, .app #featured-panel {
   background-color: #fcfcfc;
-  box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 0 0 1px rgba(25, 25, 25, 0.05);
   overflow: hidden;
   width: 25%; }
 .app #featured-panel, .app #user-panel {
@@ -2527,18 +2526,30 @@ body.landing footer ul li:last-child {
   border-right: 0; }
 .app .book-title {
   margin: 0 0 0.5rem 0;
-  padding: 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
   font-weight: 600;
   font-size: 1.8rem;
+  padding: 0.5rem 0 0 0;
   position: absolute;
   text-align: left;
   text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7);
   transition: text-shadow 0.2s ease-in-out;
   top: 35%;
-  width: 100%;
+  width: 90%;
+  left: 5%;
   z-index: 1; }
 .app .book-title a {
   color: #fcfcfc; }
+.app .library-location {
+  color: #fcfcfc;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7);
+  transition: text-shadow 0.2s ease-in-out;
+  top: 30%;
+  width: 90%;
+  left: 5%;
+  z-index: 1; }
 .app .featured-info, .app .new-inner-wrapper, .app .draft-info, .app .library-info, .app .submission-info {
   color: #fcfcfc;
   padding: 0 2rem;
@@ -2601,6 +2612,14 @@ body.landing footer ul li:last-child {
   text-transform: none; }
 .app .book-info .author-name:before, .app .book-info .library-location:before, .app .collection-info .author-name:before, .app .collection-info .library-location:before {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
+.app .book-info .library-location, .app .collection-info .library-location {
+  @sans;
+  font-style: italic;
+  line-height: 1.2em; }
+.app .book-info .library-location a, .app .collection-info .library-location a {
+  color: #fcfcfc;
+  font-style: normal;
+  text-transform: none; }
 .app .book-info .author-name:before, .app .collection-info .author-name:before {
   content: "by "; }
 .app .book-info .library-location:before, .app .collection-info .library-location:before {
@@ -6354,8 +6373,6 @@ a.count span.dont-move {
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
-  .app .book:hover, .app .collection:hover, .app .library:hover, .app .new:hover, .app .draft:hover {
-    box-shadow: inset 10px 0 0 0 #70a1b1; }
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;
     right: 30px;
@@ -7029,10 +7046,15 @@ a.count span.dont-move {
   .app #featured-panel #featured-nav .current {
     display: none; }
   .app .book-title {
-    margin: 2.5rem 0 1.5rem 0;
-    padding: 0 6rem 0 4rem;
-    font-size: 1.8rem; }
+    font-size: 1.8rem;
+    padding: 0.5rem 0 0 0;
+    width: 80%; }
+  .app .library-location {
+    top: 10%;
+    width: 80%; }
   .app .book-info, .app .collection-info {
+    margin: 2rem;
+    padding: 0rem;
     font-size: 1rem; }
   .app .book-info .author-name, .app .book-info .library-location, .app .collection-info .author-name, .app .collection-info .library-location {
     display: block; }

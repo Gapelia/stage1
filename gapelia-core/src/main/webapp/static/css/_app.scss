@@ -99,7 +99,7 @@
 
 	#user-panel, #dimension-panel, #featured-panel {
 		background-color: $white;
-		box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05);
+		//box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05);
 		overflow: hidden;
 		width: 25%;
 	}
@@ -388,21 +388,36 @@
 	}
 
 	.book-title {
-		margin: 0 0 0.5rem 0; padding: 0 2rem; // 0 1rem
+		margin: 0 0 0.5rem 0; //padding: 0 2rem; // 0 1rem
 
-		font-weight: 600;
+		border-top: 1px solid rgba(white, 0.8);
+    font-weight: 600;
 		font-size: 1.8rem;
-		position: absolute;
+		padding: 0.5rem 0 0 0;
+    position: absolute;
 		text-align: left; // center
 		text-shadow: 0 1px 3px transparentize($black, 0.3);
 		transition: text-shadow 0.2s ease-in-out;
-		top: 35%;
-		width: 100%;
+    top: 35%;
+		width: 90%; left: 5%;
 		z-index: 1;
 
 		a { color: $white; }
 	}
-
+  
+  
+  .library-location {
+    color: $white;
+		//padding: 0 2rem;
+		position: absolute;
+		text-align: left;
+		text-shadow: 0 1px 3px transparentize($black, 0.3);
+		transition: text-shadow 0.2s ease-in-out;
+		top: 30%;
+		width: 90%; left: 5%;
+		z-index: 1;
+  }
+  
 	.featured-info, .new-inner-wrapper, .draft-info,
 	.library-info, .submission-info {
 		color: $white;
@@ -480,6 +495,18 @@
 
 			&:before { @include serif; }
 		}
+    
+    .library-location {
+      @sans;
+      font-style: italic;
+			line-height: 1.2em;
+
+			a {
+				color: $white;
+				font-style: normal;
+				text-transform: none;
+			}
+    }
 
 		.author-name {
 			&:before { content: "by "; }
