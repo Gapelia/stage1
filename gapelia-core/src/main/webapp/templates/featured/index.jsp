@@ -801,24 +801,18 @@
 
 				var $vW = $(window).width(), $vH = $(window).height();
 
-				// Scrolling on desktop
-				$("#featured-scroller").mousewheel(function (event, delta) {
+				if ($vW > "1024") {
 
-					if ($vW > "1024") {
-
-						// this.scrollLeft -= (delta * 40);
+					// Scrolling on desktop
+					$("#featured-scroller").mousewheel(function (event, delta) {
 
 						$("#featured-scroller").stop().animate({
 							scrollLeft: "-=" + (75 * delta) + "px"
 						}, "150", "easeOutCubic");
 
-					} else {
-						this.scroll -= (delta * 40);
-					}
+					});
 
-					event.preventDefault();
-
-				});
+				}
 
 				// Dropdown menu for mobile
 				if ($vW < "1025") {
