@@ -454,7 +454,7 @@
 
                 				// Overlay — onboard photos
                 				$("#onboard-next").click(function (e) {
-    var element = $(".photo-picker");
+    var element =                   element = $(".photo-picker");
                                     element1 = element[0];
                                     element2 = element[1];
                                     element1.type = "filepicker";

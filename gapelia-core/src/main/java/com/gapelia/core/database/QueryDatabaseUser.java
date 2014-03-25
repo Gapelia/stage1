@@ -42,7 +42,7 @@ public class QueryDatabaseUser {
             statement.setString(1, p.getValidatedId());
             rs = statement.executeQuery();
             if (!rs.isBeforeFirst()) {
-                return signUp(p);
+                return signUp(p,sessionId);
             } else {
                 User u = getUserByValidatedId(p.getValidatedId());
                 SessionManager.addSessionIdToUser(u, sessionId);
@@ -66,7 +66,7 @@ public class QueryDatabaseUser {
         }
     }
 
-    public static String signUp(Profile p) {
+    public static String signUp(Profile p, String sessionId) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(INSERT_USER);
@@ -96,6 +96,8 @@ public class QueryDatabaseUser {
             insert.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(13, new Timestamp(System.currentTimeMillis()));
             insert.executeUpdate();
+            User u = getUserByValidatedId(p.getValidatedId());
+            SessionManager.addSessionIdToUser(u, sessionId);
             return "New";
         } catch (SQLException ex) {
             LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
