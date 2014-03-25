@@ -36,7 +36,8 @@
 
 	</head>
 
-	<body class="app profile">
+	<!--/ <body class="app profile"> /-->
+	<body class="app">
 
 		<div id="mp-pusher" class="super-wrapper">
 
