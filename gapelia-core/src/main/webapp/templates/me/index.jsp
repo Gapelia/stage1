@@ -312,269 +312,263 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-		     $( document ).ready(function() {
-            		        var first = getUser();
-            		    });
+			$(function () { var first = getUser(); });
+
 			// Splash page
 			function load() {
 
 				// Splash page
-                			$(function () {
+				$(function () {
 
-                				stuff = "";
-                				stuff += "<section id=\"user-splash\">";
-                				stuff += "<div class=\"overlay-controls\">";
-                				// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
-                				stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
-                				stuff += "</div>";
-                				stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
-                				stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
-                				stuff += "<div id=\"splash-edit-wrapper\">";
+					stuff = "";
+					stuff += "<section id=\"user-splash\">";
+					stuff += "<div class=\"overlay-controls\">";
+					// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
+					stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+					stuff += "</div>";
+					stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
+					stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
+					stuff += "<div id=\"splash-edit-wrapper\">";
 
-                				if ($vW > "1000") {
+					if ($vW > "1024") {
 
-                					stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
-                					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+						stuff += "<a class=\"edit-profile\" href=\"/accounts\">Account Settings</a>";
+						stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
 
-                				} else {
+					} else {
 
-                					stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
+						stuff += "<a class=\"quick-edit-profile\" href=\"#\">Edit Profile</a>";
 
-                				}
+					}
 
-                				stuff += "</div>";
-                				stuff += "</div></div>";
-                				stuff += "<div id=\"splash-user-info\">";
-                				stuff += "<h1>Paul Anthony Webb</h1>";
-                				//stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
-                				// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-                				stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-                				//stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-                				//stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-                				//stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
-                				stuff += "</div>";
-                				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-                				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
-                				stuff += "</section>";
+					stuff += "</div>";
+					stuff += "</div></div>";
+					stuff += "<div id=\"splash-user-info\">";
+					stuff += "<h1>Paul Anthony Webb</h1>";
+					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
+					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
+					stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+					// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
+					// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
+					// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+					stuff += "</div>";
+					stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+					stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
+					stuff += "</section>";
 
-                				$("#mp-pusher").prepend(stuff);
+					$("#mp-pusher").prepend(stuff);
 
-                				$("#user-splash").imgLiquid({ fill: true });
-                				$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
+					$("#user-splash").imgLiquid({ fill: true });
+					$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
+					$("#g-menu-toggle").css("color", "#fcfcfc");
 
-                				$("#g-menu-toggle").css("color", "#fcfcfc");
+				});
 
-                			});
+				if ($vW > "1024") {
 
-                			if ($vW > "1024") {
+					$(document).on("click", "#close-splash", function () {
 
-                				$(document).on("click", "#close-splash", function () {
+						$("#close-splash").css({
+							"left": "-200%",
+							"right": "initial"
+						});
 
-                					$("#close-splash").css({
-                						"left": "-200%",
-                						"right": "initial"
-                					});
+						$("#user-splash").css("left", "-200%");
+						$("#user-panel").css("width", "100%");
+						$("#user-splash .overlay-controls").css("left", "-200%");
+						$("#g-menu-toggle").css("color", "#70a1b1");
 
-                					$("#user-splash").css("left", "-200%");
-                					$("#user-panel").css("width", "100%");
-                					$("#user-splash .overlay-controls").css("left", "-200%");
-                					$("#g-menu-toggle").css("color", "#70a1b1");
+						$("#user-header").css("opacity", "1");
 
-                					$("#user-header").css("opacity", "1");
+					});
 
-                				});
+				} else {
 
-                			} else {
+					$(function () {
 
-                				$(function () {
+						$("#user-splash").swipe({
+							swipeUp: function (event, direction, distance, duration, fingerCount) {
 
-                					$("#user-splash").swipe({
-                						swipeUp: function (event, direction, distance, duration, fingerCount) {
+								$("#close-splash").css({
+									"height": "0",
+									"top": "-200%"
+								});
 
-                							$("#close-splash").css({
-                								"height": "0",
-                								"top": "-200%"
-                							});
+								$("#user-splash").css("top", "-200%");
+								$("#user-splash .overlay-controls").css("top", "-200%");
+								$("#g-menu-toggle").css("color", "#70a1b1");
 
-                							$("#user-splash").css("top", "-200%");
-                							$("#user-splash .overlay-controls").css("top", "-200%");
-                							$("#g-menu-toggle").css("color", "#70a1b1");
+							}, threshold: 0
+						});
 
-                						}, threshold: 0
-                					});
+						$(document).on("click", "#close-splash", function () {
 
-                					$(document).on("click", "#close-splash", function () {
+							$("#close-splash").css({
+								"height": "0",
+								"top": "-200%"
+							});
 
-                						$("#close-splash").css({
-                							"height": "0",
-                							"top": "-200%"
-                						});
+							$("#user-splash").css("top", "-200%");
+							$("#user-splash .overlay-controls").css("top", "-200%");
+							$("#g-menu-toggle").css("color", "#70a1b1");
 
-                						$("#user-splash").css("top", "-200%");
-                						$("#user-splash .overlay-controls").css("top", "-200%");
-                						$("#g-menu-toggle").css("color", "#70a1b1");
+						});
 
-                					});
+					});
 
-                				});
+				}
 
-                			}
+				$(function () {
 
-                			$(function () {
+					var $vW = $(window).width(), $vH = $(window).height();
 
-                				var $vW = $(window).width(), $vH = $(window).height();
+					/*
+					$(function () {
+						$("#book-scroller").mousewheel(function (event, delta) {
 
-                				/*
-                				$(function () {
-                					$("#book-scroller").mousewheel(function (event, delta) {
+							this.scrollLeft -= (delta * 40);
+							event.preventDefault();
 
-                						this.scrollLeft -= (delta * 40);
-                						event.preventDefault();
+						});
+					});
+					*/
 
-                					});
-                				});
-                				*/
+					// Scrolling on desktop
+					$("#book-scroller").mousewheel(function (event, delta) {
 
-                				// Scrolling on desktop
-                				$("#book-scroller").mousewheel(function (event, delta) {
+						if ($vW > "1024") {
 
-                					if ($vW > "1024") {
+							// this.scrollLeft -= (delta * 40);
 
-                						// this.scrollLeft -= (delta * 40);
+							$("#book-scroller").stop().animate({
+								scrollLeft: "-=" + (75 * delta) + "px"
+							}, "150", "easeOutCubic");
 
-                						$("#book-scroller").stop().animate({
-                							scrollLeft: "-=" + (75 * delta) + "px"
-                						}, "150", "easeOutCubic");
+						} else {
+							this.scroll -= (delta * 40);
+						}
 
-                					} else {
-                						this.scroll -= (delta * 40);
-                					}
+						event.preventDefault();
 
-                					event.preventDefault();
+					});
 
-                				});
+					// Dropdown menu for mobile
+					if ($vW < "1025") {
 
-                				// Dropdown menu for mobile
-                				if ($vW < "1025") {
+						$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
 
-                					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
+						$(function () {
 
-                					$(function () {
+							if ($vW < "321") {
+								$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
+							}
 
-                						if ($vW < "321") {
-                							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
-                						}
+							$("#g-menu-toggle").click(function () {
+								$("#featured-nav").toggle();
+							});
 
-                						$("#g-menu-toggle").click(function () {
-                							$("#featured-nav").toggle();
-                						});
+						});
 
-                					});
+					}
 
-                				}
+					<% String id = session.getId(); %>
+					var sessionId = '<%= id %>';
 
-                				<% String id = session.getId(); %>
-                				var sessionId = '<%= id %>'
+					// User details
+					$("#splash-user-info h1, #user-header").html(user.fullName);
+					$(".avatar-wrapper img").attr("src", user.avatarImage);
+					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
+					$("#splash-user-bio").html(user.bio);
 
+					// Load Gapelia
+					$(function () {
 
-                				// User details
-                				$("#splash-user-info h1, #user-header").html(user.fullName);
-                				$(".avatar-wrapper img").attr("src",user.avatarImage);
-                				$("#user-splash").css('background-image', 'url('+user.coverImage+')')
-                				$("#splash-user-bio").html(user.bio);
+						NProgress.start();
 
-                				// Load Gapelia
-                				$(function () {
+						$("#user-panel, #book-scroller").css("opacity", "0").show();
 
-                					NProgress.start();
+						var
+						allBooks = $("#user-book-list li"),	// gets all books in a section
+						firstBook = $(allBooks).first();		// gets first book in list
+						$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
 
-                					$("#user-panel, #book-scroller").css("opacity", "0").show();
+						setTimeout(function () {
 
-                					var
-                					allBooks = $("#user-book-list li"),	// gets all books in a section
-                					firstBook = $(allBooks).first();		// gets first book in list
+							// $("#user-book-list").hide();
+							$("#user-book-list").css("opacity", "0").show();
 
-                					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+							if ($vW > "1024") {
+								$("#user-book-list .book").css("height", $vH - 97 + "px");
+							}
 
-                					setTimeout(function () {
+							$(".book").imgLiquid({ fill: true });
 
-                						// $("#user-book-list").hide();
-                						$("#user-book-list").css("opacity", "0").show();
+							var w = 0, h = 0;
 
-                						if ($vW > "1024") {
-                							$("#user-book-list .book").css("height", $vH - 97 + "px");
-                						}
+							$("#user-book-list li").each(function () {
+								w += $(this).outerWidth();
+								h += $(this).outerHeight();
+							});
 
-                						$(".book").imgLiquid({ fill: true });
+							w += 500;
 
-                						var w = 0, h = 0;
+							if ($vW > "1024") {
+								$("#user-book-list").css("width", w - 320 + "px");
+							}
 
-                						$("#user-book-list li").each(function () {
-                							w += $(this).outerWidth();
-                							h += $(this).outerHeight();
-                						});
+							NProgress.done();
 
-                						w += 500;
+							$("#user-book-list").css("opacity", "1");
 
-                						if ($vW > "1024") {
-                							$("#user-book-list").css("width", w - 320 + "px");
-                						}
+							// fades in the all the books after section width is added
+							$("#user-book-list li").fadeIn("100");
+							$("#user-book-list").fadeIn("100");
 
-                						NProgress.done();
+							// "fix" featured menu pop-in
+							setTimeout(function () {
+								$("#user-panel, #book-scroller").css("opacity", "1");
+							}, 600);
 
-                						$("#user-book-list").css("opacity", "1");
+						});
 
-                						// fades in the all the books after section width is added
-                						$("#user-book-list li").fadeIn("100");
-                						$("#user-book-list").fadeIn("100");
+					});
 
-                						// "fix" featured menu pop-in
-                						setTimeout(function () {
-                							$("#user-panel, #book-scroller").css("opacity", "1");
-                						}, 600);
+					function parseJsonToStringForBooks(books) {
 
-                					});
+						i = 0;
 
-                				});
+						$.each(books, function () {
 
-                				function parseJsonToStringForBooks(books) {
+							currentUrl = document.URL;
+							currentUrl = currentUrl.slice(0, (currentUrl.length - 2)); // removes the end
 
-                					i = 0;
+							if (books[i] === null) {
+								return false;
+							}
 
-                					$.each(books, function () {
+							html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
 
-                						currentUrl = document.URL;
-                						currentUrl = currentUrl.slice(0,(currentUrl.length-2)); // removes the end
+							html += "<div class='book-title'><a href='" + currentUrl + "read/bookid=" + books[i].bookId + "'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">" + books[i].library + "</a></div></div>";
 
-                						if(books[i] == null) {
-                							return false;
-                						}
+							html += "<span class=\"image-overlay\"></span>";
 
-                						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
+							html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
 
-                						html += "<div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">"+books[i].library+"</a></div></div>";
+							html += "</li>";
 
-                						html += "<span class=\"image-overlay\"></span>";
+							i++;
 
-                						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
+						});
 
-                						html += "</li>";
+						html += "</ul>";
 
-                						i++;
+						return html;
 
-                					});
+					}
 
-                					html += "</ul>";
-
-                					return html;
-
-                				}
-
-                			});
+				});
 
 			}
-
-
 		</script>
 
 		<script src="/static/scripts/filepicker2.js"></script>

@@ -190,6 +190,7 @@
 		height: 50px;
 		position: fixed;
 		width: 100%;
+    z-index: 1; //
 	}
 
 	#book-nav, #featured-nav {
@@ -339,6 +340,7 @@
 
 			position: absolute;
 			text-align: center;
+			width: 100%;
 			z-index: 1;
 		}
 
@@ -389,7 +391,7 @@
 		margin: 0 0 0.5rem 0; padding: 0 2rem; // 0 1rem
 
 		font-weight: 600;
-		font-size: 200%;
+		font-size: 1.8rem;
 		position: absolute;
 		text-align: left; // center
 		text-shadow: 0 1px 3px transparentize($black, 0.3);
@@ -401,8 +403,8 @@
 		a { color: $white; }
 	}
 
-	.library-info, .new-inner-wrapper, .draft-info,
-	.featured-info, .submission-info {
+	.featured-info, .new-inner-wrapper, .draft-info,
+	.library-info, .submission-info {
 		color: $white;
 		padding: 0 2rem; // 0 1rem
 		position: absolute;
@@ -450,10 +452,9 @@
 			}
 		}
 	}
-  
-  .library-info { text-align: center !important; }
-  
+
 	.featured-info { display: none; }
+	.library-info { text-align: center; }
 
 	.book-info, .collection-info {
 		color: $white;
@@ -467,7 +468,6 @@
 		z-index: 1;
 
 		.author-name, .library-location {
-			display: inline; //
       @include sans;
 			font-style: italic;
 			line-height: 1.2em;

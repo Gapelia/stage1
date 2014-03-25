@@ -36,7 +36,8 @@
 
 	</head>
 
-	<body class="app profile">
+	<!--/ <body class="app profile"> /-->
+	<body class="app">
 
 		<div id="mp-pusher" class="super-wrapper">
 
@@ -59,7 +60,7 @@
 							</ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><span id="notification-count">4</span><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
 								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
 								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
@@ -296,7 +297,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -310,7 +311,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -324,7 +325,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -338,7 +339,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -352,7 +353,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -366,7 +367,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -380,7 +381,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -394,7 +395,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -408,7 +409,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -422,7 +423,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -436,7 +437,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -450,7 +451,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -464,7 +465,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -478,7 +479,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -492,7 +493,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -506,7 +507,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -520,7 +521,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -534,7 +535,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -548,7 +549,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
@@ -562,7 +563,7 @@
 							</div>
 
 							<div class="wrapper">
-								<button class="subscribe transparent-ii">Subscribe</button>
+								<button class="subscribe white">Subscribe</button>
 							</div>
 
 							<span class="image-overlay"></span>
