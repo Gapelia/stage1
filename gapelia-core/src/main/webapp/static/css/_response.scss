@@ -42,7 +42,7 @@
 
 		.book, .collection, .library, .new, .draft {
 			&:hover {
-				box-shadow: inset 10px 0 0 0 $slate;
+				//box-shadow: inset 10px 0 0 0 $slate;
 			}
 		}
 		
@@ -1005,6 +1005,10 @@
 			font-size: 1rem;
 			.author-name, .library-location { display: block; }
 		}
+		
+		.book-list {
+			background-color: $white;
+		}
 
 		.library {
 			.library-info {
@@ -1244,7 +1248,10 @@
 
 		.super-wrapper { padding: 20% 10%; }
 
-		h4 { width: 90%; }
+		h4 {
+			font-size: 1rem !important;
+			width: 90%;
+		}
 
 		footer {
 			bottom: 2rem; left: 0;
