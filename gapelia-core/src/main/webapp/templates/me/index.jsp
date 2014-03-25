@@ -482,6 +482,9 @@
  				featuredBooks = "";
  				parsedHtml = "";
 
+				// Empty bio field when user clicks in it
+				$(document).one("click", "#splash-user-bio", function () { $(this).text(""); });
+				
 				// User details
 				$("#splash-user-info h1, #user-header").html(_fullName);
 				$(".avatar-wrapper img").attr("src", _image);
