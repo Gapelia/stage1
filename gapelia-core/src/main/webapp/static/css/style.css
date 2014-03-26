@@ -2950,7 +2950,7 @@ body.landing footer ul li:last-child {
   width: 100%;
   z-index: 100; }
 .onboard #onboard-photos-overlay .button-wrapper button:hover {
-  padding: 0.5rem 1.5rem !important; }
+  padding: 0.5rem 0.5rem !important; }
 .onboard #onboard-photos-overlay .account-user-avatar, .onboard #onboard-photos-overlay #account-splash-user-info {
   z-index: 100; }
 .onboard #onboard-photos-overlay .account-avatar-wrapper {
