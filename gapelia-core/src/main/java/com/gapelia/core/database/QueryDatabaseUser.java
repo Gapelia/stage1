@@ -202,6 +202,7 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
+                LOG.info(user.getCoverImage());
                 return user;
             }
         } catch (Exception ex) {
@@ -253,6 +254,7 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
+                LOG.info(user.getCoverImage());
                 return user;
             }
         } catch (Exception ex) {

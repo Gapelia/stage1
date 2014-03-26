@@ -96,7 +96,7 @@
 					</div>
 
 					<div class="user-data">
-						<h2 id="user-info">Paul Anthony Webb</h2>
+						<h2 id="user-info"></h2>
 
 						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 					</div>
@@ -344,7 +344,7 @@
 					stuff += "</div>";
 					stuff += "</div></div>";
 					stuff += "<div id=\"splash-user-info\">";
-					stuff += "<h1>Paul Anthony Webb</h1>";
+					stuff += "<h1>" user.display_name"</h1>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
 					stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
@@ -415,6 +415,7 @@
 						});
 
 					});
+					$("#user-info").html(user.displayName);
 
 				}
 
@@ -475,7 +476,7 @@
 					var sessionId = '<%= id %>';
 
 					// User details
-					$("#splash-user-info h1, #user-header").html(user.fullName);
+					$("#splash-user-info h1, #user-header").html(user.displayName);
 					$(".avatar-wrapper img").attr("src", user.avatarImage);
 					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 					$("#splash-user-bio").html(user.bio);
