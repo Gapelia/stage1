@@ -7050,6 +7050,7 @@ a.count span.dont-move {
     padding: 0.5rem 0 0 0;
     width: 80%; }
   .app .library-location {
+    left: 5%;
     top: 10%;
     width: 80%; }
   .app .book-info, .app .collection-info {
@@ -7066,6 +7067,20 @@ a.count span.dont-move {
     font-size: 1.8rem; }
   .app .library .library-info .lib-blurb {
     font-size: 1rem; }
+  .app #user-splash .user-avatar {
+    top: 10%; }
+  .app #user-splash #splash-user-info {
+    top: 25%; }
+  .app #user-splash #splash-user-info h1 {
+    font-size: 2.6rem; }
+  .app #user-splash #splash-user-info #splash-user-bio {
+    font-size: 1.3rem; }
+  .app #user-panel {
+    background: #70a1b1; }
+  .app #user-panel #g-menu-toggle {
+    color: #fcfcfc !important; }
+  .app #user-panel #user-wrapper h2 {
+    color: #fcfcfc !important; }
 
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 85%; }
@@ -7101,11 +7116,16 @@ a.count span.dont-move {
     text-overflow: ellipsis;
     white-space: nowrap; }
   .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper {
-    width: 65px;
-    height: 65px; }
+    right: 2.5rem;
+    top: 0.5rem;
+    width: 50px;
+    height: 50px; }
+  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper img {
+    border-radius: 300rem; }
   .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
     width: 65px;
-    height: 65px; } }
+    height: 65px;
+    box-shadow: none; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing .super-wrapper {
     padding: 30% 10%; }
