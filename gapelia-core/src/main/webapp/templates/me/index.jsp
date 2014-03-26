@@ -96,7 +96,7 @@
 					</div>
 
 					<div class="user-data">
-						<h2 id="user-info"></h2>
+						<h2 id="user-info">Paul Anthony Webb</h2>
 
 						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
 					</div>
@@ -344,10 +344,10 @@
 					stuff += "</div>";
 					stuff += "</div></div>";
 					stuff += "<div id=\"splash-user-info\">";
-					stuff += "<h1>" user.display_name"</h1>";
+					stuff += "<h1>Paul Anthony Webb</h1>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-					stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+					stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
 					// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
 					// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
 					// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
@@ -415,7 +415,6 @@
 						});
 
 					});
-					$("#user-info").html(user.displayName);
 
 				}
 
@@ -474,9 +473,9 @@
 
 					<% String id = session.getId(); %>
 					var sessionId = '<%= id %>';
-
+					
 					// User details
-					$("#splash-user-info h1, #user-header").html(user.displayName);
+					$("#splash-user-info h1, #user-header").html(user.fullName);
 					$(".avatar-wrapper img").attr("src", user.avatarImage);
 					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 					$("#splash-user-bio").html(user.bio);
