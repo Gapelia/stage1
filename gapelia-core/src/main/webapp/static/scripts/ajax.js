@@ -18,7 +18,7 @@ function quickUpdateUser() {
   name = user.name
   email = user.email;
   current =  user.location; //if not redirect
-  avatarImage = user.avatarImage;
+  avatarImage = $(".avatar-wrapper").
   coverImage = user.coverImage
   displayName = user.displayName;
   personalWebsite = user.personalWebsite;
@@ -46,7 +46,7 @@ function getLibraries() {
 			if (status == "timeout") {
 				alert("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				alert("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -93,7 +93,7 @@ function updateUserOnboard() {
   }
   bg = $('#onboard-photos-overlay').css('background-image');
   if(bg == null) {
-    coverImage = null;
+    coverImage = '/static/images/cover-bg.jpg';
   } else {
         bg = bg.replace('url(','').replace(')','');
         coverImage = bg;
@@ -125,7 +125,7 @@ function getUser() {
 			if (status == "timeout") {
 				alert("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				alert("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -135,8 +135,17 @@ function quickUpdateUser() {
   name = user.name
   email = user.email;
   current =  user.location; //if not redirect
-  avatarImage = user.avatarImage;
-  coverImage = user.coverImage
+  image = $(".avatar-wrapper img").attr("src");
+  if (image.substring(0,26) == 'http://graph.facebook.com/') {
+    image = image+"?height=1000&width=1000"
+  }
+  avatarImage = image;
+  image = $("#user-splash").css("background-image");
+  image = image.replace('url(','').replace(')','');
+  if (image.substring(0,26) == 'http://graph.facebook.com/') {
+    image = image+"?height=1000&width=1000"
+  }
+  coverImage = image;
   displayName = user.displayName;
   personalWebsite = user.personalWebsite;
   bio = $('#splash-user-bio').html();
@@ -172,8 +181,9 @@ function getUserAccounts() {
     }
 }
 function updateUser() {
+    name=user.name;
     inputBox = document.getElementById('user-name');
-    name=inputBox.value;
+    displayName=inputBox.value;
     inputBox = document.getElementById('user-email');
     email=inputBox.value;
     inputBox = document.getElementById('user-location');
@@ -185,12 +195,16 @@ function updateUser() {
         bg = bg.replace('url(','').replace(')','');
         avatarImage = bg;
     }
-    avatarImage = user.avatarImage;
+    image = $(".account-avatar-wrapper").css("background-image");
+  image = image.replace('url("','').replace('")','');
+  if (image.substring(0,26) == 'http://graph.facebook.com/') {
+    image = image+"?height=1000&width=1000"
+  }
+
+    avatarImage = image;
     coverImage = user.coverImage;
     bio = user.bio;
     tags = user.tags;
-    inputBox = document.getElementById('user-name');
-    displayName=inputBox.value;
     inputBox = document.getElementById('user-personal-website');
     personalWebsite=inputBox.value;
     inputBox = document.getElementById('user-fb');
@@ -211,8 +225,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 	libraryId = library.attr("id");
   a = parseInt(libraryId);
 	sessionId = readCookie("JSESSIONID");
-	if (e.html() == "Subscribe") {
-	    console.log("unsubscribe");
+	if (e.html() == "UnSubscribe") {
 		 $.ajax({
         			url: "/api/actions/removeSubscriptionLibrary",
         			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -225,11 +238,11 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
         				if (status == "timeout") {
         					alert("Request timed out");
         				} else {
-        					alert("Some issue happened with your request: " + err);
+        					alert("Some issue happened with your request: " + err.message);
         				}
         			}
         		});
-	} else if (e.html() == "Unsubscribe" ) {
+	} else if (e.html() == "Subscribe" ) {
 		$.ajax({
 			url: "/api/actions/subscribeLibrary",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -242,7 +255,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 				if (status == "timeout") {
 					alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					alert("Some issue happened with your request: " + err.message);
 				}
 			}
 		});

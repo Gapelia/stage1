@@ -88,7 +88,12 @@ public class QueryDatabaseUser {
 			}
 
             insert.setString(6, p.getLocation());
-            insert.setString(7, p.getProfileImageURL() );
+
+			String profileImage = p.getProfileImageURL();
+			if(profileImage.contains("graph.facebook"))
+				profileImage = profileImage + "?width=1000&height=1000";
+
+            insert.setString(7, profileImage );
             insert.setString(8, p.getFirstName());
             insert.setString(9, p.getValidatedId());
             insert.setString(10, p.getProviderId());
@@ -197,6 +202,7 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
+                LOG.info(user.getCoverImage());
                 return user;
             }
         } catch (Exception ex) {
@@ -248,6 +254,7 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
+                LOG.info(user.getCoverImage());
                 return user;
             }
         } catch (Exception ex) {

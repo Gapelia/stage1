@@ -157,7 +157,7 @@
 			});
 
 			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
-
+				
 			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-website").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-twitter").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
@@ -193,10 +193,6 @@
 
 			e.preventDefault();
 
-		});
-
-		$(document).one("click", "#splash-user-bio", function () {
-			$(this).text("");
 		});
 
 		// "Me" Dashboard

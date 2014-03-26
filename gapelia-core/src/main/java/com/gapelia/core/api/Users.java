@@ -82,6 +82,7 @@ public class Users {
         u.setGp(gp);
         u.setTwt(twt);
         u.setIsPublic(isPublic);
+        LOG.info(u.getDisplayName());
         return QueryDatabaseUser.updateUserProfile(u);
     }
 
