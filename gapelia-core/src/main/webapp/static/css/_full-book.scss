@@ -740,24 +740,18 @@
 			text-align: left;
 			width: 35%;
 
-			h2, section { z-index: 1; }
-
-			h2 {
-				line-height: 1.1em;
-				width: auto;
-
+			.book-title {
 				&:before {
-					content: "Read next";
+					content: "Read this next:";
+					color: $white;
 					display: block;
-					font-size: 0.5em;
-					line-height: 1em;
-					margin: 0 0 0 0.1rem;
+					@include serif;
+					font-size: 0.8rem;
+					font-style: italic;
+					font-weight: normal;
+					letter-spacing: 0.03rem;
+					margin: 0 0 0.5rem 0;
 				}
-			}
-
-			section {
-				top: 8.6rem; left: 2rem;
-				position: absolute;
 			}
 
 			&:after {

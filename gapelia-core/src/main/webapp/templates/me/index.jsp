@@ -470,13 +470,9 @@
 						});
 
 					}
-					// Overlay — onboard photos
-                    $("#change-cover-photo").click(function (e) {
-                        var element = $(".photo-picker");
-                       element1 = element[0];
-                       element1.type = "filepicker";
-                       filepicker.constructWidget(element1);
-                    });
+
+					<% String id = session.getId(); %>
+					var sessionId = '<%= id %>';
 
 					// User details
 					$("#splash-user-info h1, #user-header").html(user.fullName);

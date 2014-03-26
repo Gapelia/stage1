@@ -8,6 +8,7 @@
 		<title>You are reading "Hayao Miyazaki" on Gapelia</title>
 
 		<!--/
+
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
@@ -793,12 +794,12 @@
 									<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
 
 									<div class="book-info">
-										<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-										<div class="library-location"><a href="#">Camp Awesome</a></div>
+										<div class="author-name"><a href="#">NetOperator Wibby</a></div>
+										<div class="library-location"><a href="#">Next-Wave Computing</a></div>
 									</div>
 
 									<span class="image-overlay"></span>
-									<img src="/static/images/book-thumb-01.jpg" alt=""/>
+									<img src="/static/images/book-thumb-09.jpg" alt=""/>
 								</div>
 							</section>
 
@@ -921,6 +922,8 @@
 
 					var $vW = $(window).width(), $vH = $(window).height();
 
+					$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+
 					if ($vW > "1024") {
 
 						$("img").VimeoThumb();
@@ -934,7 +937,6 @@
 						$(".overlay-wrapper").imgLiquid({ fill: true });
 						$(".phototext-wrapper").imgLiquid({ fill: true });
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-						$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
 
 						$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 

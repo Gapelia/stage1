@@ -286,12 +286,12 @@
 
 		// Library Subscriptions
 		$(document).on("click", "button.subscribe", function () {
-			$(this).text("Unsubscribe").removeClass("subscribe white").addClass("unsubscribe red-02");
+			$(this).text("Unsubscribe").removeClass("subscribe white").addClass("unsubscribe red");
 			// $(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
 		$(document).on("click", "button.unsubscribe", function () {
-			$(this).text("Subscribe").removeClass("unsubscribe red-02").addClass("subscribe white");
+			$(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe white");
 			// $(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
 
