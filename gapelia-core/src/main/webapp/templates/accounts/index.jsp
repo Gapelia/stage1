@@ -246,7 +246,7 @@
 			$(".labelBetter").labelBetter({ easing: "bounce" });
 
 			// $("#user-info h2").html(_fullName);
-			$(".account-avatar-wrapper").css("background-image", "url(" + user.coverImage + ")");
+			$(".account-avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
 
 			// Slide menu for desktop
 			if ($vW > "1024") {

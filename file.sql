@@ -93,19 +93,19 @@ INSERT INTO libraries (created_by, title, cover_photo, description, created) VAL
 CREATE INDEX library_created_by_idx ON libraries(created_by);
 
 CREATE TABLE IF NOT EXISTS user_votes (
-        user_id INT PRIMARY KEY REFERENCES users(id),
+        user_id INT REFERENCES users(id),
         book_id INT REFERENCES books(id) NOT NULL
 );
 CREATE INDEX user_votes_book_id_idx ON user_votes(book_id);
 
 CREATE TABLE IF NOT EXISTS user_bookmarks (
-        user_id INT PRIMARY KEY REFERENCES users(id),
+        user_id INT REFERENCES users(id),
         book_id INT REFERENCES books(id) NOT NULL
 );
 CREATE INDEX user_bookmarks_book_id_idx ON user_bookmarks(book_id);
 
 CREATE TABLE IF NOT EXISTS book_notifications (
-        recipient INT PRIMARY KEY REFERENCES users(id),
+        recipient INT REFERENCES users(id),
         referenced_book INT REFERENCES books(id) NOT NULL,
         sender INT REFERENCES users(id) NOT NULL,
         date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS book_notifications (
 CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
 
 CREATE TABLE IF NOT EXISTS library_notifications (
-        recipient INT PRIMARY KEY REFERENCES users(id),
+        recipient INT REFERENCES users(id),
         referenced_library INT REFERENCES libraries(id) NOT NULL,
         sender INT REFERENCES users(id) NOT NULL,
         book_id INT REFERENCES books(id) NOT NULL,
@@ -124,25 +124,25 @@ CREATE TABLE IF NOT EXISTS library_notifications (
 CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);
 
 CREATE TABLE IF NOT EXISTS library_books (
-        library_id INT PRIMARY KEY REFERENCES libraries(id),
+        library_id INT REFERENCES libraries(id),
         book_id INT REFERENCES books(id) NOT NULL
 );
 CREATE INDEX library_books_book_id_idx ON library_books(book_id);
 
 CREATE TABLE IF NOT EXISTS contributors (
-        user_id INT PRIMARY KEY REFERENCES users(id),
+        user_id INT REFERENCES users(id),
         library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX contributors_book_id_idx ON contributors(library_id);
 
 CREATE TABLE IF NOT EXISTS editors (
-        editor_id INT PRIMARY KEY REFERENCES users(id),
+        editor_id INT REFERENCES users(id),
         library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX editors_book_id_idx ON editors(library_id);
 
 CREATE TABLE IF NOT EXISTS user_subscriptions (
-        user_id INT PRIMARY KEY REFERENCES users(id),
+        user_id INT REFERENCES users(id),
         library_id INT REFERENCES libraries(id)
 );
 CREATE INDEX user_subscriptions_id_idx ON user_subscriptions(library_id);
