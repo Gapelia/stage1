@@ -189,18 +189,11 @@ function updateUser() {
     inputBox = document.getElementById('user-location');
     current=inputBox.value;
     bg = $(".account-avatar-wrapper").css("background-image");
-    if(bg == null) {
-        avatarImage = user.avatarImage;
-    } else {
-        bg = bg.replace('url(','').replace(')','');
-        avatarImage = bg;
-    }
-    image = $(".account-avatar-wrapper").css("background-image");
-  image = image.replace('url("','').replace('")','');
-  if (image.substring(0,26) == 'http://graph.facebook.com/') {
-    image = image+"?height=1000&width=1000"
-  }
-
+    image = bg.replace('url(','').replace(')','');
+        if (image.substring(0,26) == 'http://graph.facebook.com/') {
+            image = image+"?height=1000&width=1000"
+        }
+        avatarImage = image;
     avatarImage = image;
     coverImage = user.coverImage;
     bio = user.bio;
@@ -214,9 +207,39 @@ function updateUser() {
     inputBox = document.getElementById('user-twt');
     twt=inputBox.value;
     isPublic = user.isPublic;
-    callUpdate();
+     sessionId=readCookie("JSESSIONID");
+    $.ajax({
+      url: "/api/users/updateUser",
+      contentType: "application/x-www-form-urlencoded;charset=utf-8",
+      type: "POST",
+      data: {
+        sessionId: sessionId,
+        fullName: name,
+        email: email,
+        location: current,
+        avatarImage: avatarImage,
+        coverImage: coverImage,
+        displayName: displayName,
+        personalWebsite: personalWebsite,
+        bio: bio,
+        tags: tags,
+        fb: fb,
+        gp: gp,
+        twt: twt,
+        isPublic: true
+      },
+      error: function (q, status, err) {
+        if (status == "timeout") {
+          alert("Request timed out");
+        }
+      }
+    });
  }
 $(document).on("click", ".quick-edit-profile", function () {
+  var element = $("#change-cover-photo");
+    element = element[0];
+    element.type = "filepicker";
+    filepicker.constructWidget(element);
     quickUpdateUser();
 });
 $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
@@ -225,7 +248,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 	libraryId = library.attr("id");
   a = parseInt(libraryId);
 	sessionId = readCookie("JSESSIONID");
-	if (e.html() == "UnSubscribe") {
+	if (e.html() == "Unsubscribe") {
 		 $.ajax({
         			url: "/api/actions/removeSubscriptionLibrary",
         			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -237,9 +260,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
         			error: function (q, status, err) {
         				if (status == "timeout") {
         					alert("Request timed out");
-        				} else {
-        					alert("Some issue happened with your request: " + err.message);
-        				}
+        				} 
         			}
         		});
 	} else if (e.html() == "Subscribe" ) {
@@ -254,9 +275,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 			error: function (q, status, err) {
 				if (status == "timeout") {
 					alert("Request timed out");
-				} else {
-					alert("Some issue happened with your request: " + err.message);
-				}
+				} 
 			}
 		});
 	}

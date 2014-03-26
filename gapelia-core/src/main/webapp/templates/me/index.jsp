@@ -312,7 +312,7 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-			$(function () { var first = getUser(); });
+						$(function () { var first = getUser(); });
 
 			// Splash page
 			function load() {
@@ -344,10 +344,10 @@
 					stuff += "</div>";
 					stuff += "</div></div>";
 					stuff += "<div id=\"splash-user-info\">";
-					stuff += "<h1>" user.display_name"</h1>";
+					stuff += "<h1 id=\"user-name\"></h1>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
 					// stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
-					stuff += "<div id=\"splash-user-bio\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+					stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
 					// stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
 					// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
 					// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
@@ -361,6 +361,10 @@
 					$("#user-splash").imgLiquid({ fill: true });
 					$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
 					$("#g-menu-toggle").css("color", "#fcfcfc");
+					var element = $("#change-cover-photo");
+		element = element[0];
+		element.type = "filepicker";
+		filepicker.constructWidget(element);
 
 				});
 
@@ -415,7 +419,6 @@
 						});
 
 					});
-					$("#user-info").html(user.displayName);
 
 				}
 
@@ -472,14 +475,16 @@
 
 					}
 
-					<% String id = session.getId(); %>
-					var sessionId = '<%= id %>';
-
+					
 					// User details
 					$("#splash-user-info h1, #user-header").html(user.displayName);
 					$(".avatar-wrapper img").attr("src", user.avatarImage);
+					if( user.coverImage==undefined) {
+						$("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
+					}
 					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 					$("#splash-user-bio").html(user.bio);
+					$('.profile .user-avatar img').css('width',150)
 
 					// Load Gapelia
 					$(function () {
@@ -534,38 +539,6 @@
 
 					});
 
-					function parseJsonToStringForBooks(books) {
-
-						i = 0;
-
-						$.each(books, function () {
-
-							currentUrl = document.URL;
-							currentUrl = currentUrl.slice(0, (currentUrl.length - 2)); // removes the end
-
-							if (books[i] === null) {
-								return false;
-							}
-
-							html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
-
-							html += "<div class='book-title'><a href='" + currentUrl + "read/bookid=" + books[i].bookId + "'>" + books[i].title + "</a></div><div class='book-info'><div class=\"library-location\"><a href=\"#\">" + books[i].library + "</a></div></div>";
-
-							html += "<span class=\"image-overlay\"></span>";
-
-							html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
-
-							html += "</li>";
-
-							i++;
-
-						});
-
-						html += "</ul>";
-
-						return html;
-
-					}
 
 				});
 
