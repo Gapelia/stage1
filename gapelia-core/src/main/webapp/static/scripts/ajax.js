@@ -46,7 +46,7 @@ function getLibraries() {
 			if (status == "timeout") {
 				alert("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				alert("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -125,7 +125,7 @@ function getUser() {
 			if (status == "timeout") {
 				alert("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				alert("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -225,7 +225,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
         				if (status == "timeout") {
         					alert("Request timed out");
         				} else {
-        					alert("Some issue happened with your request: " + err);
+        					alert("Some issue happened with your request: " + err.message);
         				}
         			}
         		});
@@ -242,7 +242,7 @@ $(document).on("click" , ".library-list-wrapper ul li button", function (ev) {
 				if (status == "timeout") {
 					alert("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err);
+					alert("Some issue happened with your request: " + err.message);
 				}
 			}
 		});
