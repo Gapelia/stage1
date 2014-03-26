@@ -53,6 +53,13 @@ function getLibraries() {
 }
 function callUpdate() {
     sessionId=readCookie("JSESSIONID");
+    if (user.tags==undefined) {
+      tags=null;
+    } 
+    if( user.email == null) {
+      email =null;
+    }
+    
   	$.ajax({
   		url: "/api/users/updateUser",
   		contentType: "application/x-www-form-urlencoded;charset=utf-8",
