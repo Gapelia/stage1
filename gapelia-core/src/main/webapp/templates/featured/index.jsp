@@ -770,7 +770,7 @@
 		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
-        <script src="/static/scripts/ajax.js"></script>
+		<script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -787,7 +787,7 @@
 				$(".book, .library, .collection").imgLiquid({ fill: true });
 
 				if ($vW > "300") {
-					$(".book-info, .collection-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
+					// $(".book-info, .collection-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 				}
 			});
 		</script>
