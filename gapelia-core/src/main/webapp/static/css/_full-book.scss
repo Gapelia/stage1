@@ -588,6 +588,8 @@
 	}
 
 	.backcover-wrapper {
+		hr { border-top: 1px solid rgba($black, 0.1); }
+
 		#fin, #fin-next {
 			float: left;
 			height: 100%;

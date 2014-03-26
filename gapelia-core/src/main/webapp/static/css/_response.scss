@@ -588,6 +588,7 @@
 				top: initial !important; left: initial;
 
 				box-shadow: none;
+				line-height: normal;
 				margin: 0;
 				transform: translateY(0);
 
@@ -608,6 +609,8 @@
 		}
 
 		.overlay-wrapper {
+			margin: 0 0 -0.16rem 0;
+
 			.overlay-preview {
 				top: intial; left: initial;
 
@@ -705,6 +708,7 @@
 				top: inherit; right: inherit;
 
 				overflow-y: initial;
+				padding: 2rem;
 				position: relative;
 
 				.page-title-elem, .page-desc {
@@ -734,6 +738,8 @@
 		}
 
 		.backcover-wrapper {
+			border-top: 3px solid rgba($black, 0.1);
+
 			#fin, #fin-next {
 				display: block;
 				float: none;
@@ -1047,11 +1053,19 @@
 			.fluid-preview {
 				.page-title-elem, .page-desc { width: 85%; }
 			}
+
+			.author-info {
+				padding: 0 7.3%;
+				width: 90%;
+			}
 		}
 
 		.overlay-wrapper {
 			.overlay-preview {
-				article { width: 100%; }
+				article {
+					margin: 10% auto;
+					width: 100%;
+				}
 			}
 		}
 
@@ -1071,6 +1085,10 @@
 			article {
 				.page-title-elem, .page-desc { width: 85%; }
 			}
+		}
+
+		.backcover-wrapper {
+			.book-title { padding: 0 4rem; }
 		}
 
 	}
@@ -1198,16 +1216,43 @@
 
 	.full-book {
 
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.image-attribution { top: 1.12rem; }
+		}
+
 		.fluid-wrapper {
 			.fluid-preview {
 				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
+			}
+
+			.author-info { padding: 0 5%; }
+		}
+
+		.photo-wrapper {
+			.photo-preview {
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3rem;
+				}
 			}
 		}
 
 		.overlay-wrapper {
+			margin: 0 0 -0.18rem 0;
+
 			.overlay-preview {
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 					line-height: 2.3rem;
 				}
 			}
@@ -1216,12 +1261,32 @@
 		.phototext-wrapper {
 			.phototext-preview {
 				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
 			}
 		}
 
 		.vertical-wrapper {
 			.vertical-preview {
 				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
 			}
 		}
 
@@ -1233,6 +1298,24 @@
 
 			article {
 				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
+			}
+		}
+		
+		.backcover-wrapper {
+			#fin-next {
+				.book-title {
+					&:before { margin: 0 0 -0.5rem 0; }
+				}
 			}
 		}
 
@@ -1485,6 +1568,7 @@
 		}
 
 		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			/*
 			.page-title-elem {
 				font-size: 1.4rem;
 				line-height: 1.7rem;
@@ -1494,14 +1578,16 @@
 				font-size: 1rem;
 				line-height: 1.7rem;
 			}
+			*/
 		}
 
 		.fluid-wrapper {
-			#author-info {
+			.author-info {
 				width: 100%; height: auto;
 				top: initial; left: initial;
 
 				display: inline-block;
+				margin: 0;
 				position: relative;
 
 				.author-name {
@@ -1518,46 +1604,59 @@
 			.fluid-preview {
 				padding: 1rem 2rem;
 				article { margin: 0; }
+
+				.page-title-elem, .page-desc { width: 100%; }
+
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 2rem;
+				}
 			}
 		}
 
 		.photo-wrapper {
-			.page-bg-wrapper {
-				width: 100%; height: auto; max-height: initial;
-				top: initial; left: 0;
-
-				margin: 0;
-				transform: translateY(0);
-
-				-o-transform: translateY(0);
-				-ms-transform: translateY(0);
-				-moz-transform: translateY(0);
-				-webkit-transform: translateY(0);
-			}
-
 			.photo-preview {
-				height: auto;
-				margin: 0;
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+					width: 100%;
+				}
 			}
 		}
 
 		.overlay-wrapper {
 			margin: 0 0 2rem 0;
-			.overlay-preview { height: 100%; }
+
+			.overlay-preview {
+				height: 100%;
+
+				.page-desc {
+					font-size: 1.5rem;
+					line-height: 2rem;
+					width: 100%;
+				}
+			}
 		}
 
 		.phototext-wrapper {
 			.phototext-preview {
 				padding: 1rem 2rem;
 
+				.page-title-elem, .page-desc { width: 100%; }
+
 				.page-title-elem {
-					font-size: 1.4rem;
-					line-height: 1.7rem;
+					font-size: 1.5rem;
+					line-height: 2rem;
 				}
 
 				.page-desc {
 					font-size: 1rem;
-					line-height: 1.7rem;
+					line-height: 2rem;
 				}
 			}
 		}
@@ -1566,14 +1665,16 @@
 			.vertical-preview {
 				padding: 1rem 2rem;
 
+				.page-title-elem, .page-desc { width: 100%; }
+
 				.page-title-elem {
-					font-size: 1.4rem;
-					line-height: 1.7rem;
+					font-size: 1.5rem;
+					line-height: 2rem;
 				}
 
 				.page-desc {
 					font-size: 1rem;
-					line-height: 1.7rem;
+					line-height: 2rem;
 				}
 			}
 		}
@@ -1587,14 +1688,16 @@
 			article {
 				padding: 1rem 2rem;
 
+				.page-title-elem, .page-desc { width: 100%; }
+
 				.page-title-elem {
-					font-size: 1.4rem;
-					line-height: 1.7rem;
+					font-size: 1.5rem;
+					line-height: 2rem;
 				}
 
 				.page-desc {
 					font-size: 1rem;
-					line-height: 1.7rem;
+					line-height: 2rem;
 				}
 			}
 		}
@@ -1603,6 +1706,7 @@
 			#fin-next {
 				height: 200px;
 
+				/*
 				section { bottom: 135px; }
 
 				h2 {
@@ -1611,6 +1715,7 @@
 
 					&:before { line-height: 1.7rem; }
 				}
+				*/
 			}
 		}
 

@@ -749,8 +749,6 @@
 
 							<section class="backcover-wrapper">
 								<div id="fin">
-									<!--/ <div class="appreciate"><span>Vote</span></div> /-->
-
 									<figure class="merci merciful" data-id="1">
 										<a class="mercibject">
 											<div class="opening">

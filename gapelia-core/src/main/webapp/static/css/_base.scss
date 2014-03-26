@@ -173,7 +173,8 @@ pre, code { @include mono; }
 small { font-size: 80%; }
 
 hr {
-	border: 1px solid #ddd;
+	border: 0;
+	border-top: 1px solid #ddd;
 	clear: both;
 	height: 0;
 	margin: 10px 0 30px;
