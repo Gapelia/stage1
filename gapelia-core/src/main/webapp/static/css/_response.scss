@@ -1472,6 +1472,8 @@
 				margin: 1rem 1rem 1rem 0rem;
 			}
 
+			.author-avatar { margin: 0; }
+			
 			.book-title, .book-info, .library-location, .collection-info, .library-info {
 				padding: 0;
 				position: relative;
@@ -1500,9 +1502,15 @@
 				}
 
 				.author-name, .library-location {
+					display: inline-block;
+					position: relative;
+					top: -0.8rem;
+					
 					&:before { margin: 0 0.1rem 0 0; }
 				}
 			}
+			
+			.book-info { display: inline-block !important; }
 			
 			.book, .collection {
 				background-image: none !important; 
