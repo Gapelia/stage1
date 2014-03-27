@@ -197,7 +197,7 @@
 				padding: 0.5rem;
 				position: absolute;
 				text-align: center;
-				width: 97%;
+				width: 100%;
 				z-index: 1;
 
 				@include ellipsis;
@@ -796,10 +796,9 @@
 				}
 
 				.phototext-preview-wrapper {
-					.button-wrapper {
-						bottom: 45% !important; //
-						width: 80% !important; //
-					}
+					background-color: rgba($black, 0.05);
+
+					.page-bg { display: none; }
 
           .phototext-preview {
 						width: 30%; height: 100%;
@@ -829,6 +828,11 @@
 						.gapelia-editor-placeholder {
 							&:after { text-align: left; }
 						}
+					}
+
+					.button-wrapper {
+						bottom: 45% !important; //
+						width: 80% !important; //
 					}
 
           .image-attribution {
