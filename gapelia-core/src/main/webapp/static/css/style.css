@@ -7290,7 +7290,7 @@ a.count span.dont-move {
 
   .profile .book-title {
     margin: 4.5rem 0 0.5rem 0; } }
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;
     height: 2px; }
@@ -7333,7 +7333,7 @@ a.count span.dont-move {
     display: block;
     padding: 65px 0 0 0; }
   .app #g-menu-toggle {
-    left: 1rem; }
+    left: 0.5rem; }
   .app #next-book-toggle {
     right: 0; }
   .app .book, .app .collection, .app .library {
@@ -7346,26 +7346,26 @@ a.count span.dont-move {
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
     border-bottom: none;
     margin: 1rem 1rem 1rem 0rem; }
-  .app .book a, .app .collection a, .app .library a {
-    color: #70a1b1; }
-  .app .book .book-title, .app .book .book-info, .app .book .collection-info, .app .book .library-info, .app .collection .book-title, .app .collection .book-info, .app .collection .collection-info, .app .collection .library-info, .app .library .book-title, .app .library .book-info, .app .library .collection-info, .app .library .library-info {
+  .app .book .book-title, .app .book .book-info, .app .book .library-location, .app .book .collection-info, .app .book .library-info, .app .collection .book-title, .app .collection .book-info, .app .collection .library-location, .app .collection .collection-info, .app .collection .library-info, .app .library .book-title, .app .library .book-info, .app .library .library-location, .app .library .collection-info, .app .library .library-info {
     padding: 0;
     position: relative;
     width: 100%; }
+  .app .book .book-title a, .app .book .book-info a, .app .book .library-location a, .app .book .collection-info a, .app .book .library-info a, .app .collection .book-title a, .app .collection .book-info a, .app .collection .library-location a, .app .collection .collection-info a, .app .collection .library-info a, .app .library .book-title a, .app .library .book-info a, .app .library .library-location a, .app .library .collection-info a, .app .library .library-info a {
+    color: rgba(0, 0, 0, 0.75); }
   .app .book .book-title, .app .collection .book-title, .app .library .book-title {
     font-size: 1.4rem;
     line-height: 1.6rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
     top: 25%; }
   .app .book .book-info, .app .book .collection-info, .app .book .library-info, .app .collection .book-info, .app .collection .collection-info, .app .collection .library-info, .app .library .book-info, .app .library .collection-info, .app .library .library-info {
     color: rgba(25, 25, 25, 0.9);
     font-size: smaller;
-    margin: 0 0 1.3rem 0; }
+    margin: 0 0 0rem 0; }
+  .app .book .book-info a, .app .book .collection-info a, .app .book .library-info a, .app .collection .book-info a, .app .collection .collection-info a, .app .collection .library-info a, .app .library .book-info a, .app .library .collection-info a, .app .library .library-info a {
+    color: rgba(0, 0, 0, 0.75); }
   .app .book .book-info .title, .app .book .collection-info .title, .app .book .library-info .title, .app .collection .book-info .title, .app .collection .collection-info .title, .app .collection .library-info .title, .app .library .book-info .title, .app .library .collection-info .title, .app .library .library-info .title {
     font-size: 1.7rem;
     margin: 0 0 1rem 0; }
-  .app .book .book-info .library-location a, .app .book .book-info .author-name a, .app .book .book-info .title a, .app .book .collection-info .library-location a, .app .book .collection-info .author-name a, .app .book .collection-info .title a, .app .book .library-info .library-location a, .app .book .library-info .author-name a, .app .book .library-info .title a, .app .collection .book-info .library-location a, .app .collection .book-info .author-name a, .app .collection .book-info .title a, .app .collection .collection-info .library-location a, .app .collection .collection-info .author-name a, .app .collection .collection-info .title a, .app .collection .library-info .library-location a, .app .collection .library-info .author-name a, .app .collection .library-info .title a, .app .library .book-info .library-location a, .app .library .book-info .author-name a, .app .library .book-info .title a, .app .library .collection-info .library-location a, .app .library .collection-info .author-name a, .app .library .collection-info .title a, .app .library .library-info .library-location a, .app .library .library-info .author-name a, .app .library .library-info .title a {
-    color: #70a1b1; }
   .app .book .book-info .author-name:before, .app .book .book-info .library-location:before, .app .book .collection-info .author-name:before, .app .book .collection-info .library-location:before, .app .book .library-info .author-name:before, .app .book .library-info .library-location:before, .app .collection .book-info .author-name:before, .app .collection .book-info .library-location:before, .app .collection .collection-info .author-name:before, .app .collection .collection-info .library-location:before, .app .collection .library-info .author-name:before, .app .collection .library-info .library-location:before, .app .library .book-info .author-name:before, .app .library .book-info .library-location:before, .app .library .collection-info .author-name:before, .app .library .collection-info .library-location:before, .app .library .library-info .author-name:before, .app .library .library-info .library-location:before {
     margin: 0 0.1rem 0 0; }
   .app .book .book, .app .book .collection, .app .collection .book, .app .collection .collection, .app .library .book, .app .library .collection {
@@ -7374,6 +7374,8 @@ a.count span.dont-move {
     color: rgba(25, 25, 25, 0.9);
     line-height: 1.2rem;
     margin: 0; }
+  .app .book .library-info a, .app .collection .library-info a, .app .library .library-info a {
+    color: #fcfcfc !important; }
   .app .book .library-info .lib-blurb, .app .collection .library-info .lib-blurb, .app .library .library-info .lib-blurb {
     display: none;
     font-size: 0.9rem;
@@ -7406,6 +7408,12 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
+  .app .library-location {
+    font-size: 0.8rem;
+    font-style: italic;
+    left: 0;
+    margin-bottom: 5px;
+    width: 100%; }
   .app .library {
     border-bottom: none;
     margin: 1rem 1rem 0rem 0rem;
@@ -7417,8 +7425,6 @@ a.count span.dont-move {
     line-height: 1.6rem; }
   .app .library .wrapper {
     margin: 0 0 1rem 0; }
-  .app .library a {
-    color: #fcfcfc !important; }
   .app .library button {
     font-size: 0.6rem !important; }
   .app #user-splash .user-avatar {
@@ -7435,10 +7441,15 @@ a.count span.dont-move {
     bottom: 9rem;
     font-size: 3rem; }
 
+  .library #library-splash #library-info {
+    top: 36%; }
   .library #library-splash button {
-    top: -6rem;
+    top: -3rem;
     right: 0;
     position: fixed; }
+  .library #library-splash #close-splash {
+    font-size: 4rem;
+    bottom: 7rem !important; }
   .library #close-splash {
     bottom: 2rem !important; }
 
