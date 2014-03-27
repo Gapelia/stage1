@@ -995,7 +995,6 @@
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
-	/// Review all this at a later date
 
 	.app {
 
@@ -1026,7 +1025,7 @@
 			background-image: none !important;
 			box-shadow: none !important;
 			background: transparent !important;
-			margin-top: -3rem;
+			height: 100px;
 			
 			&:after { background-image: none !important; }
 			

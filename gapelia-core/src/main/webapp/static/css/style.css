@@ -7103,7 +7103,7 @@ a.count span.dont-move {
     background-image: none !important;
     box-shadow: none !important;
     background: transparent !important;
-    margin-top: -3rem; }
+    height: 100px; }
   .app #book-cta:after {
     background-image: none !important; }
   .app #book-cta p {
