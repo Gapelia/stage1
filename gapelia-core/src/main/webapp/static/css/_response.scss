@@ -999,6 +999,14 @@
 
 	.app {
 
+		#header-message {
+			font-size: 1.3rem;
+			padding: 2rem 0 0.5rem 0;
+			text-align: left;
+			
+			button { top: 1.6rem; }
+		}
+		
 		#g-menu-toggle { color: $white; }
 
 		#featured-panel {
@@ -1026,7 +1034,8 @@
 			background-image: none !important;
 			box-shadow: none !important;
 			background: transparent !important;
-			margin-top: -3rem;
+			height: 100px;
+			//margin-top: -3rem;
 			
 			&:after { background-image: none !important; }
 			
@@ -1375,7 +1384,7 @@
 
 }
 
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -1402,6 +1411,18 @@
 	
 	.app {
 
+		// Onboarding
+		#header-message {
+			font-size: 1rem;
+			padding: 1.5rem 0 0.5rem 0;
+			text-align: left;
+			width: 60%;
+			
+			button { top: 1.6rem; right: -50%; }
+		}
+		
+		button { font-size: 10px; }
+		
 		// Splash pages
 		#featured-splash, #library-splash, #user-splash {
 			font-size: 1rem;
@@ -1600,6 +1621,25 @@
 			}
 		}
 	}
+	
+	
+	.onboard {
+	
+		#onboard-photos-overlay {
+			
+			.account-user-avatar { top: 10%; }
+		
+			#user-info {
+				padding: 0;
+				top: 12%;
+				
+				h2 { font-size: 2rem; }
+				
+				#user-bio { font-size: 1.75rem; }
+				
+			}
+		}
+	}	
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
