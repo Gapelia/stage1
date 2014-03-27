@@ -312,7 +312,7 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-						$(function () { var first = getUser(); });
+			$(function () { var first = getUser(); });
 
 			// Splash page
 			function load() {
@@ -361,10 +361,11 @@
 					$("#user-splash").imgLiquid({ fill: true });
 					$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
 					$("#g-menu-toggle").css("color", "#fcfcfc");
+
 					var element = $("#change-cover-photo");
-		element = element[0];
-		element.type = "filepicker";
-		filepicker.constructWidget(element);
+					element = element[0];
+					element.type = "filepicker";
+					filepicker.constructWidget(element);
 
 				});
 
@@ -475,16 +476,19 @@
 
 					}
 
-					
 					// User details
 					$("#splash-user-info h1, #user-header").html(user.displayName);
 					$(".avatar-wrapper img").attr("src", user.avatarImage);
-					if( user.coverImage==undefined) {
+
+					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
+
+					if (user.coverImage == undefined) {
 						$("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
 					}
-					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
+
 					$("#splash-user-bio").html(user.bio);
-					$('.profile .user-avatar img').css('width',150)
+
+					// $(".profile .user-avatar img").css("width", 150); // unneccessary
 
 					// Load Gapelia
 					$(function () {

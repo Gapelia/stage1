@@ -94,9 +94,9 @@
 								<a href="#">Add my stories</a>
 
 								<ul>
-									<li><a href="/">hikari: The Future of the Operating System</a></li>
-									<li><a href="/">007: The Diego Regules Story</a></li>
-									<li><a href="/">From the Rennaisance, to the Future of Blogging</a></li>
+									<li><label for="my-story-01">hikari: The Future of the Operating System</label><input type="checkbox" id="my-story-01"/></li>
+									<li><label for="my-story-02">007: The Diego Regules Story</label><input type="checkbox" id="my-story-02"/></li>
+									<li><label for="my-story-03">From the Rennaisance, to the Future of Blogging</label><input type="checkbox" id="my-story-03"/></li>
 								</ul>
 							</li>
 						</ul>

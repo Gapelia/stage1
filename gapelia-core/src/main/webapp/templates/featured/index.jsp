@@ -785,10 +785,6 @@
 
 			$(document).on("ready", function () {
 				$(".book, .library, .collection").imgLiquid({ fill: true });
-
-				if ($vW > "300") {
-					// $(".book-info, .collection-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
-				}
 			});
 		</script>
 
@@ -869,34 +865,35 @@
 					$("#book-list").hide();
 					$("#library-list").hide();
 					$("#bookmark-list").hide();
+
 					$("#book-list").css("opacity", "0").show();
 
-							if ($vW > "1024") {
-								$("#book-list .book").css("height", $vH - 97 + "px");
-							}
+					if ($vW > "1024") {
+						$("#book-list .book").css("height", $vH - 97 + "px");
+					}
 
-							$(".book").imgLiquid({ fill: true });
+					$(".book").imgLiquid({ fill: true });
 
-							var w = 0, h = 0;
+					var w = 0, h = 0;
 
-							$("#book-list li").each(function () {
-								w += $(this).outerWidth();
-								h += $(this).outerHeight();
-							});
+					$("#book-list li").each(function () {
+						w += $(this).outerWidth();
+						h += $(this).outerHeight();
+					});
 
-							w += 500;
+					w += 500;
 
-							if ($vW > "1024") {
-								$("#book-list").css("width", w - 320 + "px");
-							}
+					if ($vW > "1024") {
+						$("#book-list").css("width", w - 320 + "px");
+					}
 
-							NProgress.done();
+					NProgress.done();
 
-							$("#book-list").css("opacity", "1");
+					$("#book-list").css("opacity", "1");
 
-							// fades in the all the books after section width is added
-							$("#book-list li").fadeIn("100");
-							$("#book-list").fadeIn("100");
+					// fades in the all the books after section width is added
+					$("#book-list li").fadeIn("100");
+					$("#book-list").fadeIn("100");
 
 					$.ajax({
 						url: "http://gapelia-dev.herokuapp.com/api/libraries/getAllBooks",
@@ -958,6 +955,11 @@
 					setTimeout(function () {
 						$("#featured-panel, #featured-scroller").css("opacity", "1");
 					}, 600);
+
+					// Place avatars *after* imgLiquid is done processing. Please keep this in mind.
+					if ($vW > "300") {
+						$(".book-info, .collection-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
+					}
 
 				}, 1000);
 
