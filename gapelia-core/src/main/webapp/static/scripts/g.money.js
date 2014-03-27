@@ -333,8 +333,8 @@
 
 		});
 
-		// Remove bookmark in Bookmarks section on /featured
-		$(document).on("click", ".bookmarked .bookmark-this", function () {
+		// Remove bookmark in Bookmarks section on / featured
+		$(document).on("click", ".bookmark-list-wrapper .bookmarked .bookmark-this", function () {
 
 			if ($vW > "1024") {
 
@@ -373,6 +373,28 @@
 				$(this).closest("li").remove();
 
 			}
+
+		});
+
+		// Remove bookmark in Bookshelf section on / featured
+		$(document).on("click", ".book-list-wrapper .bookmarked .bookmark-this", function () {
+
+			$(this).children(".top-bm").css({
+				"border-top-color": "#fcfcfc",
+				"right": "8px"
+			});
+
+			$(this).children(".bottom-bm").css({
+				"border-bottom-color": "#fcfcfc",
+				"right": "8px"
+			});
+
+			$(this).children(".right-bm").css({
+				"background-color": "#fcfcfc",
+				"width": "25px"
+			});
+
+			$(this).closest("li").removeClass("bookmarked");
 
 		});
 

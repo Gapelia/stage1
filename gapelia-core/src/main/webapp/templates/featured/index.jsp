@@ -60,7 +60,7 @@
 							</ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
 								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
 								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
@@ -78,7 +78,7 @@
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle" class="notification-time">
-					<span id="notification-count">4</span>
+					<span id="notification-count">6</span>
 					<i class="ion-drag"></i>
 				</button>
 
