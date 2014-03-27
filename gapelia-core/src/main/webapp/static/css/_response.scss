@@ -1026,7 +1026,7 @@
 			background-image: none !important;
 			box-shadow: none !important;
 			background: transparent !important;
-			margin-top: -2rem;
+			margin-top: -3rem;
 			
 			&:after { background-image: none !important; }
 			
@@ -1034,6 +1034,14 @@
 				font-size: 1.4rem;
 				line-height: 2.2rem;
 			}
+		}
+		
+		#book-list, #library-list, #bookmark-list {
+			padding: 5.2rem 1rem 1rem 1rem;
+		}
+		
+		.book, .library, .collection {
+			margin: 0 0 1.2rem 0;
 		}
 		
 		.book-title {

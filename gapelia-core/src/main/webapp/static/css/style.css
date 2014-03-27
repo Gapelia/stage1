@@ -7056,12 +7056,16 @@ a.count span.dont-move {
     background-image: none !important;
     box-shadow: none !important;
     background: transparent !important;
-    margin-top: -2rem; }
+    margin-top: -3rem; }
   .app #book-cta:after {
     background-image: none !important; }
   .app #book-cta p {
     font-size: 1.4rem;
     line-height: 2.2rem; }
+  .app #book-list, .app #library-list, .app #bookmark-list {
+    padding: 5.2rem 1rem 1rem 1rem; }
+  .app .book, .app .library, .app .collection {
+    margin: 0 0 1.2rem 0; }
   .app .book-title {
     margin: 2.5rem 0 1.5rem 0;
     padding: 0 6rem 0 4rem;
