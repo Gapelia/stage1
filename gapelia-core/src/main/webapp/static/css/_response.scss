@@ -1078,8 +1078,28 @@
 			}
 		}
 		
+		#library-splash {
+			#library-info {
+				left: 13%;
+				top: 36%;
+				width: 75%;
+				
+				h2 { font-size: 2.5rem; }
+				
+				p { font-size: 1.2rem; }
+			}
+			#close-splash {
+				bottom: 6rem;
+				font-size: 4rem;
+			}
+		}
+		
 		#user-splash {
 			.user-avatar { top: 12%; }
+			#close-splash {
+				bottom: 6rem;
+				font-size: 4rem;
+			}
 			#splash-user-info { top: 24%; }
 		}
 	}

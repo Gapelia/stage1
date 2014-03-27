@@ -7139,8 +7139,22 @@ a.count span.dont-move {
     font-size: 1.8rem; }
   .app .library .library-info .lib-blurb {
     font-size: 1rem; }
+  .app #library-splash #library-info {
+    left: 13%;
+    top: 36%;
+    width: 75%; }
+  .app #library-splash #library-info h2 {
+    font-size: 2.5rem; }
+  .app #library-splash #library-info p {
+    font-size: 1.2rem; }
+  .app #library-splash #close-splash {
+    bottom: 6rem;
+    font-size: 4rem; }
   .app #user-splash .user-avatar {
     top: 12%; }
+  .app #user-splash #close-splash {
+    bottom: 6rem;
+    font-size: 4rem; }
   .app #user-splash #splash-user-info {
     top: 24%; }
 
