@@ -1022,6 +1022,28 @@
 			}
 		}
 
+		#book-cta {
+			background-image: none !important;
+			box-shadow: none !important;
+			background: transparent !important;
+			margin-top: -3rem;
+			
+			&:after { background-image: none !important; }
+			
+			p {
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+			}
+		}
+		
+		#book-list, #library-list, #bookmark-list {
+			padding: 5.2rem 1rem 1rem 1rem;
+		}
+		
+		.book, .library, .collection {
+			margin: 0 0 1.2rem 0;
+		}
+		
 		.book-title {
 			margin: 2.5rem 0 1.5rem 0; padding: 0 6rem 0 4rem;
 			font-size: 1.8rem;
@@ -1172,13 +1194,6 @@
 		#user-splash {
 			.user-avatar { top: 18%; }
 			#splash-user-info { top: 38%; }
-		}
-
-		#book-cta {
-			p {
-				font-size: 1.4rem;
-				line-height: 2.2rem;
-			}
 		}
 
 		.library {
