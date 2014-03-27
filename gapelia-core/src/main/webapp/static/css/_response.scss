@@ -42,7 +42,7 @@
 
 		.book, .collection, .library, .new, .draft {
 			&:hover {
-				box-shadow: inset 10px 0 0 0 $slate;
+				//box-shadow: inset 10px 0 0 0 $slate; // spine hidden until animation is developed
 			}
 		}
 		
@@ -999,14 +999,6 @@
 
 	.app {
 
-		#header-message {
-			font-size: 1.3rem;
-			padding: 2rem 0 0.5rem 0;
-			text-align: left;
-			
-			button { top: 1.6rem; }
-		}
-		
 		#g-menu-toggle { color: $white; }
 
 		#featured-panel {
@@ -1034,8 +1026,7 @@
 			background-image: none !important;
 			box-shadow: none !important;
 			background: transparent !important;
-			height: 100px;
-			//margin-top: -3rem;
+			margin-top: -3rem;
 			
 			&:after { background-image: none !important; }
 			
@@ -1058,15 +1049,25 @@
 		}
 		
 		.book-title {
-			margin: 2.5rem 0 1.5rem 0; padding: 0 6rem 0 4rem;
+			margin: 1.8rem 0 1.5rem 0; padding: 0 2rem 0 2rem;
 			font-size: 1.8rem;
+			width: 88%;
 		}
 
 		.book-info, .collection-info {
+			bottom: 1rem;
 			font-size: 1rem;
-			.author-name, .library-location { display: block; }
+			padding: 0 2rem;
+			position: absolute;
+			.author-name { display: block; }
 		}
 
+		.library-location {
+			left: 5%;
+			top: 9%;
+			width: 78%;
+		}
+		
 		.library {
 			.library-info {
 				.title {
@@ -1411,18 +1412,6 @@
 	
 	.app {
 
-		// Onboarding
-		#header-message {
-			font-size: 1rem;
-			padding: 1.5rem 0 0.5rem 0;
-			text-align: left;
-			width: 60%;
-			
-			button { top: 1.6rem; right: -50%; }
-		}
-		
-		button { font-size: 10px; }
-		
 		// Splash pages
 		#featured-splash, #library-splash, #user-splash {
 			font-size: 1rem;
@@ -1621,25 +1610,6 @@
 			}
 		}
 	}
-	
-	
-	.onboard {
-	
-		#onboard-photos-overlay {
-			
-			.account-user-avatar { top: 10%; }
-		
-			#user-info {
-				padding: 0;
-				top: 12%;
-				
-				h2 { font-size: 2rem; }
-				
-				#user-bio { font-size: 1.75rem; }
-				
-			}
-		}
-	}	
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
