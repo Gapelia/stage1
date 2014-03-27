@@ -469,11 +469,13 @@
 	});
 
 	// Image insertion
-	var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+	// var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+	var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
 
 	function handleFile(file) {
 
-		pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+		// pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+		pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
 		console.log(file);
 
 	}

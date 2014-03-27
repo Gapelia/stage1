@@ -24,6 +24,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/fluidbox.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 		
 		<style>
@@ -43,6 +44,8 @@
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
+
+		<script src="/static/scripts/prefixfree.min.js"></script>
 
 	</head>
 
@@ -77,6 +80,10 @@
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
 		<script src="/static/scripts/bookblock.js"></script>
+
+		<!--/ scripts/fluidbox /-->
+		<script src="/static/scripts/imagesloaded.min.js"></script>
+		<script src="/static/scripts/fluidbox.min.js"></script>
 
 		<script>
 			$(function () {
@@ -120,6 +127,7 @@
 						$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 
 						$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+						$(".inserted-img").fluidbox();
 
 					});
 
