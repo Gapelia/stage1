@@ -427,40 +427,25 @@
 
 					var $vW = $(window).width(), $vH = $(window).height();
 
-					/*
-					$(function () {
-						$("#book-scroller").mousewheel(function (event, delta) {
-
-							this.scrollLeft -= (delta * 40);
-							event.preventDefault();
-
-						});
-					});
-					*/
-
 					// Scrolling on desktop
-					$("#book-scroller").mousewheel(function (event, delta) {
+					if ($vW > "1024") {
 
-						if ($vW > "1024") {
-
-							// this.scrollLeft -= (delta * 40);
+						$("#book-scroller").mousewheel(function (event, delta) {
 
 							$("#book-scroller").stop().animate({
 								scrollLeft: "-=" + (75 * delta) + "px"
 							}, "150", "easeOutCubic");
 
-						} else {
-							this.scroll -= (delta * 40);
-						}
+							event.preventDefault();
 
-						event.preventDefault();
+						});
 
-					});
+					}
 
 					// Dropdown menu for mobile
 					if ($vW < "1025") {
 
-						$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li></ul>');
+						$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
 						$(function () {
 
@@ -472,6 +457,12 @@
 								$("#featured-nav").toggle();
 							});
 
+						});
+
+						// Log Out
+						$("#logout").click(function (e) {
+							document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+							window.location = "";	
 						});
 
 					}

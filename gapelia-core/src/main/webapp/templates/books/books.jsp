@@ -853,6 +853,7 @@
 					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
 					menu += "</ul>";
 					menu += "</li>";
+					menu += "<li id=\"nav-logout\"><a href=\"#\" id=\"logout\">Log Out</a></li>";
 					menu += "</ul>";
 
 					share = "";
@@ -909,6 +910,12 @@
 
 						e.preventDefault();
 
+					});
+
+					// Log Out
+					$("#logout").click(function (e) {
+						document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+						window.location = "";	
 					});
 
 				}
