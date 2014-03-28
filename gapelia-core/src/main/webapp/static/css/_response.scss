@@ -136,6 +136,13 @@
 			top: 0;
 		}
 
+		#header-message {
+			font-size: 1.2rem;
+			padding: 2.5rem 0 0.5rem 0;
+			
+			button { top: 2.1rem; }
+		}
+		
 		#g-menu-toggle { left: 1rem; }
 		#next-book-toggle { right: 1rem; }
 
@@ -157,7 +164,7 @@
 
 			background-color: rgba($black, 0.1);
 			display: inline-block; // block
-			padding: 6.8rem 2rem 2rem 2rem; // 75px 0 0 0
+			padding: 5.8rem 1.5rem 1.5rem 1.5rem; // 75px 0 0 0
 			transform: translateY(0);
 
 			-o-transform: translateY(0);
@@ -304,7 +311,7 @@
 		}
 
 		.book, .collection, .library {
-			margin: 0 0 2rem 0; padding: 0;
+			margin: 0 0 1.5rem 0; padding: 0;
 			width: 100%; height: 250px; // 400px
 
 			&:last-child { margin: 0; }
@@ -1021,6 +1028,16 @@
 			}
 		}
 
+		#header-message {
+			font-size: 1.2rem;
+			padding: 2rem 0 0.5rem 0;
+			text-align: left;
+			
+			button { top: 1.6rem; }
+			
+		}
+		
+		
 		#book-cta {
 			background-image: none !important;
 			box-shadow: none !important;
@@ -1238,6 +1255,15 @@
 			margin: 2rem 0 1rem 0;
 		}
 
+		#header-message {
+			font-size: 1.4rem;
+			line-height: 1.5rem;
+			padding: 1.2rem 0 0.5rem 0;
+			width: 68%;
+			
+			button { right: -38%; }
+		}
+		
 		#featured-splash, #library-splash {
 			#featured-info, #library-info {
 				top: 55%; left: 5%;
@@ -1432,6 +1458,19 @@
 	
 	.app {
 
+		//Onboarding
+		
+		#header-message {
+			font-size: 0.9rem;
+			padding: 1.3rem 0 0.5rem 0;
+			width: 66%;
+			
+			button {
+				right: -40%;
+				top: 1.8rem;
+			}
+		}
+		
 		// Splash pages
 		#featured-splash, #library-splash, #user-splash {
 			font-size: 1rem;
