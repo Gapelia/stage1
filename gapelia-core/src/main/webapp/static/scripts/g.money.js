@@ -466,7 +466,7 @@
 
 		});
 
-		// Approve submission
+		// Approve submission overlay
 		$(document).on("click", ".book-buttons .approve-this-book", function (e) {
 
 			$(this).closest("li").prepend("<div class=\"approve-book-confirm\"><h3>Accept Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
@@ -475,8 +475,33 @@
 
 		});
 
-		// Deny submission
+		// Deny submission overlay
 		$(document).on("click", ".book-buttons .deny-this-book", function (e) {
+
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><h5>Are you sure?</h5><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+
+			e.preventDefault();
+
+		});
+
+		// Cancel submission approval
+		$(document).on("click", ".approve-book-confirm .cancel", function (e) {
+
+			$(this).closest(".approve-book-confirm").remove();
+			e.preventDefault();
+
+		});
+
+		// Cancel submission deny
+		$(document).on("click", ".deny-book-confirm .cancel", function (e) {
+
+			$(this).closest(".deny-book-confirm").remove();
+			e.preventDefault();
+
+		});
+
+		// Approve submission
+		$(document).on("click", ".approve-book-confirm button", function (e) {
 
 			if ($vW > "1024") {
 
@@ -520,10 +545,47 @@
 
 		});
 
-		// Cancel submission
-		$(document).on("click", ".approve-book-confirm .cancel", function (e) {
+		// Deny submission
+		$(document).on("click", ".deny-book-confirm button", function (e) {
 
-			$(this).closest(".approve-book-confirm").remove();
+			if ($vW > "1024") {
+
+				// Recalculate horizontal list width
+				$("#submission-list").css({
+					"opacity": "0",
+					"margin": "2px 0 0 0"
+				});
+
+				$(this).closest("li").remove();
+
+				// gets all books in a section
+				var allBooks = $("#submission-list li");
+
+				// holds function for one second and then adds width to body tag
+				setTimeout(function () {
+
+					var w = 0;
+
+					$("#submission-list li").each(function () { w += $(this).outerWidth(); });
+
+					w += 500;
+
+					$("#submission-list").css("width", w - 320 + "px");
+
+					$("#submission-list").css({
+						"opacity": "1",
+						"margin": "2px 0 0 0"
+					});
+
+				}, 500);
+
+			} else {
+
+				// Carry on
+				$(this).closest("li").remove();
+
+			}
+
 			e.preventDefault();
 
 		});

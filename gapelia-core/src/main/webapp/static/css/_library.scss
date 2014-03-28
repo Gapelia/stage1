@@ -122,16 +122,24 @@ body.library {
 		}
 	}
 
-	.approve-book-confirm {
+	.approve-book-confirm, .deny-book-confirm {
 		width: 100%; height: 100%;
 
-		background: linear-gradient(180deg, #70a1b1 0%, #70a1b1 34%, #a4c8d5 67%, #b4d9e1 84%, #c4d9d6 100%);
 		color: #fcfcfc;
 		padding: 4rem 2rem;
 		position: relative;
 		text-align: center;
 		transition: all 0.2s ease;
 		z-index: 2;
+
+		.cancel {
+			display: block;
+			margin: 1rem 0 0 0;
+		}
+	}
+
+	.approve-book-confirm {
+		background: linear-gradient(180deg, #70a1b1 0%, #70a1b1 34%, #a4c8d5 67%, #b4d9e1 84%, #c4d9d6 100%);
 
 		textarea {
 			width: 100%; height: 60%;
@@ -144,10 +152,14 @@ body.library {
 			outline: none;
 			resize: none;
 		}
+	}
 
-		.cancel {
-			display: block;
-			margin: 1rem 0 0 0;
+	.deny-book-confirm {
+		background: linear-gradient(180deg, #47565f 0%, #5b625a 15%, #947461 38%, #f98056 70%, #f7ec86 100%);
+
+		h5 {
+			margin: 2rem 0;
+			width: 100%;
 		}
 	}
 
