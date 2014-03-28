@@ -56,13 +56,9 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">007: The Diego Regules Story</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-							</ul>
-						</li>
+                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                            <ul id="draft-menu"></ul>
+                        </li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -104,189 +100,7 @@
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
-					<ul id="book-list">
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Official Mega Man Battle Network Encyclopedia</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Editor's Picks: Snowstorm Pictures</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">The Legend of Mick Dodge</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Secret Ski Towns</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Exploring the Ancient World in 2013</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Best New Space Pictures</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Connecting Tribes From the Yukon to the Amazon</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Going for Gold</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-							
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Exploring Animals in 2013</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
-					</ul>
+					<ul id="book-list"></ul>
 				</div>
 				<!--//Featured Books /-->
 
@@ -494,30 +308,25 @@
 		<script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
-
-		<script>
-			if ($vW > "1024") {
-				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
-
-				$(".mp-pushed").ready(function () {
-					$("#book-scroller").css("z-index", "0");
-				});
-			}
-
-			$(document).on("ready", function () {
-				$(".book, .library, .collection").imgLiquid({ fill: true });
-			});
-		</script>
-
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
 		<script src="/static/scripts/scroll.js"></script>
-
 		<script>
-			$(function() { getLibraries(); });
+		    if ($vW > "1024") {
+        				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+        				$(".mp-pushed").ready(function () {
+        					$("#book-scroller").css("z-index", "0");
+        				});
+        			}
+			$(function() {
+			var third = getUserDrafts();
+			var second = getFeaturedBooks();
+			var first = getLibraries();
+			});
 
 			function load () {
-
+    getUserDrafts();
 				var $vW = $(window).width(), $vH = $(window).height();
 
 				if ($vW > "1024") {
@@ -575,7 +384,7 @@
 
 				// Load Gapelia
 				NProgress.start();
-
+                $(".book, .library, .collection").imgLiquid({ fill: true });
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
 				var
@@ -782,56 +591,7 @@
 					NProgress.done();
 
 				});
-
-				function parseJsonToStringForLibraries(libraries) {
-
-					html += "<ul id=\"library-list\">";
-
-					$.each(libraries, function () {
-
-						html += "<li class=\"library\"><div class=\"library-info\"><div class=\"title\"><a href=\"" + this["libraryHref"] + "\">" + this['title'] + "</a></div><div class=\"lib-blurb\">" + this['blurb'] + "</div></div>";
-
-						html += "<div class=\"wrapper\"><button class=\"subscribe transparent-ii\">Subscribe</button></div><span class=\"image-overlay\"></span><img src=\"" + this['image'] + "\" alt=\"\"/></li>";
-
-					});
-
 				}
-
-				function parseJsonToStringForBooks(books) {
-
-					i = 0;
-
-					$.each(books, function () {
-
-						currentUrl=document.URL;
-						currentUrl=currentUrl.slice(0,(currentUrl.length-8)); // removes the end
-
-						if(books[i] == null) {
-							return false;
-						}
-
-						html += "<li class='book' bookid=\"" + books[i].bookId + "\">";
-
-						html += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class='book-title'><a href='"+currentUrl+"read/bookid="+books[i].bookId+"'>" + books[i].title + "</a></div><div class='book-info'>";
-
-						html += "<div class='author-name'><a href='#'>" + books[i].userId + "</a></div><div class=\"library-location\"><a href=\"#\">" + books[i].library + "</a></div></div>";
-
-						html += "<span class=\"image-overlay\"></span>";
-
-						html += "<img src=\"" + books[i].coverPhoto + "\" alt=''/>";
-
-						html += "</li>";
-
-						i++;
-
-					});
-
-					html += "</ul>";
-					return html;
-
-				}
-
-			}
 		</script>
 		<!--//scripts /-->
 

@@ -11,11 +11,163 @@ function readCookie(name) {
 			return c.substring(nameEQ.length, c.length);
 		}
 	}
-
 	return null;
-
+}
+function getFeaturedBooks() {
+        sessionId = readCookie("JSESSIONID");
+    	$.ajax({
+    		url: "/api/users/getFeaturedBooks",
+    		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+    		type: "POST",
+    		data: {
+    			sessionId: sessionId
+    		},
+    		success: function (data) {
+    			books = data;
+    			toInsert ="";
+                for (i in books) {
+                  book = books[i];
+                  console.log("make helper function to get LibraryId");
+                  console.log("make helper function for userId and avatr");
+                  toInsert += "<li id=\'"+book.bookId+"\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+book.coverPhoto+"); height: 609px;";
+                  toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+                  toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
+                  toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
+                  toInsert +="<a href=\"/read/"+book.bookId+"\">Editors Pick:"+book.title+"</a></div><div class=\"book-info\">";
+                  toInsert +="<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
+                }
+				$("#book-list").html(toInsert);
+    		},
+    		error: function (q, status, err) {
+    			if (status == "timeout") {
+    				alert("Request timed out");
+    			} else {
+    				alert("Some issue happened with your request: " + err.message);
+    			}
+    		}
+    	});
+}
+function getUserCreatedBooks() {
+    sessionId = readCookie("JSESSIONID");
+    	$.ajax({
+    		url: "/api/users/getCreatedBooks",
+    		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+    		type: "POST",
+    		data: {
+    			sessionId: sessionId
+    		},
+    		success: function (data) {
+    			books = data;
+    			toInsert ="";
+                for (i in books) {
+                  book = books[i];
+                  console.log("make helper function to get LibraryId");
+                  toInsert += "<li id=\'"+book.bookId+"\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+book.coverPhoto+"); height: 609px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                  toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\"></a>"
+                  toInsert += "<a class=\"edit-this-book\" href=\"/editbook/"+book.bookId+"\"></a></div>";
+                  toInsert += "<div class=\"book-title\"><a href=\"/read/"+book.bookId+"\">"+book.title+"</a></div>"
+                  toInsert += "<div class=\"book-info\"><div class=\"library-location\"><a href=\"#\">Insane Asylum</a></div></div></li>";
+                  }
+                  $("#user-book-list").html(toInsert);
+    		},
+    		error: function (q, status, err) {
+    			if (status == "timeout") {
+    				alert("Request timed out");
+    			} else {
+    				alert("Some issue happened with your request: " + err.message);
+    			}
+    		}
+    	});
 }
 
+function getUserDrafts() {
+    sessionId = readCookie("JSESSIONID");
+    	$.ajax({
+    		url: "/api/users/getDraftBooks",
+    		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+    		type: "POST",
+    		data: {
+    			sessionId: sessionId
+    		},
+    		success: function (data) {
+    			drafts = data;
+    			toInsert ="";
+                for (i in drafts) {
+                  draft = drafts[i]
+                  toInsert+="<li><a href=\"/editbook/"+draft.bookId+"\">"+draft.title+"</a></li>";
+                }
+                $("#draft-menu").html(toInsert);
+    		},
+    		error: function (q, status, err) {
+    			if (status == "timeout") {
+    				alert("Request timed out");
+    			} else {
+    				alert("Some issue happened with your request: " + err.message);
+    			}
+    		}
+    	})
+}
+function getBooksInLibrary() {
+	$.ajax({
+		url: "/api/libraries/getBooksInLibrary",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId,
+			libraryId: libraryId
+		},
+		success: function (data) {
+			books = data;
+			lib ='';authorname="NEED TO GET";
+			for (i in books) {
+				book = books[i];
+				lib += "<li class=\"book\"><div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
+				lib += "<div class=\"book-title\"><a href=\"/read/"+book.id+"\">"+book.title+"</a></div><div class=\"book-info\">";
+				lib += "<div class=\"author-name\"><a href=\"/user/"+book.userId+"\">"+ authorname+"</a></div></div><span class=\"image-overlay\"></span>";
+				lib+="<img src=\""+book.coverPhoto+"\" alt=\" \"/></li>"}
+			$("#book-list").html(lib);
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
+function getLibrary() {
+	libraryId = document.URL.substring(30,document.URL.length)
+	sessionId = readCookie("JSESSIONID");
+	console.log("getIf user is already subscribed");
+	$.ajax({
+		url: "/api/libraries/getLibrary",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId,
+			libraryId: libraryId
+		},
+		success: function (data) {
+			library = data;
+			userName = library.userId;console.log('get user from userid');
+			featuredBookTitle = "STILL NEED TO GET";console.log("get featuredbookTitle from bookid");
+			featuredBookId = library.featuredBook;
+			toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+library.coverPhoto+"); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+			toInsert += "<div id=\"library-info\"><button class=\"subscribe white\">Subscribe</button><h1>" + userName + " · 8,349 subscribers</h1><h2>"+library.title+"</h2><p>"+library.description+"</p><section><a id=\"featured-library\" href=\"/read/"+featuredBookId+"\" style=\"display: block; width: 100%; height: 100%;\">"+ featuredBookTitle;
+		    toInsert += "</a></section></div><div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+		    $("#mp-pusher").prepend(toInsert);
+		    load();
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
 function getLibraries() {
 
 	sessionId = readCookie("JSESSIONID");
@@ -281,9 +433,6 @@ function getUserAccounts() {
 }
 
 function updateUser() {
-
-	console.log(updateUser);
-
 	name = user.name;
 	inputBox = document.getElementById("user-name");
 	displayName = inputBox.value;
@@ -308,7 +457,6 @@ function updateUser() {
 	twt = inputBox.value;
 	isPublic = user.isPublic;
 	sessionId = readCookie("JSESSIONID");
-
 	$.ajax({
 		url: "/api/users/updateUser",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -389,7 +537,25 @@ $(document).on("click", ".library-list-wrapper ul li button", function (ev) {
 	}
 
 });
-
+$(document).on("click", ".yay-delete-book", function (ev) {
+	e = $(this).closest(".yay-delete-book");
+	bookId = e.parent().parent().parent().attr("id")
+	sessionId = readCookie("JSESSIONID");
+	$.ajax({
+		url: "/api/books/deleteBook",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId,
+			bookId: bookId
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+				}
+			}
+	});
+});
 $(document).on("click", ".update-user", function () {
 	updateUser();
 });

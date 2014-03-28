@@ -56,10 +56,7 @@
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">007: The Diego Regules Story</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
+							<ul id="draft-menu">
 							</ul>
 						</li>
 
@@ -114,171 +111,9 @@
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
 					<ul id="user-book-list">
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Teletubbies Are the Future</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Insane Asylum</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">How to be Super Saiyan</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">The Teachings of Goku</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">I am Sailor Moon and you can too!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Space Cadets</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Dreaming of Stars</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Dimmi Bolling Press Kit</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Fresh Renders of Sound from my Head Ã— Beats Take Significance</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">The Kitchen Collective</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Save the trees, too!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">PETA</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">BOkeH!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Hmm, weird</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">The Wild Thornberrys!</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Nene-ne-ne-nene-ne-nick-Nickelodeooooon!</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Crying Rivers: The Justin Timberlake Story</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Biography</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="delete-this-book">&#xf252;</a>
-								<a href="#" class="edit-this-book">&#xf13d;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Trees Yo</a></div>
-
-							<div class="book-info">
-								<div class="library-location"><a href="#">Nature Bros</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
 					</ul>
 				</div>
 				<!--//your-books /-->
-
 			</div>
 			<!--//main-scroller /-->
 
@@ -312,7 +147,11 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-			$(function () { var first = getUser(); });
+			$(function () {
+			var second = getUserCreatedBooks();
+			var third = getUserDrafts();
+			var first = getUser();
+			 });
 
 			// Splash page
 			function load() {

@@ -28,9 +28,10 @@ public class QueryDatabaseUser {
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
-
+    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books order by random() LIMIT  20";
     private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
-    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ?";
+    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't'";
+    private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f'";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
     private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
@@ -120,7 +121,6 @@ public class QueryDatabaseUser {
             insert.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(13, new Timestamp(System.currentTimeMillis()));
-            LOG.info(insert.toString());
             insert.executeUpdate();
             User u = getUserByValidatedId(p.getValidatedId());
             SessionManager.addSessionIdToUser(u, sessionId);
@@ -144,7 +144,6 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         User user = new User();
         try {
-            LOG.info("Trying to find user by their validate id");
             statement = connection.prepareStatement(SELECT_VALIDATE);
             statement.setString(1, validatedId);
             rs = statement.executeQuery();
@@ -222,7 +221,6 @@ public class QueryDatabaseUser {
                 user.setMemeberSince(rs.getTimestamp("member_since"));
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
-                LOG.info("booolean" + rs.getBoolean("is_onboarded"));
                 user.setIsOnboarded(rs.getBoolean("is_onboarded"));
                 user.setTags(rs.getString("tags"));
                 return user;
@@ -298,7 +296,6 @@ public class QueryDatabaseUser {
 
     public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
-        LOG.info("updating db for user");
         try {
             statement = connection.prepareStatement(UPDATE_USER);
             statement.setString(1, user.getEmail());
@@ -368,13 +365,13 @@ public class QueryDatabaseUser {
         return null;
     }
 
-    public static ArrayList<Book> getCreatedBooks(int userId) {
+    public static ArrayList<Book> getDraftBooks(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         ArrayList<Book> bookList = new ArrayList<Book>();
         try {
-            statement = connection.prepareStatement(GET_OWNED_BOOKS);
-            statement.setString(1, Integer.toString(userId));
+            statement = connection.prepareStatement(GET_DRAFT_BOOKS);
+            statement.setInt(1, userId);
             rs = statement.executeQuery();
             while (rs.next()) {
                 Book book = new Book();
@@ -391,7 +388,7 @@ public class QueryDatabaseUser {
             }
             return bookList;
         } catch (Exception ex) {
-            LOG.error("Cannot check user u: " + userId, ex);
+            LOG.error("Cannot get users book u: " + userId, ex);
         } finally {
             try {
                 if (rs != null) {
@@ -402,6 +399,84 @@ public class QueryDatabaseUser {
                 }
             } catch (SQLException ex) {
                 LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+            }
+        }
+
+        return null;
+    }
+    public static ArrayList<Book> getCreatedBooks(int userId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        try {
+            statement = connection.prepareStatement(GET_OWNED_BOOKS);
+            statement.setInt(1, userId);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setBookId(rs.getInt("id"));
+                book.setUserId(rs.getInt("owned_by"));
+                book.setCoverPhoto(rs.getString("cover_photo"));
+                book.setTitle(rs.getString("title"));
+                book.setLanguague(rs.getString("language"));
+                book.setTags(rs.getString("tags"));
+                book.setCreated(rs.getTimestamp("created"));
+                book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setIsPublished(rs.getBoolean("is_published"));
+                bookList.add(book);
+            }
+            return bookList;
+        } catch (Exception ex) {
+            LOG.error("Cannot get users book u: " + userId, ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Book> getFeaturedBooks() {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        try {
+            statement = connection.prepareStatement(GET_FEATURED_BOOKS);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setBookId(rs.getInt("id"));
+                book.setUserId(rs.getInt("owned_by"));
+                book.setCoverPhoto(rs.getString("cover_photo"));
+                book.setTitle(rs.getString("title"));
+                book.setLanguague(rs.getString("language"));
+                book.setTags(rs.getString("tags"));
+                book.setCreated(rs.getTimestamp("created"));
+                book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setIsPublished(rs.getBoolean("is_published"));
+                bookList.add(book);
+            }
+            return bookList;
+        } catch (Exception ex) {
+            LOG.error("Cannot get featured books ", ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection" + ex.getMessage());
             }
         }
 

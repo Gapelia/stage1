@@ -11,20 +11,22 @@ public class QueryDatabaseActions {
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     private static final String DELETE_FROM_USERS = "DELETE FROM users where id = ?";
     private static final String FIND_BOOK = "SELECT * FROM BOOKS where owned_by = ?";
-    private static final String DELETE_FROM_BOOKS = "DELETE FROM books where owned_by = ?";
-    private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM books where book_id = ?";
+    private static final String DELETE_FROM_BOOKS = "DELETE FROM books where id = ?";
+    private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books where book_id = ?";
     private static final String DELETE_FROM_USERSTUFF = "DELETE FROM contributors user_bookmarks where user_id = ?";
     private static final String DELETE_FROM_USERSTUFF2 = "DELETE FROM user_votes pages where user_id = ?";
     private static final String DELETE_FROM_USERSTUFF3 = "DELETE FROM user_subscriptions where user_id = ?";
     private static final String DELETE_FROM_NOTIFICATION = "DELETE FROM library_notifications book_notifications where recipient = ?";
     private static final String DELETE_FROM_LIBRARIES = "DELETE FROM libraries where created_by = ?";
     private static final String DELETE_FROM_EDITORS = "DELETE FROM editors where editor_id = ?";
+
     private static final String BOOKMARK_BOOK = "INSERT INTO user_bookmarks (user_id, book_id)" + "VALUES (?,?)";
     private static final String REMOVE_BOOKMARK_BOOK = "DELETE FROM user_bookmarks where user_id = ? and book_id = ?";
     private static final String SUBSCRIBE_LIBRARY = "INSERT INTO user_subscriptions (user_id, library_id)" + "VALUES(?,?)";
     private static final String REMOVE_SUBCRIPTION_LIBRARY = "DELETE FROM user_subscriptions where user_id = ? and library_id = ?";
     private static final String VOTE_BOOK = "INSERT INTO user_votes (user_id, book_id)" + "VALUES (?,?)";
     private static final String REMOVE_VOTE_BOOK= "DELETE FROM user_votes where user_id =? and book_id = ?";
+
     public static String flushUser(User u) {
         PreparedStatement insert = null;
         ResultSet rs = null;

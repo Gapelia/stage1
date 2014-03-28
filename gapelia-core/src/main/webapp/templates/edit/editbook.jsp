@@ -2,7 +2,6 @@
 <% /* Include this line below to make page login-safe */ %>
 <%/*@include file="../../auth.jsp" */ %>
 <% /* *********************************************** */ %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +32,7 @@
 		<script src="http://use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 		<script src="/static/scripts/selectize.js"></script>
 
 		<script>
@@ -53,7 +52,7 @@
 			<div id="finish">
 				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
         <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish your book">Publish</a>
-				<a class="button b transparent" href="/me" id="close-button" title="Save changes and quit">Save + Close</a>
+				<a class="button b transparent" href="/featured" id="close-button" title="Save changes and quit">Save + Close</a>
 			</div>
 		</header>
 
@@ -66,14 +65,16 @@
 					<a class="edit-page"><i class="ion-gear-b"></i></a>
 
 					<section>
-						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
-						<span id="page0Title">0 &middot; New Page</span>
+						<img src="/static/images/whiteBG.jpg" id="page0Image" alt="">
+
+						<div id="page0Title">
+							<span class="page-thumb-number">0</span> &middot; <span class="page-thumb-title">New Page</span>
+						</div>
 					</section>
 				</li>
 
 				<li id="add-page" class="new-thumb disable-sort">
 					<div>+</div>
-					<span>Add New Page</span>
 				</li>
 			</ul>
 
@@ -113,23 +114,6 @@
 					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
-
-				<!--/
-				<li id="select-frontcover-layout">
-					<div id="frontcover-layout">Front Cover Layout</div>
-					<span>Front Cover</span>
-				</li>
-
-				<li id="select-text-layout">
-					<div id="text-layout">Text Layout</div>
-					<span>Text</span>
-				</li>
-
-				<li id="select-horizontal-layout">
-					<div id="horizontal-layout">Horizontal Layout</div>
-					<span>Horizontal</span>
-				</li>
-				/-->
 			</ul>
 		</div>
 
@@ -142,16 +126,6 @@
 				<div id="create-book">
 					<div id="create-content">
 
-						<section id="test-blank" class="blank-preview-wrapper">
-							<img class="page-bg" src="/static/images/blankBG.jpg" alt="" data-adaptive-background="1"/>
-
-							<div class="blank-preview">
-								<article>
-									<p contenteditable="false">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style="font-size: 50%">We can't wait to see it. (:</small></p>
-								</article>
-							</div>
-						</section>
-
 					</div>
 				</div>
 
@@ -161,7 +135,9 @@
 
 		<section id="publish-modal" class="modal" style="display: none;">
 			<div class="wrapper">
-				<h1>*BOOK TITLE*</h1>
+				<h1>The book title goes here</h1>
+				
+				<div id="add-description" contenteditable="true">Write a summary of your story</div>
 
 				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
 
@@ -218,7 +194,11 @@
 			</div>
 		</section>
 
+		<!--/ scripts /-->
 		<script src="/static/scripts/filepicker2.js"></script>
+		<!--/ <script src="http://maps.google.com/maps/api/js?key=AIzaSyDTyK4a-ZbTbi1LWWOBOowJfL7k4J6OX8Y&amp;libraries=places&amp;sensor=false"></script> /-->
+		
+		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/jquery.mousewheel.js"></script>
 		<script src="/static/scripts/scrollpanel.js"></script>
 
@@ -231,30 +211,24 @@
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script src="/static/scripts/embedly.js"></script>
+		<script src="/static/scripts/sortable.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/draggable_background.js"></script>
 
 		<script>
+			// $("img").VimeoThumb();
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
-		</script>
 
-		<script src="/static/scripts/sortable.js"></script>
-
-		<script>
-			$(function() {
-				$("#pages-scroller ul").sortable({ items: ":not(.disable-sort)" }).bind("sortupdate", function() {});
-			});
-		</script>
-		<script>
 			$("#publish-this").on("click", function(e) {
 
-				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
+				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href=featured>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
 				e.preventDefault();
 
 			});
 		</script>
+		<!--//scripts /-->
 
 	</body>
 

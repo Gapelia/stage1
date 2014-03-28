@@ -57,6 +57,19 @@ public class Libraries {
         return gson.toJson(QueryDatabaseLibrary.getBooksInLibrary(libraryId));
     }
 
+    @Path("getLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getLibrary(@FormParam("sessionId") String sessionId,
+                             @FormParam("libraryId") int libraryId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseLibrary.getLibrary(libraryId));
+    }
+
     @Path("addBookToLibrary")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

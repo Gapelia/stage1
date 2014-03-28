@@ -54,12 +54,8 @@
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li>
-								<li><a href="#">007: The Diego Regules Story</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-							</ul>
-						</li>
+                            <ul id="draft-menu"></ul>
+                        </li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -827,7 +823,7 @@
 
 		<script>
 			$(function () {
-
+                var third = getUserDrafts();
 				// Slide menu for desktop
 				if ($vW > "1024") {
 					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));

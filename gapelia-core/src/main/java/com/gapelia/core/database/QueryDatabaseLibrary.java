@@ -7,12 +7,15 @@ import com.gapelia.core.model.Book;
 
 import java.sql.*;
 import java.util.ArrayList;
+
 public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     private static final String GET_GOD_LIBRARIES = "SELECT * FROM libraries where created_by=1 order by random()";
+    private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
     private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
     private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
+    private static final String GET_BOOK = "SELECT * FROM books where id=?";
     private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (id,created_by,title,tags,cover_photo,description,num_subscribers,featured_book,created) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -33,8 +36,7 @@ public class QueryDatabaseLibrary {
             return libraryList;
         } catch (Exception ex) {
             LOG.error("ERROR: loading god libraryes:", ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -49,32 +51,73 @@ public class QueryDatabaseLibrary {
         return null;
     }
 
-    public static ArrayList<Book> getBooksInLibrary(int libraryId){
+    public static Library getLibrary(int id) {
         PreparedStatement statement = null;
         ResultSet rs = null;
+        Library library = new Library();
+        try {
+            statement = connection.prepareStatement(GET_LIBRARY);
+            statement.setInt(1, id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                library.setLibraryId(rs.getInt("id"));
+                library.setUserId(rs.getInt("created_by"));
+                library.setTitle(rs.getString("title"));
+                library.setTags(rs.getString("tags"));
+                library.setCoverPhoto(rs.getString("cover_photo"));
+                library.setDescription(rs.getString("description"));
+                library.setFeaturedBook(rs.getInt("featured_book"));
+                library.setCreated(rs.getTimestamp("created"));
+            }
+            return library;
+        } catch (Exception ex) {
+            LOG.error("ERROR: :" + id, ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + id + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<Book> getBooksInLibrary(int libraryId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ResultSet rs1 = null;
         ArrayList<Book> bookList = new ArrayList<Book>();
         try {
             statement = connection.prepareStatement(GET_BOOKS_IN_LIBRARY);
             statement.setInt(1, libraryId);
             rs = statement.executeQuery();
             while (rs.next()) {
-                Book book = new Book();
-                book.setBookId(rs.getInt("id"));
-                book.setUserId(rs.getInt("owned_by"));
-                book.setCoverPhoto(rs.getString("cover_photo"));
-                book.setTitle(rs.getString("title"));
-                book.setLanguague(rs.getString("language"));
-                book.setTags(rs.getString("tags"));
-                book.setCreated(rs.getTimestamp("created"));
-                book.setLastUpdated(rs.getTimestamp("last_updated"));
-                book.setIsPublished(rs.getBoolean("is_published"));
-                bookList.add(book);
+                statement = connection.prepareStatement(GET_BOOK);
+                statement.setInt(1, rs.getInt("book_id"));
+                rs1 = statement.executeQuery();
+                while (rs1.next()) {
+                    Book book = new Book();
+                    book.setBookId(rs1.getInt("id"));
+                    book.setUserId(rs1.getInt("owned_by"));
+                    book.setCoverPhoto(rs1.getString("cover_photo"));
+                    book.setTitle(rs1.getString("title"));
+                    book.setLanguague(rs1.getString("language"));
+                    book.setTags(rs1.getString("tags"));
+                    book.setCreated(rs1.getTimestamp("created"));
+                    book.setLastUpdated(rs1.getTimestamp("last_updated"));
+                    book.setIsPublished(rs1.getBoolean("is_published"));
+                    bookList.add(book);
+                }
             }
             return bookList;
         } catch (Exception ex) {
             LOG.error("ERROR: : " + libraryId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -89,7 +132,7 @@ public class QueryDatabaseLibrary {
         return null;
     }
 
-    public static String addBookToLibrary(int libraryId, int bookId){
+    public static String addBookToLibrary(int libraryId, int bookId) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(ADD_BOOK_TO_LIBRARY);
@@ -112,7 +155,7 @@ public class QueryDatabaseLibrary {
         return "Failure";
     }
 
-    public static String removeBookFromLibrary(int libraryId, int bookId){
+    public static String removeBookFromLibrary(int libraryId, int bookId) {
         PreparedStatement delete = null;
         try {
             delete = connection.prepareStatement(REMOVE_BOOK_FROM_LIBRARY);
@@ -135,7 +178,7 @@ public class QueryDatabaseLibrary {
         return "Success";
     }
 
-    public static String createLibrary(Library library){
+    public static String createLibrary(Library library) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(CREATE_LIBRARY);
@@ -150,21 +193,21 @@ public class QueryDatabaseLibrary {
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {
-            LOG.error("ERROR: : " + library.getLibraryId() + " "  + ex.getMessage());
+            LOG.error("ERROR: : " + library.getLibraryId() + " " + ex.getMessage());
         } finally {
             try {
                 if (insert != null) {
                     insert.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("error closing connection: "  + library.getLibraryId() + " " + ex.getMessage());
+                LOG.error("error closing connection: " + library.getLibraryId() + " " + ex.getMessage());
                 return "Error closing connection";
             }
         }
         return "Failure";
     }
 
-    public static String updateLibrary(Library library){
+    public static String updateLibrary(Library library) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(UPDATE_LIBRARY);
@@ -179,21 +222,21 @@ public class QueryDatabaseLibrary {
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {
-            LOG.error("ERROR: : " + library.getLibraryId() + " "  + ex.getMessage());
+            LOG.error("ERROR: : " + library.getLibraryId() + " " + ex.getMessage());
         } finally {
             try {
                 if (insert != null) {
                     insert.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("error closing connection: "  + library.getLibraryId() + " " + ex.getMessage());
+                LOG.error("error closing connection: " + library.getLibraryId() + " " + ex.getMessage());
                 return "Error closing connection";
             }
         }
         return "Failure";
     }
 
-    public static String deleteLibrary(int libraryId){
+    public static String deleteLibrary(int libraryId) {
         PreparedStatement delete = null;
         try {
             delete = connection.prepareStatement(DELETE_LIBRARY);

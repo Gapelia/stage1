@@ -1,4 +1,7 @@
-
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +36,8 @@
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+		<script src="/static/scripts/ajax.js"></script>
+
 
 	</head>
 
@@ -51,13 +56,9 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-							<ul>
-								<li><a href="#">hikari: The Future of the Operating System</a></li><input type="checkbox" class="js-switch" checked/>
-								<li><a href="#">007: The Diego Regules Story</a></li>
-								<li><a href="#">From the Rennaisance, to the Future of Blogging</a></li>
-							</ul>
-						</li>
+                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                            <ul id="draft-menu"></ul>
+                        </li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -113,176 +114,6 @@
 
 					<ul id="book-list">
 
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Bauhaus</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/library-bauhaus.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="/book/001/hayao-miyazaki">Hayao Miyazaki</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/library-hayao-miyazaki.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Stadiums I've Performed In</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">the Wibby</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/library-performance.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Integalactic Fortress</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/library-integalactic-fortress.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Techno-Bunka</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">The Most Fantabulous</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Pleasantville</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Doug Funnie</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">ACDC Town</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Lan Hikari</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-07.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Internet City</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Hub Hikari</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-08.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Insane Aslyums</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Daria Morgendorffer</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-09.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="book-title"><a href="#">Museums of the Mind</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Jane Lane</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-10.jpg" alt=""/>
-						</li>
-
 					</ul>
 				</div>
 				<!--//Featured Books /-->
@@ -323,135 +154,6 @@
 							<span class="image-overlay"></span>
 							<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
 						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #03</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Hub Hikari</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cinema-matrix.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #04</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Lan Hikari</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cuisine-traceysculinaryadventures.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #05</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Doug Funnie</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/era-akasped.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #06</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">The Most Fantabulous</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #07</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #08</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">the Wibby</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #09</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Nokadota Xialiu</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="book">
-							<div class="book-buttons">
-								<a href="#" class="approve-this-book">&#xf120;</a>
-								<a href="#" class="deny-this-book">&#xf128;</a>
-							</div>
-
-							<div class="book-title"><a href="#">Submitted Book #10</a></div>
-
-							<div class="book-info">
-								<div class="author-name"><a href="#">Paul Anthony Webb</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.JPG" alt=""/>
-						</li>
-
 					</ul>
 				</div>
 				<!--//Submission List /-->
@@ -491,28 +193,12 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			$(function () {
-
-				var $vW = $(window).width(), $vH = $(window).height();
-
-				// Splash page
-				stuff = "";
-				stuff += "<section id=\"library-splash\">";
-				// stuff += "<button class=\"subscribe transparent-ii\">Subscribe</button>";
-				stuff += "<div id=\"library-info\">";
-				stuff += "<button class=\"subscribe white\">Subscribe</button>";
-				stuff += "<h1>Editor's Name &middot; 8,349 subscribers</h1>";
-				stuff += "<h2>Library Name</h2>";
-				stuff += "<p>This is a library description. It tells you what the library is about, so you know what to look for and stuff.</p>";
-				stuff += "<section>";
-				stuff += "<a id=\"featured-library\" href=\"#\">hikari: The Future of the Operating System</a>";
-				stuff += "</section>";
-				stuff += "</div>";
-				stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-				stuff += "<img class=\"page-bg\" src=\"/static/images/libraries/wheat-field-by-phk-dan-10.jpg\"/>";
-				stuff += "</section>";
-
-				$("#mp-pusher").prepend(stuff);
+		$( document ).ready(function() {
+             var first =  getLibrary();
+             var third = getUserDrafts();
+             var second = getBooksInLibrary();
+        });
+		function load() {
 
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
@@ -745,7 +431,7 @@
 
 				}
 
-			});
+			}
 		</script>
 		<!--//scripts /-->
 

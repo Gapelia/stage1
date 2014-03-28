@@ -11,12 +11,20 @@
         <to type="permanent-redirect">$1</to>
     </rule>
     <rule>
-    	<from>^/read/bookid=(.*)</from>
+    	<from>^/read/([0-9]+)$</from>
     	<to>/templates/read/index.jsp</to>
     </rule>
     <outbound-rule>
     	<from>^/templates/read/index.jsp</from>
-    	<to>/read/bookid=(.*)</to>
+    	<to>/read/([0-9]+)$</to>
+    </outbound-rule>
+    <rule>
+        <from>^/user/([0-9]+)$</from>
+        <to>/templates/user/index.jsp</to>
+    </rule>
+    <outbound-rule>
+        <from>^/templates/user/index.jsp</from>
+        <to>/user/([0-9]+)$</to>
     </outbound-rule>
     <rule>
 		<from>^/onboard$</from>
@@ -99,32 +107,22 @@
 	</outbound-rule>
 
 	<rule>
-		<from>^/editbook$</from>
-		<to>/templates/books/editbook.jsp</to>
+		<from>^/editbook/([0-9]+)$</from>
+		<to>/templates/edit/editbook.jsp</to>
 	</rule>
 	<outbound-rule>
-		<from>^/templates/books/editbook.jsp$</from>
-		<to>/edit</to>
+		<from>^/templates/edit/editbook.jsp$</from>
+		<to>/editbook/([0-9]+)$</to>
 	</outbound-rule>
 
 	<rule>
-		<from>^/editlibrary$</from>
-		<to>/templates/books/editlibrary.jsp</to>
+		<from>^/editlibrary/([0-9]+)$</from>
+		<to>/templates/edit/editlibrary.jsp</to>
 	</rule>
 	<outbound-rule>
-		<from>^/templates/books/editlibrary.jsp$</from>
-		<to>/editlibrary</to>
+		<from>^/templates/edit/editlibrary.jsp$</from>
+		<to>/editlibrary/([0-9]+)$</to>
 	</outbound-rule>
-
-	<rule>
-		<from>^/libraries$</from>
-		<to>/templates/libraries/index.jsp</to>
-	</rule>
-	<outbound-rule>
-		<from>^/templates/libraries/index.jsp$</from>
-		<to>/libraries</to>
-	</outbound-rule>
-
 	<rule>
 		<from>^/library/([0-9]+)$</from>
 		<to>/templates/libraries/library.jsp?</to>

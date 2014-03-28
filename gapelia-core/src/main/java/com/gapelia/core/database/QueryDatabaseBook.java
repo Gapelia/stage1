@@ -9,13 +9,15 @@ public class QueryDatabaseBook {
     private static Logger LOG = Logger.getLogger(QueryDatabaseBook.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     //Page Relate Queries
+    private static final String FIND_BOOK = "SELECT * FROM BOOKS where owned_by = ?";
+    private static final String DELETE_FROM_BOOKS = "DELETE FROM books where id = ?";
+    private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books where book_id = ?";
     private static final String CREATE_PAGE = "INSERT INTO pages (id, book_id, user_id, created, last_updated) VALUES(?,?,?,?,?)";
     private static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,page_number = ?,photo_url = ?,photo_id = ?,creative_commons = ?,last_updated = ? WHERE id = ?";
     private static final String DELETE_PAGE = "DELETE FROM pages WHERE id = ?";
     // Book Related Queries
     private static final String CREATE_BOOK = "INSERT INTO books (id, owned_by, created, last_updated, is_published) VALUES (?,?,?,?,?)";
     private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ? WHERE id = ?";
-    private static final String DELETE_BOOK = "DELETE FROM books WHERE id = ?";
 
     public static String createPage(Page page){
         PreparedStatement insert = null;
@@ -151,19 +153,22 @@ public class QueryDatabaseBook {
     }
 
     public static String deleteBook(int bookId){
-        PreparedStatement delete = null;
+        PreparedStatement insert = null;
         try {
-            delete = connection.prepareStatement(DELETE_BOOK);
-            delete.setInt(1, bookId);
-            delete.executeUpdate();
+            insert = connection.prepareStatement(DELETE_FROM_LIBRARYBOOKS);
+            insert.setInt(1, bookId);
+            insert.executeUpdate();
+            insert = connection.prepareStatement(DELETE_FROM_BOOKS);
+            insert.setInt(1, bookId);
+            insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {
             LOG.error("ERROR deleting book: : " + bookId + " " + ex.getMessage());
             return "ERROR deleting book";
         } finally {
             try {
-                if (delete != null) {
-                    delete.close();
+                if (insert != null) {
+                    insert.close();
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: " + bookId + " " + ex.getMessage());
