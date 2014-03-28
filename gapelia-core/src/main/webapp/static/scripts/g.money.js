@@ -469,7 +469,7 @@
 		// Approve submission
 		$(document).on("click", ".book-buttons .approve-this-book", function (e) {
 
-			$(this).closest("li").prepend("<div class=\"approve-book-confirm\"><h3>Accept Submission</h3><textarea placeholder='Add optional message'></textarea><button class='green'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+			$(this).closest("li").prepend("<div class=\"approve-book-confirm\"><h3>Accept Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
 			e.preventDefault();
 

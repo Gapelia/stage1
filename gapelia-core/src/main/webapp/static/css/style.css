@@ -1625,14 +1625,13 @@ html, body {
   scrollbar-highlight-color: #fcfcfc;
   scrollbar-shadow-color: #fcfcfc; }
 html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  border-top: 1px solid #70a1b1;
   width: 10px;
   height: 10px; }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
   background-color: #70a1b1; }
 html ::-webkit-scrollbar-thumb:window-inactive, body ::-webkit-scrollbar-thumb:window-inactive {
   background-color: #cfcfcf; }
-html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
-  background-color: rgba(112, 161, 177, 0.1); }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -3115,7 +3114,7 @@ body.library .book-buttons .deny-this-book:hover {
 body.library .approve-book-confirm {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #4e72c7 0%, #6d9ed7 34%, #a4c8d5 67%, #b4d9e1 84%, #c4d9d6 100%);
+  background: linear-gradient(180deg, #70a1b1 0%, #70a1b1 34%, #a4c8d5 67%, #b4d9e1 84%, #c4d9d6 100%);
   color: #fcfcfc;
   padding: 4rem 2rem;
   position: relative;

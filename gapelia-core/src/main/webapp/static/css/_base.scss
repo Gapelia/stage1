@@ -22,6 +22,7 @@ html, body {
 	-webkit-overflow-scrolling: touch;
 
 	::-webkit-scrollbar {
+		border-top: 1px solid #70a1b1;
 		width: 10px; height: 10px;
 	}
 
@@ -29,9 +30,6 @@ html, body {
 		background-color: #70a1b1;
 		&:window-inactive { background-color: #cfcfcf; }
 	}
-
-	// ::-webkit-scrollbar-track { background-color: rgba(#fcfcfc, 0.5); }
-	::-webkit-scrollbar-track { background-color: rgba(112, 161, 177, 0.1); }
 
 	scrollbar-3dlight-color: #fcfcfc;
 	scrollbar-arrow-color: #fcfcfc;
