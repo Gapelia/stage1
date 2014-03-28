@@ -5950,7 +5950,8 @@ a.count span.dont-move {
 .full-book .photo-wrapper .author-info .author-avatar, .full-book .overlay-wrapper .author-info .author-avatar {
   float: right; }
 .full-book .photo-wrapper {
-  background-color: #fcfcfc; }
+  background-color: #fcfcfc;
+  height: 100%; }
 .full-book .photo-wrapper .page-bg-wrapper {
   width: 50%;
   height: 65%;
