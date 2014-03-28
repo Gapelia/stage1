@@ -2,6 +2,7 @@
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -513,11 +514,11 @@
 		<script src="/static/scripts/scroll.js"></script>
 
 		<script>
-			 $(document).ready(function() {
-            		         getLibraries();
-             });
-             function load () {
-                var $vW = $(window).width(), $vH = $(window).height();
+			$(function() { getLibraries(); });
+
+			function load () {
+
+				var $vW = $(window).width(), $vH = $(window).height();
 
 				if ($vW > "1024") {
 
@@ -681,11 +682,13 @@
 
 					NProgress.start();
 
+					/*
 					var
 					allBooks = $("#library-list li"),		// gets all books in a section
 					firstBook = $(allBooks).first();		// gets first book in list
 
 					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
+					*/
 
 					setTimeout(function () {
 
@@ -702,7 +705,10 @@
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#library-list").css("width", w - 155 + "px");
+
+							$("#library-list").css("width", w + "px");
+							$("#library-list .library").css("height", $vH - 97 + "px");
+
 						} else {
 							// $("#library-list").css("height", h + 379 + "px");
 						}

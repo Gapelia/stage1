@@ -1404,7 +1404,8 @@
 
 }
 
-@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
+// Please read up on media queries and device screen sizes, I'm trying to save you from yourself
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
