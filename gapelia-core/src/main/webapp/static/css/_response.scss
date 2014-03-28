@@ -42,7 +42,7 @@
 
 		.book, .collection, .library, .new, .draft {
 			&:hover {
-				box-shadow: inset 10px 0 0 0 $slate;
+				//box-shadow: inset 10px 0 0 0 $slate; // spine hidden until animation is developed
 			}
 		}
 		
@@ -995,7 +995,6 @@
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
-	/// Review all this at a later date
 
 	.app {
 
@@ -1026,17 +1025,21 @@
 			background-image: none !important;
 			box-shadow: none !important;
 			background: transparent !important;
-			margin-top: -3rem;
+			height: 100px;
 			
 			&:after { background-image: none !important; }
 			
 			p {
 				font-size: 1.4rem;
+				font-weight: 100;
 				line-height: 2.2rem;
+				
+				a { border-bottom: 1px solid #191919; }
 			}
 		}
 		
 		#book-list, #library-list, #bookmark-list {
+			background-color: rgba(gray, 0.05);
 			padding: 5.2rem 1rem 1rem 1rem;
 		}
 		
@@ -1045,15 +1048,25 @@
 		}
 		
 		.book-title {
-			margin: 2.5rem 0 1.5rem 0; padding: 0 6rem 0 4rem;
+			margin: 1.8rem 0 1.5rem 0; padding: 0 2rem 0 2rem;
 			font-size: 1.8rem;
+			width: 88%;
 		}
 
 		.book-info, .collection-info {
+			bottom: 1rem;
 			font-size: 1rem;
-			.author-name, .library-location { display: block; }
+			padding: 0 2rem;
+			position: absolute;
+			.author-name { display: block; }
 		}
 
+		.library-location {
+			left: 5%;
+			top: 9%;
+			width: 78%;
+		}
+		
 		.library {
 			.library-info {
 				.title {
@@ -1064,7 +1077,31 @@
 				.lib-blurb { font-size: 1rem; }
 			}
 		}
-
+		
+		#library-splash {
+			#library-info {
+				left: 13%;
+				top: 36%;
+				width: 75%;
+				
+				h2 { font-size: 2.5rem; }
+				
+				p { font-size: 1.2rem; }
+			}
+			#close-splash {
+				bottom: 6rem;
+				font-size: 4rem;
+			}
+		}
+		
+		#user-splash {
+			.user-avatar { top: 12%; }
+			#close-splash {
+				bottom: 6rem;
+				font-size: 4rem;
+			}
+			#splash-user-info { top: 24%; }
+		}
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -1130,10 +1167,18 @@
 			}
 		}
 
-		#featured-nav { top: 65px; }
+		#featured-nav {
+			font-size: 1.3rem;
+			top: 65px;
+		}
 
+		#user-book-list {
+			background-color: rgba(gray, 0.05);
+			padding: 5.2rem 1rem 1rem 1rem;
+		}
+		
 		#user-panel {
-			// box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05);
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 			height: 65px;
 
 			#user-wrapper {
@@ -1152,14 +1197,25 @@
 					.avatar-wrapper {
 						width: 65px; height: 65px;
 
+						img {
+							border-radius: 300rem;
+							height: 50px; width: 50px;
+							right: 2rem;
+							top: 0.5rem;
+						}
+						
 						&:after {
-							width: 65px; height: 65px;
+							display: none;
 						}
 					}
 				}
 			}
 		}
-
+		
+		#user-splash {
+			h1 { font-size: 2.6rem; }
+			#splash-user-bio { font-size: 1.25rem; }
+		}	
 	}
 
 }
@@ -1348,7 +1404,7 @@
 
 }
 
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -1372,7 +1428,7 @@
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
-
+	
 	.app {
 
 		// Splash pages
@@ -1418,7 +1474,7 @@
 			padding: 65px 0 0 0;
 		}
 
-		#g-menu-toggle { left: 1rem; }
+		#g-menu-toggle { left: 0.5rem; }
 		#next-book-toggle { right: 0; }
 
 		// Books
@@ -1429,41 +1485,54 @@
 			border-bottom: 1px solid rgba($slate, 0.3);
 			box-shadow: none;
 			height: auto;
+			
+			&:last-child {
+				border-bottom: none;
+				margin: 1rem 1rem 1rem 0rem;
+			}
 
-			&:last-child { border-bottom: none; }
-
-			a { color: $slate; }
-
-			.book-title, .book-info, .collection-info, .library-info {
+			.author-avatar { margin: 0; }
+			
+			.book-title, .book-info, .library-location, .collection-info, .library-info {
 				padding: 0;
 				position: relative;
 				width: 100%; // 80
+				
+				a { color: rgba(black, 0.75); }
 			}
-
+			
 			.book-title {
 				font-size: 1.4rem;
 				line-height: 1.6rem;
-				margin: 0 0 1rem 0;
+				margin: 0 0 2rem 0;
 				top: 25%;
 			}
 
 			.book-info, .collection-info, .library-info {
 				color: rgba($black, 0.9);
 				font-size: smaller;
-				margin: 0 0 1.3rem 0;
-
+				margin: 0 0 0rem 0;
+				
+				a { color: rgba(black, 0.75); }
+				
 				.title {
 					font-size: 1.7rem;
 					margin: 0 0 1rem 0;
 				}
 
-				.library-location, .author-name, .title {
-					a { color: $slate; }
-				}
-
 				.author-name, .library-location {
+					display: inline-block;
+					position: relative;
+					top: -0.8rem;
+					
 					&:before { margin: 0 0.1rem 0 0; }
 				}
+			}
+			
+			.book-info, .collection-info { display: inline-block !important; }
+			
+			.book, .collection {
+				background-image: none !important; 
 			}
 
 			.book-snippet {
@@ -1475,6 +1544,9 @@
 			}
 
 			.library-info {
+				
+				a {color: $white !important;}
+				
 				.lib-blurb {
 					display: none;
 					font-size: 0.9rem;
@@ -1491,7 +1563,6 @@
 			.bookmark-this, .image-overlay, &:after { display: none; }
 
 			&:hover { box-shadow: none; }
-			&:last-child { margin: 0; }
 		}
 
 		.book, .collection {
@@ -1509,8 +1580,10 @@
 		}
 
 		#book-cta {
-			padding: 2rem;
+			margin-top: 2rem;
  
+			.book-snippet { display: none; }
+			
 			p {
 				font-size: 1.2rem;
 				top: initial;
@@ -1521,14 +1594,21 @@
 				-moz-transform: translateY(0);
 				-webkit-transform: translateY(0);
 			}
-
-			.book-snippet { display: none; }
+		}
+		
+		.library-location {
+			font-size: 0.8rem;
+			font-style: italic;
+			left: 0;
+			margin-bottom: 5px;
+			width: 100%;
 		}
 
 		// Libraries
 		.library {
 			border-bottom: none;
-			// margin: 0 0 1rem 0;
+			margin: 1rem 1rem 0rem 0rem;
+			padding: 2rem;
 
 			.library-info {
 				margin: 1rem 0;
@@ -1540,11 +1620,30 @@
 			}
 
 			.wrapper { margin: 0 0 1rem 0; }
-
-			a { color: $white !important; }
+			
 			button { font-size: 0.6rem !important; }
 		}
-
+		
+		// User-splash
+		#user-splash {
+			
+			.user-avatar { top: 10%; }
+			
+			#splash-user-info {
+				padding: 0;
+				top: 20%;
+				
+				h1 { font-size: 2.4rem; }
+				#splash-user-bio {
+					font-size: 1rem;
+					padding: 0;}
+			}
+			
+			#close-splash {
+				bottom: 9rem;
+				font-size: 3rem;
+			}
+		}
 	}
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
@@ -1552,9 +1651,17 @@
 	.library {
 
 		#library-splash {
+			
+			#library-info { top: 36%;  }
+			
 			button {
-				top: -6rem; right: 0;
+				top: -3rem; right: 0;
 				position: fixed;
+			}
+			
+			#close-splash {
+				font-size: 4rem;
+				bottom: 7rem !important;
 			}
 		}
 
@@ -1790,7 +1897,7 @@
 		#user-book-list { padding: 65px 0 0 0; }
 
 		#user-panel {
-			background-color: $slate;
+			background-color: $white;
 			height: 65px;
 
 			#g-menu-toggle {
@@ -1813,56 +1920,6 @@
 
 	}
 
-	/*
-	.profile {
-
-		#user-book-list {
-			width: 100%; height: 100% !important; // auto
-			top: initial; bottom: 0; // 75px
-
-			padding: 75px 0 0 0;
-		}
-
-		#g-menu-toggle { color: white !important; }
-
-		#user-panel {
-			box-shadow: inset 0 0 0 rgba($black, 0.5), inset 0 0 0 1px rgba($black, 0.05); //
-			height: 65px !important; //
-			background-color: $slate; //
-
-			#user-wrapper {
-				padding: 0;
-
-				.user-avatar {
-					display: block !important; //
-					margin: 0 !important; //
-					top: 0; //
-
-					.avatar-wrapper {
-						width: 75px; height: 75px;
-
-						border: 0;
-						border-radius: 0;
-						float: right;
-						margin: 0;
-
-						img {
-							width: 55px; height: auto; //
-							top: 10px; right: 10px; //
-
-							border-radius: 40px; //
-						}
-
-						&:after { display: none; } //
-					}
-				}
-			}
-		}
-
-		.user-data, .button-wrapper { display: none; } //
-
-	}
-	*/
 
 	/*
 	.accounts {

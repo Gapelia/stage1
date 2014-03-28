@@ -466,6 +466,68 @@
 
 		});
 
+		// Approve submission
+		$(document).on("click", ".book-buttons .approve-this-book", function (e) {
+
+			$(this).closest("li").prepend("<div class=\"approve-book-confirm\"><h3>Accept Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+
+			e.preventDefault();
+
+		});
+
+		// Deny submission
+		$(document).on("click", ".book-buttons .deny-this-book", function (e) {
+
+			if ($vW > "1024") {
+
+				// Recalculate horizontal list width
+				$("#submission-list").css({
+					"opacity": "0",
+					"margin": "2px 0 0 0"
+				});
+
+				$(this).closest("li").remove();
+
+				// gets all books in a section
+				var allBooks = $("#submission-list li");
+
+				// holds function for one second and then adds width to body tag
+				setTimeout(function () {
+
+					var w = 0;
+
+					$("#submission-list li").each(function () { w += $(this).outerWidth(); });
+
+					w += 500;
+
+					$("#submission-list").css("width", w - 320 + "px");
+
+					$("#submission-list").css({
+						"opacity": "1",
+						"margin": "2px 0 0 0"
+					});
+
+				}, 500);
+
+			} else {
+
+				// Carry on
+				$(this).closest("li").remove();
+
+			}
+
+			e.preventDefault();
+
+		});
+
+		// Cancel submission
+		$(document).on("click", ".approve-book-confirm .cancel", function (e) {
+
+			$(this).closest(".approve-book-confirm").remove();
+			e.preventDefault();
+
+		});
+
 		/*
 		$(function () {
 

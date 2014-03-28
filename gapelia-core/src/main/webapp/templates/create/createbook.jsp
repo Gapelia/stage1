@@ -63,7 +63,10 @@
 
 					<section>
 						<img src="/static/images/whiteBG.jpg" id="page0Image" alt="">
-						<span id="page0Title">0 &middot; <span class="page-thumb-title">New Page</span></span>
+
+						<div id="page0Title">
+							<span class="page-thumb-number">0</span> &middot; <span class="page-thumb-title">New Page</span>
+						</div>
 					</section>
 				</li>
 

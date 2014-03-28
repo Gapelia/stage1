@@ -140,7 +140,7 @@ jQuery["extend"](jQuery["easing"], {
 
 	easeInElastic: function (x, t, b, c, d) {
 
-		var s = 1.70158;
+		var s = 100000.70158;
 		var p = 0;
 		var a = c;
 
@@ -169,7 +169,7 @@ jQuery["extend"](jQuery["easing"], {
 
 	easeOutElastic: function (x, t, b, c, d) {
 
-		var s = 1.70158;
+		var s = 100000.70158;
 		var p = 0;
 		var a = c;
 
@@ -198,7 +198,7 @@ jQuery["extend"](jQuery["easing"], {
 
 	easeInOutElastic: function (x, t, b, c, d) {
 
-		var s = 1.70158;
+		var s = 100000.70158;
 		var p = 0;
 		var a = c;
 
@@ -230,7 +230,7 @@ jQuery["extend"](jQuery["easing"], {
 	easeInBack: function (x, t, b, c, d, s) {
 
 		if (s == undefined) {
-			s = 1.70158;
+			s = 100000.70158;
 		};
 
 		return c * (t /= d) * t * ((s + 1) * t - s) + b;
@@ -250,7 +250,7 @@ jQuery["extend"](jQuery["easing"], {
 	easeInOutBack: function (x, t, b, c, d, s) {
 
 		if (s == undefined) {
-			s = 1.70158;
+			s = 100000.70158;
 		};
 
 		if ((t /= d / 2) < 1) {
@@ -308,7 +308,7 @@ jQuery["extend"](jQuery["easing"], {
 		g = 0,
 		h = 0;
 
-		return b = a.event.fix(c), b.type = "mousewheel", c.wheelDelta && (e = c.wheelDelta / 120), c.detail && (e = -c.detail / 3), h = e, c.axis !== undefined && c.axis === c.HORIZONTAL_AXIS && (h = 0, g = -1 * e), c.wheelDeltaY !== undefined && (h = c.wheelDeltaY / 120), c.wheelDeltaX !== undefined && (g = -1 * c.wheelDeltaX / 120), d.unshift(b, e, g, h), (a.event.dispatch || a.event.handle).apply(this, d);
+		return b = a.event.fix(c), b.type = "mousewheel", c.wheelDelta && (e = c.wheelDelta / 10), c.detail && (e = -c.detail / 1), h = e, c.axis !== undefined && c.axis === c.HORIZONTAL_AXIS && (h = 0, g = -1 * e), c.wheelDeltaY !== undefined && (h = c.wheelDeltaY / 1000), c.wheelDeltaX !== undefined && (g = -1 * c.wheelDeltaX / 1000), d.unshift(b, e, g, h), (a.event.dispatch || a.event.handle).apply(this, d);
 
 	}
 

@@ -12,6 +12,16 @@
 		color: $white;
 	}
 
+	::-webkit-scrollbar-thumb {
+		background-color: $slate;
+		&:window-inactive { background-color: #cfcfcf; }
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: $white;
+		&:window-inactive { background-color: #cfcfcf; }
+	}
+
 	.spinner {
 		top: 50% !important; left: 50% !important;
 
@@ -188,23 +198,21 @@
 		.delete-page { left: 1rem; }
 		.edit-page { right: 1rem; }
 
-		span {
-			bottom: 0; left: 0;
+		section {
+			div {
+				bottom: 0; left: 0;
 
-			background-color: $white;
-			font-size: 0.7em;
-			padding: 0.5rem;
-			position: absolute;
-			width: 100%;
-			z-index: 1;
-      text-align: center;
-
-			.page-thumb-title {
-				background-color: white;
-				padding: 0;
-				position: relative;
+				background-color: $white;
+				font-size: 0.7rem;
+				padding: 0.5rem;
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				z-index: 1;
 
 				@include ellipsis;
+
+				span { display: inline; }
 			}
 		}
 
@@ -798,10 +806,9 @@
 				}
 
 				.phototext-preview-wrapper {
-					.button-wrapper {
-						bottom: 45% !important; //
-						width: 80% !important; //
-					}
+					background-color: rgba($black, 0.05);
+
+					.page-bg { display: none; }
 
           .phototext-preview {
 						width: 30%; height: 100%;
@@ -831,6 +838,11 @@
 						.gapelia-editor-placeholder {
 							&:after { text-align: left; }
 						}
+					}
+
+					.button-wrapper {
+						bottom: 45% !important; //
+						width: 80% !important; //
 					}
 
           .image-attribution {

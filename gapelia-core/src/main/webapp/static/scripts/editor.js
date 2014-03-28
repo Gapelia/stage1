@@ -316,7 +316,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><span id='page"+(pagesCreated)+"Title'>"+(pagesCreated)+"&middot; <span class=\"page-thumb-title\">New Page</span></span></section>"));
+		$(this).before($("<li id=\""+ pagesCreated +"\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page"+(pagesCreated)+"Image' alt=\"\"/><div id='page"+(pagesCreated)+"Title'><span class=\"page-thumb-number\">"+(pagesCreated)+"</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
 
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
@@ -469,11 +469,13 @@
 	});
 
 	// Image insertion
-	var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+	// var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+	var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
 
 	function handleFile(file) {
 
-		pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+		// pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+		pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
 		console.log(file);
 
 	}
