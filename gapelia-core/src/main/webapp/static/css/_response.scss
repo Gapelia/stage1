@@ -162,7 +162,7 @@
 			width: 100%; height: 100% !important; // auto
 			top: initial; bottom: 0; // 75px
 
-			background-color: rgba($black, 0.1);
+			background-color: rgba($black, 0.05);
 			display: inline-block; // block
 			padding: 5.8rem 1.5rem 1.5rem 1.5rem; // 75px 0 0 0
 			transform: translateY(0);
@@ -174,18 +174,23 @@
 		}
 
 		#book-cta {
+			background-image: none !important;
+			height: 100px;
 			padding: 0 3rem;
 			text-align: center;
 
+			&:after { background-image: none !important; }
+			
 			p {
-				font-size: 2rem; // 1.8rem
+				font-size: 1.8rem;
+				font-weight: 200;
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
 				z-index: 1;
 
 				a {
-					border-bottom: 3px solid $black;
+					border-bottom: 1px solid $black;
 					display: inline !important;
 				}
 
@@ -204,10 +209,9 @@
 
 		#featured-panel, #user-panel {
 			background-color: $white;
-			// border-bottom: 1px solid rgba($black, 0.3);
 			border-bottom: 0;
 			// box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
-			height: 75px; // 301px // 188px
+			height: 65px; // 301px // 188px
 			margin: 0;
 			overflow: visible;
 
@@ -232,7 +236,9 @@
 				width: 100%; height: 75px;
 				margin: 0; padding: 1.6rem 6rem;
 
+				color: $slate;
 				font-size: 1.5rem;
+				font-weight: 200;
 				left: 0;
 				overflow: hidden;
 				position: absolute;
@@ -338,6 +344,11 @@
 				}
 			}
 
+			.library-location {
+				left: 2rem;
+				top: 15%;
+			}
+			
 			.wrapper {
 				bottom: 2rem; // 4rem
 				padding: 0 4rem;
@@ -410,17 +421,19 @@
 		.book-title, .book-info { position: relative; }
 
 		.book-title {
-			margin: 3rem 0 1.5rem 0; padding: 0 5rem 0 4rem;
+			margin: 3rem 0 1.5rem 0; padding: 0 5rem 0 2rem;
 
-			font-size: 2.1rem;
+			font-size: 2rem;
 			top: initial;
 		}
 
 		.book-info, .collection-info {
-			bottom: initial;
+			bottom: 1rem;
 			font-size: 1.2rem;
-			padding: 0 4rem;
+			position: absolute;
 		}
+		
+		.book-info .author-name, .collection-info .author.name { font-size: 1rem; }
 
 		#featured-splash, #library-splash, #user-splash, #new-library {
 			z-index: 10;
@@ -430,8 +443,9 @@
 			#library-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
-				top: initial; right: 0; bottom: 4rem; // -16rem
+				top: initial; right: 0; bottom: 6rem; // -16rem
 
+				font-size: 4rem;
 				height: auto;
 				text-align: center;
 				width: 100%;
@@ -445,10 +459,19 @@
 				}
 			}
 		}
+		
+		#library-splash #library-info {
+			left: 10%;
+			top: 35%;
+			width: 75%;
+			
+			h2 { font-size: 20px; }
+			p { font-size: 1.2rem; }
+		}
 
 		#user-splash {
-			#splash-user-info { top: 33%; }
-			.user-avatar { top: 6%; }
+			#splash-user-info { top: 24%; }
+			.user-avatar { top: 10%; }
 		}
 
 	}
@@ -939,6 +962,47 @@
 	}
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	.profile {
+		
+		#user-panel {
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+			height: 65px;
+
+			#user-wrapper {
+				h2 {
+					width: 100%; height: 65px;
+					margin: 0; padding: 1.6rem 6rem;
+
+					font-size: 1.3rem;
+					line-height: 1rem;
+					text-align: center;
+
+					@include ellipsis;
+				}
+
+				.user-avatar {
+					.avatar-wrapper {
+						width: 65px; height: 65px;
+
+						img {
+							border-radius: 300rem;
+							height: 50px; width: 50px;
+							right: 2rem;
+							top: 0.5rem;
+						}
+						
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}	
+	
+	
 	//////////////////////////////////////////////////////////////////////////////////////// ACCOUNTS ///
 
 	.accounts {
