@@ -26,6 +26,7 @@ public class User {
     private Timestamp lastLogin;
     private Timestamp lastUpdated;
     private Boolean isPublic;
+    private Boolean isOnboarded;
 
     public int getUserId() {
         return userId;
@@ -210,5 +211,13 @@ public class User {
 
     public void setIsPublic(Boolean isPublic) {
         this.isPublic = isPublic;
+    }
+
+    public Boolean getIsOnboarded() {
+        return isOnboarded;
+    }
+
+    public void setIsOnboarded(Boolean isOnboarded) {
+        this.isOnboarded = isOnboarded;
     }
 }

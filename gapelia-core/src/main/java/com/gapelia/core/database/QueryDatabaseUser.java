@@ -18,22 +18,43 @@ public class QueryDatabaseUser {
     //User Related Queries
     private static final String CHECK_USER = "SELECT * FROM users WHERE validated_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
-            "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated)" +
-	"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated,is_public, is_onboarded, tags)" +
+            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'f', 'f','NULL')";
 
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
+    private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
     private static final String UPDATE_USER = "UPDATE users set email = ?, full_name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
-	"gp = ?, twt = ?, is_public = ? WHERE id = ?";
+            "gp = ?, twt = ?, is_public = ? WHERE id = ?";
 
-    private static final String GET_BOOKMARKED_BOOKS =  "SELECT * FROM user_bookmarks where user_id = ?";
+    private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
     private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ?";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
     private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
-
+    private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
+    public static String onboard(User u) {
+        PreparedStatement insert = null;
+        try {
+            insert = connection.prepareStatement(SET_ONBOARD);
+            insert.setInt(1, u.getUserId());
+            insert.executeUpdate();
+            return "Success";
+        } catch (SQLException ex) {
+            LOG.error("Cannot onboard:" + u + ex.getMessage());
+        } finally {
+            try {
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + u + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
     public static String checkUser(Profile p, String sessionId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -42,7 +63,7 @@ public class QueryDatabaseUser {
             statement.setString(1, p.getValidatedId());
             rs = statement.executeQuery();
             if (!rs.isBeforeFirst()) {
-                return signUp(p,sessionId);
+                return signUp(p, sessionId);
             } else {
                 User u = getUserByValidatedId(p.getValidatedId());
                 SessionManager.addSessionIdToUser(u, sessionId);
@@ -73,39 +94,38 @@ public class QueryDatabaseUser {
             insert.setString(1, p.getFirstName());
             insert.setString(2, p.getEmail());
             insert.setString(3, p.getFirstName() + " " + p.getLastName());
-            if(p.getDob() != null) {
+            if (p.getDob() != null) {
                 insert.setDate(4, SQLUtil.convertBirthDate(p.getDob()));
             } else {
                 insert.setDate(4, null);
             }
-            if("male".equals(p.getGender())) {//write tool
+            if ("male".equals(p.getGender())) {//write tool
                 insert.setString(5, "M");
-            } else if("female".equals(p.getGender())) {
+            } else if ("female".equals(p.getGender())) {
                 insert.setString(5, "F");
+            } else {
+                insert.setString(5, null);
             }
-			else{
-				insert.setString(5, null);
-			}
 
             insert.setString(6, p.getLocation());
 
-			String profileImage = p.getProfileImageURL();
-			if(profileImage.contains("graph.facebook"))
-				profileImage = profileImage + "?width=1000&height=1000";
+            String profileImage = p.getProfileImageURL();
+            if (profileImage.contains("graph.facebook"))
+                profileImage = profileImage + "?width=1000&height=1000";
 
-            insert.setString(7, profileImage );
+            insert.setString(7, profileImage);
             insert.setString(8, p.getFirstName());
             insert.setString(9, p.getValidatedId());
             insert.setString(10, p.getProviderId());
             insert.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(13, new Timestamp(System.currentTimeMillis()));
+            LOG.info(insert.toString());
             insert.executeUpdate();
             User u = getUserByValidatedId(p.getValidatedId());
             SessionManager.addSessionIdToUser(u, sessionId);
             return "New";
         } catch (SQLException ex) {
-            LOG.info("Cannot sign up user u:" + p + " " + ex.getMessage());
             return "Cannot sign up user u:" + p + " " + ex.getMessage();
         } finally {
             try {
@@ -151,12 +171,12 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
+                user.setIsOnboarded(rs.getBoolean("is_onboarded"));
                 return user;
             }
         } catch (Exception ex) {
             LOG.error("Cannot get user by validate Id u:" + user, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -171,6 +191,7 @@ public class QueryDatabaseUser {
 
         return null;
     }
+
     public static User getUserByValidatedId(User u) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -201,14 +222,14 @@ public class QueryDatabaseUser {
                 user.setMemeberSince(rs.getTimestamp("member_since"));
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
+                LOG.info("booolean" + rs.getBoolean("is_onboarded"));
+                user.setIsOnboarded(rs.getBoolean("is_onboarded"));
                 user.setTags(rs.getString("tags"));
-                LOG.info(user.getCoverImage());
                 return user;
             }
         } catch (Exception ex) {
             LOG.error("Cannot get user u:" + u, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -254,13 +275,12 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
-                LOG.info(user.getCoverImage());
+                user.setIsOnboarded(rs.getBoolean("is_onboarded"));
                 return user;
             }
         } catch (Exception ex) {
             LOG.error("Cannot get user u:" + userId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -275,12 +295,12 @@ public class QueryDatabaseUser {
 
         return null;
     }
+
     public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
         LOG.info("updating db for user");
         try {
             statement = connection.prepareStatement(UPDATE_USER);
-            LOG.info(user.getEmail());
             statement.setString(1, user.getEmail());
             statement.setString(2, user.getFullName());
             statement.setString(3, user.getLocation());
@@ -291,20 +311,18 @@ public class QueryDatabaseUser {
             statement.setTimestamp(8, new Timestamp(System.currentTimeMillis()));
             statement.setString(9, user.getPersonalWebsite());
             statement.setString(10, user.getBio());
-	        statement.setString(11, user.getTags());
+            statement.setString(11, user.getTags());
             statement.setString(12, user.getFb());
             statement.setString(13, user.getGp());
             statement.setString(14, user.getTwt());
             statement.setBoolean(15, user.getIsPublic());
             statement.setInt(16, user.getUserId());
-            LOG.info(statement.toString());
             statement.executeUpdate();
             return "Success";
         } catch (Exception ex) {
             LOG.error("Cannot update user u:" + user, ex);
             return "Cannot update user u:";
-        }
-        finally {
+        } finally {
             try {
                 if (statement != null) {
                     statement.close();
@@ -315,6 +333,7 @@ public class QueryDatabaseUser {
             }
         }
     }
+
     public static ArrayList<Book> getBookmarkedBooks(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -333,8 +352,7 @@ public class QueryDatabaseUser {
             return bookList;
         } catch (Exception ex) {
             LOG.error("Cannot check user u:" + userId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -374,8 +392,7 @@ public class QueryDatabaseUser {
             return bookList;
         } catch (Exception ex) {
             LOG.error("Cannot check user u: " + userId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -395,7 +412,7 @@ public class QueryDatabaseUser {
         PreparedStatement statement = null;
         ResultSet rs = null;
         Book book = new Book();
-        try{
+        try {
             statement = connection.prepareStatement(GET_OWNED_BOOKS);
             statement.setInt(1, id);
             rs = statement.executeQuery();
@@ -413,8 +430,7 @@ public class QueryDatabaseUser {
             return book;
         } catch (Exception ex) {
             LOG.error("ERROR: :" + id, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -430,11 +446,11 @@ public class QueryDatabaseUser {
     }
 
 
-    public static ArrayList<Page>  getPages(int bookId){
+    public static ArrayList<Page> getPages(int bookId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         ArrayList<Page> pageList = new ArrayList<Page>();
-        try{
+        try {
             statement = connection.prepareStatement(GET_PAGES);
             statement.setInt(1, bookId);
             rs = statement.executeQuery();
@@ -458,8 +474,7 @@ public class QueryDatabaseUser {
             return pageList;
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -478,8 +493,8 @@ public class QueryDatabaseUser {
         PreparedStatement statement = null;
         ResultSet rs = null;
         Library library = new Library();
-        try{
-            statement = connection.prepareStatement(GET_OWNED_LIBRARIES);
+        try {
+            statement = connection.prepareStatement(GET_LIBRARY);
             statement.setInt(1, id);
             rs = statement.executeQuery();
             while (rs.next()) {
@@ -494,9 +509,8 @@ public class QueryDatabaseUser {
             }
             return library;
         } catch (Exception ex) {
-	    LOG.error("ERROR: :" + id, ex);
-        }
-        finally {
+            LOG.error("ERROR: :" + id, ex);
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -527,8 +541,7 @@ public class QueryDatabaseUser {
             return libraryList;
         } catch (Exception ex) {
             LOG.error("Cannot check user u: " + userId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();
@@ -545,7 +558,7 @@ public class QueryDatabaseUser {
     }
 
     //public static Library [] getLibraries
-    public static ArrayList<Library> getCreatedLibraries(int userId){
+    public static ArrayList<Library> getCreatedLibraries(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         ArrayList<Library> libraryList = new ArrayList<Library>();
@@ -554,15 +567,14 @@ public class QueryDatabaseUser {
             statement.setInt(1, userId);
             rs = statement.executeQuery();
             while (rs.next()) {
-                int libraryId = rs.getInt("library_id");
+                int libraryId = rs.getInt("id");
                 Library library = getLibraryByID(libraryId);
                 libraryList.add(library);
             }
             return libraryList;
         } catch (Exception ex) {
             LOG.error("ERROR: :" + userId, ex);
-        }
-        finally {
+        } finally {
             try {
                 if (rs != null) {
                     rs.close();

@@ -13,7 +13,38 @@ function readCookie(name){
      }
      return null;
 }
-
+function getLibraries() {
+    sessionId=readCookie("JSESSIONID");
+        	$.ajax({
+        		url: "/api/libraries/getGodLibraries",
+        		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        		type: "POST",
+        		data: {
+        			sessionId: sessionId
+        		},
+        		success: function (data) {
+        			libraries=data;
+        			lib ='<ul id=\"library-list\">';
+        			for(i in libraries) {
+        			    library = libraries[i];
+        				lib+="<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\""+library.libraryId+"\" style=\"background-image: url("+library.coverPhoto+"); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+        				lib+="<div class=\"library-info\"><div class=\"title\"><a href=\"library/"+library.libraryId+"\" style=\"display: block; width: 100%; height: 100%;\">"+library.title+"</a></div>";
+        				lib+="<div class=\"lib-blurb\">"+library.description+"</div></div><div class=\"wrapper\"><button class=\"subscribe white\">Subscribe</button></div>";
+        				lib+="<span class=\"image-overlay\"></span><img src="+library.coverPhoto+" alt='' style=\"display: none;\"></li>";
+        			}
+        			lib+="</ul>";
+        			$(".library-list-wrapper").html(lib);
+        			getUser();
+        		},
+        		error: function (q, status, err) {
+        			if (status == "timeout") {
+        				alert("Request timed out");
+        			} else {
+        				alert("Some issue happened with your request: " + err.message);
+        			}
+        		}
+        	});
+}
 function quickUpdateUser() {
   name = user.name
   email = user.email;
@@ -30,27 +61,6 @@ function quickUpdateUser() {
   isPublic = user.isPublic;
   callUpdate();
 };
-function getLibraries() {
-	sessionId=readCookie("JSESSIONID");
-	$.ajax({
-		url: "/api/libraries/getMainLibraries",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		data: {
-			sessionId: sessionId
-		},
-		success: function (data) {
-			libraries=data;
-		},
-		error: function (q, status, err) {
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
-			}
-		}
-	});
-}
 function callUpdate() {
     sessionId=readCookie("JSESSIONID");
     if (user.tags==undefined) {
@@ -114,7 +124,41 @@ function updateUserOnboard() {
   twt = null;
   isPublic = true;
   callUpdate();
+  onboard();
 };
+function onboard() {
+    sessionId=readCookie("JSESSIONID");
+	$.ajax({
+		url: "/api/users/onboard",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+}
+function deleteAccount() {
+    $.ajax({
+		url: "/api/actions/flushUser",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+	document.cookie = "JSESSIONID" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location = "";
+}
 function getUser() {
      sessionId=readCookie("JSESSIONID");
 	$.ajax({
@@ -188,6 +232,7 @@ function getUserAccounts() {
     }
 }
 function updateUser() {
+    console.log(updateUser);
     name=user.name;
     inputBox = document.getElementById('user-name');
     displayName=inputBox.value;

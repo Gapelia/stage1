@@ -161,7 +161,7 @@
 	
 						<p>
 							<a href="#" class="overlay-close oc-01">No, I changed my mind</a>
-							<button class="red overlay-close oc-02" id="confirm-account-deletion">Yes, I am sure</button>
+							<button class="red overlay-close oc-02" id="confirm-account-deletion" onclick=deleteAccount()>Yes, I am sure</button>
 						</p>
 					</section>
 				</div>

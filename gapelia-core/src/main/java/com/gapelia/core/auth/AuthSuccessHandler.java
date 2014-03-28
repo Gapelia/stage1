@@ -72,11 +72,9 @@ public class AuthSuccessHandler extends HttpServlet {
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
 			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
-			LOG.info("AUTH SUCCESS JSESSION:"+session.getId());
 			sessionCookie.setMaxAge(31557600);
 			response.addCookie(sessionCookie);
 			String answer = QueryDatabaseUser.checkUser(profile, session.getId());
-			LOG.info("Answer is :" + answer);
 			if (answer =="Success") {
 				response.sendRedirect("/me");
 				return;

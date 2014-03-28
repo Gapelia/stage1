@@ -126,12 +126,12 @@
 	</outbound-rule>
 
 	<rule>
-		<from>^/library/([0-9]+)/(.*)$</from>
-		<to>/templates/libraries/library.jsp?id=$1&amp;name=$2</to>
+		<from>^/library/([0-9]+)$</from>
+		<to>/templates/libraries/library.jsp?</to>
 	</rule>
 	<outbound-rule>
-		<from>^/templates/libraries/library.jsp?id=([0-9]+)&amp;name=(.*)$</from>
-		<to>/library/$1</to>
+		<from>^/templates/libraries/library.jsp?$</from>
+		<to>/library/([0-9]+)$</to>
 	</outbound-rule>
 
     <rule>

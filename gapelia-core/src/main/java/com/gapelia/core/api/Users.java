@@ -34,6 +34,17 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getUserByValidatedId(u));
     }
 
+    @Path("onboard")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String onboard(@FormParam("sessionId") String sessionId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseUser.onboard(u));
+    }
     @Path("getUserPublic")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -82,7 +93,6 @@ public class Users {
         u.setGp(gp);
         u.setTwt(twt);
         u.setIsPublic(isPublic);
-        LOG.info(u.getDisplayName());
         return QueryDatabaseUser.updateUserProfile(u);
     }
 

@@ -30,22 +30,10 @@ public class SessionManager implements HttpSessionListener {
 	}
 
     public static void addSessionIdToUser(User user, String sessionId) {
-//        Set<String> sortedKeys = new TreeSet<String>();
-//        sortedKeys.addAll(sessionIdToUser.keySet());
-//        for(String key: sortedKeys){
-            LOG.info("adding session:"  + sessionId);
-//        }
         sessionIdToUser.put(sessionId, user);
     }
 
     public static User getUserFromSessionId(String sessionId) {
-//        Set<String> sortedKeys = new TreeSet<String>();
-//        sortedKeys.addAll(sessionIdToUser.keySet());
-//        for(String key: sortedKeys){
-//            LOG.info(key  + "  :    " + sessionId);
-//        }
-//        LOG.info(sessionIdToUser.get(sessionId).getUserId());
-        LOG.info("getting session:"  + sessionId);
         return sessionIdToUser.get(sessionId);
     }
 
