@@ -187,15 +187,9 @@ function quickUpdateUser() {
   email = user.email;
   current =  user.location; //if not redirect
   image = $(".avatar-wrapper img").attr("src");
-  if (image.substring(0,26) == 'http://graph.facebook.com/') {
-    image = image+"?height=1000&width=1000"
-  }
   avatarImage = image;
   image = $("#user-splash").css("background-image");
   image = image.replace('url(','').replace(')','');
-  if (image.substring(0,26) == 'http://graph.facebook.com/') {
-    image = image+"?height=1000&width=1000"
-  }
   coverImage = image;
   displayName = user.displayName;
   personalWebsite = user.personalWebsite;
@@ -242,10 +236,7 @@ function updateUser() {
     current=inputBox.value;
     bg = $(".account-avatar-wrapper").css("background-image");
     image = bg.replace('url(','').replace(')','');
-        if (image.substring(0,26) == 'http://graph.facebook.com/') {
-            image = image+"?height=1000&width=1000"
-        }
-        avatarImage = image;
+    avatarImage = image;
     avatarImage = image;
     coverImage = user.coverImage;
     bio = user.bio;
