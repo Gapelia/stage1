@@ -159,7 +159,7 @@
 		var e = $(this).closest("li");
 		e = e[0];
 
-		if(e.id == "add-page") {
+		if (e.id == "add-page") {
 			return;
 		}
 
@@ -167,7 +167,7 @@
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
 
-		if(templateId == undefined || templateId == null) {
+		if (templateId == undefined || templateId == null) {
 			templateId = 0;
 		}
 
@@ -309,7 +309,7 @@
 
 	$("#add-page").click(function (e) {
 
-		if(pagesCreated > 20) {
+		if (pagesCreated > 20) {
 			alert("Your book is too big please remove a page!\n");
 			return;
 		}
@@ -323,7 +323,7 @@
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
 
-		if(pagesCreated == 0) {
+		if (pagesCreated == 0) {
 			pages.page[0] = {
 				"pageNumber": pagesCreated,
 				"templateId": 0,
@@ -378,7 +378,7 @@
 				pageId = data;
 				console.log(data);
 
-				if(pagesCreated == 0) {
+				if (pagesCreated == 0) {
 					pages.page[0] = {
 						"pageNumber": pagesCreated,
 						"templateId": 0,
@@ -499,7 +499,14 @@
 
 		var insert = "";
 
-		if(imageURL == null) {
+		// if (imageURL == null) {
+
+		// var BG = $("#page"+(pagesCreated)+"Image");
+		// var BG = $(".fluid-preview-wrapper .page-bg");
+		var BG = $("#page"+ currentPage +"Image");
+		// var BG = $("#page0Image");
+
+		if (BG.src = "static/images/whiteBG.jpg") {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
@@ -507,9 +514,25 @@
 
 			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
-			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span></section><div class=\"fluid-preview\"><article>";
+			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: none;\">"+ attribution +"</span></section><div class=\"fluid-preview\" style=\"padding: 2rem 2rem 0 2rem; top: 0;\"><article style=\"padding: 4rem 0\">";
 
-		} else {
+			/*
+			// Image attribution
+			$(".image-attribution").css("display", "none");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "2rem 2rem 0 2rem",
+				"top": "0"
+			});
+
+			$(".fluid-preview article").css("padding", "4rem 0");
+			*/
+
+		}
+
+		// else {
+		if (BG.src != "static/images/whiteBG.jpg") {
 
 			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+ imageURL +");";
 
@@ -519,11 +542,24 @@
 
 			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
-			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display:block\">"+ attribution +"</span></section><div class=\"fluid-preview\"  style=\"top: 75%;\"><article>";
+			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: block\">"+ attribution +"</span></section><div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0 2rem; top: 75%;\"><article style=\"padding: 0 0 4rem 0;\">";
+
+			/*
+			// Image attribution
+			$(".image-attribution").css("display", "block");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "1rem 2rem 0 2rem",
+				"top": "75%"
+			});
+
+			$(".fluid-preview article").css("padding", "0 0 4rem 0");
+			*/
 
 		}
 
-		if(title == null) {
+		if (title == null) {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 		} else {
 			insert += "<h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -541,7 +577,7 @@
 		insert += "</div>";
 		insert += "</div>";
 
-		if(text == null) {
+		if (text == null) {
 
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 			insert += "</article></div></section>";
@@ -554,7 +590,7 @@
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
+		if (videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
@@ -587,23 +623,12 @@
 			console.log(file);
 
 		}
+		*/
 
+		/*
 		var BG = $("#page"+(pagesCreated)+"Image");
 
-		if (BG.src == "static/images/blankBG.jpg") {
-
-			// Image attribution
-			$(".image-attribution").css("display", "block");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "1rem 2rem 0 2rem",
-				"top": "75%"
-			});
-
-			$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-		} else {
+		if (BG.src = "static/images/whiteBG.jpg") {
 
 			// Image attribution
 			$(".image-attribution").css("display", "none");
@@ -615,6 +640,19 @@
 			});
 
 			$(".fluid-preview article").css("padding", "4rem 0");
+
+		} else {
+
+			// Image attribution
+			$(".image-attribution").css("display", "block");
+
+			// Content positioning
+			$(".fluid-preview").css({
+				"padding": "1rem 2rem 0 2rem",
+				"top": "75%"
+			});
+
+			$(".fluid-preview article").css("padding", "0 0 4rem 0");
 
 		}
 		*/
@@ -691,7 +729,7 @@
 		// https://soundcloud.com/iknowbitfunk/just-kiddin-paloma-bit-funk-remix
 		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").on("keyup", function(ev) {
 
-			if(ev.which === 13) {
+			if (ev.which === 13) {
 				$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
 				$(".fluid-preview-wrapper .page-desc").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
 
@@ -751,7 +789,7 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) { e.preventDefault(); }
+			if (e.which != 8 && $("." + titleElem).text().length > titleMax) { e.preventDefault(); }
 		}
 
 	}
@@ -768,7 +806,7 @@
 		insert += "<div class=\"page-bg-wrapper\">";
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
-		if(imageURL == null) {
+		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" style=\"display: none;\" data-adaptive-background=\"0\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
@@ -776,7 +814,7 @@
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
-		if(title == null) {
+		if (title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
@@ -841,7 +879,7 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+			if (e.which != 8 && $("." + titleElem).text().length > titleMax) {
 				e.preventDefault();
 			}
 		}
@@ -853,7 +891,7 @@
 		$("." + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+			if (e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
 			}
 		}
@@ -870,7 +908,7 @@
 
 		insert += "<section class=\"overlay-preview-wrapper\">";
 
-		if(imageURL == null) {
+		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
@@ -878,7 +916,7 @@
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
-		if(text == null) {
+		if (text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 		} else {
@@ -891,14 +929,14 @@
 		insert += "</section>";
 
 		// no title in this view, but having this allows it to keep between layout switching
-		if(title == null) {
+		if (title == null) {
 			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
 		} else {
 			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">"+ title +"</h1>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
+		if (videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
@@ -949,7 +987,7 @@
 		$("." + descElem).keydown(function (e) { check_charcount(descElem, descMax, e); });
 
 		function check_charcount(descElem, descMax, e) {
-			if(e.which != 8 && $("." + descElem).text().length > descMax) {
+			if (e.which != 8 && $("." + descElem).text().length > descMax) {
 				e.preventDefault();
 			}
 		}
@@ -967,7 +1005,7 @@
 		insert += "<section class=\"phototext-preview-wrapper\">";
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
-		if(imageURL == null) {
+		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/>";
@@ -975,20 +1013,20 @@
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
-		if(title == null) {
+		if (title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		if(text == null) {
+		if (text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
+		if (videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
@@ -1051,7 +1089,7 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+			if (e.which != 8 && $("." + titleElem).text().length > titleMax) {
 				e.preventDefault();
 			}
 		}
@@ -1071,7 +1109,7 @@
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">"+ attribution +"</span>";
 
-		if(imageURL == null) {
+		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" alt=\"\"/></div>";
@@ -1079,20 +1117,20 @@
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page"+ currentPage +"Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
-		if(title == null) {
+		if (title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
 		} else {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		if(text == null) {
+		if (text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></div></section>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
-		if(videoURL == null) {
+		if (videoURL == null) {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\"\"></iframe></div>";
 		} else {
 			insert += "<div class=\"video-player-container\" style=\"display: none;\"><iframe src=\""+ videoURL +"\"></iframe></div>";
@@ -1156,7 +1194,7 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+			if (e.which != 8 && $("." + titleElem).text().length > titleMax) {
 				e.preventDefault();
 			}
 		}
@@ -1179,26 +1217,26 @@
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
-		if(videoURL == null) {
+		if (videoURL == null) {
 			insert += "<div class=\"video-player-container\"><iframe src=\"\"></iframe></div>";
 		} else {
 			insert += "<div class=\"video-player-container\"><iframe src=\""+ videoURL +"\"></iframe></div>";
 		}
 
-		if(title == null) {
+		if (title == null) {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write your title here\"></h1>";
 		} else {
 			insert += "<article><h1 class=\"page-title-elem\" contenteditable=\"true\">"+ title +"</h1>";
 		}
 
-		if(text == null) {
+		if (text == null) {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
 		} else {
 			insert += "<div class=\"page-desc\" contenteditable=\"true\">"+ text +"</div></article></div></section>";
 		}
 
 		// no background in this view, but having this allows it to keep between layout switching
-		if(imageURL == null) {
+		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/view-modes/video.png\" style=\"display: none;\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\""+ imageURL +"\" style=\"display: none;\"/>";
@@ -1256,7 +1294,7 @@
 		$("." + titleElem).keydown(function (e) { check_charcount(titleElem, titleMax, e); });
 
 		function check_charcount(titleElem, titleMax, e) {
-			if(e.which != 8 && $("." + titleElem).text().length > titleMax) {
+			if (e.which != 8 && $("." + titleElem).text().length > titleMax) {
 				e.preventDefault();
 			}
 		}
@@ -1306,7 +1344,7 @@
 	// Save data of what is being edited every second
 	window.setInterval(function () {
 
-		if(pages.page[0].templateId != null && pagesCreated != -1) {
+		if (pages.page[0].templateId != null && pagesCreated != -1) {
 			imageURL = $(".page-bg").attr("src");
 			videoURL = $(".video-player-container iframe").attr("src");
 			title = $(".page-title-elem").html();

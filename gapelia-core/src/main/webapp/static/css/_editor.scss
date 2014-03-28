@@ -649,13 +649,7 @@
             
             color: rgba($black, 0.95); 
 						margin: 0 auto;
-            // border-top-left-radius: 8px; //
 						max-width: 35%; //
-					}
-
-					.inline-image-insert {
-						// bottom: 1rem; left: 1.5rem;
-						// position: fixed;
 					}
 
 					.page-bg {
@@ -669,16 +663,16 @@
 
 					.fluid-preview {
 						width: 100%; min-height: 53%; // min-height: 53%;
-						top: 20%; left: 0; bottom: 0;
+						left: 0; bottom: 0; // top: 20%; // remove to use editor.js styling
 
 						background-color: $white;
-						padding: 1rem 2rem 0 2rem;
+						// padding: 1rem 2rem 0 2rem; // remove to use editor.js styling
 						position: absolute;
 
 						article {
 							background-color: $white;
-							padding: 0 0 4rem 0;
 							left: 0;
+							// padding: 0 0 4rem 0; // remove to use editor.js styling
 							position: absolute;
 							width: 100%;
 						}
