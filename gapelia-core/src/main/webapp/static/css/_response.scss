@@ -174,15 +174,16 @@
 		}
 
 		#book-cta {
+			background-color: transparent !important;
 			background-image: none !important;
-			height: 100px;
+			height: 100px !important;
 			padding: 0 3rem;
 			text-align: center;
 
-			&:after { background-image: none !important; }
+			&:after { background: none !important; }
 			
 			p {
-				font-size: 1.8rem;
+				font-size: 1.6rem;
 				font-weight: 200;
 				position: relative;
 				top: 50%;
@@ -318,7 +319,7 @@
 
 		.book, .collection, .library {
 			margin: 0 0 1.5rem 0; padding: 0;
-			width: 100%; height: 250px; // 400px
+			width: 100%; height: 250px !important; 
 
 			&:last-child { margin: 0; }
 
@@ -383,6 +384,8 @@
 			}
 		}
 
+		#book-list { width: 100% !important; }
+		
 		.bookmarked {
 			.bookmark-this {
 				z-index: 5;
@@ -1108,7 +1111,7 @@
 			background: transparent !important;
 			height: 100px;
 			
-			&:after { background-image: none !important; }
+			&:after { background: none !important; }
 			
 			p {
 				font-size: 1.4rem;
@@ -1495,7 +1498,7 @@
 }
 
 // Please read up on media queries and device screen sizes, I'm trying to save you from yourself
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
