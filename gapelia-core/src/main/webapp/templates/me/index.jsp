@@ -95,7 +95,7 @@
 					<div class="user-data">
 						<h2 id="user-info"></h2>
 
-						<span id="user-bio" contenteditable="false">Space Bandit / Aries / Protogenoi / Eccentric Dreamer / Pluviophile / Futurist / Musician / Casual Enthusiast</span>
+						<span id="user-bio" contenteditable="false"></span>
 					</div>
 
 					<div class="button-wrapper">
@@ -162,7 +162,6 @@
 					stuff = "";
 					stuff += "<section id=\"user-splash\">";
 					stuff += "<div class=\"overlay-controls\">";
-					// stuff += "<button id=\"change-cover-photo\" class=\"outline\">Add cover photo</button>";
 					stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
 					stuff += "</div>";
 					stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";

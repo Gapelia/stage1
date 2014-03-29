@@ -158,7 +158,6 @@ public class Users {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
-        LOG.info("Getting Featured books");
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
     }

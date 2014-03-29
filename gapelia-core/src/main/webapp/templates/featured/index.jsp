@@ -326,7 +326,7 @@
 			});
 
 			function load () {
-    getUserDrafts();
+                getUserDrafts();
 				var $vW = $(window).width(), $vH = $(window).height();
 
 				if ($vW > "1024") {

@@ -28,7 +28,7 @@ function getFeaturedBooks() {
                 for (i in books) {
                   book = books[i];
                   console.log("make helper function to get LibraryId");
-                  console.log("make helper function for userId and avatr");
+                  console.log("make helper function for userId and avatar");
                   toInsert += "<li id=\'"+book.bookId+"\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+book.coverPhoto+"); height: 609px;";
                   toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
                   toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
@@ -63,8 +63,8 @@ function getUserCreatedBooks() {
                   book = books[i];
                   console.log("make helper function to get LibraryId");
                   toInsert += "<li id=\'"+book.bookId+"\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url("+book.coverPhoto+"); height: 609px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                  toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\"></a>"
-                  toInsert += "<a class=\"edit-this-book\" href=\"/editbook/"+book.bookId+"\"></a></div>";
+                  toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
+                  toInsert += "<a class=\"edit-this-book\" href=\"/editbook/"+book.bookId+"\">&#xf13d;</a></div>";
                   toInsert += "<div class=\"book-title\"><a href=\"/read/"+book.bookId+"\">"+book.title+"</a></div>"
                   toInsert += "<div class=\"book-info\"><div class=\"library-location\"><a href=\"#\">Insane Asylum</a></div></div></li>";
                   }
@@ -487,13 +487,7 @@ function updateUser() {
 }
 
 $(document).on("click", ".quick-edit-profile", function () {
-
-	var element = $("#change-cover-photo");
-	element = element[0];
-	element.type = "filepicker";
-	filepicker.constructWidget(element);
 	quickUpdateUser();
-
 });
 
 $(document).on("click", ".library-list-wrapper ul li button", function (ev) {
