@@ -1590,7 +1590,8 @@
 			background-color: transparent;
 			border-bottom: 1px solid rgba($slate, 0.3);
 			box-shadow: none;
-			height: auto;
+			height: auto !important;
+			padding: 1.3rem;
 			
 			&:last-child {
 				border-bottom: none;
@@ -1610,7 +1611,7 @@
 			.book-title {
 				font-size: 1.4rem;
 				line-height: 1.6rem;
-				margin: 0 0 2rem 0;
+				margin: 0 0 0.5rem 0;
 				top: 8%;
 			}
 

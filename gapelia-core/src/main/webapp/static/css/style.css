@@ -7436,7 +7436,8 @@ a.count span.dont-move {
     background-color: transparent;
     border-bottom: 1px solid rgba(112, 161, 177, 0.3);
     box-shadow: none;
-    height: auto; }
+    height: auto !important;
+    padding: 1.3rem; }
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
     border-bottom: none;
     margin: 1rem 1rem 1rem 0rem; }
@@ -7451,7 +7452,7 @@ a.count span.dont-move {
   .app .book .book-title, .app .collection .book-title, .app .library .book-title {
     font-size: 1.4rem;
     line-height: 1.6rem;
-    margin: 0 0 2rem 0;
+    margin: 0 0 0.5rem 0;
     top: 8%; }
   .app .book .book-info, .app .book .collection-info, .app .collection .book-info, .app .collection .collection-info, .app .library .book-info, .app .library .collection-info {
     bottom: 0;
