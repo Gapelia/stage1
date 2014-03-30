@@ -6651,7 +6651,7 @@ a.count span.dont-move {
     right: 18px; }
   .app .book .bookmark-this:hover .right-bm, .app .collection .bookmark-this:hover .right-bm, .app .library .bookmark-this:hover .right-bm {
     width: 50px; }
-  .app #book-list {
+  .app #book-list, .app #library-list, .app #bookmark-list {
     width: 100% !important; }
   .app .bookmarked .bookmark-this {
     z-index: 5; }
