@@ -46,6 +46,23 @@ body.landing {
 		position: relative;
 		width: 40%;
 	}
+	
+	
+	//404 error//
+	h5 {
+		color: rgba($white, 0.5);
+		font-size: 3rem;
+		font-weight: 400;
+		line-height: 4rem;
+		margin: 0 auto;
+		padding: 0 0 1rem 0;
+		position: relative;
+		top: 20%;
+		width: 68%;
+		z-index: 1;
+		
+		a { color: $white; }
+	}
 
 	.wrapper {
 		margin: 1rem 0 0 0;
