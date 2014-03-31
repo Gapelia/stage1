@@ -196,6 +196,7 @@
 		$( document ).ready(function() {
              var first =  getLibrary();
              var third = getUserDrafts();
+             third =  getListBookmarked();
              var second = getBooksInLibrary();
         });
 		function load() {

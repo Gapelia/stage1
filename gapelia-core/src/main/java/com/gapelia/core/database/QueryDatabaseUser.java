@@ -20,7 +20,6 @@ public class QueryDatabaseUser {
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
             "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated,is_public, is_onboarded, tags)" +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'f', 'f','NULL')";
-
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
@@ -28,8 +27,9 @@ public class QueryDatabaseUser {
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
-    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books order by random() LIMIT  20";
+    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books where is_published = 't' order by random() LIMIT  20";
     private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
+    private static final String GET_BOOK = "SELECT * FROM books where id = ?";
     private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't'";
     private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f'";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
@@ -337,9 +337,7 @@ public class QueryDatabaseUser {
         ArrayList<Book> bookList = new ArrayList<Book>();
         try {
             statement = connection.prepareStatement(GET_BOOKMARKED_BOOKS);
-            statement.setString(1, Integer.toString(userId));
-            statement = connection.prepareStatement(GET_SUBSCRIBED_LIBRARIES);
-            statement.setString(1, Integer.toString(userId));
+            statement.setInt(1, userId);
             rs = statement.executeQuery();
             while (rs.next()) {
                 int bookId = rs.getInt("book_id");
@@ -488,7 +486,7 @@ public class QueryDatabaseUser {
         ResultSet rs = null;
         Book book = new Book();
         try {
-            statement = connection.prepareStatement(GET_OWNED_BOOKS);
+            statement = connection.prepareStatement(GET_BOOK);
             statement.setInt(1, id);
             rs = statement.executeQuery();
             while (rs.next()) {
@@ -606,7 +604,7 @@ public class QueryDatabaseUser {
         ArrayList<Library> libraryList = new ArrayList<Library>();
         try {
             statement = connection.prepareStatement(GET_SUBSCRIBED_LIBRARIES);
-            statement.setString(1, Integer.toString(userId));
+            statement.setInt(1, userId);
             rs = statement.executeQuery();
             while (rs.next()) {
                 int libraryId = rs.getInt("library_id");
@@ -631,7 +629,36 @@ public class QueryDatabaseUser {
 
         return null;
     }
-
+    public static ArrayList<Library> getCreatedLibraries(User u) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Library> libraryList = new ArrayList<Library>();
+        try {
+            statement = connection.prepareStatement(GET_OWNED_LIBRARIES);
+            statement.setInt(1, u.getUserId());
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int libraryId = rs.getInt("id");
+                Library library = getLibraryByID(libraryId);
+                libraryList.add(library);
+            }
+            return libraryList;
+        } catch (Exception ex) {
+            LOG.error("ERROR: :" + u.getUserId(), ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + u.getUserId() + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
     //public static Library [] getLibraries
     public static ArrayList<Library> getCreatedLibraries(int userId) {
         PreparedStatement statement = null;

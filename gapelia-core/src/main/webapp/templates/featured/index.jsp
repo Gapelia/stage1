@@ -111,189 +111,7 @@
 
 				<!--/ User's Bookmarks /-->
 				<div class="bookmark-list-wrapper">
-					<ul id="bookmark-list">
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">7 Routes to Extended-Layover Bliss</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">5 Layover-Worthy Airports</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Going Dutch in the Off Season</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Best Travel Photos of December</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.JPG" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">I Heart My City (And So Should You)</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">The Best of Intelligent Travel</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">January Event-o-Rama</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-03.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">4 Realistic Travel Resolutions</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-04.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Top 10 Compact Cameras for Travelers</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-05.jpg" alt=""/>
-						</li>
-
-						<li class="collection bookmarked">
-							<div class="bookmark-this">
-								<span class="top-bm"></span>
-								<span class="bottom-bm"></span>
-								<span class="right-bm"></span>
-							</div>
-
-							<div class="library-location"><a href="#">Camp Awesome</a></div>
-							<div class="book-title"><a href="#">Canada's 50 Places of a Lifetime</a></div>
-
-							<div class="collection-info">
-								<div class="author-name"><a href="#">Spaceman Fresh</a></div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-06.jpg" alt=""/>
-						</li>
-
-					</ul>
+					<ul id="bookmark-list"></ul>
 				</div>
 				<!--//User's Bookmarks /-->
 			</div>
@@ -321,14 +139,14 @@
         			}
 			$(function() {
 			var third = getUserDrafts();
-			var second = getFeaturedBooks();
-			var first = getLibraries();
+			var second = getBookmarkedBooks();
+			var fourth = getListBookmarked();
+			var fifth = getListSubscribed();
+			var sixth = getFeaturedBooks();
 			});
 
 			function load () {
-                getUserDrafts();
 				var $vW = $(window).width(), $vH = $(window).height();
-
 				if ($vW > "1024") {
 
 					// Scrolling on desktop
@@ -414,8 +232,8 @@
 						h += $(this).outerHeight();
 					});
 
-					w += 500;
-
+					w += 600;
+$("#book-list").css("width",w);
 					if ($vW > "1024") {
 						$("#book-list").css("width", w - 320 + "px");
 					}
@@ -433,11 +251,6 @@
 					setTimeout(function () {
 						$("#featured-panel, #featured-scroller").css("opacity", "1");
 					}, 600);
-
-					// Place avatars *after* imgLiquid is done processing. Please keep this in mind.
-					if ($vW > "300") {
-						$(".book-info, .collection-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
-					}
 
 				}, 1000);
 
@@ -471,7 +284,7 @@
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#book-list").css("width", w - 320 + "px");
+							$("#book-list").css("width", w + 320 + "px");
 						} else {
 							// $("#book-list").css("height", h + 219 + "px");
 						}
@@ -570,11 +383,7 @@
 						w += 500;
 
 
-						if ($vW > "1024") {
-							$("#bookmark-list").css("width", w - 320 + "px");
-						} else {
-							// $("#bookmark-list").css("height", h + 400 + "px");
-						}
+
 
 						// fades in the all the books after section width is added
 						$("#bookmark-list li").fadeIn("100");

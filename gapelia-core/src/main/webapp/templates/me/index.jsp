@@ -352,7 +352,7 @@
 							w += 500;
 
 							if ($vW > "1024") {
-								$("#user-book-list").css("width", w - 320 + "px");
+								$("#user-book-list").css("width", w + 320 + "px");
 							}
 
 							NProgress.done();

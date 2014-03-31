@@ -1,4 +1,7 @@
-
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +98,6 @@
 				<!--/ Personal Library List /-->
 				<div class="library-list-wrapper">
 					<ul id="library-list">
-
 						<li class="library">
 							<div class="library-buttons">
 								<a href="#" class="delete-this-library">&#xf252;</a>
@@ -110,286 +112,13 @@
 							<span class="image-overlay"></span>
 							<img src="/static/images/book-thumb-02.jpg" alt=""/>
 						</li>
-
-						<li class="library">
-							<div class="library-buttons">
-								<a href="#" class="delete-this-library">&#xf252;</a>
-								<a href="#" class="edit-this-library">&#xf13d;</a>
-							</div>
-
-							<div class="library-info">
-								<div class="title"><a href="/library/017/museum">Museum</a></div>
-								<div class="lib-blurb">A museum is an institution that cares for artifacts and other objects of scientific, artistic, cultural, or historical importance.</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-buttons">
-								<a href="#" class="delete-this-library">&#xf252;</a>
-								<a href="#" class="edit-this-library">&#xf13d;</a>
-							</div>
-
-							<div class="library-info">
-								<div class="title"><a href="/library/018/on-the-road">On the Road</a></div>
-								<div class="lib-blurb">Today, modern road tripping is a fast growing hobby, and not just a means of vacationing.</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-buttons">
-								<a href="#" class="delete-this-library">&#xf252;</a>
-								<a href="#" class="edit-this-library">&#xf13d;</a>
-							</div>
-
-							<div class="library-info">
-								<div class="title"><a href="/library/019/products-of-tomorrow">Products of Tomorrow</a></div>
-								<div class="lib-blurb">Cyberpunk features advanced science, such as information technology and cybernetics, coupled with a degree of breakdown or radical change.</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-buttons">
-								<a href="#" class="delete-this-library">&#xf252;</a>
-								<a href="#" class="edit-this-library">&#xf13d;</a>
-							</div>
-
-							<div class="library-info">
-								<div class="title"><a href="/library/020/subculture">Subculture</a></div>
-								<div class="lib-blurb">In sociology + cultural studies, a subculture is a group of people within a culture that differentiates themselves from the larger culture.</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
 					</ul>
 				</div>
 				<!--//Personal Library List /-->
 
 				<!--/ Subscription List /-->
 				<div class="subscription-list-wrapper">
-					<ul id="subscription-list">
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/001/architecture">Architecture</a></div>
-								<div class="lib-blurb">Architecture is both the process and product of planning, designing, and construction, usually of buildings and other physical structures.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/002/biography">Biography</a></div>
-								<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/003/cinema">Cinema</a></div>
-								<div class="lib-blurb">Filmmaking takes place in many places around the world in a range of contexts, and using a variety of technologies and cinematic techniques.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cinema-matrix.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/004/cuisine">Cuisine</a></div>
-								<div class="lib-blurb">Cuisine is a characteristic style of cooking practices and traditions, often associated with a specific culture.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/cuisine-traceysculinaryadventures.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/005/era">Era</a></div>
-								<div class="lib-blurb">An era is a period of time marked by distinctive character, events, &amp;c.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/covers/era-akasped.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/006/the-far-east">The Far East</a></div>
-								<div class="lib-blurb">The term evokes cultural as well as geographic separation; the Far East is not just geographically distant, but also culturally exotic.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-11.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/007/fashionista">Fashionista</a></div>
-								<div class="lib-blurb">A person who creates or promotes high fashion, i.e. a fashion designer or fashion editor, + who dresses according to the trends of fashion.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-12.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/008/future">Future</a></div>
-								<div class="lib-blurb">The future is the indefinite time period after the present. Its arrival is considered inevitable due to the existence of time + the physics.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/009/gapelians">Gapelians</a></div>
-								<div class="lib-blurb">A biography or simply bio is a detailed description or account of a person's life. It entails more than basic facts.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-13.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/010/historian">Historian</a></div>
-								<div class="lib-blurb">Historians are concerned with the continuous, methodical narrative and research of past events as relating to the human race.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb.JPG" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/011/into-the-wild">Into the Wild</a></div>
-								<div class="lib-blurb">The Age of Discovery (a/k/a the Age of Exploration) was a period starting in the early 15th century and continuing to the 17th century.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-01.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/012/japanimation">Japanimation</a></div>
-								<div class="lib-blurb">Anime are Japanese animated productions featuring hand-drawn art or CGI. For simplicity, many view anime as an animation product from Japan.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/013/land-of-kawaii">Land of Kawaii</a></div>
-								<div class="lib-blurb">Kawaii is the quality of cuteness in the context of Japanese culture.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/014/manifesto">Manifesto</a></div>
-								<div class="lib-blurb">A manifesto is a published verbal declaration of the intentions, motives, or views of the issuer, be it an individual, group, or government.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-						<li class="library">
-							<div class="library-info">
-								<div class="title"><a href="/library/015/modernism">Modernism</a></div>
-								<div class="lib-blurb">Modernism encompasses the activities and output of those who felt the "traditional" forms of art were becoming outdated in the world.</div>
-							</div>
-
-							<div class="wrapper">
-								<button class="unsubscribe red">Unsubscribe</button>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
-
-					</ul>
+					<ul id="subscription-list"></ul>
 				</div>
 				<!--//Subscription List /-->
 
@@ -402,7 +131,7 @@
 		<script src="/static/scripts/touchSwipe.min.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
-
+		<script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -430,7 +159,10 @@
 
 		<script>
 			$(function () {
+getSubscribedLibrary();getCreatedLibraries();load();
+});
 
+function  load() {
 				var $vW = $(window).width(), $vH = $(window).height();
 
 				// Controlled scrolling speed
@@ -574,52 +306,7 @@
 
 				});
 
-			});
-
-			// Unsubscribe from library
-			$(document).on("click", "button.unsubscribe", function (e) {
-
-				if ($vW > "1024") {
-
-					// Recalculate horizontal list width
-					$("#subscription-list").css({
-						"opacity": "0",
-						"margin": "2px 0 0 0"
-					});
-
-					$(this).closest("li").remove();
-
-					// gets all books in a section
-					var allBooks = $("#subscription-list li");
-
-					// holds function for one second and then adds width to body tag
-					setTimeout(function () {
-
-						var w = 0;
-
-						$("#subscription-list li").each(function () { w += $(this).outerWidth(); });
-
-						w += 500;
-
-						$("#subscription-list").css("width", w - 250 + "px");
-
-						$("#subscription-list").css({
-							"opacity": "1",
-							"margin": "2px 0 0 0"
-						});
-
-					}, 500);
-
-				} else {
-
-					// Carry on
-					$(this).closest("li").remove();
-
-				}
-
-				e.preventDefault();
-
-			});
+			}
 		</script>
 		<!--//scripts /-->
 

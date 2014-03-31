@@ -189,4 +189,19 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getSubscribedLibraries(u.getUserId()));
     }
 
+    @Path("getCreatedLibraries")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getCreatedLibraries(@FormParam("sessionId") String sessionId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseUser.getCreatedLibraries(u.getUserId()));
+    }
+
+
+
 }
