@@ -1600,6 +1600,8 @@
 
 			.author-avatar { margin: 0; }
 			
+			&:hover {.book-title, .library-location, .author-name, .library-info, .collection-info { text-shadow: none !important; } }
+			
 			.book-title, .book-info, .library-location, .collection-info, .library-info {
 				padding: 0;
 				position: relative;
@@ -1612,6 +1614,7 @@
 				font-size: 1.4rem;
 				line-height: 1.6rem;
 				margin: 0 0 0.5rem 0;
+				text-shadow: none !important;
 				top: 8%;
 			}
 
@@ -1633,6 +1636,7 @@
 					font-size: 0.7rem;
 					margin-left: 0.3rem;
 					position: relative;
+					text-shadow: none !important;
 					top: -0.8rem;
 					
 					&:before { margin: 0 0.1rem 0 0; }
@@ -1712,6 +1716,7 @@
 			font-weight: 100;
 			left: 0 !important;
 			margin-bottom: 5px;
+			text-shadow: none !important;
 			width: 100%;
 		}
 

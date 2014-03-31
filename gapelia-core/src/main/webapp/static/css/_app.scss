@@ -191,7 +191,6 @@
 		height: 50px;
 		position: fixed;
 		width: 100%;
-    z-index: 1; //
 	}
 
 	#book-nav, #featured-nav {
@@ -295,13 +294,17 @@
 			// ooh factor
 			//box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6); // book spine is hidden until animation is developed
 			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
+      
+      .book-title, .library-location, .author-name { text-shadow: 0 3px 6px $black !important; }
+      
+       &:after { background: rgba($black, 0.4) !important; }
 		}
 
 		.author-avatar {
 			width: 50px; height: auto;
 
 			border-radius: 300rem;
-      display: inherit; //
+      display: inherit !important; //
 			margin: 0 0 0.5rem 0;
 		}
 
