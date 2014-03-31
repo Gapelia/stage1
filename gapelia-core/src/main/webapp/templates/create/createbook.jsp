@@ -227,7 +227,7 @@
             </script>
 
             <div class="wrapper">
-                <a class="button green" id="publish-this" href="#">Publish</a>
+                <a class="button white" id="publish-this" href="#">Publish</a>
             </div>
 
             <div class="close-modal">&times;</div>
