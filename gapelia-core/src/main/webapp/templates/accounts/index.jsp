@@ -129,22 +129,22 @@
 						<form class="bl_form">
 
 							<label for="user-name">Name</label>
-							<input id="user-name" type="text" placeholder="Add your name"></input>
+							<input id="user-name" type="text" placeholder="Add your full name"></input>
 							
 							<label for="user-name">Username</label>
 							<input id="user-name" type="text" placeholder="Your custom url (i.e. gapelia.com/username)"></input>
 
 							<label for="user-email">Email</label>
-							<input id="user-email" type="email" placeholder="Email"></input>
+							<input id="user-email" type="email" placeholder="Where you receive notifications and newsletters"></input>
 
 							<label for="user-location">Location</label>
 							<input id="user-location" type="text" placeholder="Location"></input>
 
 							<label for="user-personal-website">Website</label>
-							<input id="user-personal-website" type="text" placeholder="Website"></input>
+							<input id="user-personal-website" type="text" placeholder="Website, blog, portfolio..."></input>
 
 							<label for="user-twt">Twitter</label>
-							<input id="user-twt" type="text" placeholder="Twitter Handle"></input>
+							<input id="user-twt" type="text" placeholder="twitter.com/@yourname"></input>
 
 							<label for="user-fb">Facebook</label>
 							<input id="user-fb" type="text" placeholder="Facebook URL"></input>
