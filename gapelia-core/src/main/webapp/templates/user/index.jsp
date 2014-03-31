@@ -347,13 +347,12 @@
 
 							$("#user-book-list li").each(function () {
 								w += $(this).outerWidth();
-								h += $(this).outerHeight();
 							});
 
 							w += 500;
 
 							if ($vW > "1024") {
-								$("#user-book-list").css("width", w - 320 + "px");
+								$("#user-book-list").css("width", w + "px");
 							}
 
 							NProgress.done();

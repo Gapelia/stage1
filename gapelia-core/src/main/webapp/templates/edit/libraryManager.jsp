@@ -201,7 +201,7 @@ function  load() {
 
 					w += 500;
 
-					$("#library-list").css("width", w - 320 + "px");
+					$("#library-list").css("width", w + "px");
 
 					// fades in the all the books after section width is added
 					$("#library-list li").fadeIn("100");
@@ -243,9 +243,7 @@ function  load() {
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#library-list").css("width", w - 320 + "px");
-						} else {
-							// $("#library-list").css("height", h + 219 + "px");
+							$("#library-list").css("width", w0 + "px");
 						}
 
 						// fades in the all the books after section width is added

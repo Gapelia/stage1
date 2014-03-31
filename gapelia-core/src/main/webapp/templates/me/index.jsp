@@ -151,12 +151,12 @@
 				var second = getUserCreatedBooks();
 				var third = getUserDrafts();
 				var first = getUser();
-
 			});
 
 			// Splash page
 			function load() {
-
+                 h = $(this).outerHeight() - 92;
+                 $(".book").css("height", h);
 				// Splash page
 				$(function () {
 

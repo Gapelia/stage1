@@ -231,7 +231,7 @@
 
 					w += 500;
 
-					$("#user-book-list").css("width", w - 320 + "px");
+					$("#user-book-list").css("width", w + "px");
 
 					$("#user-book-list").css({
 						"opacity": "1",
@@ -434,7 +434,7 @@
 
 					w += 500;
 
-					$("#library-list").css("width", w - 320 + "px");
+					$("#library-list").css("width", w + "px");
 
 					$("#library-list").css({
 						"opacity": "1",
@@ -523,7 +523,7 @@
 
 					w += 500;
 
-					$("#submission-list").css("width", w - 320 + "px");
+					$("#submission-list").css("width", w + "px");
 
 					$("#submission-list").css({
 						"opacity": "1",
@@ -568,7 +568,7 @@
 
 					w += 500;
 
-					$("#submission-list").css("width", w - 320 + "px");
+					$("#submission-list").css("width", w + "px");
 
 					$("#submission-list").css({
 						"opacity": "1",
@@ -690,7 +690,7 @@
 
 				w += 500;
 
-				$("#user-book-list, #book-list, #library-list, #bookmark-list, #subscription-list").css("width", w - 320 + "px");
+				$("#user-book-list, #book-list, #library-list, #bookmark-list, #subscription-list").css("width", w + "px");
 
 				// fades in the all the photos after body width is added
 				$("#user-book-list li, #book-list li, #library-list li, #bookmark-list li, #subscription-list li").fadeIn("100");

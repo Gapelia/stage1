@@ -67,7 +67,7 @@
 		<script src="/static/scripts/filepicker2.js"></script>
 
 		<script>
-			$(function () { getLibraries(); });
+			$(function () { getListSubscribed();getLibraries(); });
 
 			function load() {
 

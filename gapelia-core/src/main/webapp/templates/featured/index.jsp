@@ -150,12 +150,16 @@
 				var fifth = getListSubscribed();
 				var sixth = getFeaturedBooks();
 
+
 			});
 
 			function load () {
 
 				var $vW = $(window).width(), $vH = $(window).height();
-
+                h = $(this).outerHeight() - 92;
+                $(".book").css("height", h);
+                $("#bookmark-list li").fadeIn("100");
+                $("#bookmark-list").fadeIn("100");
 				if ($vW > "1024") {
 
 					// Scrolling on desktop
@@ -208,63 +212,6 @@
 					$(".book, .collection").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
 
 				}
-
-				// Load Gapelia
-				NProgress.start();
-
-				$(".book, .library, .collection").imgLiquid({ fill: true });
-				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
-
-				var
-				allBooks = $("#book-list li"),			// gets all books in a section
-				firstBook = $(allBooks).first();		// gets first book in list
-
-				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-
-				setTimeout(function () {
-
-					$("#book-list").hide();
-					$("#library-list").hide();
-					$("#bookmark-list").hide();
-
-					$("#book-list").css("opacity", "0").show();
-
-					if ($vW > "1024") {
-						$("#book-list .book").css("height", $vH - 97 + "px");
-					}
-
-					$(".book").imgLiquid({ fill: true });
-
-					var w = 0, h = 0;
-
-					$("#book-list li").each(function () {
-						w += $(this).outerWidth();
-						h += $(this).outerHeight();
-					});
-
-					w += 400;
-
-					$("#book-list").css("width", w);
-
-					if ($vW > "1024") {
-						$("#book-list").css("width", w - 320 + "px");
-					}
-
-					NProgress.done();
-
-					$("#book-list").css("opacity", "1");
-
-					// fades in the all the books after section width is added
-					$("#book-list li").fadeIn("100");
-					$("#book-list").fadeIn("100");
-
-
-					// "fix" featured menu pop-in
-					setTimeout(function () {
-						$("#featured-panel, #featured-scroller").css("opacity", "1");
-					}, 600);
-
-				}, 1000);
 
 				$("#nav-books").addClass("current");
 

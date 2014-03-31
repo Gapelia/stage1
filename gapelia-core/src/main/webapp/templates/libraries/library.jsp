@@ -188,7 +188,8 @@
 
 		<script>
 			$(function() {
-
+                getListBookmarked();
+                getListSubscribed();
 				var first = getLibrary();
 				var third = getUserDrafts();
 				third = getListBookmarked();
@@ -293,7 +294,7 @@
 					w += 500;
 
 					if ($vW > "1024") {
-						$("#book-list").css("width", w - 320 + "px");
+						$("#book-list").css("width", w + "px");
 					}
 
 					// fades in the all the books after section width is added
@@ -336,11 +337,8 @@
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#book-list").css("width", w - 320 + "px");
-						} else {
-							// $("#book-list").css("height", h + 219 + "px");
+							$("#book-list").css("width", w + "px");
 						}
-
 						// fades in the all the books after section width is added
 						$("#book-list li").fadeIn("100");
 						$("#book-list").fadeIn("100");
