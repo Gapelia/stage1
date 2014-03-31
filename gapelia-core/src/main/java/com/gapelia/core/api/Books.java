@@ -36,15 +36,13 @@ public class Books {
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        int pageId = UUID.randomUUID().toString().hashCode();//unique identified that is int
         Page page = new Page();
-        page.setUserId(page.getUserId());
+        page.setUserId(u.getUserId());
         java.util.Date date= new java.util.Date();
         page.setLastUpdated(new Timestamp(date.getTime()));
-        page.setPageId(pageId);
         page.setBookId(bookId);
         page.setCreated(new Timestamp(date.getTime()));
-        return QueryDatabaseBook.createPage(page);
+        return gson.toJson(QueryDatabaseBook.createPage(page));
     }
 
     @Path("updatePage")
@@ -53,28 +51,28 @@ public class Books {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String updatePage(@FormParam("sessionId") String sessionId,
                                      @FormParam("title") String title,
+                                     @FormParam("pageId") int pageId,
                                      @FormParam("content") String content,
                                      @FormParam("templateId") int templateId,
                                      @FormParam("videoUrl") String videoUrl,
-                                     @FormParam("bookId") int bookId,
                                      @FormParam("pageNumber") int pageNumber,
                                      @FormParam("photoUrl") String photoUrl,
-                                     @FormParam("photoId") String photoId,
+                                    // @FormParam("photoId") String photoId,
                                      @FormParam("creativeCommons") String creativeCommons) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         Page page = new Page();
-        page.setBookId(bookId);
+        LOG.info(Integer.toString(pageId));
+        page.setPageId(pageId);
         page.setPageNumber(pageNumber);
         page.setTemplateId(templateId);
         page.setTitle(title);
         page.setContent(content);
         page.setVideoURl(videoUrl);
         page.setPhotoUrl(photoUrl);
-        page.setPhotoId(photoId);
+        page.setPhotoId("null");
         page.setCreativeCommons(creativeCommons);
         java.util.Date date= new java.util.Date();
         page.setLastUpdated(new Timestamp(date.getTime()));
@@ -105,15 +103,13 @@ public class Books {
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        int bookId = UUID.randomUUID().toString().hashCode();//unique identified that is int
         Book book = new Book();
         java.util.Date date= new java.util.Date();
         book.setCreated(new Timestamp(date.getTime()));
         book.setLastUpdated(new Timestamp(date.getTime()));
         book.setIsPublished(false);
-        book.setBookId(bookId);
         book.setUserId(u.getUserId());
-        return QueryDatabaseBook.createBook(book);
+        return gson.toJson(QueryDatabaseBook.createBook(book));
     }
 
     @Path("updateBook")
