@@ -39,21 +39,9 @@
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>Whoah, how'd you get here?</h4>
+			<h5>What are you doing here?<a href="/">Go explore some stories!</a></h5>
 
-			<footer>
-				<nav>
-					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
-						<li><a href="">Privacy</a></li>
-						<li><a href="">Terms</a></li>
-					</ul>
-				</nav>
-			</footer>
-
-			<img src="/static/images/dummyBG.JPG" alt=""/>
+			<img src="/static/images/cover-bg.jpg" alt=""/>
 
 		</div>
 
