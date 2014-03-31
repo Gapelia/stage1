@@ -56,9 +56,9 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-                            <ul id="draft-menu"></ul>
-                        </li>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+							<ul id="draft-menu"></ul>
+						</li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -70,6 +70,8 @@
 							</ul>
 						</li>
 					</ul>
+
+					<a href="#" class="logout">Log Out</a>
 
 				</div>
 			</nav>
@@ -126,27 +128,32 @@
 		<script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
+
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
 		<script src="/static/scripts/scroll.js"></script>
-		<script>
-		    if ($vW > "1024") {
-        				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-        				$(".mp-pushed").ready(function () {
-        					$("#book-scroller").css("z-index", "0");
-        				});
-        			}
+		<script>
+			if ($vW > "1024") {
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+			}
+
 			$(function() {
-			var third = getUserDrafts();
-			var second = getBookmarkedBooks();
-			var fourth = getListBookmarked();
-			var fifth = getListSubscribed();
-			var sixth = getFeaturedBooks();
+				var third = getUserDrafts();
+				var second = getBookmarkedBooks();
+				var fourth = getListBookmarked();
+				var fifth = getListSubscribed();
+				var sixth = getFeaturedBooks();
 			});
 
 			function load () {
+
 				var $vW = $(window).width(), $vH = $(window).height();
+
 				if ($vW > "1024") {
 
 					// Scrolling on desktop
@@ -202,7 +209,8 @@
 
 				// Load Gapelia
 				NProgress.start();
-                $(".book, .library, .collection").imgLiquid({ fill: true });
+
+				$(".book, .library, .collection").imgLiquid({ fill: true });
 				$("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
 				var
@@ -232,8 +240,10 @@
 						h += $(this).outerHeight();
 					});
 
-					w += 600;
-$("#book-list").css("width",w);
+					w += 400;
+
+					$("#book-list").css("width", w);
+
 					if ($vW > "1024") {
 						$("#book-list").css("width", w - 320 + "px");
 					}
@@ -382,9 +392,6 @@ $("#book-list").css("width",w);
 
 						w += 500;
 
-
-
-
 						// fades in the all the books after section width is added
 						$("#bookmark-list li").fadeIn("100");
 						$("#bookmark-list").fadeIn("100");
@@ -400,7 +407,7 @@ $("#book-list").css("width",w);
 					NProgress.done();
 
 				});
-				}
+			}
 		</script>
 		<!--//scripts /-->
 

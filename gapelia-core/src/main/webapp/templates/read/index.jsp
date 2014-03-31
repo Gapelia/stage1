@@ -2,6 +2,7 @@
 <% /* Include this line below to make page login-safe */ %>
 <%/*@include file="../../auth.jsp" */ %>
 <% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,9 +53,9 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-                            <ul id="draft-menu"></ul>
-                        </li>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+								<ul id="draft-menu"></ul>
+						</li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -66,6 +67,8 @@
 							</ul>
 						</li>
 					</ul>
+
+					<a href="#" class="logout">Log Out</a>
 
 				</div>
 			</nav>
