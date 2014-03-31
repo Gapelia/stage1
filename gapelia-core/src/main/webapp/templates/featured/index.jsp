@@ -285,6 +285,7 @@
 
 						$("#library-list").hide();
 						$("#bookmark-list").hide();
+						$(".bookmark-list-wrapper section").remove();
 
 						var w = 0, h = 0;
 
@@ -334,6 +335,7 @@
 
 						$("#book-list").hide();
 						$("#bookmark-list").hide();
+						$(".bookmark-list-wrapper section").remove();
 
 						var w = 0, h = 0;
 
