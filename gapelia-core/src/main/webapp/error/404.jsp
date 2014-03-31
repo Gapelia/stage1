@@ -4,14 +4,14 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia &middot; Better stories, together</title>
+		<title>Gapelia &middot; Whoops</title>
 
-		<!--/ 404 WELCOME TO GAPELIA
+		<!--/ WELCOME TO G4P4LI4
 			 ______   ______   ______  ______   __       __   ______
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
-			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -40,7 +40,8 @@
 		<div id="mp-pusher" class="super-wrapper">
 
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>Try again Sexy</h4>
+			<h4>Whoah, how'd you get here?</h4>
+
 			<footer>
 				<nav>
 					<ul>
@@ -51,6 +52,9 @@
 					</ul>
 				</nav>
 			</footer>
+
+			<img src="/static/images/dummyBG.JPG" alt=""/>
+
 		</div>
 
 		<!--/ scripts /-->
@@ -62,9 +66,7 @@
 			$(function () {
 
 				NProgress.start();
-
 				$("#mp-pusher").imgLiquid({ fill: true });
-                $("#mp-pusher").css('background-image', 'url(http://dwellingintheword.files.wordpress.com/2010/01/6-fat-man.jpg)');
 				NProgress.done();
 
 			});
