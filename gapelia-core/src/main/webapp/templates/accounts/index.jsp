@@ -128,8 +128,11 @@
 					<div class="col-0">
 						<form class="bl_form">
 
+							<label for="user-name">Name</label>
+							<input id="user-name" type="text" placeholder="Add your name"></input>
+							
 							<label for="user-name">Username</label>
-							<input id="user-name" type="text" placeholder="Username"></input>
+							<input id="user-name" type="text" placeholder="Your custom url (i.e. gapelia.com/username)"></input>
 
 							<label for="user-email">Email</label>
 							<input id="user-email" type="email" placeholder="Email"></input>
