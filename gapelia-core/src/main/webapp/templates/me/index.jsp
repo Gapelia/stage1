@@ -89,7 +89,7 @@
 				<div id="user-wrapper">
 					<div class="user-avatar">
 						<div class="avatar-wrapper">
-							<img src="/static/images/users/user-avatar.jpg"/>
+							<!--/ <img src="/static/images/users/user-avatar.jpg"/> /-->
 						</div>
 					</div>
 
@@ -200,7 +200,6 @@
 					$("#mp-pusher").prepend(stuff);
 
 					$("#user-splash").imgLiquid({ fill: true });
-					$("#user-splash .avatar-wrapper").append('<img src="/static/images/users/user-avatar.jpg"/>');
 					$("#g-menu-toggle").css("color", "#fcfcfc");
 
 					var element = $("#change-cover-photo");
@@ -309,18 +308,19 @@
 					}
 
 					// User details
-					$("#splash-user-info h1, #user-header").html(user.displayName);
-					$(".avatar-wrapper img").attr("src", user.avatarImage);
-
+					$("#splash-user-info h1, #user-header").text(user.displayName);
+					$(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
 					$("#user-splash").css("background-image", "url(" + user.coverImage + ")");
+
+					if (user.avatarImage == undefined) {
+						$("#user-splash").css("background-image", "url(/static/images/users/user-avatar.jpg)");
+					}
 
 					if (user.coverImage == undefined) {
 						$("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
 					}
 
 					$("#splash-user-bio").html(user.bio);
-
-					// $(".profile .user-avatar img").css("width", 150); // unneccessary
 
 					// Load Gapelia
 					$(function () {

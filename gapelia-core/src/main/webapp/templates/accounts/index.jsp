@@ -127,15 +127,32 @@
 
 					<div class="col-0">
 						<form class="bl_form">
-							<input id="user-name" type="text" class="labelBetter" data-new-placeholder="We're very friendly here." placeholder="Username"></input>
-							<input id="user-email" type="email" class="labelBetter" data-new-placeholder="Email Address" placeholder="Email Address"></input>
-							<input id="user-location" type="text" class="labelBetter" data-new-placeholder="Location" placeholder="Location"></input>
-							<input id="user-personal-website" type="text" class="labelBetter" data-new-placeholder="Your personal site or blog, e.g. http://dsgn.io" placeholder="Website"></input>
-							<input id="user-twt" type="text" class="labelBetter" data-new-placeholder="The username people can find you tweeting at" placeholder="Twitter"></input>
-							<input id="user-fb" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Facebook" placeholder="Facebook"></input>
-							<input id="user-gp" type="text" class="labelBetter" data-new-placeholder="The username people can find you on Google Plus" placeholder="Google Plus"></input>
+
+							<label for="user-name">Username</label>
+							<input id="user-name" type="text" placeholder="Username"></input>
+
+							<label for="user-email">Email</label>
+							<input id="user-email" type="email" placeholder="Email"></input>
+
+							<label for="user-location">Location</label>
+							<input id="user-location" type="text" placeholder="Location"></input>
+
+							<label for="user-personal-website">Website</label>
+							<input id="user-personal-website" type="text" placeholder="Website"></input>
+
+							<label for="user-twt">Twitter</label>
+							<input id="user-twt" type="text" placeholder="Twitter Handle"></input>
+
+							<label for="user-fb">Facebook</label>
+							<input id="user-fb" type="text" placeholder="Facebook URL"></input>
+
+							<label for="user-gp">Google+</label>
+							<input id="user-gp" type="text" placeholder="Google+ URL"></input>
+
 							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
-							<input type='button' class="update-user" name="commit" onclick="updateUser();" value="Update Settings"/>
+
+							<input type="button" class="update-user" name="commit" onclick="updateUser();" value="Update Settings"/>
+
 						</form>
 
 						<div class="account-delete-wrapper">
