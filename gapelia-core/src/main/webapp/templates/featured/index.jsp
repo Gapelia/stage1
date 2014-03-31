@@ -113,7 +113,7 @@
 
 				<!--/ User's Bookmarks /-->
 				<div class="bookmark-list-wrapper">
-					<ul id="bookmark-list"></ul>
+					<!--/ <ul id="bookmark-list"></ul> /-->
 				</div>
 				<!--//User's Bookmarks /-->
 			</div>
@@ -143,11 +143,13 @@
 			}
 
 			$(function() {
+
 				var third = getUserDrafts();
 				var second = getBookmarkedBooks();
 				var fourth = getListBookmarked();
 				var fifth = getListSubscribed();
 				var sixth = getFeaturedBooks();
+
 			});
 
 			function load () {
@@ -395,6 +397,9 @@
 						// fades in the all the books after section width is added
 						$("#bookmark-list li").fadeIn("100");
 						$("#bookmark-list").fadeIn("100");
+
+						$(".bookmark-list-wrapper").append("<section><p>No books have been added to your bookmarks yet.</p></section>");
+						$(".bookmark-list-wrapper section").css("width", $vW + "px");
 
 					}, 1000);
 

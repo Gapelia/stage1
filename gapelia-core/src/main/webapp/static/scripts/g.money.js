@@ -40,8 +40,6 @@
 				$("#library-list .library").css("height", $vH - 97 + "px");
 				$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
 
-				$(".book-list-wrapper section").css("width", $vW + "px");
-
 			});
 
 		}

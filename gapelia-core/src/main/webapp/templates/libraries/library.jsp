@@ -109,18 +109,9 @@
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
-					<!--/
-					<section>
-						<p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p>
-					</section>
-					/-->
-
-					<ul id="book-list">
-
-					</ul>
+					<ul id="book-list"></ul>
 				</div>
 				<!--//Featured Books /-->
-
 
 				<!--/ Submission List /-->
 				<div class="submission-list-wrapper">
@@ -196,13 +187,16 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-		$( document ).ready(function() {
-             var first =  getLibrary();
-             var third = getUserDrafts();
-             third =  getListBookmarked();
-             var second = getBooksInLibrary();
-        });
-		function load() {
+			$(function() {
+
+				var first = getLibrary();
+				var third = getUserDrafts();
+				third = getListBookmarked();
+				var second = getBooksInLibrary();
+
+			});
+
+			function load() {
 
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
@@ -351,6 +345,9 @@
 						$("#book-list li").fadeIn("100");
 						$("#book-list").fadeIn("100");
 
+						// $(".book-list-wrapper").append("<section><p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p></section>");
+						// $(".book-list-wrapper section").css("width", $vW + "px");
+
 					}, 1000);
 
 					e.preventDefault();
@@ -376,7 +373,6 @@
 					setTimeout(function () {
 
 						$("#book-list").hide();
-						$(".book-list-wrapper section").hide(); // need to create conditional, later
 
 						var w = 0, h = 0;
 
@@ -396,6 +392,9 @@
 						// fades in the all the books after section width is added
 						$("#submission-list li").fadeIn("100");
 						$("#submission-list").fadeIn("100");
+
+						// $(".submission-list-wrapper").append("<section><p>You don't have any submissions pending review.</p></section>");
+						// $(".submission-list-wrapper section").css("width", $vW + "px");
 
 					}, 1000);
 

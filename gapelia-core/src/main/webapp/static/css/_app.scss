@@ -238,6 +238,19 @@
 		-webkit-transform: translateY(-50%);
 	}
 
+	.bookmark-list-wrapper {
+		section {
+			width: 100%; height: 100%;
+
+			p {
+				font-size: 1.3rem;
+				line-height: 1.8rem;
+				margin: 0 auto;
+				text-align: center;
+			}
+		}
+	}
+
 	#book-scroller, #featured-scroller {
 		overflow-y: hidden;
 		overflow-x: auto;

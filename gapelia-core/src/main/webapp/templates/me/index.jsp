@@ -108,11 +108,9 @@
 
 			<!--/ main-scroller /-->
 			<div id="book-scroller">
-
 				<!--/ your-books /-->
 				<div class="user-book-list-wrapper">
-					<ul id="user-book-list">
-					</ul>
+					<ul id="user-book-list"></ul>
 				</div>
 				<!--//your-books /-->
 			</div>
@@ -366,7 +364,10 @@
 							$("#user-book-list li").fadeIn("100");
 							$("#user-book-list").fadeIn("100");
 
-							// "fix" featured menu pop-in
+							// $(".user-book-list-wrapper").append("<section><p>You haven't created any books. <a href=\"/createbook\">Get started</a>!</p></section>");
+							// $(".user-book-wrapper section").css("width", $vW + "px");
+
+							// "fix" featured menu pop-in // not even sure if this is a problem anymore, I forget
 							setTimeout(function () {
 								$("#user-panel, #book-scroller").css("opacity", "1");
 							}, 600);
