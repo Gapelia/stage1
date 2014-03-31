@@ -1269,9 +1269,7 @@
 		position: relative;
 		width: 50%;
 
-		.wrapper {
-      text-align: center;
-      width: 100%; }
+		.wrapper { width: 100%; }
 	}
 
 	.close-modal {
@@ -1291,7 +1289,6 @@
 			content: "You are about to publish:";
 			display: block;
 			font-size: 0.4em;
-      font-weight: 100;
 			margin: 0 0 -0.5rem 0;
 		}
   }
