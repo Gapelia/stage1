@@ -9,30 +9,33 @@ public class QueryDatabaseBook {
     private static Logger LOG = Logger.getLogger(QueryDatabaseBook.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     //Page Relate Queries
-    private static final String FIND_BOOK = "SELECT * FROM BOOKS where owned_by = ?";
+    private static final String DELETE_PAGES_FROM_BOOK = "DELETE FROM pages user_votes where book_id = ?";
     private static final String DELETE_FROM_BOOKS = "DELETE FROM books where id = ?";
-    private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books where book_id = ?";
-    private static final String CREATE_PAGE = "INSERT INTO pages (id, book_id, user_id, created, last_updated) VALUES(?,?,?,?,?)";
+    private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books user_bookmarks where book_id = ?";
+    private static final String CREATE_PAGE = "INSERT INTO pages (book_id, user_id, created, last_updated) VALUES(?,?,?,?)";
     private static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,page_number = ?,photo_url = ?,photo_id = ?,creative_commons = ?,last_updated = ? WHERE id = ?";
     private static final String DELETE_PAGE = "DELETE FROM pages WHERE id = ?";
     // Book Related Queries
-    private static final String CREATE_BOOK = "INSERT INTO books (id, owned_by, created, last_updated, is_published) VALUES (?,?,?,?,?)";
+    private static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
     private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ? WHERE id = ?";
 
-    public static String createPage(Page page){
+    public static int createPage(Page page){
         PreparedStatement insert = null;
         try {
-            insert = connection.prepareStatement(CREATE_PAGE);
-            insert.setInt(1, page.getPageId());
-            insert.setInt(2, page.getBookId());
-            insert.setInt(3, page.getUserId());
-            insert.setTimestamp(4, page.getCreated());
-            insert.setTimestamp(5, page.getLastUpdated());
+            insert = connection.prepareStatement(CREATE_PAGE, Statement.RETURN_GENERATED_KEYS);
+            insert.setInt(1, page.getBookId());
+            insert.setInt(2, page.getUserId());
+            insert.setTimestamp(3, page.getCreated());
+            insert.setTimestamp(4, page.getLastUpdated());
             insert.executeUpdate();
-            return "Success";
+            ResultSet rs = insert.getGeneratedKeys();
+            if ( rs.next() ) {
+                return rs.getInt(1);
+            }
+            return 0;
         } catch (SQLException ex) {
             LOG.error("ERROR creating page: : " + page.getPageId() + " "  + ex.getMessage());
-            return "ERROR creating page";
+            return -1;
         } finally {
             try {
                 if (insert != null) {
@@ -40,7 +43,7 @@ public class QueryDatabaseBook {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: "  + page.getPageId() + " " + ex.getMessage());
-                return "Error closing connection";
+                return -1;
             }
         }
     }
@@ -98,20 +101,23 @@ public class QueryDatabaseBook {
         }
     }
 
-    public static String createBook(Book book){
+    public static int createBook(Book book){
         PreparedStatement insert = null;
         try {
-            insert = connection.prepareStatement(CREATE_BOOK);
-            insert.setInt(1, book.getBookId());
-            insert.setInt(2, book.getUserId());
-            insert.setTimestamp(3, book.getCreated());
-            insert.setTimestamp(4, book.getLastUpdated());
-            insert.setBoolean(5, book.getIsPublished());
+            insert = connection.prepareStatement(CREATE_BOOK, Statement.RETURN_GENERATED_KEYS);
+            insert.setInt(1, book.getUserId());
+            insert.setTimestamp(2, book.getCreated());
+            insert.setTimestamp(3, book.getLastUpdated());
+            insert.setBoolean(4, false);
             insert.executeUpdate();
-            return "Success";
+            ResultSet rs = insert.getGeneratedKeys();
+            if ( rs.next() ) {
+                return rs.getInt(1);
+            }
+            return 0;
         } catch (SQLException ex) {
             LOG.error("ERROR creating book: : " + book.getBookId() + " "  + ex.getMessage());
-            return "ERROR creating book";
+            return -1;
         } finally {
             try {
                 if (insert != null) {
@@ -119,7 +125,7 @@ public class QueryDatabaseBook {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: "  + book.getBookId() + " " + ex.getMessage());
-                return "Error closing connection";
+                return -1;
             }
         }
     }
@@ -155,6 +161,9 @@ public class QueryDatabaseBook {
     public static String deleteBook(int bookId){
         PreparedStatement insert = null;
         try {
+            insert = connection.prepareStatement(DELETE_PAGES_FROM_BOOK);
+            insert.setInt(1, bookId);
+            insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_LIBRARYBOOKS);
             insert.setInt(1, bookId);
             insert.executeUpdate();

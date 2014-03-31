@@ -149,10 +149,12 @@
 
 		<script>
 			$(function () {
-			var second = getUserCreatedBooks();
-			var third = getUserDrafts();
-			var first = getUser();
-			 });
+
+				var second = getUserCreatedBooks();
+				var third = getUserDrafts();
+				var first = getUser();
+
+			});
 
 			// Splash page
 			function load() {
