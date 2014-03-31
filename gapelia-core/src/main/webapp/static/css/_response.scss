@@ -174,15 +174,16 @@
 		}
 
 		#book-cta {
+			background-color: transparent !important;
 			background-image: none !important;
-			height: 100px;
+			height: 100px !important;
 			padding: 0 3rem;
 			text-align: center;
 
-			&:after { background-image: none !important; }
+			&:after { background: none !important; }
 			
 			p {
-				font-size: 1.8rem;
+				font-size: 1.6rem;
 				font-weight: 200;
 				position: relative;
 				top: 50%;
@@ -318,7 +319,7 @@
 
 		.book, .collection, .library {
 			margin: 0 0 1.5rem 0; padding: 0;
-			width: 100%; height: 250px; // 400px
+			width: 100%; height: 250px !important; 
 
 			&:last-child { margin: 0; }
 
@@ -383,6 +384,8 @@
 			}
 		}
 
+		#book-list, #library-list, #bookmark-list { width: 100% !important; }
+		
 		.bookmarked {
 			.bookmark-this {
 				z-index: 5;
@@ -1108,7 +1111,7 @@
 			background: transparent !important;
 			height: 100px;
 			
-			&:after { background-image: none !important; }
+			&:after { background: none !important; }
 			
 			p {
 				font-size: 1.4rem;
@@ -1494,8 +1497,7 @@
 
 }
 
-// Please read up on media queries and device screen sizes, I'm trying to save you from yourself
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -1588,7 +1590,8 @@
 			background-color: transparent;
 			border-bottom: 1px solid rgba($slate, 0.3);
 			box-shadow: none;
-			height: auto;
+			height: auto !important;
+			padding: 1.3rem;
 			
 			&:last-child {
 				border-bottom: none;
@@ -1608,14 +1611,15 @@
 			.book-title {
 				font-size: 1.4rem;
 				line-height: 1.6rem;
-				margin: 0 0 2rem 0;
-				top: 25%;
+				margin: 0 0 0.5rem 0;
+				top: 8%;
 			}
 
-			.book-info, .collection-info, .library-info {
+			.book-info, .collection-info {
+				bottom: 0;
 				color: rgba($black, 0.9);
 				font-size: smaller;
-				margin: 0 0 0rem 0;
+				margin: 0;
 				
 				a { color: rgba(black, 0.75); }
 				
@@ -1624,8 +1628,10 @@
 					margin: 0 0 1rem 0;
 				}
 
-				.author-name, .library-location {
+				.author-name {
 					display: inline-block;
+					font-size: 0.7rem;
+					margin-left: 0.3rem;
 					position: relative;
 					top: -0.8rem;
 					
@@ -1701,9 +1707,10 @@
 		}
 		
 		.library-location {
-			font-size: 0.8rem;
+			font-size: 0.7rem;
 			font-style: italic;
-			left: 0;
+			font-weight: 100;
+			left: 0 !important;
 			margin-bottom: 5px;
 			width: 100%;
 		}
