@@ -222,7 +222,7 @@ function getCreatedLibraries() {
 }
 
 function getLibrary() {
-    libraryId = document.URL.substring(30, document.URL.length)
+    libraryId = document.URL.split("/")[document.URL.split("/").length-1]
     sessionId = readCookie("JSESSIONID");
     $.ajax({
         url: "/api/libraries/getLibrary",
