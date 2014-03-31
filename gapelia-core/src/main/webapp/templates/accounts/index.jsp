@@ -141,7 +141,7 @@
 							<input id="user-location" type="text" placeholder="Location"></input>
 
 							<label for="user-personal-website">Website</label>
-							<input id="user-personal-website" type="text" placeholder="Website, blog, portfolio..."></input>
+							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>
 
 							<label for="user-twt">Twitter</label>
 							<input id="user-twt" type="text" placeholder="twitter.com/@yourname"></input>
