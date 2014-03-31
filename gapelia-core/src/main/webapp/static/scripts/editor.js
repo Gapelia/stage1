@@ -323,14 +323,7 @@
 
 		var insert = "";
 
-		// if (imageURL == null) {
-
-		// var BG = $("#page"+(pagesCreated)+"Image");
-		// var BG = $(".fluid-preview-wrapper .page-bg");
-		var BG = $("#page" + currentPage + "Image");
-		// var BG = $("#page0Image");
-
-		if (BG.src = "static/images/whiteBG.jpg") {
+		if (imageURL == null) {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
@@ -478,7 +471,6 @@
 		}
 		*/
 
-		/*
 		var pageBG = $(".page-bg");
 
 		if ($(".page-bg").data("adaptive-background") == 1) {
@@ -508,7 +500,6 @@
 			$(".fluid-preview article").css("padding", "4rem 0");
 
 		}
-		*/
 
 		$(window).ready(function () {
 			$(".page-desc").focus();
