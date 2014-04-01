@@ -322,8 +322,10 @@
 	function fluidLayout() {
 
 		var insert = "";
+		
+		console.log(imageURL);
 
-		if (imageURL == null) {
+		if (imageURL == null || imageURL == "static/images/whiteBG.jpg") {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
