@@ -161,7 +161,7 @@
 
 		<script>
 			$(function () {
-getSubscribedLibrary();getCreatedLibraries();load();
+getListSubscribed();getSubscribedLibrary();getCreatedLibraries();load();
 });
 
 function  load() {
@@ -286,7 +286,7 @@ function  load() {
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#subscription-list").css("width", w - 155 + "px");
+							$("#subscription-list").css("width", w + "px");
 						} else {
 							// $("#submission-list").css("height", h + 379 + "px");
 						}

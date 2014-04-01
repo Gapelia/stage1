@@ -76,7 +76,7 @@ public class AuthSuccessHandler extends HttpServlet {
 			response.addCookie(sessionCookie);
 			String answer = QueryDatabaseUser.checkUser(profile, session.getId());
 			if (answer =="Success") {
-				response.sendRedirect("/me");
+				response.sendRedirect("/featured");
 				return;
 			} else if(answer == "New") {
 				response.sendRedirect("/onboard");

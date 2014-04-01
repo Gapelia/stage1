@@ -16,6 +16,7 @@ function readCookie(name) {
 
 function getBookmarkedBooks() {
     sessionId = readCookie("JSESSIONID");
+    toInsert ="<section><p>No books have been added to your bookmarks yet.</p></section>";
     $.ajax({
         url: "/api/users/getBookmarkedBooks",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -25,16 +26,18 @@ function getBookmarkedBooks() {
         },
         success: function (data) {
             bookmarks = data;
-            toInsert = '<ul id=\"bookmark-list\">';
-            for (i in bookmarks) {
-                bookmark = bookmarks[i];
-                toInsert += "<li id=\"" + bookmark.bookId + "\" class=\"collection book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
-                toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
-                toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div>";
-                toInsert += "<div class=\"book-info\"><img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">" + bookmark.userId + "</a></div></div></li>";
+            if(bookmarks != []) {
+                toInsert = '<ul id=\"bookmark-list\">';
+                for (i in bookmarks) {
+                    bookmark = bookmarks[i];
+                    toInsert += "<li id=\"" + bookmark.bookId + "\" class=\"collection book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                    toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
+                    toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
+                    toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div>";
+                    toInsert += "<div class=\"book-info\"><img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">" + bookmark.userId + "</a></div></div></li>";
+                }
+                toInsert += "</ul>";
             }
-            toInsert += "</ul>";
             $(".bookmark-list-wrapper").html(toInsert);
             $("#library-list .library").css("height", $vH - 97 + "px");
             $("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
@@ -51,43 +54,43 @@ function getBookmarkedBooks() {
 
 function getFeaturedBooks() {
     sessionId = readCookie("JSESSIONID");
-        $.ajax({
-            url: "/api/users/getFeaturedBooks",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId
-            },
-            success: function (data) {
-                books = data;
-                toInsert = "";
-                for (i in books) {
-                    book = books[i];
-                    if (book.bookId in bookmarked == true) {
-                        toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
-                    } else {
-                        toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-                    }
-                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
-                    toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
-                    toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
-                    toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
-                    toInsert += "<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
-                }
-                $("#book-list").html(toInsert);
-                h = $(this).outerHeight() - 92;
-                $(".book").css("height", h);
-                $("#book-list li").fadeIn("100");
-                $("#book-list").fadeIn("100");
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
+    $.ajax({
+        url: "/api/users/getFeaturedBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            books = data;
+            toInsert = "";
+            for (i in books) {
+                book = books[i];
+                if (book.bookId in bookmarked == true) {
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
                 } else {
-                    alert("Some issue happened with your request: " + err.message);
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 }
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
+                toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
             }
-        });
+            $("#book-list").html(toInsert);
+            h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
+            $("#book-list li").fadeIn("100");
+            $("#book-list").fadeIn("100");
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
 }
 
 function getUserCreatedBooks() {
@@ -111,19 +114,20 @@ function getUserCreatedBooks() {
                 toInsert += "<div class=\"book-info\"><div class=\"library-location\"><a href=\"#\">Insane Asylum</a></div></div></li>";
             }
             $("#user-book-list").html(toInsert);
-            var w = 0, h = 0;
+            var w = 0,
+                h = 0;
 
-                            							$("#user-book-list li").each(function () {
-                            								w += $(this).outerWidth();
-                            								h += $(this).outerHeight();
-                            							});
+            $("#user-book-list li").each(function () {
+                w += $(this).outerWidth();
+                h += $(this).outerHeight();
+            });
 
-                            							w += 500;
+            w += 500;
 
-                            							if ($vW > "1024") {
-                            								$("#user-book-list").css("width", w + "px");
-                            							}
-                            							console.log(w);
+            if ($vW > "1024") {
+                $("#user-book-list").css("width", w + "px");
+            }
+            console.log(w);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -235,7 +239,7 @@ function getCreatedLibraries() {
 }
 
 function getLibrary() {
-    libraryId = document.URL.split("/")[document.URL.split("/").length-1]
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     sessionId = readCookie("JSESSIONID");
     $.ajax({
         url: "/api/libraries/getLibrary",
@@ -251,7 +255,13 @@ function getLibrary() {
             featuredBookTitle = "STILL NEED TO GET";
             featuredBookId = library.featuredBook;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-            toInsert += "<div id=\"library-info\"><button class=\"subscribe white\">Subscribe</button><h1>" + userName + " · 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+            toInsert += "<div id=\"library-info\">";
+            if (library.libraryId in subscribed == true) {
+                toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
+            } else {
+                toInsert += "<button class=\"subscribe white\">Subscribe</button>";
+            }
+            toInsert += "<h1>" + userName + " · 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
             $("#mp-pusher").prepend(toInsert);
             load();

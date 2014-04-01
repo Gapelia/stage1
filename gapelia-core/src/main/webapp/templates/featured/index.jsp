@@ -158,10 +158,9 @@
 				var $vW = $(window).width(), $vH = $(window).height();
                 h = $(this).outerHeight() - 92;
                 $(".book").css("height", h);
-                $("#bookmark-list li").fadeIn("100");
-                $("#bookmark-list").fadeIn("100");
+                $("#book-list li").fadeIn("100");
+                $("#book-list").fadeIn("100");
 				if ($vW > "1024") {
-
 					// Scrolling on desktop
 					$("#featured-scroller").mousewheel(function (event, delta) {
 
@@ -244,7 +243,7 @@
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#book-list").css("width", w + 320 + "px");
+							$("#book-list").css("width", w + "px");
 						} else {
 							// $("#book-list").css("height", h + 219 + "px");
 						}
@@ -292,7 +291,7 @@
 						});
 
 						w += 500;
-
+                        $("#library-list").css("width", w + "px");
 						if ($vW > "1024") {
 
 							$("#library-list").css("width", w + "px");
@@ -346,8 +345,6 @@
 						// fades in the all the books after section width is added
 						$("#bookmark-list li").fadeIn("100");
 						$("#bookmark-list").fadeIn("100");
-
-						$(".bookmark-list-wrapper").append("<section><p>No books have been added to your bookmarks yet.</p></section>");
 						$(".bookmark-list-wrapper section").css("width", $vW + "px");
 
 					}, 1000);
