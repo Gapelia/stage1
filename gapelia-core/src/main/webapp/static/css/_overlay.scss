@@ -125,3 +125,43 @@
 		strong { font-style: italic; }
 	}
 }
+
+#publish-overlay {
+	section {
+		height: auto;
+		top: 10%;
+
+		h1 {
+			margin: 0 0 4rem 0;
+			text-align: center;
+		}
+
+		.add-description, section {
+			// display: inline-block;
+			float: left;
+			vertical-align: top;
+			width: 50%;
+		}
+
+		.add-description {
+			height: 300px;
+		}
+
+		section {
+			top: initial;
+		}
+	}
+
+	.selectize-control {
+		width: 500px; height: auto;
+		margin: 0 auto 1rem; padding: 10px 15px;
+
+		// background-color: $white;
+		// border-radius: 5px;
+	}
+
+	.wrapper {
+		margin: 4rem 0 0 0;
+		text-align: center;
+	}
+}

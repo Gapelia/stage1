@@ -180,7 +180,7 @@
 						</p>
 					</section>
 				</div>
-				
+
 				<!--/ Password Settings /-->
 				<div class="account-password-wrapper" style="display: none;">
 
