@@ -146,7 +146,7 @@
 		#g-menu-toggle { left: 1rem; }
 		#next-book-toggle { right: 1rem; }
 
-		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .subscription-list-wrapper {
+		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper {
 			position: relative;
 			top: initial;
 			transform: translateY(0);
@@ -158,7 +158,7 @@
 		}
 
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-		#book-list, #library-list, #bookmark-list, #subscription-list {
+		#book-list, #library-list, #bookmark-list {
 			width: 100%; height: 100% !important; // auto
 			top: initial; bottom: 0; // 75px
 
@@ -384,7 +384,7 @@
 			}
 		}
 
-		#book-list, #library-list, #bookmark-list, #subscription-list { width: 100% !important; }
+		#book-list, #library-list, #bookmark-list, #user-book-list { width: 100% !important; }
 		
 		.bookmarked {
 			.bookmark-this {
@@ -1122,7 +1122,7 @@
 			}
 		}
 		
-		#book-list, #library-list, #bookmark-list, #subscription-list {
+		#book-list, #library-list, #bookmark-list {
 			background-color: rgba(gray, 0.05);
 			padding: 5.2rem 1rem 1rem 1rem;
 		}
@@ -1574,7 +1574,7 @@
 
 		// Lists
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-		#book-list, #dimension-list, #library-list, #bookmark-list, #subscription-list {
+		#book-list, #dimension-list, #library-list, #bookmark-list {
 			background-color: transparent;
 			display: block;
 			padding: 65px 0 0 0;

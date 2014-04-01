@@ -74,6 +74,7 @@ function getFeaturedBooks() {
                     toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
                     toInsert += "<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
                 }
+		
                 $("#book-list").html(toInsert);
                 h = $(this).outerHeight() - 92;
                 $(".book").css("height", h);
@@ -107,9 +108,10 @@ function getUserCreatedBooks() {
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
                 toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div>";
-                toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>"
-                toInsert += "<div class=\"book-info\"><div class=\"library-location\"><a href=\"#\">Insane Asylum</a></div></div></li>";
+		toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
+                toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
             }
+	     
             $("#user-book-list").html(toInsert);
             var w = 0, h = 0;
 
