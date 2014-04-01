@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
         location TEXT,
         avatar_image TEXT,
         cover_image TEXT,
-        display_name TEXT,
+        display_name TEXT UNIQUE,
         validated_id TEXT,
         provider_id TEXT,
         personal_website TEXT,
@@ -21,8 +21,11 @@ CREATE TABLE IF NOT EXISTS users (
         last_login TIMESTAMP WITH TIME ZONE,
         last_updated TIMESTAMP WITH TIME ZONE,
         is_public BOOLEAN,
-        is_onboarded BOOLEAN
+        is_onboarded BOOLEAN,
+	library_creator BOOLEAN,
+	opt_out BOOLEAN
 );
+
 CREATE INDEX user_validated_id_idx ON users(validated_id);
 
 CREATE TABLE IF NOT EXISTS books (
@@ -34,7 +37,8 @@ CREATE TABLE IF NOT EXISTS books (
         tags TEXT,
         created TIMESTAMP WITH TIME ZONE,
         last_updated TIMESTAMP WITH TIME ZONE,
-        is_published BOOLEAN default false
+        is_published BOOLEAN default false,
+	snippet	TEXT
 );
 CREATE INDEX book_owned_by_idx ON books(owned_by);
 
