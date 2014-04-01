@@ -137,7 +137,6 @@
 		}
 
 		.add-description, section {
-			// display: inline-block;
 			float: left;
 			vertical-align: top;
 			width: 50%;
@@ -145,9 +144,11 @@
 
 		.add-description {
 			height: 300px;
+			&:empty:after { content: "Write a summary of your story"; }
 		}
 
 		section {
+			margin: 0 0 2rem 0;
 			top: initial;
 		}
 	}
@@ -156,12 +157,21 @@
 		width: 500px; height: auto;
 		margin: 0 auto 1rem; padding: 10px 15px;
 
-		// background-color: $white;
-		// border-radius: 5px;
+		.selectize-input {
+			border: none;
+			outline: none;
+		}
 	}
 
-	.wrapper {
-		margin: 4rem 0 0 0;
-		text-align: center;
+	.wrapper { text-align: center; }
+
+	.a {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+
+	.b {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 }

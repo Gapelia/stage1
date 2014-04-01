@@ -134,7 +134,7 @@
 			<section>
 				<h1>The book title goes here</h1>
 
-				<div class="add-description" contenteditable="true">Write a summary of your story</div>
+				<div class="add-description" contenteditable="true"></div>
 
 				<section>
 					<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
