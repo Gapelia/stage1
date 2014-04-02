@@ -69,9 +69,9 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
-					</ul>
 
-					<a href="#" class="logout">Log Out</a>
+						<li class="logout"><a href="#">Log Out</a></li>
+					</ul>
 
 				</div>
 			</nav>
@@ -126,6 +126,7 @@
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
+		
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -149,7 +150,6 @@
 				var fourth = getListBookmarked();
 				var fifth = getListSubscribed();
 				var sixth = getFeaturedBooks();
-
 
 			});
 

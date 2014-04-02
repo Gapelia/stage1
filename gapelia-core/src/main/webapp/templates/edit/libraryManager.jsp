@@ -2,6 +2,7 @@
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,9 +69,9 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
-					</ul>
 
-					<a href="#" class="logout">Log Out</a>
+						<li class="logout"><a href="#">Log Out</a></li>
+					</ul>
 
 				</div>
 			</nav>
@@ -161,10 +162,16 @@
 
 		<script>
 			$(function () {
-getListSubscribed();getSubscribedLibrary();getCreatedLibraries();load();
-});
 
-function  load() {
+				getListSubscribed();
+				getSubscribedLibrary();
+				getCreatedLibraries();
+				load();
+
+			});
+
+			function load() {
+
 				var $vW = $(window).width(), $vH = $(window).height();
 
 				// Controlled scrolling speed
