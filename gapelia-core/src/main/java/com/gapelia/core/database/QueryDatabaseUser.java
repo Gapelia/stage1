@@ -402,6 +402,7 @@ public class QueryDatabaseUser {
 
         return null;
     }
+
     public static ArrayList<Book> getCreatedBooks(int userId) {
         PreparedStatement statement = null;
         ResultSet rs = null;

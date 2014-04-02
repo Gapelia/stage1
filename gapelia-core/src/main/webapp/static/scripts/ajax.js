@@ -16,7 +16,7 @@ function readCookie(name) {
 
 function getBookmarkedBooks() {
     sessionId = readCookie("JSESSIONID");
-    toInsert ="<section><p>No books have been added to your bookmarks yet.</p></section>";
+    toInsert = "<section><p>No books have been added to your bookmarks yet.</p></section>";
     $.ajax({
         url: "/api/users/getBookmarkedBooks",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -26,7 +26,7 @@ function getBookmarkedBooks() {
         },
         success: function (data) {
             bookmarks = data;
-            if(bookmarks != []) {
+            if (bookmarks != []) {
                 toInsert = '<ul id=\"bookmark-list\">';
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
@@ -160,8 +160,6 @@ function getUserDrafts() {
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
             }
         }
     });
@@ -485,6 +483,74 @@ function getUser() {
     return null;
 }
 
+function getUserPublic() {
+    profileUserId = document.URL.split('?id=')[1]
+    $.ajax({
+        url: "/api/users/getUserPublic",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            userId: profileUserId
+        },
+        success: function (data) {
+            user = data;
+            var uri = window.location.toString();
+            if (uri.indexOf("user.jsp?") > 0) {
+                var clean_uri = uri.substring(0, uri.indexOf("user.jsp?")) + user.displayName;
+                console.log(clean_uri);
+                window.history.replaceState({}, document.title, clean_uri);
+            }
+            load();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return null;
+}
+
+function getPublicCreatedBooks() {
+    $.ajax({
+        url: "/api/users/getCreatedBooksPublic",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            userId: profileUserId
+        },
+        success: function (data) {
+            books = data;
+            toInsert = "";
+            for (i in books) {
+                book = books[i];
+                if (book.bookId in bookmarked == true) {
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+                } else {
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                }
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
+                toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
+            }
+            $("#user-book-list").html(toInsert);
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
+}
+
+
 function quickUpdateUser() {
     name = user.name;
     email = user.email;
@@ -677,8 +743,6 @@ function getListBookmarked() {
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
             }
         }
     });
@@ -705,8 +769,6 @@ function getListSubscribed() {
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
             }
         }
     });
