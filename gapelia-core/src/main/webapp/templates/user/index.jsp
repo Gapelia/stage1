@@ -69,6 +69,8 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
+
+						<li class="logout"><a href="#">Log Out</a></li>
 					</ul>
 
 				</div>

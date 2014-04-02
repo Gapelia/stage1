@@ -52,9 +52,9 @@
 						<li><a href="/createlibrary">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
 
-                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-                            <ul id="draft-menu"></ul>
-                        </li>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+							<ul id="draft-menu"></ul>
+						</li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
 							<ul>
@@ -65,6 +65,8 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
+
+						<li class="logout"><a href="#">Log Out</a></li>
 					</ul>
 
 				</div>
@@ -127,7 +129,7 @@
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
-
+		<script src="/static/scripts/ajax.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -143,10 +145,8 @@
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
 
 			$(function () {
-                var third = getUserDrafts();
-				$("button.photo-picker").html("&#xf2e4;");
-				$("#new-library").imgLiquid({ fill: true });
-				$("#g-menu-toggle").css("color", "#fcfcfc");
+
+				var third = getUserDrafts();
 
 				// Click "Save" button
 				$("#confirm-create-library").click(function () {
@@ -194,6 +194,10 @@
 				$(document).on("click", "#close-splash", function () {
 					window.location.href = "/librarymanager";
 				});
+
+				$("button.photo-picker").html("&#xf2e4;");
+				$("#new-library").imgLiquid({ fill: true });
+				$("#g-menu-toggle").css("color", "#fcfcfc");
 
 			});
 		</script>
