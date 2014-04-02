@@ -57,14 +57,8 @@
 							<ul id="draft-menu"></ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
-							<ul>
-								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
-								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
-								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
-								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
-								<li><a href="#">2 edit requests are pending for your review</a></li>
-							</ul>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
+							<ul></ul>
 						</li>
 
 						<li class="logout"><a href="#">Log Out</a></li>
@@ -119,9 +113,16 @@
 		<!--/ scripts/page-flip /-->
 		<script src="/static/scripts/jquerypp.custom.js"></script>
 		<script src="/static/scripts/bookblock.js"></script>
-
+        <script src="/static/scripts/readBook.js"></script>
 		<script>
 			$(function () {
+			    LoadBook();
+				var third = getUserDrafts();
+                load();
+			});
+
+			// Splash page
+			function load() {
                 var third = getUserDrafts();
 				$("img").VimeoThumb();
 
@@ -158,9 +159,13 @@
 
 					share = "";
 					share += "<ul id=\"share-menu\" style=\"display: none;\">";
-					share += "<li><a href=\"javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)\">Share via Facebook</a></li>";
-					share += "<li><a href=\"javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-					share += "<li><a href=\"mailto:?subject=Oh%20hai&amp;body=Good%20morning!\">Share via Email</a></li>";
+					var currentWebsite = document.URL;
+					facebookShare = 'http://www.facebook.com/sharer/sharer.php?u='+currentWebsite;
+					twitterShare = 'http://twitter.com/share?url='+currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+					emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out'+ currentWebsite;
+					share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
+					share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
+					share += "<li><a href=\"emailShare\">Share via Email</a></li>";
 					share += "</ul>";
 
 					$("#g-menu-toggle").after(menu);
