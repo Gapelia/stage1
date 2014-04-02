@@ -661,13 +661,6 @@
 
 		});
 
-		$(".dd-link").click(function (e) {
-
-			$(this).closest(".delete-draft").show();
-			e.preventDefault();
-
-		});
-
 	});
 
 	$(window).ready(function () {

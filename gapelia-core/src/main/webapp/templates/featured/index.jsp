@@ -358,6 +358,14 @@
 					NProgress.done();
 
 				});
+
+				$(".dd-link").click(function (e) {
+
+					$(this).next(".delete-draft").toggle();
+					e.preventDefault();
+
+				});
+
 			}
 		</script>
 		<!--//scripts /-->
