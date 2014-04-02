@@ -49,12 +49,8 @@ public class Users {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getUserPublic(@FormParam("sessionId") String sessionId,
-                                @FormParam("userId") int userId) {
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
+    public String getUserPublic(@FormParam("userId") int userId) {
         Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getUserById(userId));
     }
 
@@ -147,6 +143,14 @@ public class Users {
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getCreatedBooks(u.getUserId()));
+    }
+    @Path("getCreatedBooksPublic")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getCreatedBooksPublic(@FormParam("userId") int userId) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseUser.getCreatedBooks(userId));
     }
 
     @Path("getFeaturedBooks")

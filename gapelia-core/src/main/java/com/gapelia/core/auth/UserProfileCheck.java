@@ -50,8 +50,7 @@ public class UserProfileCheck extends HttpServlet {
 				} else {
 					rs.next();
 					User u = QueryDatabaseUser.getUserByValidatedId(rs.getString("validated_id"));
-					LOG.info(u.getAvatarImage());
-
+                    //TODO we also need to make sure their profile is public also add this to accounts
 					response.sendRedirect(response.encodeRedirectURL("/user.jsp?id=" + u.getUserId()));
 				}
 			} catch (SQLException ex) {
