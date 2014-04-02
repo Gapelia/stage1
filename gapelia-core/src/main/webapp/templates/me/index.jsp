@@ -95,7 +95,6 @@
 
 					<div class="user-data">
 						<h2 id="user-info"></h2>
-
 						<span id="user-bio" contenteditable="false"></span>
 					</div>
 
@@ -151,6 +150,7 @@
 				var second = getUserCreatedBooks();
 				var third = getUserDrafts();
 				var first = getUser();
+
 			});
 
 			// Splash page
@@ -191,7 +191,8 @@
 					// stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
 					// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 					stuff += "</div>";
-					stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+					// stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+					stuff += "<div id=\"close-splash\">See my books</div>";
 					stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
 					stuff += "</section>";
 
