@@ -3,6 +3,7 @@ package com.gapelia.core.api;
 import com.gapelia.core.auth.AuthHelper;
 import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.DatabaseManager;
+import com.gapelia.core.database.FlushUser;
 import com.gapelia.core.database.QueryDatabaseActions;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.model.User;
@@ -117,6 +118,6 @@ public class Actions {
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         LOG.info("FLUSHING USER");
-        return QueryDatabaseActions.flushUser(u);
+        return FlushUser.flushUser(u);
     }
 }
