@@ -359,11 +359,20 @@
 
 				});
 
+				// Drafts functionality
 				$(".dd-link").click(function (e) {
 
 					$(this).next(".delete-draft").toggle();
 					e.preventDefault();
 
+				});
+
+				$(".yay-dd").click(function () {
+					$(this).closest("li").remove();
+				});
+
+				$(".nay-dd").click(function () {
+					$(this).closest(".delete-draft").hide();
 				});
 
 			}
