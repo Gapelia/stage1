@@ -51,7 +51,6 @@ function loadBook() {
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
-            //sessionId: sessionId,
             bookId: bookId
         },
         success: function (data) {

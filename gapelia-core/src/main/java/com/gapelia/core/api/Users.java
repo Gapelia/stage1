@@ -127,6 +127,7 @@ public class Users {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getPages(@FormParam("bookId") int bookId) {
         Gson gson = new GsonBuilder().create();
+        LOG.info(gson.toJson(QueryDatabaseUser.getPages(bookId)));
         return gson.toJson(QueryDatabaseUser.getPages(bookId));
     }
 
