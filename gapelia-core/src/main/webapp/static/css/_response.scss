@@ -475,6 +475,11 @@
 		#user-splash {
 			#splash-user-info { top: 24%; }
 			.user-avatar { top: 10%; }
+
+			#close-splash {
+				top: initial; right: initial; bottom: 4rem !important;
+				font-size: 1.5rem !important;
+			}
 		}
 
 	}
@@ -1497,7 +1502,7 @@
 
 }
 
-@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -2009,6 +2014,14 @@
 	/// Review all this at a later date
 
 	.profile {
+
+		#user-splash {
+			.avatar-wrapper {
+				#splash-edit-profile {
+					display: none !important;
+				}
+			}
+		}
 
 		#user-book-list { padding: 65px 0 0 0; }
 
