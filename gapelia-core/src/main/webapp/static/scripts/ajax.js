@@ -945,7 +945,7 @@ function updateBookAndPages(isPublished) {
 						isPublished: isPublished
 				},
 				success: function (data) {
-						console.log("Succes Publishing your book");
+						console.log("Success publishing your book");
 				},
 				error: function (q, status, err) {
 						if (status == "timeout") {
@@ -984,3 +984,14 @@ function updateBookAndPages(isPublished) {
 				i++;
 		}
 }
+
+	$(function () {
+
+		$(".dd-link").click(function (e) {
+
+			$(this).closest(".delete-draft").show();
+			e.preventDefault();
+
+		});
+
+	});

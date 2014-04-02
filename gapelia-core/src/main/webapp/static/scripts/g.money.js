@@ -661,10 +661,9 @@
 
 		});
 
-		$("#draft-menu .dd-link").click(function (e) {
+		$(".dd-link").click(function (e) {
 
-			// $(this).closest(".delete-draft").show();
-			$(this).hide();
+			$(this).closest(".delete-draft").show();
 			e.preventDefault();
 
 		});
