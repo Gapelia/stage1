@@ -192,7 +192,7 @@
 					// stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
 					stuff += "</div>";
 					// stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-					stuff += "<div id=\"close-splash\">See my books</div>";
+					stuff += "<div id=\"close-splash\">See my books!</div>";
 					stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
 					stuff += "</section>";
 
