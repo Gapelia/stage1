@@ -153,14 +153,14 @@ function getUserDrafts() {
             toInsert = "";
             for (i in drafts) {
                 draft = drafts[i]
-								toInsert += "<li><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";
-								toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
-								toInsert += "<span class=\"delete-draft\">";
-								toInsert += "Delete draft?";
-								toInsert += "<button class=\"a yay-dd red\">Yes</button>";
-								toInsert += "<button class=\"b nay-dd white\">No</button>";
-								toInsert += "</span>";
-								toInsert += "</li>";
+                toInsert += "<li><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";
+                toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
+                toInsert += "<span class=\"delete-draft\">";
+                toInsert += "Delete draft?";
+                toInsert += "<button class=\"a yay-dd red\">Yes</button>";
+                toInsert += "<button class=\"b nay-dd white\">No</button>";
+                toInsert += "</span>";
+                toInsert += "</li>";
             }
             $("#draft-menu").html(toInsert);
         },
@@ -261,14 +261,14 @@ function getLibrary() {
             featuredBookId = library.featuredBook;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
             toInsert += "<div id=\"library-info\">";
-            if (library.libraryId in subscribed == true) {
+            if (libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
             toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-            $("#mp-pusher").prepend(toInsert);
+            $("#mp-pusher").html(toInsert);
             load();
         },
         error: function (q, status, err) {
@@ -541,10 +541,11 @@ function getPublicCreatedBooks() {
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
                 toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
-                toInsert += "<img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">Spaceman Fresh</a></div></div></li>";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div></li>";
             }
             $("#user-book-list").html(toInsert);
+            h = $(this).outerHeight() - 92;
+            $("#user-book-list .book").css("height", h);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -770,7 +771,7 @@ function getListSubscribed() {
             for (i in libraries) {
                 subscribed[libraries[i].libraryId] = true;
             }
-            getLibraries();
+
 
         },
         error: function (q, status, err) {

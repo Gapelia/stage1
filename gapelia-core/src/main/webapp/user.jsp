@@ -136,22 +136,6 @@
             var first = getUserPublic();
             var second = getListBookmarked();
             var third = getUserDrafts();
-            h = $(this).outerHeight() - 92;
-                        $("#user-book-list .book").css("height", h);
-                        $("#book-list li").fadeIn("100");
-                        $("#book-list").fadeIn("100");
-
-                        var w = 0;
-
-                        $("#user-book-list li").each(function () {
-                            w += $(this).outerWidth();
-                        });
-
-                        w += 1000;
-
-                        if ($vW > "1024") {
-                            $("#user-book-list").css("width", w + 320 + "px");
-                        }
         });
 
         function load() {
@@ -291,10 +275,22 @@
             });
 
         }
-    </script>
-    <script>
-        h = $(this).outerHeight() - 92;
-                    $("#user-book-list .book").css("height", h);
+        setInterval(function () {
+            $("#book-list li").fadeIn("100");
+            $("#book-list").fadeIn("100");
+            var w = 0;
+            $("#user-book-list li").each(function () {
+                w += $(this).outerWidth();
+            });
+
+            w += 1000;
+
+            if ($vW > "1024") {
+                $("#user-book-list").css("width", w + 320 + "px");
+            }
+            h = $(this).outerHeight() - 92;
+            $("#user-book-list .book").css("height", h);
+        }, 1000);
     </script>
 
 </body>

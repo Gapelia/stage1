@@ -44,14 +44,14 @@ function configureBook() {
 
 function loadBook() {
     NProgress.start();
-    sessionId = readCookie("JSESSIONID");
+    //sessionId = readCookie("JSESSIONID");
     bookId = document.URL.split("/")[document.URL.split("/").length - 1];
     $.ajax({
         url: "/api/users/getPages",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
-            sessionId: sessionId,
+            //sessionId: sessionId,
             bookId: bookId
         },
         success: function (data) {

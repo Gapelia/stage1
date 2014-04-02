@@ -149,6 +149,7 @@
 				var second = getBookmarkedBooks();
 				var fourth = getListBookmarked();
 				var fifth = getListSubscribed();
+				var fifth = getLibraries();
 				var sixth = getFeaturedBooks();
 
 			});
