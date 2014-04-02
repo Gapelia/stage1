@@ -221,14 +221,21 @@
 					}
 
 					.delete-draft {
-						margin: 0.7rem 0 0 -24px; padding: 0.3rem 1.5rem;
+						margin: -1.6rem 0 0 -24px; padding: 0.2rem 1.5rem;
 
-						background-color: $black;
-						color: $white;
+						background-color: $white;
+						color: $red;
 						display: none;
 						position: absolute;
 						width: 300px;
 						z-index: 1;
+						
+						button {
+							background-color: $white !important;
+							background-image: none !important;
+							color: $black !important;
+							font-size: 12px;
+						}
 					}
 				}
 			}
@@ -239,7 +246,7 @@
 
 					&:hover {
 						.dd-link {
-							color: $white;
+							color: $red;
 							right: 0;
 						}
 					}
@@ -248,7 +255,7 @@
 						width: 50px; height: 100%;
 						top: 0; right: -50px;
 
-						background-color: $red;
+						//background-color: $red;
 						font-size: 2rem;
 						padding: 0.2rem;
 						position: absolute;
