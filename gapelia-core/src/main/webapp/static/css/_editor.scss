@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////////////// BOOK-CREATION/SCSS ///
 
 .book-creation {
@@ -1248,3 +1247,109 @@
 	}
 
 }
+
+/**************************************************************************************** MODAL/SCSS **/
+
+.modal {
+	width: 10%; height: 10%;
+	margin: auto; padding: 6rem 4rem;
+  top: 0; left: 0;
+	bottom: 0; right: 0;
+
+	background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
+	opacity: 0;
+  position: absolute;
+	text-align: left; // center
+	z-index: 1;
+
+	.wrapper {
+    margin: 0 auto;
+		position: relative;
+    text-align: left;
+		width: 50%;
+    
+    p {
+      color: rgba($black, 0.8);
+      font-size: 2rem;
+      text-align: center;
+    }
+
+		.wrapper {
+      padding-top: 1rem !important;
+      text-align: center;
+      width: 100%;
+      
+      a { font-size: 1.3rem; }
+      
+      .published {
+        border-bottom: 1px solid $black;
+        color: rgba($black, 0.7);
+        font-size: 1.8rem;
+        font-weight: 100;
+      }
+    }  
+	}
+
+	.button { border: none !important; }
+  
+  .close-modal {
+		top: -3rem; right: 0;
+
+		cursor: pointer;
+		font-size: 3em;
+		position: absolute;
+	}
+
+	h1 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: rgba(25, 25, 25, 0.8);
+    
+		&:before {
+			content: "You are about to publish:";
+			display: block;
+			font-size: 0.4em;
+      font-weight: 100;
+			margin: 0 0 -0.5rem 0;
+		}
+  }
+  
+  .add-description {
+    color: rgba(gray, 0.85);
+    border-radius: 5px;
+    background: white;
+    font-size: 1rem;
+    height: 100px;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 8px 8px;
+    
+    &:empty:after { content: "Write a summary of your story"; }
+  }
+
+  .selectize-control { margin: 0 0 1rem 0; }
+	.multi { margin: 0 0 2rem 0; }
+  
+  .selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1rem; }
+  
+  .selectize-control.single .selectize-input {
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    padding-top: 12px !important;
+  }
+  
+  .selectize-control.multi .selectize-input [data-value] {
+    background: $slate;
+    background-image: none !important ;
+    border: none;
+  }
+
+	.selectize-input {
+    background-color: #FFFFFF !important;
+    border: none !important;
+    padding-top: 12px !important;
+    width: auto !important;
+  }  
+}
+
+#publish-modal { transition: all 0.5s ease; }
