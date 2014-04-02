@@ -33,40 +33,51 @@ public class QueryDatabaseActions {
         try {
             insert = connection.prepareStatement(DELETE_FROM_EDITORS);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_USERSTUFF);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_USERSTUFF2);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_USERSTUFF3);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_NOTIFICATION);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(FIND_BOOK);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             rs = insert.executeQuery();
             if (rs.isBeforeFirst()) {
                 while (rs.next()) {
                     insert = connection.prepareStatement(DELETE_FROM_LIBRARYBOOKS);
                     insert.setInt(1, rs.getInt("id"));
+                    LOG.info(insert.toString());
                     insert.executeUpdate();
                     insert = connection.prepareStatement(DELETE_FROM_BOOKS);
                     insert.setInt(1, rs.getInt("id"));
+                    LOG.info(insert.toString());
                     insert.executeUpdate();
                 }
             }
             insert = connection.prepareStatement(DELETE_FROM_NOTIFICATION);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_LIBRARIES);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_FROM_USERS);
             insert.setInt(1, u.getUserId());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {

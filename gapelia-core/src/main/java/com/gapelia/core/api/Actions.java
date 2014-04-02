@@ -116,6 +116,7 @@ public class Actions {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
+        LOG.info("FLUSHING USER");
         return QueryDatabaseActions.flushUser(u);
     }
 }
