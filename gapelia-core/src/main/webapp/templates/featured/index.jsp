@@ -126,6 +126,7 @@
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
+		
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -149,7 +150,6 @@
 				var fourth = getListBookmarked();
 				var fifth = getListSubscribed();
 				var sixth = getFeaturedBooks();
-
 
 			});
 

@@ -661,6 +661,14 @@
 
 		});
 
+		$("#draft-menu .dd-link").click(function (e) {
+
+			// $(this).closest(".delete-draft").show();
+			$(this).hide();
+			e.preventDefault();
+
+		});
+
 	});
 
 	$(window).ready(function () {
