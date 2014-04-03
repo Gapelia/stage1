@@ -135,7 +135,7 @@
 	.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper,
 	.video-wrapper, .backcover-wrapper {
 		overflow: hidden;
-		width: 100%;
+		height: 100%; width: 100%;
 
 		.page-bg, iframe {
 			bottom: 0; left: 0;
@@ -324,7 +324,10 @@
 			width: 12%;
 			margin: 0;
 
-			.author-avatar { float: right; }
+			.author-avatar {
+        margin-left: 73%;
+        margin-top: 0.5rem;
+      }
 
 			.author-name {
 				text-align: right;
@@ -344,8 +347,6 @@
 			position: absolute;
 			top: 3rem;
 			width: 13%;
-
-			.author-avatar { float: right; }
 		}
 	}
 
@@ -388,7 +389,10 @@
 			top: -10%;
 			width: 20%;
 
-			.author-avatar { float: right; } //
+			.author-avatar {
+        margin-left: 84%;
+        margin-top: 0.5rem;
+      } 
 
 			.author-name {
 				text-align: right;
@@ -439,8 +443,8 @@
 			left: 25%;
 
 			.author-avatar {
-				float: right;
-				margin: 6px 45% 0 0; //
+				margin-left: 44%;
+        margin-top: 0.5rem;
 			}
 
 			.author-name {
