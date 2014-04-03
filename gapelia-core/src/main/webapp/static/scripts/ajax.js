@@ -592,7 +592,7 @@ function getUserFromBook(bookId) {
             bookId: bookId
         },
         success: function (data) {
-            responseText = "<img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\"><a href=\"" + data.displayName + "\">" + data.displayName + "</a>";
+            responseText = "<img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a>";
 
         },
         error: function (q, status, err) {

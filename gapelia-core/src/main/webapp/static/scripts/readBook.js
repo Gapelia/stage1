@@ -47,7 +47,7 @@ function getUserFromBook(bookId) {
             bookId: bookId
         },
         success: function (data) {
-            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div>";
+            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -66,7 +66,7 @@ function loadBook() {
 	// sessionId = readCookie("JSESSIONID");
 
 	bookId = document.URL.split("/")[document.URL.split("/").length - 1];
-
+    getUserFromBook(bookId);
 	$.ajax({
 		url: "/api/users/getPages",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
