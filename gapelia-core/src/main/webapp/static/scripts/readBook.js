@@ -41,11 +41,34 @@ function configureBook() {
     NProgress.done();
 
 }
-
+function getUserFromBook(bookId) {
+    responseText = '';
+    $.ajax({
+        url: "/api/utils/getUserFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div>";
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return responseText;
+}
 function loadBook() {
     NProgress.start();
     //sessionId = readCookie("JSESSIONID");
     bookId = document.URL.split("/")[document.URL.split("/").length - 1];
+    getUserFromBook(bookId);
     $.ajax({
         url: "/api/users/getPages",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -134,10 +157,7 @@ function fluidLayout(isFirst) {
     htmlToInsert += "<div class=\"fluid-preview\">";
 
     if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "</div>";
+        htmlToInsert += responseText;
     }
 
     htmlToInsert += "<article>";
@@ -169,12 +189,9 @@ htmlToInsert += "<section class=\"photo-wrapper\">";
                     htmlToInsert += "<article>";
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-                    if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        htmlToInsert += "</div>";
-                    }
+                       if (isFirst == 1) {
+                           htmlToInsert += responseText;
+                       }
 
                     htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
                     htmlToInsert += "</article>";
@@ -191,12 +208,9 @@ function overlayLayout(isFirst) {
     htmlToInsert += "<article>";
     htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
 
-    if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "</div>";
-    }
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
 
     htmlToInsert += "</article></div>";
 
@@ -222,12 +236,9 @@ function phototextLayout(isFirst) {
     htmlToInsert += "<article>";
     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-    if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        htmlToInsert += "</div>";
-    }
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
 
     htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
     htmlToInsert += "</article>";
@@ -250,12 +261,9 @@ function verticalLayout(isFirst) {
     htmlToInsert += "<article>";
     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-    if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        htmlToInsert += "</div>";
-    }
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
 
     htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
     htmlToInsert += "</article></div>";
@@ -281,14 +289,9 @@ function videoLayout(isFirst) {
     htmlToInsert += "<article>";
     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-    if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        // htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        // htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "</div>";
-    }
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
 
     htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
     htmlToInsert += "</article>";

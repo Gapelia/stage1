@@ -144,18 +144,16 @@
 			}
 
 			$(function() {
-
 				var third = getUserDrafts();
 				var second = getBookmarkedBooks();
 				var fourth = getListBookmarked();
 				var fifth = getListSubscribed();
 				var fifth = getLibraries();
-				var sixth = getFeaturedBooks();
 
 			});
 
 			function load () {
-
+                getFeaturedBooks()
 				var $vW = $(window).width(), $vH = $(window).height();
                 h = $(this).outerHeight() - 92;
                 $(".book").css("height", h);

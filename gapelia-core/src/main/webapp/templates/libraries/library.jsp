@@ -2,7 +2,6 @@
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,9 +56,9 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-							<ul id="draft-menu"></ul>
-						</li>
+                        <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                            <ul id="draft-menu"></ul>
+                        </li>
 
 						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
@@ -70,13 +69,10 @@
 								<li><a href="#">2 edit requests are pending for your review</a></li>
 							</ul>
 						</li>
-
-						<li class="logout"><a href="#">Log Out</a></li>
 					</ul>
 
 				</div>
 			</nav>
-			<!--//site-menu /-->
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
@@ -98,9 +94,9 @@
 								<a href="#">Add my stories</a>
 
 								<ul>
-									<li><label for="my-story-01">hikari: The Future of the Operating System</label><input type="checkbox" id="my-story-01"/></li>
-									<li><label for="my-story-02">007: The Diego Regules Story</label><input type="checkbox" id="my-story-02"/></li>
-									<li><label for="my-story-03">From the Rennaisance, to the Future of Blogging</label><input type="checkbox" id="my-story-03"/></li>
+									<li><a href="/">hikari: The Future of the Operating System</a></li>
+									<li><a href="/">007: The Diego Regules Story</a></li>
+									<li><a href="/">From the Rennaisance, to the Future of Blogging</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -109,9 +105,19 @@
 
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
-					<ul id="book-list"></ul>
+					<!--/
+					<section>
+						<p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p>
+					</section>
+					/-->
+
+					<ul id="book-list">
+
+
+					</ul>
 				</div>
 				<!--//Featured Books /-->
+
 
 				<!--/ Submission List /-->
 				<div class="submission-list-wrapper">
@@ -148,12 +154,14 @@
 							<span class="image-overlay"></span>
 							<img src="/static/images/covers/biography-dieterrams.jpg" alt=""/>
 						</li>
+
+
+
 					</ul>
 				</div>
 				<!--//Submission List /-->
 
 			</div>
-			<!--//main-content /-->
 
 		</div>
 
@@ -176,10 +184,6 @@
 
 			$(document).on("ready", function () {
 				$(".book").imgLiquid({ fill: true });
-
-				if ($vW > "300") {
-					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
-				}
 			});
 		</script>
 
@@ -187,18 +191,12 @@
 		<script src="/static/scripts/mousewheel.js"></script>
 
 		<script>
-			$(function() {
-                getListBookmarked();
-                getListSubscribed();
-				var first = getLibrary();
-				var third = getUserDrafts();
-				third = getListBookmarked();
-				var second = getBooksInLibrary();
-
-			});
-
-			function load() {
-
+		$( document ).ready(function() {
+             var first = getListSubscribed();
+             var second = getListBookmarked();
+             var third = getUserDrafts();
+        });
+		function load() {
 				$("#library-splash").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 
@@ -294,7 +292,7 @@
 					w += 500;
 
 					if ($vW > "1024") {
-						$("#book-list").css("width", w + "px");
+						$("#book-list").css("width", w - 320 + "px");
 					}
 
 					// fades in the all the books after section width is added
@@ -337,14 +335,14 @@
 						w += 500;
 
 						if ($vW > "1024") {
-							$("#book-list").css("width", w + "px");
+							$("#book-list").css("width", w - 320 + "px");
+						} else {
+							// $("#book-list").css("height", h + 219 + "px");
 						}
+
 						// fades in the all the books after section width is added
 						$("#book-list li").fadeIn("100");
 						$("#book-list").fadeIn("100");
-
-						// $(".book-list-wrapper").append("<section><p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p></section>");
-						// $(".book-list-wrapper section").css("width", $vW + "px");
 
 					}, 1000);
 
@@ -371,6 +369,7 @@
 					setTimeout(function () {
 
 						$("#book-list").hide();
+						$(".book-list-wrapper section").hide(); // need to create conditional, later
 
 						var w = 0, h = 0;
 
@@ -390,9 +389,6 @@
 						// fades in the all the books after section width is added
 						$("#submission-list li").fadeIn("100");
 						$("#submission-list").fadeIn("100");
-
-						// $(".submission-list-wrapper").append("<section><p>You don't have any submissions pending review.</p></section>");
-						// $(".submission-list-wrapper section").css("width", $vW + "px");
 
 					}, 1000);
 
@@ -431,8 +427,16 @@
 					$(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
 
 				}
+				h = $(this).outerHeight() - 92;
+                                                                                    $(".book").css("height", h);
 
 			}
+			setTimeout(function () {
+
+            						 getLibrary();
+                                                    getBooksInLibrary();
+                            load();
+            					}, 300);
 		</script>
 		<!--//scripts /-->
 

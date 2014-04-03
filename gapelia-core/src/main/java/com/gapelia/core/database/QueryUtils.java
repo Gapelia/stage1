@@ -29,7 +29,6 @@ public class QueryUtils {
         try {
             statement = connection.prepareStatement(USER_FROM_LIBRARYID);
             statement.setInt(1, libraryId);
-            LOG.info(statement.toString());
             rs = statement.executeQuery();
             while (rs.next()) {
                 int userId = rs.getInt("editor_id");
@@ -90,13 +89,11 @@ public class QueryUtils {
         try {
             statement = connection.prepareStatement(BOOK_FROM_BOOKID);
             statement.setInt(1, bookId);
-            LOG.info(statement.toString());
             rs = statement.executeQuery();
             while (rs.next()) {
                 int userId = rs.getInt("owned_by");
                 statement = connection.prepareStatement(USER_FROM_USERID);
                 statement.setInt(1, userId);
-                LOG.info(statement.toString());
                 rs = statement.executeQuery();
                 if (rs.next()) {
                     user.setUserId(rs.getInt("id"));
@@ -150,7 +147,6 @@ public class QueryUtils {
         try {
             statement = connection.prepareStatement(BOOK_FROM_BOOKID);
             statement.setInt(1, bookId);
-            LOG.info(statement.toString());
             rs = statement.executeQuery();
             while (rs.next()) {
                 book.setBookId(rs.getInt("id"));
@@ -188,12 +184,12 @@ public class QueryUtils {
         try {
             statement = connection.prepareStatement(LIBRARY_FROM_BOOKID);
             statement.setInt(1, bookId);
-            LOG.info(statement.toString());
+
             rs = statement.executeQuery();
             while (rs.next()) {
                 int libraryId = rs.getInt("library_id");
                 statement = connection.prepareStatement(GET_LIBRARY);
-                statement.setInt(1, bookId);
+                statement.setInt(1, libraryId);
                 LOG.info(statement.toString());
                 rs = statement.executeQuery();
                 while (rs.next()) {

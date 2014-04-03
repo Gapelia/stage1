@@ -31,7 +31,6 @@ public class APIUtil {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getUserFromLibraryId(@FormParam("libraryId") int libraryId) {
         Gson gson = new GsonBuilder().create();
-        LOG.info(gson.toJson(QueryUtils.getUserFromLibraryId(libraryId)));
         return gson.toJson(QueryUtils.getUserFromLibraryId(libraryId));
     }
 
@@ -41,7 +40,6 @@ public class APIUtil {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getUserFromBookId(@FormParam("bookId") int bookId) {
         Gson gson = new GsonBuilder().create();
-        LOG.info(gson.toJson(QueryUtils.getLibraryFromBookId(bookId)));
         return gson.toJson(QueryUtils.getUserFromBookId(bookId));
     }
 
@@ -51,7 +49,6 @@ public class APIUtil {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getBookFromBookId(@FormParam("bookId") int bookId) {
         Gson gson = new GsonBuilder().create();
-        LOG.info(gson.toJson(QueryUtils.getLibraryFromBookId(bookId)));
         return gson.toJson(QueryUtils.getBookFromBookId(bookId));
     }
 
@@ -61,7 +58,6 @@ public class APIUtil {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getLibraryFromBookId(@FormParam("bookId") int bookId) {
         Gson gson = new GsonBuilder().create();
-        LOG.info(gson.toJson(QueryUtils.getLibraryFromBookId(bookId)));
         return gson.toJson(QueryUtils.getLibraryFromBookId(bookId));
     }
 }
