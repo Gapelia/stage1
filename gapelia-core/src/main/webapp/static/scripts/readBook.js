@@ -127,7 +127,7 @@ function fluidLayout(isFirst) {
     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
 
     if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
+        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "</section>";
@@ -158,7 +158,7 @@ function fluidLayout(isFirst) {
 }
 
 function photoLayout(isFirst) {
-htmlToInsert += "<section class=\"phototext-wrapper\">";
+htmlToInsert += "<section class=\"photo-wrapper\">";
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
@@ -201,7 +201,7 @@ function overlayLayout(isFirst) {
     htmlToInsert += "</article></div>";
 
     if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
+        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "</section>";
@@ -214,7 +214,7 @@ function phototextLayout(isFirst) {
     htmlToInsert += "<section class=\"phototext-wrapper\">";
 
     if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
+        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
@@ -241,7 +241,7 @@ function verticalLayout(isFirst) {
     htmlToInsert += "<section class=\"vertical-wrapper\">";
 
     if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
+        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "<div class=\"draggable-placeholder\">";
@@ -269,7 +269,7 @@ function videoLayout(isFirst) {
     htmlToInsert += "<section class=\"video-wrapper\">";
 
     if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
+        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "<div class=\"video-preview\">";
