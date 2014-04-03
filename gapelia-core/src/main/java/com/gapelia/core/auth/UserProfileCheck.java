@@ -50,8 +50,10 @@ public class UserProfileCheck extends HttpServlet {
 				} else {
 					rs.next();
 					User u = QueryDatabaseUser.getUserByValidatedId(rs.getString("validated_id"));
-                    //TODO we also need to make sure their profile is public also add this to accounts
-					response.sendRedirect(response.encodeRedirectURL("/user.jsp?id=" + u.getUserId()));
+					if(u.getIsPublic())
+						response.sendRedirect(response.encodeRedirectURL("/user.jsp?id=" + u.getUserId()));
+					else
+						response.sendRedirect("/error/404.jsp");
 				}
 			} catch (SQLException ex) {
 				LOG.error("Cannot check user u:" + attempted + " " + ex.getMessage());
@@ -71,51 +73,5 @@ public class UserProfileCheck extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
-	}
-
-
-	public Map<String,String> get(String accessToken)
-	{
-		HttpClient httpclient = new DefaultHttpClient();
-
-		Map<String,String> resultMap=null;
-		try {
-			HttpGet httpget = new HttpGet("https://www.googleapis.com/plus/v1/people/me?access_token="+accessToken);
-			resultMap = new HashMap<String,String>();
-			// Create a response handler
-			ResponseHandler<String> responseHandler = new BasicResponseHandler();
-			// Body contains your json stirng
-			String responseBody = httpclient.execute(httpget, responseHandler);
-
-			JSONObject json = new JSONObject(responseBody);
-			LOG.info(json.toString());
-			if(json.has("birthday"))
-				resultMap.put("dob",(String)json.get("birthday"));
-			if(json.has("placesLived")){
-				JSONArray jarray = (JSONArray)json.get("placesLived");
-				for(int i = 0 ; i < jarray.length() ; i ++)
-				{
-					JSONObject locationJson = (JSONObject)jarray.get(i);
-					LOG.info("LOCATION JSON" + locationJson.toString());
-					if(locationJson.getBoolean("primary")){
-						LOG.info("location json detected as primary.");
-						resultMap.put("location",(String)locationJson.get("value"));
-						break;
-					}
-				}
-
-			}
-
-			LOG.info(responseBody);
-
-		} catch (Exception e) {
-			LOG.error(e.getMessage());
-		} finally {
-			// When HttpClient instance is no longer needed,
-			// shut down the connection manager to ensure
-			// immediate deallocation of all system resources
-			httpclient.getConnectionManager().shutdown();
-		}
-		return resultMap;
 	}
 }
