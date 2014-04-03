@@ -18,7 +18,7 @@ public class FlushUser {
     private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books where book_id = ?";
     private static final String DELETE_FROM_CONTIBUTORS = "DELETE FROM contributors where user_id = ?";
     private static final String DELETE_FROM_USER_BOOKMARKS = "DELETE FROM user_bookmarks where user_id = ?";
-    private static final String DELETE_FROM_PAGES = "DELETE FROM contributors user_bookmarks where user_id = ?";
+    private static final String DELETE_FROM_PAGES = "DELETE FROM pages where user_id = ?";
     private static final String DELETE_FROM_USER_VOTES = "DELETE FROM user_votes where user_id = ?";
     private static final String DELETE_FROM_USER_SUBSCRIPTIONS = "DELETE FROM user_subscriptions where user_id = ?";
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION = "DELETE FROM library_notifications where recipient = ?";
