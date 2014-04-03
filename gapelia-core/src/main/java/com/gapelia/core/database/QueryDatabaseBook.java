@@ -176,9 +176,6 @@ public class QueryDatabaseBook {
             insert.setInt(1, bookId);
             LOG.info(insert.toString());
             insert.executeUpdate();
-            insert = connection.prepareStatement(DELETE_FROM_BOOKS);
-            insert.setInt(1, bookId);
-            LOG.info(insert.toString());
             insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_PAGES_FROM_BOOK);
             insert.setInt(1, bookId);
