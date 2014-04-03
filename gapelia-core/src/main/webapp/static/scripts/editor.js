@@ -208,7 +208,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
 
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
@@ -222,7 +222,7 @@
 				"templateId": 0,
 				"title": null,
 				"text": null,
-				"image": "/static/images/whiteBG.jpg",
+				"image": "/static/images/grayBG.png",
 				"video": "null",
 				"attribution": null
 			};
@@ -325,11 +325,11 @@
 		
 		console.log(imageURL);
 
-		if (imageURL == null || imageURL == "static/images/whiteBG.jpg") {
+		if (imageURL == null || imageURL == "static/images/grayBG.png") {
 
 			insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
 
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
 
 			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
@@ -444,7 +444,7 @@
 		/*
 		var BG = $("#page"+(pagesCreated)+"Image");
 
-		if (BG.src = "static/images/whiteBG.jpg") {
+		if (BG.src = "static/images/grayBG.png") {
 
 			// Image attribution
 			$(".image-attribution").css("display", "none");
@@ -621,7 +621,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">" + attribution + "</span>";
 
 		if (imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\" style=\"display: none;\" data-adaptive-background=\"0\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\" style=\"display: none;\" data-adaptive-background=\"0\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
@@ -652,7 +652,7 @@
 		pages.page[currentPage].attribution = attribution;
 
 		// Image attribution
-		if ($(".page-bg").attr("src") === "static/images/whiteBG.jpg") {
+		if ($(".page-bg").attr("src") === "static/images/grayBG.png") {
 			$(".image-attribution").css("display", "none");
 		} else {
 			$(".image-attribution").css("display", "block");
@@ -727,7 +727,7 @@
 		insert += "<section class=\"overlay-preview-wrapper\">";
 
 		if (imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
@@ -824,14 +824,14 @@
 
 		var insert = "";
 
-		insert += "<section class=\"phototext-preview-wrapper\">";
+		// insert += "<section class=\"phototext-preview-wrapper\">";
 
-		// insert += "<section class=\"phototext-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">;
+		insert += "<section class=\"phototext-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;\">";
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">" + attribution + "</span>";
 
 		if (imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\"/>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
@@ -937,7 +937,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">" + attribution + "</span>";
 
 		if (imageURL == null) {
-			insert += "<img class=\"page-bg\" src=\"static/images/whiteBG.jpg\" alt=\"\"/></div>";
+			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\"/></div>";
 		} else {
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/></div>";
 		}
