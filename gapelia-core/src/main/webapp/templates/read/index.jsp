@@ -1,252 +1,688 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+	<head>
 
-    <meta charset="utf-8" />
-    <title>Gapelia &middot; Now reading *BOOK TITLE*</title>
+		<meta charset="utf-8"/>
+		<title>Gapelia &middot; Now reading *BOOK TITLE*</title>
 
-    <!--/
+		<!--/
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
 		/-->
 
-    <meta name="author" content="Gapelia" />
-    <meta name="description" content="This should be a synopsis about the book" />
-    <meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="author" content="Gapelia"/>
+		<meta name="description" content="This should be a synopsis about the book"/>
+		<meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <link href="/static/css/style.css" rel="stylesheet" />
-    <link href="/static/images/favicon.png" rel="shortcut icon" />
+		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-    <script src="//use.typekit.net/web3vzl.js"></script>
-    <script>
-        try {
-            Typekit.load();
-        } catch (e) {}
-    </script>
+		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/fluidbox.css" rel="stylesheet"/>
 
-    <script src="/static/scripts/modernizr.custom.js"></script>
-    <script src="/static/scripts/jquery-2.1.0.min.js"></script>
-    <link href="/static/css/fluidbox.css" rel="stylesheet" />
+		<script src="//use.typekit.net/web3vzl.js"></script>
+		<script>try { Typekit.load(); } catch (e) {}</script>
 
-</head>
+		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
-<body class="app full-book g-body">
+	</head>
 
-    <div id="mp-pusher" class="super-wrapper">
+	<body class="app full-book g-body">
 
-        <!--/ site-menu /-->
-        <nav id="site-menu" class="mp-menu">
-            <div class="mp-level">
+		<div id="mp-pusher" class="super-wrapper">
 
-                <h2><a href="/featured">Gapelia</a></h2>
+			<!--/ site-menu /-->
+			<nav id="site-menu" class="mp-menu">
+				<div class="mp-level">
 
-                <ul>
-                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-                    </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
-                    </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
-                    </li>
+					<h2><a href="/featured">Gapelia</a></h2>
 
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
-                        <ul id="draft-menu"></ul>
-                    </li>
+					<ul>
+						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+						<li class="not-mobile"><a href="/createbook">Create book</a></li>
+						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-                    <li id="gpl-menu-notify"><a>Notifications</a>
-                        <a class="icon" href="#"></a>
-                        <ul></ul>
-                    </li>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+							<ul id="draft-menu"></ul>
+						</li>
 
-                    <li class="logout"><a href="#">Log Out</a>
-                    </li>
-                </ul>
+						<li id="gpl-menu-notify"><a>Notifications</a>
+							<a class="icon" href="#"></a>
+							<ul></ul>
+						</li>
 
-            </div>
-        </nav>
-        <!--//site-menu /-->
+						<li class="logout"><a href="#">Log Out</a></li>
+					</ul>
 
-        <button id="g-menu-toggle"><i class="ion-drag"></i>
-        </button>
-        <button id="next-book-toggle"><i class="ion-forward"></i>
-        </button>
+				</div>
+			</nav>
+			<!--//site-menu /-->
 
-        <header>
-            <div id="header-info">
-                <span id="header-title">Hayao Miyazaki</span>
-                <span id="header-author">NetOperator Wibby</span>
-            </div>
+			<button id="g-menu-toggle"><i class="ion-drag"></i></button>
+			<button id="next-book-toggle"><i class="ion-forward"></i></button>
 
-            <ul class="share-book">
-                <li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)"><i class="ion-social-facebook"></i></a>
-                </li>
+			<header>
+				<div id="header-info">
+					<span id="header-title">Hayao Miyazaki</span>
+					<span id="header-author">NetOperator Wibby</span>
+				</div>
 
-                <li>
-                    <a href="javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)"><i class="ion-social-twitter"></i>
-                    </a>
-                </li>
+				<ul class="share-book">
+					<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)"><i class="ion-social-facebook"></i></a></li>
 
-                <li><a href="mailto:?subject=Oh%20hai&amp;body=Good%20morning!"><i class="ion-email"></i></a>
-                </li>
-            </ul>
-        </header>
+					<li><a href="javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)"><i class="ion-social-twitter"></i></a></li>
 
-        <div id="bb-nav-prev">&#xf153;</div>
-        <div id="bb-nav-next">&#xf154;</div>
+					<li><a href="mailto:?subject=Oh%20hai&amp;body=Good%20morning!"><i class="ion-email"></i></a></li>
+				</ul>
+			</header>
 
-        <!--/ div id="the-book" /-->
-        <div id="the-book" class="bb-custom-wrapper">
-            <div id="bb-bookblock" class="bb-bookblock">
+			<div id="bb-nav-prev">&#xf153;</div>
+			<div id="bb-nav-next">&#xf154;</div>
 
-            </div>
-        </div>
+			<!--/ div id="the-book" /-->
+			<div id="the-book" class="bb-custom-wrapper">
+				<div id="bb-bookblock" class="bb-bookblock">
+				</div>
+			</div>
 
-    </div>
+		</div>
 
-    <!--/ scripts /-->
-    <script src="/static/scripts/nprogress.js"></script>
-    <script src="/static/scripts/imgLiquid.js"></script>
-    <script src="/static/scripts/g.money.js"></script>
-    <script src="/static/scripts/books.js"></script>
+		<!--/ scripts /-->
+		<script src="/static/scripts/nprogress.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/g.money.js"></script>
+		<script src="/static/scripts/books.js"></script>
 
-    <script src="/static/scripts/jquery.mousewheel.js"></script>
+		<script src="/static/scripts/classie.js"></script>
+		<script src="/static/scripts/mlpushmenu.js"></script>
 
-    <script src="/static/scripts/vimeothumb.js"></script>
-    <script>
-        $("img").VimeoThumb();
-    </script>
+		<script src="/static/scripts/jquery.mousewheel.js"></script>
+		<script src="/static/scripts/vimeothumb.js"></script>
 
-    <!--/ scripts/page-flip /-->
-    <script src="/static/scripts/jquerypp.custom.js"></script>
-    <script src="/static/scripts/bookblock.js"></script>
+		<!--/ scripts/page-flip /-->
+		<script src="/static/scripts/jquerypp.custom.js"></script>
+		<script src="/static/scripts/bookblock.js"></script>
 
-    <!--/ scripts/fluidbox /-->
-    <script src="/static/scripts/imagesloaded.min.js"></script>
-    <script src="/static/scripts/fluidbox.min.js"></script>
+		<!--/ scripts/fluidbox /-->
+		<script src="/static/scripts/imagesloaded.min.js"></script>
+		<script src="/static/scripts/fluidbox.min.js"></script>
 
-    <script src="/static/scripts/classie.js"></script>
-    <script src="/static/scripts/mlpushmenu.js"></script>
-    <script src="/static/scripts/ajax.js"></script>
-    <script src="/static/scripts/readBook.js"></script>
-    <script>
-        $(function () {
-            loadBook();
+		<script src="/static/scripts/ajax.js"></script>
+		<!--/ <script src="/static/scripts/readBook.js"></script> /-->
 
-            load();
-            var third = getUserDrafts();
-        });
+		<!--///////////-->
 
-         // Splash page
-        function load() {
-            var third = getUserDrafts();
-            $("img").VimeoThumb();
+		<script>
+			$(function () {
 
-            setTimeout(function () {
-                $(".video-player-container").imgLiquid({
-                    fill: true
-                });
-            }, 1000); // prevent placeholder from appearing
+				var $vW = $(window).width(), $vH = $(window).height();
 
-            // Slide menu for desktop
-            if ($vW > "1024") {
-                new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+				// Load Gapelia
+				NProgress.start();
 
-                $(".mp-pushed").ready(function () {
-                    $("#book-scroller").css("z-index", "0");
-                });
-            }
+				// Get book info and its pages
+				bookId = document.URL.split("/")[document.URL.split("/").length - 1];
 
-            // Dropdown menu for mobile
-            if ($vW < "1025") {
+				$.ajax({
+					url: "/api/users/getPages",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: { bookId: bookId },
+					success: function (data) {
 
-                menu = "";
-                menu += "<ul id=\"book-menu\" style=\"display: none;\">";
-                menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
-                menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
-                menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
-                menu += "<ul>";
-                menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
-                menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
-                menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
-                menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
-                menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
-                menu += "</ul>";
-                menu += "</li>";
-                menu += "</ul>";
+						pages = data;
+						pages.sort(function (a, b) { return a.pageNumber - b.pageNumber; });
 
-                share = "";
-                share += "<ul id=\"share-menu\" style=\"display: none;\">";
-                var currentWebsite = document.URL;
-                facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-                twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
-                share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
-                share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-                share += "<li><a href=\"emailShare\">Share via Email</a></li>";
-                share += "</ul>";
+						htmlToInsert = "";
 
-                $("#g-menu-toggle").after(menu);
-                $("#next-book-toggle").after(share);
+						for (i = 0; i < pages.length; i++) {
+							current = pages[i];
 
-                $(document).on("click", "#g-menu-toggle", function () {
+							// TODO get author photo and name and insert in places
+							if (i == 0) {
+								htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								insertPage(1);
+							} else {
+								htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+								insertPage(0);
+							}
+						}
 
-                    $("#book-menu").toggle();
+						$("#bb-bookblock").html(htmlToInsert);
 
-                    if ($("#book-menu").css("display") == "block") {
-                        $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
-                    } else {
-                        $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
-                    }
+						$(".inserted-img").fluidbox();
+						$(".inserted-img").before("<div class=\"resize-img\">b( . )( . )bs</div>");
 
-                    if ($("#share-menu").css("display") == "block") {
-                        $("#share-menu").hide();
-                    }
+						$(function () {
 
-                });
+							$("p .resize-img").click(function () {
 
-                $(document).on("click", "#next-book-toggle", function () {
+								$(this).closest("p").css("display", "block").addClass("minimized-p");
 
-                    $("#share-menu").toggle();
+								if ($(this).closest("p").css("display") == "block") {
+									$(this).closest("p").css("width", "50%");
+								} else {
+									$(this).closest("p").css("width", "auto");
+								}
 
-                    if ($("#share-menu").css("display") == "block") {
-                        $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
-                    } else {
-                        $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
-                    }
+							});
 
-                    if ($("#book-menu").css("display") == "block") {
-                        $("#book-menu").hide();
-                    }
+							$(".minimized-p .resize-img").click(function () {
 
-                });
+								$(this).closest("p").css("display", "initial").removeClass("minimized-p");
 
-                $(document).on("click", "#nav-notify", function (e) {
+								if ($(this).closest("p").css("display") == "block") {
+									$(this).closest("p").css("width", "50%");
+								} else {
+									$(this).closest("p").css("width", "auto");
+								}
 
-                    $("#nav-notify ul").toggle();
+							});
 
-                    if ($("#nav-notify ul").css("display") == "block") {
-                        $("#nav-notify").css("padding", "1rem 0 0 0");
-                    } else {
-                        $("#nav-notify").css("padding", "1rem");
-                    }
+						});
 
-                    e.preventDefault();
+						/*
+						$(".resize-img").click(function () {
 
-                });
+							$(this).closest("p").css({
+								"display": "block",
+								"width": "50%"
+							}).addClass("squished-p");
 
-            }
+						});
+						*/
 
+						// Initialize book structure
+						if ($vW > "1024") {
 
-        }
-    </script>
+							$(".content").css({
+								"width": $vW + "px",
+								"height": $vH + "px"
+							});
 
-</body>
+							var Page = (function () {
+
+								var config = {
+									$bookBlock:	$("#bb-bookblock"),
+									$navNext:		$("#bb-nav-next"),
+									$navPrev:		$("#bb-nav-prev"),
+									$navFirst:	$("#bb-nav-first")
+									// $navLast: $("#next-book-toggle")
+									// $navLast: $('#bb-nav-last')
+								},
+
+								init = function () {
+
+									config.$bookBlock.bookblock({
+										speed: 1000,
+										shadowSides: 0.8,
+										shadowFlip: 0.4
+									});
+
+									initEvents();
+
+								},
+
+								initEvents = function () {
+
+									var $slides = config.$bookBlock.children();
+
+									// add navigation events
+									config.$navNext.on("click touchstart", function () {
+										config.$bookBlock.bookblock("next");
+										return false;
+									});
+
+									config.$navPrev.on("click touchstart", function () {
+										config.$bookBlock.bookblock("prev");
+										return false;
+									});
+
+									config.$navFirst.on("click touchstart", function () {
+										config.$bookBlock.bookblock("first");
+										return false;
+									});
+
+									/*
+									config.$navLast.on("click touchstart", function () {
+										config.$bookBlock.bookblock("last");
+										return false;
+									});
+									*/
+
+									// add swipe events
+									$slides.on({
+										"swipeleft": function (event) {
+											config.$bookBlock.bookblock("next");
+											return false;
+										},
+
+										"swiperight": function (event) {
+											config.$bookBlock.bookblock("prev");
+											return false;
+										}
+									});
+
+									// add keyboard events
+									$(document).keydown(function (e) {
+
+										var
+										keyCode = e.keyCode || e.which,
+										arrow = {
+											left: 37,
+											up: 38,
+											right: 39,
+											down: 40
+										};
+
+										switch (keyCode) {
+											case arrow.left:
+												config.$bookBlock.bookblock("prev");
+												break;
+
+											case arrow.right:
+												config.$bookBlock.bookblock("next");
+												break;
+										}
+
+									});
+
+								};
+
+								return { init: init };
+
+							})();
+
+						}
+
+						Page.init();
+
+					},
+
+					error: function (q, status, err) {
+
+						if (status == "timeout") {
+							alert("Request timed out");
+						} else {
+							alert("Some issue happened with your request: " + err.message);
+						}
+
+					}
+				});
+
+				// Set up page layouts
+				function insertPage(isFirst) {
+
+					switch (current.templateId) {
+						case 0:
+							fluidLayout(isFirst);
+							break;
+
+						case 1:
+							photoLayout(isFirst);
+							break;
+
+						case 2:
+							overlayLayout(isFirst);
+							break;
+
+						case 3:
+							phototextLayout(isFirst);
+							break;
+
+						case 4:
+							verticalLayout(isFirst);
+							break;
+
+						case 5:
+							videoLayout(isFirst);
+							break;
+
+						default:
+							fluidLayout(isFirst);
+							break;
+					}
+
+				}
+
+				function fluidLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"fluid-wrapper\">";
+					htmlToInsert += "<section class=\"draggable-placeholder\">";
+					htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+
+					if (current.creativeCommons != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "</section>";
+					htmlToInsert += "<div class=\"fluid-preview\">";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "<article>";
+					htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+
+					htmlToInsert += "<div class=\"page-desc\">" + current.content + "";
+
+					if (current.file != undefined) { htmlToInsert += "" + current.file + ""; }
+
+					htmlToInsert += "</div>";
+
+					htmlToInsert += "</article></div>";
+					htmlToInsert += "</section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				function photoLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"photo-wrapper\">";
+					htmlToInsert += "<div class=\"page-bg-wrapper\">";
+
+					if (current.attribution != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+					htmlToInsert += "</div>";
+					htmlToInsert += "<div class=\"photo-preview\">";
+					htmlToInsert += "<article>";
+					htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "</article>";
+					htmlToInsert += "</div></section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				function overlayLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"overlay-wrapper\">";
+					htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+					htmlToInsert += "<div class=\"overlay-preview\">";
+					htmlToInsert += "<article>";
+					htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "</article></div>";
+
+					if (current.creativeCommons != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "</section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				function phototextLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"phototext-wrapper\">";
+
+					if (current.creativeCommons != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+					htmlToInsert += "<div class=\"phototext-preview\">";
+					htmlToInsert += "<article>";
+					htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+					htmlToInsert += "</article>";
+					htmlToInsert += "</div></section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				function verticalLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"vertical-wrapper\">";
+
+					if (current.creativeCommons != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "<div class=\"draggable-placeholder\">";
+					htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+					htmlToInsert += "<div class=\"vertical-preview\">";
+					htmlToInsert += "<article>";
+					htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+					htmlToInsert += "</article></div>";
+					htmlToInsert += "</div></section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				function videoLayout(isFirst) {
+
+					htmlToInsert += "<section class=\"video-wrapper\">";
+
+					if (current.creativeCommons != "Add photo credit?") {
+						htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+					}
+
+					htmlToInsert += "<div class=\"video-preview\">";
+
+					htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
+					htmlToInsert += "<div class=\"video-player-container\">";
+					htmlToInsert += "<iframe src=\"" + current.videoUrl + "\"></iframe>";
+					htmlToInsert += "</div>";
+					htmlToInsert += "<article>";
+					htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+
+					if (isFirst == 1) {
+						htmlToInsert += "<div class=\"author-info\">";
+						htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						// htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+						// htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+						htmlToInsert += "</div>";
+					}
+
+					htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+					htmlToInsert += "</article>";
+					htmlToInsert += "</div></section>";
+					htmlToInsert += "</div></div>";
+
+				}
+
+				// Styling layouts
+				$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+
+				if ($vW > "1024") {
+
+					$("img").VimeoThumb();
+
+					setTimeout(function () {
+						$(".video-player-container").imgLiquid({ fill: true });
+					}, 1000); // prevent placeholder from appearing
+
+					$(".fluid-wrapper").imgLiquid({ fill: true });
+					$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+					$(".overlay-wrapper").imgLiquid({ fill: true });
+					$(".phototext-wrapper").imgLiquid({ fill: true });
+					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
+					$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+
+					$(document).on("click", ".play-video", function () {
+
+						$(".play-video").hide();
+
+						$(".video-player-container img").hide();
+						$(".video-player-container iframe").show();
+
+					});
+
+				}
+
+				// Streamline book for mobile
+				if ($vW < "1025") {
+
+					// $("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+					$("#header-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+
+					$(".video-player-container img").hide();
+					$(".video-player-container iframe").show();
+
+				}
+
+				if ($vW < "321") {
+
+					// $(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH - 50 + "px");
+					$(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH);
+					$(".frontcover-wrapper, .overlay-wrapper").imgLiquid({ fill: true });
+
+				}
+
+				// FIN
+				NProgress.done();
+
+				// &c
+				var third = getUserDrafts();
+
+				// Slide menu for desktop
+				if ($vW > "1024") {
+					new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+
+					$(".mp-pushed").ready(function () {
+						$("#book-scroller").css("z-index", "0");
+					});
+				}
+
+				// Dropdown menu for mobile
+				if ($vW < "1025") {
+
+					menu = "";
+					menu += "<ul id=\"book-menu\" style=\"display: none;\">";
+					menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+					menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
+					menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+					menu += "<ul>";
+					menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
+					menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
+					menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
+					menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
+					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
+					menu += "</ul>";
+					menu += "</li>";
+					menu += "</ul>";
+
+					var currentWebsite = document.URL;
+
+					facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+					twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+					emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
+
+					share = "";
+					share += "<ul id=\"share-menu\" style=\"display: none;\">";
+
+					share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
+					share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
+					share += "<li><a href=\"emailShare\">Share via Email</a></li>";
+					share += "</ul>";
+
+					$("#g-menu-toggle").after(menu);
+					$("#next-book-toggle").after(share);
+
+					$(document).on("click", "#g-menu-toggle", function () {
+
+						$("#book-menu").toggle();
+
+						if ($("#book-menu").css("display") == "block") {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+						} else {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+						}
+
+						if ($("#share-menu").css("display") == "block") {
+							$("#share-menu").hide();
+						}
+
+					});
+
+					$(document).on("click", "#next-book-toggle", function () {
+
+						$("#share-menu").toggle();
+
+						if ($("#share-menu").css("display") == "block") {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+						} else {
+							$("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+						}
+
+						if ($("#book-menu").css("display") == "block") {
+							$("#book-menu").hide();
+						}
+
+					});
+
+					$(document).on("click", "#nav-notify", function (e) {
+
+						$("#nav-notify ul").toggle();
+
+						if ($("#nav-notify ul").css("display") == "block") {
+							$("#nav-notify").css("padding", "1rem 0 0 0");
+						} else {
+							$("#nav-notify").css("padding", "1rem");
+						}
+
+						e.preventDefault();
+
+					});
+
+				}
+
+				// var third = getUserDrafts();
+
+			});
+		</script>
+
+	</body>
 
 </html>

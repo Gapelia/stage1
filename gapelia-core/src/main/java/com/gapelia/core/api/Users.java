@@ -3,21 +3,12 @@ package com.gapelia.core.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import com.gapelia.core.auth.AuthHelper;
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.QueryDatabaseActions;
 import com.gapelia.core.database.QueryDatabaseUser;
-import com.gapelia.core.database.SQLUtil;
-import com.gapelia.core.model.Book;
-import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
-import org.brickred.socialauth.Profile;
-
-import java.sql.*;
-import java.util.ArrayList;
 
 @Path("/users/")
 public class Users {
@@ -54,6 +45,17 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getUserById(userId));
     }
 
+
+	@Path("deleteUser")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String deleteUser(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId) {
+		if(!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		return QueryDatabaseUser.deleteUser(userId);
+	}
+
     @Path("updateUser")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -74,7 +76,6 @@ public class Users {
                              @FormParam("isPublic") boolean isPublic) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         u.setFullName(fullName);
         u.setEmail(email);
@@ -102,7 +103,6 @@ public class Users {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getBookByID(bookId));
     }
 
@@ -173,7 +173,6 @@ public class Users {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
     }
 

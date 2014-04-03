@@ -22,6 +22,7 @@ public class QueryDatabaseUser {
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'f', 'f','NULL')";
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
+    private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
     private static final String UPDATE_USER = "UPDATE users set email = ?, full_name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
@@ -293,6 +294,28 @@ public class QueryDatabaseUser {
 
         return null;
     }
+
+	public static String deleteUser(int userId) {
+		PreparedStatement statement = null;
+		try {
+			statement = connection.prepareStatement(DELETE_USER);
+			statement.setInt(1, userId);
+			statement.executeUpdate();
+			return "Success";
+		} catch (Exception ex) {
+			LOG.error("Cannot delete user:" + userId, ex);
+			return "Cannot delete user:"+userId;
+		} finally {
+			try {
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection on deleteuser: " + userId + " " + ex.getMessage());
+				return "Error closing connection ";
+			}
+		}
+	}
 
     public static String updateUserProfile(User user) {
         PreparedStatement statement = null;
