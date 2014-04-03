@@ -3,11 +3,8 @@ package com.gapelia.core.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import com.gapelia.core.auth.AuthHelper;
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.QueryDatabaseActions;
 import com.gapelia.core.database.QueryDatabaseBook;
-import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Page;
 import com.gapelia.core.model.User;
@@ -15,10 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.UUID;
 
 @Path("/books/")
 public class Books {

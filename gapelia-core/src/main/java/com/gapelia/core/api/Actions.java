@@ -1,23 +1,15 @@
 package com.gapelia.core.api;
 
-import com.gapelia.core.auth.AuthHelper;
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.DatabaseManager;
 import com.gapelia.core.database.FlushUser;
 import com.gapelia.core.database.QueryDatabaseActions;
-import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
-import org.brickred.socialauth.Profile;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @Path("/actions/")
 public class Actions {

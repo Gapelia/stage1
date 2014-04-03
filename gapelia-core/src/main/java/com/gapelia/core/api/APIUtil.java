@@ -1,17 +1,13 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryUtils;
-import com.gapelia.core.model.Page;
-import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.sql.Timestamp;
 
 
 @Path("/utils/")
