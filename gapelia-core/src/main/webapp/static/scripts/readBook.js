@@ -102,7 +102,7 @@ function insertPage(isFirst) {
         break;
 
     case 3:
-        photocontentLayout(isFirst);
+        phototextLayout(isFirst);
         break;
 
     case 4:
@@ -211,16 +211,16 @@ function overlayLayout(isFirst) {
 
 }
 
-function photocontentLayout(isFirst) {
+function phototextLayout(isFirst) {
 
-    htmlToInsert += "<section class=\"photocontent-wrapper\">";
+    htmlToInsert += "<section class=\"phototext-wrapper\">";
 
     if (current.creativeCommons != "Add photo credit?") {
         htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
     }
 
     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
-    htmlToInsert += "<div class=\"photocontent-preview\">";
+    htmlToInsert += "<div class=\"phototext-preview\">";
     htmlToInsert += "<article>";
     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
