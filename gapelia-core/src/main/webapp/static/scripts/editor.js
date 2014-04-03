@@ -824,9 +824,9 @@
 
 		var insert = "";
 
-		// insert += "<section class=\"phototext-preview-wrapper\">";
+		insert += "<section class=\"phototext-preview-wrapper\">";
 
-		insert += "<section class=\"phototext-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;\"">;
+		// insert += "<section class=\"phototext-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">;
 
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">" + attribution + "</span>";
 
