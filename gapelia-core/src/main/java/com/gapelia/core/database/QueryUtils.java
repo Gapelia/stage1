@@ -181,17 +181,17 @@ public class QueryUtils {
         return null;
     }
 
-    public static Library getLibraryFromBookId(int libraryId) {
+    public static Library getLibraryFromBookId(int bookId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         Library library = new Library();
         try {
             statement = connection.prepareStatement(LIBRARY_FROM_BOOKID);
-            statement.setInt(1, libraryId);
+            statement.setInt(1, bookId);
             LOG.info(statement.toString());
             rs = statement.executeQuery();
             while (rs.next()) {
-                int bookId = rs.getInt("book_id ");
+                int libraryId = rs.getInt("library_id");
                 statement = connection.prepareStatement(GET_LIBRARY);
                 statement.setInt(1, bookId);
                 LOG.info(statement.toString());
@@ -209,7 +209,7 @@ public class QueryUtils {
             }
             return library;
         } catch (Exception ex) {
-            LOG.error("ERROR: :" + libraryId, ex);
+            LOG.error("ERROR: :" + bookId, ex);
         } finally {
             try {
                 if (rs != null) {
@@ -219,7 +219,7 @@ public class QueryUtils {
                     statement.close();
                 }
             } catch (SQLException ex) {
-                LOG.error("Error closing connection " + libraryId + " " + ex.getMessage());
+                LOG.error("Error closing connection " + bookId + " " + ex.getMessage());
             }
         }
         return null;
