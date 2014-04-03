@@ -159,11 +159,6 @@
 
 						$("#bb-bookblock").html(htmlToInsert);
 
-						$(".content").css({
-							"width": $vW + "px",
-							"height": $vH + "px"
-						});
-
 					},
 
 					error: function (q, status, err) {
@@ -421,6 +416,11 @@
 
 				// Initialize book structure
 				if ($vW > "1024") {
+
+					$(".content").css({
+						"width": $vW + "px",
+						"height": $vH + "px"
+					});
 
 					var Page = (function () {
 
