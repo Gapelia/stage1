@@ -76,18 +76,22 @@ public class FlushUser {
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());
                     insert.executeUpdate();
+
                     insert = connection.prepareStatement(DELETE_FROM_LIBRARY_NOTIFICATION2);
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());
                     insert.executeUpdate();
+
                     insert = connection.prepareStatement(DELETE_FROM_USER_VOTES2);
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());
                     insert.executeUpdate();
+
                     insert = connection.prepareStatement(DELETE_FROM_USER_BOOKMARKS2);
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());
                     insert.executeUpdate();
+
                     insert = connection.prepareStatement(DELETE_FROM_BOOKS);
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());

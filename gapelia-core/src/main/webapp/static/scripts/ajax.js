@@ -127,7 +127,6 @@ function getUserCreatedBooks() {
             if ($vW > "1024") {
                 $("#user-book-list").css("width", w + "px");
             }
-            console.log(w);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -519,6 +518,93 @@ function getUserPublic() {
     });
     return null;
 }
+function getUserFromLibraryId(libraryId) {
+
+    $.ajax({
+        url: "/api/utils/getUserFromLibraryId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            libraryId: 48
+        },
+        success: function (data) {
+            temp = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function getUserFromBookId(bookId) {
+    $.ajax({
+        url: "/api/utils/getUserFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            temp = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function getBookFromBookId(bookId) {
+    $.ajax({
+            url: "/api/utils/getBookFromBookId",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                bookId: bookId
+            },
+            success: function (data) {
+                temp = data;
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+
+}
+
+function getLibraryFromBookId(bookId) {
+   $.ajax({
+               url: "/api/utils/getLibraryFromBookId",
+               contentType: "application/x-www-form-urlencoded;charset=utf-8",
+               type: "POST",
+               data: {
+                   bookId: bookId
+               },
+               success: function (data) {
+                   temp = data;
+                   console.log(temp.libraryId);
+               },
+               error: function (q, status, err) {
+                   if (status == "timeout") {
+                       alert("Request timed out");
+                   } else {
+                       alert("Some issue happened with your request: " + err.message);
+                   }
+               }
+           });
+
+}
 
 function getPublicCreatedBooks() {
     $.ajax({
@@ -670,7 +756,7 @@ $(document).on("click", ".quick-edit-profile", function () {
     quickUpdateUser();
 });
 
-$(document).on("click", ".library-list-wrapper ul li button", function (ev) {
+$(document).on("click", ".library button", function (ev) {
 
     e = $(this).closest("button");
     library = e.parent().parent();
@@ -678,7 +764,7 @@ $(document).on("click", ".library-list-wrapper ul li button", function (ev) {
     a = parseInt(libraryId);
     sessionId = readCookie("JSESSIONID");
 
-    if (e.html() == "Unsubscribe") {
+    if (e.html() == "Subscribe") {
         $.ajax({
             url: "/api/actions/removeSubscriptionLibrary",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -693,7 +779,7 @@ $(document).on("click", ".library-list-wrapper ul li button", function (ev) {
                 }
             }
         });
-    } else if (e.html() == "Subscribe") {
+    } else if (e.html() == "Unsubscribe") {
         $.ajax({
             url: "/api/actions/subscribeLibrary",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -967,7 +1053,6 @@ function createPage() {
 }
 
 function deletePage(deletePageId) {
-    console.log("deleting page");
     $.ajax({
         url: "/api/books/deletePage",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -977,7 +1062,6 @@ function deletePage(deletePageId) {
             pageId: deletePageId
         },
         success: function (data) {
-            console.log('deleted page');
         },
         error: function (q, status, err) {
 
@@ -1007,7 +1091,6 @@ function updateBookAndPages(isPublished) {
             isPublished: isPublished
         },
         success: function (data) {
-            console.log("Succes Publishing your book");
         },
         error: function (q, status, err) {
             if (status == "timeout") {
