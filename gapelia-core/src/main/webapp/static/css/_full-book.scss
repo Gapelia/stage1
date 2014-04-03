@@ -172,6 +172,7 @@
 			font-size: inherit;
 			line-height: inherit;
 			margin: 0 0 1.5rem 0;
+			position: relative;
 		}
 
 		.image-attribution { // this is secondary information and doesn't need to be so prominent
@@ -768,6 +769,18 @@
 				z-index: 0;
 			}
 		}
+	}
+
+	.resize-img {
+		top: 0; right: 0;
+
+		cursor: pointer;
+		position: absolute;
+		z-index: 1000; // 1 higher than fluidbox
+	}
+
+	.inserted-img {
+	
 	}
 
 }

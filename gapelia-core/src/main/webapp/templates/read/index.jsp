@@ -159,6 +159,48 @@
 
 						$("#bb-bookblock").html(htmlToInsert);
 
+						$(".inserted-img").fluidbox();
+						$(".inserted-img").before("<div class=\"resize-img\">b( . )( . )bs</div>");
+
+						$(function () {
+
+							$("p .resize-img").click(function () {
+
+								$(this).closest("p").css("display", "block").addClass("minimized-p");
+
+								if ($(this).closest("p").css("display") == "block") {
+									$(this).closest("p").css("width", "50%");
+								} else {
+									$(this).closest("p").css("width", "auto");
+								}
+
+							});
+
+							$(".minimized-p .resize-img").click(function () {
+
+								$(this).closest("p").css("display", "initial").removeClass("minimized-p");
+
+								if ($(this).closest("p").css("display") == "block") {
+									$(this).closest("p").css("width", "50%");
+								} else {
+									$(this).closest("p").css("width", "auto");
+								}
+
+							});
+
+						});
+
+						/*
+						$(".resize-img").click(function () {
+
+							$(this).closest("p").css({
+								"display": "block",
+								"width": "50%"
+							}).addClass("squished-p");
+
+						});
+						*/
+
 						// Initialize book structure
 						if ($vW > "1024") {
 
