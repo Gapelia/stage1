@@ -5947,6 +5947,7 @@ a.count span.dont-move {
   right: 0; }
 .full-book .fluid-wrapper, .full-book .photo-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
   overflow: hidden;
+  height: 100%;
   width: 100%; }
 .full-book .fluid-wrapper .page-bg, .full-book .fluid-wrapper iframe, .full-book .photo-wrapper .page-bg, .full-book .photo-wrapper iframe, .full-book .overlay-wrapper .page-bg, .full-book .overlay-wrapper iframe, .full-book .phototext-wrapper .page-bg, .full-book .phototext-wrapper iframe, .full-book .vertical-wrapper .page-bg, .full-book .vertical-wrapper iframe, .full-book .video-wrapper .page-bg, .full-book .video-wrapper iframe, .full-book .backcover-wrapper .page-bg, .full-book .backcover-wrapper iframe {
   bottom: 0;

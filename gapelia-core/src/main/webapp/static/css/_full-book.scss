@@ -135,7 +135,8 @@
 	.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper,
 	.video-wrapper, .backcover-wrapper {
 		overflow: hidden;
-		width: 100%;
+		height: 100%;
+    width: 100%;
 
 		.page-bg, iframe {
 			bottom: 0; left: 0;
