@@ -158,30 +158,28 @@ function fluidLayout(isFirst) {
 }
 
 function photoLayout(isFirst) {
+htmlToInsert += "<section class=\"phototext-wrapper\">";
 
-    htmlToInsert += "<section class=\"photo-wrapper\">";
-    htmlToInsert += "<div class=\"page-bg-wrapper\">";
+                    if (current.attribution != "Add photo credit?") {
+                        htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+                    }
 
-    if (current.creativeCommons != "Add photo credit?") {
-        htmlToInsert += "<span class=\"image-creativeCommons\">" + current.creativeCommons + "</span>";
-    }
+                    htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+                    htmlToInsert += "<div class=\"phototext-preview\">";
+                    htmlToInsert += "<article>";
+                    htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-    htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/></div>";
-    htmlToInsert += "<div class=\"photo-preview\">";
-    htmlToInsert += "<article>";
-    htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+                    if (isFirst == 1) {
+                        htmlToInsert += "<div class=\"author-info\">";
+                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
+                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
+                        htmlToInsert += "</div>";
+                    }
 
-    if (isFirst == 1) {
-        htmlToInsert += "<div class=\"author-info\">";
-        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-        htmlToInsert += "</div>";
-    }
-
-    htmlToInsert += "</article>";
-    htmlToInsert += "</div>";
-    htmlToInsert += "</section>";
-    htmlToInsert += "</div></div>";
+                    htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+                    htmlToInsert += "</article>";
+                    htmlToInsert += "</div></section>";
+                    htmlToInsert += "</div></div>";
 
 }
 

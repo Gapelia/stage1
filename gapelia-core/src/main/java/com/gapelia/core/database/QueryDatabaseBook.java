@@ -18,6 +18,9 @@ public class QueryDatabaseBook {
     // Book Related Queries
     private static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
     private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ? WHERE id = ?";
+    private static final String DELETE_FROM_USER_VOTES2 = "DELETE FROM user_votes where book_id = ?";
+    private static final String DELETE_FROM_USER_BOOKMARKS2 = "DELETE FROM user_bookmarks where book_id = ?";
+    private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
 
     public static int createPage(Page page){
         PreparedStatement insert = null;
@@ -161,6 +164,22 @@ public class QueryDatabaseBook {
     public static String deleteBook(int bookId){
         PreparedStatement insert = null;
         try {
+            insert = connection.prepareStatement(DELETE_FROM_LIBRARY_NOTIFICATION2);
+            insert.setInt(1, bookId);
+            LOG.info(insert.toString());
+            insert.executeUpdate();
+            insert = connection.prepareStatement(DELETE_FROM_USER_VOTES2);
+            insert.setInt(1, bookId);
+            LOG.info(insert.toString());
+            insert.executeUpdate();
+            insert = connection.prepareStatement(DELETE_FROM_USER_BOOKMARKS2);
+            insert.setInt(1, bookId);
+            LOG.info(insert.toString());
+            insert.executeUpdate();
+            insert = connection.prepareStatement(DELETE_FROM_BOOKS);
+            insert.setInt(1, bookId);
+            LOG.info(insert.toString());
+            insert.executeUpdate();
             insert = connection.prepareStatement(DELETE_PAGES_FROM_BOOK);
             insert.setInt(1, bookId);
             insert.executeUpdate();

@@ -15,13 +15,17 @@ public class FlushUser {
     private static final String DELETE_FROM_USERS = "DELETE FROM users where id = ?";
     private static final String FIND_BOOK = "SELECT * FROM BOOKS where owned_by = ?";
     private static final String DELETE_FROM_BOOKS = "DELETE FROM books where id = ?";
+    private static final String DELETE_FROM_USER_BOOKMARKS2 = "DELETE FROM user_bookmarks where book_id = ?";
     private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books where book_id = ?";
     private static final String DELETE_FROM_CONTIBUTORS = "DELETE FROM contributors where user_id = ?";
     private static final String DELETE_FROM_USER_BOOKMARKS = "DELETE FROM user_bookmarks where user_id = ?";
     private static final String DELETE_FROM_PAGES = "DELETE FROM pages where user_id = ?";
     private static final String DELETE_FROM_USER_VOTES = "DELETE FROM user_votes where user_id = ?";
+    private static final String DELETE_FROM_USER_VOTES2 = "DELETE FROM user_votes where book_id = ?";
+
     private static final String DELETE_FROM_USER_SUBSCRIPTIONS = "DELETE FROM user_subscriptions where user_id = ?";
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION = "DELETE FROM library_notifications where recipient = ?";
+    private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
     private static final String DELETE_FROM_BOOK_NOTIFICATION = "DELETE FROM book_notifications where recipient = ?";
     private static final String DELETE_FROM_LIBRARIES = "DELETE FROM libraries where created_by = ?";
     private static final String DELETE_FROM_EDITORS = "DELETE FROM editors where editor_id = ?";
@@ -69,6 +73,18 @@ public class FlushUser {
             if (rs.isBeforeFirst()) {
                 while (rs.next()) {
                     insert = connection.prepareStatement(DELETE_FROM_LIBRARYBOOKS);
+                    insert.setInt(1, rs.getInt("id"));
+                    LOG.info(insert.toString());
+                    insert.executeUpdate();
+                    insert = connection.prepareStatement(DELETE_FROM_LIBRARY_NOTIFICATION2);
+                    insert.setInt(1, rs.getInt("id"));
+                    LOG.info(insert.toString());
+                    insert.executeUpdate();
+                    insert = connection.prepareStatement(DELETE_FROM_USER_VOTES2);
+                    insert.setInt(1, rs.getInt("id"));
+                    LOG.info(insert.toString());
+                    insert.executeUpdate();
+                    insert = connection.prepareStatement(DELETE_FROM_USER_BOOKMARKS2);
                     insert.setInt(1, rs.getInt("id"));
                     LOG.info(insert.toString());
                     insert.executeUpdate();
