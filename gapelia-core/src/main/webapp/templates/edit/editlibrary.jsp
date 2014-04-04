@@ -1,7 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%/*@include file="../../auth.jsp" */ %>
-<% /* *********************************************** */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +5,14 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia &middot; Book Editor</title>
+		<title>Gapelia &middot; [Library Name] Library</title>
 
-		<!--/ AWESOME BOOK CREATOR, YA KNOW YOU LIKE IT!
+		<!--/ LIBRARY VIEW
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -30,231 +26,182 @@
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-		<script src="http://use.typekit.net/web3vzl.js"></script>
+		<script src="//use.typekit.net/web3vzl.js"></script>
 		<script>try { Typekit.load(); } catch(e) {}</script>
 
-		<script src="/static/scripts/jquery-2.0.3.min.js"></script>
-		<script src="/static/scripts/selectize.js"></script>
+		<script src="/static/scripts/modernizr.custom.js"></script>
+		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
-		<script>
-			<% String id = session.getId(); %>
-			sessionId = '<%= id %>';
-		</script>
+		<script src="/static/scripts/selectize.js"></script>
+		<script src="/static/scripts/nprogress.js"></script>
 
 	</head>
 
-	<body class="book-creation g-body">
+	<body class="app">
 
-		<header>
-			<div id="back">
-        <a class="button transparent" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
+		<div id="mp-pusher" class="super-wrapper">
+
+			<!--/ site-menu /-->
+			<nav id="site-menu" class="mp-menu">
+				<div class="mp-level">
+
+					<h2><a href="/featured">Gapelia</a></h2>
+
+					<ul>
+						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
+						<li><a href="/createlibrary">Create book</a></li>
+						<li><a href="#" id="create-library">Start library</a></li>
+
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+							<ul id="draft-menu"></ul>
+						</li>
+
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
+							<ul>
+								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
+								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
+								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
+								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
+								<li><a href="#">2 edit requests are pending for your review</a></li>
+							</ul>
+						</li>
+
+						<li class="logout"><a href="#">Log Out</a></li>
+					</ul>
+
+				</div>
+			</nav>
+			<!--//site-menu /-->
+
+			<!--/ main-panel /-->
+			<div id="featured-panel">
+				<button id="g-menu-toggle">
+					<i class="ion-drag"></i>
+				</button>
 			</div>
 
-			<div id="finish">
-				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
-        <a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish your book">Publish</a>
-				<a class="button b transparent" href="/me" id="close-button" title="Save changes and quit">Save + Close</a>
-			</div>
-		</header>
+			<!--/ library-editing /-->
+			<section id="new-library">
+				<div class="library-controls">
+					<button id="confirm-cancel-library" class="blank">Delete</button>
+					<button id="confirm-create-library" class="outline">Save</button>
+					<button id="confirm-edit-library" class="outline">Edit</button>
+				</div>
 
-		<!--/ scrollers /-->
+				<div class="button-wrapper">
+					<input class="photo-picker" type="filepicker" data-fp-apikey="ABFuSiQFbQRylrWy9nCs7z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
+				</div>
 
-		<div id="pages-scroller" class="menu">
-			<ul>
-				<li id="0" draggable="true">
-					<div class="delete-page"><i class="ion-trash-a"></i></div>
-					<a class="edit-page"><i class="ion-gear-b"></i></a>
+				<div id="new-library-info">
+					<small>Editor's Name &middot; 8,349 subscribers</small>
+
+					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
+					<p data-placeholder="Add a description" contenteditable="true"></p>
 
 					<section>
-						<img src="/static/images/blankBG.jpg" id="page0Image" alt="">
-						<span id="page0Title">0 &middot; New Page</span>
+						<input type="text" id="input-tags" placeholder="Add up to three tags" value=""/>
+
+						<script>
+							$("#input-tags").selectize({
+								delimiter: ",",
+								maxItems: 3,
+								persist: false,
+								create: function(input) {
+									return {
+										value: input,
+										text: input
+									}
+								}
+							});
+						</script>
 					</section>
-				</li>
-
-				<li id="add-page" class="new-thumb disable-sort">
-					<div>+</div>
-					<span>Add New Page</span>
-				</li>
-			</ul>
-
-			<input name="pageSortOrder" type="hidden"/>
-		</div>
-
-		<div id="layout-scroller" class="menu">
-			<h5><a href="#" id="back-to-pages">Back</a></h5>
-
-			<ul>
-				<li id="select-fluid-layout">
-					<div id="fluid-layout">Fluid Layout</div>
-					<span>Fluid</span>
-				</li>
-
-				<li id="select-photo-layout">
-					<div id="photo-layout">Photo Layout</div>
-					<span>Photo</span>
-				</li>
-
-				<li id="select-overlay-layout">
-					<div id="overlay-layout">Overlay Layout</div>
-					<span>Overlay</span>
-				</li>
-
-				<li id="select-phototext-layout">
-					<div id="phototext-layout">Photo/Text Layout</div>
-					<span>Photo/Text</span>
-				</li>
-
-				<li id="select-vertical-layout">
-					<div id="vertical-layout">Vertical Layout</div>
-					<span>Vertical</span>
-				</li>
-
-				<li id="select-video-layout">
-					<div id="video-layout">Video Layout</div>
-					<span>Video</span>
-				</li>
-
-				<!--/
-				<li id="select-frontcover-layout">
-					<div id="frontcover-layout">Front Cover Layout</div>
-					<span>Front Cover</span>
-				</li>
-
-				<li id="select-text-layout">
-					<div id="text-layout">Text Layout</div>
-					<span>Text</span>
-				</li>
-
-				<li id="select-horizontal-layout">
-					<div id="horizontal-layout">Horizontal Layout</div>
-					<span>Horizontal</span>
-				</li>
-				/-->
-			</ul>
-		</div>
-
-		<!--/ main-content /-->
-		<section id="main-content">
-			<div id="book-creation-wrapper">
-
-				<div id="notify-saving">Saving...</div>
-
-				<div id="create-book">
-					<div id="create-content">
-
-						<section id="test-blank" class="blank-preview-wrapper">
-							<img class="page-bg" src="/static/images/blankBG.jpg" alt="" data-adaptive-background="1"/>
-
-							<div class="blank-preview">
-								<article>
-									<p contenteditable="false">Welcome!<br/><br/>Choose a layout from the Pages menu<br/>to get started on your book.<br/><br/><small style="font-size: 50%">We can't wait to see it. (:</small></p>
-								</article>
-							</div>
-						</section>
-
-					</div>
 				</div>
 
-			</div>
-		</section>
-		<!--//main-content /-->
+				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
+				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
+			</section>
+			<!--//library-editing /-->
 
-		<section id="publish-modal" class="modal" style="display: none;">
-			<div class="wrapper">
-				<h1>*BOOK TITLE*</h1>
+		</div>
 
-				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
-
-				<script>
-					$("#input-tags").selectize({
-						delimiter: ",",
-						maxItems: 3,
-						persist: false,
-						create: function(input) {
-							return {
-								value: input,
-								text: input
-							}
-						}
-					});
-				</script>
-
-				<select id="library-search" placeholder="Add book to library"></select>
-
-				<script>
-					$("#library-search").selectize({
-						options: [
-							{ name: "Architecture", value: "architecture" },
-							{ name: "Biography", value: "biography" },
-							{ name: "Cinema", value: "cinema" },
-							{ name: "Cuisine", value: "cuisine" },
-							{ name: "Era", value: "era" },
-							{ name: "The Far East", value: "thefareast" },
-							{ name: "Fashionista", value: "fashionista" },
-							{ name: "Future", value: "future" },
-							{ name: "Gapelians", value: "gapelians" },
-							{ name: "Historian", value: "historian" },
-							{ name: "Into the Wild", value: "intothewild" },
-							{ name: "Japanimation", value: "japanimation" },
-							{ name: "Land of Kawaii", value: "landofkawaii" },
-							{ name: "Manifesto", value: "manifesto" },
-							{ name: "Modernism", value: "modernism" },
-							{ name: "Mother Gaea", value: "mothergaea" },
-							{ name: "Museum", value: "museum" },
-							{ name: "On the Road", value: "ontheroad" },
-							{ name: "Products of Tomorrow", value: "productsoftomorrow" },
-							{ name: "Subculture", value: "subculture" }
-						],
-						labelField: "name",
-						searchField: ["name"]
-					});
-				</script>
-
-				<div class="wrapper">
-					<a class="button green" id="publish-this" href="#">Publish</a>
-				</div>
-
-				<div class="close-modal">&times;</div>
-			</div>
-		</section>
-
+		<!--/ scripts /-->
 		<script src="/static/scripts/filepicker2.js"></script>
-		<script src="/static/scripts/jquery.mousewheel.js"></script>
-		<script src="/static/scripts/scrollpanel.js"></script>
-
-		<script>
-			$("#pages-scroller").scrollpanel();
-			$("#layout-scroller").scrollpanel();
-		</script>
-
-		<script src="/static/scripts/adaptiveBG.js"></script>
-		<script src="/static/scripts/imgLiquid.js"></script>
-		<script src="/static/scripts/vimeothumb.js"></script>
-		<script src="/static/scripts/embedly.js"></script>
-		<script src="/static/scripts/editor.js"></script>
-		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
-		<script src="/static/scripts/draggable_background.js"></script>
+		<script src="/static/scripts/g.money.js"></script>
+		<script src="/static/scripts/imgLiquid.js"></script>
+		<script src="/static/scripts/ajax.js"></script>
+		<script src="/static/scripts/classie.js"></script>
+		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
-			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
-		</script>
+			if ($vW > "1024") {
+				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-		<script src="/static/scripts/sortable.js"></script>
+				$(".mp-pushed").ready(function () {
+					$("#book-scroller").css("z-index", "0");
+				});
+			}
 
-		<script>
-			$(function() {
-				$("#pages-scroller ul").sortable({ items: ":not(.disable-sort)" }).bind("sortupdate", function() {});
+			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
+
+			$(function () {
+
+				var third = getUserDrafts();
+
+				// Click "Save" button
+				$("#confirm-create-library").click(function () {
+
+					// Disable
+					$(".button-wrapper").css("opacity", "0").hide();
+					$("#confirm-cancel-library, #confirm-create-library").hide();
+					$("[contenteditable='true']").attr("contenteditable", "false");
+
+					// Enable
+					$("#new-library-info").css({
+						"border-top": "1px solid #fcfcfc",
+						"border-bottom": "1px solid #fcfcfc"
+					});
+
+					$("#new-library-info small").css("opacity", "1");
+					$("#close-splash").css("opacity", "1");
+
+					$("#confirm-edit-library").css("right", "0");
+
+				});
+
+				// Click "Edit" button
+				$("#confirm-edit-library").click(function () {
+
+					// Disable
+					$("#new-library-info small").css("opacity", "0");
+					$("#close-splash").css("opacity", "0");
+					$("#confirm-edit-library").css("right", "-10rem");
+
+					// Enable
+					$(".button-wrapper").css("opacity", "1").show();
+
+					$("#new-library-info").css({
+						"border-top": "1px solid transparent",
+						"border-bottom": "1px solid transparent"
+					});
+
+					$("[contenteditable='false']").attr("contenteditable", "true");
+					$("#confirm-cancel-library, #confirm-create-library").show();
+
+				});
+
+				// Close overlay and get to user's library manager
+				$(document).on("click", "#close-splash", function () {
+					window.location.href = "/librarymanager";
+				});
+
+				$("button.photo-picker").html("&#xf2e4;");
+				$("#new-library").imgLiquid({ fill: true });
+				$("#g-menu-toggle").css("color", "#fcfcfc");
+
 			});
 		</script>
-		<script>
-			$("#publish-this").on("click", function(e) {
-
-				$("#publish-modal").html("<div class='wrapper'><h1>Sweet</h1><p>Your book has been published!</p><div class='wrapper'><a class='button a' href='#'>Go to book</a><a class='button b' href='#'>Bookshelf</a></div><div class='close-modal'>&times;</div></div>");
-				e.preventDefault();
-
-			});
-		</script>
+		<!--//scripts /-->
 
 	</body>
 

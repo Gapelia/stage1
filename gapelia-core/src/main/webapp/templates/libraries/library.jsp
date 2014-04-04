@@ -91,9 +91,8 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Library Name</a>
+                    <li id="nav-books" class="current"><a href="#">Library Books</a>
                     </li>
-                    <li id="nav-submissions"><a href="#">Submissions</a>
                     </li>
 
                     <ul id="stay-right">
@@ -126,55 +125,6 @@
 
                 </ul>
             </div>
-            <!--//Featured Books /-->
-
-
-            <!--/ Submission List /-->
-            <div class="submission-list-wrapper">
-                <ul id="submission-list">
-
-                    <li class="book">
-                        <div class="book-buttons">
-                            <a href="#" class="approve-this-book">&#xf120;</a>
-                            <a href="#" class="deny-this-book">&#xf128;</a>
-                        </div>
-
-                        <div class="book-title"><a href="#">Submitted Book #01</a>
-                        </div>
-
-                        <div class="book-info">
-                            <div class="author-name"><a href="#">Jane Lane</a>
-                            </div>
-                        </div>
-
-                        <span class="image-overlay"></span>
-                        <img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt="" />
-                    </li>
-
-                    <li class="book">
-                        <div class="book-buttons">
-                            <a href="#" class="approve-this-book">&#xf120;</a>
-                            <a href="#" class="deny-this-book">&#xf128;</a>
-                        </div>
-
-                        <div class="book-title"><a href="#">Submitted Book #02</a>
-                        </div>
-
-                        <div class="book-info">
-                            <div class="author-name"><a href="#">Daria Morgendorffer</a>
-                            </div>
-                        </div>
-
-                        <span class="image-overlay"></span>
-                        <img src="/static/images/covers/biography-dieterrams.jpg" alt="" />
-                    </li>
-
-
-
-                </ul>
-            </div>
-            <!--//Submission List /-->
-
         </div>
 
     </div>

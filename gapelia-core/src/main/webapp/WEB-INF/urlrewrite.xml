@@ -142,4 +142,13 @@
         <to>/librarymanager</to>
     </outbound-rule>
 
+    <rule>
+        <from>^/manageLibrary/([0-9]+)$</from>
+        <to>/templates/edit/manageLibrary.jsp?</to>
+    </rule>
+    <outbound-rule>
+        <from>^/templates/edit/manageLibrary.jsp?$</from>
+        <to>/manageLibrary/([0-9]+)$</to>
+    </outbound-rule>
+
 </urlrewrite>

@@ -234,9 +234,8 @@ function getBooksInLibrary() {
                     toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 }
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
-                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
-                toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBook(book.bookId);
                 toInsert += "</div></div></li>";
             }
@@ -284,7 +283,41 @@ function getCreatedLibraries() {
         }
     });
 }
-
+function getBookInUserLibrary() {
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+            url: "/api/libraries/getBooksInLibrary",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                libraryId: libraryId
+            },
+            success: function (data) {
+                books = data;
+                toInsert = '';
+                for (i in books) {
+                    book = books[i];
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
+                    toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                    toInsert += getUserFromBook(book.bookId);
+                    toInsert += "</div></div></li>";
+                }
+                $("#book-list").html(toInsert);
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+}
+function getSubmisionsInLibrary() {
+}
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     sessionId = readCookie("JSESSIONID");
@@ -1165,7 +1198,6 @@ function updateBookAndPages(isPublished) {
         });
         i++;
     }
-     document.location.href = "/me";
 }
 
 function loadBookEditor() {
