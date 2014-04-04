@@ -232,13 +232,18 @@
 		<script src="/static/scripts/vimeothumb.js"></script>
 		<script src="/static/scripts/embedly.js"></script>
 		<script src="/static/scripts/sortable.js"></script>
-		<script src="/static/scripts/editorEdit.js"></script>
+		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<!--/ <script src="/static/scripts/draggable_background.js"></script> /-->
 
 		<script>
 			// $("img").VimeoThumb();
+				$(function () { getUser(); });
+
+            	function load() {
+                        loadBookEditor();
+            	 }
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
 			$("#publish-this").on("click", function (e) {

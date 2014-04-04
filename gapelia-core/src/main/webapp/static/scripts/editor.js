@@ -12,10 +12,6 @@
 	$("#pages-scroller").css("height", $vH + "px");
 	$("#layout-scroller").css("height", $vH + "px");
 
-	$(function () { getUser(); });
-
-	function load() { createBook(); }
-
 	// Left Menus
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
