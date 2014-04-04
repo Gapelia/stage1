@@ -180,9 +180,7 @@
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
-
 						$(".inserted-img").fluidbox();
-						// $(".inserted-img").before("<div class=\"resize-img\">[..]</div>");
 
 						$(function () {
 
@@ -215,41 +213,6 @@
 								});
 
 							}
-
-							/*
-							$(".inserted-img").hover(function () {
-
-								if ($(this).parent().hasClass("minimized-p")) {
-
-									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
-									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
-
-								} else {
-
-									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
-									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
-
-								}
-
-								// $(this).show();
-
-							}, function () {
-
-								$(this).prev(".resize-smaller", ".resize-bigger").remove();
-								// $(this).hide();
-
-							});
-							*/
-
-							/*
-							$('img.col-image1').mouseover(function () {
-								$(this).siblings('a.plus-sign').show();
-							});
-
-							$('img.col-image1').mouseleave(function () {
-								$(this).siblings('a.plus-sign').hide();
-							});
-							*/
 
 							$(document).on("mouseenter", ".inserted-img", function () {
 
@@ -287,6 +250,41 @@
 							$(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
 								$(".resize-smaller, .resize-bigger").remove();
 							});
+
+							/*
+							$(".inserted-img").hover(function () {
+
+								if ($(this).parent().hasClass("minimized-p")) {
+
+									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
+									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
+
+								} else {
+
+									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
+									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
+
+								}
+
+								// $(this).show();
+
+							}, function () {
+
+								$(this).prev(".resize-smaller", ".resize-bigger").remove();
+								// $(this).hide();
+
+							});
+							*/
+
+							/*
+							$('img.col-image1').mouseover(function () {
+								$(this).siblings('a.plus-sign').show();
+							});
+
+							$('img.col-image1').mouseleave(function () {
+								$(this).siblings('a.plus-sign').hide();
+							});
+							*/
 
 						});
 
