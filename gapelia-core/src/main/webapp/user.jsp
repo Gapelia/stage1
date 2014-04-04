@@ -147,7 +147,7 @@
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
                 stuff += "<div id=\"splash-user-bio\"></div></div>";
-                stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
+                stuff += "<div id=\"close-splash\">See my books!</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
                 $("#mp-pusher").prepend(stuff);

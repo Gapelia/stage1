@@ -85,13 +85,6 @@
 
             </div>
         </nav>
-
-        <!--/ main-panel /-->
-        <div id="featured-panel">
-            <button id="g-menu-toggle">
-                <i class="ion-drag"></i>
-            </button>
-        </div>
         <!--//main-panel /-->
 
         <!--/ main-content /-->
