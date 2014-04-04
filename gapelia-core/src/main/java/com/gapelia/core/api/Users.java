@@ -50,7 +50,8 @@ public class Users {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String deleteUser(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId) {
+	public String deleteUser(@FormParam("sessionId") String sessionId,
+                             @FormParam("userId") int userId) {
 		if(!APIUtil.isValidSession(sessionId))
 			return APIUtil.INVALID_SESSION_ERROR_MSG;
 		return QueryDatabaseUser.deleteUser(userId);

@@ -21,6 +21,22 @@ public class APIUtil {
         return false;
     }
 
+    public static boolean checkIfOwnBook() {
+        return false;
+    }
+
+    public static boolean checkIfOwnUser() {
+        return false;
+    }
+
+    public static boolean checkIfOwnLibrary() {
+        return false;
+    }
+
+    public static boolean checkIfOwnPage() {
+        return false;
+    }
+
     @Path("getUserFromLibraryId")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
