@@ -369,25 +369,6 @@ function getLibraries() {
 
 }
 
-function quickUpdateUser() {
-
-    name = user.name;
-    email = user.email;
-    current = user.location; // if not, redirect
-    avatarImage = $(".avatar-wrapper").
-    coverImage = user.coverImage;
-    displayName = user.displayName;
-    personalWebsite = user.personalWebsite;
-    bio = $("#splash-user-bio").html();
-    tags = user.tags;
-    fb = user.fb;
-    gp = user.gp;
-    twt = user.twt;
-    isPublic = user.isPublic;
-    callUpdate();
-
-}
-
 function callUpdate() {
 
     sessionId = readCookie("JSESSIONID");
@@ -703,8 +684,7 @@ function quickUpdateUser() {
     name = user.name;
     email = user.email;
     current = user.location; // if not, redirect
-    image = $(".avatar-wrapper img").attr("src");
-    avatarImage = image;
+   avatarImage = user.avatarImage;
     image = $("#user-splash").css("background-image");
     image = image.replace("url(", "").replace(")", "");
     coverImage = image;
@@ -717,7 +697,6 @@ function quickUpdateUser() {
     twt = user.twt;
     isPublic = user.isPublic;
     callUpdate();
-
 }
 
 function getUserAccounts() {
