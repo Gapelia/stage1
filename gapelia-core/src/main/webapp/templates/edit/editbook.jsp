@@ -244,6 +244,63 @@
             	function load() {
                         loadBookEditor();
             	 }
+            	 $("#add-page").click(function (e) {
+
+                 		if (pagesCreated > 20) {
+                 			alert("Your book is too big please remove a page!\n");
+                 			return;
+                 		}
+
+                 		pagesCreated++;
+
+                 		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+
+                 		title = $(".page-title-elem").html();
+                 		text = $(".page-desc").html();
+                 		imageURL = $(".page-bg").attr("src");
+                 		attribution = $(".image-attribution").html();
+
+                 		// save to previous page
+                 		if (pagesCreated == 0) {
+                 			pages.page[0] = {
+                 				"pageNumber": pagesCreated,
+                 				"templateId": 0,
+                 				"title": null,
+                 				"text": null,
+                 				"image": "/static/images/grayBG.png",
+                 				"video": "null",
+                 				"attribution": null
+                 			};
+
+                 			templateId = 0;
+                 			createPage();
+                 			fluidLayout();
+                 		} else {
+                 			pages.page[currentPage].templateId = templateId;
+                 			pages.page[currentPage].title = title;
+                 			pages.page[currentPage].text = text;
+                 			pages.page[currentPage].image = imageURL;
+                 			pages.page[currentPage].video = videoURL;
+                 			pages.page[currentPage].attribution = attribution;
+                 			createPage();
+                 			currentPage = pagesCreated;
+                 			templateId = 0;
+                 			title = null;
+                 			text = null;
+                 			imageURL = null;
+                 			videoURL = null;
+                 			attribution = null;
+                 			fluidLayout();
+                 		}
+
+                 		// Page Sorter
+                 		$("#pages-scroller ul").sortable({
+                 			items: ":not(.disable-sort)"
+                 		}).bind("sortupdate", function () {});
+
+                 		e.preventDefault();
+
+                 	});
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
 			$("#publish-this").on("click", function (e) {

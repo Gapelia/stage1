@@ -1235,12 +1235,13 @@
 	$("#publish-this").on("click", function (e) {
 		// (".selectize-input") add tags
 		updateBookAndPages(true);
+		document.location.href = "/me";
 	});
 
 	$("#close-button").on("click", function (e) {
 
 		updateBookAndPages(false);
-		window.open("/featured");
+		document.location.href = "/me";
 
 	});
 

@@ -116,7 +116,7 @@ public class QueryDatabaseUser {
                 profileImage = profileImage + "?width=1000&height=1000";
 
             insert.setString(7, profileImage);
-            insert.setString(8, p.getFirstName());
+            insert.setString(8, p.getValidatedId());
             insert.setString(9, p.getValidatedId());
             insert.setString(10, p.getProviderId());
             insert.setTimestamp(11, new Timestamp(System.currentTimeMillis()));

@@ -1,7 +1,6 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.FlushUser;
 import com.gapelia.core.database.QueryDatabaseActions;
 import com.gapelia.core.model.User;
 import com.google.gson.Gson;
@@ -80,7 +79,6 @@ public class Actions {
                                 @FormParam("bookId") int bookId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return QueryDatabaseActions.voteBook(u, bookId);
@@ -98,18 +96,5 @@ public class Actions {
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return QueryDatabaseActions.removeVoteBook(u, bookId);
-    }
-
-    @Path("flushUser")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String flushUSer(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
-        LOG.info("FLUSHING USER");
-        return FlushUser.flushUser(u);
     }
 }

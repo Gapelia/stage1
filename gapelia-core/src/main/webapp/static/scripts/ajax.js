@@ -234,9 +234,8 @@ function getBooksInLibrary() {
                     toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 }
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
-                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
-                toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBook(book.bookId);
                 toInsert += "</div></div></li>";
             }
@@ -284,7 +283,41 @@ function getCreatedLibraries() {
         }
     });
 }
-
+function getBookInUserLibrary() {
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+            url: "/api/libraries/getBooksInLibrary",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                libraryId: libraryId
+            },
+            success: function (data) {
+                books = data;
+                toInsert = '';
+                for (i in books) {
+                    book = books[i];
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
+                    toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                    toInsert += getUserFromBook(book.bookId);
+                    toInsert += "</div></div></li>";
+                }
+                $("#book-list").html(toInsert);
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+}
+function getSubmisionsInLibrary() {
+}
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     sessionId = readCookie("JSESSIONID");
@@ -433,7 +466,7 @@ function updateUserOnboard() {
         coverImage = bg;
     }
 
-    displayName = $("#user-name").html();
+    displayName = user.displayName;
     personalWebsite = null;
     bio = $("#user-bio").html();
     tags = null;
@@ -467,13 +500,13 @@ function onboard() {
 }
 
 function deleteAccount() {
-
     $.ajax({
-        url: "/api/actions/flushUser",
+        url: "/api/users/deleteUser",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
-            sessionId: sessionId
+            sessionId: sessionId,
+            userId: user.userId
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1165,7 +1198,6 @@ function updateBookAndPages(isPublished) {
         });
         i++;
     }
-     document.location.href = "/me";
 }
 
 function loadBookEditor() {
@@ -1277,6 +1309,63 @@ function loadPagesEditor() {
             default:
                 baseLayout();
             }
+            $("#add-page").click(function (e) {
+
+            		if (pagesCreated > 20) {
+            			alert("Your book is too big please remove a page!\n");
+            			return;
+            		}
+
+            		pagesCreated++;
+
+            		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+
+            		title = $(".page-title-elem").html();
+            		text = $(".page-desc").html();
+            		imageURL = $(".page-bg").attr("src");
+            		attribution = $(".image-attribution").html();
+
+            		// save to previous page
+            		if (pagesCreated == 0) {
+            			pages.page[0] = {
+            				"pageNumber": pagesCreated,
+            				"templateId": 0,
+            				"title": null,
+            				"text": null,
+            				"image": "/static/images/grayBG.png",
+            				"video": "null",
+            				"attribution": null
+            			};
+
+            			templateId = 0;
+            			createPage();
+            			fluidLayout();
+            		} else {
+            			pages.page[currentPage].templateId = templateId;
+            			pages.page[currentPage].title = title;
+            			pages.page[currentPage].text = text;
+            			pages.page[currentPage].image = imageURL;
+            			pages.page[currentPage].video = videoURL;
+            			pages.page[currentPage].attribution = attribution;
+            			createPage();
+            			currentPage = pagesCreated;
+            			templateId = 0;
+            			title = null;
+            			text = null;
+            			imageURL = null;
+            			videoURL = null;
+            			attribution = null;
+            			fluidLayout();
+            		}
+
+            		// Page Sorter
+            		$("#pages-scroller ul").sortable({
+            			items: ":not(.disable-sort)"
+            		}).bind("sortupdate", function () {});
+
+            		e.preventDefault();
+
+            	});
         },
 
         error: function (q, status, err) {
