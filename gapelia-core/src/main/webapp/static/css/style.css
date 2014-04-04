@@ -2769,12 +2769,14 @@ body.landing h1 {
   padding: 0; }
 .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash, .app #new-library #close-splash {
   width: auto;
-  height: 100%;
-  top: 0;
-  right: 2rem;
+  height: auto;
+  bottom: 5rem;
+  left: 45%;
+  border-bottom: 1px solid rgba(252, 252, 252, 0.3);
   color: #fcfcfc;
   cursor: pointer;
-  font-size: 5rem;
+  font-size: 1rem;
+  padding-bottom: 0.4rem;
   position: fixed;
   transition: top 1.3s ease, left 1.3s ease;
   z-index: 10; }

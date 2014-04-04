@@ -342,7 +342,7 @@ function getLibrary() {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
             toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
-            toInsert += "</a></section></div><div id=\"close-splash\">ReadBooks</div></section>";
+            toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
         },
         error: function (q, status, err) {
