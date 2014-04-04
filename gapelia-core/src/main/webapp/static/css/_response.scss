@@ -568,7 +568,7 @@
 		.fluid-wrapper {
 			.author-info {
 				width: 80%; height: 50px;
-				margin: -5rem 0 2.5rem 0; padding: 0 10%;
+				margin: 1rem 0rem -4.5rem -9.5rem; padding: 0 10%;
 
 				position: relative;
 				top: initial;
@@ -576,13 +576,13 @@
 				.author-name {
 					margin: 0.3rem 0 0 3.5rem;
 					position: absolute;
-					text-align: left;
+					text-align: center;
 					text-shadow: 1px 1px 0 rgba($white, 0.1) !important;
 
-					&:before { text-align: left; }
+					&:before { text-align: center; }
 				}
 
-				.author-avatar { float: left; }
+				.author-avatar { margin-left: 16%; }
 			}
 
 			section { height: auto; }
@@ -648,7 +648,7 @@
 		}
 
 		.overlay-wrapper {
-			margin: 0 0 -0.16rem 0;
+			margin: 0 0 3rem 0;
 
 			.overlay-preview {
 				top: intial; left: initial;
@@ -656,7 +656,9 @@
 				height: 99.5%;
 				position: absolute;
 
-				article { width: 100%; }
+				article {
+					margin: 28% auto;
+					width: 100%; }
 
 				.page-desc {
 					font-size: 2.3rem;
