@@ -186,6 +186,36 @@
 
 						$(function () {
 
+							// Styling layouts
+							$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
+
+							if ($vW > "1024") {
+
+								$("img").VimeoThumb();
+
+								setTimeout(function () {
+									$(".video-player-container").imgLiquid({ fill: true });
+								}, 1000); // prevent placeholder from appearing
+
+								$(".fluid-wrapper").imgLiquid({ fill: true });
+								$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+								$(".overlay-wrapper").imgLiquid({ fill: true });
+								$(".phototext-wrapper").imgLiquid({ fill: true });
+								$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
+								$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+
+								$(document).on("click", ".play-video", function () {
+
+									$(".play-video").hide();
+
+									$(".video-player-container img").hide();
+									$(".video-player-container iframe").show();
+
+								});
+
+							}
+
 							/*
 							$(".inserted-img").hover(function () {
 
@@ -566,36 +596,6 @@
 					htmlToInsert += "</article>";
 					htmlToInsert += "</div></section>";
 					htmlToInsert += "</div></div>";
-
-				}
-
-				// Styling layouts
-				$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
-
-				if ($vW > "1024") {
-
-					$("img").VimeoThumb();
-
-					setTimeout(function () {
-						$(".video-player-container").imgLiquid({ fill: true });
-					}, 1000); // prevent placeholder from appearing
-
-					$(".fluid-wrapper").imgLiquid({ fill: true });
-					$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
-					$(".overlay-wrapper").imgLiquid({ fill: true });
-					$(".phototext-wrapper").imgLiquid({ fill: true });
-					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
-					$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-
-					$(document).on("click", ".play-video", function () {
-
-						$(".play-video").hide();
-
-						$(".video-player-container img").hide();
-						$(".video-player-container iframe").show();
-
-					});
 
 				}
 
