@@ -779,7 +779,8 @@
 		top: 0; right: 0;
 
 		background-color: $white;
-		cursor: pointer;
+		cursor: default;
+		display: block;
 		padding: 1rem;
 		position: absolute;
 		z-index: 1000; // 1 higher than fluidbox

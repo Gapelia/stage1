@@ -224,36 +224,26 @@
 							$(document).on("mouseenter", ".inserted-img", function () {
 
 								if ($(this).parent().hasClass("minimized-p")) {
-
-									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
 									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
-									// $(this).prepend("<div class=\"resize-bigger\">[bigger]</div>");
-
 								} else {
-
-									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
 									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
-									// $(this).prepend("<div class=\"resize-smaller\">[smaller]</div>");
-
 								}
 
 							});
 
+							/*
 							$(document).on("mouseleave", ".inserted-img", function () {
 
 								$(this).prev(".resize-smaller", ".resize-bigger").remove();
 								// $(this).closest(".resize-smaller", ".resize-bigger").remove();
 
 							});
+							*/
 
 							$(document).on("click", ".resize-smaller", function () {
 
 								$(this).parent().addClass("minimized-p");
 								$(this).parent().mouseleave();
-								$(this).parent().deselect();
-
-								// $(this).parent().mouseleave().mouseleave();
-								// $.fn.mediumInsert.insert.deselect();
 
 							});
 
@@ -261,11 +251,11 @@
 
 								$(this).parent().removeClass("minimized-p");
 								$(this).parent().mouseleave();
-								$(this).parent().deselect();
 
-								// $(this).parent().mouseleave().mouseleave();
-								// $.fn.mediumInsert.insert.deselect();
+							});
 
+							$(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
+								$(".resize-smaller, .resize-bigger").remove();
 							});
 
 						});
