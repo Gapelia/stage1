@@ -2509,7 +2509,7 @@ body.landing h1 {
   background: rgba(25, 25, 25, 0.4) !important; }
 .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar, .app .new .author-avatar, .app .draft .author-avatar {
   width: 50px;
-  height: auto;
+  height: 50px;
   border-radius: 300rem;
   display: inherit !important;
   margin: 0 0 0.5rem 0; }
@@ -7656,6 +7656,8 @@ a.count span.dont-move {
     border-bottom: none;
     margin: 1rem 1rem 1rem 0rem; }
   .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar {
+    height: 35px;
+    width: 35px;
     margin: 0; }
   .app .book:hover .book-title, .app .book:hover .library-location, .app .book:hover .author-name, .app .book:hover .library-info, .app .book:hover .collection-info, .app .collection:hover .book-title, .app .collection:hover .library-location, .app .collection:hover .author-name, .app .collection:hover .library-info, .app .collection:hover .collection-info, .app .library:hover .book-title, .app .library:hover .library-location, .app .library:hover .author-name, .app .library:hover .library-info, .app .library:hover .collection-info {
     text-shadow: none !important; }

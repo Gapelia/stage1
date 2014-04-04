@@ -1664,7 +1664,10 @@
 				margin: 1rem 1rem 1rem 0rem;
 			}
 
-			.author-avatar { margin: 0; }
+			.author-avatar {
+				height: 35px; width: 35px;
+				margin: 0;
+			}
 			
 			&:hover {.book-title, .library-location, .author-name, .library-info, .collection-info { text-shadow: none !important; } }
 			
