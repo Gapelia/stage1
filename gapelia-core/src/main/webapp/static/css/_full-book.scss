@@ -775,16 +775,22 @@
 		}
 	}
 
-	.resize-img {
+	.resize-smaller, .resize-bigger {
 		top: 0; right: 0;
 
+		background-color: $white;
 		cursor: pointer;
+		padding: 1rem;
 		position: absolute;
 		z-index: 1000; // 1 higher than fluidbox
 	}
 
+	.minimized-p {
+		display: block;
+		width: 50%;
+	}
+
 	.inserted-img {
-	
 	}
 
 }
