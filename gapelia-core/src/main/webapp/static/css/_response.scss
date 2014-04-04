@@ -574,21 +574,23 @@
 				top: initial;
 
 				.author-name {
+					border-right: 1px solid rgba($black, 0.3);
 					margin: 0.3rem 0 0 3.5rem;
+					padding-right: 0.5rem;
 					position: absolute;
-					text-align: center;
+					text-align: right;
 					text-shadow: 1px 1px 0 rgba($white, 0.1) !important;
 
 					&:before { text-align: center; }
 				}
 
-				.author-avatar { margin-left: 16%; }
+				.author-avatar { margin-left: 36%; }
 			}
 
 			section { height: auto; }
 
 			.draggable-placeholder {
-				height: auto;
+				height: 500px;
 				position: relative;
 			}
 
@@ -598,6 +600,7 @@
 
 				article {
 					left: initial;
+					padding: 0;
 					position: relative;
 				}
 
@@ -609,7 +612,7 @@
 				}
 
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 					line-height: 2.5rem;
 				}
 			}
@@ -641,7 +644,7 @@
 				margin: 0 0 2rem 0;
 
 				.page-title-elem {
-					font-size: 2.3rem;
+					font-size: 2rem;
 					line-height: 3.3rem;
 				}
 			}
@@ -694,7 +697,7 @@
 				}
 
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 					line-height: 2.5rem;
 				}
 			}
@@ -730,7 +733,7 @@
 				}
 
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 					line-height: 2.5rem;
 				}
 			}
@@ -763,7 +766,7 @@
 				}
 
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1.3rem;
 					line-height: 2.5rem;
 				}
 			}
@@ -1201,20 +1204,33 @@
 	.full-book {
 
 		.fluid-wrapper {
+			.draggable-placeholder { height: 475px; }
+			
 			.fluid-preview {
+				padding: 1rem 2rem 0 3rem;
+				
 				.page-title-elem, .page-desc { width: 85%; }
+				.page-title-elem { font-size: 2.1rem; }
+				.page-desc { font-size: 1.2rem; }
 			}
 
 			.author-info {
 				padding: 0 7.3%;
 				width: 90%;
+		
+				.author-avatar { margin-left: 30%; }
+				
+				.author-name {
+					font-size: 0.5rem; 
+					margin: 0.3rem 0 0 4.5rem;
+				}
 			}
 		}
 
 		.overlay-wrapper {
 			.overlay-preview {
 				article {
-					margin: 10% auto;
+					margin: 22% auto;
 					width: 100%;
 				}
 			}
@@ -1505,7 +1521,7 @@
 
 }
 
-@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -1832,23 +1848,37 @@
 				width: 100%; height: auto;
 				top: initial; left: initial;
 
+				border-bottom: 1px solid rgba($black, 0.25);
 				display: inline-block;
 				margin: 0;
+				padding-bottom: 8px;
 				position: relative;
 
 				.author-name {
+					border-right: none !important;
 					margin: 0;
 					position: relative;
-					text-align: center;
+					text-align: left;
 
-					&:before { text-align: center; }
+					a { padding-left: 10%; }
+					
+					&:before {
+						padding-left: 10%;
+						text-align: left;
+					}
 				}
 
-				.author-avatar { display: none !important; }
+				.author-avatar {
+					margin-left: -6%;
+					margin-top: -2rem;
+				}
 			}
 
+			.draggable-placeholder { height: auto; }
+			
 			.fluid-preview {
-				padding: 1rem 2rem;
+				padding: 2rem 2rem;
+				padding-bottom: 0.5rem;
 				article { margin: 0; }
 
 				.page-title-elem, .page-desc { width: 100%; }
