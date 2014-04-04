@@ -544,7 +544,8 @@
 					position: relative;
 
 					.content {
-						height: auto;
+						height: 100% !important;
+						width: 100% !important;
 						position: relative;
 					}
 				}
@@ -1422,8 +1423,38 @@
 					line-height: 2.3rem;
 				}
 			}
+			
+			.draggable-placeholder { height: 420px; }
+			
+			.author-info {
+				width: 100%; height: auto;
+				top: initial; left: initial;
 
-			.author-info { padding: 0 5%; }
+				border-bottom: 1px solid rgba($black, 0.25);
+				display: inline-block;
+				margin: 0;
+				padding-bottom: 8px;
+				position: relative;
+
+				.author-name {
+					border-right: none !important;
+					margin: 0;
+					position: relative;
+					text-align: left;
+
+					a { padding-left: 10%; }
+					
+					&:before {
+						padding-left: 10%;
+						text-align: left;
+					}
+				}
+
+				.author-avatar {
+					margin-left: -6%;
+					margin-top: -2rem;
+				}
+			}
 		}
 
 		.photo-wrapper {
