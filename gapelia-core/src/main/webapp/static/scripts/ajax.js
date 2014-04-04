@@ -13,43 +13,45 @@ function readCookie(name) {
     }
     return null;
 }
+
 function loadDelete() {
-// Drafts functionality
-$(".dd-link").click(function (e) {
+    // Drafts functionality
+    $(".dd-link").click(function (e) {
 
-    $(this).next(".delete-draft").toggle();
-    e.preventDefault();
+        $(this).next(".delete-draft").toggle();
+        e.preventDefault();
 
-});
-
-$(".yay-dd").click(function () {
-    $(this).closest("li").remove();
-});
-
-$(".nay-dd").click(function () {
-    $(this).closest(".delete-draft").hide();
-});
-$(".yay-dd").click(function () {
-    e = $(this).closest(".yay-dd");
-    console.log("deleting");
-    bookId = e.parent().parent().attr("id");
-    $(this).closest("li").remove();
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/books/deleteBook",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            bookId: bookId
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            }
-        }
     });
-});}
+
+    $(".yay-dd").click(function () {
+        $(this).closest("li").remove();
+    });
+
+    $(".nay-dd").click(function () {
+        $(this).closest(".delete-draft").hide();
+    });
+    $(".yay-dd").click(function () {
+        e = $(this).closest(".yay-dd");
+        console.log("deleting");
+        bookId = e.parent().parent().attr("id");
+        $(this).closest("li").remove();
+        sessionId = readCookie("JSESSIONID");
+        $.ajax({
+            url: "/api/books/deleteBook",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                bookId: bookId
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                }
+            }
+        });
+    });
+}
 
 function getBookmarkedBooks() {
     sessionId = readCookie("JSESSIONID");
@@ -307,7 +309,7 @@ function getLibrary() {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
             toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
-            toInsert += "</a></section></div><div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div><img class=\"page-bg\" src=\""+library.coverPhoto+"\"/></section>";
+            toInsert += "</a></section></div><div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div><img class=\"page-bg\" src=\"" + library.coverPhoto + "\"/></section>";
             $("#mp-pusher").prepend(toInsert);
         },
         error: function (q, status, err) {
@@ -1184,4 +1186,128 @@ function updateBookAndPages(isPublished) {
         });
         i++;
     }
+     document.location.href = "/me";
+}
+
+function loadBookEditor() {
+    sessionId = readCookie("JSESSIONID");
+    bookId = document.URL.split("/")[document.URL.split("/").length - 1];
+    $.ajax({
+        url: "/api/users/getBook",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId,
+            bookId: bookId
+        },
+        success: function (data) {
+
+            book = data;
+            pages = {
+                "page": [{}],
+                "bookId": book.bookId
+            };
+            pagesCreated = 0;
+            author = book.ownedBy;
+            templateId = 0;
+            currentPage = 0;
+            imageURL = null;
+            attribution = null;
+            title = null;
+            text = null;
+            videoURL = null;
+            loadPagesEditor();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err);
+            }
+        }
+    });
+}
+
+function loadPagesEditor() {
+    $.ajax({
+        url: "/api/users/getPages",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            pagesTemp = data;
+            pagesTemp.sort(function (a, b) {
+                return a.pageNumber - b.pageNumber;
+            });
+            toInsert = '';
+            for (i in pagesTemp) {
+                console.log(i);
+                page = pagesTemp[i];
+                temp = {
+                    "pageId": page.pageId,
+                    "pageNumber": page.pageNumber,
+                    "templateId": page.templateId,
+                    "title": page.title,
+                    "text": page.content,
+                    "image": page.photoUrl,
+                    "video": page.videourl,
+                    "user": page.userId,
+                    "attribution": page.creativeCommons
+                };
+                toInsert += "<li id=\"" + pagesCreated + "\"draggable='true'><div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"" + page.photoUrl + "\" id='page" + pagesCreated + "Image' alt=\"\"/><div id='page" + pagesCreated + "Title'><span class=\"page-thumb-number\">" + pagesCreated + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section></li>";
+                pages.page[i] = temp;
+                pagesCreated++;
+            }
+            pagesCreated--;
+            toInsert += "<li id=\"add-page\" class=\"new-thumb disable-sort\"><div>+</div></li>";
+            $("#page-menu").html(toInsert);
+            title = pages.page[currentPage].title;
+            text = pages.page[currentPage].text;
+            imageURL = pages.page[currentPage].image;
+            videoURL = pages.page[currentPage].video;
+            attribution = pages.page[currentPage].attribution;
+            templadeId = pages.page[0];
+            switch (templateId) {
+            case 0:
+                fluidLayout();
+                break;
+
+            case 1:
+                photoLayout();
+                break;
+
+            case 2:
+                overlayLayout();
+                break;
+
+            case 3:
+                photoTextLayout();
+                break;
+
+            case 4:
+                verticalLayout();
+                break;
+
+            case 5:
+                videoLayout();
+                break;
+
+            default:
+                baseLayout();
+            }
+        },
+
+        error: function (q, status, err) {
+
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+
+        }
+    });
 }

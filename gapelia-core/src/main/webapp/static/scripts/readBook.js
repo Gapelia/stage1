@@ -60,11 +60,8 @@ function getUserFromBook(bookId) {
     return responseText;
 }
 function loadBook() {
-
 	NProgress.start();
-
-	// sessionId = readCookie("JSESSIONID");
-
+	sessionId = readCookie("JSESSIONID");
 	bookId = document.URL.split("/")[document.URL.split("/").length - 1];
     getUserFromBook(bookId);
 	$.ajax({
