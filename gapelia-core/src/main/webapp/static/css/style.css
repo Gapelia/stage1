@@ -3598,7 +3598,7 @@ body.library-manager #stay-right {
   transition: background-color 0.5s ease; }
 .profile #user-splash .user-avatar {
   position: relative;
-  top: 18%; }
+  top: 15%; }
 .profile #user-splash .avatar-wrapper {
   background-size: cover;
   background-position: 50% 50%;
@@ -3637,9 +3637,10 @@ body.library-manager #stay-right {
 .profile #user-splash .avatar-wrapper #splash-edit-wrapper a:last-child {
   border-top: none; }
 .profile #user-splash h1 {
-  margin: 0 0 0.5rem 0; }
+  margin: 0 0 -0.5rem 0; }
 .profile #user-splash h5 {
   font-size: 0.8rem;
+  font-weight: lighter;
   margin: 0 0 1rem 0; }
 .profile #user-splash h5 a {
   border-bottom: 1px solid #fcfcfc;
@@ -3654,26 +3655,17 @@ body.library-manager #stay-right {
   margin: 0 0 3rem 0;
   padding: 1rem;
   display: block;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 200;
   line-height: 2.1rem; }
 .profile #user-splash #splash-user-bio:empty:after {
   content: "Add bio here"; }
-.profile #user-splash #splash-user-location, .profile #user-splash #splash-user-website, .profile #user-splash #splash-user-twitter {
-  font-size: 1.5rem;
-  padding: 0.5rem; }
-.profile #user-splash #splash-user-website, .profile #user-splash #splash-user-twitter {
-  display: inline-block; }
-.profile #user-splash #splash-user-location {
-  margin: 0 0 1.5rem 0; }
-.profile #user-splash #splash-user-website {
-  margin: 0 2rem 0 0; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;
-  bottom: 4rem;
-  left: 45.5%;
-  border-bottom: 1px solid rgba(252, 252, 252, 0.3);
+  bottom: 1rem;
+  right: 1rem;
+  border-bottom: none;
   color: #fcfcfc;
   cursor: pointer;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
@@ -3681,6 +3673,7 @@ body.library-manager #stay-right {
   font-style: italic;
   position: fixed;
   text-align: center;
+  text-decoration: underline;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
 .profile .book-buttons {
