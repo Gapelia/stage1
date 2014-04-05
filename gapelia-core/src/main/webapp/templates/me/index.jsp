@@ -81,8 +81,8 @@
                         </ul>
                     </li>
 
-                    <li class="logout"><a href="#">Log Out</a>
-                    </li>
+                    <li class="logout"><a href="#">Log Out</a></li>
+		    
                 </ul>
 
             </div>
