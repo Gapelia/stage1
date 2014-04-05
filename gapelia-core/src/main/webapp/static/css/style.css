@@ -7393,9 +7393,9 @@ a.count span.dont-move {
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
   .full-book .fluid-wrapper .fluid-preview {
-    padding: 1rem 2rem 0 3rem; }
+    padding: 1rem 2rem 0 2rem; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
-    width: 85%; }
+    width: 92%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {
     font-size: 2.1rem; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
@@ -7408,7 +7408,8 @@ a.count span.dont-move {
     border-bottom: 1px solid rgba(25, 25, 25, 0.25);
     display: inline-block;
     margin: 0;
-    padding-bottom: 8px;
+    padding-bottom: 14px;
+    padding-top: 4px;
     position: relative; }
   .full-book .fluid-wrapper .author-info .author-name {
     border-right: none !important;
@@ -7416,12 +7417,12 @@ a.count span.dont-move {
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
-    padding-left: 10%; }
+    padding-left: 2%; }
   .full-book .fluid-wrapper .author-info .author-name:before {
-    padding-left: 10%;
+    padding-left: 2%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
-    margin-left: -6%;
+    margin-left: -8%;
     margin-top: -2rem; }
   .full-book .overlay-wrapper .overlay-preview article {
     margin: 22% auto;
@@ -7523,16 +7524,18 @@ a.count span.dont-move {
 
   .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution {
     top: 1.12rem; }
+  .full-book .fluid-wrapper .fluid-preview {
+    padding: 1rem 1rem 0 1rem; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 90%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 3rem; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 2.3rem; }
   .full-book .fluid-wrapper .draggable-placeholder {
-    height: 420px; }
+    height: 380px; }
   .full-book .fluid-wrapper .author-info {
     width: 100%;
     height: auto;
@@ -7541,7 +7544,7 @@ a.count span.dont-move {
     border-bottom: 1px solid rgba(25, 25, 25, 0.25);
     display: inline-block;
     margin: 0;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     position: relative; }
   .full-book .fluid-wrapper .author-info .author-name {
     border-right: none !important;
@@ -7549,9 +7552,9 @@ a.count span.dont-move {
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
-    padding-left: 10%; }
+    padding-left: 7%; }
   .full-book .fluid-wrapper .author-info .author-name:before {
-    padding-left: 10%;
+    padding-left: 7%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
     margin-left: -6%;
@@ -7597,7 +7600,7 @@ a.count span.dont-move {
 
   .profile .book-title {
     margin: 4.5rem 0 0.5rem 0; } }
-@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;
     height: 2px; }
@@ -7823,17 +7826,17 @@ a.count span.dont-move {
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
-    padding-left: 10%; }
+    padding-left: 7%; }
   .full-book .fluid-wrapper .author-info .author-name:before {
-    padding-left: 10%;
+    padding-left: 7%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
-    margin-left: -6%;
+    margin-left: -13%;
     margin-top: -2rem; }
   .full-book .fluid-wrapper .draggable-placeholder {
     height: auto; }
   .full-book .fluid-wrapper .fluid-preview {
-    padding: 2rem 2rem;
+    padding: 1.2rem 1.2rem;
     padding-bottom: 0.5rem; }
   .full-book .fluid-wrapper .fluid-preview article {
     margin: 0; }

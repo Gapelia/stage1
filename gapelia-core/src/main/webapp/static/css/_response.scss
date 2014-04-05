@@ -1201,9 +1201,9 @@
 			.draggable-placeholder { height: 475px; }
 			
 			.fluid-preview {
-				padding: 1rem 2rem 0 3rem;
+				padding: 1rem 2rem 0 2rem;
 				
-				.page-title-elem, .page-desc { width: 85%; }
+				.page-title-elem, .page-desc { width: 92%; }
 				.page-title-elem { font-size: 2.1rem; }
 				.page-desc { font-size: 1.2rem; }
 			}
@@ -1215,7 +1215,8 @@
 				border-bottom: 1px solid rgba($black, 0.25);
 				display: inline-block;
 				margin: 0;
-				padding-bottom: 8px;
+				padding-bottom: 14px;
+				padding-top: 4px;
 				position: relative;
 
 				.author-name {
@@ -1224,16 +1225,16 @@
 					position: relative;
 					text-align: left;
 
-					a { padding-left: 10%; }
+					a { padding-left: 2%; }
 					
 					&:before {
-						padding-left: 10%;
+						padding-left: 2%;
 						text-align: left;
 					}
 				}
 
 				.author-avatar {
-					margin-left: -6%;
+					margin-left: -8%;
 					margin-top: -2rem;
 				}
 			}
@@ -1426,20 +1427,22 @@
 
 		.fluid-wrapper {
 			.fluid-preview {
+				padding: 1rem 1rem 0 1rem;
+				
 				.page-title-elem, .page-desc { width: 90%; }
 
 				.page-title-elem {
-					font-size: 2rem;
+					font-size: 1.8rem;
 					line-height: 3rem;
 				}
 
 				.page-desc {
-					font-size: 1.3rem;
+					font-size: 1.2rem;
 					line-height: 2.3rem;
 				}
 			}
 			
-			.draggable-placeholder { height: 420px; }
+			.draggable-placeholder { height: 380px; }
 			
 			.author-info {
 				width: 100%; height: auto;
@@ -1448,7 +1451,7 @@
 				border-bottom: 1px solid rgba($black, 0.25);
 				display: inline-block;
 				margin: 0;
-				padding-bottom: 8px;
+				padding-bottom: 12px;
 				position: relative;
 
 				.author-name {
@@ -1457,10 +1460,10 @@
 					position: relative;
 					text-align: left;
 
-					a { padding-left: 10%; }
+					a { padding-left: 7%; }
 					
 					&:before {
-						padding-left: 10%;
+						padding-left: 7%;
 						text-align: left;
 					}
 				}
@@ -1567,7 +1570,7 @@
 
 }
 
-@media all and (max-width: 401px), screen and (max-width: 401px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -1909,16 +1912,16 @@
 					position: relative;
 					text-align: left;
 
-					a { padding-left: 10%; }
+					a { padding-left: 7%; }
 					
 					&:before {
-						padding-left: 10%;
+						padding-left: 7%;
 						text-align: left;
 					}
 				}
 
 				.author-avatar {
-					margin-left: -6%;
+					margin-left: -13%;
 					margin-top: -2rem;
 				}
 			}
@@ -1926,7 +1929,7 @@
 			.draggable-placeholder { height: auto; }
 			
 			.fluid-preview {
-				padding: 2rem 2rem;
+				padding: 1.2rem 1.2rem;
 				padding-bottom: 0.5rem;
 				article { margin: 0; }
 
