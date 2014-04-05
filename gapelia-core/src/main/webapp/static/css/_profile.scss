@@ -159,7 +159,7 @@
 
 		.user-avatar {
 			position: relative;
-			top: 15%;
+			top: 14%;
 		}
 
 		/* Removed by Tommy
@@ -231,6 +231,7 @@
 				border-bottom: 1px solid $white; 
 				@include serif;
 				font-style: italic;
+				font-weight: bolder;
 			}
 		}
 
@@ -238,7 +239,7 @@
 			font-size: 2.8rem;
 			font-weight: 700;
 			text-align: center;
-			top: 29%;
+			top: 36%;
 		}
 
 		#splash-user-bio {
@@ -261,9 +262,9 @@
 			cursor: pointer;
 			@include serif;
 			font-size: 1rem;
-			font-style: italic;
+			//font-style: italic;
 			position: fixed;
-			text-align: center;
+			text-align: right;
 			text-decoration: underline;
 			transition: bottom 1.3s ease, left 1.3s ease;
 			z-index: 10;
