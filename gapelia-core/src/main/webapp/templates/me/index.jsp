@@ -62,7 +62,7 @@
                     <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
                     </li>
 
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
                         <ul id="draft-menu"></ul>
                     </li>
 
