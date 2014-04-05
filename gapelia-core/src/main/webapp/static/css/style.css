@@ -1834,7 +1834,7 @@ ol {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   border-left: 0;
-  margin: 0 0 0 2px !important; }
+  margin: 0 0 0 -2px !important; }
 
 .branded {
   background-color: #70a1b1 !important;
@@ -1842,7 +1842,6 @@ ol {
 
 .red {
   background-color: #ff3b30 !important;
-  background-image: linear-gradient(to bottom, #ff3b30, #fc0d00) !important;
   color: #fcfcfc !important; }
 
 .red-02 {
@@ -1862,7 +1861,6 @@ ol {
 
 .green {
   background-color: #4cd964 !important;
-  background-image: linear-gradient(to bottom, #26ff4b, #2ac845) !important;
   color: #fcfcfc !important; }
 
 .blue {
@@ -6856,18 +6854,8 @@ a.count span.dont-move {
   .app #featured-splash #library-info, .app #featured-splash #splash-user-info, .app #library-splash #library-info, .app #library-splash #splash-user-info, .app #user-splash #library-info, .app #user-splash #splash-user-info {
     padding: 0 10rem; }
   .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
-    top: initial;
-    right: 0;
-    bottom: 6rem;
-    font-size: 4rem;
-    height: auto;
-    text-align: center;
-    width: 100%; }
-  .app #featured-splash #close-splash i, .app #library-splash #close-splash i, .app #user-splash #close-splash i {
-    transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg); }
+    font-size: 1rem !important;
+    left: 45%; }
   .app #library-splash #library-info {
     left: 10%;
     top: 35%;
@@ -6880,11 +6868,6 @@ a.count span.dont-move {
     top: 24%; }
   .app #user-splash .user-avatar {
     top: 10%; }
-  .app #user-splash #close-splash {
-    top: initial;
-    right: initial;
-    bottom: 4rem !important;
-    font-size: 1.5rem !important; }
 
   .full-book {
     overflow-x: hidden;
@@ -7390,6 +7373,9 @@ a.count span.dont-move {
     font-size: 1.8rem; }
   .app .library .library-info .lib-blurb {
     font-size: 1rem; }
+  .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
+    font-size: 1rem !important;
+    left: 43%; }
   .app #library-splash #library-info {
     left: 13%;
     top: 36%;
@@ -7398,14 +7384,8 @@ a.count span.dont-move {
     font-size: 2.5rem; }
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
-  .app #library-splash #close-splash {
-    bottom: 6rem;
-    font-size: 4rem; }
   .app #user-splash .user-avatar {
     top: 12%; }
-  .app #user-splash #close-splash {
-    bottom: 6rem;
-    font-size: 4rem; }
   .app #user-splash #splash-user-info {
     top: 24%; }
 
@@ -7496,7 +7476,7 @@ a.count span.dont-move {
     width: 68%; }
   .app #header-message button {
     right: -38%; }
-  .app #featured-splash #featured-info, .app #featured-splash #library-info, .app #library-splash #featured-info, .app #library-splash #library-info {
+  .app #featured-splash #featured-info, .app #featured-splash #library-info, .app #library-splash #user-splash #featured-info, .app #library-splash #user-splash #library-info {
     top: 55%;
     left: 5%;
     padding: 0;
@@ -7505,6 +7485,9 @@ a.count span.dont-move {
     top: 18%; }
   .app #user-splash #splash-user-info {
     top: 38%; }
+  .app #user-splash #close-splash {
+    font-size: 0.8rem !important;
+    left: 42%; }
   .app .library .library-info {
     padding: 0 2rem; }
   .app .library .library-info .title {

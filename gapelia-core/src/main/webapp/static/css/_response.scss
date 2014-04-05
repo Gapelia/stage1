@@ -447,20 +447,8 @@
 			#library-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
-				top: initial; right: 0; bottom: 6rem; // -16rem
-
-				font-size: 4rem;
-				height: auto;
-				text-align: center;
-				width: 100%;
-
-				i {
-					transform: rotate(90deg);
-
-					-o-transform: rotate(90deg);
-					-moz-transform: rotate(90deg);
-					-webkit-transform: rotate(90deg);
-				}
+				font-size: 1rem !important;
+				left: 45%;
 			}
 		}
 		
@@ -476,11 +464,6 @@
 		#user-splash {
 			#splash-user-info { top: 24%; }
 			.user-avatar { top: 10%; }
-
-			#close-splash {
-				top: initial; right: initial; bottom: 4rem !important;
-				font-size: 1.5rem !important;
-			}
 		}
 
 	}
@@ -1185,6 +1168,13 @@
 			}
 		}
 		
+		#featured-splash, #library-splash, #user-splash {
+			#close-splash {
+				font-size: 1rem !important;
+				left: 43%;
+			}
+		}
+		
 		#library-splash {
 			#library-info {
 				left: 13%;
@@ -1195,18 +1185,10 @@
 				
 				p { font-size: 1.2rem; }
 			}
-			#close-splash {
-				bottom: 6rem;
-				font-size: 4rem;
-			}
 		}
 		
 		#user-splash {
 			.user-avatar { top: 12%; }
-			#close-splash {
-				bottom: 6rem;
-				font-size: 4rem;
-			}
 			#splash-user-info { top: 24%; }
 		}
 	}
@@ -1367,7 +1349,7 @@
 			button { right: -38%; }
 		}
 		
-		#featured-splash, #library-splash {
+		#featured-splash, #library-splash #user-splash {
 			#featured-info, #library-info {
 				top: 55%; left: 5%;
 
@@ -1379,6 +1361,10 @@
 		#user-splash {
 			.user-avatar { top: 18%; }
 			#splash-user-info { top: 38%; }
+			#close-splash {
+				font-size: 0.8rem !important;
+				left: 42%;
+			}		
 		}
 
 		.library {
