@@ -66,8 +66,10 @@
                         <ul>
                         </ul>
                     </li>
+		    
+		    <li class="logout"><a href="#">Log Out</a></li>
+		    
                 </ul>
-                <a href="#" class="logout">Log Out</a>
             </div>
         </nav>
         <!--//site-menu /-->
