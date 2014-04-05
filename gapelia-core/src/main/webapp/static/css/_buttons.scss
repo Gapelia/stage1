@@ -39,7 +39,7 @@
 	border-top-left-radius: 0 !important;
 	border-bottom-left-radius: 0 !important;
 	border-left: 0;
-	margin: 0 0 0 2px !important;
+	margin: 0 0 0 -2px !important;
 
 	// &:hover { border-left: 1px solid rgba($black, 0.3); }
 }
@@ -51,7 +51,7 @@
 
 .red {
 	background-color: $red !important;
-	background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
 	color: $white !important;
 }
 
@@ -75,7 +75,7 @@
 
 .green {
 	background-color: $green !important;
-	background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
 	color: $white !important;
 }
 
