@@ -159,7 +159,7 @@
 
 		.user-avatar {
 			position: relative;
-			top: 20%;
+			top: 18%;
 		}
 
 		/* Removed by Tommy
@@ -234,15 +234,18 @@
 		}
 
 		#splash-user-info {
+			font-size: 2.8rem;
+			font-weight: 700;
 			text-align: center;
-			top: 36%;
+			top: 29%;
 		}
 
 		#splash-user-bio {
 			margin: 0 0 3rem 0; padding: 1rem;
 
 			display: block;
-			font-size: 1.5rem; // 1.8rem
+			font-size: 1.3rem;
+			font-weight: 200;
 			line-height: 2.1rem;
 
 			&:empty:after { content: "Add bio here"; }
@@ -259,14 +262,14 @@
 		#splash-user-website { margin: 0 2rem 0 0; }
 
 		#close-splash {
-			width: 100%; height: auto;
-			bottom: 4rem; left: 0; top: initial;
+			width: auto; height: auto;
+			bottom: 4rem; left: 45.5%; 
 
-			border-bottom: none;
+			border-bottom: 1px solid rgba($white, 0.3);
 			color: $white;
 			cursor: pointer;
 			@include serif;
-			font-size: 1.5rem;
+			font-size: 1rem;
 			font-style: italic;
 			position: fixed;
 			text-align: center;
