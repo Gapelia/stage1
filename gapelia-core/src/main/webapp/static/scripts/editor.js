@@ -256,7 +256,7 @@
 	// Delete page
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
-		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yay</a><a href=\"#\" class=\"button b green nay-delete-page\">Nay</a></div></div>");
+		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
 
 		e.preventDefault();
 
