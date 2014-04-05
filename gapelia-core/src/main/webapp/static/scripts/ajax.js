@@ -482,7 +482,6 @@ function updateUserOnboard() {
 function onboard() {
 
     sessionId = readCookie("JSESSIONID");
-
     $.ajax({
         url: "/api/users/onboard",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
