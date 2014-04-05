@@ -1875,7 +1875,6 @@ ol {
 
 .slate {
   background-color: #59b3a6 !important;
-  background-image: linear-gradient(to bottom, #0dffdc, #449589) !important;
   color: #fcfcfc !important; }
 
 .gray {
@@ -2112,7 +2111,7 @@ ol {
   padding: 0.7rem 1.5rem;
   text-shadow: 0 0 1px rgba(252, 252, 252, 0.1); }
 .mp-menu ul li a:hover {
-  background-color: rgba(25, 25, 25, 0.1); }
+  background-color: rgba(59, 134, 134, 0.5); }
 .mp-menu ul li .icon {
   top: 0;
   right: 0;
@@ -2281,6 +2280,7 @@ body.landing h1 {
   overflow: hidden;
   position: relative; }
 .app .super-wrapper {
+  background-color: rgba(11, 72, 107, 0.05);
   display: none; }
 .app #site-menu h2 {
   width: 100%;
@@ -2438,7 +2438,7 @@ body.landing h1 {
   display: inline-flex;
   margin: 0.5rem 1rem 0 0; }
 .app #book-nav a, .app #featured-nav a {
-  color: rgba(25, 25, 25, 0.1); }
+  color: rgba(11, 72, 107, 0.25); }
 .app #book-nav .current, .app #featured-nav .current {
   padding: 0 0 1rem 0; }
 .app #book-nav .current a, .app #featured-nav .current a {
@@ -2988,7 +2988,7 @@ body.landing h1 {
   min-height: 20px;
   top: 0;
   right: 1rem;
-  background-color: #ff3b30;
+  background-color: #0B486B;
   border-radius: 50%;
   color: #fcfcfc;
   font-size: 0.8rem;
@@ -3799,6 +3799,8 @@ body.library-manager #stay-right {
   font-size: 0.9rem;
   outline: none;
   width: 500px; }
+.accounts .account-info-wrapper .bl_form .update-user, .accounts .account-password-wrapper .bl_form .update-user, .accounts .account-notifications-wrapper .bl_form .update-user, .accounts .account-pro-wrapper .bl_form .update-user, .accounts .account-billing-wrapper .bl_form .update-user, .accounts .account-delete-wrapper .bl_form .update-user {
+  background-color: rgba(89, 179, 166, 0.1); }
 .accounts .account-info-wrapper .lb_wrap, .accounts .account-password-wrapper .lb_wrap, .accounts .account-notifications-wrapper .lb_wrap, .accounts .account-pro-wrapper .lb_wrap, .accounts .account-billing-wrapper .lb_wrap, .accounts .account-delete-wrapper .lb_wrap {
   display: block !important;
   height: 70px; }

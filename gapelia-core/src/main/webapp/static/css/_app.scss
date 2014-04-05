@@ -13,7 +13,10 @@
 	overflow: hidden;
 	position: relative;
 
-	.super-wrapper { display: none; }
+	.super-wrapper {
+    background-color: rgba(11, 72, 107, 0.05);
+    display: none;
+  }
 
 	#site-menu {
 		h2 {
@@ -204,7 +207,7 @@
 			margin: 0.5rem 1rem 0 0;
 		}
 
-		a { color: rgba($black, 0.1); }
+		a { color: rgba(11, 72, 107, 0.25); }
 
 		.current {
 			padding: 0 0 1rem 0;
@@ -936,7 +939,7 @@
 		min-width: 20px; min-height: 20px;
 		top: 0; right: 1rem;
 
-		background-color: $red;
+		background-color: #0B486B;
 		border-radius: 50%;
 		color: $white;
 		font-size: 0.8rem;
