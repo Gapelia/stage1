@@ -3673,6 +3673,7 @@ body.library-manager #stay-right {
   bottom: 4rem;
   left: 0;
   top: initial;
+  border-bottom: none;
   color: #fcfcfc;
   cursor: pointer;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
