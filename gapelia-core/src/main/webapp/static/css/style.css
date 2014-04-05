@@ -6002,10 +6002,12 @@ a.count span.dont-move {
   font-size: 0.6rem;
   z-index: 1; }
 .full-book .fluid-wrapper .author-info .author-name, .full-book .photo-wrapper .author-info .author-name, .full-book .overlay-wrapper .author-info .author-name, .full-book .phototext-wrapper .author-info .author-name, .full-book .vertical-wrapper .author-info .author-name, .full-book .video-wrapper .author-info .author-name, .full-book .backcover-wrapper .author-info .author-name {
+  border-right: 1px solid rgba(25, 25, 25, 0.3);
   cursor: default;
   letter-spacing: 2px;
   line-height: 1;
   margin: 0 0 0.5rem 0;
+  padding-right: 1rem;
   text-align: right;
   text-transform: uppercase; }
 .full-book .fluid-wrapper .author-info .author-name:before, .full-book .photo-wrapper .author-info .author-name:before, .full-book .overlay-wrapper .author-info .author-name:before, .full-book .phototext-wrapper .author-info .author-name:before, .full-book .vertical-wrapper .author-info .author-name:before, .full-book .video-wrapper .author-info .author-name:before, .full-book .backcover-wrapper .author-info .author-name:before {
