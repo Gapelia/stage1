@@ -152,7 +152,8 @@ function getUserCreatedBooks() {
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
                 toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div>";
-                toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\"><div class=\"library-location\">"
+                toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
+		toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div></li>";
                 toInsert += getLibraryFromBook(book.bookId);
             }
             $("#user-book-list").html(toInsert);
@@ -342,7 +343,7 @@ function getLibrary() {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
             toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
-            toInsert += "</a></section></div><div id=\"close-splash\">ReadBooks</div></section>";
+            toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
         },
         error: function (q, status, err) {

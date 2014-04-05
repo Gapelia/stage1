@@ -200,7 +200,7 @@
 		// Delete book
 		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
 
-			$(this).closest("li").prepend("<div class=\"delete-book-confirm\"><h3>Hold on there, are you *sure* you want to delete your book?</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-book\">Yes, delete</a><a href=\"#\" class=\"button b green nay-delete-book\">Nope, cancel</a></div></div>");
+			$(this).closest("li").prepend("<div class=\"delete-book-confirm\"><h3>Hold on there, are you *sure* you want to delete your book?</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-book\">Yes, delete</a><a href=\"#\" class=\"button b white nay-delete-book\">No, cancel</a></div></div>");
 
 			e.preventDefault();
 

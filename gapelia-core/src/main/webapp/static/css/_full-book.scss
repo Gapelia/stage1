@@ -115,20 +115,16 @@
 		color: $white;
 		cursor: pointer;
 		font-family: "Ionicons";
-		font-size: 2rem; // 2.5rem, Tommy
-		padding: 1rem 0 0 0; // 2.6rem 0 0 0, Tommy, this messes up the JavaScript positioning
+		font-size: 2rem; 
+		padding: 1rem 0 0 0; 
 		position: fixed;
 		text-align: center;
 		text-shadow: 0 0 3px rgba($black, 0.8) !important;
-    // text-shadow: 0 0 3px $slate !important; // blue shadow is terrible
-		// top: 40% !important; // positioning is determined by JavaScript, which takes into account user's browser height. This line doesn't.
 		z-index: 2000;
-    
-    // .ion-ios7-arrow-left, .ion-ios7-arrow-right { text-shadow: 0 0 3px $slate !important; } // redundant
 	}
 
 	#bb-nav-prev { left: 0; }
-	#bb-nav-next { right: 0; } // did you look at this? Your padding made it not level with the previous button
+	#bb-nav-next { right: 0; } 
 
 	/// LAYOUT //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -147,13 +143,9 @@
 		iframe { height: 100%; }
 		.page-bg { height: auto; }
 
-		.page-title-elem, .page-desc {
-			color: rgba($black, 0.8);
-			// display: block; // why is this here? they are divs by default
-		}
-
 		.page-title-elem {
-			font-size: 2.3rem; // I don't understand the constant changing of font sizes...
+			color: rgba($black, 0.8);
+      font-size: 2.3rem; 
 			font-weight: 700;
 			line-height: 2.8rem;
 			margin: 0 0 0.5rem 0;
@@ -161,8 +153,10 @@
 
 		.page-desc {
 			@include serif;
-			font-size: 1.5rem; // The font sizing and line height go together for a reason...
-			letter-spacing: 0.006rem;
+			color: rgba($black, 0.7);
+      font-size: 1.4rem;
+      font-weight: 100;
+      letter-spacing: .01rem;
 			line-height: 2.3rem;
 			margin: 1rem 0 0 0;
 		}
@@ -175,7 +169,7 @@
 			position: relative;
 		}
 
-		.image-attribution { // this is secondary information and doesn't need to be so prominent
+		.image-attribution { 
 			background-color: rgba($white, 0.5);
 			bottom: 0;
 			color: rgba($black, 0.95);
@@ -200,10 +194,12 @@
       z-index: 1;
 
 			.author-name {
-				cursor: default;
+				border-right: 1px solid rgba($black, 0.3);
+        cursor: default;
 				letter-spacing: 2px;
 				line-height: 1;
 				margin: 0 0 0.5rem 0;
+        padding-right: 1.5rem;
 				text-align: right;
 				text-transform: uppercase;
 
@@ -300,7 +296,7 @@
 
 			.page-title-elem, .page-desc {
 				margin: 1rem auto 0;
-				width: 66%;
+				width: 60%;
 			}
 
 			h5 {
@@ -321,7 +317,7 @@
 		.author-info {
 			position: absolute;
 			top: 2.35rem;
-			width: 12%;
+			width: 15%;
 			margin: 0;
 
 			.author-avatar {
@@ -775,16 +771,23 @@
 		}
 	}
 
-	.resize-img {
+	.resize-smaller, .resize-bigger {
 		top: 0; right: 0;
 
-		cursor: pointer;
+		background-color: $white;
+		cursor: default;
+		display: block;
+		padding: 1rem;
 		position: absolute;
 		z-index: 1000; // 1 higher than fluidbox
 	}
 
+	.minimized-p {
+		display: block;
+		width: 50%;
+	}
+
 	.inserted-img {
-	
 	}
 
 }

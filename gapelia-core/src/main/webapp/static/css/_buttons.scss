@@ -51,7 +51,7 @@
 
 .red {
 	background-color: $red !important;
-	background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($red, 100%), darken($red, 10%)) !important;
 	color: $white !important;
 }
 
@@ -75,7 +75,7 @@
 
 .green {
 	background-color: $green !important;
-	background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
+	//background-image: linear-gradient(to bottom, saturate($green, 100%), darken($green, 10%)) !important;
 	color: $white !important;
 }
 

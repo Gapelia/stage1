@@ -51,7 +51,7 @@
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
 						</li>
 
@@ -152,7 +152,8 @@
 
 				// Get book info and its pages
 				bookId = document.URL.split("/")[document.URL.split("/").length - 1];
-                getUserFromBook(bookId);
+				getUserFromBook(bookId);
+
 				$.ajax({
 					url: "/api/users/getPages",
 					contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -179,48 +180,113 @@
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
-
 						$(".inserted-img").fluidbox();
-						$(".inserted-img").before("<div class=\"resize-img\">b( . )( . )bs</div>");
 
 						$(function () {
 
-							$("p .resize-img").click(function () {
+							// Styling layouts
+							$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
 
-								$(this).closest("p").css("display", "block").addClass("minimized-p");
+							if ($vW > "1024") {
 
-								if ($(this).closest("p").css("display") == "block") {
-									$(this).closest("p").css("width", "50%");
+								$("img").VimeoThumb();
+
+								setTimeout(function () {
+									$(".video-player-container").imgLiquid({ fill: true });
+								}, 1000); // prevent placeholder from appearing
+
+								$(".fluid-wrapper").imgLiquid({ fill: true });
+								$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+								$(".overlay-wrapper").imgLiquid({ fill: true });
+								$(".phototext-wrapper").imgLiquid({ fill: true });
+								$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+
+								$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+
+								$(document).on("click", ".play-video", function () {
+
+									$(".play-video").hide();
+
+									$(".video-player-container img").hide();
+									$(".video-player-container iframe").show();
+
+								});
+
+							}
+
+							$(document).on("mouseenter", ".inserted-img", function () {
+
+								if ($(this).parent().hasClass("minimized-p")) {
+									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
 								} else {
-									$(this).closest("p").css("width", "auto");
+									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
 								}
 
 							});
 
-							$(".minimized-p .resize-img").click(function () {
+							/*
+							$(document).on("mouseleave", ".inserted-img", function () {
 
-								$(this).closest("p").css("display", "initial").removeClass("minimized-p");
+								$(this).prev(".resize-smaller", ".resize-bigger").remove();
+								// $(this).closest(".resize-smaller", ".resize-bigger").remove();
 
-								if ($(this).closest("p").css("display") == "block") {
-									$(this).closest("p").css("width", "50%");
-								} else {
-									$(this).closest("p").css("width", "auto");
-								}
+							});
+							*/
+
+							$(document).on("click", ".resize-smaller", function () {
+
+								$(this).parent().addClass("minimized-p");
+								$(this).parent().mouseleave();
 
 							});
 
+							$(document).on("click", ".resize-bigger", function () {
+
+								$(this).parent().removeClass("minimized-p");
+								$(this).parent().mouseleave();
+
+							});
+
+							$(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
+								$(".resize-smaller, .resize-bigger").remove();
+							});
+
+							/*
+							$(".inserted-img").hover(function () {
+
+								if ($(this).parent().hasClass("minimized-p")) {
+
+									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
+									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
+
+								} else {
+
+									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
+									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
+
+								}
+
+								// $(this).show();
+
+							}, function () {
+
+								$(this).prev(".resize-smaller", ".resize-bigger").remove();
+								// $(this).hide();
+
+							});
+							*/
+
+							/*
+							$('img.col-image1').mouseover(function () {
+								$(this).siblings('a.plus-sign').show();
+							});
+
+							$('img.col-image1').mouseleave(function () {
+								$(this).siblings('a.plus-sign').hide();
+							});
+							*/
+
 						});
-
-						/*
-						$(".resize-img").click(function () {
-
-							$(this).closest("p").css({
-								"display": "block",
-								"width": "50%"
-							}).addClass("squished-p");
-
-						});
-						*/
 
 						// Initialize book structure
 						if ($vW > "1024") {
@@ -525,36 +591,6 @@
 					htmlToInsert += "</article>";
 					htmlToInsert += "</div></section>";
 					htmlToInsert += "</div></div>";
-
-				}
-
-				// Styling layouts
-				$(".backcover-wrapper #fin-next").imgLiquid({ fill: true });
-
-				if ($vW > "1024") {
-
-					$("img").VimeoThumb();
-
-					setTimeout(function () {
-						$(".video-player-container").imgLiquid({ fill: true });
-					}, 1000); // prevent placeholder from appearing
-
-					$(".fluid-wrapper").imgLiquid({ fill: true });
-					$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
-					$(".overlay-wrapper").imgLiquid({ fill: true });
-					$(".phototext-wrapper").imgLiquid({ fill: true });
-					$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-
-					$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-
-					$(document).on("click", ".play-video", function () {
-
-						$(".play-video").hide();
-
-						$(".video-player-container img").hide();
-						$(".video-player-container iframe").show();
-
-					});
 
 				}
 

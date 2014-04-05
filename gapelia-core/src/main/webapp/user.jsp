@@ -66,8 +66,10 @@
                         <ul>
                         </ul>
                     </li>
+		    
+		    <li class="logout"><a href="#">Log Out</a></li>
+		    
                 </ul>
-                <a href="#" class="logout">Log Out</a>
             </div>
         </nav>
         <!--//site-menu /-->
@@ -144,12 +146,14 @@
                 stuff = "";
                 stuff += "<section id=\"user-splash\">";
                 stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\"></div>";
-                stuff += "<div id=\"splash-user-info\">";
+                stuff += "</div>";
+		stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
                 stuff += "<div id=\"splash-user-bio\"></div></div>";
-                stuff += "<div id=\"close-splash\">See my books!</div>";
+                stuff += "<div id=\"close-splash\">SEE MY BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
+		
                 $("#mp-pusher").prepend(stuff);
                 $("#user-splash").imgLiquid({
                     fill: true

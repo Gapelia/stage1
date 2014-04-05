@@ -11,7 +11,7 @@
 	width: 300px; height: 100%;
 	top: 0; left: 0;
 
-	background-color: $slate;
+	background-color: #59B3A6;
 	position: absolute;
 	transform: translate3d(-100%, 0, 0);
 	z-index: 2 !important;
@@ -131,7 +131,7 @@
 				padding: 0.7rem 1.5rem;
 				text-shadow: 0 0 1px rgba($white, 0.1);
 
-				&:hover { background-color: rgba($black, 0.2); }
+				&:hover { background-color: rgba($black, 0.1); }
 			}
 
 			.icon {
@@ -247,7 +247,7 @@
 					&:hover {
 						.dd-link {
 							color: $red;
-							right: 0;
+							right: 4px;
 						}
 					}
 

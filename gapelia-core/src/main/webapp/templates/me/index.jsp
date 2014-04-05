@@ -62,7 +62,7 @@
                     <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
                     </li>
 
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
                         <ul id="draft-menu"></ul>
                     </li>
 
@@ -81,8 +81,8 @@
                         </ul>
                     </li>
 
-                    <li class="logout"><a href="#">Log Out</a>
-                    </li>
+                    <li class="logout"><a href="#">Log Out</a></li>
+		    
                 </ul>
 
             </div>
@@ -207,7 +207,7 @@
                 // stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
                 stuff += "</div>";
                 // stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-                stuff += "<div id=\"close-splash\">See Your books!</div>";
+                stuff += "<div id=\"close-splash\">SEE YOUR BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
