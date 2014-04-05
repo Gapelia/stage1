@@ -303,7 +303,7 @@
 									$navNext:		$("#bb-nav-next"),
 									$navPrev:		$("#bb-nav-prev"),
 									$navFirst:	$("#bb-nav-first")
-								    $navLast: $('#back-covert')
+								   // $navLast: $('#back-covert')
 
 								},
 
@@ -338,11 +338,11 @@
 										config.$bookBlock.bookblock("first");
 										return false;
 									});
-
+                                    /*
 									config.$navLast.on("click touchstart", function () {
 										console.log("end of book");
 									});
-
+*/
 									// add swipe events
 									$slides.on({
 										"swipeleft": function (event) {

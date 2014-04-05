@@ -153,7 +153,7 @@ function getUserCreatedBooks() {
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
                 toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div>";
                 toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
-		toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div></li>";
+                toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div></li>";
                 toInsert += getLibraryFromBook(book.bookId);
             }
             $("#user-book-list").html(toInsert);
@@ -284,41 +284,43 @@ function getCreatedLibraries() {
         }
     });
 }
+
 function getBookInUserLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-            url: "/api/libraries/getBooksInLibrary",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                libraryId: libraryId
-            },
-            success: function (data) {
-                books = data;
-                toInsert = '';
-                for (i in books) {
-                    book = books[i];
-                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
-                    toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
-                    toInsert += getUserFromBook(book.bookId);
-                    toInsert += "</div></div></li>";
-                }
-                $("#book-list").html(toInsert);
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                } else {
-                    alert("Some issue happened with your request: " + err.message);
-                }
+        url: "/api/libraries/getBooksInLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            books = data;
+            toInsert = '';
+            for (i in books) {
+                book = books[i];
+                toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += getUserFromBook(book.bookId);
+                toInsert += "</div></div></li>";
             }
-        });
+            $("#book-list").html(toInsert);
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
 }
-function getSubmisionsInLibrary() {
-}
+
+function getSubmisionsInLibrary() {}
+
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     sessionId = readCookie("JSESSIONID");
@@ -622,6 +624,31 @@ function getUserFromBook(bookId) {
     return responseText;
 }
 
+function getUserFromBook(bookId) {
+    responseText = '';
+    $.ajax({
+        url: "/api/utils/getUserFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            bookOwner = data
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return responseText;
+}
+
+
 function getBookFromBookId(bookId) {
     responseText = '';
     $.ajax({
@@ -717,7 +744,7 @@ function quickUpdateUser() {
     name = user.name;
     email = user.email;
     current = user.location; // if not, redirect
-   avatarImage = user.avatarImage;
+    avatarImage = user.avatarImage;
     image = $("#user-splash").css("background-image");
     image = image.replace("url(", "").replace(")", "");
     coverImage = image;
@@ -1275,97 +1302,13 @@ function loadPagesEditor() {
             pagesCreated--;
             toInsert += "<li id=\"add-page\" class=\"new-thumb disable-sort\"><div>+</div></li>";
             $("#page-menu").html(toInsert);
-            title = pages.page[currentPage].title;
-            text = pages.page[currentPage].text;
-            imageURL = pages.page[currentPage].image;
-            videoURL = pages.page[currentPage].video;
-            attribution = pages.page[currentPage].attribution;
-            templadeId = pages.page[0];
-            switch (templateId) {
-            case 0:
-                fluidLayout();
-                break;
-
-            case 1:
-                photoLayout();
-                break;
-
-            case 2:
-                overlayLayout();
-                break;
-
-            case 3:
-                photoTextLayout();
-                break;
-
-            case 4:
-                verticalLayout();
-                break;
-
-            case 5:
-                videoLayout();
-                break;
-
-            default:
-                baseLayout();
-            }
-            $("#add-page").click(function (e) {
-
-            		if (pagesCreated > 20) {
-            			alert("Your book is too big please remove a page!\n");
-            			return;
-            		}
-
-            		pagesCreated++;
-
-            		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
-
-            		title = $(".page-title-elem").html();
-            		text = $(".page-desc").html();
-            		imageURL = $(".page-bg").attr("src");
-            		attribution = $(".image-attribution").html();
-
-            		// save to previous page
-            		if (pagesCreated == 0) {
-            			pages.page[0] = {
-            				"pageNumber": pagesCreated,
-            				"templateId": 0,
-            				"title": null,
-            				"text": null,
-            				"image": "/static/images/grayBG.png",
-            				"video": "null",
-            				"attribution": null
-            			};
-
-            			templateId = 0;
-            			createPage();
-            			fluidLayout();
-            		} else {
-            			pages.page[currentPage].templateId = templateId;
-            			pages.page[currentPage].title = title;
-            			pages.page[currentPage].text = text;
-            			pages.page[currentPage].image = imageURL;
-            			pages.page[currentPage].video = videoURL;
-            			pages.page[currentPage].attribution = attribution;
-            			createPage();
-            			currentPage = pagesCreated;
-            			templateId = 0;
-            			title = null;
-            			text = null;
-            			imageURL = null;
-            			videoURL = null;
-            			attribution = null;
-            			fluidLayout();
-            		}
-
-            		// Page Sorter
-            		$("#pages-scroller ul").sortable({
-            			items: ":not(.disable-sort)"
-            		}).bind("sortupdate", function () {});
-
-            		e.preventDefault();
-
-            	});
+            title = pages.page[0].title;
+            text = pages.page[0].text;
+            imageURL = pages.page[0].image;
+            videoURL = pages.page[0].video;
+            attribution = pages.page[0].attribution;
+            templateId = pages.page[0].templateId;
+            loadEditorExtra(templateId);
         },
 
         error: function (q, status, err) {
@@ -1378,4 +1321,92 @@ function loadPagesEditor() {
 
         }
     });
+}
+
+function loadEditorExtra(templateId) {
+    $("#add-page").click(function (e) {
+
+        if (pagesCreated > 20) {
+            alert("Your book is too big please remove a page!\n");
+            return;
+        }
+
+        pagesCreated++;
+
+        $(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+
+        title = $(".page-title-elem").html();
+        text = $(".page-desc").html();
+        imageURL = $(".page-bg").attr("src");
+        attribution = $(".image-attribution").html();
+
+        // save to previous page
+        if (pagesCreated == 0) {
+            pages.page[0] = {
+                "pageNumber": pagesCreated,
+                "templateId": 0,
+                "title": null,
+                "text": null,
+                "image": "/static/images/grayBG.png",
+                "video": "null",
+                "attribution": null
+            };
+
+            templateId = 0;
+            createPage();
+            fluidLayout();
+        } else {
+            pages.page[currentPage].templateId = templateId;
+            pages.page[currentPage].title = title;
+            pages.page[currentPage].text = text;
+            pages.page[currentPage].image = imageURL;
+            pages.page[currentPage].video = videoURL;
+            pages.page[currentPage].attribution = attribution;
+            createPage();
+            currentPage = pagesCreated;
+            templateId = 0;
+            title = null;
+            text = null;
+            imageURL = null;
+            videoURL = null;
+            attribution = null;
+            fluidLayout();
+        }
+
+        // Page Sorter
+        $("#pages-scroller ul").sortable({
+            items: ":not(.disable-sort)"
+        }).bind("sortupdate", function () {});
+
+        e.preventDefault();
+
+    });
+    switch (templateId) {
+    case 0:
+        fluidLayout();
+        break;
+
+    case 1:
+        photoLayout();
+        break;
+
+    case 2:
+        overlayLayout();
+        break;
+
+    case 3:
+        photoTextLayout();
+        break;
+
+    case 4:
+        verticalLayout();
+        break;
+
+    case 5:
+        videoLayout();
+        break;
+
+    default:
+        baseLayout();
+    }
 }

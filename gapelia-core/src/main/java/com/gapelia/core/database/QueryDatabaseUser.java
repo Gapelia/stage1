@@ -31,8 +31,8 @@ public class QueryDatabaseUser {
     private static final String GET_FEATURED_BOOKS = "SELECT * FROM books where is_published = 't' order by random() LIMIT  20";
     private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
     private static final String GET_BOOK = "SELECT * FROM books where id = ?";
-    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't'";
-    private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f'";
+    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't' order by random()";
+    private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f' order by random()";
     private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
     private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
