@@ -162,21 +162,6 @@
 			top: 14%;
 		}
 
-		/* Removed by Tommy
-		.button-wrapper {
-			bottom: 6%; left: 0;
-
-			opacity: 0;
-			position: absolute;
-			text-align: center;
-			transition: all 0.2s ease;
-			width: 100%;
-			z-index: 100;
-
-			&:hover { padding: 0.5rem 1.5rem !important; }
-		}
-		*/
-
 		.avatar-wrapper {
 			background-size: cover;
 			background-position: 50% 50%;
@@ -238,12 +223,14 @@
 		#splash-user-info {
 			font-size: 2.8rem;
 			font-weight: 700;
+			position: relative;
 			text-align: center;
-			top: 36%;
+			top: 33.5%;
+			width: 100%;
 		}
 
 		#splash-user-bio {
-			margin: 0 0 3rem 0; padding: 1rem;
+			margin: 0 0 2rem 0; padding: 1rem;
 
 			display: block;
 			font-size: 1.1rem;
@@ -258,14 +245,15 @@
 			bottom: 1rem; right: 1rem; 
 
 			border-bottom: none;
-			color: $white;
+			color: rgba($white, 0.5);
 			cursor: pointer;
 			@include serif;
 			font-size: 1rem;
+			font-weight: 700;
 			//font-style: italic;
 			position: fixed;
 			text-align: right;
-			text-decoration: underline;
+			//text-decoration: underline;
 			transition: bottom 1.3s ease, left 1.3s ease;
 			z-index: 10;
 		}

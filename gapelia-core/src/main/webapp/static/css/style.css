@@ -3579,21 +3579,7 @@ body.library-manager #stay-right {
   white-space: nowrap; }
 .profile #user-splash {
   padding: 0;
-  z-index: 4;
-  		/* Removed by Tommy
-  		.button-wrapper {
-  			bottom: 6%; left: 0;
-  
-  			opacity: 0;
-  			position: absolute;
-  			text-align: center;
-  			transition: all 0.2s ease;
-  			width: 100%;
-  			z-index: 100;
-  
-  			&:hover { padding: 0.5rem 1.5rem !important; }
-  		}
-  		*/ }
+  z-index: 4; }
 .profile #user-splash [contenteditable] {
   transition: background-color 0.5s ease; }
 .profile #user-splash .user-avatar {
@@ -3650,10 +3636,12 @@ body.library-manager #stay-right {
 .profile #user-splash #splash-user-info {
   font-size: 2.8rem;
   font-weight: 700;
+  position: relative;
   text-align: center;
-  top: 36%; }
+  top: 33.5%;
+  width: 100%; }
 .profile #user-splash #splash-user-bio {
-  margin: 0 0 3rem 0;
+  margin: 0 0 2rem 0;
   padding: 1rem;
   display: block;
   font-size: 1.1rem;
@@ -3667,13 +3655,13 @@ body.library-manager #stay-right {
   bottom: 1rem;
   right: 1rem;
   border-bottom: none;
-  color: #fcfcfc;
+  color: rgba(252, 252, 252, 0.5);
   cursor: pointer;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1rem;
+  font-weight: 700;
   position: fixed;
   text-align: right;
-  text-decoration: underline;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
 .profile .book-buttons {
@@ -6851,7 +6839,7 @@ a.count span.dont-move {
     padding: 0 10rem; }
   .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
     font-size: 1rem !important;
-    left: 45%; }
+    left: 44%; }
   .app #library-splash #library-info {
     left: 10%;
     top: 35%;
@@ -6860,10 +6848,20 @@ a.count span.dont-move {
     font-size: 20px; }
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
+  .app #user-splash h1 {
+    font-size: 2.4rem; }
+  .app #user-splash h5 {
+    line-height: 20px; }
+  .app #user-splash #splash-user-bio {
+    font-size: 1rem;
+    margin: 0 0 2rem 0; }
   .app #user-splash #splash-user-info {
-    top: 24%; }
+    top: 32.5%; }
   .app #user-splash .user-avatar {
-    top: 10%; }
+    top: 12%; }
+  .app #user-splash #close-splash {
+    right: inherit;
+    text-align: center; }
 
   .full-book {
     overflow-x: hidden;
@@ -7243,6 +7241,12 @@ a.count span.dont-move {
     position: relative;
     text-align: center; }
 
+  .profile .user-avatar .avatar-wrapper {
+    height: 135px;
+    width: 135px; }
+  .profile .user-avatar .avatar-wrapper:after {
+    height: 135px;
+    width: 135px; }
   .profile #user-panel {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     height: 65px; }
@@ -7381,9 +7385,15 @@ a.count span.dont-move {
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
   .app #user-splash .user-avatar {
-    top: 12%; }
+    top: 10%; }
   .app #user-splash #splash-user-info {
-    top: 24%; }
+    font-size: 0.9rem; }
+  .app #user-splash #splash-user-info {
+    padding: 0 6rem;
+    top: 34%; }
+  .app #user-splash h1 {
+    font-size: 2.2rem;
+    line-height: 42px; }
 
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
@@ -7469,8 +7479,6 @@ a.count span.dont-move {
     top: 0.5rem; }
   .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
     display: none; }
-  .profile #user-splash h1 {
-    font-size: 2.6rem; }
   .profile #user-splash #splash-user-bio {
     font-size: 1.25rem; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -7494,12 +7502,17 @@ a.count span.dont-move {
     padding: 0;
     width: 90%; }
   .app #user-splash .user-avatar {
-    top: 18%; }
+    top: 12%; }
+  .app #user-splash #splash-user-bio {
+    font-size: 1rem; }
   .app #user-splash #splash-user-info {
-    top: 38%; }
+    padding: 0 4rem;
+    top: 35%; }
   .app #user-splash #close-splash {
     font-size: 0.8rem !important;
-    left: 42%; }
+    left: 38%; }
+  .app #user-splash h1 {
+    font-size: 2rem; }
   .app .library .library-info {
     padding: 0 2rem; }
   .app .library .library-info .title {
@@ -7739,6 +7752,7 @@ a.count span.dont-move {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
   .app .library-location {
+    border: none;
     font-size: 0.7rem;
     font-style: italic;
     font-weight: 100;
@@ -7759,18 +7773,33 @@ a.count span.dont-move {
     margin: 0 0 1rem 0; }
   .app .library button {
     font-size: 0.6rem !important; }
+  .app #user-splash {
+    background-color: #fcfcfc;
+    background-image: none !important; }
+  .app #user-splash:after {
+    background-image: none !important; }
   .app #user-splash .user-avatar {
-    top: 10%; }
+    top: 5%; }
+  .app #user-splash .user-avatar .avatar-wrapper, .app #user-splash .user-avatar .avatar-wrapper:after {
+    height: 100px;
+    width: 100px; }
+  .app #user-splash h5 {
+    font-size: 0.7rem; }
   .app #user-splash #splash-user-info {
+    color: rgba(25, 25, 25, 0.8);
     padding: 0;
-    top: 20%; }
+    top: 28%; }
   .app #user-splash #splash-user-info h1 {
-    font-size: 2.4rem; }
+    font-size: 2rem;
+    line-height: 70px; }
   .app #user-splash #splash-user-info #splash-user-bio {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 0; }
+  .app #user-splash #splash-user-info #splash-user-bio span {
+    font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
     bottom: 9rem;
+    color: rgba(25, 25, 25, 0.8);
     font-size: 3rem; }
 
   .library #library-splash #library-info {
