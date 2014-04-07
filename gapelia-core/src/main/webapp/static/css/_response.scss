@@ -1949,21 +1949,25 @@
 
 		#library-splash {
 			
-			#library-info { top: 36%;  }
+			#library-info {
+				left: 4%;
+				top: 28%;
+				width: 88%;
+			}
 			
 			button {
 				top: -3rem; right: 0;
 				position: fixed;
 			}
 			
+			h1 { margin: 0 0 2px 0; }
+			
 			#close-splash {
+				bottom: 32% !important;
 				font-size: 4rem;
-				bottom: 7rem !important;
+				left: 35%;
 			}
 		}
-
-		#close-splash { bottom: 2rem !important; }
-
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////

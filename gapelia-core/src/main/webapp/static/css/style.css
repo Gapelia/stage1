@@ -7830,16 +7830,19 @@ a.count span.dont-move {
     font-size: 0.8rem !important; }
 
   .library #library-splash #library-info {
-    top: 36%; }
+    left: 4%;
+    top: 28%;
+    width: 88%; }
   .library #library-splash button {
     top: -3rem;
     right: 0;
     position: fixed; }
+  .library #library-splash h1 {
+    margin: 0 0 2px 0; }
   .library #library-splash #close-splash {
+    bottom: 32% !important;
     font-size: 4rem;
-    bottom: 7rem !important; }
-  .library #close-splash {
-    bottom: 2rem !important; }
+    left: 35%; }
 
   .full-book #book-menu, .full-book #share-menu {
     font-size: 1rem;
