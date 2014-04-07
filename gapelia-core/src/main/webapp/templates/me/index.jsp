@@ -205,9 +205,11 @@
                 // stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
                 // stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
                 // stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
+		stuff += "<h5>Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
+		stuff += "<h5>Contributes to <a href=\"\">Digital Humanities</a> and <a href=\"\">Technological Marvels</a></h5>";
                 stuff += "</div>";
                 // stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
-                stuff += "<div id=\"close-splash\">SEE YOUR BOOKS</div>";
+                stuff += "<div id=\"close-splash\">SEE ALL BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 

@@ -448,7 +448,7 @@
 
 			#close-splash {
 				font-size: 1rem !important;
-				left: 45%;
+				left: 44%;
 			}
 		}
 		
@@ -462,8 +462,24 @@
 		}
 
 		#user-splash {
-			#splash-user-info { top: 24%; }
-			.user-avatar { top: 10%; }
+			
+			h1 { font-size: 2.4rem; }
+			
+			h5 { line-height: 20px; }
+			
+			#splash-user-bio {
+				font-size: 1rem;
+				margin: 0 0 2rem 0;
+			}
+			
+			#splash-user-info { top: 32.5%; }
+			
+			.user-avatar { top: 12%; }
+			
+			#close-splash {
+				right: inherit;
+				text-align: center;
+			}
 		}
 
 	}
@@ -975,6 +991,18 @@
 	
 	.profile {
 		
+		.user-avatar {
+			.avatar-wrapper {
+				height: 135px;
+				width: 135px;
+			}
+			
+			.avatar-wrapper:after {
+				height: 135px;
+				width: 135px;
+			}
+		}
+		
 		#user-panel {
 			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 			height: 65px;
@@ -1188,8 +1216,22 @@
 		}
 		
 		#user-splash {
-			.user-avatar { top: 12%; }
-			#splash-user-info { top: 24%; }
+			
+			.user-avatar { top: 10%; }
+			
+			#splash-user-info {
+				font-size: 0.9rem;
+			}	
+				
+			#splash-user-info {
+				padding: 0 6rem;
+				top: 34%;
+			}
+			
+			h1 {
+				font-size: 2.2rem;
+				line-height: 42px;
+			}
 		}
 	}
 
@@ -1334,7 +1376,6 @@
 		}
 		
 		#user-splash {
-			h1 { font-size: 2.6rem; }
 			#splash-user-bio { font-size: 1.25rem; }
 		}	
 	}
@@ -1378,12 +1419,17 @@
 		}
 
 		#user-splash {
-			.user-avatar { top: 18%; }
-			#splash-user-info { top: 38%; }
+			.user-avatar { top: 12%; }
+			#splash-user-bio { font-size: 1rem; }
+			#splash-user-info {
+				padding: 0 4rem;
+				top: 35%;
+			}
 			#close-splash {
 				font-size: 0.8rem !important;
-				left: 42%;
-			}		
+				left: 38%;
+			}
+			h1 { font-size: 2rem; }
 		}
 
 		.library {
@@ -1787,6 +1833,7 @@
 		}
 		
 		.library-location {
+			border: none;
 			font-size: 0.7rem;
 			font-style: italic;
 			font-weight: 100;
@@ -1819,20 +1866,43 @@
 		// User-splash
 		#user-splash {
 			
-			.user-avatar { top: 10%; }
+			background-color: $white;
+			background-image: none !important;
 			
-			#splash-user-info {
-				padding: 0;
-				top: 20%;
+			&:after { background-image: none !important; }
+			
+			.user-avatar {
+				top: 5%;
 				
-				h1 { font-size: 2.4rem; }
-				#splash-user-bio {
-					font-size: 1rem;
-					padding: 0;}
+				.avatar-wrapper, .avatar-wrapper:after {
+					height: 100px;
+					width: 100px;
+				}
 			}
 			
+			h5 { font-size: 0.7rem; }
+			
+			#splash-user-info {
+				color: rgba($black, 0.8);
+				padding: 0;
+				top: 28%;
+				
+				h1 {
+					font-size: 2rem;
+					line-height: 70px;
+				}
+				
+				#splash-user-bio {
+					font-size: 0.9rem;
+					padding: 0;
+					
+					span { font-size: 0.9rem !important; }
+				}
+			}	
+				
 			#close-splash {
 				bottom: 9rem;
+				color: rgba($black, 0.8);
 				font-size: 3rem;
 			}
 		}
