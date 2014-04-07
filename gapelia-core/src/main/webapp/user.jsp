@@ -149,7 +149,10 @@
                 stuff += "</div>";
 		stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-                stuff += "<div id=\"splash-user-bio\"></div></div>";
+                stuff += "<div id=\"splash-user-bio\"></div>";
+		stuff += "<h5>Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
+		stuff += "<h5>Contributes to <a href=\"\">Digital Humanities</a> and <a href=\"\">Technological Marvels</a></h5>";
+		stuff += "</div>";
                 stuff += "<div id=\"close-splash\">SEE MY BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
@@ -262,7 +265,7 @@
                 }
 
                 // User details
-                $("#splash-user-info h1, #user-header").text(user.name);
+                $("#splash-user-info h1, #user-header").text(user.displayName);
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 

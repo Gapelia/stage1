@@ -165,7 +165,7 @@
 
 			background-color: rgba($black, 0.05);
 			display: inline-block; // block
-			padding: 5.8rem 1.5rem 1.5rem 1.5rem; // 75px 0 0 0
+			padding: 5.5rem 1.25rem 1.25rem 1.25rem; 
 			transform: translateY(0);
 
 			-o-transform: translateY(0);
@@ -1003,8 +1003,20 @@
 			}
 		}
 		
+		#user-header {
+			font-size: 1.2rem;
+			font-weight: 300;
+			margin-top: 0.5rem;
+			opacity: 1;
+			
+			&:before {
+				content: "Published by";
+				margin-right: 6px;
+			}
+		}
+		
 		#user-panel {
-			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+			border-bottom: 1px solid $slate;
 			height: 65px;
 
 			#user-wrapper {
@@ -1022,6 +1034,8 @@
 				.user-avatar {
 					.avatar-wrapper {
 						width: 65px; height: 65px;
+						
+						display: none;
 
 						img {
 							border-radius: 300rem;
@@ -1321,7 +1335,7 @@
 
 		#g-menu-toggle { color: $slate; }
 
-		.book-title { margin: 5rem 0 0.5rem 0; }
+		//.book-title { margin: 5rem 0 0.5rem 0; }
 
 		.delete-book-confirm {
 			h3 {
@@ -1341,7 +1355,7 @@
 		}
 		
 		#user-panel {
-			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+			//box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 			height: 65px;
 
 			#user-wrapper {
@@ -1397,7 +1411,8 @@
 		.book-title {
 			font-size: 1.8rem;
 			line-height: 2.3rem;
-			margin: 2rem 0 1rem 0;
+			margin: 2rem 0 1.5rem 0;
+			padding: 0 2rem 0 1.5rem;
 		}
 
 		#header-message {
@@ -1427,7 +1442,7 @@
 			}
 			#close-splash {
 				font-size: 0.8rem !important;
-				left: 38%;
+				left: 43%;
 			}
 			h1 { font-size: 2rem; }
 		}
@@ -1609,11 +1624,14 @@
 	.profile {
 
 		.book-title {
-			margin: 4.5rem 0 0.5rem 0;
+			margin: 1.5rem 0 0.5rem 0;
 		}
-
+		
+		#user-header {
+			font-size: 1.1rem;
+			padding: 0;
+		}
 	}
-
 }
 
 @media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1679,6 +1697,10 @@
 			}
 
 			section { font-size: 1rem; line-height: initial; }
+		}
+		
+		#user-splash #close-splash {
+			left: 37%;
 		}
 
 		// Header
@@ -2190,7 +2212,11 @@
 				width: 64px;
 			}
 
-			#user-header { display: none; }
+			#user-header {
+				font-size: 1rem;
+				text-align: right;
+				padding-right: 1rem;
+			}
 
 			#user-wrapper {
 				.user-data { display: none; }
