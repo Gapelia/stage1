@@ -72,22 +72,15 @@
 
 			<header>
 				<div id="header-info">
-					<span id="header-title">Hayao Miyazaki</span>
-					<span id="header-author">NetOperator Wibby</span>
+					<span id="header-title"></span>
+					<span id="header-author"></span>
 				</div>
 
-				<ul class="share-book">
-					<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=http://gapelia.com/book/001/hayao-miyazaki','','width=555,height=368');void(0)"><i class="ion-social-facebook"></i></a></li>
-
-					<li><a href="javascript:window.open('http://twitter.com/share?url=http://gapelia.com/book/001/hayao-miyazaki&amp;text=Hayao Miyazaki by Paul Anthony Webb is an exceptionally gratifying read on Gapelia','','width=550,height=257');void(0)"><i class="ion-social-twitter"></i></a></li>
-
-					<li><a href="mailto:?subject=Oh%20hai&amp;body=Good%20morning!"><i class="ion-email"></i></a></li>
-				</ul>
+				<ul class="share-book"></ul>
 			</header>
 
 			<div id="bb-nav-prev">&#xf153;</div>
 			<div id="bb-nav-next">&#xf154;</div>
-
 			<!--/ div id="the-book" /-->
 			<div id="the-book" class="bb-custom-wrapper">
 				<div id="bb-bookblock" class="bb-bookblock">
@@ -133,7 +126,8 @@
                     bookId: bookId
                 },
                 success: function (data) {
-                    responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+                    bookOwner = data;
+                    responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\""+data.displayName+"\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
                 },
                 error: function (q, status, err) {
                     if (status == "timeout") {
@@ -180,6 +174,9 @@
 						}
 
 						$("#bb-bookblock").html(htmlToInsert);
+
+					    $("#header-author").html(bookOwner.name);
+					    $("#header-title").html(pages[0].title);
 						$(".inserted-img").fluidbox();
 
 						$(function () {
@@ -615,8 +612,19 @@
 
 				// FIN
 				NProgress.done();
+ var currentWebsite = document.URL;
 
-				// &c
+					var currentWebsite = document.URL;
+                    facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+                    twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
+                    emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
+
+                share = "";
+
+					share += "<li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+					share += "<li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+					share += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li>";
+				$(".share-book").html(share);
 				var third = getUserDrafts();
 
 				// Slide menu for desktop
@@ -646,18 +654,12 @@
 					menu += "</li>";
 					menu += "</ul>";
 
-					var currentWebsite = document.URL;
-
-					facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-					twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-					emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
-
 					share = "";
 					share += "<ul id=\"share-menu\" style=\"display: none;\">";
 
 					share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
 					share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-					share += "<li><a href=\"emailShare\">Share via Email</a></li>";
+					share += "<li><a href=\"emailShare\">Share via Email<i class=\"ion-email\"></i><</a></li>";
 					share += "</ul>";
 
 					$("#g-menu-toggle").after(menu);

@@ -69,7 +69,12 @@ function getBookmarkedBooks() {
                 toInsert = '<ul id=\"bookmark-list\">';
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
-                    toInsert += "<li id=\"" + bookmark.bookId + "\" class=\"collection book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                    if (book.bookId in bookmarked == true) {
+                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                    } else {
+                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                    }
+                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                     toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
                     toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
                     toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div>";
@@ -610,8 +615,7 @@ function getUserFromBook(bookId) {
             bookId: bookId
         },
         success: function (data) {
-            responseText = "<img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a>";
-
+            responseText = "<img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\""+ data.displayName + "\">" + data.displayName + "</a>";
         },
         error: function (q, status, err) {
             if (status == "timeout") {
