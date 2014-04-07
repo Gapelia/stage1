@@ -717,8 +717,8 @@
 			}
 
 			.page-bg {
+				display: initial !important; 
 				width: 100%; height: auto;
-				.page-bg { display: initial !important; }
 			}
 
 			.vertical-preview {
@@ -733,7 +733,7 @@
 
 				.page-title-elem, .page-desc {
 					margin: 1rem auto 0;
-					width: 80%;
+					width: 70%;
 				}
 
 				.page-title-elem {
@@ -742,8 +742,8 @@
 				}
 
 				.page-desc {
-					font-size: 1.3rem;
-					line-height: 2.5rem;
+					font-size: 1.25rem;
+					line-height: 2.4rem;
 				}
 			}
 		}

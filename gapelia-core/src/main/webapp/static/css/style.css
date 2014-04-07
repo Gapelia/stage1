@@ -7031,10 +7031,9 @@ a.count span.dont-move {
     width: 100%;
     height: auto; }
   .full-book .vertical-wrapper .page-bg {
+    display: initial !important;
     width: 100%;
     height: auto; }
-  .full-book .vertical-wrapper .page-bg .page-bg {
-    display: initial !important; }
   .full-book .vertical-wrapper .vertical-preview {
     width: 100%;
     height: auto;
@@ -7047,13 +7046,13 @@ a.count span.dont-move {
     width: 100%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem, .full-book .vertical-wrapper .vertical-preview .page-desc {
     margin: 1rem auto 0;
-    width: 80%; }
+    width: 70%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem {
     font-size: 2.3rem;
     line-height: 3.3rem; }
   .full-book .vertical-wrapper .vertical-preview .page-desc {
-    font-size: 1.3rem;
-    line-height: 2.5rem; }
+    font-size: 1.25rem;
+    line-height: 2.4rem; }
   .full-book .video-wrapper .video-preview {
     width: 100%;
     height: auto;
