@@ -112,7 +112,7 @@
 
 		list-style: none;
 		overflow: hidden;
-
+		
 		li {
 			position: relative;
 
@@ -193,7 +193,7 @@
 				display: none;
 				color: $white;
 				margin: 0;
-
+				
 				li {
 					font-size: inherit;
 					padding: 0.7rem 1.5rem;
@@ -219,7 +219,7 @@
 							opacity: 1 !important;
 						}
 					}
-
+					
 					.delete-draft {
 						margin: -1.6rem 0 0 -24px; padding: 0.2rem 1.5rem;
 
@@ -268,6 +268,12 @@
 
 				.a { margin: 0 0 0 2.5rem !important; }
 			}
+		}
+		
+		.logout {
+			font-size: 0.8rem;
+			margin-top: 75%;
+			text-align: center;
 		}
 	}
 

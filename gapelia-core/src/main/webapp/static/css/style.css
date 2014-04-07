@@ -2180,6 +2180,10 @@ ol {
   color: #ff3b30; }
 .mp-menu ul li #draft-menu .a {
   margin: 0 0 0 2.5rem !important; }
+.mp-menu ul .logout {
+  font-size: 0.8rem;
+  margin-top: 75%;
+  text-align: center; }
 .mp-menu .mp-level.mp-level-overlay .mp-back, .mp-menu .mp-level.mp-level-overlay .mp-back:after {
   background-color: transparent;
   box-shadow: none;
