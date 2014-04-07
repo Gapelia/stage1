@@ -2408,7 +2408,7 @@ body.landing h1 {
   width: 100%;
   height: auto;
   background-color: transparent;
-  color: #59b3a6;
+  color: #59b3a6 !important;
   cursor: pointer;
   font-size: 36px;
   padding: 0 !important;
@@ -3567,8 +3567,11 @@ body.library-manager #stay-right {
 .profile .user-data button:hover {
   padding: 0.5rem 1.5rem; }
 .profile #user-header {
+  color: rgba(59, 134, 134, 0.5) !important;
   display: inherit;
   font-size: 1.4rem;
+  font-weight: 700;
+  font-style: italic;
   line-height: 3.5rem;
   opacity: 0.001;
   padding: 0 14rem;
@@ -3577,6 +3580,10 @@ body.library-manager #stay-right {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
+.profile #user-header:before {
+  content: "published by";
+  margin-right: 6px;
+  font-weight: 100; }
 .profile #user-splash {
   padding: 0;
   z-index: 4; }
@@ -7157,6 +7164,7 @@ a.count span.dont-move {
     bottom: 8%;
     left: 0; }
   .profile #user-panel #g-menu-toggle {
+    color: #59b3a6 !important;
     left: 1.3rem; }
   .profile #user-panel #user-wrapper {
     width: 100%;
@@ -7255,8 +7263,10 @@ a.count span.dont-move {
     height: 135px;
     width: 135px; }
   .profile #user-header {
+    color: rgba(11, 72, 107, 0.5);
     font-size: 1.2rem;
-    font-weight: 300;
+    font-style: italic;
+    font-weight: 400;
     margin-top: 0.5rem;
     opacity: 1; }
   .profile #user-header:before {

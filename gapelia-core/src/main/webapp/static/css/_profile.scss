@@ -136,8 +136,11 @@
 	}
 
 	#user-header {
+		color: rgba(59, 134, 134, 0.5) !important;
 		display: inherit;
 		font-size: 1.4rem;
+		font-weight: 700;
+		font-style: italic;
 		line-height: 3.5rem;
 		opacity: 0.001;
 		padding: 0 14rem;
@@ -145,6 +148,12 @@
 		transition: opacity 0.5s ease;
 
 		@include ellipsis;
+		
+		&:before {
+			content: "published by";
+			margin-right: 6px;
+			font-weight: 100;
+		} 
 	}
 
 	// End User Code
