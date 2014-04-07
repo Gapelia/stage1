@@ -76,9 +76,10 @@ function getBookmarkedBooks() {
                     }
                     toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                     toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
-                    toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
-                    toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div>";
-                    toInsert += "<div class=\"book-info\"><img class=\"author-avatar\" src=\"/static/images/users/01.jpg\"><div class=\"author-name\"><a href=\"#\">" + bookmark.userId + "</a></div></div></li>";
+                    //toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
+                    toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div><div class=\"book-info\">";
+                    toInsert += getUserFromBookId(bookmark.bookId);
+                    toInsert += "</div></div></li>";
                 }
                 toInsert += "</ul>";
             }
@@ -121,7 +122,7 @@ function getFeaturedBooks() {
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
-                toInsert += getUserFromBook(book.bookId);
+                toInsert += getUserFromBookId(book.bookId);
                 toInsert += "</div></div></li>";
             }
             $("#book-list").html(toInsert);
@@ -242,7 +243,7 @@ function getBooksInLibrary() {
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
-                toInsert += getUserFromBook(book.bookId);
+                toInsert += getUserFromBookId(book.bookId);
                 toInsert += "</div></div></li>";
             }
             $("#book-list").html(toInsert);
@@ -309,7 +310,7 @@ function getBookInUserLibrary() {
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
-                toInsert += getUserFromBook(book.bookId);
+                toInsert += getUserFromBookId(book.bookId);
                 toInsert += "</div></div></li>";
             }
             $("#book-list").html(toInsert);
@@ -604,7 +605,7 @@ function getUserFromLibraryId(libraryId) {
     return responseText;
 }
 
-function getUserFromBook(bookId) {
+function getUserFromBookId(bookId) {
     responseText = '';
     $.ajax({
         url: "/api/utils/getUserFromBookId",
@@ -615,31 +616,8 @@ function getUserFromBook(bookId) {
             bookId: bookId
         },
         success: function (data) {
+            bookOwner=data;
             responseText = "<img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\""+ data.displayName + "\">" + data.displayName + "</a>";
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
-            }
-        }
-    });
-    return responseText;
-}
-
-function getUserFromBook(bookId) {
-    responseText = '';
-    $.ajax({
-        url: "/api/utils/getUserFromBookId",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        async: false,
-        type: "POST",
-        data: {
-            bookId: bookId
-        },
-        success: function (data) {
-            bookOwner = data
         },
         error: function (q, status, err) {
             if (status == "timeout") {
