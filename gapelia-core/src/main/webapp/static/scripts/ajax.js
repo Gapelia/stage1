@@ -69,7 +69,7 @@ function getBookmarkedBooks() {
                 toInsert = '<ul id=\"bookmark-list\">';
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
-                    if (book.bookId in bookmarked == true) {
+                    if (bookmark.bookId in bookmarked == true) {
                         toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
                     } else {
                         toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
