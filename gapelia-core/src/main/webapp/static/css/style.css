@@ -3230,7 +3230,7 @@ body.library-manager .library-buttons .delete-this-library, body.library-manager
 body.library-manager .delete-library-confirm {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #59b3a6 0%, #59b3a6 34%, #9fe0d7 67%, #acf3e9 84%, #b7e5df 100%);
+  background: linear-gradient(180deg, #47565f 0%, #5b625a 15%, #947461 38%, #f98056 70%, #f7ec86 100%);
   color: #fcfcfc;
   padding: 4rem 2rem;
   position: relative;
@@ -6610,7 +6610,8 @@ a.count span.dont-move {
   .app #header-message button {
     top: 2.1rem; }
   .app #g-menu-toggle {
-    left: 1rem; }
+    color: #fcfcfc;
+    left: 0.6rem; }
   .app #next-book-toggle {
     right: 1rem; }
   .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .subscription-list-wrapper {
@@ -6628,7 +6629,7 @@ a.count span.dont-move {
     bottom: 0;
     background-color: rgba(25, 25, 25, 0.05);
     display: inline-block;
-    padding: 5.5rem 1.25rem 1.25rem 1.25rem;
+    padding: 5.3rem 1.25rem 1.25rem 1.25rem;
     transform: translateY(0);
     -o-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -6678,13 +6679,15 @@ a.count span.dont-move {
     width: 100%; }
   .app #featured-panel:after, .app #user-panel:after {
     display: none; }
+  .app #featured-panel {
+    background-color: #59b3a6; }
   .app #featured-panel #category-title {
     width: 100%;
     height: 75px;
     margin: 0;
     padding: 1.6rem 6rem;
-    color: #59b3a6;
-    font-size: 1.5rem;
+    color: #fcfcfc;
+    font-size: 1.4rem;
     font-weight: 200;
     left: 0;
     overflow: hidden;
@@ -6733,6 +6736,7 @@ a.count span.dont-move {
   .app #featured-panel #featured-nav .current {
     background-color: #59b3a6;
     border-bottom: 0;
+    display: none;
     padding: 1rem; }
   .app #featured-panel #featured-nav .current a {
     border: 0;
@@ -6859,7 +6863,7 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     top: 32.5%; }
   .app #user-splash .user-avatar {
-    top: 12%; }
+    top: 14%; }
   .app #user-splash #close-splash {
     right: inherit;
     text-align: center; }
@@ -7112,7 +7116,7 @@ a.count span.dont-move {
     height: auto;
     margin: 0;
     padding: 0;
-    top: 74px;
+    top: 65px;
     left: 0;
     border-bottom: 1px solid rgba(25, 25, 25, 0.07);
     box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 0 0 1px rgba(25, 25, 25, 0.05);
@@ -7136,6 +7140,7 @@ a.count span.dont-move {
   .profile #featured-nav .current {
     background-color: #59b3a6;
     border-bottom: 0;
+    display: none;
     padding: 1rem; }
   .profile #featured-nav .current a {
     border: 0;
@@ -7151,6 +7156,8 @@ a.count span.dont-move {
   .profile #user-panel .button-wrapper {
     bottom: 8%;
     left: 0; }
+  .profile #user-panel #g-menu-toggle {
+    left: 1.3rem; }
   .profile #user-panel #user-wrapper {
     width: 100%;
     height: 100%;
@@ -7321,7 +7328,8 @@ a.count span.dont-move {
     width: 80%; }
 
   .app #g-menu-toggle {
-    color: #fcfcfc; }
+    color: #fcfcfc;
+    left: 0.5rem; }
   .app #featured-panel {
     background-color: #59b3a6;
     height: 65px; }
@@ -7332,10 +7340,6 @@ a.count span.dont-move {
     top: 65px;
     left: 0;
     font-size: 1.3rem; }
-  .app #featured-panel #featured-nav li a {
-    color: #59b3a6; }
-  .app #featured-panel #featured-nav .current {
-    display: none; }
   .app #header-message {
     font-size: 1.2rem;
     padding: 2rem 0 0.5rem 0;
@@ -7394,12 +7398,12 @@ a.count span.dont-move {
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
   .app #user-splash .user-avatar {
-    top: 10%; }
+    top: 15%; }
   .app #user-splash #splash-user-info {
     font-size: 0.9rem; }
   .app #user-splash #splash-user-info {
     padding: 0 6rem;
-    top: 34%; }
+    top: 33%; }
   .app #user-splash h1 {
     font-size: 2.2rem;
     line-height: 42px; }
@@ -7791,28 +7795,29 @@ a.count span.dont-move {
   .app #user-splash:after {
     background-image: none !important; }
   .app #user-splash .user-avatar {
-    top: 5%; }
+    top: 2%; }
   .app #user-splash .user-avatar .avatar-wrapper, .app #user-splash .user-avatar .avatar-wrapper:after {
-    height: 100px;
-    width: 100px; }
+    height: 75px;
+    width: 75px; }
   .app #user-splash h5 {
     font-size: 0.7rem; }
   .app #user-splash #splash-user-info {
     color: rgba(25, 25, 25, 0.8);
     padding: 0;
-    top: 28%; }
+    top: 23%; }
   .app #user-splash #splash-user-info h1 {
-    font-size: 2rem;
-    line-height: 70px; }
+    font-size: 1.8rem;
+    line-height: 60px; }
   .app #user-splash #splash-user-info #splash-user-bio {
     font-size: 0.9rem;
+    margin: 0 0 1.5rem 0;
     padding: 0; }
   .app #user-splash #splash-user-info #splash-user-bio span {
     font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
-    bottom: 9rem;
-    color: rgba(25, 25, 25, 0.8);
-    font-size: 3rem; }
+    bottom: 30%;
+    color: rgba(25, 25, 25, 0.5);
+    font-size: 0.8rem !important; }
 
   .library #library-splash #library-info {
     top: 36%; }
