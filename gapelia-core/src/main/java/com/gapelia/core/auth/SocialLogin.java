@@ -50,7 +50,7 @@ public class SocialLogin extends HttpServlet {
 
 			Cookie sessionCookie = new Cookie("JSESSIONID", request.getSession().getId());
 			LOG.info("social login making cookie for jsessionid:"+request.getSession().getId());
-			sessionCookie.setMaxAge(-1);
+			sessionCookie.setMaxAge(30000000);
 			response.addCookie(sessionCookie);
 
             HttpSession session = request.getSession();
