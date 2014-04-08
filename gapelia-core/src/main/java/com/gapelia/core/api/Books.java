@@ -58,7 +58,6 @@ public class Books {
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         Page page = new Page();
-        LOG.info(Integer.toString(pageId));
         page.setPageId(pageId);
         page.setPageNumber(pageNumber);
         page.setTemplateId(templateId);
@@ -134,6 +133,7 @@ public class Books {
         book.setLastUpdated(new Timestamp(date.getTime()));
         book.setIsPublished(isPublished);
         book.setSnippet(snippet);
+        LOG.info(snippet);
         return gson.toJson(QueryDatabaseBook.updateBook(book));
     }
 

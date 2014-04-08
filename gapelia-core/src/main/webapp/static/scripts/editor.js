@@ -1234,14 +1234,12 @@
 
 	$("#publish-this").on("click", function (e) {
 		// (".selectize-input") add tags
-		snippet = $(".add-description").html();
 		updateBookAndPages(true);
 		document.location.href = "/me";
 	});
 
 	$("#close-button").on("click", function (e) {
-        snippet = null;
-		updateBookAndPages(false);
+        updateBookAndPages(false);
 		document.location.href = "/me";
 
 	});

@@ -1190,7 +1190,7 @@ function updateBookAndPages(isPublished) {
             language: "English",
             tags: tags,
             isPublished: isPublished,
-            snippet: snippet
+            snippet: $(".add-description").html()
         },
         success: function (data) {},
         error: function (q, status, err) {
