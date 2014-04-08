@@ -21,6 +21,7 @@ public class SessionManager implements HttpSessionListener {
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {
+		LOG.info("session destroyed :"  + event.getSession().getId());
 		sessions.remove(event.getSession().getId());
         sessionIdToUser.remove(event.getSession().getId());
 	}

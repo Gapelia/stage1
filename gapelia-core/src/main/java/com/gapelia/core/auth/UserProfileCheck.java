@@ -46,14 +46,14 @@ public class UserProfileCheck extends HttpServlet {
 				statement.setString(1, attempted);
 				rs = statement.executeQuery();
 				if (!rs.isBeforeFirst()) {
-					response.sendRedirect("/error/404.jsp");
+					response.sendRedirect(response.encodeRedirectURL("/error/404.jsp"));
 				} else {
 					rs.next();
 					User u = QueryDatabaseUser.getUserByValidatedId(rs.getString("validated_id"));
 					if(u.getIsPublic())
 						response.sendRedirect(response.encodeRedirectURL("/user.jsp?id=" + u.getUserId()));
 					else
-						response.sendRedirect("/error/404.jsp");
+						response.sendRedirect(response.encodeRedirectURL("/error/404.jsp"));
 				}
 			} catch (SQLException ex) {
 				LOG.error("Cannot check user u:" + attempted + " " + ex.getMessage());

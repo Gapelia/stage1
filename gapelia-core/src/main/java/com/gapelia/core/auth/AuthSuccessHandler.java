@@ -39,7 +39,7 @@ public class AuthSuccessHandler extends HttpServlet {
 				provider = manager.connect(requestMap);
 			}catch(Exception e ){
 				LOG.warn("user trying to log in with other social media account...redirecting." + e.getMessage());
-				response.sendRedirect("/");
+				response.sendRedirect(response.encodeRedirectURL("/"));
 				return;
 			}
 			profile = provider.getUserProfile();
@@ -71,15 +71,15 @@ public class AuthSuccessHandler extends HttpServlet {
 
 			session.setAttribute("login", "true");
 			session.setAttribute("profile", profile);
-			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
-			sessionCookie.setMaxAge(-1);
-			response.addCookie(sessionCookie);
+//			Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
+//			sessionCookie.setMaxAge(-1);
+//			response.addCookie(sessionCookie);
 			String answer = QueryDatabaseUser.checkUser(profile, session.getId());
 			if (answer =="Success") {
-				response.sendRedirect("/featured");
+				response.sendRedirect(response.encodeRedirectURL("/featured"));
 				return;
 			} else if(answer == "New") {
-				response.sendRedirect("/onboard");
+				response.sendRedirect(response.encodeRedirectURL("/onboard"));
 			}
 		} catch (Exception e) {
 			throw new ServletException(e);
