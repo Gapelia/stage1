@@ -10,6 +10,7 @@ public class Book {
     private String title;
     private String language;
     private String [] tags;
+    private String snippet;
     private Timestamp created;
     private Timestamp lastUpdated;
     private Boolean isPublished;
@@ -38,6 +39,13 @@ public class Book {
         this.coverPhoto = coverPhoto;
     }
 
+    public String getSnippet() {
+        return snippet;
+    }
+
+    public void setSnippet(String snippet) {
+        this.snippet = snippet;
+    }
     public String getTitle() {
         return title;
     }

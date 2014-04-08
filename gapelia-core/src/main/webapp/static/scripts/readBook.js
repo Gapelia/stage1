@@ -1,53 +1,148 @@
+var Page = (function () {
 
-// this is not being used
-function readCookie(name) {
+    var config = {
+        $bookBlock: $("#bb-bookblock"),
+        $navNext: $("#bb-nav-next"),
+        $navPrev: $("#bb-nav-prev"),
+        $navFirst: $("#bb-nav-first")
+        // $navLast: $('#back-covert')
 
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(";");
+    },
 
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        init = function () {
 
-		if (c.indexOf(nameEQ) == 0) {
-			return c.substring(nameEQ.length, c.length);
-		}
-	}
+            config.$bookBlock.bookblock({
+                speed: 1000,
+                shadowSides: 0.8,
+                shadowFlip: 0.4
+            });
 
-	return null;
+            initEvents();
 
-}
+        },
 
-function configureBook() {
+        initEvents = function () {
 
-	var $vW = $(window).width(), $vH = $(window).height();
+            var $slides = config.$bookBlock.children();
 
-	$(".content").css({
-		"width": $vW + "px",
-		"height": $vH + "px"
-	});
+            // add navigation events
+            config.$navNext.on("click touchstart", function () {
+                config.$bookBlock.bookblock("next");
+                return false;
+            });
 
-	$(".fluid-wrapper").imgLiquid({ fill: true });
-	$(".overlay-wrapper").imgLiquid({ fill: true });
-	$(".phototext-wrapper").imgLiquid({ fill: true });
-	$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+            config.$navPrev.on("click touchstart", function () {
+                config.$bookBlock.bookblock("prev");
+                return false;
+            });
 
-	$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-	$(".inserted-img").fluidbox();
+            config.$navFirst.on("click touchstart", function () {
+                config.$bookBlock.bookblock("first");
+                return false;
+            });
+            /*
+									config.$navLast.on("click touchstart", function () {
+										console.log("end of book");
+									});
+*/
+            // add swipe events
+            $slides.on({
+                "swipeleft": function (event) {
+                    config.$bookBlock.bookblock("next");
+                    return false;
+                },
 
-}
-function getUserFromBook(bookId) {
-    responseText = '';
+                "swiperight": function (event) {
+                    config.$bookBlock.bookblock("prev");
+                    return false;
+                }
+            });
+
+            // add keyboard events
+            $(document).keydown(function (e) {
+
+                var
+                keyCode = e.keyCode || e.which,
+                    arrow = {
+                        left: 37,
+                        up: 38,
+                        right: 39,
+                        down: 40
+                    };
+
+                switch (keyCode) {
+                case arrow.left:
+                    config.$bookBlock.bookblock("prev");
+                    break;
+
+                case arrow.right:
+                    config.$bookBlock.bookblock("next");
+                    break;
+                }
+
+            });
+
+        };
+
+    return {
+        init: init
+    };
+
+})();
+
+function makeBackPage() {
+    getUserFromBookId(bookId);
     $.ajax({
-        url: "/api/utils/getUserFromBookId",
+        url: "/api/users/getUserPublic",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        async: false,
         type: "POST",
         data: {
-            bookId: bookId
+            userId: bookOwner.userId
         },
         success: function (data) {
-            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+            bookUser = data;
+            var currentWebsite = document.URL;
+            facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+            twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
+            emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
+            backPage = "";
+            i++;
+            backPage += "<div class=\"bb-item back-cover\" id=\"page\"" + i + "><div class=\"content\"><section class=\"backcover-wrapper\">";
+            backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
+            backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
+            backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
+            backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
+            backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
+            backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section>";
+            backPage += getUserFromBookId(bookId);
+            backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
+            getReadNextBook();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
+}
+
+function getReadNextBook() {
+    $.ajax({
+        url: "/api/users/getCreatedBooksPublic",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            userId: bookOwner.userId
+        },
+        success: function (data) {
+            nextBook = data[0];
+            backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div>";
+            htmlToInsert += backPage;
+            $("#bb-bookblock").html(htmlToInsert);
+            $("#header-author").html(bookOwner.name);
+            $("#header-title").html(pages[0].title);
+            $(".inserted-img").fluidbox();
+            Page.init();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -57,332 +152,480 @@ function getUserFromBook(bookId) {
             }
         }
     });
-    return responseText;
 }
-function loadBook() {
-	NProgress.start();
-	sessionId = readCookie("JSESSIONID");
-	bookId = document.URL.split("/")[document.URL.split("/").length - 1];
+$(function () {
+    function getUserFromBook(bookId) {
+        responseText = '';
+        $.ajax({
+            url: "/api/utils/getUserFromBookId",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            async: false,
+            type: "POST",
+            data: {
+                bookId: bookId
+            },
+            success: function (data) {
+                bookOwner = data;
+                responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+        return responseText;
+    }
+    var $vW = $(window).width(),
+        $vH = $(window).height();
+
+    // Load Gapelia
+    NProgress.start();
+
+    // Get book info and its pages
+    bookId = document.URL.split("/")[document.URL.split("/").length - 1];
     getUserFromBook(bookId);
-	$.ajax({
-		url: "/api/users/getPages",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		data: {
-			bookId: bookId
-		},
-		success: function (data) {
 
-			pages = data;
+    $.ajax({
+        url: "/api/users/getPages",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
 
-			pages.sort(function (a, b) {
-				return a.pageNumber - b.pageNumber;
-			});
+            pages = data;
+            pages.sort(function (a, b) {
+                return a.pageNumber - b.pageNumber;
+            });
 
-			htmlToInsert = "";
+            htmlToInsert = "";
 
-			for (i = 0; i < pages.length; i++) {
-				current = pages[i];
+            for (i = 0; i < pages.length; i++) {
+                current = pages[i];
 
-				// TODO get author photo and name and insert in places
-				if (i == 0) {
-					htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-					insertPage(1);
-				} else {
-					htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
-					insertPage(0);
-				}
-			}
+                // TODO get author photo and name and insert in places
+                if (i == 0) {
+                    htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+                    insertPage(1);
+                } else {
+                    htmlToInsert += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
+                    insertPage(0);
+                }
+            }
+            makeBackPage();
+            $(function () {
+                // Styling layouts
+                $(".backcover-wrapper #fin-next").imgLiquid({
+                    fill: true
+                });
 
-			$("#bb-bookblock").html(htmlToInsert);
+                if ($vW > "1024") {
 
-			Page.init();
-			configureBook();
+                    $("img").VimeoThumb();
 
-			NProgress.done();
+                    setTimeout(function () {
+                        $(".video-player-container").imgLiquid({
+                            fill: true
+                        });
+                    }, 1000); // prevent placeholder from appearing
 
-		},
+                    $(".fluid-wrapper").imgLiquid({
+                        fill: true
+                    });
+                    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+                        fill: true
+                    });
+                    $(".overlay-wrapper").imgLiquid({
+                        fill: true
+                    });
+                    $(".phototext-wrapper").imgLiquid({
+                        fill: true
+                    });
+                    $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+                        fill: true
+                    });
 
-		error: function (q, status, err) {
+                    $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
-			}
+                    $(document).on("click", ".play-video", function () {
 
-		}
-	});
+                        $(".play-video").hide();
 
-}
+                        $(".video-player-container img").hide();
+                        $(".video-player-container iframe").show();
 
-function insertPage(isFirst) {
+                    });
 
-	switch (current.templateId) {
-		case 0:
-			fluidLayout(isFirst);
-			break;
+                }
 
-		case 1:
-			photoLayout(isFirst);
-			break;
+                $(document).on("mouseenter", ".inserted-img", function () {
 
-		case 2:
-			overlayLayout(isFirst);
-			break;
+                    if ($(this).parent().hasClass("minimized-p")) {
+                        $(this).before("<div class=\"resize-bigger\">[bigger]</div>");
+                    } else {
+                        $(this).before("<div class=\"resize-smaller\">[smaller]</div>");
+                    }
 
-		case 3:
-			phototextLayout(isFirst);
-			break;
+                });
+                $(document).on("click", ".resize-smaller", function () {
 
-		case 4:
-			verticalLayout(isFirst);
-			break;
+                    $(this).parent().addClass("minimized-p");
+                    $(this).parent().mouseleave();
 
-		case 5:
-			videoLayout(isFirst);
-			break;
+                });
 
-		default:
-			fluidLayout(isFirst);
-			break;
-	}
+                $(document).on("click", ".resize-bigger", function () {
 
-}
+                    $(this).parent().removeClass("minimized-p");
+                    $(this).parent().mouseleave();
 
-function fluidLayout(isFirst) {
+                });
 
-	htmlToInsert += "<section class=\"fluid-wrapper\">";
-	htmlToInsert += "<section class=\"draggable-placeholder\">";
-	htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+                $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
+                    $(".resize-smaller, .resize-bigger").remove();
+                });
 
-	if (current.creativeCommons != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
+            });
 
-	htmlToInsert += "</section>";
-	htmlToInsert += "<div class=\"fluid-preview\">";
+            // Initialize book structure
+            if ($vW > "1024") {
 
-    if (isFirst == 1) {
-        htmlToInsert += responseText;
+                $(".content").css({
+                    "width": $vW + "px",
+                    "height": $vH + "px"
+                });
+
+            }
+
+
+        },
+
+        error: function (q, status, err) {
+
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+
+        }
+    });
+
+    // Set up page layouts
+    function insertPage(isFirst) {
+        switch (current.templateId) {
+        case 0:
+            fluidLayout(isFirst);
+            break;
+
+        case 1:
+            photoLayout(isFirst);
+            break;
+
+        case 2:
+            overlayLayout(isFirst);
+            break;
+
+        case 3:
+            phototextLayout(isFirst);
+            break;
+
+        case 4:
+            verticalLayout(isFirst);
+            break;
+
+        case 5:
+            videoLayout(isFirst);
+            break;
+
+        default:
+            fluidLayout(isFirst);
+            break;
+        }
+
     }
 
-	htmlToInsert += "<article>";
-	htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+    function fluidLayout(isFirst) {
 
-	htmlToInsert += "<div class=\"page-desc\">" + current.content + "";
+        htmlToInsert += "<section class=\"fluid-wrapper\">";
+        htmlToInsert += "<section class=\"draggable-placeholder\">";
+        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
 
-	if (current.file != undefined) { htmlToInsert += "" + current.file + ""; }
+        if (current.creativeCommons != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
 
-	htmlToInsert += "</div>";
+        htmlToInsert += "</section>";
+        htmlToInsert += "<div class=\"fluid-preview\">";
 
-	htmlToInsert += "</article></div>";
-	htmlToInsert += "</section>";
-	htmlToInsert += "</div></div>";
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
+        htmlToInsert += "<article>";
+        htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-}
+        htmlToInsert += "<div class=\"page-desc\">" + current.content + "";
 
-function photoLayout(isFirst) {
-	htmlToInsert += "<section class=\"photo-wrapper\">";
+        if (current.file != undefined) {
+            htmlToInsert += "" + current.file + "";
+        }
 
-	if (current.attribution != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
+        htmlToInsert += "</div>";
 
-	htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
-	htmlToInsert += "<div class=\"phototext-preview\">";
-	htmlToInsert += "<article>";
-	htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        htmlToInsert += "</article></div>";
+        htmlToInsert += "</section>";
+        htmlToInsert += "</div></div>";
 
-                       if (isFirst == 1) {
-                           htmlToInsert += responseText;
-                       }
+    }
 
-	htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
-	htmlToInsert += "</article>";
-	htmlToInsert += "</div></section>";
-	htmlToInsert += "</div></div>";
+    function photoLayout(isFirst) {
 
-}
+        htmlToInsert += "<section class=\"photo-wrapper\">";
+        htmlToInsert += "<div class=\"page-bg-wrapper\">";
 
-function overlayLayout(isFirst) {
+        if (current.attribution != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
 
-	htmlToInsert += "<section class=\"overlay-wrapper\">";
-	htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
-	htmlToInsert += "<div class=\"overlay-preview\">";
-	htmlToInsert += "<article>";
-	htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+        htmlToInsert += "</div>";
+        htmlToInsert += "<div class=\"photo-preview\">";
+        htmlToInsert += "<article>";
+        htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
         }
 
-	htmlToInsert += "</article></div>";
+        htmlToInsert += "</article>";
+        htmlToInsert += "</div></section>";
+        htmlToInsert += "</div></div>";
 
-	if (current.creativeCommons != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
+    }
 
-	htmlToInsert += "</section>";
-	htmlToInsert += "</div></div>";
+    function overlayLayout(isFirst) {
 
-}
-
-function phototextLayout(isFirst) {
-
-	htmlToInsert += "<section class=\"phototext-wrapper\">";
-
-	if (current.creativeCommons != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
-
-	htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
-	htmlToInsert += "<div class=\"phototext-preview\">";
-	htmlToInsert += "<article>";
-	htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        htmlToInsert += "<section class=\"overlay-wrapper\">";
+        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+        htmlToInsert += "<div class=\"overlay-preview\">";
+        htmlToInsert += "<article>";
+        htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
         }
 
-	htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
-	htmlToInsert += "</article>";
-	htmlToInsert += "</div></section>";
-	htmlToInsert += "</div></div>";
+        htmlToInsert += "</article></div>";
 
-}
+        if (current.creativeCommons != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
 
-function verticalLayout(isFirst) {
+        htmlToInsert += "</section>";
+        htmlToInsert += "</div></div>";
 
-	htmlToInsert += "<section class=\"vertical-wrapper\">";
+    }
 
-	if (current.creativeCommons != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
+    function phototextLayout(isFirst) {
 
-	htmlToInsert += "<div class=\"draggable-placeholder\">";
-	htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
-	htmlToInsert += "<div class=\"vertical-preview\">";
-	htmlToInsert += "<article>";
-	htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        htmlToInsert += "<section class=\"phototext-wrapper\">";
+
+        if (current.creativeCommons != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
+
+        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+        htmlToInsert += "<div class=\"phototext-preview\">";
+        htmlToInsert += "<article>";
+        htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
         }
 
-	htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
-	htmlToInsert += "</article></div>";
-	htmlToInsert += "</div></section>";
-	htmlToInsert += "</div></div>";
+        htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+        htmlToInsert += "</article>";
+        htmlToInsert += "</div></section>";
+        htmlToInsert += "</div></div>";
 
-}
+    }
 
-function videoLayout(isFirst) {
+    function verticalLayout(isFirst) {
 
-	htmlToInsert += "<section class=\"video-wrapper\">";
+        htmlToInsert += "<section class=\"vertical-wrapper\">";
 
-	if (current.creativeCommons != "Add photo credit?") {
-		htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
-	}
+        if (current.creativeCommons != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
 
-	htmlToInsert += "<div class=\"video-preview\">";
-
-	htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
-	htmlToInsert += "<div class=\"video-player-container\">";
-	htmlToInsert += "<iframe src=\"" + current.videoUrl + "\"></iframe>";
-	htmlToInsert += "</div>";
-	htmlToInsert += "<article>";
-	htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        htmlToInsert += "<div class=\"draggable-placeholder\">";
+        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+        htmlToInsert += "<div class=\"vertical-preview\">";
+        htmlToInsert += "<article>";
+        htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
         }
 
-	htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
-	htmlToInsert += "</article>";
-	htmlToInsert += "</div></section>";
-	htmlToInsert += "</div></div>";
+        htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+        htmlToInsert += "</article></div>";
+        htmlToInsert += "</div></section>";
+        htmlToInsert += "</div></div>";
 
-}
+    }
 
-var Page = (function () {
+    function videoLayout(isFirst) {
 
-	var config = {
-		$bookBlock: $("#bb-bookblock"),
-		$navNext: $("#bb-nav-next"),
-		$navPrev: $("#bb-nav-prev"),
-		$navFirst: $("#bb-nav-first")
-	},
+        htmlToInsert += "<section class=\"video-wrapper\">";
 
-	init = function () {
+        if (current.creativeCommons != "Add photo credit?") {
+            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        }
 
-		config.$bookBlock.bookblock({
-			speed: 1000,
-			shadowSides: 0.8,
-			shadowFlip: 0.4
-		});
+        htmlToInsert += "<div class=\"video-preview\">";
 
-		initEvents();
+        htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
+        htmlToInsert += "<div class=\"video-player-container\">";
+        htmlToInsert += "<iframe src=\"" + current.videoUrl + "\"></iframe>";
+        htmlToInsert += "</div>";
+        htmlToInsert += "<article>";
+        htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
-	},
+        if (isFirst == 1) {
+            htmlToInsert += responseText;
+        }
 
-	initEvents = function () {
+        htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+        htmlToInsert += "</article>";
+        htmlToInsert += "</div></section>";
+        htmlToInsert += "</div></div>";
 
-		var $slides = config.$bookBlock.children();
+    }
 
-		// add navigation events
-		config.$navNext.on("click touchstart", function () {
-			config.$bookBlock.bookblock("next");
-			return false;
-		});
+    // Streamline book for mobile
+    if ($vW < "1025") {
 
-		config.$navPrev.on("click touchstart", function () {
-			config.$bookBlock.bookblock("prev");
-			return false;
-		});
+        // $("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
+        $("#header-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
-		config.$navFirst.on("click touchstart", function () {
-			config.$bookBlock.bookblock("first");
-			return false;
-		});
+        $(".video-player-container img").hide();
+        $(".video-player-container iframe").show();
 
-		// add swipe events
-		$slides.on({
-			"swipeleft": function (event) {
-				config.$bookBlock.bookblock("next");
-				return false;
-			},
+    }
 
-			"swiperight": function (event) {
-				config.$bookBlock.bookblock("prev");
-				return false;
-			}
-		});
+    if ($vW < "321") {
 
-		// add keyboard events
-		$(document).keydown(function (e) {
+        // $(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH - 50 + "px");
+        $(".frontcover-wrapper, .frontcover-wrapper article, .overlay-wrapper").css("height", $vH);
+        $(".frontcover-wrapper, .overlay-wrapper").imgLiquid({
+            fill: true
+        });
 
-			var keyCode = e.keyCode || e.which, arrow = {
-				left: 37,
-				up: 38,
-				right: 39,
-				down: 40
-			};
+    }
 
-			switch (keyCode) {
-				case arrow.left:
-					config.$bookBlock.bookblock("prev");
-					break;
+    // FIN
+    NProgress.done();
+    var currentWebsite = document.URL;
+    facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+    twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
+    emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
 
-				case arrow.right:
-					config.$bookBlock.bookblock("next");
-					break;
-			}
+    share = "";
 
-		});
+    share += "<li><a href=\"javascript:window.open(" + facebookShare + ",'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+    share += "<li><a href=\"javascript:window.open(" + twitterShare + ",'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+    share += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\"></i></a></li>";
+    $(".share-book").html(share);
+    var third = getUserDrafts();
 
-	};
+    // Slide menu for desktop
+    if ($vW > "1024") {
+        new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 
-	return { init: init };
+        $(".mp-pushed").ready(function () {
+            $("#book-scroller").css("z-index", "0");
+        });
+    }
 
-})();
+    // Dropdown menu for mobile
+    if ($vW < "1025") {
+
+        menu = "";
+        menu += "<ul id=\"book-menu\" style=\"display: none;\">";
+        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+        menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
+        menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+        menu += "<ul>";
+        menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
+        menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
+        menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
+        menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
+        menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
+        menu += "</ul>";
+        menu += "</li>";
+        menu += "</ul>";
+
+        share = "";
+        share += "<ul id=\"share-menu\" style=\"display: none;\">";
+
+        share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
+        share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
+        share += "<li><a href=\"emailShare\">Share via Email<i class=\"ion-email\"></i><</a></li>";
+        share += "</ul>";
+
+        $("#g-menu-toggle").after(menu);
+        $("#next-book-toggle").after(share);
+
+        $(document).on("click", "#g-menu-toggle", function () {
+
+            $("#book-menu").toggle();
+
+            if ($("#book-menu").css("display") == "block") {
+                $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+            } else {
+                $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+            }
+
+            if ($("#share-menu").css("display") == "block") {
+                $("#share-menu").hide();
+            }
+
+        });
+
+        $(document).on("click", "#next-book-toggle", function () {
+
+            $("#share-menu").toggle();
+
+            if ($("#share-menu").css("display") == "block") {
+                $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+            } else {
+                $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+            }
+
+            if ($("#book-menu").css("display") == "block") {
+                $("#book-menu").hide();
+            }
+
+        });
+
+        $(document).on("click", "#nav-notify", function (e) {
+
+            $("#nav-notify ul").toggle();
+
+            if ($("#nav-notify ul").css("display") == "block") {
+                $("#nav-notify").css("padding", "1rem 0 0 0");
+            } else {
+                $("#nav-notify").css("padding", "1rem");
+            }
+
+            e.preventDefault();
+
+        });
+
+    }
+});

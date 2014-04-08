@@ -12,6 +12,7 @@ public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     private static final String GET_GOD_LIBRARIES = "SELECT * FROM libraries where created_by=1 order by random()";
+    private static final String GET_ALL_LIBRARIES = "SELECT * FROM libraries order by random()";
     private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
     private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
     private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
@@ -20,6 +21,36 @@ public class QueryDatabaseLibrary {
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (id,created_by,title,tags,cover_photo,description,num_subscribers,featured_book,created) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_LIBRARY = "UPDATE libraries created_by = ?,title = ?,tags = ?,cover_photo = ?,description = ?,num_subscribers = ?,featured_book = ?,created = ? WHERE id = ?";
+
+    public static ArrayList<Library> getAllLibraries() {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList<Library> libraryList = new ArrayList<Library>();
+        try {
+            statement = connection.prepareStatement(GET_ALL_LIBRARIES);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int libraryId = rs.getInt("id");
+                Library library = QueryDatabaseUser.getLibraryByID(libraryId);
+                libraryList.add(library);
+            }
+            return libraryList;
+        } catch (Exception ex) {
+            LOG.error("ERROR: loading all libraryes:", ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + ex.getMessage());
+            }
+        }
+        return null;
+    }
 
     public static ArrayList<Library> getGodLibraries() {
         PreparedStatement statement = null;
@@ -111,6 +142,7 @@ public class QueryDatabaseLibrary {
                     book.setCreated(rs1.getTimestamp("created"));
                     book.setLastUpdated(rs1.getTimestamp("last_updated"));
                     book.setIsPublished(rs1.getBoolean("is_published"));
+                    book.setSnippet(rs1.getString("snippet"));
                     bookList.add(book);
                 }
             }

@@ -363,7 +363,28 @@ function getLibrary() {
         }
     });
 }
+function getAllLibraries() {
+sessionId = readCookie("JSESSIONID");
 
+    $.ajax({
+        url: "/api/libraries/getAllLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
 function getLibraries() {
 
     sessionId = readCookie("JSESSIONID");
@@ -1168,7 +1189,8 @@ function updateBookAndPages(isPublished) {
             title: pages.page[0].title,
             language: "English",
             tags: tags,
-            isPublished: isPublished
+            isPublished: isPublished,
+            snippet: snippet
         },
         success: function (data) {},
         error: function (q, status, err) {

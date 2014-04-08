@@ -131,95 +131,14 @@
 
 		<section id="publish-modal" class="modal">
 			<div class="wrapper">
-				<h1>The book title goes here</h1>
+				<h1 id='bookTitle'></h1>
 
 				<div class="add-description" contenteditable="true"></div>
 
 				<select id="library-search" placeholder="Add book to library"></select>
 
-				<script>
-					$("#library-search").selectize({
-						options: [{
-							name: "Architecture",
-							value: "architecture"
-						}, {
-							name: "Biography",
-							value: "biography"
-						}, {
-							name: "Cinema",
-							value: "cinema"
-						}, {
-							name: "Cuisine",
-							value: "cuisine"
-						}, {
-							name: "Era",
-							value: "era"
-						}, {
-							name: "The Far East",
-							value: "thefareast"
-						}, {
-							name: "Fashionista",
-							value: "fashionista"
-						}, {
-							name: "Future",
-							value: "future"
-						}, {
-							name: "Gapelians",
-							value: "gapelians"
-						}, {
-							name: "Historian",
-							value: "historian"
-						}, {
-							name: "Into the Wild",
-							value: "intothewild"
-						}, {
-							name: "Japanimation",
-							value: "japanimation"
-						}, {
-							name: "Land of Kawaii",
-							value: "landofkawaii"
-						}, {
-							name: "Manifesto",
-							value: "manifesto"
-						}, {
-							name: "Modernism",
-							value: "modernism"
-						}, {
-							name: "Mother Gaea",
-							value: "mothergaea"
-						}, {
-							name: "Museum",
-							value: "museum"
-						}, {
-							name: "On the Road",
-							value: "ontheroad"
-						}, {
-							name: "Products of Tomorrow",
-							value: "productsoftomorrow"
-						}, {
-							name: "Subculture",
-							value: "subculture"
-						}],
-						labelField: "name",
-						searchField: ["name"]
-					});
-				</script>
-		
-				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
 
-				<script>
-					$("#input-tags").selectize({
-						delimiter: ",",
-						maxItems: 3,
-						persist: false,
-						create: function (input) {
-							return {
-								value: input,
-								text: input
-							}
-						}
-					});
-				</script>
+
 
 				<div class="wrapper">
 					<a class="button branded" id="publish-this" href="#">Publish</a>
@@ -258,12 +177,7 @@
 			function load() { createBook(); }
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
-			$("#publish-this").on("click", function (e) {
 
-				$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/Me'>Read it from profile</a></div>");
-				e.preventDefault();
-
-			});
 		</script>
 		<!--//scripts /-->
 

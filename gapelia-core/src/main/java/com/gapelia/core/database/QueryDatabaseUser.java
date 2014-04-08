@@ -405,6 +405,7 @@ public class QueryDatabaseUser {
                 book.setCreated(rs.getTimestamp("created"));
                 book.setLastUpdated(rs.getTimestamp("last_updated"));
                 book.setIsPublished(rs.getBoolean("is_published"));
+                book.setSnippet(rs.getString("snippet"));
                 bookList.add(book);
             }
             return bookList;

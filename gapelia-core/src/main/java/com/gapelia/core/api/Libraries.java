@@ -30,6 +30,18 @@ public class Libraries {
         return gson.toJson(QueryDatabaseLibrary.getGodLibraries());
     }
 
+    @Path("getAllLibraries")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getAllLibraries(@FormParam("sessionId") String sessionId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseLibrary.getAllLibraries());
+    }
+
     @Path("getCreatedLibraries")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

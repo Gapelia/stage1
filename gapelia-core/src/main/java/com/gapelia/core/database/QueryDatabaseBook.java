@@ -17,7 +17,7 @@ public class QueryDatabaseBook {
     private static final String DELETE_PAGE = "DELETE FROM pages WHERE id = ?";
     // Book Related Queries
     private static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
-    private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ? WHERE id = ?";
+    private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ?, snippet = ?  WHERE id = ?";
     private static final String DELETE_FROM_USER_VOTES2 = "DELETE FROM user_votes where book_id = ?";
     private static final String DELETE_FROM_USER_BOOKMARKS2 = "DELETE FROM user_bookmarks where book_id = ?";
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
@@ -143,7 +143,8 @@ public class QueryDatabaseBook {
             insert.setString(4, book.getTags());
             insert.setTimestamp(5, book.getLastUpdated());
             insert.setBoolean(6, book.getIsPublished());
-            insert.setInt(7, book.getBookId());
+            insert.setString(7, book.getSnippet());
+            insert.setInt(8, book.getBookId());
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {

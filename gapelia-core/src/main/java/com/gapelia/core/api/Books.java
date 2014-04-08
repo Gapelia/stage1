@@ -116,6 +116,7 @@ public class Books {
                              @FormParam("language") String language,
                              @FormParam("tags") String tags,
                              @FormParam("isPublished") boolean isPublished,
+                             @FormParam("snippet") String snippet,
                              @FormParam("bookId") int bookId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
@@ -132,6 +133,7 @@ public class Books {
         java.util.Date date= new java.util.Date();
         book.setLastUpdated(new Timestamp(date.getTime()));
         book.setIsPublished(isPublished);
+        book.setSnippet(snippet);
         return gson.toJson(QueryDatabaseBook.updateBook(book));
     }
 

@@ -158,6 +158,7 @@ public class QueryUtils {
                 book.setCreated(rs.getTimestamp("created"));
                 book.setLastUpdated(rs.getTimestamp("last_updated"));
                 book.setIsPublished(rs.getBoolean("is_published"));
+                book.setSnippet(rs.getString("snippet"));
             }
             return book;
         } catch (Exception ex) {
