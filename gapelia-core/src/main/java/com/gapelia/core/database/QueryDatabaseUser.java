@@ -8,6 +8,7 @@ import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ public class QueryDatabaseUser {
         }
         return null;
     }
-    public static String checkUser(Profile p, String sessionId) {
+    public static String checkUser(Profile p, HttpSession sessionId) {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
@@ -68,7 +69,7 @@ public class QueryDatabaseUser {
                 return signUp(p, sessionId);
             } else {
                 User u = getUserByValidatedId(p.getValidatedId());
-                SessionManager.addSessionIdToUser(u, sessionId);
+                SessionManager.addSessionIdToUser(u,sessionId);
                 return "Success";
             }
         } catch (SQLException ex) {
@@ -89,7 +90,7 @@ public class QueryDatabaseUser {
         }
     }
 
-    public static String signUp(Profile p, String sessionId) {
+    public static String signUp(Profile p, HttpSession sessionId) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(INSERT_USER);

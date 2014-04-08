@@ -30,8 +30,9 @@ public class SessionManager implements HttpSessionListener {
         return sessions.get(sessionId);
 	}
 
-    public static void addSessionIdToUser(User user, String sessionId) {
-        sessionIdToUser.put(sessionId, user);
+    public static void addSessionIdToUser(User user, HttpSession sessionId) {
+        sessionIdToUser.put(sessionId.getId(), user);
+		sessionId.setMaxInactiveInterval(604800);   //set the session to expire in one week (604800 seconds)
     }
 
     public static User getUserFromSessionId(String sessionId) {
