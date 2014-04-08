@@ -6621,7 +6621,7 @@ a.count span.dont-move {
   .app #header-message button {
     top: 2.1rem; }
   .app #g-menu-toggle {
-    color: #fcfcfc;
+    color: #fcfcfc !important;
     left: 0.6rem; }
   .app #next-book-toggle {
     right: 1rem; }
@@ -7101,18 +7101,42 @@ a.count span.dont-move {
     position: relative; }
   .full-book .video-wrapper .video-player-container iframe {
     height: 500px; }
-  .full-book .backcover-wrapper {
-    border-top: 3px solid rgba(25, 25, 25, 0.1); }
   .full-book .backcover-wrapper #fin, .full-book .backcover-wrapper #fin-next {
     display: block;
     float: none;
     width: 100%; }
   .full-book .backcover-wrapper #fin {
+    padding: 3rem 8rem 0 8rem;
     height: auto; }
+  .full-book .backcover-wrapper #fin h2 {
+    font-size: 2rem;
+    font-weight: 500; }
+  .full-book .backcover-wrapper #fin h2:before {
+    color: rgba(25, 25, 25, 0.5);
+    font-size: 0.4em;
+    font-style: italic; }
+  .full-book .backcover-wrapper #fin .merci a.mercibject div.opening, .full-book .backcover-wrapper #fin .author-avatar {
+    height: 75px;
+    width: 75px; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb {
+    color: rgba(25, 25, 25, 0.8);
+    margin: -4.8rem 0 0 7.5rem; }
+  .full-book .backcover-wrapper #fin .share-book {
+    margin: -4.5rem 0 4rem 8.5rem; }
+  .full-book .backcover-wrapper #fin .share-book li {
+    font-size: 1.8rem; }
+  .full-book .backcover-wrapper #fin .share-book:before {
+    display: none; }
+  .full-book .backcover-wrapper #fin section {
+    margin: 0rem 0rem 5rem 0;
+    margin-left: 0.8rem; }
   .full-book .backcover-wrapper #fin-next {
     height: 300px;
     padding: 2rem 0;
     overflow: hidden; }
+  .full-book .backcover-wrapper #fin-next .book-title {
+    margin: 6rem 0 1.5rem 0;
+    text-align: center; }
   .full-book .backcover-wrapper #fin-next:after {
     background-image: linear-gradient(to top, #191919, transparent); }
   .full-book .text-fade {
@@ -7467,6 +7491,16 @@ a.count span.dont-move {
     width: 85%; }
   .full-book .backcover-wrapper .book-title {
     padding: 0 4rem; }
+  .full-book .backcover-wrapper #fin {
+    padding: 3rem 5rem 0 5rem; }
+  .full-book .backcover-wrapper #fin h2 {
+    font-size: 1.7rem; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb {
+    font-size: 1rem; }
+  .full-book .backcover-wrapper #fin-next .book-title {
+    margin: 5rem 0 0 0;
+    text-align: center;
+    width: 100%; }
 
   .profile #g-menu-toggle {
     color: #59b3a6; }
@@ -7628,7 +7662,19 @@ a.count span.dont-move {
   .full-book .video-wrapper article .page-desc {
     font-size: 1.3rem;
     line-height: 2.3rem; }
-  .full-book .backcover-wrapper #fin-next .book-title:before {
+  .full-book .backcover-wrapper .book-title {
+    padding: 0 4rem; }
+  .full-book .backcover-wrapper #fin {
+    padding: 1rem 3rem 0 3rem; }
+  .full-book .backcover-wrapper #fin h2 {
+    font-size: 1.5rem; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb {
+    font-size: 0.9rem; }
+  .full-book .backcover-wrapper #fin-next .book-title {
+    margin: 5rem 0 0 0;
+    text-align: center;
+    width: 100%; }
+  .full-book .backcover-wrapper #fin-next .book-title .book-title:before {
     margin: 0 0 -0.5rem 0; }
 
   .profile .book-title {
@@ -7678,17 +7724,25 @@ a.count span.dont-move {
     line-height: initial; }
   .app #user-splash #close-splash {
     left: 37%; }
+  .app #featured-panel {
+    height: 55px; }
   .app #featured-panel #category-title {
     font-size: 1rem;
-    height: 65px;
-    padding: 1.6rem 1rem 0 0;
+    height: 55px;
+    padding: 1.3rem 1rem 0 0;
     text-align: right; }
+  .app #featured-panel #featured-nav {
+    top: 55px; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #dimension-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
     background-color: transparent;
     display: block;
-    padding: 65px 0 0 0; }
+    padding: 50px 0 0 0; }
   .app #g-menu-toggle {
+    font-size: 2rem;
+    height: 60px;
     left: 0.5rem; }
+  .app .notification-time #notification-count {
+    top: 0.7rem; }
   .app #next-book-toggle {
     right: 0; }
   .app .book, .app .collection, .app .library {
@@ -7711,6 +7765,7 @@ a.count span.dont-move {
   .app .book .book-title, .app .book .book-info, .app .book .library-location, .app .book .collection-info, .app .book .library-info, .app .collection .book-title, .app .collection .book-info, .app .collection .library-location, .app .collection .collection-info, .app .collection .library-info, .app .library .book-title, .app .library .book-info, .app .library .library-location, .app .library .collection-info, .app .library .library-info {
     padding: 0;
     position: relative;
+    text-shadow: none;
     width: 100%; }
   .app .book .book-title a, .app .book .book-info a, .app .book .library-location a, .app .book .collection-info a, .app .book .library-info a, .app .collection .book-title a, .app .collection .book-info a, .app .collection .library-location a, .app .collection .collection-info a, .app .collection .library-info a, .app .library .book-title a, .app .library .book-info a, .app .library .library-location a, .app .library .collection-info a, .app .library .library-info a {
     color: rgba(0, 0, 0, 0.75); }
@@ -7881,6 +7936,7 @@ a.count span.dont-move {
   .full-book .fluid-wrapper .author-info .author-name {
     border-right: none !important;
     margin: 0;
+    padding-right: 1px;
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
@@ -7955,59 +8011,69 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin {
     padding: 1rem 2rem;
     text-align: center; }
+  .full-book .backcover-wrapper #fin h2 {
+    display: none; }
   .full-book .backcover-wrapper #fin .merci {
+    display: inline;
     margin: 2rem 0; }
-  .full-book .backcover-wrapper #fin section {
-    margin: 0 0 3rem 0; }
+  .full-book .backcover-wrapper #fin .merci section {
+    margin: 0; }
   .full-book .backcover-wrapper #fin .share-book {
     margin: 1rem 0; }
   .full-book .backcover-wrapper #fin .share-book:before {
-    display: block;
+    display: none;
     float: none;
     margin: 0 0 0.5rem 0;
     vertical-align: initial; }
   .full-book .backcover-wrapper #fin .share-book li {
+    display: inline;
     float: none;
-    margin: 0 0 0.5rem 0; }
+    margin: 0 0 0.5rem 0;
+    padding: 10px; }
   .full-book .backcover-wrapper #fin .share-book li:after {
     display: none; }
   .full-book .backcover-wrapper #fin hr {
-    margin: 2rem 0; }
+    margin: 2rem 0;
+    width: 100%; }
   .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin #library-avatar {
     margin: 0 0 1rem 0; }
   .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-name {
     font-size: 1.2rem;
     margin: 0 0 1rem 0; }
   .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
-    font-size: 1rem;
-    line-height: 1.3rem;
-    margin: 0; }
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin: 0;
+    margin-top: 1rem; }
+  .full-book .backcover-wrapper #fin section {
+    margin-left: 0; }
   .full-book .backcover-wrapper #fin-next {
     height: 200px;
     padding: 0; }
   .full-book .backcover-wrapper #fin-next .book-title {
-    font-size: 1.3rem;
-    line-height: 1.5rem;
-    padding: 0 2rem; }
-  .full-book .backcover-wrapper #fin-next .book-title:before {
-    margin: 0; }
+    display: block;
+    font-size: 1.5rem;
+    margin: 2.5rem 0 0 0; }
   .full-book .backcover-wrapper #fin-next .book-info {
     font-size: 0.8rem;
     padding: 0 2rem; }
 
+  .profile #featured-nav {
+    top: 55px; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
   .profile #user-book-list {
-    padding: 65px 0 0 0; }
+    padding: 55px 0 0 0; }
   .profile #user-panel {
     background-color: #fcfcfc;
-    height: 65px; }
+    height: 55px; }
   .profile #user-panel #g-menu-toggle {
     color: #fcfcfc;
-    left: 1rem;
+    left: 0.5rem;
     width: 64px; }
   .profile #user-panel #user-header {
     font-size: 1rem;
+    margin-top: 0.2rem;
     text-align: right;
     padding-right: 1rem; }
   .profile #user-panel #user-wrapper .user-data {
