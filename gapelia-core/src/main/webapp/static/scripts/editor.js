@@ -1234,7 +1234,6 @@
 
 	$("#publish-this").on("click", function (e) {
 		updateBookAndPages(true);
-		document.location.href = "/me";
 	});
 
 	$("#close-button").on("click", function (e) {
