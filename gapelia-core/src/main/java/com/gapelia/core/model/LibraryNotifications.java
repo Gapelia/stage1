@@ -1,13 +1,14 @@
 package com.gapelia.core.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class LibraryNotifications {
     private int recipientUserId;
     private int libraryId;
     private int senderUserID;
     private int bookId;
-    private Date dateSend;
+    private Timestamp dateSend;
     private Boolean accepted;
 
     public int getRecipientUserId() {
@@ -42,11 +43,11 @@ public class LibraryNotifications {
         this.bookId = bookId;
     }
 
-    public Date getDateSend() {
+    public Timestamp  getDateSend() {
         return dateSend;
     }
 
-    public void setDateSend(Date dateSend) {
+    public void setDateSend(Timestamp  dateSend) {
         this.dateSend = dateSend;
     }
 

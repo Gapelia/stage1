@@ -139,6 +139,25 @@ public class QueryUtils {
         return null;
     }
 
+    public static boolean canModifyBook(int bookId, int userId) {
+
+        return false;
+    }
+
+    public static boolean canModifyPage(int pageId, int userId) {
+
+        return false;
+    }
+
+    public static boolean canModifyUser(int userId, int modifyUserId) {
+
+        return false;
+    }
+
+    public static boolean canModifyLibrary(int libraryId, int userId) {
+
+        return false;
+    }
 
     public static Book getBookFromBookId(int bookId) {
         PreparedStatement statement = null;

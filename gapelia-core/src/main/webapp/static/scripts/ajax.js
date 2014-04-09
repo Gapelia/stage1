@@ -160,11 +160,11 @@ function getUserCreatedBooks() {
                 book = books[i];
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
-                toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div>";
-                toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
-                toInsert += "<div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div><div class=\"library-location\">";
                 toInsert += getLibraryFromBook(book.bookId);
+                toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
+                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+
             }
             if(toInsert=="") {
                (elem=document.getElementById('close-splash')).parentNode.removeChild(elem);
@@ -271,6 +271,43 @@ function getBooksInLibrary() {
     });
 }
 
+function getBooksInLibraryOwner() {
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
+    $.ajax({
+        url: "/api/libraries/getBooksInLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            books = data;
+            toInsert = '';
+            for (i in books) {
+                book = books[i];
+                toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a><\/div><div \class=\"book-info\">";
+                toInsert += getUserFromBookId(book.bookId);
+                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+            }
+            $("#book-list").html(toInsert);
+            if ($vW < "321") {
+                                    $(".book-snippet").css("display","block")
+            				}
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
 function getCreatedLibraries() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -304,44 +341,7 @@ function getCreatedLibraries() {
     });
 }
 
-function getBookInUserLibrary() {
-    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/libraries/getBooksInLibrary",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            libraryId: libraryId
-        },
-        success: function (data) {
-            books = data;
-            toInsert = '';
-            for (i in books) {
-                book = books[i];
-                toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">Editors Pick:" + book.title + "</a></div><div class=\"book-info\">";
-                toInsert += getUserFromBookId(book.bookId);
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
-            }
-            $("#book-list").html(toInsert);
-            if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
-            }
-        }
-    });
-}
-
-function getSubmisionsInLibrary() {}
+function getSubmissionsInLibrary() {}
 
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
@@ -1040,27 +1040,121 @@ $(document).on("click", ".unsubscribe", function (ev) {
         }
     });
 });
-
-
-
-$(document).on("click", ".yay-delete-book", function (ev) {
-    e = $(this).closest(".yay-delete-book");
-    bookId = e.parent().parent().parent().attr("id")
+function getUserCreatedBooksForLibrary() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-        url: "/api/books/deleteBook",
+        url: "/api/users/getCreatedBooks",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
-            sessionId: sessionId,
-            bookId: bookId
+            sessionId: sessionId
+        },
+        success: function (data) {
+            books = data;
+            toInsert = "";
+            for(i in books) {
+                book = books[i];
+                toInsert += "<li id=\""+book.bookId+"\"><a >"+book.title+"</a></li>";
+            }
+            $("#my-submissions ul").html(toInsert);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
             }
         }
     });
+}
+$(document).on("click", "#my-submissions ul li a", function (ev) {
+    e = $(this).closest("li");
+    bookId = e.attr("id");
+    addBookToLibrary(bookId);
+    if(document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
+        console.log("submited for approval");
+        submitToLibrary(bookId);
+    } else {
+        console.log("added your own book!");
+        addBookToLibrary(bookId);
+    }
+    $("#my-submissions ul").toggle();
+});
+
+$(document).on("click", ".approve-book-confirm button", function (ev) {
+    e = $(this).closest(".approve-book-confirm");
+    bookId = e.parent().attr("id")
+    sessionId = readCookie("JSESSIONID");
+    //addBookToLibrary(bookId);
+    //acceptBook(bookId);
+});
+
+function submitToLibrary() {
+
+}
+function acceptBook(bookId) {
+
+}
+function addBookToLibrary(bookId) {
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+                url: "/api/libraries/addBookToLibrary",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                data: {
+                    sessionId: sessionId,
+                    bookId: bookId,
+                    libraryId:libraryId
+                },
+                error: function (q, status, err) {
+                    if (status == "timeout") {
+                        alert("Request timed out");
+                    }
+                }
+            });
+}
+$(document).on("click", ".deny-book-confirm button", function (ev) {
+    e = $(this).closest(".deny-book-confirm");
+    bookId = e.parent().attr("id")
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+            url: "/api/libraries/removeBookFromLibrary",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                bookId: bookId,
+                libraryId:document.URL.split("/")[document.URL.split("/").length - 1]
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                }
+            }
+        });
+
+});
+$(document).on("click", ".yay-delete-book", function (ev) {
+    e = $(this).closest(".yay-delete-book");
+    bookId = e.parent().parent().parent().attr("id")
+    sessionId = readCookie("JSESSIONID");
+    if(document.URL.split("/")[document.URL.split("/").length - 1] == "me") {
+        $.ajax({
+            url: "/api/books/deleteBook",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                bookId: bookId
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                }
+            }
+        });
+    }
 });
 
 function getListBookmarked() {
@@ -1321,7 +1415,16 @@ function deletePage(deletePageId) {
 }
 
 function updateBookAndPages(isPublished) {
-    tags = null;
+    tags = '';
+    if(isPublished==true) {
+
+            var elms = $(".selectize-input div");
+            elms.each(function(i) {
+                var elm = $(this);
+                tags += elm.html() + ",";
+            });
+            tags = tags.substring(0, tags.length - 1);
+    }
     $.ajax({
         url: "/api/books/updateBook",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",

@@ -200,16 +200,10 @@
                 stuff += "</div></div>";
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-                // stuff += "<h5>Contributes to <a href=\"\">S P A C E</a> and <a href=\"\">Technological Marvels</a></h5>";
-                // stuff += "<h5>Contributes to <a href=\"\">S P A C E</a>, <a href=\"\">Technological Marvels</a>, and others.</h5>";
                 stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-                // stuff += "<div id=\"splash-user-location\" contenteditable=\"false\">Boston, MA</div>";
-                // stuff += "<div id=\"splash-user-website\" contenteditable=\"false\">dsgn.io</div>";
-                // stuff += "<div id=\"splash-user-twitter\" contenteditable=\"false\">@NetOpWibby</div>";
-		stuff += "<h5>Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
-		stuff += "<h5>Contributes to <a href=\"\">Digital Humanities</a> and <a href=\"\">Technological Marvels</a></h5>";
+                stuff += "<h5>Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
+		        stuff += "<h5>Contributes to <a href=\"\">Digital Humanities</a> and <a href=\"\">Technological Marvels</a></h5>";
                 stuff += "</div>";
-                // stuff += "<div id=\"close-splash\"><i class=\"ion-ios7-arrow-right\"></i></div>";
                 stuff += "<div id=\"close-splash\">SEE ALL BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";

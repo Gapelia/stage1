@@ -135,7 +135,21 @@
 
 				<div class="add-description" contenteditable="true"></div>
 
-				<select id="library-search" placeholder="Add book to library"></select>
+				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
+
+                				<script>
+                					$("#input-tags").selectize({
+                						delimiter: ",",
+                						maxItems: 3,
+                						persist: false,
+                						create: function (input) {
+                							return {
+                								value: input,
+                								text: input
+                							}
+                						}
+                					});
+                				</script>
 
 
 

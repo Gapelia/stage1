@@ -318,6 +318,8 @@
 			 setInterval(function () {
                                                 h = $(this).outerHeight() - 92;
                                                 $(".library").css("height", h);
+                                                h = $(this).outerHeight() - 92;
+                                                $(".book").css("height", h);
                     }, 1000);
 		</script>
 		<!--//scripts /-->

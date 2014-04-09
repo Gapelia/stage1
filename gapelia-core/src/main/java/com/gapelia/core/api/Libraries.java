@@ -156,25 +156,19 @@ public class Libraries {
     public String updateLibrary(@FormParam("sessionId") String sessionId,
                                 @FormParam("libraryId") int libraryId,
                                 @FormParam("title") String title,
-                                @FormParam("featuredBook") Integer featuredBook,
                                 @FormParam("description") String description,
                                 @FormParam("coverPhoto") String coverPhoto,
                                 @FormParam("tags") String tags) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         User u = SessionManager.getUserFromSessionId(sessionId);
         Gson gson = new GsonBuilder().create();
         Library library = new Library();
-        Date date = new Date();
         library.setLibraryId(libraryId);
-        library.setUserId(u.getUserId());
         library.setTitle(title);
-        library.setFeaturedBook(featuredBook);
         library.setDescription(description);
         library.setTags(tags);
         library.setCoverPhoto(coverPhoto);
-        library.setCreated(new Timestamp(date.getTime()));
         return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
     }
 }

@@ -20,7 +20,7 @@ public class QueryDatabaseLibrary {
     private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
-    private static final String UPDATE_LIBRARY = "UPDATE libraries created_by = ?,title = ?,tags = ?,cover_photo = ?,description = ?,num_subscribers = ?,featured_book = ?,created = ? WHERE id = ?";
+    private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
 
     public static ArrayList<Library> getAllLibraries() {
         PreparedStatement statement = null;
@@ -242,14 +242,11 @@ public class QueryDatabaseLibrary {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(UPDATE_LIBRARY);
-            insert.setInt(1, library.getUserId());
-            insert.setString(2, library.getTitle());
-            insert.setString(3, library.getTags());
-            insert.setString(4, library.getCoverPhoto());
-            insert.setString(5, library.getDescription());
-            insert.setInt(7, library.getFeaturedBook());
-            insert.setTimestamp(8, library.getCreated());
-            insert.setInt(9, library.getLibraryId());
+            insert.setString(1, library.getTitle());
+            insert.setString(2, library.getTags());
+            insert.setString(3, library.getCoverPhoto());
+            insert.setString(4, library.getDescription());
+            insert.setInt(5, library.getLibraryId());
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {

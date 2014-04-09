@@ -211,6 +211,7 @@
             var first = getListSubscribed();
             var second = getListBookmarked();
             var third = getUserDrafts();
+            var fourth = getBooksInLibraryOwner();
         });
 
         function load() {
@@ -443,18 +444,15 @@
                 });
 
             }
-
-            if ($vW < "321") {
-
-                $(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
-
-            }
-            h = $(this).outerHeight() - 92;
-            $(".book").css("height", h);
         }
         setTimeout(function () {
-            getBookInUserLibrary();
-            getSubmisionsInLibrary();
+            h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
+        },1000);
+        setTimeout(function () {
+            getBooksInLibraryOwner();
+            getSubmissionsInLibrary();
+            getUserCreatedBooksForLibrary();
             load();
         }, 300);
     </script>

@@ -404,8 +404,13 @@
 
             getLibrary();
             getBooksInLibrary();
+            getUserCreatedBooksForLibrary();
             load();
         }, 300);
+         setTimeout(function () {
+                    h = $(this).outerHeight() - 92;
+                    $(".book").css("height", h);
+                },1000);
     </script>
     <!--//scripts /-->
 
