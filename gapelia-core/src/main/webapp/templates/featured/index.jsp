@@ -52,7 +52,7 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li class="not-mobile"><a href="/featured">Home</a></li>
+						<li class="home"><a href="/featured">FOLIOGRAM</a></li>
 						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
 						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
@@ -71,7 +71,9 @@
 							</ul>
 						</li>
 
-						<li class="logout"><a href="#">Log Out</a></li>
+						<li class="fq"><a href="#">Help</a>
+						<li class="help"><a href="#">Contact</a>
+						<li class="logout"><a href="#">Log Out</a>
 					</ul>
 
 				</div>

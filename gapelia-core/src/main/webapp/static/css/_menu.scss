@@ -108,10 +108,16 @@
 
 .mp-menu {
 	ul {
+		font-size: 1.4rem;
+		font-weight: 100;
 		margin: 1rem 0 0 0; padding: 0;
 
 		list-style: none;
 		overflow: hidden;
+		
+		.home {
+			font-weight: 700 !important;
+		}
 		
 		li {
 			position: relative;
@@ -139,7 +145,7 @@
 
 				font-size: 1.1rem;
 				height: auto;
-				padding: 0.515rem 1.5rem;
+				padding: 1rem 1.5rem;
 				position: absolute;
 			}
 
@@ -211,7 +217,7 @@
 
 						border: 0;
 						box-shadow: none !important;
-						font-size: inherit;
+						font-size: 1rem;
 
 						&:hover {
 							background-color: inherit !important;
@@ -270,11 +276,11 @@
 			}
 		}
 		
-		.logout {
-			font-size: 0.8rem;
-			margin-top: 75%;
-			text-align: center;
+		.fq {
+			margin-top: 76%%;
 		}
+		
+		.help, .fq, .logout { font-size: 0.8rem; }
 	}
 
 	.mp-level.mp-level-overlay {
