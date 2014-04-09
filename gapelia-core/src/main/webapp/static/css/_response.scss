@@ -177,6 +177,8 @@
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 		}
+		
+		#user-book-list { padding: 4.3rem 1.25rem 1.25rem 1.25rem; }
 
 		#book-cta {
 			background-color: transparent !important;
@@ -1073,8 +1075,10 @@
 		}
 		
 		#user-panel {
-			border-bottom: 1px solid $slate;
+			//border-bottom: 1px solid $slate;
+			background: none !important;
 			height: 65px;
+			z-index: 0;
 			
 			#user-wrapper {
 				h2 {
@@ -1419,7 +1423,7 @@
 
 		#user-book-list {
 			background-color: rgba(gray, 0.05);
-			padding: 5.2rem 1rem 1rem 1rem;
+			padding: 4.2rem 1rem 1rem 1rem;
 		}
 		
 		#user-panel {
@@ -2326,7 +2330,7 @@
 		#user-book-list { padding: 55px 0 0 0; }
 
 		#user-panel {
-			background-color: $white;
+			background: none;
 			height: 55px;
 
 			#g-menu-toggle {

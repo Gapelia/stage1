@@ -6646,6 +6646,8 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
+  .app #user-book-list {
+    padding: 4.3rem 1.25rem 1.25rem 1.25rem; }
   .app #book-cta {
     background-color: transparent !important;
     background-image: none !important;
@@ -7301,8 +7303,9 @@ a.count span.dont-move {
     content: "Published by";
     margin-right: 6px; }
   .profile #user-panel {
-    border-bottom: 1px solid #59b3a6;
-    height: 65px; }
+    background: none !important;
+    height: 65px;
+    z-index: 0; }
   .profile #user-panel #user-wrapper h2 {
     width: 100%;
     height: 65px;
@@ -7512,7 +7515,7 @@ a.count span.dont-move {
     top: 65px; }
   .profile #user-book-list {
     background-color: rgba(128, 128, 128, 0.05);
-    padding: 5.2rem 1rem 1rem 1rem; }
+    padding: 4.2rem 1rem 1rem 1rem; }
   .profile #user-panel {
     height: 65px; }
   .profile #user-panel #user-wrapper h2 {
@@ -8070,7 +8073,7 @@ a.count span.dont-move {
   .profile #user-book-list {
     padding: 55px 0 0 0; }
   .profile #user-panel {
-    background-color: #fcfcfc;
+    background: none;
     height: 55px; }
   .profile #user-panel #g-menu-toggle {
     color: #fcfcfc;
