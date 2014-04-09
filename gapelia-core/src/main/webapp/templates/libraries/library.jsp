@@ -395,10 +395,8 @@
             }
 
             if ($vW < "321") {
-
-                $(".book").append('<div class="book-snippet"><p>A snippet of this book should be here, and the length shall not exceed one hundred and forty characters. This is an example of that length!!</p></div>');
-
-            }
+                                    $(".book-snippet").css("display","block")
+            				}
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
         }

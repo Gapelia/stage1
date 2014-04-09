@@ -19,7 +19,7 @@ public class QueryDatabaseLibrary {
     private static final String GET_BOOK = "SELECT * FROM books where id=?";
     private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
-    private static final String CREATE_LIBRARY = "INSERT INTO libraries (id,created_by,title,tags,cover_photo,description,num_subscribers,featured_book,created) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
     private static final String UPDATE_LIBRARY = "UPDATE libraries created_by = ?,title = ?,tags = ?,cover_photo = ?,description = ?,num_subscribers = ?,featured_book = ?,created = ? WHERE id = ?";
 
     public static ArrayList<Library> getAllLibraries() {
@@ -214,14 +214,13 @@ public class QueryDatabaseLibrary {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(CREATE_LIBRARY);
-            insert.setInt(1, library.getLibraryId());
-            insert.setInt(2, library.getUserId());
-            insert.setString(3, library.getTitle());
-            insert.setString(4, library.getTags());
-            insert.setString(5, library.getCoverPhoto());
-            insert.setString(6, library.getDescription());
-            insert.setInt(8, library.getFeaturedBook());
-            insert.setTimestamp(9, library.getCreated());
+            insert.setInt(1, library.getUserId());
+            insert.setString(2, library.getTitle());
+            insert.setString(3, library.getTags());
+            insert.setString(4, library.getCoverPhoto());
+            insert.setString(5, library.getDescription());
+            insert.setTimestamp(6, library.getCreated());
+            LOG.info(insert.toString());
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {

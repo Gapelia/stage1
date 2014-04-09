@@ -446,6 +446,7 @@ public class QueryDatabaseUser {
                 book.setTags(rs.getString("tags"));
                 book.setCreated(rs.getTimestamp("created"));
                 book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setSnippet(rs.getString("snippet"));
                 book.setIsPublished(rs.getBoolean("is_published"));
                 bookList.add(book);
             }
@@ -486,6 +487,7 @@ public class QueryDatabaseUser {
                 book.setCreated(rs.getTimestamp("created"));
                 book.setLastUpdated(rs.getTimestamp("last_updated"));
                 book.setIsPublished(rs.getBoolean("is_published"));
+                book.setSnippet(rs.getString("snippet"));
                 bookList.add(book);
             }
             return bookList;
@@ -524,6 +526,7 @@ public class QueryDatabaseUser {
                 book.setTags(rs.getString("tags"));
                 book.setCreated(rs.getTimestamp("created"));
                 book.setLastUpdated(rs.getTimestamp("last_updated"));
+                book.setSnippet(rs.getString("snippet"));
                 book.setIsPublished(rs.getBoolean("is_published"));
             }
             return book;

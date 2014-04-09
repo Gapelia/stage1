@@ -137,10 +137,9 @@ public class Libraries {
 
         User u = SessionManager.getUserFromSessionId(sessionId);
         Gson gson = new GsonBuilder().create();
-        int libraryId = Integer.parseInt(UUID.randomUUID().toString());
         Library library = new Library();
         Date date = new Date();
-        library.setLibraryId(libraryId);
+        LOG.info("CREATING LIBRARY");
         library.setUserId(u.getUserId());
         library.setTitle(title);
         library.setDescription(description);
@@ -155,6 +154,7 @@ public class Libraries {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String updateLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("libraryId") int libraryId,
                                 @FormParam("title") String title,
                                 @FormParam("featuredBook") Integer featuredBook,
                                 @FormParam("description") String description,
@@ -165,7 +165,6 @@ public class Libraries {
 
         User u = SessionManager.getUserFromSessionId(sessionId);
         Gson gson = new GsonBuilder().create();
-        int libraryId = Integer.parseInt(UUID.randomUUID().toString());
         Library library = new Library();
         Date date = new Date();
         library.setLibraryId(libraryId);
@@ -178,6 +177,4 @@ public class Libraries {
         library.setCreated(new Timestamp(date.getTime()));
         return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
     }
-
-//	@Path("getFeaturedBooks") //TODO with recommendations
 }

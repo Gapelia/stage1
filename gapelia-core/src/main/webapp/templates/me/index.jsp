@@ -313,6 +313,9 @@
                         if ($vW < "321") {
                             $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
                         }
+                        if ($vW < "321") {
+                                                $(".book-snippet").css("display","block")
+                        				}
 
                         $("#g-menu-toggle").click(function () {
                             $("#featured-nav").toggle();

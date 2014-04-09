@@ -102,18 +102,13 @@ function makeBackPage() {
         success: function (data) {
             bookUser = data;
             var currentWebsite = document.URL;
-            facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-            twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
-            emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
             backPage = "";
             i++;
-            backPage += "<div class=\"bb-item back-cover\" id=\"page\"" + i + "><div class=\"content\"><section class=\"backcover-wrapper\">";
+            backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
             backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
             backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
             backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
-            backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
-            backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
-            backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section>";
+            backPage += "<h2>" + pages[0].title + "</h2><hr/><section>";
             backPage += getUserFromBookId(bookId);
             backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
             getReadNextBook();
@@ -131,6 +126,7 @@ function getReadNextBook() {
         url: "/api/users/getCreatedBooksPublic",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+        async: false,
         data: {
             userId: bookOwner.userId
         },
@@ -192,6 +188,7 @@ $(function () {
         url: "/api/users/getPages",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+        async: false,
         data: {
             bookId: bookId
         },
@@ -300,10 +297,7 @@ $(function () {
                 });
 
             }
-
-
         },
-
         error: function (q, status, err) {
 
             if (status == "timeout") {
@@ -536,10 +530,9 @@ $(function () {
     emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
 
     share = "";
-
-    share += "<li><a href=\"javascript:window.open(" + facebookShare + ",'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
-    share += "<li><a href=\"javascript:window.open(" + twitterShare + ",'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-    share += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\"></i></a></li>";
+    share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+    share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+    share += "<li><a href=\""+ emailShare+"\"><i class=\"ion-email\"></i></a></li>";
     $(".share-book").html(share);
     var third = getUserDrafts();
 
@@ -575,7 +568,7 @@ $(function () {
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-        share += "<li><a href=\"emailShare\">Share via Email<i class=\"ion-email\"></i><</a></li>";
+        share += "<li><a href=\""+ emailShare+"\">Share via Email</a></li>";
         share += "</ul>";
 
         $("#g-menu-toggle").after(menu);

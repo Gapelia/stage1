@@ -83,9 +83,7 @@
 			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
-					<button id="confirm-cancel-library" class="blank">Delete</button>
 					<button id="confirm-create-library" class="outline">Save</button>
-					<button id="confirm-edit-library" class="outline">Edit</button>
 				</div>
 
 				<div class="button-wrapper">
@@ -150,7 +148,7 @@
 
 				// Click "Save" button
 				$("#confirm-create-library").click(function () {
-
+                    createLibrary();
 					// Disable
 					$(".button-wrapper").css("opacity", "0").hide();
 					$("#confirm-cancel-library, #confirm-create-library").hide();
