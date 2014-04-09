@@ -7165,7 +7165,7 @@ a.count span.dont-move {
     background-color: #fcfcfc;
     box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 1px 0 0 rgba(25, 25, 25, 0.05);
     cursor: pointer;
-    display: block;
+    display: none;
     top: 0;
     translate: translateY(0);
     -o-translate: translateY(0);
@@ -7538,7 +7538,12 @@ a.count span.dont-move {
   .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
     display: none; }
   .profile #user-splash #splash-user-bio {
-    font-size: 1.25rem; } }
+    font-size: 1.25rem; }
+
+  .accounts .account-info-wrapper label {
+    width: 49%; }
+  .accounts .account-info-wrapper .col-0 .bl_form input {
+    width: 50%; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing .super-wrapper {
     padding: 30% 10%; }
@@ -8083,39 +8088,21 @@ a.count span.dont-move {
   .profile .book .book-buttons {
     display: none; }
 
-  	/*
-  	.accounts {
-  
-  		overflow: hidden;
-  		overflow-y: auto;
-  
-  		#menu {
-  			font-size: 1rem;
-  			max-height: 300px;
-  
-  			#nav-notify {
-  				ul {
-  					font-size: 0.8rem;
-  					line-height: 1rem;
-  
-  					li { padding: 1rem 2rem; }
-  				}
-  			}
-  		}
-  
-  		.account-info-wrapper {
-  			line-height: 1.5rem;
-  
-  			h3 {
-  				font-size: 0.9rem;
-  				font-weight: 600;
-  				line-height: 1rem;
-  				text-transform: uppercase;
-  			}
-  		}
-  
-  	}
-  	*/ }
+  .accounts #account-splash-wrapper {
+    margin-bottom: -1rem;
+    top: 0; }
+  .accounts .account-info-wrapper label {
+    text-align: center; }
+  .accounts .account-info-wrapper .col-0 .bl_form input {
+    font-size: 0.8rem;
+    text-align: center;
+    width: 80%; }
+  .accounts #notifications-toggle {
+    margin-left: 0;
+    text-align: center; }
+  .accounts #notifications-toggle span {
+    font-size: 0.9rem;
+    padding: 0.5rem 0rem 1rem 0; } }
 /*************************************************************************************** SHAME/SCSS **/
 /****************************** FOR THOSE BROWSERS THAT STILL NEED VENDOR PREFIXES TO WORK. PUSSIES **/
 /** FULL-BOOK/SCSS ***********************************************************************************/
