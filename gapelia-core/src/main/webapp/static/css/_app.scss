@@ -288,7 +288,8 @@
 		background-color: rgba($gray-i, 0.4);
 		//box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine" // hidden until animation is developed
 		// display: inline-block;
-		float: left;
+		border-radius: 10px;
+    float: left;
 		overflow: hidden;
 		position: relative;
 		transition: box-shadow 0.2s ease;
