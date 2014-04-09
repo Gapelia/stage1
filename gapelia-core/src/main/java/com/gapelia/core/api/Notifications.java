@@ -27,7 +27,8 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return QueryDatabaseNotifications.getUserNotifications(u);
+        return null;
+        //return QueryDatabaseNotifications.getUserNotifications(u);
     }
 
     @Path("getBooksSumbitedToLibrary")
@@ -41,7 +42,8 @@ public class Notifications {
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return QueryDatabaseNotifications.getBooksSubmitted(u, libraryId);
+        return null;
+        //return QueryDatabaseNotifications.getBooksSubmitted(u, libraryId);
     }
 
 
@@ -67,7 +69,7 @@ public class Notifications {
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return QueryDatabaseNotifications.createBookNotification(bookNotifications);
+        //return QueryDatabaseNotifications.createBookNotification(bookNotifications);
         return null;
     }
 
@@ -94,8 +96,8 @@ public class Notifications {
         java.util.Date date= new java.util.Date();
         libraryNotifications.setDateSend(new Timestamp(date.getTime()));
         libraryNotifications.setAccepted(false);
-        //return QueryDatabaseActions.bookmarkBook(u, bookId);
         return null;
+        //return QueryDatabaseNotifications.createLibraryNotification(libraryNotifications);
     }
 
     @Path("respondLibraryNotification")
