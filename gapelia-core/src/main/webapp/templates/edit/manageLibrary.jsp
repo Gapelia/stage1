@@ -49,48 +49,57 @@
 
     <div id="mp-pusher" class="super-wrapper">
 
-       <!--/ site-menu /-->
-       			<nav id="site-menu" class="mp-menu">
-       				<div class="mp-level">
+        <!--/ site-menu /-->
+        <nav id="site-menu" class="mp-menu">
+            <div class="mp-level">
 
-       					<h2><a href="/featured">Gapelia</a></h2>
+                <h2><a href="/featured">Gapelia</a></h2>
 
-       					<ul>
-       						<li class="home"><a href="/featured">FOLIOGRAM</a></li>
-       						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
-       						<li class="not-mobile"><a href="/createbook">Create book</a></li>
-       						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
+                <ul>
+                    <li class="home"><a href="/featured">FOLIOGRAM</a>
+                    </li>
+                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
+                    </li>
+                    <li class="not-mobile"><a href="/createbook">Create book</a>
+                    </li>
+                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+                    </li>
 
-       						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
-       							<ul id="draft-menu"></ul>
-       						</li>
+                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
+                        <ul id="draft-menu"></ul>
+                    </li>
 
-       						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
-       							<ul>
-       								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
-       								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
-       								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
-       								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
-       								<li><a href="#">2 edit requests are pending for your review</a></li>
-       							</ul>
-       						</li>
+                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
+                        <ul>
+                            <li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a>
+                            </li>
+                            <li><a href="#">Tommy commented on your story: "Well that was weird"</a>
+                            </li>
+                            <li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a>
+                            </li>
+                            <li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a>
+                            </li>
+                            <li><a href="#">2 edit requests are pending for your review</a>
+                            </li>
+                        </ul>
+                    </li>
 
-       						<li class="fq"><a href="#">Help</a>
-       						<li class="help"><a href="#">Contact</a>
-       						<li class="logout"><a href="#">Log Out</a>
-       					</ul>
+                    <li class="fq"><a href="#">Help</a>
+                        <li class="help"><a href="#">Contact</a>
+                            <li class="logout"><a href="#">Log Out</a>
+                </ul>
 
-       				</div>
-       			</nav>
-       			<!--//site-menu /-->
+            </div>
+        </nav>
+        <!--//site-menu /-->
 
-       			<!--/ main-panel /-->
-       			<div id="featured-panel">
-       				<button id="g-menu-toggle" class="notification-time">
-       					<span id="notification-count">6</span>
-       					<i class="ion-drag"></i>
-       				</button>
-       			</div>
+        <!--/ main-panel /-->
+        <div id="featured-panel">
+            <button id="g-menu-toggle" class="notification-time">
+                <span id="notification-count">6</span>
+                <i class="ion-drag"></i>
+            </button>
+        </div>
 
         <!--/ main-content /-->
         <div id="featured-scroller">
@@ -453,7 +462,7 @@
         setTimeout(function () {
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
-        },1000);
+        }, 1000);
         setTimeout(function () {
             getBooksInLibraryOwner();
             getSubmissionsInLibrary();

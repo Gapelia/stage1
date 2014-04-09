@@ -286,6 +286,7 @@ $(function () {
                     $(".resize-smaller, .resize-bigger").remove();
                 });
 
+
             });
 
             // Initialize book structure

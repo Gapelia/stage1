@@ -123,7 +123,7 @@ function getFeaturedBooks() {
                 toInsert += "</div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
             $("#book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
@@ -131,8 +131,8 @@ function getFeaturedBooks() {
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
+                $(".book-snippet").css("display", "block")
+            }
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -163,11 +163,11 @@ function getUserCreatedBooks() {
                 toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div><div class=\"library-location\">";
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
 
             }
-            if(toInsert=="") {
-               (elem=document.getElementById('close-splash')).parentNode.removeChild(elem);
+            if (toInsert == "") {
+                (elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
             }
             $("#user-book-list").html(toInsert);
             var w = 0,
@@ -184,8 +184,8 @@ function getUserCreatedBooks() {
                 $("#user-book-list").css("width", w + "px");
             }
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
+                $(".book-snippet").css("display", "block")
+            }
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -254,12 +254,12 @@ function getBooksInLibrary() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-                 toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
             $("#book-list").html(toInsert);
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
+                $(".book-snippet").css("display", "block")
+            }
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -291,12 +291,12 @@ function getBooksInLibraryOwner() {
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a><\/div><div \class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
             $("#book-list").html(toInsert);
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
+                $(".book-snippet").css("display", "block")
+            }
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -380,8 +380,9 @@ function getLibrary() {
         }
     });
 }
+
 function getAllLibraries() {
-sessionId = readCookie("JSESSIONID");
+    sessionId = readCookie("JSESSIONID");
     $.ajax({
         url: "/api/libraries/getAllLibraries",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -401,6 +402,7 @@ sessionId = readCookie("JSESSIONID");
         }
     });
 }
+
 function getLibraries() {
 
     sessionId = readCookie("JSESSIONID");
@@ -504,7 +506,7 @@ function editLibrary() {
             library = data;
             $("#new-library-info h2").html(library.title);
             $("#new-library-info p").html(library.description);
-            $("#new-library").css("background-image",'url('+library.coverPhoto+')');
+            $("#new-library").css("background-image", 'url(' + library.coverPhoto + ')');
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -515,6 +517,7 @@ function editLibrary() {
         }
     });
 }
+
 function createLibrary() {
     title = $("#new-library-info h2").html();
     description = $("#new-library-info p").html();
@@ -522,7 +525,7 @@ function createLibrary() {
     coverPhoto = bg.replace("url(", "").replace(")", "");
     tags = '';
     var elms = $(".selectize-input div");
-    elms.each(function(i) {
+    elms.each(function (i) {
         var elm = $(this);
         tags += elm.html() + ",";
     });
@@ -537,7 +540,7 @@ function createLibrary() {
             title: title,
             description: description,
             coverPhoto: coverPhoto,
-            tags:tags
+            tags: tags
         },
         success: function (data) {
             console.log(data)
@@ -559,7 +562,7 @@ function updateLibrary() {
     coverPhoto = bg.replace("url(", "").replace(")", "");
     tags = '';
     var elms = $(".selectize-input div");
-    elms.each(function(i) {
+    elms.each(function (i) {
         var elm = $(this);
         tags += elm.html() + ",";
     });
@@ -575,7 +578,7 @@ function updateLibrary() {
             title: title,
             description: description,
             coverPhoto: coverPhoto,
-            tags:tags
+            tags: tags
         },
         success: function (data) {
             console.log(data)
@@ -589,6 +592,7 @@ function updateLibrary() {
         }
     });
 }
+
 function updateUserOnboard() {
 
     name = user.name;
@@ -753,8 +757,8 @@ function getUserFromBookId(bookId) {
             bookId: bookId
         },
         success: function (data) {
-            bookOwner=data;
-            responseText = "<a href=\""+data.displayName+"\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\""+ data.displayName + "\">" + data.displayName + "</a>";
+            bookOwner = data;
+            responseText = "<a href=\"" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"" + data.displayName + "\">" + data.displayName + "</a>";
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -842,14 +846,14 @@ function getPublicCreatedBooks() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
                 toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
-                toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>"+book.snippet+"</p></div></li>";
+                toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
             $("#user-book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
             $("#user-book-list .book").css("height", h);
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
+                $(".book-snippet").css("display", "block")
+            }
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -972,19 +976,19 @@ $(document).on("click", ".yay-delete-library", function () {
     e = $(this).closest(".yay-delete-library");
     libraryId = e.parent().parent().parent().attr("id")
     $.ajax({
-            url: "/api/libraries/deleteLibrary",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                libraryId:libraryId
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                }
+        url: "/api/libraries/deleteLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
             }
-        });
+        }
+    });
 });
 $(document).on("click", ".quick-edit-profile", function () {
     quickUpdateUser();
@@ -994,8 +998,8 @@ $(document).on("click", ".subscribe", function (ev) {
     e = $(this).closest("button");
     library = e.parent().parent();
     libraryId = library.attr("id");
-    if(libraryId== "library-splash") {
-            libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
+    if (libraryId == "library-splash") {
+        libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     }
     a = parseInt(libraryId);
     sessionId = readCookie("JSESSIONID");
@@ -1020,7 +1024,7 @@ $(document).on("click", ".unsubscribe", function (ev) {
     e = $(this).closest("button");
     library = e.parent().parent();
     libraryId = library.attr("id");
-    if(libraryId== "library-splash") {
+    if (libraryId == "library-splash") {
         libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     }
     a = parseInt(libraryId);
@@ -1040,6 +1044,7 @@ $(document).on("click", ".unsubscribe", function (ev) {
         }
     });
 });
+
 function getUserCreatedBooksForLibrary() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -1052,9 +1057,9 @@ function getUserCreatedBooksForLibrary() {
         success: function (data) {
             books = data;
             toInsert = "";
-            for(i in books) {
+            for (i in books) {
                 book = books[i];
-                toInsert += "<li id=\""+book.bookId+"\"><a >"+book.title+"</a></li>";
+                toInsert += "<li id=\"" + book.bookId + "\"><a >" + book.title + "</a></li>";
             }
             $("#my-submissions ul").html(toInsert);
         },
@@ -1070,10 +1075,10 @@ function getUserCreatedBooksForLibrary() {
 $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
-    if(document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
+    if (document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
         console.log("submited for approval");
         submitToLibrary(bookId);
-    } else if(document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
+    } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
         addBookToLibrary(bookId);
     }
     $("#my-submissions ul").toggle();
@@ -1090,54 +1095,56 @@ $(document).on("click", ".approve-book-confirm button", function (ev) {
 function submitToLibrary() {
 
 }
+
 function acceptBook(bookId) {
 
 }
+
 function addBookToLibrary(bookId) {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-                url: "/api/libraries/addBookToLibrary",
-                contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                type: "POST",
-                data: {
-                    sessionId: sessionId,
-                    bookId: bookId,
-                    libraryId:libraryId
-                },
-                error: function (q, status, err) {
-                    if (status == "timeout") {
-                        alert("Request timed out");
-                    }
-                }
-            });
+        url: "/api/libraries/addBookToLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            bookId: bookId,
+            libraryId: libraryId
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
 }
 $(document).on("click", ".deny-book-confirm button", function (ev) {
     e = $(this).closest(".deny-book-confirm");
     bookId = e.parent().attr("id")
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-            url: "/api/libraries/removeBookFromLibrary",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                bookId: bookId,
-                libraryId:document.URL.split("/")[document.URL.split("/").length - 1]
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                }
+        url: "/api/libraries/removeBookFromLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            bookId: bookId,
+            libraryId: document.URL.split("/")[document.URL.split("/").length - 1]
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
             }
-        });
+        }
+    });
 
 });
 $(document).on("click", ".yay-delete-book", function (ev) {
     e = $(this).closest(".yay-delete-book");
     bookId = e.parent().parent().parent().attr("id")
     sessionId = readCookie("JSESSIONID");
-    if(document.URL.split("/")[document.URL.split("/").length - 1] == "me") {
+    if (document.URL.split("/")[document.URL.split("/").length - 1] == "me") {
         $.ajax({
             url: "/api/books/deleteBook",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1414,14 +1421,14 @@ function deletePage(deletePageId) {
 
 function updateBookAndPages(isPublished) {
     tags = '';
-    if(isPublished==true) {
+    if (isPublished == true) {
 
-            var elms = $(".selectize-input div");
-            elms.each(function(i) {
-                var elm = $(this);
-                tags += elm.html() + ",";
-            });
-            tags = tags.substring(0, tags.length - 1);
+        var elms = $(".selectize-input div");
+        elms.each(function (i) {
+            var elm = $(this);
+            tags += elm.html() + ",";
+        });
+        tags = tags.substring(0, tags.length - 1);
     }
     $.ajax({
         url: "/api/books/updateBook",
