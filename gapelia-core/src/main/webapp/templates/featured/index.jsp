@@ -98,6 +98,11 @@
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
 						<li id="nav-libraries"><a href="#">Libraries</a></li>
 						<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
+						
+						<div id="stay-right">
+							<button id="start-story" class="black-border"><a href="/createBook">New Story</a></button>
+						</div>
+						
 					</ul>
 				</div>
 

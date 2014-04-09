@@ -1903,9 +1903,11 @@ ol {
   color: #fcfcfc !important; }
 
 .black-border {
-  background-color: #fcfcfc !important;
-  border: 1px solid rgba(25, 25, 25, 0.3) !important;
-  color: #191919 !important; }
+  background-color: transparent !important;
+  border: 1px solid rgba(89, 179, 166, 0.4) !important;
+  color: #59b3a6 !important; }
+.black-border:hover {
+  color: #fcfcfc !important; }
 
 .white {
   background-color: rgba(255, 255, 255, 0.85) !important;
@@ -2456,6 +2458,20 @@ body.landing h1 {
   left: 6rem;
   margin: 0;
   position: fixed; }
+.app #featured-nav #stay-right {
+  top: -0.2rem;
+  right: 0;
+  display: inline-flex;
+  margin: 1.2rem 1rem 0 0;
+  position: absolute; }
+.app #featured-nav #stay-right a {
+  color: #59b3a6;
+  font-size: 0.8rem; }
+.app #featured-nav #stay-right:hover {
+  background-color: #59b3a6;
+  border-radius: 5px; }
+.app #featured-nav #stay-right:hover a {
+  color: #fcfcfc; }
 .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
   position: absolute;
   top: 53.5%;
