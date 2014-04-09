@@ -2058,10 +2058,14 @@ ol {
   -webkit-transform: translate3d(0, 0, 0); }
 
 .mp-menu ul {
+  font-size: 1.4rem;
+  font-weight: 100;
   margin: 1rem 0 0 0;
   padding: 0;
   list-style: none;
   overflow: hidden; }
+.mp-menu ul .home {
+  font-weight: 700 !important; }
 .mp-menu ul li {
   position: relative;
   			/*
@@ -2119,7 +2123,7 @@ ol {
   right: 0;
   font-size: 1.1rem;
   height: auto;
-  padding: 0.515rem 1.5rem;
+  padding: 1rem 1.5rem;
   position: absolute; }
 .mp-menu ul li .notif-count {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
@@ -2146,17 +2150,18 @@ ol {
   padding: 0;
   border: 0;
   box-shadow: none !important;
-  font-size: inherit; }
+  font-size: 1rem; }
 .mp-menu ul li ul li a:hover {
   background-color: inherit !important;
   box-shadow: none !important;
   opacity: 1 !important; }
 .mp-menu ul li ul li .delete-draft {
-  margin: -1.6rem 0 0 -24px;
-  padding: 0.2rem 1.5rem;
+  margin: -1.7rem 0 0 -24px;
+  padding: 0.3rem 1.5rem;
   background-color: #fcfcfc;
   color: #ff3b30;
   display: none;
+  font-size: 1rem;
   position: absolute;
   width: 300px;
   z-index: 1; }
@@ -2182,10 +2187,10 @@ ol {
   color: #ff3b30; }
 .mp-menu ul li #draft-menu .a {
   margin: 0 0 0 2.5rem !important; }
-.mp-menu ul .logout {
-  font-size: 0.8rem;
-  margin-top: 75%;
-  text-align: center; }
+.mp-menu ul .fq {
+  margin-top: 76%%; }
+.mp-menu ul .help, .mp-menu ul .fq, .mp-menu ul .logout {
+  font-size: 0.8rem; }
 .mp-menu .mp-level.mp-level-overlay .mp-back, .mp-menu .mp-level.mp-level-overlay .mp-back:after {
   background-color: transparent;
   box-shadow: none;
@@ -2297,6 +2302,7 @@ body.landing h1 {
   background-size: 200px 500px;
   margin: 2rem 0 0 0;
   transition: all 0.2s ease;
+  display: none;
   border: 0;
   color: transparent;
   font: 0/0 a;
