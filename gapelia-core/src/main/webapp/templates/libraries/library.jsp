@@ -82,11 +82,15 @@
                         </ul>
                     </li>
                 </ul>
-
             </div>
         </nav>
-        <!--//main-panel /-->
 
+        			<!--/ main-panel /-->
+        			<div id="featured-panel">
+        				<button id="g-menu-toggle">
+        					<i class="ion-drag"></i>
+        				</button>
+        			</div>
         <!--/ main-content /-->
         <div id="featured-scroller">
             <div id="nav-wrapper">

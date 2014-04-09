@@ -1070,12 +1070,10 @@ function getUserCreatedBooksForLibrary() {
 $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
-    addBookToLibrary(bookId);
     if(document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
         console.log("submited for approval");
         submitToLibrary(bookId);
-    } else {
-        console.log("added your own book!");
+    } else if(document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
         addBookToLibrary(bookId);
     }
     $("#my-submissions ul").toggle();

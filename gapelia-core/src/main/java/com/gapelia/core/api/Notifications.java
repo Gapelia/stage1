@@ -67,7 +67,7 @@ public class Notifications {
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        //return QueryDatabaseActions.bookmarkBook(u, bookId);
+        return QueryDatabaseNotifications.createBookNotification(bookNotifications);
         return null;
     }
 

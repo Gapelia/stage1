@@ -40,23 +40,23 @@
 	<body class="app">
 
 		<div id="mp-pusher" class="super-wrapper">
-
-			<!--/ site-menu /-->
+<!--/ site-menu /-->
 			<nav id="site-menu" class="mp-menu">
 				<div class="mp-level">
 
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
-						<li><a href="/createlibrary">Create book</a></li>
-						<li><a href="#" id="create-library">Start library</a></li>
+						<li class="home"><a href="/featured">FOLIOGRAM</a></li>
+						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+						<li class="not-mobile"><a href="/createbook">Create book</a></li>
+						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">&#xf104;</a>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
 							<ul>
 								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
 								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
@@ -66,7 +66,9 @@
 							</ul>
 						</li>
 
-						<li class="logout"><a href="#">Log Out</a></li>
+						<li class="fq"><a href="#">Help</a>
+						<li class="help"><a href="#">Contact</a>
+						<li class="logout"><a href="#">Log Out</a>
 					</ul>
 
 				</div>
@@ -75,7 +77,8 @@
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
-				<button id="g-menu-toggle">
+				<button id="g-menu-toggle" class="notification-time">
+					<span id="notification-count">6</span>
 					<i class="ion-drag"></i>
 				</button>
 			</div>
@@ -84,7 +87,7 @@
 			<section id="new-library">
 				<div class="library-controls">
 					<button id="confirm-cancel-library" class="blank">Delete</button>
-					<button id="confirm-create-library" class="outline">Edit</button>
+					<button id="confirm-create-library" class="outline">Save</button>
 				</div>
 
 				<div class="button-wrapper">
