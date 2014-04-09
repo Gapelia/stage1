@@ -2986,11 +2986,6 @@ body.landing h1 {
   z-index: 100; }
 .app #new-library .library-controls .outline {
   border: 1px solid #fcfcfc !important; }
-.app #new-library .library-controls #confirm-edit-library {
-  top: 0;
-  right: -10rem;
-  position: absolute;
-  transition: right 0.5s ease; }
 .app #new-library #close-splash {
   opacity: 0;
   transition: opacity 0.5s ease; }
@@ -3134,6 +3129,15 @@ body.library #stay-right {
   display: inline-flex;
   margin: 1.5rem 1rem 0 0;
   position: absolute; }
+body.library #stay-right a {
+  color: rgba(11, 72, 107, 0.25) !important;
+  font-size: 1rem !important; }
+body.library #stay-right a:hover {
+  color: #59b3a6 !important; }
+body.library #stay-right:hover {
+  background: none !important; }
+body.library #stay-right #my-submissions {
+  padding-top: 0.5rem; }
 body.library #stay-right li {
   display: inline-block;
   margin: 0;
@@ -3143,8 +3147,8 @@ body.library #stay-right li a {
 body.library #stay-right li:first-child {
   margin: 0 1rem 0 0; }
 body.library #stay-right li ul {
-  top: initial;
-  right: 0 !important;
+  top: 1.3rem;
+  right: -2rem !important;
   background-color: #fcfcfc;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -3153,7 +3157,7 @@ body.library #stay-right li ul {
   width: auto; }
 body.library #stay-right li ul li {
   display: block;
-  padding: 0.5rem 1rem; }
+  padding: 0.5rem 2rem; }
 body.library #stay-right li ul li label, body.library #stay-right li ul li input[type="checkbox"] {
   vertical-align: middle; }
 body.library #stay-right li ul li label {

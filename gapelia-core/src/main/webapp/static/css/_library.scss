@@ -28,7 +28,22 @@ body.library {
 		display: inline-flex;
 		margin: 1.5rem 1rem 0 0;
 		position: absolute;
+		
+		a {
+			color: rgba(11, 72, 107, 0.25) !important;
+			font-size: 1rem !important;
+			
+			&:hover { color: #59b3a6 !important; }
+		}
+		
+		&:hover {
+			background: none !important;
+		}
 
+		#my-submissions {
+			padding-top: 0.5rem;
+		}
+		
 		li {
 			display: inline-block;
 			margin: 0;
@@ -39,7 +54,7 @@ body.library {
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
-				top: initial; right: 0 !important;
+				top: 1.3rem; right: -2rem !important;
 
 				background-color: $white;
 				border-bottom-left-radius: 5px;
@@ -50,7 +65,7 @@ body.library {
 
 				li {
 					display: block;
-					padding: 0.5rem 1rem;
+					padding: 0.5rem 2rem;
 
 					label, input[type="checkbox"] {
 						vertical-align: middle;
