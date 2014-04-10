@@ -300,8 +300,21 @@
 		-moz-transform: translateY(-50%);
 		-webkit-transform: translateY(-50%);
 	}
+  
+  //empty lists
+
+  .library-list-wrapper .empty-created-libraries {
+    color: rgba(11, 72, 107, 0.25);
+    font-size: 1.6rem;
+    left: 68%;
+    line-height: 2;
+    margin-top: -24%;
+    position: absolute;
+    width: 630px;
+  }
 
 	#book-list { width: 8340px !important; }
+  
   
   .book, .collection, .library, .new, .draft {
 		width: 400px; height: auto;
