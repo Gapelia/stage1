@@ -220,6 +220,9 @@ function getUserDrafts() {
                 toInsert += "</span>";
                 toInsert += "</li>";
             }
+	    if (toInsert == "") {
+		toInsert = "<li ><a>There are no drafts</a></li>";//code
+	    }
             $("#draft-menu").html(toInsert);
             loadDelete();
         },

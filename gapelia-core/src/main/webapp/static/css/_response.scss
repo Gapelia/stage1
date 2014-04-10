@@ -1734,7 +1734,7 @@
 	}
 }
 
-@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {
 		::-webkit-scrollbar {
@@ -2106,6 +2106,8 @@
 		}
 
 		.fluid-wrapper {
+			margin-bottom: 0.5rem;
+			
 			.author-info {
 				width: 100%; height: auto;
 				top: initial; left: initial;
@@ -2123,10 +2125,10 @@
 					position: relative;
 					text-align: left;
 
-					a { padding-left: 7%; }
+					a { padding-left: 9%; }
 					
 					&:before {
-						padding-left: 7%;
+						padding-left: 9%;
 						text-align: left;
 					}
 				}
@@ -2177,10 +2179,10 @@
 			.overlay-preview {
 				height: 100%;
 				
-				.article { margin: 3rem auto; }
+				article { margin: 1rem auto; }
 
 				.page-desc {
-					font-size: 1rem;
+					font-size: 0.8rem;
 					line-height: 2rem;
 					width: 100%;
 				}
@@ -2248,7 +2250,7 @@
 
 		.backcover-wrapper {
 			#fin {
-				padding: 1rem 2rem;
+				padding: 2rem 2rem;
 				text-align: center;
 
 				h2 { display: none; }
