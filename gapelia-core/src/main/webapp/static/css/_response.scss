@@ -575,6 +575,8 @@
 		}
 
 		.fluid-wrapper {
+			margin-bottom: 2rem;
+			
 			.author-info {
 				width: 80%; height: 50px;
 				margin: 1rem 0rem -4.5rem -9.5rem; padding: 0 10%;
@@ -602,11 +604,12 @@
 				height: 500px;
 				position: relative;
 				
-				.page-bg { display: initial !important; }
+				.page-bg { display: none !important; }
 			}
 
 			.fluid-preview {
 				top: initial; left: initial;
+				padding: 1rem 2rem 2rem 2rem;
 				position: relative;
 
 				article {
@@ -677,7 +680,7 @@
 					width: 100%; }
 
 				.page-desc {
-					font-size: 2.3rem;
+					font-size: 2rem;
 					line-height: 3.3rem;
 				}
 			}
@@ -698,6 +701,7 @@
 				top: initial; right: initial;
 
 				overflow-y: initial;
+				margin-bottom: 2rem;
 				padding: 2rem;
 				position: relative;
 
@@ -1315,7 +1319,7 @@
 			.draggable-placeholder { height: 475px; }
 			
 			.fluid-preview {
-				padding: 1rem 2rem 0 2rem;
+				padding: 1rem 2rem 2rem 2rem;
 				
 				.page-title-elem, .page-desc { width: 92%; }
 				.page-title-elem { font-size: 2.1rem; }
@@ -1360,6 +1364,8 @@
 					margin: 22% auto;
 					width: 100%;
 				}
+				
+				.page-desc { font-size: 1.5rem; }
 			}
 		}
 
@@ -1627,11 +1633,11 @@
 		}
 
 		.overlay-wrapper {
-			margin: 0 0 -0.18rem 0;
+			margin: 0 0 2rem 0;
 
 			.overlay-preview {
 				.page-desc {
-					font-size: 1.3rem;
+					font-size: 1.1rem;
 					line-height: 2.3rem;
 				}
 			}
@@ -2131,11 +2137,14 @@
 				}
 			}
 
-			.draggable-placeholder { height: auto; }
+			.draggable-placeholder {
+				height: auto;
+				.page-bg { display: block !important; }
+			}
 			
 			.fluid-preview {
 				padding: 1.2rem 1.2rem;
-				padding-bottom: 0.5rem;
+				padding-bottom: 1rem;
 				article { margin: 0; }
 
 				.page-title-elem, .page-desc { width: 100%; }
@@ -2167,9 +2176,11 @@
 
 			.overlay-preview {
 				height: 100%;
+				
+				.article { margin: 3rem auto; }
 
 				.page-desc {
-					font-size: 1.5rem;
+					font-size: 1rem;
 					line-height: 2rem;
 					width: 100%;
 				}
