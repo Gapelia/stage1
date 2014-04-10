@@ -1,61 +1,195 @@
-function makeBackPage() {
-    getUserFromBookId(bookId);
-    $.ajax({
-        url: "/api/users/getUserPublic",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            userId: bookOwner.userId
-        },
-        success: function (data) {
-            bookUser = data;
-            var currentWebsite = document.URL;
-            backPage = "";
-            i++;
-            backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
-            backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
-            backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
-            backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
-            backPage += "<h2>" + pages[0].title + "</h2><hr/><section>";
-            backPage += getUserFromBookId(bookId);
-            backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
-            getReadNextBook();
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            }
-        }
-    });
-}
+var Page = (function () {
 
-function getReadNextBook() {
-    $.ajax({
-        url: "/api/users/getCreatedBooksPublic",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        async: false,
-        data: {
-            userId: bookOwner.userId
+    var config = {
+        $bookBlock: $("#bb-bookblock"),
+        $navNext: $("#bb-nav-next"),
+        $navPrev: $("#bb-nav-prev"),
+        $navFirst: $("#bb-nav-first")
+        // $navLast: $("#next-book-toggle")
+        // $navLast: $('#bb-nav-last')
+    },
+
+        init = function () {
+
+            config.$bookBlock.bookblock({
+                speed: 1000,
+                shadowSides: 0.8,
+                shadowFlip: 0.4
+            });
+
+            initEvents();
+
         },
-        success: function (data) {
-            nextBook = data[0];
-            backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div>";
-            htmlToInsert += backPage;
-            $("#header-author").html(bookOwner.name);
-            $("#header-title").html(pages[0].title);
-            $(".inserted-img").fluidbox();
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
-            }
+
+        initEvents = function () {
+
+            var $slides = config.$bookBlock.children();
+
+            // add navigation events
+            config.$navNext.on("click touchstart", function () {
+                config.$bookBlock.bookblock("next");
+                return false;
+            });
+
+            config.$navPrev.on("click touchstart", function () {
+                config.$bookBlock.bookblock("prev");
+                return false;
+            });
+
+            config.$navFirst.on("click touchstart", function () {
+                config.$bookBlock.bookblock("first");
+                return false;
+            });
+
+            /*
+									config.$navLast.on("click touchstart", function () {
+										config.$bookBlock.bookblock("last");
+										return false;
+									});
+									*/
+
+            // add swipe events
+            $slides.on({
+                "swipeleft": function (event) {
+                    config.$bookBlock.bookblock("next");
+                    return false;
+                },
+
+                "swiperight": function (event) {
+                    config.$bookBlock.bookblock("prev");
+                    return false;
+                }
+            });
+
+            // add keyboard events
+            $(document).keydown(function (e) {
+
+                var
+                keyCode = e.keyCode || e.which,
+                    arrow = {
+                        left: 37,
+                        up: 38,
+                        right: 39,
+                        down: 40
+                    };
+
+                switch (keyCode) {
+                case arrow.left:
+                    config.$bookBlock.bookblock("prev");
+                    break;
+
+                case arrow.right:
+                    config.$bookBlock.bookblock("next");
+                    break;
+                }
+
+            });
+
+        };
+
+    return {
+        init: init
+    };
+
+})();
+
+function loadBook() {
+    $(document).on("mouseenter", ".inserted-img", function () {
+        if ($(this).parent().hasClass("minimized-p")) {
+            $(this).before("<div class=\"resize-bigger\">[bigger]</div>");
+        } else {
+            $(this).before("<div class=\"resize-smaller\">[smaller]</div>");
         }
+
     });
+
+    $(document).on("click", ".resize-smaller", function () {
+
+        $(this).parent().addClass("minimized-p");
+        $(this).parent().mouseleave();
+
+    });
+
+    $(document).on("click", ".resize-bigger", function () {
+
+        $(this).parent().removeClass("minimized-p");
+        $(this).parent().mouseleave();
+
+    });
+
+    $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
+        $(".resize-smaller, .resize-bigger").remove();
+    });
+    if ($vW > "1024") {
+
+        $(".content").css({
+            "width": $vW + "px",
+            "height": $vH + "px"
+        });
+        Page.init();
+
+
+    }
+
 }
 $(function () {
+    function makeBackPage() {
+        getUserFromBookId(bookId);
+        $.ajax({
+            url: "/api/users/getUserPublic",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                userId: bookOwner.userId
+            },
+            success: function (data) {
+                bookUser = data;
+                var currentWebsite = document.URL;
+                backPage = "";
+                backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
+                backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
+                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
+                backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
+                backPage += "<h2>" + pages[0].title + "</h2><hr/><section>";
+                backPage += getUserFromBookId(bookId);
+                backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
+                getReadNextBook();
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                }
+            }
+        });
+    }
+
+    function getReadNextBook() {
+        $.ajax({
+            url: "/api/users/getCreatedBooksPublic",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            async: false,
+            data: {
+                userId: bookOwner.userId
+            },
+            success: function (data) {
+                nextBook = data[0];
+                backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                htmlToInsert += backPage;
+                $("#bb-bookblock").html(htmlToInsert);
+                $(".inserted-img").fluidbox();
+                loadBook();
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+    }
+
     function getUserFromBook(bookId) {
         responseText = '';
         $.ajax({
@@ -67,6 +201,7 @@ $(function () {
                 bookId: bookId
             },
             success: function (data) {
+                bookOwner = data
                 responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
             },
             error: function (q, status, err) {
@@ -104,11 +239,10 @@ $(function () {
             });
 
             htmlToInsert = "";
+            backPage = '';
 
             for (i = 0; i < pages.length; i++) {
                 current = pages[i];
-
-                // TODO get author photo and name and insert in places
                 if (i == 0) {
                     htmlToInsert += "<div class=\"bb-item front-cover\" style=\"display: block\" id=\"page" + (i + 1) + "\"><div class=\"content\">";
                     insertPage(1);
@@ -117,208 +251,10 @@ $(function () {
                     insertPage(0);
                 }
             }
-            getReadNextBook();
-            $("#bb-bookblock").html(htmlToInsert);
+            makeBackPage();
 
-            $(".inserted-img").fluidbox();
-            // $(".inserted-img").before("<div class=\"resize-img\">[..]</div>");
 
-            $(function () {
-                $(".fluid-wrapper").imgLiquid({
-                    fill: true
-                });
-                $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                    fill: true
-                });
-                $(".overlay-wrapper").imgLiquid({
-                    fill: true
-                });
-                $(".phototext-wrapper").imgLiquid({
-                    fill: true
-                });
-                $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                    fill: true
-                });
-                /*
-							$(".inserted-img").hover(function () {
 
-								if ($(this).parent().hasClass("minimized-p")) {
-
-									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
-									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
-
-								} else {
-
-									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
-									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
-
-								}
-
-								// $(this).show();
-
-							}, function () {
-
-								$(this).prev(".resize-smaller", ".resize-bigger").remove();
-								// $(this).hide();
-
-							});
-							*/
-
-                /*
-							$('img.col-image1').mouseover(function () {
-								$(this).siblings('a.plus-sign').show();
-							});
-
-							$('img.col-image1').mouseleave(function () {
-								$(this).siblings('a.plus-sign').hide();
-							});
-							*/
-
-                $(document).on("mouseenter", ".inserted-img", function () {
-
-                    if ($(this).parent().hasClass("minimized-p")) {
-                        $(this).before("<div class=\"resize-bigger\">[bigger]</div>");
-                    } else {
-                        $(this).before("<div class=\"resize-smaller\">[smaller]</div>");
-                    }
-
-                });
-
-                /*
-							$(document).on("mouseleave", ".inserted-img", function () {
-
-								$(this).prev(".resize-smaller", ".resize-bigger").remove();
-								// $(this).closest(".resize-smaller", ".resize-bigger").remove();
-
-							});
-							*/
-
-                $(document).on("click", ".resize-smaller", function () {
-
-                    $(this).parent().addClass("minimized-p");
-                    $(this).parent().mouseleave();
-
-                });
-
-                $(document).on("click", ".resize-bigger", function () {
-
-                    $(this).parent().removeClass("minimized-p");
-                    $(this).parent().mouseleave();
-
-                });
-
-                $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
-                    $(".resize-smaller, .resize-bigger").remove();
-                });
-
-            });
-
-            // Initialize book structure
-            if ($vW > "1024") {
-
-                $(".content").css({
-                    "width": $vW + "px",
-                    "height": $vH + "px"
-                });
-
-                var Page = (function () {
-
-                    var config = {
-                        $bookBlock: $("#bb-bookblock"),
-                        $navNext: $("#bb-nav-next"),
-                        $navPrev: $("#bb-nav-prev"),
-                        $navFirst: $("#bb-nav-first")
-                        // $navLast: $("#next-book-toggle")
-                        // $navLast: $('#bb-nav-last')
-                    },
-
-                        init = function () {
-
-                            config.$bookBlock.bookblock({
-                                speed: 1000,
-                                shadowSides: 0.8,
-                                shadowFlip: 0.4
-                            });
-
-                            initEvents();
-
-                        },
-
-                        initEvents = function () {
-
-                            var $slides = config.$bookBlock.children();
-
-                            // add navigation events
-                            config.$navNext.on("click touchstart", function () {
-                                config.$bookBlock.bookblock("next");
-                                return false;
-                            });
-
-                            config.$navPrev.on("click touchstart", function () {
-                                config.$bookBlock.bookblock("prev");
-                                return false;
-                            });
-
-                            config.$navFirst.on("click touchstart", function () {
-                                config.$bookBlock.bookblock("first");
-                                return false;
-                            });
-
-                            /*
-									config.$navLast.on("click touchstart", function () {
-										config.$bookBlock.bookblock("last");
-										return false;
-									});
-									*/
-
-                            // add swipe events
-                            $slides.on({
-                                "swipeleft": function (event) {
-                                    config.$bookBlock.bookblock("next");
-                                    return false;
-                                },
-
-                                "swiperight": function (event) {
-                                    config.$bookBlock.bookblock("prev");
-                                    return false;
-                                }
-                            });
-
-                            // add keyboard events
-                            $(document).keydown(function (e) {
-
-                                var
-                                keyCode = e.keyCode || e.which,
-                                    arrow = {
-                                        left: 37,
-                                        up: 38,
-                                        right: 39,
-                                        down: 40
-                                    };
-
-                                switch (keyCode) {
-                                case arrow.left:
-                                    config.$bookBlock.bookblock("prev");
-                                    break;
-
-                                case arrow.right:
-                                    config.$bookBlock.bookblock("next");
-                                    break;
-                                }
-
-                            });
-
-                        };
-
-                    return {
-                        init: init
-                    };
-
-                })();
-
-            }
-
-            Page.init();
 
         },
 
@@ -688,7 +624,5 @@ $(function () {
         });
 
     }
-
-    // var third = getUserDrafts();
 
 });
