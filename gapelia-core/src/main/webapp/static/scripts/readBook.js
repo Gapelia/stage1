@@ -144,13 +144,18 @@ $(function () {
             },
             success: function (data) {
                 bookUser = data;
-                var currentWebsite = document.URL;
+                currentWebsite = document.URL;
+                facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+                twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
                 backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
                 backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
-                backPage += "<h2>" + pages[0].title + "</h2><hr/><section>";
+                backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
+                backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
+                backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section>";
                 backPage += getUserFromBookId(bookId);
                 backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
                 getReadNextBook();
@@ -177,6 +182,8 @@ $(function () {
                 backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                 htmlToInsert += backPage;
                 $("#bb-bookblock").html(htmlToInsert);
+                $("#header-author").html(bookOwner.name);
+                $("#header-title").html(pages[0].title);
                 $(".inserted-img").fluidbox();
                 loadBook();
             },
