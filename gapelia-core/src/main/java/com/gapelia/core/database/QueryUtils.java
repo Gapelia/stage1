@@ -19,7 +19,6 @@ public class QueryUtils {
     private static final String BOOK_FROM_BOOKID = "SELECT * FROM books where id = ?";
     private static final String LIBRARY_FROM_BOOKID = "SELECT * FROM library_books  where book_id = ?";
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
-    private static final String USER_FROM_LIBRARYID = "SELECT * FROM editors where library_id = ?";
     private static final String USER_FROM_USERID = "SELECT * from users where id = ?";
 
     public static User getUserFromLibraryId(int libraryId) {
@@ -27,11 +26,12 @@ public class QueryUtils {
         ResultSet rs = null;
         User user = new User();
         try {
-            statement = connection.prepareStatement(USER_FROM_LIBRARYID);
+            statement = connection.prepareStatement(GET_LIBRARY);
             statement.setInt(1, libraryId);
+            LOG.info(statement.toString());
             rs = statement.executeQuery();
             while (rs.next()) {
-                int userId = rs.getInt("editor_id");
+                int userId = rs.getInt("created_by");
                 statement = connection.prepareStatement(USER_FROM_USERID);
                 statement.setInt(1, userId);
                 LOG.info(statement.toString());

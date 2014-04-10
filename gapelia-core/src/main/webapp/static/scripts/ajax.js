@@ -14,6 +14,29 @@ function readCookie(name) {
     return null;
 }
 
+function getFullBookFromBookId(bookId) {
+    $.ajax({
+        url: "/api/utils/getBookFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            book = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return book;
+}
+
 function loadDelete() {
     // Drafts functionality
     $(".dd-link").click(function (e) {
@@ -344,7 +367,47 @@ function getCreatedLibraries() {
     });
 }
 
-function getSubmissionsInLibrary() {}
+function getSubmissionsInLibrary() {
+    $.ajax({
+        url: "/api/notifications/getNotificationsLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            notificationLibraries = data;
+            toInsert = '';
+            for (i in notificationLibraries) {
+                currBook = getFullBookFromBookId(notificationLibraries[i].bookId);
+                toInsert += "<li id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserID + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
+                toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
+                toInsert += "<a class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
+                toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div>";
+                toInsert += getUserFromBookId(currBook.bookId);
+                toInsert += "</div></li>";
+            }
+            $("#submission-list").html(toInsert);
+            var w = 0,
+                h = 0;
+
+            $("#submission-list li").each(function () {
+                w += $(this).outerWidth();
+                h += $(this).outerHeight();
+            });
+            w += 500;
+            if ($vW > "1024") {
+                $("#submission-list").css("width", w + "px");
+            }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
+}
 
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
@@ -726,7 +789,6 @@ function getUserPublic() {
 }
 
 function getUserFromLibraryId(libraryId) {
-    responseText = '';
     $.ajax({
         url: "/api/utils/getUserFromLibraryId",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -736,7 +798,7 @@ function getUserFromLibraryId(libraryId) {
             libraryId: libraryId
         },
         success: function (data) {
-            //function for editor
+            libraryOwner = data;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -746,7 +808,6 @@ function getUserFromLibraryId(libraryId) {
             }
         }
     });
-    return responseText;
 }
 
 function getUserFromBookId(bookId) {
@@ -1091,16 +1152,59 @@ $(document).on("click", ".approve-book-confirm button", function (ev) {
     e = $(this).closest(".approve-book-confirm");
     bookId = e.parent().attr("id")
     sessionId = readCookie("JSESSIONID");
-    //addBookToLibrary(bookId);
-    //acceptBook(bookId);
+    senderId = e.parent().attr("booksuser");
+    addBookToLibrary(bookId);
+    acceptBook(bookId);
 });
 
-function submitToLibrary() {
+function submitToLibrary(bookId) {
+    getUserFromLibraryId(libraryId);
+    recipient = libraryOwner.userId;
+    $.ajax({
+        url: "/api/notifications/createLibraryNotification",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            recipient: recipient,
+            bookId: bookId,
+            referencedLibrary: libraryId,
+            sender: user.userId
+        },
+        success: function (data) {
 
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
 }
 
 function acceptBook(bookId) {
+    $.ajax({
+        url: "/api/notifications/removeLibraryNotification",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            recipient: user.userId,
+            sender: senderId,
+            referencedLibrary: libraryId
+        },
+        success: function (data) {
 
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
 }
 
 function addBookToLibrary(bookId) {
@@ -1124,8 +1228,28 @@ function addBookToLibrary(bookId) {
 }
 $(document).on("click", ".deny-book-confirm button", function (ev) {
     e = $(this).closest(".deny-book-confirm");
+    senderId = e.parent().attr("booksuser");
     bookId = e.parent().attr("id")
     sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/notifications/removeLibraryNotification",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            recipient: user.userId,
+            sender: senderId,
+            referencedLibrary: libraryId
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
     $.ajax({
         url: "/api/libraries/removeBookFromLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
