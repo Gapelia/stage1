@@ -354,8 +354,11 @@ function getCreatedLibraries() {
                 toInsert += "<div class=\"lib-blurb\">" + library.description + "</div></div>";
                 toInsert += "<span class=\"image-overlay\"></span><img src=\"" + library.coverPhoto + "\"></li>";
             }
+	    if (toInsert == "") {
+		toInsert = "<a class=\"empty-created-libraries\">It looks like you have not created any libraries, yet. Use libraries to curate content across the platform.</a>";
+	    }
             $("#library-list").html(toInsert)
-
+	    
         },
         error: function (q, status, err) {
             if (status == "timeout") {
