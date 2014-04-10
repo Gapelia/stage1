@@ -162,6 +162,26 @@
 
     <script>
         $(document).ready(function () {
+               sessionId = readCookie("JSESSIONID");
+                   $.ajax({
+                       url: "/api/users/getUser",
+                       contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                       type: "POST",
+                       data: {
+                           sessionId: sessionId
+                       },
+                       success: function (data) {
+                           user = data;
+
+                       },
+                       error: function (q, status, err) {
+                           if (status == "timeout") {
+                               alert("Request timed out");
+                           } else {
+                               alert("Some issue happened with your request: " + err.message);
+                           }
+                       }
+                   });
             var first = getListSubscribed();
             var second = getListBookmarked();
             var third = getUserDrafts();
@@ -414,7 +434,7 @@
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;
                     $(".book").css("height", h);
-                },1000);
+         },3000);
     </script>
     <!--//scripts /-->
 

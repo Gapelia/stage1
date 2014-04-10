@@ -18,35 +18,30 @@ import java.sql.Timestamp;
 public class Notifications {
     private static Logger LOG = Logger.getLogger(Notifications.class);
 
-    @Path("getNotificationsUser")
+    @Path("getNotificationsLibraries")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getNotificationsUser(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
-        return null;
-        //return QueryDatabaseNotifications.getUserNotifications(u);
-    }
-
-    @Path("getBooksSumbitedToLibrary")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getBooksSumbitedToLibrary(@FormParam("sessionId") String sessionId,
+    public String getNotificationsLibraries(@FormParam("sessionId") String sessionId,
                                             @FormParam("libraryId") int libraryId) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return null;
-        //return QueryDatabaseNotifications.getBooksSubmitted(u, libraryId);
+        return gson.toJson(QueryDatabaseNotifications.getLibraryNotifications(u, libraryId));
     }
 
-
+    @Path("getNotificationsBooks")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getNotificationsBooks(@FormParam("sessionId") String sessionId) {
+        if(!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.getBookNotifications(u));
+    }
 
     @Path("createBookNotification")
     @POST
@@ -58,7 +53,6 @@ public class Notifications {
                                          @FormParam("sender") int sender) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         BookNotifications bookNotifications = new BookNotifications();
         bookNotifications.setRecipientUserId(recipient);
         bookNotifications.setBookId(referencedBook);
@@ -66,11 +60,9 @@ public class Notifications {
         bookNotifications.setAccepted(false);
         java.util.Date date= new java.util.Date();
         bookNotifications.setDateSend(new Timestamp(date.getTime()));
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        //return QueryDatabaseNotifications.createBookNotification(bookNotifications);
-        return null;
+        return gson.toJson(QueryDatabaseNotifications.createBookNotification(bookNotifications));
     }
 
     @Path("createLibraryNotification")
@@ -84,7 +76,6 @@ public class Notifications {
                                             @FormParam("sender") int sender) {
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         LibraryNotifications libraryNotifications = new LibraryNotifications();
@@ -96,38 +87,40 @@ public class Notifications {
         java.util.Date date= new java.util.Date();
         libraryNotifications.setDateSend(new Timestamp(date.getTime()));
         libraryNotifications.setAccepted(false);
-        return null;
-        //return QueryDatabaseNotifications.createLibraryNotification(libraryNotifications);
+        return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotifications));
     }
 
-    @Path("respondLibraryNotification")
+    @Path("removeLibraryNotification")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String respondLibraryNotification(@FormParam("sessionId") String sessionId) {
+    public String removeLibraryNotification(@FormParam("sessionId") String sessionId,
+                                            @FormParam("recipient") int recipient,
+                                            @FormParam("sender") int sender,
+                                            @FormParam("referencedLibrary") int referenced){
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
+        LOG.info("REMOVING NOTIGIFCATION");
         User u = SessionManager.getUserFromSessionId(sessionId);
-        //return QueryDatabaseActions.bookmarkBook(u, bookId);
-        return null;
+        return gson.toJson(QueryDatabaseNotifications.removeLibraryNotification(sender,recipient,referenced));
     }
 
-    @Path("respondBookNotification")
+    @Path("removeBookNotification")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String respondBookNotification(@FormParam("sessionId") String sessionId) {
+    public String removeBookNotification(@FormParam("sessionId") String sessionId,
+                                            @FormParam("recipient") int recipient,
+                                            @FormParam("sender") int sender,
+                                            @FormParam("referencedLibrary") int referenced){
         if(!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
+        LOG.info("REMOVING NOTIGIFCATION");
         User u = SessionManager.getUserFromSessionId(sessionId);
-        //return QueryDatabaseActions.bookmarkBook(u, bookId);
-        return null;
+        return gson.toJson(QueryDatabaseNotifications.removeBookNotification(sender,recipient,referenced));
     }
-
 
 
 }

@@ -226,6 +226,7 @@
             var second = getListBookmarked();
             var third = getUserDrafts();
             var fourth = getBooksInLibraryOwner();
+            getUser();
         });
 
         function load() {
@@ -342,7 +343,8 @@
             }, 1000);
 
             $("#nav-books").addClass("current");
-
+            h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
             NProgress.done();
 
             // Click "Books"
@@ -462,7 +464,7 @@
         setTimeout(function () {
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
-        }, 1000);
+        }, 2000);
         setTimeout(function () {
             getBooksInLibraryOwner();
             getSubmissionsInLibrary();
