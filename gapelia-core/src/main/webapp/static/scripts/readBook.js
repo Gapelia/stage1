@@ -1,95 +1,3 @@
-var Page = (function () {
-
-    var config = {
-        $bookBlock: $("#bb-bookblock"),
-        $navNext: $("#bb-nav-next"),
-        $navPrev: $("#bb-nav-prev"),
-        $navFirst: $("#bb-nav-first")
-        // $navLast: $('#back-covert')
-
-    },
-
-        init = function () {
-
-            config.$bookBlock.bookblock({
-                speed: 1000,
-                shadowSides: 0.8,
-                shadowFlip: 0.4
-            });
-
-            initEvents();
-
-        },
-
-        initEvents = function () {
-
-            var $slides = config.$bookBlock.children();
-
-            // add navigation events
-            config.$navNext.on("click touchstart", function () {
-                config.$bookBlock.bookblock("next");
-                return false;
-            });
-
-            config.$navPrev.on("click touchstart", function () {
-                config.$bookBlock.bookblock("prev");
-                return false;
-            });
-
-            config.$navFirst.on("click touchstart", function () {
-                config.$bookBlock.bookblock("first");
-                return false;
-            });
-            /*
-									config.$navLast.on("click touchstart", function () {
-										console.log("end of book");
-									});
-*/
-            // add swipe events
-            $slides.on({
-                "swipeleft": function (event) {
-                    config.$bookBlock.bookblock("next");
-                    return false;
-                },
-
-                "swiperight": function (event) {
-                    config.$bookBlock.bookblock("prev");
-                    return false;
-                }
-            });
-
-            // add keyboard events
-            $(document).keydown(function (e) {
-
-                var
-                keyCode = e.keyCode || e.which,
-                    arrow = {
-                        left: 37,
-                        up: 38,
-                        right: 39,
-                        down: 40
-                    };
-
-                switch (keyCode) {
-                case arrow.left:
-                    config.$bookBlock.bookblock("prev");
-                    break;
-
-                case arrow.right:
-                    config.$bookBlock.bookblock("next");
-                    break;
-                }
-
-            });
-
-        };
-
-    return {
-        init: init
-    };
-
-})();
-
 function makeBackPage() {
     getUserFromBookId(bookId);
     $.ajax({
@@ -134,11 +42,9 @@ function getReadNextBook() {
             nextBook = data[0];
             backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div>";
             htmlToInsert += backPage;
-            $("#bb-bookblock").html(htmlToInsert);
             $("#header-author").html(bookOwner.name);
             $("#header-title").html(pages[0].title);
             $(".inserted-img").fluidbox();
-            Page.init();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -161,8 +67,7 @@ $(function () {
                 bookId: bookId
             },
             success: function (data) {
-                bookOwner = data;
-                responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+                responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"user.jsp?id=" + data.userId + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
             },
             error: function (q, status, err) {
                 if (status == "timeout") {
@@ -188,7 +93,6 @@ $(function () {
         url: "/api/users/getPages",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
-        async: false,
         data: {
             bookId: bookId
         },
@@ -213,51 +117,62 @@ $(function () {
                     insertPage(0);
                 }
             }
-            makeBackPage();
+            getReadNextBook();
+            $("#bb-bookblock").html(htmlToInsert);
+
+            $(".inserted-img").fluidbox();
+            // $(".inserted-img").before("<div class=\"resize-img\">[..]</div>");
+
             $(function () {
-                // Styling layouts
-                $(".backcover-wrapper #fin-next").imgLiquid({
+                $(".fluid-wrapper").imgLiquid({
                     fill: true
                 });
+                $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+                    fill: true
+                });
+                $(".overlay-wrapper").imgLiquid({
+                    fill: true
+                });
+                $(".phototext-wrapper").imgLiquid({
+                    fill: true
+                });
+                $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+                    fill: true
+                });
+                /*
+							$(".inserted-img").hover(function () {
 
-                if ($vW > "1024") {
+								if ($(this).parent().hasClass("minimized-p")) {
 
-                    $("img").VimeoThumb();
+									// $(this).append('<a class="mediumInsert-imageResizeBigger"></a>');
+									$(this).before("<div class=\"resize-bigger\">[bigger]</div>");
 
-                    setTimeout(function () {
-                        $(".video-player-container").imgLiquid({
-                            fill: true
-                        });
-                    }, 1000); // prevent placeholder from appearing
+								} else {
 
-                    $(".fluid-wrapper").imgLiquid({
-                        fill: true
-                    });
-                    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                        fill: true
-                    });
-                    $(".overlay-wrapper").imgLiquid({
-                        fill: true
-                    });
-                    $(".phototext-wrapper").imgLiquid({
-                        fill: true
-                    });
-                    $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                        fill: true
-                    });
+									// $(this).append('<a class="mediumInsert-imageResizeSmaller"></a>');
+									$(this).before("<div class=\"resize-smaller\">[smaller]</div>");
 
-                    $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+								}
 
-                    $(document).on("click", ".play-video", function () {
+								// $(this).show();
 
-                        $(".play-video").hide();
+							}, function () {
 
-                        $(".video-player-container img").hide();
-                        $(".video-player-container iframe").show();
+								$(this).prev(".resize-smaller", ".resize-bigger").remove();
+								// $(this).hide();
 
-                    });
+							});
+							*/
 
-                }
+                /*
+							$('img.col-image1').mouseover(function () {
+								$(this).siblings('a.plus-sign').show();
+							});
+
+							$('img.col-image1').mouseleave(function () {
+								$(this).siblings('a.plus-sign').hide();
+							});
+							*/
 
                 $(document).on("mouseenter", ".inserted-img", function () {
 
@@ -268,6 +183,16 @@ $(function () {
                     }
 
                 });
+
+                /*
+							$(document).on("mouseleave", ".inserted-img", function () {
+
+								$(this).prev(".resize-smaller", ".resize-bigger").remove();
+								// $(this).closest(".resize-smaller", ".resize-bigger").remove();
+
+							});
+							*/
+
                 $(document).on("click", ".resize-smaller", function () {
 
                     $(this).parent().addClass("minimized-p");
@@ -286,7 +211,6 @@ $(function () {
                     $(".resize-smaller, .resize-bigger").remove();
                 });
 
-
             });
 
             // Initialize book structure
@@ -297,8 +221,107 @@ $(function () {
                     "height": $vH + "px"
                 });
 
+                var Page = (function () {
+
+                    var config = {
+                        $bookBlock: $("#bb-bookblock"),
+                        $navNext: $("#bb-nav-next"),
+                        $navPrev: $("#bb-nav-prev"),
+                        $navFirst: $("#bb-nav-first")
+                        // $navLast: $("#next-book-toggle")
+                        // $navLast: $('#bb-nav-last')
+                    },
+
+                        init = function () {
+
+                            config.$bookBlock.bookblock({
+                                speed: 1000,
+                                shadowSides: 0.8,
+                                shadowFlip: 0.4
+                            });
+
+                            initEvents();
+
+                        },
+
+                        initEvents = function () {
+
+                            var $slides = config.$bookBlock.children();
+
+                            // add navigation events
+                            config.$navNext.on("click touchstart", function () {
+                                config.$bookBlock.bookblock("next");
+                                return false;
+                            });
+
+                            config.$navPrev.on("click touchstart", function () {
+                                config.$bookBlock.bookblock("prev");
+                                return false;
+                            });
+
+                            config.$navFirst.on("click touchstart", function () {
+                                config.$bookBlock.bookblock("first");
+                                return false;
+                            });
+
+                            /*
+									config.$navLast.on("click touchstart", function () {
+										config.$bookBlock.bookblock("last");
+										return false;
+									});
+									*/
+
+                            // add swipe events
+                            $slides.on({
+                                "swipeleft": function (event) {
+                                    config.$bookBlock.bookblock("next");
+                                    return false;
+                                },
+
+                                "swiperight": function (event) {
+                                    config.$bookBlock.bookblock("prev");
+                                    return false;
+                                }
+                            });
+
+                            // add keyboard events
+                            $(document).keydown(function (e) {
+
+                                var
+                                keyCode = e.keyCode || e.which,
+                                    arrow = {
+                                        left: 37,
+                                        up: 38,
+                                        right: 39,
+                                        down: 40
+                                    };
+
+                                switch (keyCode) {
+                                case arrow.left:
+                                    config.$bookBlock.bookblock("prev");
+                                    break;
+
+                                case arrow.right:
+                                    config.$bookBlock.bookblock("next");
+                                    break;
+                                }
+
+                            });
+
+                        };
+
+                    return {
+                        init: init
+                    };
+
+                })();
+
             }
+
+            Page.init();
+
         },
+
         error: function (q, status, err) {
 
             if (status == "timeout") {
@@ -312,6 +335,7 @@ $(function () {
 
     // Set up page layouts
     function insertPage(isFirst) {
+
         switch (current.templateId) {
         case 0:
             fluidLayout(isFirst);
@@ -502,6 +526,50 @@ $(function () {
 
     }
 
+    // Styling layouts
+    $(".backcover-wrapper #fin-next").imgLiquid({
+        fill: true
+    });
+
+    if ($vW > "1024") {
+
+        $("img").VimeoThumb();
+
+        setTimeout(function () {
+            $(".video-player-container").imgLiquid({
+                fill: true
+            });
+        }, 1000); // prevent placeholder from appearing
+
+        $(".fluid-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".overlay-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".phototext-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+            fill: true
+        });
+
+        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+
+        $(document).on("click", ".play-video", function () {
+
+            $(".play-video").hide();
+
+            $(".video-player-container img").hide();
+            $(".video-player-container iframe").show();
+
+        });
+
+    }
+
     // Streamline book for mobile
     if ($vW < "1025") {
 
@@ -525,16 +593,8 @@ $(function () {
 
     // FIN
     NProgress.done();
-    var currentWebsite = document.URL;
-    facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-    twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
-    emailShare = 'mailto:?subject=Oh%20hai&amp;body=I enjoyed Reading and thought you would too. Check it out at ' + currentWebsite;
 
-    share = "";
-    share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
-    share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-    share += "<li><a href=\""+ emailShare+"\"><i class=\"ion-email\"></i></a></li>";
-    $(".share-book").html(share);
+    // &c
     var third = getUserDrafts();
 
     // Slide menu for desktop
@@ -564,12 +624,18 @@ $(function () {
         menu += "</li>";
         menu += "</ul>";
 
+        var currentWebsite = document.URL;
+
+        facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+        twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+        emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
+
         share = "";
         share += "<ul id=\"share-menu\" style=\"display: none;\">";
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-        share += "<li><a href=\""+ emailShare+"\">Share via Email</a></li>";
+        share += "<li><a href=\"emailShare\">Share via Email</a></li>";
         share += "</ul>";
 
         $("#g-menu-toggle").after(menu);
@@ -622,4 +688,7 @@ $(function () {
         });
 
     }
+
+    // var third = getUserDrafts();
+
 });
