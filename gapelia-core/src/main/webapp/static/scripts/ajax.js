@@ -387,9 +387,9 @@ function getSubmissionsInLibrary() {
                 toInsert += "<li id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserID + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
                 toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
                 toInsert += "<a class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div>";
+                toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(currBook.bookId);
-                toInsert += "</div></li>";
+                toInsert += "</div></div></li>";
             }
             $("#submission-list").html(toInsert);
             var w = 0,
@@ -1174,9 +1174,6 @@ function submitToLibrary(bookId) {
             referencedLibrary: libraryId,
             sender: user.userId
         },
-        success: function (data) {
-
-        },
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
@@ -1185,20 +1182,26 @@ function submitToLibrary(bookId) {
     });
 }
 
-function acceptBook(bookId) {
+function getNotifications() {
+sessionId = readCookie("JSESSIONID");
     $.ajax({
-        url: "/api/notifications/removeLibraryNotification",
+        url: "/api/notifications/getSystemNotifications",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         async: false,
         type: "POST",
         data: {
             sessionId: sessionId,
-            recipient: user.userId,
-            sender: senderId,
-            referencedLibrary: libraryId
         },
         success: function (data) {
-
+            notifications = data;
+            toInsert ='';
+            for(i in notifications) {
+                notification = notifications[i];
+                toInsert += "<li sender=\""+notification.senderUserID+"\" recipient=\""+notification.recipientUserId+"\"><a>"+notification.message+"</a></li>";
+            }
+            i++;
+            $("#gpl-menu-notify ul").html(toInsert);
+            $("#gpl-menu-notify .icon").html(i);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1208,6 +1211,47 @@ function acceptBook(bookId) {
             }
         }
     });
+}
+function acceptBook(bookId) {
+    $.ajax({
+            url: "/api/notifications/removeLibraryNotification",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            async: false,
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                recipient: user.userId,
+                sender: senderId,
+                referencedLibrary: libraryId
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+        message = user.displayName + " has accepted your book to their library and says: " + $(".approve-book-confirm textarea")[0].value;
+        $.ajax({
+            url: "/api/notifications/createSystemNotification",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            async: false,
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                recipient: senderId,
+                sender: user.userID,
+                message: message
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
 }
 
 function addBookToLibrary(bookId) {

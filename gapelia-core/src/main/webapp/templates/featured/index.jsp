@@ -170,6 +170,7 @@
 
         $(function () {
             var third = getUserDrafts();
+             getNotifications();
             var second = getBookmarkedBooks();
             var fourth = getListBookmarked();
             var fifth = getListSubscribed();
