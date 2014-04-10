@@ -2058,8 +2058,9 @@ ol {
   -webkit-transform: translate3d(0, 0, 0); }
 
 .mp-menu ul {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 100;
+  line-height: 1.3rem;
   margin: 1rem 0 0 0;
   padding: 0;
   list-style: none;
@@ -2123,7 +2124,7 @@ ol {
   right: 0;
   font-size: 1.1rem;
   height: auto;
-  padding: 1rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   position: absolute; }
 .mp-menu ul li .notif-count {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
@@ -2188,9 +2189,10 @@ ol {
 .mp-menu ul li #draft-menu .a {
   margin: 0 0 0 2.5rem !important; }
 .mp-menu ul .fq {
-  margin-top: 76%%; }
+  margin-top: 84%; }
 .mp-menu ul .help, .mp-menu ul .fq, .mp-menu ul .logout {
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  line-height: 0.5rem; }
 .mp-menu .mp-level.mp-level-overlay .mp-back, .mp-menu .mp-level.mp-level-overlay .mp-back:after {
   background-color: transparent;
   box-shadow: none;
@@ -7723,7 +7725,7 @@ a.count span.dont-move {
   .profile #user-header {
     font-size: 1.1rem;
     padding: 0; } }
-@media all and (max-width: 400px), screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;
     height: 2px; }
@@ -7964,6 +7966,8 @@ a.count span.dont-move {
     				line-height: 1.7rem;
     			}
     			*/ }
+  .full-book .fluid-wrapper {
+    margin-bottom: 0.5rem; }
   .full-book .fluid-wrapper .author-info {
     width: 100%;
     height: auto;
@@ -7981,9 +7985,9 @@ a.count span.dont-move {
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
-    padding-left: 7%; }
+    padding-left: 9%; }
   .full-book .fluid-wrapper .author-info .author-name:before {
-    padding-left: 7%;
+    padding-left: 9%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
     margin-left: -13%;
@@ -8013,10 +8017,10 @@ a.count span.dont-move {
     margin: 0 0 2rem 0; }
   .full-book .overlay-wrapper .overlay-preview {
     height: 100%; }
-  .full-book .overlay-wrapper .overlay-preview .article {
-    margin: 3rem auto; }
+  .full-book .overlay-wrapper .overlay-preview article {
+    margin: 1rem auto; }
   .full-book .overlay-wrapper .overlay-preview .page-desc {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 2rem;
     width: 100%; }
   .full-book .phototext-wrapper .phototext-preview {
@@ -8054,7 +8058,7 @@ a.count span.dont-move {
     font-size: 1rem;
     line-height: 2rem; }
   .full-book .backcover-wrapper #fin {
-    padding: 1rem 2rem;
+    padding: 2rem 2rem;
     text-align: center; }
   .full-book .backcover-wrapper #fin h2 {
     display: none; }

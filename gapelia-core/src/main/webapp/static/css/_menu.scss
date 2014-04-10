@@ -108,8 +108,9 @@
 
 .mp-menu {
 	ul {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		font-weight: 100;
+		line-height: 1.3rem;
 		margin: 1rem 0 0 0; padding: 0;
 
 		list-style: none;
@@ -145,7 +146,7 @@
 
 				font-size: 1.1rem;
 				height: auto;
-				padding: 1rem 1.5rem;
+				padding: 0.7rem 1.5rem;
 				position: absolute;
 			}
 
@@ -278,10 +279,10 @@
 		}
 		
 		.fq {
-			margin-top: 76%%;
+			margin-top: 84%;
 		}
 		
-		.help, .fq, .logout { font-size: 0.8rem; }
+		.help, .fq, .logout { font-size: 0.8rem; line-height: 0.5rem; }
 	}
 
 	.mp-level.mp-level-overlay {
