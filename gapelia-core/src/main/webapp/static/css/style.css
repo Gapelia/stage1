@@ -2532,7 +2532,9 @@ body.landing h1 {
   margin-top: -15%;
   position: relative;
   text-align: center;
-  width: 800px; }
+  width: 235%; }
+.app .library-list-wrapper .library-empty {
+  width: 176% !important; }
 .app #book-list {
   width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
