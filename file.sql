@@ -154,6 +154,15 @@ CREATE TABLE IF NOT EXISTS library_notifications (
 );
 CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);
 
+CREATE TABLE IF NOT EXISTS system_notifications (
+        recipient INT REFERENCES users(id) ON DELETE CASCADE,
+        message TEXT,
+        sender INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+        date_sent TIMESTAMP WITH TIME ZONE NOT NULL       
+);
+
+CREATE INDEX system_notifications_idx on system_notifications(recipient);
+
 CREATE TABLE IF NOT EXISTS library_books (
         library_id INT REFERENCES libraries(id) ON DELETE CASCADE,
         book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL

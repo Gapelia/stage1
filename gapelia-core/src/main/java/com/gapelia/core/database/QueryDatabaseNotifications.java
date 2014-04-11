@@ -1,9 +1,6 @@
 package com.gapelia.core.database;
 
-import com.gapelia.core.model.Book;
-import com.gapelia.core.model.BookNotifications;
-import com.gapelia.core.model.LibraryNotifications;
-import com.gapelia.core.model.User;
+import com.gapelia.core.model.*;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -17,8 +14,11 @@ public class QueryDatabaseNotifications {
     private static Connection connection = DatabaseManager.getInstance().getConnection();
     private static final String GET_USER_LIBRARY_NOTIFICATIONS = "SELECT * FROM library_notifications where recipient = ? and referenced_library = ?";
     private static final String GET_USER_BOOK_NOTIFICATIONS = "SELECT * FROM book_notifications where recipient = ?";
+    private static final String GET_USER_SYSTEM_NOTIFICATIONS = "SELECT * FROM system_notifications where recipient = ?";
     private static final String INSERT_BOOK_NOTIFICATION = "INSERT into book_notifications(recipient,referenced_book,sender,date_sent,accepted)VALUES(?,?,?,?,?)";
     private static final String INSERT_LIBRARY_NOTIFICATION = "INSERT into library_notifications(recipient,referenced_library,book_id,sender,date_sent,accepted)VALUES(?,?,?,?,?,?)";
+    private static final String INSERT_SYSTEM_NOTIFICATION = "INSERT into system_notifications(recipient, message, sender, date_sent)VALUES(?, ?, ?, ?)";
+    private static final String DELETE_SYSTEM_NOTIFICATIONS = "DELETE FROM system_notifications where recipient = ? and sender = ?";
     private static final String DELETE_LIBRARY_NOTIFICATIONS = "DELETE FROM library_notifications where recipient = ? and sender = ? and referenced_library = ?";
     private static final String DELETE_BOOK_NOTIFICATIONS = "DELETE FROM book_notifications where recipient = ? and sender = ? and referenced_book = ?";
 
@@ -94,6 +94,40 @@ public class QueryDatabaseNotifications {
         return null;
     }
 
+    public static ArrayList<SystemNotifications> getSystemNotifications(User u) {
+        PreparedStatement insert = null;
+        ResultSet rs = null;
+        try {
+            ArrayList<SystemNotifications> notificationList= new ArrayList<SystemNotifications>();
+            insert = connection.prepareStatement(GET_USER_SYSTEM_NOTIFICATIONS);
+            insert.setInt(1, u.getUserId());
+            rs = insert.executeQuery();
+            while (rs.next()) {
+                SystemNotifications systemNotifications = new SystemNotifications();
+                systemNotifications.setRecipientUserId(rs.getInt("recipient"));
+                systemNotifications.setMessage(rs.getString("message"));
+                systemNotifications.setSenderUserID(rs.getInt("sender"));
+                systemNotifications.setDateSend(rs.getTimestamp("date_sent"));
+                notificationList.add(systemNotifications);
+            }
+            return notificationList;
+        } catch (SQLException ex) {
+            LOG.error("Cannot bookmark book:" + u + " " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + u + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
+
     public static String createBookNotification(BookNotifications b) {
         PreparedStatement insert = null;
         try {
@@ -119,11 +153,58 @@ public class QueryDatabaseNotifications {
         }
         return "FAILURE";
     }
+    public static String createSystemNotification(SystemNotifications s) {
+        PreparedStatement insert = null;
+        try {
+            ArrayList<SystemNotifications> notificationList = new ArrayList<SystemNotifications>();
+            insert = connection.prepareStatement(INSERT_SYSTEM_NOTIFICATION);
+            insert.setInt(1, s.getRecipientUserId());
+            insert.setString(2, s.getMessage());
+            insert.setInt(3, s.getSenderUserID());
+            insert.setTimestamp(4, s.getDateSend());
+            LOG.info(insert.toString());
+            insert.executeUpdate();
+            return "SUCCESS";
+        } catch (SQLException ex) {
+            LOG.error("Cannot bookmark book:"  + ex.getMessage());
+        } finally {
+            try {
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + ex.getMessage());
+            }
+        }
+        return "FAILURE";
+    }
+
+    public  static String removeSystemNotification(int senderId, int recipientId) {
+        PreparedStatement insert = null;
+        try {
+            ArrayList<BookNotifications> notificationList = new ArrayList<BookNotifications>();
+            insert = connection.prepareStatement(DELETE_SYSTEM_NOTIFICATIONS);
+            insert.setInt(1, recipientId);
+            insert.setInt(2, senderId);
+            insert.executeUpdate();
+            return "SUCCESS";
+        } catch (SQLException ex) {
+            LOG.error("Cannot bookmark book:"  + ex.getMessage());
+        } finally {
+            try {
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + ex.getMessage());
+            }
+        }
+        return "FAILURE";
+    }
 
     public static String createLibraryNotification(LibraryNotifications l) {
         PreparedStatement insert = null;
         try {
-            ArrayList<BookNotifications> notificationList = new ArrayList<BookNotifications>();
             insert = connection.prepareStatement(INSERT_LIBRARY_NOTIFICATION);
             insert.setInt(1, l.getRecipientUserId());
             insert.setInt(2, l.getLibraryId());
@@ -151,7 +232,6 @@ public class QueryDatabaseNotifications {
     public  static String removeLibraryNotification(int senderId, int recipientId, int referenced) {
         PreparedStatement insert = null;
         try {
-            ArrayList<BookNotifications> notificationList = new ArrayList<BookNotifications>();
             insert = connection.prepareStatement(DELETE_LIBRARY_NOTIFICATIONS);
             insert.setInt(1, recipientId);
             insert.setInt(2, senderId);
@@ -176,7 +256,6 @@ public class QueryDatabaseNotifications {
     public  static String removeBookNotification(int senderId, int recipientId, int referenced) {
         PreparedStatement insert = null;
         try {
-            ArrayList<BookNotifications> notificationList = new ArrayList<BookNotifications>();
             insert = connection.prepareStatement(DELETE_BOOK_NOTIFICATIONS);
             insert.setInt(1, recipientId);
             insert.setInt(2, senderId);
