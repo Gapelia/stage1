@@ -8,7 +8,7 @@ body.library {
 	.book, .library {
 		.wrapper { width: 100%; }
 	}
-
+	
 	#featured-panel {
 		overflow: initial;
 
@@ -41,6 +41,7 @@ body.library {
 		}
 
 		#my-submissions {
+			font-weight: 700;
 			padding-top: 0.5rem;
 		}
 		
@@ -54,11 +55,11 @@ body.library {
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
-				top: 1.3rem; right: -2rem !important;
+				top: 1rem; right: -2rem !important;
 
 				background-color: $white;
-				border-bottom-left-radius: 5px;
-				border-bottom-right-radius: 5px;
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
 				display: none;
 				position: relative;
 				width: auto;
