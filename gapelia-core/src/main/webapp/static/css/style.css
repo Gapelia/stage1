@@ -2515,14 +2515,22 @@ body.landing h1 {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
-.app .library-list-wrapper .empty-created-libraries {
+.app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty {
   color: rgba(11, 72, 107, 0.25);
   font-size: 1.6rem;
-  left: 68%;
-  line-height: 2;
-  margin-top: -24%;
-  position: absolute;
-  width: 630px; }
+  left: 13rem;
+  margin-top: -15%;
+  position: relative;
+  text-align: center;
+  width: 800px; }
+.app .subscription-list .library-empty {
+  color: rgba(11, 72, 107, 0.25);
+  font-size: 1.6rem;
+  left: 13rem;
+  margin-top: -15%;
+  position: relative;
+  text-align: center;
+  width: 800px; }
 .app #book-list {
   width: 8340px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {

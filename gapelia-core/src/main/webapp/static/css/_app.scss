@@ -303,15 +303,27 @@
   
   //empty lists
 
-  .library-list-wrapper .empty-created-libraries {
+  .library-list-wrapper .library-empty, .submission-list-wrapper .library-empty, .subscription-list-wrapper .library-empty {
     color: rgba(11, 72, 107, 0.25);
     font-size: 1.6rem;
-    left: 68%;
-    line-height: 2;
-    margin-top: -24%;
-    position: absolute;
-    width: 630px;
+    left: 13rem;
+    margin-top: -15%;
+    position: relative;
+    text-align: center;
+    width: 800px;
   }
+  
+  .subscription-list .library-empty {
+    color: rgba(11, 72, 107, 0.25);
+    font-size: 1.6rem;
+    left: 13rem;
+    margin-top: -15%;
+    position: relative;
+    text-align: center;
+    width: 800px;
+  }
+  
+  //
 
 	#book-list { width: 8340px !important; }
   
