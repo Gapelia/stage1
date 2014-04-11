@@ -384,7 +384,7 @@ function getSubmissionsInLibrary() {
             toInsert = '';
             for (i in notificationLibraries) {
                 currBook = getFullBookFromBookId(notificationLibraries[i].bookId);
-                toInsert += "<li id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserID + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
+                toInsert += "<li id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserId + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
                 toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
                 toInsert += "<a class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div><div class=\"book-info\">";
@@ -426,7 +426,7 @@ function getLibrary() {
         },
         success: function (data) {
             library = data;
-            userName = library.userId;
+            userName = "name";
             featuredBookTitle = "STILL NEED TO GET";
             featuredBookId = library.featuredBook;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
@@ -439,6 +439,29 @@ function getLibrary() {
             toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function getLibraryFromLibraryId(libraryId) {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/libraries/getLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            currlibrary = data;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -761,7 +784,6 @@ function getUser() {
     });
     return null;
 }
-
 function getUserPublic() {
     profileUserId = document.URL.split('?id=')[1]
     $.ajax({
@@ -911,8 +933,8 @@ function getPublicCreatedBooks() {
                 }
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
-                toInsert += "<a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
+                toInsert += getLibraryFromBook(book.bookId);
+                toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
                 toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
             $("#user-book-list").html(toInsert);
@@ -1143,7 +1165,6 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
     if (document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
-        console.log("submited for approval");
         submitToLibrary(bookId);
     } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
         addBookToLibrary(bookId);
@@ -1183,9 +1204,9 @@ function submitToLibrary(bookId) {
 }
 
 function getNotifications() {
-sessionId = readCookie("JSESSIONID");
+    sessionId = readCookie("JSESSIONID");
     $.ajax({
-        url: "/api/notifications/getSystemNotifications",
+        url: "/api/notifications/getAcceptedLibraryNotifications",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         async: false,
         type: "POST",
@@ -1194,14 +1215,33 @@ sessionId = readCookie("JSESSIONID");
         },
         success: function (data) {
             notifications = data;
-            toInsert ='';
+            i=0;
             for(i in notifications) {
                 notification = notifications[i];
-                toInsert += "<li sender=\""+notification.senderUserID+"\" recipient=\""+notification.recipientUserId+"\"><a>"+notification.message+"</a></li>";
-            }
-            i++;
-            $("#gpl-menu-notify ul").html(toInsert);
+                $.ajax({
+                        url: "/api/users/getUserPublic",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        type: "POST",
+                        data: {
+                            userId: notification.senderUserId
+                        },
+                        success: function (data) {
+                            publicUser = data;
+                            toInsert = "<li sender=\""+notification.senderUserId+"\" refrencelibrary=\""+notification.referencedLibrary+"\"recipient=\""+notification.recipientUserId+"\"><a>"+publicUser.displayName+" has accepted your book to their library!</a></li>";
+                            $("#gpl-menu-notify ul").append(toInsert)
+                        },
+                        error: function (q, status, err) {
+                            if (status == "timeout") {
+                                alert("Request timed out");
+                            } else {
+                                alert("Some issue happened with your request: " + err.message);
+                            }
+                        }
+                    });
+             }
+             i++;
             $("#gpl-menu-notify .icon").html(i);
+            $("#notification-count").html(i);
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1214,44 +1254,24 @@ sessionId = readCookie("JSESSIONID");
 }
 function acceptBook(bookId) {
     $.ajax({
-            url: "/api/notifications/removeLibraryNotification",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            async: false,
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                recipient: user.userId,
-                sender: senderId,
-                referencedLibrary: libraryId
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                } else {
-                    alert("Some issue happened with your request: " + err.message);
+                url: "/api/notifications/respondLibraryNotification",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                async: false,
+                type: "POST",
+                data: {
+                    sessionId: sessionId,
+                    recipient: user.userId,
+                    sender: senderId,
+                    referencedLibrary: libraryId
+                },
+                error: function (q, status, err) {
+                    if (status == "timeout") {
+                        alert("Request timed out");
+                    } else {
+                        alert("Some issue happened with your request: " + err.message);
+                    }
                 }
-            }
-        });
-        message = user.displayName + " has accepted your book to their library and says: " + $(".approve-book-confirm textarea")[0].value;
-        $.ajax({
-            url: "/api/notifications/createSystemNotification",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            async: false,
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                recipient: senderId,
-                sender: user.userID,
-                message: message
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                } else {
-                    alert("Some issue happened with your request: " + err.message);
-                }
-            }
-        });
+     });
 }
 
 function addBookToLibrary(bookId) {

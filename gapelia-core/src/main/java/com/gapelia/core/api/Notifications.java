@@ -1,11 +1,9 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.QueryDatabaseActions;
 import com.gapelia.core.database.QueryDatabaseNotifications;
 import com.gapelia.core.model.BookNotifications;
 import com.gapelia.core.model.LibraryNotifications;
-import com.gapelia.core.model.SystemNotifications;
 import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -24,11 +22,23 @@ public class Notifications {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getNotificationsBooks(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseNotifications.getBookNotifications(u));
+    }
+
+    @Path("getAcceptedBookNotifications")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getAccpetedNotificationsBooks(@FormParam("sessionId") String sessionId) {
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.getAcceptedBookNotifications(u));
     }
 
     @Path("createBookNotification")
@@ -37,20 +47,35 @@ public class Notifications {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String createBookNotification(@FormParam("sessionId") String sessionId,
                                          @FormParam("recipient") int recipient,
-                                         @FormParam("referencedBook")int referencedBook,
+                                         @FormParam("referencedBook") int referencedBook,
                                          @FormParam("sender") int sender) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         BookNotifications bookNotifications = new BookNotifications();
         bookNotifications.setRecipientUserId(recipient);
         bookNotifications.setBookId(referencedBook);
-        bookNotifications.setSenderUserID(sender);
+        bookNotifications.setSenderUserId(sender);
         bookNotifications.setAccepted(false);
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         bookNotifications.setDateSend(new Timestamp(date.getTime()));
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseNotifications.createBookNotification(bookNotifications));
+    }
+
+    @Path("respondBookNotification")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String respondBookNotification(@FormParam("sessionId") String sessionId,
+                                          @FormParam("recipient") int recipient,
+                                          @FormParam("sender") int sender,
+                                          @FormParam("referencedLibrary") int referenced) {
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.respondLibraryNotification(sender, recipient, referenced));
     }
 
     @Path("removeBookNotification")
@@ -60,12 +85,12 @@ public class Notifications {
     public String removeBookNotification(@FormParam("sessionId") String sessionId,
                                          @FormParam("recipient") int recipient,
                                          @FormParam("sender") int sender,
-                                         @FormParam("referencedLibrary") int referenced){
-        if(!APIUtil.isValidSession(sessionId))
+                                         @FormParam("referencedLibrary") int referenced) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.removeBookNotification(sender,recipient,referenced));
+        return gson.toJson(QueryDatabaseNotifications.removeBookNotification(sender, recipient, referenced));
     }
 
     @Path("getNotificationsLibraries")
@@ -74,11 +99,24 @@ public class Notifications {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getNotificationsLibraries(@FormParam("sessionId") String sessionId,
                                             @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseNotifications.getLibraryNotifications(u, libraryId));
+    }
+
+    @Path("getAcceptedLibraryNotifications")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getAcceptedLibraryNotifications(@FormParam("sessionId") String sessionId,
+                                                  @FormParam("libraryId") int libraryId) {
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.getAcceptedLibraryNotifications(u));
     }
 
     @Path("createLibraryNotification")
@@ -88,22 +126,37 @@ public class Notifications {
     public String createLibraryNotification(@FormParam("sessionId") String sessionId,
                                             @FormParam("recipient") int recipient,
                                             @FormParam("bookId") int bookId,
-                                            @FormParam("referencedLibrary")int referencedLibrary,
+                                            @FormParam("referencedLibrary") int referencedLibrary,
                                             @FormParam("sender") int sender) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         LibraryNotifications libraryNotifications = new LibraryNotifications();
         libraryNotifications.setBookId(bookId);
         libraryNotifications.setRecipientUserId(recipient);
-        libraryNotifications.setSenderUserID(sender);
+        libraryNotifications.setSenderUserId(sender);
         libraryNotifications.setAccepted(false);
         libraryNotifications.setLibraryId(referencedLibrary);
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         libraryNotifications.setDateSend(new Timestamp(date.getTime()));
         libraryNotifications.setAccepted(false);
         return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotifications));
+    }
+
+    @Path("respondLibraryNotification")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String respondLibraryNotification(@FormParam("sessionId") String sessionId,
+                                             @FormParam("recipient") int recipient,
+                                             @FormParam("sender") int sender,
+                                             @FormParam("referencedLibrary") int referenced) {
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.respondLibraryNotification(sender, recipient, referenced));
     }
 
     @Path("removeLibraryNotification")
@@ -113,58 +166,12 @@ public class Notifications {
     public String removeLibraryNotification(@FormParam("sessionId") String sessionId,
                                             @FormParam("recipient") int recipient,
                                             @FormParam("sender") int sender,
-                                            @FormParam("referencedLibrary") int referenced){
-        if(!APIUtil.isValidSession(sessionId))
+                                            @FormParam("referencedLibrary") int referenced) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.removeLibraryNotification(sender,recipient,referenced));
-    }
-
-    @Path("getSystemNotifications")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getSystemNotifications(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.getSystemNotifications(u));
-    }
-
-    @Path("createSystemNotification")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String createSystemNotification(@FormParam("sessionId") String sessionId,
-                                            @FormParam("recipient") int recipient,
-                                            @FormParam("message") String message) {
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
-        SystemNotifications systemNotification = new SystemNotifications();
-        systemNotification.setRecipientUserId(recipient);
-        systemNotification.setMessage(message);
-        systemNotification.setSenderUserID(u.getUserId());
-        java.util.Date date= new java.util.Date();
-        systemNotification.setDateSend(new Timestamp(date.getTime()));
-        return gson.toJson(QueryDatabaseNotifications.createSystemNotification(systemNotification));
-    }
-
-    @Path("removeSystemNotification")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String removeSystemNotification(@FormParam("sessionId") String sessionId,
-                                            @FormParam("recipient") int recipient,
-                                            @FormParam("sender") int sender){
-        if(!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-        Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.removeSystemNotification(sender, recipient));
+        return gson.toJson(QueryDatabaseNotifications.removeLibraryNotification(sender, recipient, referenced));
     }
 }
 

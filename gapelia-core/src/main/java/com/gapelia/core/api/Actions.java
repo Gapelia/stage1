@@ -15,12 +15,12 @@ public class Actions {
     private static Logger LOG = Logger.getLogger(Actions.class);
 
     @Path("bookmarkBook")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String bookmarkBook(@FormParam("sessionId") String sessionId,
-							 @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+                               @FormParam("bookId") int bookId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -33,8 +33,8 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String removeBookmarkBook(@FormParam("sessionId") String sessionId,
-                                @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+                                     @FormParam("bookId") int bookId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -47,8 +47,8 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String subscribeLibrary(@FormParam("sessionId") String sessionId,
-                                @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+                                   @FormParam("libraryId") int libraryId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         LOG.info("subscribing");
         Gson gson = new GsonBuilder().create();
@@ -62,8 +62,8 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String removeSubscriptionLibrary(@FormParam("sessionId") String sessionId,
-                                @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+                                            @FormParam("libraryId") int libraryId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -76,8 +76,8 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String voteBook(@FormParam("sessionId") String sessionId,
-                                @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+                           @FormParam("bookId") int bookId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -89,8 +89,8 @@ public class Actions {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String removeVoteBook(@FormParam("sessionId") String sessionId,
-                                @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+                                 @FormParam("bookId") int bookId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
