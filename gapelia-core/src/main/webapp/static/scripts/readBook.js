@@ -375,7 +375,7 @@ $(function () {
         htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
         htmlToInsert += "<div class=\"overlay-preview\">";
         htmlToInsert += "<article>";
-        htmlToInsert += "<div class=\"page-desc\">" + current.content + "</div>";
+        htmlToInsert += "<div class=\"page-title-elem\">" + current.title + "</div>";
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
