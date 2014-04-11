@@ -21,6 +21,7 @@ public class QueryDatabaseMetric {
 	private static final String SET_USER_READ = "insert into metric_user_book values (?,?,?,?,?)";
 	private static final String GET_NUM_LOGINS = "select count(*) from metric_user_num_logins where user_id=?";
 	private static final String GET_NUM_BOOK_VIEWS = "select views from metric_book_views where book_id = ?";
+	private static final String GET_NUM_VOTES = "select count(*) from user_votes where book_id = ?";
 	private static final String GET_NUM_PAGE_VIEWS = "select views from metric_page_views where book_id = ? and page_num = ?";
 	private static final String GET_BOOK_SHARES = "select fb,twitter,email from metric_book_shares where book_id = ?";
 	private static final String INCREMENT_BOOK_VIEWS = "update metric_book_views set views = views + 1 where book_id = ?";
@@ -29,6 +30,35 @@ public class QueryDatabaseMetric {
 	private static final String INCREMENT_BOOK_SHARES_TWITTER = "update metric_book_shares set twitter = twitter + 1 where book_id = ?";
 	private static final String INCREMENT_BOOK_SHARES_EMAIL = "update metric_book_shares set email = email + 1 where book_id = ?";
 
+
+	public static int getNumVotes(int bookId) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		int numVotes = 0;
+		try {
+			statement = connection.prepareStatement(GET_NUM_VOTES);
+			statement.setInt(1, bookId);
+			rs = statement.executeQuery();
+			if (rs.next()) {
+				numVotes = rs.getInt(1);
+			}
+
+		} catch (Exception ex) {
+			LOG.error("Cannot get num votes for book:" + bookId, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + bookId + " " + ex.getMessage());
+			}
+		}
+		return numVotes;
+	}
 
 	public static Map<String,Integer> getBookShares(int bookId) {
 		PreparedStatement statement = null;

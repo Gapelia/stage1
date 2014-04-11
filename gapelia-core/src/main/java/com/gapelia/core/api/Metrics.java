@@ -65,6 +65,14 @@ public class Metrics {
 		return gson.toJson(QueryDatabaseMetric.getNumBookViews(bookId));
 	}
 
+	@Path("getNumBookVotes")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getNumBookVotes(@FormParam("bookId") int bookId) {
+		return Integer.toString(QueryDatabaseMetric.getNumVotes(bookId));
+	}
+
 	@Path("getNumPageViews")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
