@@ -1902,11 +1902,20 @@ ol {
   border-radius: 5px !important;
   color: #fcfcfc !important; }
 
-.black-border {
+.brand-i {
   background-color: transparent !important;
   border: 1px solid rgba(89, 179, 166, 0.4) !important;
   color: #59b3a6 !important; }
-.black-border:hover {
+.brand-i:hover {
+  background-color: #59b3a6 !important;
+  color: #fcfcfc !important; }
+
+.brand-ii {
+  background-color: #fcfcfc !important;
+  border: 1px solid rgba(89, 179, 166, 0.4) !important;
+  color: #59b3a6 !important; }
+.brand-ii:hover {
+  background-color: #59b3a6 !important;
   color: #fcfcfc !important; }
 
 .white {
