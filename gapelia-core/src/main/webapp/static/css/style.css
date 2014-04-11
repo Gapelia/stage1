@@ -4875,12 +4875,15 @@ body.library-manager #stay-right {
   position: relative;
   text-align: center;
   width: 60%; }
-.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-desc {
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-title-elem {
   margin: 0 0 0.5rem 0;
   padding: 0;
   color: #fcfcfc;
   font-size: 2.3rem;
+  font-style: italic;
   line-height: 2.8rem; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .page-title-elem:after {
+  color: rgba(252, 252, 252, 0.6); }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview .gapelia-editor-placeholder:after {
   color: rgba(252, 252, 252, 0.9) !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview ::-o-input-placeholder {
@@ -6198,11 +6201,12 @@ a.count span.dont-move {
   position: relative;
   text-align: center;
   width: 60%; }
-.full-book .overlay-wrapper .overlay-preview .page-desc {
+.full-book .overlay-wrapper .overlay-preview .page-title-elem {
   margin: 0 0 0.5rem 0;
   padding: 0;
   color: #fcfcfc;
   font-size: 2.3rem;
+  font-style: italic;
   line-height: 2.8rem;
   text-align: center; }
 .full-book .overlay-wrapper .author-info {

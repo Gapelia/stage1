@@ -254,7 +254,7 @@
                     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
                     htmlToInsert += "<div class=\"overlay-preview\">";
                     htmlToInsert += "<article>";
-                    htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
+                    htmlToInsert += "<div class=\"page-title-elem\">" + current.title + "</div>";
 
                     if (isFirst == 1) {
                         htmlToInsert += "<div class=\"author-info\">";
