@@ -189,6 +189,7 @@
                        }
                    });
             var first = getListSubscribed();
+             getNotifications();
             var second = getListBookmarked();
             var third = getUserDrafts();
         });
