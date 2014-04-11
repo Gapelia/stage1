@@ -768,12 +768,15 @@
 							width: 60%;
 						}
 
-						.page-desc {
+						.page-title-elem {
 							margin: 0 0 0.5rem 0; padding: 0;
 
 							color: $white;
 							font-size: 2.3rem;
+              font-style: italic;
 							line-height: 2.8rem;
+              
+              &:after { color: rgba($white, 0.6); }
 						}
 
 						.gapelia-editor-placeholder:after {

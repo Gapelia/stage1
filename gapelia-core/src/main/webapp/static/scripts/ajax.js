@@ -104,7 +104,10 @@ function getBookmarkedBooks() {
                     toInsert += getUserFromBookId(bookmark.bookId);
                     toInsert += "</div></div></li>";
                 }
-                toInsert += "</ul>";
+                
+		if (toInsert == "") {
+			toInsert += "<section><p>No books have been added to your bookmarks yet.</p></section>";//code
+		}
             }
             $(".bookmark-list-wrapper").html(toInsert);
             $("#library-list .library").css("height", $vH - 97 + "px");
@@ -282,6 +285,9 @@ function getBooksInLibrary() {
                 toInsert += getUserFromBookId(book.bookId);
                 toInsert += "<div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
+	    if (toInsert == "") { 
+		toInsert = "<section><p/>No stories have been publised here yet.</p></section>";
+	    }
             $("#book-list").html(toInsert);
             if ($vW < "321") {
                 $(".book-snippet").css("display", "block")
@@ -319,6 +325,9 @@ function getBooksInLibraryOwner() {
                 toInsert += getUserFromBookId(book.bookId);
                 toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
             }
+	    if (toInsert == "") { 
+		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">No stories have been added to this library yet.</a></div>";
+	    }
             $("#book-list").html(toInsert);
             if ($vW < "321") {
                 $(".book-snippet").css("display", "block")
@@ -354,8 +363,8 @@ function getCreatedLibraries() {
                 toInsert += "<div class=\"lib-blurb\">" + library.description + "</div></div>";
                 toInsert += "<span class=\"image-overlay\"></span><img src=\"" + library.coverPhoto + "\"></li>";
             }
-	    if (toInsert == "") {
-		toInsert = "<a class=\"empty-created-libraries\">It looks like you have not created any libraries, yet. Use libraries to curate content across the platform.</a>";
+	    if (toInsert == "") { 
+		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
 	    }
             $("#library-list").html(toInsert)
 	    
@@ -391,6 +400,9 @@ function getSubmissionsInLibrary() {
                 toInsert += getUserFromBookId(currBook.bookId);
                 toInsert += "</div></div></li>";
             }
+	    if (toInsert == "") { 
+		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Nobody submitted stories to your libary yet.</a></div>";
+	    }
             $("#submission-list").html(toInsert);
             var w = 0,
                 h = 0;
@@ -1429,7 +1441,6 @@ function getSubscribedLibrary() {
 
                 lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
-
             lib += "</ul>";
             $(".subscription-list-wrapper").html(lib);
             h = $(this).outerHeight() - 92;

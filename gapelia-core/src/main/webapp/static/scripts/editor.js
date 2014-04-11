@@ -732,21 +732,21 @@
 
 		if (text == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
-			insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
+			insert += "<div class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write a quote here.\"></div>";
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
-			insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div>";
+			insert += "<div class=\"page-title-elem\" contenteditable=\"true\">" + title + "</div>";
 		}
 
 		insert += "</article></div>";
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\">" + attribution + "</span>";
 		insert += "</section>";
 
-		// no title in this view, but having this allows it to keep between layout switching
+		// no paragraphs in this view, but having this allows it to keep between layout switching
 		if (title == null) {
-			insert += "<h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" style=\"display: none;\"></h1>";
+			insert += "<h1 class=\"page-desc\" data-placeholder=\"Write story here\" style=\"display: none;\"></h1>";
 		} else {
-			insert += "<h1 class=\"page-title-elem\" style=\"display: none;\">" + title + "</h1>";
+			insert += "<h1 class=\"page-desc\" style=\"display: none;\">" + text + "</h1>";
 		}
 
 		// no video in this view, but having this allows it to keep between layout switching
@@ -797,7 +797,7 @@
 		});
 
 		// description input limiter
-		var descElem = "page-desc";
+		var descElem = "page-title-elem";
 		descMax = 149;
 
 		$("." + descElem).keydown(function (e) {

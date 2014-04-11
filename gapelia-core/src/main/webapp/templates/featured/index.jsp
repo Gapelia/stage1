@@ -109,7 +109,7 @@
                     </li>
 
                     <div id="stay-right">
-                        <button id="start-story" class="black-border"><a href="/createBook">New Story</a>
+                        <button id="start-story" class="brand-i"><a href="/createBook">New Story</a>
                         </button>
                     </div>
 
