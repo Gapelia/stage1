@@ -162,6 +162,26 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
     }
 
+	@Path("getLastPublished")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getLastPublished(@FormParam("userId") int userId) {
+
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getLastPublished(userId));
+	}
+
+	@Path("getLibrariesContributedTo")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getLibrariesContributedTo(@FormParam("userId") int userId) {
+
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getLibrariesContributedTo(userId));
+	}
+
     @Path("getDraftBooks")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

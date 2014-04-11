@@ -8,10 +8,10 @@ public class DatabaseManager {
 
 	private static String DB_DRIVER = "org.postgresql.Driver";
 	private static String DB_CONN_STRING = "jdbc:postgresql://";
-	private static String DB_HOSTNAME = "stage1.chxnadlmqc14.us-east-1.rds.amazonaws.com";
+	private static String DB_HOSTNAME = "localhost";
 	private static String DB_PORT = "5432";
-	private static String DB_USER = "gapelia";
-	private static String DB_PASS = "alphalaunch";
+	private static String DB_USER = "postgres";
+	private static String DB_PASS = "postgres";
 	private static String DB_NAME = "gapelia";
 
 	private static Logger LOG = Logger.getLogger(DatabaseManager.class);

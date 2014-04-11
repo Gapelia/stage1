@@ -31,9 +31,14 @@ public class QueryDatabaseBook {
             insert.setTimestamp(3, page.getCreated());
             insert.setTimestamp(4, page.getLastUpdated());
             insert.executeUpdate();
+
+
             ResultSet rs = insert.getGeneratedKeys();
             if ( rs.next() ) {
-                return rs.getInt(1);
+                int pageNumSequence = rs.getInt(1);
+
+				QueryDatabaseMetric.initializePageViews(page.getBookId(),pageNumSequence);
+				return pageNumSequence;
             }
             return 0;
         } catch (SQLException ex) {
@@ -113,9 +118,15 @@ public class QueryDatabaseBook {
             insert.setTimestamp(3, book.getLastUpdated());
             insert.setBoolean(4, false);
             insert.executeUpdate();
+
+
+
             ResultSet rs = insert.getGeneratedKeys();
             if ( rs.next() ) {
-                return rs.getInt(1);
+                int bookSequence =  rs.getInt(1);
+				QueryDatabaseMetric.initializeBookViews(bookSequence);
+				QueryDatabaseMetric.initializeBookShares(bookSequence);
+				return bookSequence;
             }
             return 0;
         } catch (SQLException ex) {

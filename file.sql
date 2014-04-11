@@ -183,5 +183,40 @@ CREATE TABLE IF NOT EXISTS user_friends (
         is_following_id INT REFERENCES users(id) ON DELETE CASCADE
 );
 CREATE UNIQUE INDEX user_friends_id_idx ON user_friends(user_id,is_following_id);
---CREATE INDEX user_friends_id_idx ON user_friends(user_id);
---CREATE INDEX user_following_id_idx ON user_friends(is_following_id);
+
+
+CREATE TABLE IF NOT EXISTS metric_book_views (
+	book_id INT PRIMARY KEY REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	views BIGINT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS metric_page_views (
+	book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	page_num INT NOT NULL,
+	views BIGINT NOT NULL DEFAULT 0
+);
+CREATE UNIQUE INDEX metric_page_views_idx ON metric_page_views(book_id,page_num);
+
+
+CREATE TABLE IF NOT EXISTS metric_book_shares (
+	book_id INT PRIMARY KEY REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	fb int NOT NULL DEFAULT 0,
+	twitter int NOT NULL DEFAULT 0,
+	email int NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS metric_user_book (
+	user_id INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	page_num INT DEFAULT 0,
+	completed BOOLEAN DEFAULT false,
+	voted BOOLEAN DEFAULT false
+);
+CREATE UNIQUE INDEX metric_read_status_idx ON metric_user_book(user_id,book_id);
+
+CREATE TABLE IF NOT EXISTS metric_user_num_logins (
+	user_id INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	login TIMESTAMP NOT NULL
+);
+CREATE INDEX metric_user_num_logins_idx ON metric_user_num_logins(user_id);
+
