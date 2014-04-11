@@ -18,12 +18,13 @@ import java.util.UUID;
 public class Libraries {
 
     public static Logger LOG = Logger.getLogger(Libraries.class);
+
     @Path("getGodLibraries")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getGodLibraries(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -35,7 +36,7 @@ public class Libraries {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getAllLibraries(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -47,9 +48,8 @@ public class Libraries {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getCreatedLibraries(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getCreatedLibraries(u.getUserId()));
@@ -62,9 +62,8 @@ public class Libraries {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getBooksInLibrary(@FormParam("sessionId") String sessionId,
                                     @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseLibrary.getBooksInLibrary(libraryId));
     }
@@ -75,7 +74,7 @@ public class Libraries {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getLibrary(@FormParam("sessionId") String sessionId,
                              @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -89,9 +88,8 @@ public class Libraries {
     public String addBookToLibrary(@FormParam("sessionId") String sessionId,
                                    @FormParam("libraryId") int libraryId,
                                    @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseLibrary.addBookToLibrary(libraryId, bookId));
     }
@@ -103,7 +101,7 @@ public class Libraries {
     public String removeBookFromLibrary(@FormParam("sessionId") String sessionId,
                                         @FormParam("libraryId") int libraryId,
                                         @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -116,7 +114,7 @@ public class Libraries {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String deleteLibrary(@FormParam("sessionId") String sessionId,
                                 @FormParam("libraryId") int libraryId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -132,7 +130,7 @@ public class Libraries {
                                 @FormParam("description") String description,
                                 @FormParam("coverPhoto") String coverPhoto,
                                 @FormParam("tags") String tags) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -159,7 +157,7 @@ public class Libraries {
                                 @FormParam("description") String description,
                                 @FormParam("coverPhoto") String coverPhoto,
                                 @FormParam("tags") String tags) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         User u = SessionManager.getUserFromSessionId(sessionId);
         Gson gson = new GsonBuilder().create();

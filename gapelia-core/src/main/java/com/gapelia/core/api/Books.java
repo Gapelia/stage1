@@ -25,14 +25,14 @@ public class Books {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String createPage(@FormParam("sessionId") String sessionId,
                              @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         Page page = new Page();
         page.setUserId(u.getUserId());
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         page.setLastUpdated(new Timestamp(date.getTime()));
         page.setBookId(bookId);
         page.setCreated(new Timestamp(date.getTime()));
@@ -44,16 +44,16 @@ public class Books {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String updatePage(@FormParam("sessionId") String sessionId,
-                                     @FormParam("title") String title,
-                                     @FormParam("pageId") int pageId,
-                                     @FormParam("content") String content,
-                                     @FormParam("templateId") int templateId,
-                                     @FormParam("videoUrl") String videoUrl,
-                                     @FormParam("pageNumber") int pageNumber,
-                                     @FormParam("photoUrl") String photoUrl,
-                                    // @FormParam("photoId") String photoId,
-                                     @FormParam("creativeCommons") String creativeCommons) {
-        if(!APIUtil.isValidSession(sessionId))
+                             @FormParam("title") String title,
+                             @FormParam("pageId") int pageId,
+                             @FormParam("content") String content,
+                             @FormParam("templateId") int templateId,
+                             @FormParam("videoUrl") String videoUrl,
+                             @FormParam("pageNumber") int pageNumber,
+                             @FormParam("photoUrl") String photoUrl,
+                             // @FormParam("photoId") String photoId,
+                             @FormParam("creativeCommons") String creativeCommons) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -67,7 +67,7 @@ public class Books {
         page.setPhotoUrl(photoUrl);
         page.setPhotoId("null");
         page.setCreativeCommons(creativeCommons);
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         page.setLastUpdated(new Timestamp(date.getTime()));
         return QueryDatabaseBook.updatePage(page);
     }
@@ -78,7 +78,7 @@ public class Books {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String deletePage(@FormParam("sessionId") String sessionId,
                              @FormParam("pageId") int pageId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -91,13 +91,13 @@ public class Books {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String createBook(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         Book book = new Book();
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         book.setCreated(new Timestamp(date.getTime()));
         book.setLastUpdated(new Timestamp(date.getTime()));
         book.setIsPublished(false);
@@ -117,7 +117,7 @@ public class Books {
                              @FormParam("isPublished") boolean isPublished,
                              @FormParam("snippet") String snippet,
                              @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
@@ -129,7 +129,7 @@ public class Books {
         book.setLanguague(language);
         book.setTags(tags);
         book.setUserId(u.getUserId());
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         book.setLastUpdated(new Timestamp(date.getTime()));
         book.setIsPublished(isPublished);
         book.setSnippet(snippet);
@@ -143,7 +143,7 @@ public class Books {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String deleteBook(@FormParam("sessionId") String sessionId,
                              @FormParam("bookId") int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();

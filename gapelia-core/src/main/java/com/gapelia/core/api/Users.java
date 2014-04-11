@@ -13,12 +13,13 @@ import org.apache.log4j.Logger;
 @Path("/users/")
 public class Users {
     public static Logger LOG = Logger.getLogger(User.class);
+
     @Path("getUser")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getUser(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -30,12 +31,13 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String onboard(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.onboard(u));
     }
+
     @Path("getUserPublic")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,16 +48,16 @@ public class Users {
     }
 
 
-	@Path("deleteUser")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String deleteUser(@FormParam("sessionId") String sessionId,
+    @Path("deleteUser")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String deleteUser(@FormParam("sessionId") String sessionId,
                              @FormParam("userId") int userId) {
-		if(!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
-		return QueryDatabaseUser.deleteUser(userId);
-	}
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        return QueryDatabaseUser.deleteUser(userId);
+    }
 
     @Path("updateUser")
     @POST
@@ -75,7 +77,7 @@ public class Users {
                              @FormParam("gp") String gp,
                              @FormParam("twt") String twt,
                              @FormParam("isPublic") boolean isPublic) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         User u = SessionManager.getUserFromSessionId(sessionId);
         u.setFullName(fullName);
@@ -99,10 +101,9 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getBook(@FormParam("sessionId") String sessionId,
-                          @FormParam("bookId")int bookId) {
-        if(!APIUtil.isValidSession(sessionId))
+                          @FormParam("bookId") int bookId) {
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseUser.getBookByID(bookId));
     }
@@ -113,7 +114,6 @@ public class Users {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getPages(@FormParam("bookId") int bookId) {
         Gson gson = new GsonBuilder().create();
-        LOG.info(gson.toJson(QueryDatabaseUser.getPages(bookId)));
         return gson.toJson(QueryDatabaseUser.getPages(bookId));
     }
 
@@ -122,25 +122,25 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getBookmarkedBooks(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getBookmarkedBooks(u.getUserId()));
     }
+
     @Path("getCreatedBooks")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getCreatedBooks(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getCreatedBooks(u.getUserId()));
     }
+
     @Path("getCreatedBooksPublic")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -155,41 +155,38 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getFeaturedBooks(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
     }
 
-	@Path("getLastPublished")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getLastPublished(@FormParam("userId") int userId) {
+    @Path("getLastPublished")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getLastPublished(@FormParam("userId") int userId) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseUser.getLastPublished(userId));
+    }
 
-		Gson gson = new GsonBuilder().create();
-		return gson.toJson(QueryDatabaseUser.getLastPublished(userId));
-	}
+    @Path("getLibrariesContributedTo")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getLibrariesContributedTo(@FormParam("userId") int userId) {
 
-	@Path("getLibrariesContributedTo")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getLibrariesContributedTo(@FormParam("userId") int userId) {
-
-		Gson gson = new GsonBuilder().create();
-		return gson.toJson(QueryDatabaseUser.getLibrariesContributedTo(userId));
-	}
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseUser.getLibrariesContributedTo(userId));
+    }
 
     @Path("getDraftBooks")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getDraftBooks(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getDraftBooks(u.getUserId()));
@@ -201,9 +198,8 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getSubscribedLibraries(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getSubscribedLibraries(u.getUserId()));
@@ -214,14 +210,12 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getCreatedLibraries(@FormParam("sessionId") String sessionId) {
-        if(!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getCreatedLibraries(u.getUserId()));
     }
-
 
 
 }

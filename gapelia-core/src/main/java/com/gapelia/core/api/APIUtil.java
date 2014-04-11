@@ -14,8 +14,9 @@ import javax.ws.rs.core.MediaType;
 public class APIUtil {
     private static Logger LOG = Logger.getLogger(APIUtil.class);
     public static String INVALID_SESSION_ERROR_MSG = "SessionID is not valid/Associated with a user";
+
     public static boolean isValidSession(String sessionId) {
-        if(SessionManager.getUserFromSessionId(sessionId)!=null) {
+        if (SessionManager.getUserFromSessionId(sessionId) != null) {
             return true;
         }
         return false;

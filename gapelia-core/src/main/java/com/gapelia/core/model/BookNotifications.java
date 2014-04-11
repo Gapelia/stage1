@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class BookNotifications {
     private int recipientUserId;
     private int bookId;
-    private int senderUserID;
+    private int senderUserId;
     private Timestamp dateSend;
     private Boolean accepted;
 
@@ -18,12 +18,12 @@ public class BookNotifications {
         this.recipientUserId = recipientUserId;
     }
 
-    public int getSenderUserID() {
-        return senderUserID;
+    public int getSenderUserId() {
+        return senderUserId;
     }
 
-    public void setSenderUserID(int senderUserID) {
-        this.senderUserID = senderUserID;
+    public void setSenderUserId(int senderUserId) {
+        this.senderUserId = senderUserId;
     }
 
     public int getBookId() {
