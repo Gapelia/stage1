@@ -316,6 +316,10 @@
   }
     
   //
+  
+  #book-list { width: 8240px !important; } // temporary fix so 20 books fit in featured
+  
+  //
     
   .book, .collection, .library, .new, .draft {
 		width: 400px; height: auto;

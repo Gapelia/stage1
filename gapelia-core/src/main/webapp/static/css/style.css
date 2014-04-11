@@ -2533,6 +2533,8 @@ body.landing h1 {
   position: relative;
   text-align: center;
   width: 800px; }
+.app #book-list {
+  width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
   height: auto;
