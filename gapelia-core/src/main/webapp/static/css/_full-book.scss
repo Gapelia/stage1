@@ -458,31 +458,37 @@
 
 	.phototext-wrapper, .vertical-wrapper, .video-wrapper {
 		.author-info {
-			margin: 0;
-
-			.author-name, .author-avatar {
-				display: inline-block !important;
-				vertical-align: middle;
-			}
-
-			.author-name {
-				margin: 0;
-				text-align: left;
-			}
-
-			.author-avatar { margin: 0 1rem 0 0; }
-		}
+      margin:0;
+      
+      .author-name {
+        border-right: none !important;
+        display: inline-block !important;
+        left: 0;
+        margin: 0;
+        margin-top: 1rem;
+        text-align: left;
+        vetical-align: middle;
+        
+        a, &:before { margin-left: 3rem; }
+      }
+      
+      .author-avatar {
+        margin: 0 1rem 0 0;
+        margin-top: -2rem;
+        vertical-align: middle;
+      }
+    }
 	}
 
-	.phototext-wrapper {
-		.phototext-preview {
+	.phototext-wrapper {    
+    .phototext-preview {
 			width: 30%; height: 100%;
 			top: 0; right: 0;
 
 			background-color: rgba($white, 0.7);
 			color: $black;
 			overflow-y: auto; //
-			padding: 4rem 2rem 2rem 2rem;
+			padding: 3rem 2rem 2rem 2rem;
 			position: absolute;
 
 			.page-title-elem {
@@ -517,7 +523,7 @@
 			background-color: $white;
 			border-left: 1px solid transparent;
 			overflow-y: auto; //
-			padding: 4rem 2rem 2rem 2rem; // 4rem 4rem 2rem 2rem
+			padding: 3rem 2rem 2rem 2rem; // 4rem 4rem 2rem 2rem
 			position: absolute;
 
 			article { width: 90%; } //
@@ -539,7 +545,7 @@
 			border-left: 1px solid transparent;
 			color: $black;
 			overflow-y: auto; //
-			padding: 4rem 2rem 2rem 2rem;
+			padding: 3rem 2rem 2rem 2rem;
 			position: absolute;
 
 			.page-title-elem {
