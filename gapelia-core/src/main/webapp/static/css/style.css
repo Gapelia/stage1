@@ -7039,7 +7039,7 @@ a.count span.dont-move {
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 70%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     line-height: 3.3rem; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
     font-size: 1.25rem;
@@ -7102,6 +7102,31 @@ a.count span.dont-move {
     left: 0;
     top: 1.15rem;
     position: relative; }
+  .full-book .phototext-wrapper .author-info, .full-book .vertical-wrapper .author-info, .full-book .video-wrapper .author-info {
+    border-top: 1px solid rgba(25, 25, 25, 0.2);
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 1.5rem;
+    position: relative;
+    top: initial; }
+  .full-book .phototext-wrapper .author-info .author-name, .full-book .vertical-wrapper .author-info .author-name, .full-book .video-wrapper .author-info .author-name {
+    border-right: 1px solid rgba(25, 25, 25, 0.3);
+    left: 0;
+    margin: 0;
+    padding-right: 0;
+    position: absolute;
+    text-shadow: 1px 1px 0 rgba(252, 252, 252, 0.1) !important;
+    width: 100%; }
+  .full-book .phototext-wrapper .author-info .author-name a, .full-book .vertical-wrapper .author-info .author-name a, .full-book .video-wrapper .author-info .author-name a {
+    margin-left: 0;
+    text-align: center; }
+  .full-book .phototext-wrapper .author-info .author-name:before, .full-book .vertical-wrapper .author-info .author-name:before, .full-book .video-wrapper .author-info .author-name:before {
+    margin-left: 0rem;
+    text-align: center; }
+  .full-book .phototext-wrapper .author-info .author-avatar, .full-book .vertical-wrapper .author-info .author-avatar, .full-book .video-wrapper .author-info .author-avatar {
+    margin-left: 41%; }
   .full-book .phototext-wrapper .phototext-preview {
     width: 100%;
     height: auto;
@@ -7113,9 +7138,10 @@ a.count span.dont-move {
     position: relative; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
     margin: 1rem auto 0;
+    text-align: center;
     width: 80%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     line-height: 3.3rem; }
   .full-book .phototext-wrapper .phototext-preview .page-desc {
     font-size: 1.3rem;
@@ -7143,8 +7169,9 @@ a.count span.dont-move {
     margin: 1rem auto 0;
     width: 70%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem {
-    font-size: 2.3rem;
-    line-height: 3.3rem; }
+    font-size: 2.1rem;
+    line-height: 3.3rem;
+    text-align: center; }
   .full-book .vertical-wrapper .vertical-preview .page-desc {
     font-size: 1.25rem;
     line-height: 2.4rem; }
@@ -7166,8 +7193,9 @@ a.count span.dont-move {
     margin: 1rem auto 0;
     width: 80%; }
   .full-book .video-wrapper article .page-title-elem {
-    font-size: 2.3rem;
-    line-height: 3.3rem; }
+    font-size: 2.1rem;
+    line-height: 3.3rem;
+    text-align: center; }
   .full-book .video-wrapper article .page-desc {
     font-size: 1.3rem;
     line-height: 2.5rem; }
@@ -7570,6 +7598,8 @@ a.count span.dont-move {
     width: 100%; }
   .full-book .overlay-wrapper .overlay-preview .page-title-elem {
     font-size: 1.5rem; }
+  .full-book .phototext-wrapper .author-info .author-avatar, .full-book .vertical-wrapper .author-info .author-avatar, .full-book .video-wrapper .author-info .author-avatar {
+    margin-left: 37%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
     width: 85%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem, .full-book .vertical-wrapper .vertical-preview .page-desc {
@@ -7719,7 +7749,7 @@ a.count span.dont-move {
     margin-left: -6%;
     margin-top: -2rem; }
   .full-book .photo-wrapper .photo-preview .page-title-elem {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 3rem; }
   .full-book .overlay-wrapper {
     margin: 0 0 2rem 0; }
@@ -7730,10 +7760,12 @@ a.count span.dont-move {
   .full-book .overlay-wrapper .overlay-preview .page-title-elem {
     font-size: 1.1rem;
     line-height: 2.3rem; }
+  .full-book .phototext-wrapper .author-info .author-avatar, .full-book .vertical-wrapper .author-info .author-avatar, .full-book .video-wrapper .author-info .author-avatar {
+    margin-left: 34%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
     width: 90%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 3rem; }
   .full-book .phototext-wrapper .phototext-preview .page-desc {
     font-size: 1.3rem;
@@ -7741,7 +7773,7 @@ a.count span.dont-move {
   .full-book .vertical-wrapper .vertical-preview .page-title-elem, .full-book .vertical-wrapper .vertical-preview .page-desc {
     width: 90%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 3rem; }
   .full-book .vertical-wrapper .vertical-preview .page-desc {
     font-size: 1.3rem;
@@ -7753,7 +7785,7 @@ a.count span.dont-move {
   .full-book .video-wrapper article .page-title-elem, .full-book .video-wrapper article .page-desc {
     width: 90%; }
   .full-book .video-wrapper article .page-title-elem {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 3rem; }
   .full-book .video-wrapper article .page-desc {
     font-size: 1.3rem;
