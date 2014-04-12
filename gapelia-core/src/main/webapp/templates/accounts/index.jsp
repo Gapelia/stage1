@@ -81,13 +81,15 @@
 				</div>
 			</nav>
 			<!--//site-menu /-->
-
+			
 			<!--/ main-panel /-->
-			<div id="user-panel">
-				<button id="g-menu-toggle">
+			<div id="featured-panel">
+				<button id="g-menu-toggle" class="notification-time">
+					<span id="notification-count">6</span>
 					<i class="ion-drag"></i>
 				</button>
 			</div>
+			<!--//main-panel /-->
 
 			<div id="account-information">
 
@@ -291,27 +293,18 @@
 				// Dropdown menu for mobile
 				if ($vW < "1025") {
 
-					menu = "";
-					menu += "<ul id=\"menu\" style=\"display: none;\">";
-					menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
-					menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
-					menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
-					menu += "<ul>";
-					menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
-					menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
-					menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
-					menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
-					menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
-					menu += "</ul>";
-					menu += "</li>";
-					menu += "</ul>";
+					
+					$("#featured-panel .featured-info").remove();
+					$("#featured-panel").append('<span id="category-title">Account Settings</span>');
 
-					$("#g-menu-toggle").after(menu);
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books"><a href="/featured">Explore</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
-					$(document).on("click", "#g-menu-toggle", function () {
-						$("#menu").toggle();
+					$("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
+
+					$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+						$("#featured-nav").toggle();
 					});
-
+									
 					$(document).on("click", "#nav-notify", function (e) {
 
 						$("#nav-notify ul").toggle();
