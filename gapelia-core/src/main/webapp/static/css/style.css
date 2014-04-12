@@ -8111,14 +8111,25 @@ a.count span.dont-move {
     text-align: center; }
   .full-book .overlay-wrapper {
     margin: 0 0 2rem 0; }
+  .full-book .overlay-wrapper .author-info {
+    top: 3rem; }
+  .full-book .overlay-wrapper .author-info .author-avatar {
+    margin-left: 30%; }
   .full-book .overlay-wrapper .overlay-preview {
     height: 100%; }
   .full-book .overlay-wrapper .overlay-preview article {
-    margin: 1rem auto; }
+    margin: 1.5rem auto; }
   .full-book .overlay-wrapper .overlay-preview .page-title-elem {
     font-size: 0.8rem;
     line-height: 2rem;
     width: 100%; }
+  .full-book .phototext-wrapper .author-info, .full-book .vertical-wrapper .author-info, .full-book .video-wrapper .author-info {
+    font-size: 0.5rem; }
+  .full-book .phototext-wrapper .author-info .author-avatar, .full-book .vertical-wrapper .author-info .author-avatar, .full-book .video-wrapper .author-info .author-avatar {
+    height: 35px;
+    width: 35px;
+    margin-left: 20%;
+    margin-top: -1.8rem; }
   .full-book .phototext-wrapper .phototext-preview {
     padding: 1rem 2rem; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
@@ -8139,6 +8150,8 @@ a.count span.dont-move {
   .full-book .vertical-wrapper .vertical-preview .page-desc {
     font-size: 1rem;
     line-height: 2rem; }
+  .full-book .video-wrapper .author-info .author-name a {
+    margin-left: 6.5rem; }
   .full-book .video-wrapper .video-player-container {
     height: 175px; }
   .full-book .video-wrapper .video-player-container iframe {

@@ -2269,10 +2269,15 @@
 		.overlay-wrapper {
 			margin: 0 0 2rem 0;
 
+			.author-info {
+				top: 3rem;
+				.author-avatar { margin-left: 30%;}
+			}	
+			
 			.overlay-preview {
 				height: 100%;
 				
-				article { margin: 1rem auto; }
+				article { margin: 1.5rem auto; }
 
 				.page-title-elem {
 					font-size: 0.8rem;
@@ -2282,6 +2287,19 @@
 			}
 		}
 
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.author-info {
+				font-size: 0.5rem;
+				
+				.author-avatar {
+					height: 35px;
+					width: 35px;
+					margin-left: 20%;
+					margin-top: -1.8rem;
+				}
+			}
+		}
+		
 		.phototext-wrapper {
 			.phototext-preview {
 				padding: 1rem 2rem;
@@ -2319,6 +2337,8 @@
 		}
 
 		.video-wrapper {
+			.author-info .author-name a { margin-left: 6.5rem; }
+			
 			.video-player-container {
 				height: 175px;
 				iframe { height: 175px; }
