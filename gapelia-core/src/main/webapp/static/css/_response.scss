@@ -685,17 +685,18 @@
 		.overlay-wrapper {
 			margin: 0 0 3rem 0;
 
+			.author-info .author-avatar { margin-left: 45%; }
 			.overlay-preview {
 				top: intial; left: initial;
 
-				height: 99.5%;
+				height: 100%;
 				position: absolute;
 
 				article {
-					margin: 28% auto;
+					margin: 18% auto;
 					width: 100%; }
 
-				.page-desc {
+				.page-title-elem {
 					font-size: 2rem;
 					line-height: 3.3rem;
 				}
@@ -1381,13 +1382,16 @@
 		}
 		
 		.overlay-wrapper {
+			
+			.author-info .author-avatar { margin-left: 43%; } 
+			
 			.overlay-preview {
 				article {
-					margin: 22% auto;
+					margin: 20% auto;
 					width: 100%;
 				}
 				
-				.page-desc { font-size: 1.5rem; }
+				.page-title-elem { font-size: 1.5rem; }
 			}
 		}
 
@@ -1657,8 +1661,12 @@
 		.overlay-wrapper {
 			margin: 0 0 2rem 0;
 
+			.overlay-preview article { margin: 18% auto; }
+			
+			.author-info .author-avatar { margin-left: 41%; }
+			
 			.overlay-preview {
-				.page-desc {
+				.page-title-elem {
 					font-size: 1.1rem;
 					line-height: 2.3rem;
 				}
@@ -2220,7 +2228,7 @@
 				
 				article { margin: 1rem auto; }
 
-				.page-desc {
+				.page-title-elem {
 					font-size: 0.8rem;
 					line-height: 2rem;
 					width: 100%;
