@@ -4614,6 +4614,7 @@ body.library-manager #stay-right {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 0.8rem;
   font-style: italic;
+  margin: 0 0 0 -6rem;
   opacity: 0;
   transition: all 0.5s ease;
   vertical-align: middle; }
