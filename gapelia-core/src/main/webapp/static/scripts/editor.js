@@ -91,7 +91,7 @@
 				videoLayout();
 				break;
 
-			default:
+			case 6:
 				baseLayout();
 		}
 
@@ -235,13 +235,13 @@
 			pages.page[currentPage].attribution = attribution;
 			createPage();
 			currentPage = pagesCreated;
-			templateId = 0;
+			templateId = 6;
 			title = null;
 			text = null;
 			imageURL = null;
 			videoURL = null;
 			attribution = null;
-			fluidLayout();
+			baseLayout();
 		}
 
 		// Page Sorter
