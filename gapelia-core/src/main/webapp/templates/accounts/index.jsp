@@ -159,8 +159,9 @@
 
 							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
 
-							<input type="button" class="update-user" name="commit" onclick="updateUser();" value="Update Settings"/>
-
+							<button class="update-user" onclick="updateUser();"><a>Update Settings</a></button>  
+		
+							
 						</form>
 
 						<div class="account-delete-wrapper">
@@ -531,7 +532,17 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
-
+				
+				//update button
+				$('.update-user').click(function(){
+				var $this = $(this);
+					$this.toggleClass('update-user');
+					if($this.hasClass('update-user')){
+						$this.text('Update Settings');			
+					} else {
+						$this.text('Changes Saved!');
+					}
+				})
 			}
 		</script>
 

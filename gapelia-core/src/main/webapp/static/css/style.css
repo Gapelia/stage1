@@ -3814,6 +3814,7 @@ body.library-manager #stay-right {
   float: left;
   padding: 0 1rem 0 0; }
 .accounts .account-info-wrapper .col-0 .bl_form input, .accounts .account-info-wrapper .col-1 .bl_form input, .accounts .account-info-wrapper .col-2 .bl_form input, .accounts .account-info-wrapper .col-3 .bl_form input, .accounts .account-password-wrapper .col-0 .bl_form input, .accounts .account-password-wrapper .col-1 .bl_form input, .accounts .account-password-wrapper .col-2 .bl_form input, .accounts .account-password-wrapper .col-3 .bl_form input, .accounts .account-notifications-wrapper .col-0 .bl_form input, .accounts .account-notifications-wrapper .col-1 .bl_form input, .accounts .account-notifications-wrapper .col-2 .bl_form input, .accounts .account-notifications-wrapper .col-3 .bl_form input, .accounts .account-pro-wrapper .col-0 .bl_form input, .accounts .account-pro-wrapper .col-1 .bl_form input, .accounts .account-pro-wrapper .col-2 .bl_form input, .accounts .account-pro-wrapper .col-3 .bl_form input, .accounts .account-billing-wrapper .col-0 .bl_form input, .accounts .account-billing-wrapper .col-1 .bl_form input, .accounts .account-billing-wrapper .col-2 .bl_form input, .accounts .account-billing-wrapper .col-3 .bl_form input, .accounts .account-delete-wrapper .col-0 .bl_form input, .accounts .account-delete-wrapper .col-1 .bl_form input, .accounts .account-delete-wrapper .col-2 .bl_form input, .accounts .account-delete-wrapper .col-3 .bl_form input {
+  color: rgba(25, 25, 25, 0.8);
   width: 100%; }
 .accounts .account-info-wrapper .col-0:last-child, .accounts .account-info-wrapper .col-1:last-child, .accounts .account-info-wrapper .col-2:last-child, .accounts .account-info-wrapper .col-3:last-child, .accounts .account-password-wrapper .col-0:last-child, .accounts .account-password-wrapper .col-1:last-child, .accounts .account-password-wrapper .col-2:last-child, .accounts .account-password-wrapper .col-3:last-child, .accounts .account-notifications-wrapper .col-0:last-child, .accounts .account-notifications-wrapper .col-1:last-child, .accounts .account-notifications-wrapper .col-2:last-child, .accounts .account-notifications-wrapper .col-3:last-child, .accounts .account-pro-wrapper .col-0:last-child, .accounts .account-pro-wrapper .col-1:last-child, .accounts .account-pro-wrapper .col-2:last-child, .accounts .account-pro-wrapper .col-3:last-child, .accounts .account-billing-wrapper .col-0:last-child, .accounts .account-billing-wrapper .col-1:last-child, .accounts .account-billing-wrapper .col-2:last-child, .accounts .account-billing-wrapper .col-3:last-child, .accounts .account-delete-wrapper .col-0:last-child, .accounts .account-delete-wrapper .col-1:last-child, .accounts .account-delete-wrapper .col-2:last-child, .accounts .account-delete-wrapper .col-3:last-child {
   margin: 0; }
@@ -3843,7 +3844,22 @@ body.library-manager #stay-right {
   outline: none;
   width: 500px; }
 .accounts .account-info-wrapper .bl_form .update-user, .accounts .account-password-wrapper .bl_form .update-user, .accounts .account-notifications-wrapper .bl_form .update-user, .accounts .account-pro-wrapper .bl_form .update-user, .accounts .account-billing-wrapper .bl_form .update-user, .accounts .account-delete-wrapper .bl_form .update-user {
-  background-color: rgba(89, 179, 166, 0.1); }
+  background-color: #fcfcfc;
+  border: 1px solid rgba(89, 179, 166, 0.5);
+  color: #59b3a6 !important;
+  margin-top: 1rem !important; }
+.accounts .account-info-wrapper .bl_form .update-user a, .accounts .account-password-wrapper .bl_form .update-user a, .accounts .account-notifications-wrapper .bl_form .update-user a, .accounts .account-pro-wrapper .bl_form .update-user a, .accounts .account-billing-wrapper .bl_form .update-user a, .accounts .account-delete-wrapper .bl_form .update-user a {
+  font-weight: 100 !important; }
+.accounts .account-info-wrapper .bl_form .update-user:hover, .accounts .account-password-wrapper .bl_form .update-user:hover, .accounts .account-notifications-wrapper .bl_form .update-user:hover, .accounts .account-pro-wrapper .bl_form .update-user:hover, .accounts .account-billing-wrapper .bl_form .update-user:hover, .accounts .account-delete-wrapper .bl_form .update-user:hover {
+  background-color: #59b3a6;
+  color: #fcfcfc !important; }
+.accounts .account-info-wrapper .bl_form .update-user:hover a, .accounts .account-password-wrapper .bl_form .update-user:hover a, .accounts .account-notifications-wrapper .bl_form .update-user:hover a, .accounts .account-pro-wrapper .bl_form .update-user:hover a, .accounts .account-billing-wrapper .bl_form .update-user:hover a, .accounts .account-delete-wrapper .bl_form .update-user:hover a {
+  display: none; }
+.accounts .account-info-wrapper .bl_form .update-user:before, .accounts .account-password-wrapper .bl_form .update-user:before, .accounts .account-notifications-wrapper .bl_form .update-user:before, .accounts .account-pro-wrapper .bl_form .update-user:before, .accounts .account-billing-wrapper .bl_form .update-user:before, .accounts .account-delete-wrapper .bl_form .update-user:before {
+  content: ""; }
+.accounts .account-info-wrapper .bl_form .update-user:hover:before, .accounts .account-password-wrapper .bl_form .update-user:hover:before, .accounts .account-notifications-wrapper .bl_form .update-user:hover:before, .accounts .account-pro-wrapper .bl_form .update-user:hover:before, .accounts .account-billing-wrapper .bl_form .update-user:hover:before, .accounts .account-delete-wrapper .bl_form .update-user:hover:before {
+  content: "Save changes?";
+  padding: 1rem; }
 .accounts .account-info-wrapper .lb_wrap, .accounts .account-password-wrapper .lb_wrap, .accounts .account-notifications-wrapper .lb_wrap, .accounts .account-pro-wrapper .lb_wrap, .accounts .account-billing-wrapper .lb_wrap, .accounts .account-delete-wrapper .lb_wrap {
   display: block !important;
   height: 70px; }
@@ -3862,6 +3878,7 @@ body.library-manager #stay-right {
 .accounts .account-delete-wrapper {
   color: rgba(128, 128, 128, 0.8);
   font-size: 1rem;
+  margin-bottom: 3rem;
   margin-left: 28%;
   margin-top: 75px;
   padding-top: 5rem;
@@ -3870,11 +3887,11 @@ body.library-manager #stay-right {
   border-radius: 5px;
   color: #fcfcfc;
   height: 250px;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   overflow: hidden;
   position: relative;
   text-align: center;
-  top: 3em; }
+  top: 1em; }
 .accounts #account-splash-wrapper:hover #account-user-splash .button-wrapper {
   opacity: 1; }
 .accounts #account-splash-wrapper .spinner {
@@ -3942,9 +3959,10 @@ body.library-manager #stay-right {
 .accounts .switchery {
   width: 50px;
   height: 30px;
-  background-color: #fcfcfc;
-  border: 1px solid rgba(25, 25, 25, 0.3);
+  background-color: #59b3a6 !important;
+  border: 1px solid rgba(89, 179, 166, 0.3) !important;
   border-radius: 20px;
+  box-shadow: #59b3a6 0px 0px 0px 16px inset !important;
   cursor: pointer;
   display: inline-block;
   margin: 0 0 30px 0;
@@ -7872,6 +7890,8 @@ a.count span.dont-move {
     font-size: 2rem;
     height: 60px;
     left: 0.5rem; }
+  .app .library-list-wrapper, .app .bookmark-list-wrapper {
+    z-index: 0; }
   .app .notification-time #notification-count {
     top: 0.7rem; }
   .app #next-book-toggle {

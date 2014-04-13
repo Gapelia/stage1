@@ -1907,6 +1907,9 @@
 			left: 0.5rem;
 		}
 		
+		.library-list-wrapper, .bookmark-list-wrapper { z-index: 0; }
+		
+		
 		.notification-time #notification-count { top: 0.7rem; }
 		
 		#next-book-toggle { right: 0; }
