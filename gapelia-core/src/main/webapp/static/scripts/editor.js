@@ -1238,7 +1238,7 @@
 
 	$("#close-button").on("click", function (e) {
         updateBookAndPages(false);
-		document.location.href = "/me";
+		document.location.href = "/featured";
 
 	});
 

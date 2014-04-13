@@ -4547,7 +4547,8 @@ body.library-manager #stay-right {
   width: 100%;
   height: auto;
   color: #70a1b1 !important;
-  font-weight: 600 !important;
+  font-style: italic;
+  font-weight: 400 !important;
   text-align: center; }
 .book-creation #layout-scroller ul .selected-layout {
   background-color: #cfcfcf; }
