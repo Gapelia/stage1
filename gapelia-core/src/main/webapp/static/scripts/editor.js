@@ -481,6 +481,15 @@
 				"padding": "1rem 2rem 0 2rem",
 				"top": "75%"
 			});
+			
+			$(".draggable-placeholder .button-wrapper").css({
+				"bottom": "8%",
+				"margin-top": "300px",
+				"position": "absolute",
+				"text-align": "center",
+				"top": "inherit",
+				"width": "100%"
+			});	
 
 			$(".fluid-preview article").css("padding", "0 0 4rem 0");
 
@@ -491,9 +500,11 @@
 
 			// Content positioning
 			$(".fluid-preview").css({
-				"padding": "2rem 2rem 0 2rem",
+				"padding": "1rem 2rem 0 2rem",
 				"top": "0"
 			});
+			
+			$(".draggable-placeholder.button-wrapper").css("display", "none");
 
 			$(".fluid-preview article").css("padding", "7rem 0");
 

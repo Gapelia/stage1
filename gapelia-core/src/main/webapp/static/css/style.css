@@ -4811,6 +4811,8 @@ body.library-manager #stay-right {
 .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .draggable-placeholder {
   height: 75%;
   position: absolute; }
+.book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .draggable-placeholder:hover {
+  background-color: rgba(25, 25, 25, 0.8); }
 .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .image-attribution {
   bottom: 0;
   right: 0;
