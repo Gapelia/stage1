@@ -398,6 +398,7 @@
 					}
 
 					.page-title-elem {
+            color: rgba($black, 0.8);
 						font-size: 2.3rem;
 						font-weight: 700;
 						line-height: 2.8rem;
@@ -405,23 +406,25 @@
 
 						&:empty:after {
 							color: rgba($black, 0.6);
-							content : "Write your title here";
+							content : "Write a title";
 						}
 					}
 
 					.page-desc {
 						@include serif;
 						font-size: 1.5rem;
-						letter-spacing: 0.006rem;
+            font-weight: 100;
+						letter-spacing: .01rem;
 						line-height: 2.3rem;
 						margin: 1rem 0 0 0;
+            margin-top: 1.5rem;
 						text-align: center;
 
 						blockquote ~ p { margin: 0; }
 
 						&:empty:after {
 							color: rgba($black, 0.6);
-							content : "Start writing your story here.";
+							content : "Start writing your story here...";
 						}
 					}
 
@@ -641,7 +644,7 @@
 						position: relative;
 						text-align: left;
 						top: 4.5rem;
-						width: 67.5%;
+						width: 60%;
 					}
           
           .draggable-placeholder {
@@ -687,7 +690,7 @@
 							color: rgba($black, 0.8); //
 							margin: 1rem auto 0;
 							text-align: left;
-							width: 68%;
+							width: 60%;
 						}
 
             .page-desc img {

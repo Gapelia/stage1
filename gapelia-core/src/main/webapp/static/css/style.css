@@ -4629,25 +4629,28 @@ body.library-manager #stay-right {
   color: rgba(25, 25, 25, 0.8);
   display: block; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem {
+  color: rgba(25, 25, 25, 0.8);
   font-size: 2.3rem;
   font-weight: 700;
   line-height: 2.8rem;
   margin: 0 0 0.5rem 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem:empty:after {
   color: rgba(25, 25, 25, 0.6);
-  content: "Write your title here"; }
+  content: "Write a title"; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1.5rem;
-  letter-spacing: 0.006rem;
+  font-weight: 100;
+  letter-spacing: .01rem;
   line-height: 2.3rem;
   margin: 1rem 0 0 0;
+  margin-top: 1.5rem;
   text-align: center; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc blockquote ~ p {
   margin: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc:empty:after {
   color: rgba(25, 25, 25, 0.6);
-  content: "Start writing your story here."; }
+  content: "Start writing your story here..."; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper p, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper p {
   color: inherit;
   font-size: inherit;
@@ -4802,7 +4805,7 @@ body.library-manager #stay-right {
   position: relative;
   text-align: left;
   top: 4.5rem;
-  width: 67.5%; }
+  width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .draggable-placeholder {
   height: 75%;
   position: absolute; }
@@ -4834,7 +4837,7 @@ body.library-manager #stay-right {
   color: rgba(25, 25, 25, 0.8);
   margin: 1rem auto 0;
   text-align: left;
-  width: 68%; }
+  width: 60%; }
 .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview .page-desc img {
   width: 100%;
   height: auto;
@@ -6039,7 +6042,7 @@ a.count span.dont-move {
 .full-book .fluid-wrapper .page-desc, .full-book .photo-wrapper .page-desc, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-desc {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   color: rgba(25, 25, 25, 0.7);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 100;
   letter-spacing: .01rem;
   line-height: 2.3rem;
