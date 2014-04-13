@@ -554,7 +554,7 @@ $(function () {
 
         menu = "";
         menu += "<ul id=\"book-menu\" style=\"display: none;\">";
-        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Explore</a></li>";
         menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
         menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
         menu += "<ul>";
@@ -565,6 +565,8 @@ $(function () {
         menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
         menu += "</ul>";
         menu += "</li>";
+        menu += "<li id=\"nav-profile\"><a href=\"/accounts\">Account Settings</a></li>";
+        menu += "<li id=\"nav-logout\"><a href=\"#\">Log Out</a></li>";
         menu += "</ul>";
 
         var currentWebsite = document.URL;
@@ -629,6 +631,12 @@ $(function () {
             e.preventDefault();
 
         });
+        
+        // Log Out
+	$("#logout").click(function (e) {
+	    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+	    window.location = "";
+	});
 
     }
 
