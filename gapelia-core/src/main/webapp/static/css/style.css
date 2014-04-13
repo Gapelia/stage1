@@ -4402,7 +4402,7 @@ body.library-manager #stay-right {
 .book-creation .menu .sp-viewport {
   padding: 0 !important; }
 .book-creation .menu .sp-scrollbar {
-  background-color: #999999;
+  background-color: none;
   cursor: pointer;
   display: none;
   opacity: 0.6;
@@ -4411,7 +4411,7 @@ body.library-manager #stay-right {
   width: 3px;
   z-index: 1; }
 .book-creation .menu .sp-scrollbar .sp-thumb {
-  background-color: #191919;
+  background-color: none;
   transition: height 0.2s ease-in-out; }
 .book-creation .menu .sp-scrollbar.active .sp-thumb {
   background-color: #bebebe; }
@@ -4424,8 +4424,7 @@ body.library-manager #stay-right {
 .book-creation #pages-scroller li, .book-creation #pages-scroller section {
   position: relative; }
 .book-creation #pages-scroller li {
-  border: 3px solid transparent;
-  border-bottom: 1px solid rgba(12, 12, 12, 0.3); }
+  border: 3px solid transparent; }
 .book-creation #pages-scroller .sortable-placeholder {
   width: 100%;
   height: 140px;
@@ -4437,7 +4436,7 @@ body.library-manager #stay-right {
   border-bottom: none; }
 .book-creation #pages-scroller .new-thumb div {
   color: grey;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 100; }
 .book-creation #pages-scroller img {
   width: 100%;
@@ -4474,7 +4473,9 @@ body.library-manager #stay-right {
   text-overflow: ellipsis;
   white-space: nowrap; }
 .book-creation #pages-scroller section div span {
-  display: inline; }
+  color: rgba(25, 25, 25, 0.8);
+  display: inline;
+  font-style: italic; }
 .book-creation #pages-scroller .delete-page-confirm {
   width: 100%;
   height: 100%;
@@ -4504,7 +4505,6 @@ body.library-manager #stay-right {
   top: 0;
   left: 0;
   background-color: #59b3a6;
-  border-bottom: 1px solid rgba(25, 25, 25, 0.3);
   color: #fcfcfc;
   font-size: inherit;
   padding: 0.8rem;
@@ -4546,6 +4546,8 @@ body.library-manager #stay-right {
 .book-creation #layout-scroller ul li span {
   width: 100%;
   height: auto;
+  color: #70a1b1 !important;
+  font-weight: 600 !important;
   text-align: center; }
 .book-creation #layout-scroller ul .selected-layout {
   background-color: #cfcfcf; }
