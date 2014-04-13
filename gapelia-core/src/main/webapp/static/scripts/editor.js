@@ -51,7 +51,7 @@
 
 		if (e.id == "add-page") { return; }
 
-		e.style.border = "3px solid #70a1b1";
+		e.style.border = "3px solid #59b3a6";
 		currentPage = $(this).closest("li").attr("id");
 		templateId = pages.page[currentPage].templateId;
 
@@ -204,7 +204,7 @@
 
 		pagesCreated++;
 
-		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
 
 		title = $(".page-title-elem").html();
 		text = $(".page-desc").html();
@@ -218,7 +218,7 @@
 				"templateId": 0,
 				"title": null,
 				"text": null,
-				"image": "/static/images/grayBG.png",
+				"image": "/static/images/whiteBG.jpg",
 				"video": "null",
 				"attribution": null
 			};
@@ -495,7 +495,7 @@
 				"top": "0"
 			});
 
-			$(".fluid-preview article").css("padding", "4rem 0");
+			$(".fluid-preview article").css("padding", "7rem 0");
 
 		}
 

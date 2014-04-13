@@ -43,13 +43,13 @@
 
 		<header>
 			<div id="back">
-				<a class="button transparent" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
+				<a class="button brand-ii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
 			</div>
 
 			<div id="finish">
-				<a class="button a transparent" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
-				<a class="button middle-button transparent" href="#" id="publish-toggle" title="Publish your book">Publish</a>
-				<a class="button b transparent" id="close-button" title="Save changes and quit">Save + Close</a>
+				<a class="button a brand-ii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
+				<a class="button middle-button brand-ii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
+				<a class="button b brand-ii" id="close-button" title="Save changes and quit">Save + Close</a>
 			</div>
 		</header>
 
@@ -182,7 +182,7 @@
 
                  		pagesCreated++;
 
-                 		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+                 		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
 
                  		title = $(".page-title-elem").html();
                  		text = $(".page-desc").html();
@@ -196,7 +196,7 @@
                  				"templateId": 0,
                  				"title": null,
                  				"text": null,
-                 				"image": "/static/images/grayBG.png",
+                 				"image": "/static/images/whiteBG.jpg",
                  				"video": "null",
                  				"attribution": null
                  			};

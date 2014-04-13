@@ -1911,7 +1911,7 @@ ol {
   color: #fcfcfc !important; }
 
 .brand-ii {
-  background-color: #fcfcfc !important;
+  background-color: rgba(252, 252, 252, 0.9) !important;
   border: 1px solid rgba(89, 179, 166, 0.4) !important;
   color: #59b3a6 !important; }
 .brand-ii:hover {
@@ -4597,7 +4597,7 @@ body.library-manager #stay-right {
   background-repeat: initial;
   border: 0;
   border-radius: 0;
-  color: rgba(25, 25, 25, 0.6);
+  color: rgba(89, 179, 166, 0.7);
   cursor: pointer;
   font-size: 3rem;
   font-family: "Ionicons";
@@ -4607,21 +4607,20 @@ body.library-manager #stay-right {
   transition: all 0.2s ease;
   z-index: 2; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper button:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper button:after {
-  content: "Enhance your story with imagery";
+  content: "Add a cover photo";
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 0.8rem;
   font-style: italic;
-  margin: 0 0 0 -11rem;
   opacity: 0;
   transition: all 0.5s ease;
   vertical-align: middle; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper button:hover, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper button:hover {
-  color: inherit; }
+  color: #59b3a6; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper button:hover:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper button:hover:after {
   margin: 0 0 0 1rem;
   opacity: 1; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .video-btn:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .video-btn:after {
-  content: "Enhance your story with a video"; }
+  content: "Add a video URL"; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .placeholder, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .placeholder {
   color: rgba(25, 25, 25, 0.6); }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc {
@@ -4683,7 +4682,7 @@ body.library-manager #stay-right {
   height: auto !important;
   bottom: 1rem;
   left: 1.5rem;
-  color: rgba(25, 25, 25, 0.6);
+  color: rgba(89, 179, 166, 0.7);
   font-family: "Ionicons";
   font-size: 2rem !important;
   position: fixed; }
@@ -4692,7 +4691,7 @@ body.library-manager #stay-right {
   height: auto;
   bottom: -13.7rem;
   left: 0.8rem;
-  background-color: #191919;
+  background-color: #59b3a6;
   border-radius: 5px;
   color: #fcfcfc;
   display: none;
@@ -4720,6 +4719,7 @@ body.library-manager #stay-right {
   font-size: 2rem !important;
   margin-top: 5px !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .inline-image-insert:after {
+  color: #59b3a6 !important;
   content: "Insert an image";
   margin-top: 0.4rem; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .inline-embed-insert, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .inline-embed-insert {
@@ -4729,6 +4729,7 @@ body.library-manager #stay-right {
   font-weight: 700;
   width: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after {
+  color: #59b3a6 !important;
   content: "Embed rich media";
   font-weight: lighter; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor {
@@ -4798,7 +4799,7 @@ body.library-manager #stay-right {
   margin: 0 auto;
   position: relative;
   text-align: left;
-  top: 2.5rem;
+  top: 4.5rem;
   width: 67.5%; }
 .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .draggable-placeholder {
   height: 75%;
