@@ -476,12 +476,21 @@
 		// Deny submission overlay
 		$(document).on("click", ".book-buttons .deny-this-book", function (e) {
 
-			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><h5>Are you sure?</h5><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
 			e.preventDefault();
 
 		});
+		
+		// Deny submission overlay
+		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
 
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\" style=\"padding: 10rem 2rem\";><h3>Remove story</h3><button class='white' style=\"margin-top: 1rem !important\";>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+
+			e.preventDefault();
+
+		});
+		
 		// Cancel submission approval
 		$(document).on("click", ".approve-book-confirm .cancel", function (e) {
 
@@ -497,7 +506,7 @@
 			e.preventDefault();
 
 		});
-
+		
 		// Approve submission
 		$(document).on("click", ".approve-book-confirm button", function (e) {
 

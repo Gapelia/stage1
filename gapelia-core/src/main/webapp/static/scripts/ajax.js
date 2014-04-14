@@ -320,7 +320,7 @@ function getBooksInLibraryOwner() {
                 book = books[i];
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-                toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
+                toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\">&#xf128;</a></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a><\/div><div \class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
                 toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
