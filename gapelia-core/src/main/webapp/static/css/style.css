@@ -3973,7 +3973,7 @@ body.library-manager #stay-right {
   left: 0;
   position: absolute; }
 .accounts #notifications-toggle {
-  margin-left: 31%;
+  margin-left: 32%;
   text-align: left; }
 .accounts #notifications-toggle span, .accounts #notifications-toggle input {
   color: rgba(128, 128, 128, 0.8);
