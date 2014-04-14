@@ -78,7 +78,7 @@
 
 			<!--/ main-panel /-->
 			<div id="featured-panel">
-				<button id="g-menu-toggle">
+				<button id="g-menu-toggle" style="color: white;">
 					<i class="ion-drag"></i>
 				</button>
 			</div>

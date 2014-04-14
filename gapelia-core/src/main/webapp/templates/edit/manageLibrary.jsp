@@ -227,7 +227,6 @@
             $("#library-splash").imgLiquid({
                 fill: true
             });
-            $("#g-menu-toggle").css("color", "#fcfcfc");
 
             if ($vW > "1024") {
 

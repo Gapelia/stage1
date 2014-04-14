@@ -175,7 +175,7 @@
 		width: 100%; height: auto;
 
 		background-color: transparent;
-		color: $slate !important;
+		color: $slate;
 		cursor: pointer;
 		font-size: 36px;
 		padding: 0 !important;
@@ -681,7 +681,7 @@
 
 		#close-splash {
 			width: auto; height: auto;
-			bottom: 5rem; left: 45%;
+			bottom: 3.5rem; left: 45%;
 
 			border-bottom: 1px solid rgba($white, 0.3);
       color: $white;
@@ -780,6 +780,7 @@
 	}
 
 	#library-splash {
+    
 		#library-info {
 			border-bottom: 1px solid rgba($white, 0.5);
 			left: 20%;
@@ -790,6 +791,7 @@
 			h2 {
 				font-size: 50px;
 				font-weight: 700;
+        text-transform: uppercase;
 			}
 		}
 
@@ -891,8 +893,9 @@
 			}
 
 			h2 {
-				font-size: 50px; //
+				font-size: 50px; 
 				font-weight: 700;
+        text-transform: uppercase;
 
 				&:empty:after {
 					color: rgba($white, 0.7);

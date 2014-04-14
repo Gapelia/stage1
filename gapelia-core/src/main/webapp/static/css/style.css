@@ -2431,7 +2431,7 @@ body.landing h1 {
   width: 100%;
   height: auto;
   background-color: transparent;
-  color: #59b3a6 !important;
+  color: #59b3a6;
   cursor: pointer;
   font-size: 36px;
   padding: 0 !important;
@@ -2817,7 +2817,7 @@ body.landing h1 {
 .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash, .app #new-library #close-splash {
   width: auto;
   height: auto;
-  bottom: 5rem;
+  bottom: 3.5rem;
   left: 45%;
   border-bottom: 1px solid rgba(252, 252, 252, 0.3);
   color: #fcfcfc;
@@ -2895,7 +2895,8 @@ body.landing h1 {
   width: 60%; }
 .app #library-splash #library-info h2 {
   font-size: 50px;
-  font-weight: 700; }
+  font-weight: 700;
+  text-transform: uppercase; }
 .app #library-splash h1 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   font-size: 0.9rem; }
@@ -2981,7 +2982,8 @@ body.landing h1 {
   transition: opacity 0.5s ease; }
 .app #new-library #new-library-info h2 {
   font-size: 50px;
-  font-weight: 700; }
+  font-weight: 700;
+  text-transform: uppercase; }
 .app #new-library #new-library-info h2:empty:after {
   color: rgba(252, 252, 252, 0.7);
   content: "Name your library"; }
@@ -6976,7 +6978,7 @@ a.count span.dont-move {
     top: 35%;
     width: 75%; }
   .app #library-splash #library-info h2 {
-    font-size: 20px; }
+    font-size: 3rem; }
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
   .app #user-splash h1 {
@@ -7593,7 +7595,7 @@ a.count span.dont-move {
     font-size: 1rem !important;
     left: 43%; }
   .app #library-splash #library-info {
-    left: 13%;
+    left: 12%;
     top: 36%;
     width: 75%; }
   .app #library-splash #library-info h2 {
@@ -7738,6 +7740,16 @@ a.count span.dont-move {
     left: 5%;
     padding: 0;
     width: 90%; }
+  .app #library-splash #library-info {
+    left: 12%;
+    top: 36%;
+    width: 75%; }
+  .app #library-splash #library-info h2 {
+    font-size: 2rem; }
+  .app #library-splash #library-info p {
+    font-size: 1rem; }
+  .app #library-splash #close-splash {
+    font-size: 0.9rem !important; }
   .app #user-splash .user-avatar {
     top: 12%; }
   .app #user-splash #splash-user-bio {
