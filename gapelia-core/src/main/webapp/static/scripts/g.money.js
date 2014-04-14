@@ -328,7 +328,7 @@
 				$(this).find(".right-bm").css("width", "92px");
 
 			}
-
+			
 		});
 
 		// Remove bookmark in Bookmarks section on / featured
@@ -393,7 +393,24 @@
 			});
 
 			$(this).closest("li").removeClass("bookmarked");
+			
+			if ($vW < "1024") {
+				
+				$(this).children(".top-bm").css({
+				"border-top-color": "#fcfcfc",
+				"right": "18px"
+				});
 
+				$(this).children(".bottom-bm").css({
+				"border-bottom-color": "#fcfcfc",
+				"right": "18px"
+				});
+
+				$(this).children(".right-bm").css({
+				"background-color": "#fcfcfc",
+				"width": "50px"
+				});
+			}
 		});
 
 		// "Library Manager" Dashboard
@@ -476,12 +493,21 @@
 		// Deny submission overlay
 		$(document).on("click", ".book-buttons .deny-this-book", function (e) {
 
-			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><h5>Are you sure?</h5><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
 			e.preventDefault();
 
 		});
+		
+		// Deny submission overlay
+		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
 
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\" style=\"padding: 10rem 2rem\";><h3>Remove story</h3><button class='white' style=\"margin-top: 1rem !important\";>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
+
+			e.preventDefault();
+
+		});
+		
 		// Cancel submission approval
 		$(document).on("click", ".approve-book-confirm .cancel", function (e) {
 
@@ -497,7 +523,7 @@
 			e.preventDefault();
 
 		});
-
+		
 		// Approve submission
 		$(document).on("click", ".approve-book-confirm button", function (e) {
 

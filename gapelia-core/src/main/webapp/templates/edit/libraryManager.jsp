@@ -162,6 +162,8 @@
 
 		<!--/ scripts/layout-scroller /-->
 		<script src="/static/scripts/mousewheel.js"></script>
+                <script src="/static/scripts/scroll.js"></script>
+                <!--/ scripts/layout-scroller /-->
 
 		<script>
 			$(function () {
@@ -178,12 +180,19 @@
 				var $vW = $(window).width(), $vH = $(window).height();
 
 				// Controlled scrolling speed
-				$("#featured-scroller").mousewheel(function (event, delta) {
-
-					this.scrollLeft -= (delta * 40);
-					event.preventDefault();
-
-				});
+                                if ($vW > "1024") {
+                
+                                    $("#featured-scroller").mousewheel(function (event, delta) {
+                
+                                        $("#featured-scroller").stop().animate({
+                                            scrollLeft: "-=" + (75 * delta) + "px"
+                                        }, "150", "easeOutCubic");
+                
+                                        event.preventDefault();
+                
+                                    });
+                
+                                }
 
 				$("#add-new-library").click(function () { window.location.href = "/createlibrary"; });
 

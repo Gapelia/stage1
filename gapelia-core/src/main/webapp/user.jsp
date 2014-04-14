@@ -132,6 +132,7 @@
     <!--/ scripts/layout-scroller /-->
     <script src="/static/scripts/mousewheel.js"></script>
     <script src="/static/scripts/scroll.js"></script>
+    <!--/ scripts/layout-scroller /-->
 
     <script>
         $(function () {
