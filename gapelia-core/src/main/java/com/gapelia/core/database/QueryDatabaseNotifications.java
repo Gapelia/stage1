@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class QueryDatabaseNotifications {
     private static Logger LOG = Logger.getLogger(QueryDatabaseNotifications.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
+    private static final String GET_USER_ALL_LIBARY_NOTIFICATIONS = "SELECT * FROM library_notifications where recipient = ?  and accepted = 'f'";
     private static final String GET_USER_LIBRARY_NOTIFICATIONS = "SELECT * FROM library_notifications where recipient = ? and referenced_library = ? and accepted = 'f'";
     private static final String GET_USER_BOOK_NOTIFICATIONS = "SELECT * FROM book_notifications where recipient = ? and accepted = 'f'";
     private static final String GET_USER_ACCEPTED_LIBRARY_NOTIFICATIONS = "SELECT * FROM library_notifications where sender = ? and accepted = 't'";
@@ -61,6 +62,42 @@ public class QueryDatabaseNotifications {
         return notificationList;
     }
 
+    public static ArrayList<LibraryNotifications> getLibraryNotificationsAll(User u) {
+        PreparedStatement insert = null;
+        ResultSet rs = null;
+        ArrayList<LibraryNotifications> notificationList = null;
+        try {
+            notificationList = new ArrayList<LibraryNotifications>();
+            insert = connection.prepareStatement(GET_USER_ALL_LIBARY_NOTIFICATIONS);
+            insert.setInt(1, u.getUserId());
+            rs = insert.executeQuery();
+            while (rs.next()) {
+                LibraryNotifications libraryNotifications = new LibraryNotifications();
+                libraryNotifications.setRecipientUserId(rs.getInt("recipient"));
+                libraryNotifications.setLibraryId(rs.getInt("referenced_library"));
+                libraryNotifications.setSenderUserId(rs.getInt("sender"));
+                libraryNotifications.setBookId(rs.getInt("book_id"));
+                libraryNotifications.setDateSend(rs.getTimestamp("date_sent"));
+                libraryNotifications.setAccepted(rs.getBoolean("accepted"));
+                notificationList.add(libraryNotifications);
+            }
+            return notificationList;
+        } catch (SQLException ex) {
+            LOG.error("Cannot bookmark book:" + u + " " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + u + " " + ex.getMessage());
+            }
+        }
+        return notificationList;
+    }
     public static ArrayList<LibraryNotifications> getAcceptedLibraryNotifications(User u) {
         PreparedStatement insert = null;
         ResultSet rs = null;
@@ -101,7 +138,7 @@ public class QueryDatabaseNotifications {
     public  static String respondLibraryNotification(int senderId, int recipientId, int referenced) {
         PreparedStatement insert = null;
         try {
-            insert = connection.prepareStatement(RESPOND_BOOK_NOTIFICATIONS);
+            insert = connection.prepareStatement(RESPOND_LIBRARY_NOTIFICATIONS);
             insert.setInt(1, recipientId);
             insert.setInt(2, senderId);
             insert.setInt(3, referenced);
