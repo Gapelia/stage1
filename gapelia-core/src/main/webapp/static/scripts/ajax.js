@@ -357,11 +357,11 @@ function getCreatedLibraries() {
             toInsert = '';
             for (i in libraries) {
                 library = libraries[i];
-                toInsert += "<li id=\"" + library.libraryId + "\" class=\"library\" ><div class=\"library-buttons\">";
-                toInsert += "<a class=\"delete-this-library\">&#xf252;</a><a class=\"edit-this-library\" href=\"/editlibrary/" + library.libraryId + "\">&#xf13d;</a></div>";
+		toInsert += "<li id=\"" + library.libraryId + "\" class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat; class=\"library\" ><div class=\"library-buttons\">";
+		toInsert += "<a class=\"delete-this-library\">&#xf252;</a><a class=\"edit-this-library\" href=\"/editlibrary/" + library.libraryId + "\">&#xf13d;</a></div>";
                 toInsert += "<div class=\"library-info\"><div class=\"title\"><a href=\"/managelibrary/" + library.libraryId + "\">" + library.title + "</a></div>";
                 toInsert += "<div class=\"lib-blurb\">" + library.description + "</div></div>";
-                toInsert += "<span class=\"image-overlay\"></span><img src=\"" + library.coverPhoto + "\"></li>";
+                toInsert += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
 	    if (toInsert == "") { 
 		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
@@ -1181,8 +1181,8 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
         addBookToLibrary(bookId);
     }
-    $("#my-submissions ul").toggle();
-});
+    $("#my-submissions ul li a").css({"opacity": "0.3"})
+ });
 
 $(document).on("click", ".approve-book-confirm button", function (ev) {
     e = $(this).closest(".approve-book-confirm");
