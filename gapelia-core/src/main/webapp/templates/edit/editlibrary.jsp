@@ -88,7 +88,6 @@
         <!--/ library-editing /-->
         <section id="new-library">
             <div class="library-controls">
-                <button id="confirm-cancel-library" class="blank">Delete</button>
                 <button id="confirm-create-library" class="outline">Save</button>
             </div>
 
