@@ -2792,7 +2792,7 @@ body.landing h1 {
   padding: 0 15rem;
   position: relative;
   text-align: left;
-  top: 50%;
+  top: 47.5%;
   transform: translateY(-50%);
   z-index: 10;
   -o-transform: translateY(-50%);
@@ -2894,7 +2894,7 @@ body.landing h1 {
   top: 45%;
   width: 60%; }
 .app #library-splash #library-info h2 {
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 700; }
 .app #library-splash h1 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
@@ -2966,7 +2966,7 @@ body.landing h1 {
   margin: 0 0 0 1rem;
   opacity: 1; }
 .app #new-library #new-library-info {
-  top: 55%;
+  top: 47.5%;
   left: 20%;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -2980,7 +2980,7 @@ body.landing h1 {
   position: absolute;
   transition: opacity 0.5s ease; }
 .app #new-library #new-library-info h2 {
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 700; }
 .app #new-library #new-library-info h2:empty:after {
   color: rgba(252, 252, 252, 0.7);
@@ -2995,20 +2995,29 @@ body.landing h1 {
   padding: 8px 0;
   width: 500px; }
 .app #new-library p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 0.006rem;
-  line-height: 2rem; }
+  line-height: 2rem;
+  padding: 12px 0 0 0; }
 .app #new-library p:empty:after {
   color: rgba(252, 252, 252, 0.7);
   content: "Add a description here"; }
 .app #new-library .library-controls {
-  top: 2rem;
-  right: 2rem;
+  bottom: 2.5rem;
+  left: 47%;
   position: fixed;
   z-index: 100; }
 .app #new-library .library-controls .outline {
-  border: 1px solid #fcfcfc !important; }
+  border: 1px solid rgba(252, 252, 252, 0.5) !important; }
+.app #new-library .library-controls .outline:hover {
+  border: 1px solid rgba(89, 179, 166, 0.5) !important; }
+.app #new-library .library-controls:hover {
+  background-color: #59b3a6;
+  border-radius: 5px;
+  color: #fcfcfc; }
 .app #new-library #close-splash {
+  bottom: 2.5rem !important;
+  left: 41% !important;
   opacity: 0;
   transition: opacity 0.5s ease; }
 .app #user-splash .overlay-controls {
@@ -4299,10 +4308,11 @@ body.library-manager #stay-right {
   color: #999999;
   text-shadow: none; }
 .selectize-control.multi .selectize-input [data-value] {
-  background-color: #70a1b1;
+  background-color: #59b3a6;
   background-repeat: repeat-x;
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba(25, 25, 25, 0.2), inset 0 1px rgba(252, 252, 252, 0.03);
+  padding: 0.3rem;
   text-shadow: 0 1px 0 rgba(89, 179, 166, 0.3); }
 .selectize-control.multi .selectize-input [data-value].active {
   background-color: #70a1b1;

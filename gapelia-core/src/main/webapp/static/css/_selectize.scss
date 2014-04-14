@@ -280,11 +280,12 @@
 	}
 
 	.selectize-input [data-value] {
-		background-color: #70a1b1;
+		background-color: #59b3a6;
 		//background-image: linear-gradient(to bottom, lighten($blue, 10%), darken($blue, 10%));
 		background-repeat: repeat-x;
 		border-radius: 3px;
 		box-shadow: 0 1px 0 rgba($black, 0.2), inset 0 1px rgba($white, 0.03);
+		padding: 0.3rem;
 		text-shadow: 0 1px 0 rgba($slate, 0.3);
 	}
 

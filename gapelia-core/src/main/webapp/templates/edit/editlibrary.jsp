@@ -121,7 +121,7 @@
                 </section>
             </div>
 
-            <div id="close-splash"><i class="ion-ios7-arrow-right"></i>
+            <div id="close-splash">Continue to Library Manager</div>
             </div>
             <img class="page-bg" src="/static/images/cover-bg.jpg" />
         </section>

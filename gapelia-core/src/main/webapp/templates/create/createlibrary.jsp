@@ -48,6 +48,7 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
+						<li class="home"><a href="/featured">Folio</a></li>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
 						<li><a href="/createlibrary">Create book</a></li>
 						<li><a href="#" id="create-library">Start library</a></li>
@@ -66,7 +67,9 @@
 							</ul>
 						</li>
 
-						<li class="logout"><a href="#">Log Out</a></li>
+						<li class="fq"><a href="#">Help</a>
+						<li class="help"><a href="#">Contact</a>
+						<li class="logout"><a href="#">Log Out</a>
 					</ul>
 
 				</div>
@@ -115,7 +118,7 @@
 					</section>
 				</div>
 
-				<div id="close-splash"><i class="ion-ios7-arrow-right"></i></div>
+				<div id="close-splash">Continue to Library Manager</div>
 				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
