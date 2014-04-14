@@ -182,9 +182,9 @@
 				// Controlled scrolling speed
                                 if ($vW > "1024") {
                 
-                                    $("#book-scroller").mousewheel(function (event, delta) {
+                                    $("#featured-scroller").mousewheel(function (event, delta) {
                 
-                                        $("#book-scroller").stop().animate({
+                                        $("#featured-scroller").stop().animate({
                                             scrollLeft: "-=" + (75 * delta) + "px"
                                         }, "150", "easeOutCubic");
                 
