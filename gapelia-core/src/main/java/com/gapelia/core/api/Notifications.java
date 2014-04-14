@@ -106,6 +106,18 @@ public class Notifications {
         return gson.toJson(QueryDatabaseNotifications.getLibraryNotifications(u, libraryId));
     }
 
+    @Path("getLibraryNotificationsAll")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getLibraryNotificationsAll(@FormParam("sessionId") String sessionId) {
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        Gson gson = new GsonBuilder().create();
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        return gson.toJson(QueryDatabaseNotifications.getLibraryNotificationsAll(u));
+    }
+
     @Path("getAcceptedLibraryNotifications")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

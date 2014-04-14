@@ -1,8 +1,6 @@
 function readCookie(name) {
-
     var nameEQ = name + "=";
     var ca = document.cookie.split(";");
-
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == " ") c = c.substring(1, c.length);
@@ -13,7 +11,6 @@ function readCookie(name) {
     }
     return null;
 }
-
 function getFullBookFromBookId(bookId) {
     $.ajax({
         url: "/api/utils/getBookFromBookId",
@@ -38,14 +35,12 @@ function getFullBookFromBookId(bookId) {
 }
 
 function loadDelete() {
-    // Drafts functionality
     $(".dd-link").click(function (e) {
 
         $(this).next(".delete-draft").toggle();
         e.preventDefault();
 
     });
-
     $(".yay-dd").click(function () {
         $(this).closest("li").remove();
     });
@@ -884,6 +879,7 @@ function getBookFromBookId(bookId) {
             bookId: bookId
         },
         success: function (data) {
+            bookFromBookId=data;
             if (data.libraryId != 0) {
                 //featuredbook responseText = "<a href=\"library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a>";
             }
@@ -1210,56 +1206,6 @@ function submitToLibrary(bookId) {
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
-            }
-        }
-    });
-}
-
-function getNotifications() {
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/notifications/getAcceptedLibraryNotifications",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        async: false,
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-        },
-        success: function (data) {
-            notifications = data;
-            i=0;
-            for(i in notifications) {
-                notification = notifications[i];
-                $.ajax({
-                        url: "/api/users/getUserPublic",
-                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                        type: "POST",
-                        data: {
-                            userId: notification.senderUserId
-                        },
-                        success: function (data) {
-                            publicUser = data;
-                            toInsert = "<li sender=\""+notification.senderUserId+"\" refrencelibrary=\""+notification.referencedLibrary+"\"recipient=\""+notification.recipientUserId+"\"><a>"+publicUser.displayName+" has accepted your book to their library!</a></li>";
-                            $("#gpl-menu-notify ul").append(toInsert)
-                        },
-                        error: function (q, status, err) {
-                            if (status == "timeout") {
-                                alert("Request timed out");
-                            } else {
-                                alert("Some issue happened with your request: " + err.message);
-                            }
-                        }
-                    });
-             }
-             i++;
-            $("#gpl-menu-notify .icon").html(i);
-            $("#notification-count").html(i);
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
             }
         }
     });
@@ -1635,6 +1581,9 @@ function updateBookAndPages(isPublished) {
         });
         tags = tags.substring(0, tags.length - 1);
     }
+    if(title=="") {
+        title = "Untitled Draft";
+    }
     $.ajax({
         url: "/api/books/updateBook",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1701,7 +1650,6 @@ function loadBookEditor() {
             bookId: bookId
         },
         success: function (data) {
-
             book = data;
             pages = {
                 "page": [{}],
@@ -1771,15 +1719,12 @@ function loadPagesEditor() {
             templateId = pages.page[0].templateId;
             loadEditorExtra(templateId);
         },
-
         error: function (q, status, err) {
-
             if (status == "timeout") {
                 alert("Request timed out");
             } else {
                 alert("Some issue happened with your request: " + err.message);
             }
-
         }
     });
 }
