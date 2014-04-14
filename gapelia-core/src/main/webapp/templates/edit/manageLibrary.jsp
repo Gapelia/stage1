@@ -211,6 +211,8 @@
 
     <!--/ scripts/layout-scroller /-->
     <script src="/static/scripts/mousewheel.js"></script>
+    <script src="/static/scripts/scroll.js"></script>
+     <!--/ scripts/layout-scroller /-->s
 
     <script>
         $(document).ready(function () {
@@ -245,8 +247,9 @@
                 // Controlled scrolling speed
                 $("#featured-scroller").mousewheel(function (event, delta) {
 
-                    this.scrollLeft -= (delta * 40);
-                    event.preventDefault();
+                    $("#featured-scroller").stop().animate({
+                        scrollLeft: "-=" + (75 * delta) + "px"
+                    }, "150", "easeOutCubic");
 
                 });
 
