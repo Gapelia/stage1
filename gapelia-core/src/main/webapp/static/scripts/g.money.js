@@ -328,7 +328,7 @@
 				$(this).find(".right-bm").css("width", "92px");
 
 			}
-
+			
 		});
 
 		// Remove bookmark in Bookmarks section on / featured
@@ -393,7 +393,24 @@
 			});
 
 			$(this).closest("li").removeClass("bookmarked");
+			
+			if ($vW < "1024") {
+				
+				$(this).children(".top-bm").css({
+				"border-top-color": "#fcfcfc",
+				"right": "18px"
+				});
 
+				$(this).children(".bottom-bm").css({
+				"border-bottom-color": "#fcfcfc",
+				"right": "18px"
+				});
+
+				$(this).children(".right-bm").css({
+				"background-color": "#fcfcfc",
+				"width": "50px"
+				});
+			}
 		});
 
 		// "Library Manager" Dashboard
