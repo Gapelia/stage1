@@ -7492,6 +7492,13 @@ a.count span.dont-move {
   .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
     display: none; }
 
+  .accounts #account-splash-wrapper {
+    margin-bottom: 0; }
+  .accounts .account-info-wrapper .col-0 .bl_form input {
+    width: 50%;
+    text-align: center; }
+  .accounts .account-info-wrapper label {
+    text-align: center; }
   .accounts #g-menu-toggle {
     z-index: 102; }
   .accounts #menu {
@@ -7522,6 +7529,8 @@ a.count span.dont-move {
     display: none;
     font-size: 0.8rem;
     margin: 1rem 0 0 0; }
+  .accounts #notifications-toggle {
+    margin-left: 28%; }
   .accounts #user-panel {
     z-index: 1; }
 
@@ -7718,7 +7727,11 @@ a.count span.dont-move {
   .accounts .account-info-wrapper label {
     width: 49%; }
   .accounts .account-info-wrapper .col-0 .bl_form input {
-    width: 50%; } }
+    width: 60%; }
+  .accounts #notifications-toggle {
+    margin-left: 25%; }
+  .accounts #notifications-toggle span {
+    font-size: 0.9rem; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing .super-wrapper {
     padding: 30% 10%; }
@@ -7877,7 +7890,16 @@ a.count span.dont-move {
     margin: 1.5rem 0 0.5rem 0; }
   .profile #user-header {
     font-size: 1.1rem;
-    padding: 0; } }
+    padding: 0; }
+
+  .accounts .account-info-wrapper label {
+    width: 49%; }
+  .accounts .account-info-wrapper .col-0 .bl_form input {
+    width: 80%; }
+  .accounts #notifications-toggle {
+    margin-left: 11%; }
+  .accounts #notifications-toggle span {
+    font-size: 0.9rem; } }
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;

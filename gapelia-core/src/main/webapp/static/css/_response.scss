@@ -1177,6 +1177,15 @@
 
 	.accounts {
 
+		#account-splash-wrapper {
+			margin-bottom: 0;
+		}
+		
+		.account-info-wrapper {
+			.col-0 .bl_form input { width: 50%; text-align: center; }
+			label { text-align: center; }
+		}
+		
 		#g-menu-toggle { z-index: 102; }
 
 		#menu {
@@ -1212,8 +1221,9 @@
 			}
 		}
 		
+		#notifications-toggle { margin-left: 28%; }
+		
 		#user-panel { z-index: 1; }
-
 	}
 
 	/// MISCELLANEOUS ///////////////////////////////////////////////////////////////////////////////////
@@ -1545,8 +1555,14 @@
 	.accounts {
 		.account-info-wrapper {
 			label { width: 49%; }
-			.col-0 .bl_form input { width: 50%; }
-		}	
+			.col-0 .bl_form input { width: 60%; }
+		}
+		
+		#notifications-toggle {
+			margin-left: 25%;
+			
+			span { font-size: 0.9rem; }
+		}
 	}
 
 }
@@ -1820,6 +1836,19 @@
 		#user-header {
 			font-size: 1.1rem;
 			padding: 0;
+		}
+	}
+	
+	.accounts {
+		.account-info-wrapper {
+			label { width: 49%; }
+			.col-0 .bl_form input { width: 80%; }
+		}
+		
+		#notifications-toggle {
+			margin-left: 11%;
+			
+			span { font-size: 0.9rem; }
 		}
 	}
 }
