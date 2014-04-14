@@ -3765,6 +3765,8 @@ body.library-manager #stay-right {
   padding: 0;
   text-align: center;
   text-shadow: 0 0 0.13rem #191919 !important; }
+.profile .deny-book-confirm {
+  display: none; }
 .profile .delete-book-confirm {
   width: 100%;
   height: 100%;
