@@ -2576,7 +2576,7 @@ body.landing h1 {
 .app .book .bookmark-this:hover .top-bm, .app .book .bookmark-this:hover .bottom-bm, .app .collection .bookmark-this:hover .top-bm, .app .collection .bookmark-this:hover .bottom-bm, .app .library .bookmark-this:hover .top-bm, .app .library .bookmark-this:hover .bottom-bm, .app .new .bookmark-this:hover .top-bm, .app .new .bookmark-this:hover .bottom-bm, .app .draft .bookmark-this:hover .top-bm, .app .draft .bookmark-this:hover .bottom-bm {
   right: 30px; }
 .app .book .bookmark-this:hover .right-bm, .app .collection .bookmark-this:hover .right-bm, .app .library .bookmark-this:hover .right-bm, .app .new .bookmark-this:hover .right-bm, .app .draft .bookmark-this:hover .right-bm {
-  width: 46px; }
+  width: 47px; }
 .app .book .bookmark-this .top-bm, .app .book .bookmark-this .bottom-bm, .app .book .bookmark-this .right-bm, .app .collection .bookmark-this .top-bm, .app .collection .bookmark-this .bottom-bm, .app .collection .bookmark-this .right-bm, .app .library .bookmark-this .top-bm, .app .library .bookmark-this .bottom-bm, .app .library .bookmark-this .right-bm, .app .new .bookmark-this .top-bm, .app .new .bookmark-this .bottom-bm, .app .new .bookmark-this .right-bm, .app .draft .bookmark-this .top-bm, .app .draft .bookmark-this .bottom-bm, .app .draft .bookmark-this .right-bm {
   transition: all 0.2s ease; }
 .app .book .bookmark-this .top-bm, .app .book .bookmark-this .bottom-bm, .app .collection .bookmark-this .top-bm, .app .collection .bookmark-this .bottom-bm, .app .library .bookmark-this .top-bm, .app .library .bookmark-this .bottom-bm, .app .new .bookmark-this .top-bm, .app .new .bookmark-this .bottom-bm, .app .draft .bookmark-this .top-bm, .app .draft .bookmark-this .bottom-bm {
