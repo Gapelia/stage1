@@ -29,13 +29,16 @@ public class QueryDatabaseUser {
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
-    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books where is_published = 't' order by random() LIMIT  20";
+//    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books where is_published = 't' order by random() LIMIT 20";
+    private static final String GET_FEATURED_BOOKS = "select * from books left join (select count(book_id) as num_votes, " +
+		"book_id from user_votes group by book_id order by num_votes desc limit 20) as t2 on books.id = t2.book_id where " +
+		"books.is_published = 't' order by num_votes desc NULLS LAST limit 20";
     private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
     private static final String GET_BOOK = "SELECT * FROM books where id = ?";
-    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't' order by random()";
-    private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f' order by random()";
-    private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ?";
-    private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ?";
+    private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't' order by last_updated desc";
+    private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f' order by last_updated desc";
+    private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ? ";
+    private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ? order by created desc";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
     private static final String GET_LAST_PUBLISHED = "select * from books where owned_by = ? order by created desc limit 1";

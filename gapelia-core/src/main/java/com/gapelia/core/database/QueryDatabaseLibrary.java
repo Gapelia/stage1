@@ -11,8 +11,12 @@ import java.util.ArrayList;
 public class QueryDatabaseLibrary {
     private static Logger LOG = Logger.getLogger(QueryDatabaseLibrary.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
-    private static final String GET_GOD_LIBRARIES = "SELECT * FROM libraries where created_by=1 order by random()";
-    private static final String GET_ALL_LIBRARIES = "SELECT * FROM libraries order by random()";
+//    private static final String GET_GOD_LIBRARIES = "SELECT * FROM libraries where created_by=1 order by random()";
+
+    private static final String GET_ALL_LIBRARIES = "select * from libraries left join (select count(library_id) as num_subscribers, " +
+			"library_id from library_books group by library_id order by num_subscribers limit 20) as t2 on libraries.id = t2.library_id " +
+			"order by num_subscribers desc nulls last limit 20";
+
     private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
     private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
     private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
@@ -57,7 +61,7 @@ public class QueryDatabaseLibrary {
         ResultSet rs = null;
         ArrayList<Library> libraryList = new ArrayList<Library>();
         try {
-            statement = connection.prepareStatement(GET_GOD_LIBRARIES);
+            statement = connection.prepareStatement(GET_ALL_LIBRARIES);
             rs = statement.executeQuery();
             while (rs.next()) {
                 int libraryId = rs.getInt("id");
