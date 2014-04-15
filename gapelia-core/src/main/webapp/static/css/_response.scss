@@ -2179,15 +2179,24 @@
 			}
 			
 			button {
-				top: -3rem; right: 0;
+				top: -3rem; right: -2rem;
 				position: fixed;
 			}
 			
-			h1 { margin: 0 0 2px 0; }
+			h1 {
+				font-size: 0.8rem !important;
+				margin: 0 0 2px 0;
+			}
+			
+			h2 { font-size: 1.2rem !important; }
+			
+			p { font-size: 0.9rem !important; }
+			
+			section { font-size: 0.8rem !important; }
 			
 			#close-splash {
 				bottom: 32% !important;
-				font-size: 4rem;
+				font-size: 0.8rem !important;
 				left: 35%;
 			}
 		}

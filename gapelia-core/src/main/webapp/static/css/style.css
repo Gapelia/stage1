@@ -8114,13 +8114,20 @@ a.count span.dont-move {
     width: 88%; }
   .library #library-splash button {
     top: -3rem;
-    right: 0;
+    right: -2rem;
     position: fixed; }
   .library #library-splash h1 {
+    font-size: 0.8rem !important;
     margin: 0 0 2px 0; }
+  .library #library-splash h2 {
+    font-size: 1.2rem !important; }
+  .library #library-splash p {
+    font-size: 0.9rem !important; }
+  .library #library-splash section {
+    font-size: 0.8rem !important; }
   .library #library-splash #close-splash {
     bottom: 32% !important;
-    font-size: 4rem;
+    font-size: 0.8rem !important;
     left: 35%; }
 
   .full-book #book-menu, .full-book #share-menu {
