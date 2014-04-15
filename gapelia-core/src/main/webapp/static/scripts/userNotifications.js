@@ -22,6 +22,7 @@ function getSubmissionsResponse() {
     });
 }
 function getLibrarySubmissions() {
+    sessionId = readCookie("JSESSIONID");
     $.ajax({
         url: "/api/notifications/getAllSubmissions",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",

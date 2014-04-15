@@ -1,12 +1,15 @@
 package com.gapelia.core.database;
 
 
+import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
+import org.brickred.socialauth.Profile;
 
 
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,11 +19,40 @@ public class QueryUtils {
 
     private static Logger LOG = Logger.getLogger(QueryUtils.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
+    private static final String CHECK_USER = "SELECT * FROM users WHERE display_name = ?";
     private static final String BOOK_FROM_BOOKID = "SELECT * FROM books where id = ?";
     private static final String LIBRARY_FROM_BOOKID = "SELECT * FROM library_books  where book_id = ?";
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
     private static final String USER_FROM_USERID = "SELECT * from users where id = ?";
 
+    public static String checkUserByName(String displayName) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement(CHECK_USER);
+            statement.setString(1, displayName);
+            rs = statement.executeQuery();
+            if (!rs.isBeforeFirst()) {
+                rs.close();
+                statement.close();
+                return "OK";
+            }
+        } catch (SQLException ex) {
+            LOG.error("Cannot check user u:"  + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + ex.getMessage());
+            }
+        }
+        return "In Use";
+    }
     public static User getUserFromLibraryId(int libraryId) {
         PreparedStatement statement = null;
         ResultSet rs = null;

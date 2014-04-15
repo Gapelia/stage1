@@ -597,7 +597,7 @@ function callUpdate() {
         type: "POST",
         data: {
             sessionId: sessionId,
-            fullName: name,
+            name: name,
             email: email,
             location: current,
             avatarImage: avatarImage,
@@ -872,7 +872,35 @@ function getUserFromLibraryId(libraryId) {
         }
     });
 }
-
+function checkName() {
+    if (displayName=="") {//add check for all our pages
+                    return false;
+    } else if(user.displayName == displayName) {
+    return true;
+    } else {
+    $.ajax({
+        url: "/api/utils/isUserNameAvailable",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            userName: displayName
+        },
+        success: function (data) {
+        response = data;
+            if (data == "In Use") {
+               return false;
+            }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    }); }
+}
 function getUserFromBookId(bookId) {
     responseText = '';
     $.ajax({
@@ -1019,9 +1047,12 @@ function getUserAccounts() {
     if (user.email != undefined && user.email != "") {
         document.getElementById("user-email").value = user.email;
     }
+    if (user.name != undefined && user.name != "") {
+            document.getElementById("user-name").value = user.name;
+    }
 
     if (user.displayName != undefined && user.displayName != "") {
-        document.getElementById("user-name").value = user.displayName;
+        document.getElementById("user-display-name").value = user.displayName;
     }
 
     if (user.location != undefined && user.location != "") {
@@ -1046,57 +1077,57 @@ function getUserAccounts() {
 
 }
 
-function updateUser() {
-    name = user.name;
+function updateUserAccounts() {
     inputBox = document.getElementById("user-name");
-    displayName = inputBox.value;
-    inputBox = document.getElementById("user-email");
-    email = inputBox.value;
-    inputBox = document.getElementById("user-location");
-    current = inputBox.value;
-    bg = $(".account-avatar-wrapper").css("background-image");
-    image = bg.replace("url(", "").replace(")", "");
-    avatarImage = image;
-    avatarImage = image;
-    coverImage = user.coverImage;
-    bio = user.bio;
-    tags = user.tags;
-    inputBox = document.getElementById("user-personal-website");
-    personalWebsite = inputBox.value;
-    inputBox = document.getElementById("user-fb");
-    fb = inputBox.value;
-    inputBox = document.getElementById("user-gp");
-    gp = inputBox.value;
-    inputBox = document.getElementById("user-twt");
-    twt = inputBox.value;
-    isPublic = user.isPublic;
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/users/updateUser",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            fullName: name,
-            email: email,
-            location: current,
-            avatarImage: avatarImage,
-            coverImage: coverImage,
-            displayName: displayName,
-            personalWebsite: personalWebsite,
-            bio: bio,
-            tags: tags,
-            fb: fb,
-            gp: gp,
-            twt: twt,
-            isPublic: true
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
+        name = inputBox.value;
+        inputBox = document.getElementById("user-display-name");
+        displayName = inputBox.value;
+        displayName = displayName.toLowerCase().trim().replace(/\W/g, '');
+        inputBox = document.getElementById("user-email");
+        email = inputBox.value;
+        inputBox = document.getElementById("user-location");
+        current = inputBox.value;
+        bg = $(".account-avatar-wrapper").css("background-image");
+        image = bg.replace("url(", "").replace(")", "");
+        avatarImage = image;
+        coverImage = user.coverImage;
+        bio = user.bio;
+        tags = user.tags;
+        inputBox = document.getElementById("user-personal-website");
+        personalWebsite = inputBox.value;
+        inputBox = document.getElementById("user-fb");
+        fb = inputBox.value;
+        inputBox = document.getElementById("user-gp");
+        gp = inputBox.value;
+        inputBox = document.getElementById("user-twt");
+        twt = inputBox.value;
+        isPublic = user.isPublic;
+        checkName();
+        if(response == "OK") {
+             $.ajax({
+            url: "/api/users/updateUser",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                name: name,
+                email: email,
+                location: current,
+                avatarImage: avatarImage,
+                coverImage: coverImage,
+                displayName: displayName,
+                personalWebsite: personalWebsite,
+                bio: bio,
+                tags: tags,
+                fb: fb,
+                gp: gp,
+                twt: twt,
+                isPublic: true
             }
+            });
+        } else {
+            alert("That Username is already taken");
         }
-    });
 
 }
 $(document).on("click", ".yay-delete-library", function () {

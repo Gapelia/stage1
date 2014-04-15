@@ -64,7 +64,7 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String updateUser(@FormParam("sessionId") String sessionId,
-                             @FormParam("fullName") String fullName,
+                             @FormParam("name") String name,
                              @FormParam("email") String email,
                              @FormParam("location") String location,
                              @FormParam("avatarImage") String avatarImage,
@@ -80,7 +80,7 @@ public class Users {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         User u = SessionManager.getUserFromSessionId(sessionId);
-        u.setFullName(fullName);
+        u.setName(name);
         u.setEmail(email);
         u.setLocation(location);
         u.setAvatarImage(avatarImage);

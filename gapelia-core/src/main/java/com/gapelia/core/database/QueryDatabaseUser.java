@@ -25,7 +25,7 @@ public class QueryDatabaseUser {
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
-    private static final String UPDATE_USER = "UPDATE users set email = ?, full_name = ?, " +
+    private static final String UPDATE_USER = "UPDATE users set email = ?, name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
             "gp = ?, twt = ?, is_public = ? WHERE id = ?";
@@ -345,7 +345,7 @@ public class QueryDatabaseUser {
         try {
             statement = connection.prepareStatement(UPDATE_USER);
             statement.setString(1, user.getEmail());
-            statement.setString(2, user.getFullName());
+            statement.setString(2, user.getName());
             statement.setString(3, user.getLocation());
             statement.setString(4, user.getAvatarImage());
             statement.setString(5, user.getCoverImage());
@@ -360,6 +360,7 @@ public class QueryDatabaseUser {
             statement.setString(14, user.getTwt());
             statement.setBoolean(15, user.getIsPublic());
             statement.setInt(16, user.getUserId());
+            LOG.info(statement.toString());
             statement.executeUpdate();
 
         } catch (Exception ex) {
