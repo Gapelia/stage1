@@ -145,14 +145,17 @@ CREATE TABLE IF NOT EXISTS book_notifications (
 CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
 
 CREATE TABLE IF NOT EXISTS library_notifications (
+	id SERIAL PRIMARY KEY,
         recipient INT REFERENCES users(id) ON DELETE CASCADE,
         referenced_library INT REFERENCES libraries(id) ON DELETE CASCADE NOT NULL,
         sender INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
         book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
         date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
-        accepted BOOLEAN
+	accepted BOOLEAN default NULL,
+	read BOOLEAN default false,
+	message text default NULL
 );
-CREATE INDEX lib_notif_sender_idx ON library_notifications(sender);
+CREATE UNIQUE INDEX lib_notif_sender_idx ON library_notifications(recipient,sender,book_id,referenced_library);
 
 CREATE TABLE IF NOT EXISTS library_books (
         library_id INT REFERENCES libraries(id) ON DELETE CASCADE,
