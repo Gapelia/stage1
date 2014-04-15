@@ -57,14 +57,8 @@
 							<ul id="draft-menu"></ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
-							<ul>
-								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
-								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
-								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
-								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
-								<li><a href="#">2 edit requests are pending for your review</a></li>
-							</ul>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
+							<ul></ul>
 						</li>
 					</ul>
 

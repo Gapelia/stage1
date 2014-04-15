@@ -61,14 +61,8 @@
 							<ul id="draft-menu"></ul>
 						</li>
 
-						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
-							<ul>
-								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
-								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
-								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
-								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
-								<li><a href="#">2 edit requests are pending for your review</a></li>
-							</ul>
+						<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
+							<ul></ul>
 						</li>
 
 						<li class="fq"><a href="#">Help</a>
@@ -104,20 +98,6 @@
 				<!--/ Personal Library List /-->
 				<div class="library-list-wrapper">
 					<ul id="library-list">
-						<li class="library">
-							<div class="library-buttons">
-								<a href="#" class="delete-this-library">&#xf252;</a>
-								<a href="#" class="edit-this-library">&#xf13d;</a>
-							</div>
-
-							<div class="library-info">
-								<div class="title"><a href="/library/016/mother-gaea">Mother Gaea</a></div>
-								<div class="lib-blurb">Gaia was the great mother of all: the primal Greek Mother Goddess; creator and giver of birth to the Earth and all the Universe.</div>
-							</div>
-
-							<span class="image-overlay"></span>
-							<img src="/static/images/book-thumb-02.jpg" alt=""/>
-						</li>
 					</ul>
 				</div>
 				<!--//Personal Library List /-->
