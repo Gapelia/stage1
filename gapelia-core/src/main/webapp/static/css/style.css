@@ -6716,8 +6716,13 @@ a.count span.dont-move {
     overflow-x: hidden;
     overflow-y: auto; }
 
+  body.landing h4 {
+    font-size: 1.2rem; }
   body.landing h5 {
-    font-size: 2.4rem; }
+    font-size: 2.4rem;
+    width: 45%; }
+  body.landing footer {
+    bottom: 2rem; }
 
   .app .not-mobile {
     display: none; }
@@ -7739,9 +7744,14 @@ a.count span.dont-move {
     font-size: 0.9rem; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing .super-wrapper {
-    padding: 24% 10%; }
+    padding: 22% 10%; }
+  body.landing h4 {
+    font-size: 1rem; }
   body.landing h5 {
     font-size: 1.4rem; }
+  body.landing footer {
+    bottom: 3rem;
+    font-size: 0.8rem; }
 
   .app .book-title {
     font-size: 1.8rem;

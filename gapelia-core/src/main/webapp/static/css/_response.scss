@@ -111,11 +111,18 @@
 		overflow-y: auto;
 	}
 
-	//// 404 Error ///
+	//// Landing (homepage + 404) ///
 	
 	body.landing {
 		
-		h5 { font-size: 2.4rem; }
+		h4 { font-size: 1.2rem; }
+		
+		h5 {
+			font-size: 2.4rem;
+			width: 45%;
+		}
+		
+		footer { bottom: 2rem; }
 	}
 	
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
@@ -1581,9 +1588,16 @@
 	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	body.landing {
-		.super-wrapper { padding: 24% 10%; }
+		.super-wrapper { padding: 22% 10%; }
+		
+		h4 { font-size: 1rem; }
 		
 		h5 { font-size: 1.4rem; }
+		
+		footer {
+			bottom: 3rem;
+			font-size: 0.8rem;
+		}
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
