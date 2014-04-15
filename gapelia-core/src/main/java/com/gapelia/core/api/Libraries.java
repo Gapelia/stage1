@@ -19,6 +19,30 @@ public class Libraries {
 
     public static Logger LOG = Logger.getLogger(Libraries.class);
 
+
+	@Path("getNumSubscribers")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getNumSubscribers(@FormParam("sessionId") String sessionId, @FormParam("libraryId") int libraryId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseLibrary.getNumSubscribers(libraryId));
+	}
+
+	@Path("getMostVotedBookInLibrary")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getMostVotedBookInLibrary(@FormParam("sessionId") String sessionId, @FormParam("libraryId") int libraryId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		Book b = QueryDatabaseLibrary.getMostVotedBookInLibrary(libraryId);
+		return gson.toJson(b);
+	}
+
     @Path("getGodLibraries")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,7 +51,6 @@ public class Libraries {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseLibrary.getGodLibraries());
     }
 
@@ -39,7 +62,6 @@ public class Libraries {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
-        User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseLibrary.getAllLibraries());
     }
 

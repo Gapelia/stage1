@@ -21,10 +21,80 @@ public class QueryDatabaseLibrary {
     private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
     private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
     private static final String GET_BOOK = "SELECT * FROM books where id=?";
+    private static final String GET_NUM_SUBSCRIBERS = "select count(library_id) from user_subscriptions where library_id = ? group by library_id";
     private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
     private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
     private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
     private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
+
+    private static final String MOST_VOTED_BOOK = "select library_books.book_id from library_books left join (select count(book_id) " +
+			"as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id " +
+			"where library_id = ? limit 1";
+
+
+	public static String getNumSubscribers(int library_id) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		String num = null;
+		try {
+			statement = connection.prepareStatement(GET_NUM_SUBSCRIBERS);
+			statement.setInt(1, library_id);
+			rs = statement.executeQuery();
+			if (rs.next()) {
+				num = Integer.toString(rs.getInt(1));
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR getting num subscriptions for library:" + library_id, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + library_id + " " + ex.getMessage());
+			}
+		}
+		return num;
+	}
+
+	/**
+	 *
+	 * returns the most voted book in the library -- if it returns null it means there are none that fit that criteria!
+	 *
+	 * @param library_id
+	 * @return
+	 */
+	public static Book getMostVotedBookInLibrary(int library_id) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		Book book = null;
+		try {
+			statement = connection.prepareStatement(MOST_VOTED_BOOK);
+			statement.setInt(1, library_id);
+			rs = statement.executeQuery();
+			if (rs.next()) {
+				int book_id = rs.getInt(1);
+				book = QueryDatabaseUser.getBookByID(book_id);
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR getting most voted book in library:" + library_id, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + library_id + " " + ex.getMessage());
+			}
+		}
+		return book;
+	}
 
     public static ArrayList<Library> getAllLibraries() {
         PreparedStatement statement = null;

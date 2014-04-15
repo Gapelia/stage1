@@ -5,6 +5,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
+import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Page;
 import com.gapelia.core.model.User;
@@ -38,6 +39,17 @@ public class Books {
         page.setCreated(new Timestamp(date.getTime()));
         return gson.toJson(QueryDatabaseBook.createPage(page));
     }
+
+	@Path("getNumVotes")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getNumVotes(@FormParam("sessionId") String sessionId, @FormParam("bookId") int bookId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseBook.getNumVotes(bookId));
+	}
 
     @Path("updatePage")
     @POST

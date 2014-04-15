@@ -26,6 +26,17 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getUserByValidatedId(u));
     }
 
+	@Path("getNextReadRecommendation")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getNextReadRecommendation(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getNextReadRecommendation(userId));
+	}
+
     @Path("onboard")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -160,6 +171,18 @@ public class Users {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
     }
+
+	@Path("getFeaturedBooksForUser")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getFeaturedBooksForUser(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getFeaturedBooks(userId));
+	}
 
     @Path("getLastPublished")
     @POST

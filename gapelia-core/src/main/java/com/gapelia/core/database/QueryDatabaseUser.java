@@ -11,6 +11,7 @@ import org.brickred.socialauth.Profile;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
@@ -43,6 +44,45 @@ public class QueryDatabaseUser {
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
     private static final String GET_LAST_PUBLISHED = "select * from books where owned_by = ? order by created desc limit 1";
     private static final String GET_LIBRARIES_CONTRIBUTED_TO = "select library_id from contributors where user_id = ?";
+    private static final String NEXT_READ_RECOMMENDATION = "select book_id from library_books where library_id = ? and not book_id = ? order by random() limit 1;";
+    private static final String GET_BOOKS_IN_SUBSCRIBED_LIBS = "select distinct book_id from library_books inner join " +
+			"(select * from user_subscriptions where user_id = ?) as t2 on library_books.library_id = t2.library_id limit 30";
+
+
+
+	public static Book getNextReadRecommendation(int userId) {
+		return getFeaturedBooks(userId).get(0);
+	}
+
+	public static ArrayList<Book> getBooksInSubscribedLibraries(int userId) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		ArrayList<Book> bookList = new ArrayList<Book>();
+		try {
+			statement = connection.prepareStatement(GET_BOOKS_IN_SUBSCRIBED_LIBS);
+			statement.setInt(1, userId);
+			rs = statement.executeQuery();
+			while (rs.next()) {
+				Book book = QueryDatabaseUser.getBookByID(rs.getInt(1));
+				bookList.add(book);
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR: : " + userId, ex);
+			bookList = null;
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+			}
+		}
+		return bookList;
+	}
 
     public static String onboard(User u) {
         PreparedStatement insert = null;
@@ -597,8 +637,59 @@ public class QueryDatabaseUser {
             }
         }
 
+
         return bookList;
     }
+
+	public static ArrayList<Book> getFeaturedBooks(int userId) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		ArrayList<Book> bookList = new ArrayList<Book>();
+		try {
+			statement = connection.prepareStatement(GET_FEATURED_BOOKS);
+			rs = statement.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setBookId(rs.getInt("id"));
+				book.setUserId(rs.getInt("owned_by"));
+				book.setCoverPhoto(rs.getString("cover_photo"));
+				book.setTitle(rs.getString("title"));
+				book.setLanguague(rs.getString("language"));
+				book.setTags(rs.getString("tags"));
+				book.setCreated(rs.getTimestamp("created"));
+				book.setLastUpdated(rs.getTimestamp("last_updated"));
+				book.setIsPublished(rs.getBoolean("is_published"));
+				book.setSnippet(rs.getString("snippet"));
+				bookList.add(book);
+			}
+		} catch (Exception ex) {
+			LOG.error("Cannot get featured books ", ex);
+			bookList = null;
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection" + ex.getMessage());
+			}
+		}
+
+		if(bookList == null) return bookList;
+
+		//here try to prefer subscribed libraries....going to randomize the first three
+		ArrayList<Book> subscribedLibraries = getBooksInSubscribedLibraries(userId);
+		Collections.shuffle(subscribedLibraries);
+
+		for(int i = 0; i < subscribedLibraries.size() && i < 3;i++){
+			bookList.add(i,subscribedLibraries.get(i));
+		}
+
+		return bookList;
+	}
 
     public static Book getBookByID(int id) {
         PreparedStatement statement = null;

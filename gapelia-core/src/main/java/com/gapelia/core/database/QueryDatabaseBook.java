@@ -19,10 +19,41 @@ public class QueryDatabaseBook {
     private static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
     private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ?, snippet = ?  WHERE id = ?";
     private static final String DELETE_FROM_USER_VOTES2 = "DELETE FROM user_votes where book_id = ?";
+    private static final String GET_NUM_VOTES = "select count(book_id) from user_votes where book_id = ? group by book_id";
     private static final String DELETE_FROM_USER_BOOKMARKS2 = "DELETE FROM user_bookmarks where book_id = ?";
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
 
-    public static int createPage(Page page){
+
+	public static String getNumVotes(int bookId) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		String num = null;
+		try {
+			statement = connection.prepareStatement(GET_NUM_VOTES);
+			statement.setInt(1, bookId);
+			rs = statement.executeQuery();
+			if (rs.next()) {
+				num = Integer.toString(rs.getInt(1));
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR getting num votes for book:" + bookId, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + bookId + " " + ex.getMessage());
+			}
+		}
+		return num;
+	}
+
+
+	public static int createPage(Page page){
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(CREATE_PAGE, Statement.RETURN_GENERATED_KEYS);
