@@ -1212,6 +1212,8 @@
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
+		title= title.replace(/&lt;br&gt;/g," ");
+		$(".page-title-elem").html(title);
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
 		attribution = $(".image-attribution").html();

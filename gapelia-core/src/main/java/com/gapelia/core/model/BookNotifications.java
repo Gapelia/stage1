@@ -4,11 +4,20 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class BookNotifications {
+    private int notificationId;
     private int recipientUserId;
     private int bookId;
     private int senderUserId;
     private Timestamp dateSend;
     private Boolean accepted;
+
+    public int getNotificationId() {
+        return notificationId;
+    }
+
+    public void setNotificationId(int notificationId) {
+        this.notificationId = notificationId;
+    }
 
     public int getRecipientUserId() {
         return recipientUserId;

@@ -69,7 +69,7 @@
                         <ul id="draft-menu"></ul>
                     </li>
 
-                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
+                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
                         <ul>
                         </ul>
                     </li>
@@ -86,7 +86,7 @@
         <!--/ main-panel /-->
         <div id="featured-panel">
             <button id="g-menu-toggle" class="notification-time">
-                <span id="notification-count">6</span>
+                <span id="notification-count">0</span>
                 <i class="ion-drag"></i>
             </button>
 

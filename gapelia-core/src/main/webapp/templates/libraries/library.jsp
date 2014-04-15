@@ -69,7 +69,7 @@
                         <ul id="draft-menu"></ul>
                     </li>
 
-                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#">6</a>
+                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
                         <ul>
 
                         </ul>

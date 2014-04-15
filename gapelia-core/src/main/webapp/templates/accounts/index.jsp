@@ -62,15 +62,8 @@
 						</li>
 
 						<li id="gpl-menu-notify">
-							<a>Notifications</a><a class="icon" href="#">6</a>
-
-							<ul>
-								<li><a href="#">Diego thanked you for your story: "The Matrix Has You"</a></li>
-								<li><a href="#">Tommy commented on your story: "Well that was weird"</a></li>
-								<li><a href="#">Daniel added your story to a library: "Gapelia Nation"</a></li>
-								<li><a href="#">Frankie wants to collaborate on your story: "Hoverboards Are The Future"</a></li>
-								<li><a href="#">2 edit requests are pending for your review</a></li>
-							</ul>
+							<a>Notifications</a><a class="icon" href="#"></a>
+							<ul></ul>
 						</li>
 
 						<li class="fq"><a href="#">Help</a>
@@ -85,7 +78,7 @@
 			<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle" class="notification-time">
-					<span id="notification-count">6</span>
+					<span id="notification-count"></span>
 					<i class="ion-drag"></i>
 				</button>
 			</div>
@@ -136,8 +129,8 @@
 							<label for="user-name">Name</label>
 							<input id="user-name" type="text" placeholder="Add your full name"></input>
 							
-							<label for="user-name">Username</label>
-							<input id="user-name" type="text" placeholder="Your custom url (i.e. gapelia.com/username)"></input>
+							<label for="user-display-name">Username</label>
+							<input id="user-display-name" type="text" placeholder="Your custom url (i.e. gapelia.com/username)"></input>
 
 							<label for="user-email">Email</label>
 							<input id="user-email" type="email" placeholder="Where you receive notifications and newsletters"></input>
@@ -159,7 +152,7 @@
 
 							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
 
-							<button class="update-user" onclick="updateUser();"><a>Update Settings</a></button>  
+							<button class="update-user" onclick="updateUserAccounts();"><a>Update Settings</a></button>
 		
 							
 						</form>
@@ -185,51 +178,6 @@
 							<button class="red overlay-close oc-02" id="confirm-account-deletion" onclick="deleteAccount();">Yes, I am sure</button>
 						</p>
 					</section>
-				</div>
-
-				<!--/ Password Settings /-->
-				<div class="account-password-wrapper" style="display: none;">
-
-					<form class="bl_form">
-						<input type="password" class="labelBetter" data-new-placeholder="Old and busted" placeholder="Old password"/>
-						<input type="password" class="labelBetter" data-new-placeholder="New hotness" placeholder="New Password"/>
-
-						<input class="" name="commit" type="submit" value="Update Password"/>
-					</form>
-
-				</div>
-
-				<!--/ Notification Settings /-->
-				<div class="account-notifications-wrapper" style="display: none;">
-
-					<section id="email-notify">
-						<h3>Email notifications</h3>
-						<p>When someone recommends your book, or wants to collaborate with you, we'll send you an email.</p>
-
-						<p>
-							<input type="radio" name="email-opt" id="yay-email" checked>
-							<label for="yay-email" id="email-yay">Sweet, I love email</label><br/>
-
-							<input type="radio" name="email-opt" id="nay-email">
-							<label for="nay-email" id="email-nay">Nah, I get enough fan-mail already</label>
-						</p>
-					</section>
-
-				</div>
-
-				<!--/ Professional Account Settings /-->
-				<div class="account-pro-wrapper" style="display: none;">
-
-					<section id="import-content">
-						<h3>Import content</h3>
-						<p>Do you already have content elsewhere? Wordpress or Blogger perhaps? Start transferring your content to Gapelia <a href="#">here</a>.</p>
-					</section>
-
-				</div>
-
-				<!--/ Account Billing Settings /-->
-				<div class="account-billing-wrapper" style="display: none;">
-					<p>Billing stuff</p>
 				</div>
 			</div>
 
@@ -324,201 +272,12 @@
 
 				// Make things fit nicely on iPhones
 				if ($vW < "322") {
-
 					$("#email-yay").text("Heck yeah!");
 					$("#email-nay").text("Erm, no thanks");
-
 				}
 
 				NProgress.done();
 				getUserAccounts();
-
-				// Click "Personal"
-				$("#nav-personal").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-info-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-personal").addClass("current");
-
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Password"
-				$("#nav-password").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-password-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-password").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Notifications"
-				$("#nav-notify").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-notifications-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-notify").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Pro"
-				$("#nav-pro").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-pro-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-pro").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-billing").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Billing"
-				$("#nav-billing").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-delete-wrapper").hide();
-
-						$(".account-billing-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-billing").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-delete").removeClass("current");
-
-					NProgress.done();
-
-				});
-
-				// Click "Delete Account"
-				$("#nav-delete").click(function (e) {
-
-					NProgress.start();
-
-					setTimeout(function () {
-
-						$(".account-info-wrapper").hide();
-						$(".account-password-wrapper").hide();
-						$(".account-notifications-wrapper").hide();
-						$(".account-pro-wrapper").hide();
-						$(".account-billing-wrapper").hide();
-
-						$(".account-delete-wrapper").fadeIn("100");
-
-					}, 500);
-
-					e.preventDefault();
-
-					$("#nav-delete").addClass("current");
-
-					$("#nav-personal").removeClass("current");
-					$("#nav-password").removeClass("current");
-					$("#nav-notify").removeClass("current");
-					$("#nav-pro").removeClass("current");
-					$("#nav-billing").removeClass("current");
-
-					NProgress.done();
-
-				});
-
 				// Modal — delete account
 				$("#delete-account").click(function (e) {
 

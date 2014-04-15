@@ -37,7 +37,6 @@ public class APIUtil {
     public static boolean checkIfOwnPage() {
         return false;
     }
-
     @Path("getUserFromLibraryId")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,6 +44,15 @@ public class APIUtil {
     public String getUserFromLibraryId(@FormParam("libraryId") int libraryId) {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryUtils.getUserFromLibraryId(libraryId));
+    }
+
+    @Path("isUserNameAvailable")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getUserFromLibraryId(@FormParam("userName") String userName) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryUtils.checkUserByName(userName));
     }
 
     @Path("getUserFromBookId")
