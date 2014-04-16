@@ -8127,7 +8127,7 @@ a.count span.dont-move {
 
   .library #library-splash #library-info {
     left: 4%;
-    top: 28%;
+    top: 34%;
     width: 88%; }
   .library #library-splash button {
     top: -3rem;
@@ -8143,7 +8143,7 @@ a.count span.dont-move {
   .library #library-splash section {
     font-size: 0.8rem !important; }
   .library #library-splash #close-splash {
-    bottom: 32% !important;
+    bottom: 18% !important;
     font-size: 0.8rem !important;
     left: 35%; }
 
