@@ -114,7 +114,7 @@ function getBookmarkedBooks() {
         success: function (data) {
             bookmarks = data;
             if (bookmarks != []) {
-                toInsert = '<ul id=\"bookmark-list\">';
+                toInsert = "<ul id=\"bookmark-list\">";
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
                     if (bookmark.bookId in bookmarked == true) {
@@ -130,8 +130,8 @@ function getBookmarkedBooks() {
                     toInsert += "</div></div></li>";
                 }
 
-                if (toInsert == "") {
-                    toInsert += "<section><p>No books have been added to your bookmarks yet.</p></section>"; //code
+                if (toInsert == "<ul id=\"bookmark-list\">") {
+                    toInsert += "<ul id=\"bookmark-list\"><section><p>No books have been added to your bookmarks yet.</p></section></ul>";		    
                 }
             }
             $(".bookmark-list-wrapper").html(toInsert);
@@ -1448,8 +1448,6 @@ function getListSubscribed() {
             for (i in libraries) {
                 subscribed[libraries[i].libraryId] = true;
             }
-
-
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1481,7 +1479,9 @@ function getSubscribedLibrary() {
 
                 lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
-            lib += "</ul>";
+	    if (lib == "<ul id=\"subscription-list\">") {
+                lib = "<ul id=\"subscription-list\"><div class=\"library-empty\"><a class=\"empty-subscriptions\">You have not subsribed to any libraries yet.</a></div></ul>";
+            }
             $(".subscription-list-wrapper").html(lib);
             h = $(this).outerHeight() - 92;
             $(".library").css("height", h)

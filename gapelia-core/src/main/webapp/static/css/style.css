@@ -2532,7 +2532,7 @@ body.landing h1 {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
-.app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty, .app .book-list-wrapper .library-empty {
+.app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty, .app .book-list-wrapper .library-empty, .app .bookmark-list-wrapper .library-empty {
   color: rgba(11, 72, 107, 0.25);
   font-size: 1.6rem;
   left: 13rem;
@@ -2540,10 +2540,12 @@ body.landing h1 {
   position: relative;
   text-align: center;
   width: 235%; }
+.app .book-list-wrapper .library-empty {
+  width: 500%; }
 .app .library-list-wrapper .library-empty {
   width: 176% !important; }
-.app #book-list {
-  width: 8240px !important; }
+.app .subscription-list-wrapper .library-empty {
+  left: 8% !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
   height: auto;
