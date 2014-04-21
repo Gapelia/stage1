@@ -6696,6 +6696,24 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
+  .app .book, .app .collection, .app .library, .app .new, .app .draft {
+    margin: 0 0 0 1.5rem;
+    width: 500px; }
+  .app #featured-nav {
+    font-size: 1.25rem; }
+  .app #featured-panel {
+    margin: 0.7rem 0 0 0; }
+  .app .book-list-wrapper .library-empty {
+    left: 260%; }
+  .app .library-list-wrapper .library-empty {
+    left: 108%; }
+  .app .submission-list-wrapper .library-empty {
+    left: 200%; }
+  .app .subcription-list-library .library-empty {
+    left: 60%; }
+
+  .mp-menu ul .fq {
+    margin-top: 225%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; } }

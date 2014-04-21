@@ -20,8 +20,26 @@
 				}
 			}
 		}
-
+		
+		.book, .collection, .library, .new, .draft {
+			margin: 0 0 0 1.5rem;
+			width: 500px;
+		}
+		
+		#featured-nav { font-size: 1.25rem; }
+		
+		#featured-panel { margin: 0.7rem 0 0 0; }
+		
+		.book-list-wrapper .library-empty { left: 260%; }
+		
+		.library-list-wrapper .library-empty { left: 108%; }
+		
+		.submission-list-wrapper .library-empty { left: 200%; }
+		
+		.subcription-list-library .library-empty { left: 60%; }
 	}
+	
+	.mp-menu ul .fq { margin-top: 225%; }
 
 	.full-book {
 
