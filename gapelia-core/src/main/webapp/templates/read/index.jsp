@@ -77,6 +77,23 @@
             </div>
         </nav>
         <!--//site-menu /-->
+	
+	<!--/ site-menu when not logged in /-->
+	<nav id="site-menu-not-logged" class="mp-menu">
+            <div class="mp-level">
+
+                <ul>
+                    <li class="home"><a href="/">Folio</a>
+                    </li>
+                    <li><a href="/">Sign up</a>
+		    </li>
+		    <li><a href="#">Learn more</a>
+		    </li>			
+                </ul>
+
+            </div>
+        </nav>
+	<!--/ site-menu when not logged in /-->
 
         <button id="g-menu-toggle"><i class="ion-drag"></i>
         </button>
