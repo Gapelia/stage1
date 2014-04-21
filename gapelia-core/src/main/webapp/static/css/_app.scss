@@ -345,10 +345,10 @@
       
        &:after { background: rgba($black, 0.4) !important; }
 		}
-
-		.author-avatar {
+		
+    .author-avatar {
 			width: 50px; height: 50px;
-
+      
 			border-radius: 300rem;
       display: inherit !important; //
 			margin: 0 0 0.5rem 0;
@@ -432,6 +432,18 @@
 			position: absolute;
 		}
 	}
+  
+  .library {
+    box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    -webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    border: 5px solid rgba(179, 213, 208, 1);
+    
+    margin-right: 0.25rem;
+    
+    &:hover { box-shadow: 7.5px 7.5px 0 0 $slate; }
+    
+    a { text-transform: uppercase; }
+  }
   
   .new {
 		border: 1px solid rgba($black, 0.1);

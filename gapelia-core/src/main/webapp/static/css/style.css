@@ -1624,11 +1624,11 @@ html, body {
   scrollbar-highlight-color: #fcfcfc;
   scrollbar-shadow-color: #fcfcfc; }
 html ::-webkit-scrollbar, body ::-webkit-scrollbar {
-  border-top: 1px solid #59b3a6;
-  width: 10px;
-  height: 10px; }
+  border-top: 1px solid rgba(89, 179, 166, 0.3);
+  width: 7px;
+  height: 7px; }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
-  background-color: #59b3a6; }
+  background-color: rgba(89, 179, 166, 0.5); }
 html ::-webkit-scrollbar-thumb:window-inactive, body ::-webkit-scrollbar-thumb:window-inactive {
   background-color: #cfcfcf; }
 
@@ -1918,9 +1918,16 @@ ol {
   background-color: #59b3a6 !important;
   color: #fcfcfc !important; }
 
+.brand-blue {
+  background-color: #0B486B !important;
+  color: #fcfcfc !important; }
+
 .white {
   background-color: rgba(255, 255, 255, 0.85) !important;
   color: #191919 !important; }
+.white:hover {
+  background-color: #59b3a6 !important;
+  color: #fcfcfc !important; }
 
 .fb-btn {
   background-color: #3c699b !important;
@@ -2625,6 +2632,15 @@ body.landing h1 {
   content: "";
   opacity: 0.6;
   position: absolute; }
+.app .library {
+  box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+  -webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+  border: 5px solid #b3d5d0;
+  margin-right: 0.25rem; }
+.app .library:hover {
+  box-shadow: 7.5px 7.5px 0 0 #59b3a6; }
+.app .library a {
+  text-transform: uppercase; }
 .app .new {
   border: 1px solid rgba(25, 25, 25, 0.1);
   font-size: 2em;
