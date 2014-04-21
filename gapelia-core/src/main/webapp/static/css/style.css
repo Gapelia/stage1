@@ -4001,23 +4001,23 @@ body.library-manager #stay-right {
 .accounts .switchery {
   width: 50px;
   height: 30px;
-  background-color: #59b3a6 !important;
   border: 1px solid rgba(89, 179, 166, 0.3) !important;
+  border-color: #59b3a6 !important;
   border-radius: 20px;
-  box-shadow: #59b3a6 0px 0px 0px 16px inset !important;
+  box-shadow: #59b3a6 0px 0px 0px 0px inset !important;
   cursor: pointer;
   display: inline-block;
   margin: 0 0 30px 0;
   position: relative;
   vertical-align: middle; }
 .accounts .switchery > small {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background-color: #fcfcfc;
   border-radius: 100%;
-  box-shadow: 0 1px 3px rgba(25, 25, 25, 0.4);
+  box-shadow: 1px 0px 1px rgba(89, 179, 166, 0.6);
   position: absolute;
-  top: -1px; }
+  top: 0; }
 
 /************************************************************************************* SETTINGS/SCSS **/
 #settings-wrapper {

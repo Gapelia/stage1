@@ -616,10 +616,12 @@
 	.switchery {
 		width: 50px; height: 30px;
 
-		background-color: $slate !important;
+		//background-color: $slate !important;
 		border: 1px solid rgba($slate, 0.3) !important;
+		border-color: $slate !important;
 		border-radius: 20px;
-		box-shadow: $slate 0px 0px 0px 16px inset !important;
+		box-shadow: $slate 0px 0px 0px 0px inset !important;
+		//box-shadow: $slate 0px 0px 0px 16px inset !important;
 		cursor: pointer;
 		display: inline-block;
 		margin: 0 0 30px 0; //
@@ -628,13 +630,14 @@
 	}
 
 	.switchery > small {
-		width: 30px; height: 30px;
+		width: 28px; height: 28px;
 
 		background-color: $white;
+		//border: 1px solid rgba($slate, 0.3);
 		border-radius: 100%;
-		box-shadow: 0 1px 3px rgba($black, 0.4);
+		box-shadow: 1px 0px 1px rgba(89, 179, 166, 0.6);
 		position: absolute;
-		top: -1px;
+		top: 0;
 	}
 
 }
