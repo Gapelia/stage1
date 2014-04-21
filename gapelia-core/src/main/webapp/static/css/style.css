@@ -2546,6 +2546,8 @@ body.landing h1 {
   width: 176% !important; }
 .app .subscription-list-wrapper .library-empty {
   left: 8% !important; }
+.app #book-list {
+  width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
   height: auto;
