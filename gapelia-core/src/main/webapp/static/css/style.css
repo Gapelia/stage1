@@ -1624,11 +1624,11 @@ html, body {
   scrollbar-highlight-color: #fcfcfc;
   scrollbar-shadow-color: #fcfcfc; }
 html ::-webkit-scrollbar, body ::-webkit-scrollbar {
-  border-top: 1px solid #59b3a6;
-  width: 10px;
-  height: 10px; }
+  border-top: 1px solid rgba(89, 179, 166, 0.3);
+  width: 7px;
+  height: 7px; }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
-  background-color: #59b3a6; }
+  background-color: rgba(89, 179, 166, 0.5); }
 html ::-webkit-scrollbar-thumb:window-inactive, body ::-webkit-scrollbar-thumb:window-inactive {
   background-color: #cfcfcf; }
 
@@ -1918,9 +1918,16 @@ ol {
   background-color: #59b3a6 !important;
   color: #fcfcfc !important; }
 
+.brand-blue {
+  background-color: #0B486B !important;
+  color: #fcfcfc !important; }
+
 .white {
   background-color: rgba(255, 255, 255, 0.85) !important;
   color: #191919 !important; }
+.white:hover {
+  background-color: #59b3a6 !important;
+  color: #fcfcfc !important; }
 
 .fb-btn {
   background-color: #3c699b !important;
@@ -2525,7 +2532,7 @@ body.landing h1 {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
-.app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty, .app .book-list-wrapper .library-empty {
+.app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty, .app .book-list-wrapper .library-empty, .app .bookmark-list-wrapper .library-empty {
   color: rgba(11, 72, 107, 0.25);
   font-size: 1.6rem;
   left: 13rem;
@@ -2533,8 +2540,12 @@ body.landing h1 {
   position: relative;
   text-align: center;
   width: 235%; }
+.app .book-list-wrapper .library-empty {
+  width: 500%; }
 .app .library-list-wrapper .library-empty {
   width: 176% !important; }
+.app .subscription-list-wrapper .library-empty {
+  left: 8% !important; }
 .app #book-list {
   width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
@@ -2625,6 +2636,15 @@ body.landing h1 {
   content: "";
   opacity: 0.6;
   position: absolute; }
+.app .library {
+  box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+  -webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+  border: 5px solid #b3d5d0;
+  margin-right: 0.25rem; }
+.app .library:hover {
+  box-shadow: 7.5px 7.5px 0 0 #59b3a6; }
+.app .library a {
+  text-transform: uppercase; }
 .app .new {
   border: 1px solid rgba(25, 25, 25, 0.1);
   font-size: 2em;
@@ -3985,23 +4005,23 @@ body.library-manager #stay-right {
 .accounts .switchery {
   width: 50px;
   height: 30px;
-  background-color: #59b3a6 !important;
   border: 1px solid rgba(89, 179, 166, 0.3) !important;
+  border-color: #59b3a6 !important;
   border-radius: 20px;
-  box-shadow: #59b3a6 0px 0px 0px 16px inset !important;
+  box-shadow: #59b3a6 0px 0px 0px 0px inset !important;
   cursor: pointer;
   display: inline-block;
   margin: 0 0 30px 0;
   position: relative;
   vertical-align: middle; }
 .accounts .switchery > small {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background-color: #fcfcfc;
   border-radius: 100%;
-  box-shadow: 0 1px 3px rgba(25, 25, 25, 0.4);
+  box-shadow: 1px 0px 1px rgba(89, 179, 166, 0.6);
   position: absolute;
-  top: -1px; }
+  top: 0; }
 
 /************************************************************************************* SETTINGS/SCSS **/
 #settings-wrapper {
@@ -6678,6 +6698,24 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
+  .app .book, .app .collection, .app .library, .app .new, .app .draft {
+    margin: 0 0 0 1.5rem;
+    width: 500px; }
+  .app #featured-nav {
+    font-size: 1.25rem; }
+  .app #featured-panel {
+    margin: 0.7rem 0 0 0; }
+  .app .book-list-wrapper .library-empty {
+    left: 260%; }
+  .app .library-list-wrapper .library-empty {
+    left: 108%; }
+  .app .submission-list-wrapper .library-empty {
+    left: 200%; }
+  .app .subcription-list-library .library-empty {
+    left: 60%; }
+
+  .mp-menu ul .fq {
+    margin-top: 225%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; } }

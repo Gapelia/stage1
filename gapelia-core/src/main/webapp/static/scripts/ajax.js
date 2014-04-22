@@ -114,7 +114,7 @@ function getBookmarkedBooks() {
         success: function (data) {
             bookmarks = data;
             if (bookmarks != []) {
-                toInsert = '<ul id=\"bookmark-list\">';
+                toInsert = "<ul id=\"bookmark-list\">";
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
                     if (bookmark.bookId in bookmarked == true) {
@@ -130,8 +130,8 @@ function getBookmarkedBooks() {
                     toInsert += "</div></div></li>";
                 }
 
-                if (toInsert == "") {
-                    toInsert += "<section><p>No books have been added to your bookmarks yet.</p></section>"; //code
+                if (toInsert == "<ul id=\"bookmark-list\">") {
+                    toInsert += "<ul id=\"bookmark-list\"><section><p>No books have been added to your bookmarks yet.</p></section></ul>";		    
                 }
             }
             $(".bookmark-list-wrapper").html(toInsert);
@@ -1469,8 +1469,6 @@ function getListSubscribed() {
             for (i in libraries) {
                 subscribed[libraries[i].libraryId] = true;
             }
-
-
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1502,7 +1500,9 @@ function getSubscribedLibrary() {
 
                 lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
-            lib += "</ul>";
+	    if (lib == "<ul id=\"subscription-list\">") {
+                lib = "<ul id=\"subscription-list\"><div class=\"library-empty\"><a class=\"empty-subscriptions\">You have not subsribed to any libraries yet.</a></div></ul>";
+            }
             $(".subscription-list-wrapper").html(lib);
             h = $(this).outerHeight() - 92;
             $(".library").css("height", h)
@@ -1816,7 +1816,7 @@ function loadPagesEditor() {
                     "title": page.title,
                     "text": page.content,
                     "image": page.photoUrl,
-                    "video": page.videourl,
+                    "video": page.videoUrl,
                     "user": page.userId,
                     "attribution": page.creativeCommons
                 };
@@ -1869,7 +1869,7 @@ function loadEditorExtra(templateId) {
                 "templateId": 0,
                 "title": null,
                 "text": null,
-                "image": "/static/images/grayBG.png",
+                "image": "/static/images/whiteBG.png",
                 "video": "null",
                 "attribution": null
             };
@@ -1886,13 +1886,13 @@ function loadEditorExtra(templateId) {
             pages.page[currentPage].attribution = attribution;
             createPage();
             currentPage = pagesCreated;
-            templateId = 0;
+            templateId = 6;
             title = null;
             text = null;
             imageURL = null;
             videoURL = null;
             attribution = null;
-            fluidLayout();
+            baseLayout();
         }
 
         // Page Sorter
@@ -1901,6 +1901,15 @@ function loadEditorExtra(templateId) {
         }).bind("sortupdate", function () {});
 
         e.preventDefault();
+	
+	// Delete page
+	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
+
+		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
+
+		e.preventDefault();
+
+	});
 
     });
     switch (templateId) {
@@ -1928,7 +1937,7 @@ function loadEditorExtra(templateId) {
         videoLayout();
         break;
 
-    default:
+    case 6:
         baseLayout();
     }
 }

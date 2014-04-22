@@ -303,7 +303,7 @@
   
   //empty lists
 
-  .library-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .book-list-wrapper {
+  .library-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .book-list-wrapper, .bookmark-list-wrapper {
     .library-empty {
       color: rgba(11, 72, 107, 0.25);
       font-size: 1.6rem;
@@ -315,8 +315,12 @@
     }  
   }
   
+  .book-list-wrapper .library-empty { width: 500%; }
+  
   .library-list-wrapper .library-empty { width: 176% !important; }
-    
+  
+  .subscription-list-wrapper .library-empty { left: 8% !important; }
+  
   //
   
   #book-list { width: 8240px !important; } // temporary fix so 20 books fit in featured
@@ -328,8 +332,6 @@
 		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: rgba($gray-i, 0.4);
-		//box-shadow: inset 10px 0 0 0 #70d0eb; // book "spine" // hidden until animation is developed
-		// display: inline-block;
 		border-radius: 10px;
     float: left;
 		overflow: hidden;
@@ -337,18 +339,16 @@
 		transition: box-shadow 0.2s ease;
 
 		&:hover {
-			// ooh factor
-			//box-shadow: inset 10px 0 0 0 #70d0eb, 0 0 6px rgba($black, 0.6); // book spine is hidden until animation is developed
 			.book-info, .collection-info, .library-info, .draft-info { text-shadow: 0 3px 6px $black !important; }
       
       .book-title, .library-location, .author-name { text-shadow: 0 3px 6px $black !important; }
       
        &:after { background: rgba($black, 0.4) !important; }
 		}
-
-		.author-avatar {
+		
+    .author-avatar {
 			width: 50px; height: 50px;
-
+      
 			border-radius: 300rem;
       display: inherit !important; //
 			margin: 0 0 0.5rem 0;
@@ -432,6 +432,18 @@
 			position: absolute;
 		}
 	}
+  
+  .library {
+    box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    -webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    border: 5px solid rgba(179, 213, 208, 1);
+    
+    margin-right: 0.25rem;
+    
+    &:hover { box-shadow: 7.5px 7.5px 0 0 $slate; }
+    
+    a { text-transform: uppercase; }
+  }
   
   .new {
 		border: 1px solid rgba($black, 0.1);

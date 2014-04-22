@@ -147,9 +147,18 @@
 	}
 }
 
+.brand-blue {
+	background-color: #0B486B !important;
+	color: $white !important;
+}
+
 .white {
 	background-color: rgba(white, 0.85) !important;
 	color: $black !important;
+	&:hover {
+		background-color: $slate !important;
+		color: $white !important;
+	}
 }
 
 .fb-btn {

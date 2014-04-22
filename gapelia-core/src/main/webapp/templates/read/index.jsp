@@ -77,6 +77,23 @@
             </div>
         </nav>
         <!--//site-menu /-->
+	
+	<!--/ site-menu when not logged in /-->
+	<nav id="site-menu-not-logged" class="mp-menu">
+            <div class="mp-level">
+
+                <ul>
+                    <li class="home"><a href="/">Folio</a>
+                    </li>
+                    <li><a href="/">Sign up</a>
+		    </li>
+		    <li><a href="#">Learn more</a>
+		    </li>			
+                </ul>
+
+            </div>
+        </nav>
+	<!--/ site-menu when not logged in /-->
 
         <button id="g-menu-toggle"><i class="ion-drag"></i>
         </button>
@@ -124,6 +141,10 @@
 
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/readBook.js"></script>
+    
+    <script src="/static/scripts/cookie.js"></script>
+    <script src="/static/scripts/merci.js"></script>
+    
     <script>
         setTimeout(function () {
             $(".fluid-wrapper").imgLiquid({
@@ -142,6 +163,8 @@
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
             $(".inserted-img").fluidbox();
         }, 1000);
+
+	
     </script>
 </body>
 
