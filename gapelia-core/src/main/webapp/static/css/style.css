@@ -6729,7 +6729,7 @@ a.count span.dont-move {
   justify-content: center;
   overflow: hidden; }
 
-@media all and (min-width: 1281px), screen and (min-width: 1281px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 1599px), screen and (max-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
   .app .bookmarked .bookmark-this .top-bm {
@@ -6755,10 +6755,16 @@ a.count span.dont-move {
     left: 60%; }
 
   .mp-menu ul .fq {
-    margin-top: 175%; }
+    margin-top: 170%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
-    height: 100% !important; } }
+    height: 100% !important; }
+  .full-book .backcover-wrapper #fin {
+    padding: 12rem 10rem 0 10rem; }
+  .full-book .backcover-wrapper #fin .author-name {
+    font-size: 2rem; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb {
+    font-size: 1.8rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;

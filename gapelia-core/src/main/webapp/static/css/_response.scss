@@ -1,7 +1,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
-@media all and (min-width: 1281px), screen and (min-width: 1281px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (max-width: 1599px), screen and (max-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	.app {
 
@@ -39,7 +39,7 @@
 		.subcription-list-library .library-empty { left: 60%; }
 	}
 	
-	.mp-menu ul .fq { margin-top: 175%; }
+	.mp-menu ul .fq { margin-top: 170%; }
 
 	.full-book {
 
@@ -47,7 +47,14 @@
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			height: 100% !important;
 		}
-
+		
+		.backcover-wrapper {
+			#fin {
+				padding: 12rem 10rem 0 10rem;
+				.author-name { font-size: 2rem; }
+				#author-bio-blurb { font-size: 1.8rem; }
+			}	
+		}
 	}
 
 }
