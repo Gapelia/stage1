@@ -2523,7 +2523,7 @@
 				}
 
 				.author-name, #library-name {
-					font-size: 1.2rem;
+					font-size: 1rem;
 					margin: 0 0 1rem 0;
 				}
 
@@ -2532,9 +2532,13 @@
 					line-height: 1rem;
 					margin: 0;
 					margin-top: 1rem;
+					text-align: center !important;
 				}
 				
-				section { margin-left: 0; }
+				section {
+					margin-left: 0;
+					margin: 0rem 0rem 1rem 0;
+				}
 			}
 
 			#fin-next {
@@ -2545,6 +2549,7 @@
 					display: block;
 					font-size: 1.5rem;
 					margin: 2.5rem 0 0 0;
+					padding: 0 1rem;
 				}
 
 				.book-info {
