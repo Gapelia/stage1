@@ -100,18 +100,12 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Stories</a>
-                    </li>
-                    <li id="nav-libraries"><a href="#">Libraries</a>
-                    </li>
-                    <li id="nav-bookmarks"><a href="#">Bookmarks</a>
-                    </li>
-
+                    <li id="nav-books" class="current"><a href="#">Stories</a></li>
+                    <li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
                     <div id="stay-right">
                         <button id="start-story" class="brand-i"><a href="/createBook">New Story</a>
                         </button>
                     </div>
-
                 </ul>
             </div>
 
@@ -121,10 +115,6 @@
             </div>
             <!--//Featured Books /-->
 
-            <!--/ Featured Libraries /-->
-            <div class="library-list-wrapper">
-            </div>
-            <!--//Featured Libraries /-->
 
             <!--/ User's Bookmarks /-->
             <div class="bookmark-list-wrapper">

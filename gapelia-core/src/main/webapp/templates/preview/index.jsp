@@ -93,7 +93,30 @@
 
     <script>
         $(function () {
-
+            function getUserFromBook(bookId) {
+                    responseText = '';
+                    $.ajax({
+                        url: "/api/utils/getUserFromBookId",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        async: false,
+                        type: "POST",
+                        data: {
+                            bookId: bookId
+                        },
+                        success: function (data) {
+                            bookOwner = data
+                            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"/" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+                        },
+                        error: function (q, status, err) {
+                            if (status == "timeout") {
+                                alert("Request timed out");
+                            } else {
+                                alert("Some issue happened with your request: " + err.message);
+                            }
+                        }
+                    });
+                    return responseText;
+             }
             var
             $vW = $(window).width(),
                 $vH = $(window).height(),
@@ -110,7 +133,7 @@
                     pages = JSON.parse(localStorage.getItem("pages"));
                     console.log(pages);
                     size = pages.page.length;
-
+                    getUserFromBook(pages.bookId);
                     for (i = 0; i < size; i++) {
                         console.log("Read Item");
                         current = pages.page[i];
@@ -184,25 +207,24 @@
                 }
 
                 function fluidLayout(isFirst) {
+                    if(current.image==null ||current.image=="static/images/grayBG.png") {
+                        htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
+                         htmlToInsert += "</section>";
+                        htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
+                    } else {
+                        htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
+                        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
+                        if (current.attribution != "Add photo credit?") {
+                            htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+                        }
 
-                    htmlToInsert += "<section class=\"fluid-wrapper\">";
-                    htmlToInsert += "<section class=\"draggable-placeholder\">";
-                    htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
-
-                    if (current.attribution != "Add photo credit?") {
-                        htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
+                        htmlToInsert += "</section>";
+                        htmlToInsert += "<div class=\"fluid-preview\">";
                     }
-
-                    htmlToInsert += "</section>";
-                    htmlToInsert += "<div class=\"fluid-preview\">";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "</div>";
+                                htmlToInsert += responseText;
                     }
-
                     htmlToInsert += "<article>";
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
@@ -235,10 +257,7 @@
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "</div>";
+                        htmlToInsert += responseText;
                     }
 
                     htmlToInsert += "</article>";
@@ -257,10 +276,7 @@
                     htmlToInsert += "<div class=\"page-title-elem\">" + current.title + "</div>";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "</div>";
+                        htmlToInsert += responseText;
                     }
 
                     htmlToInsert += "</article></div>";
@@ -288,10 +304,7 @@
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        htmlToInsert += "</div>";
+                        htmlToInsert += responseText;
                     }
 
                     htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
@@ -316,14 +329,8 @@
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        // htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        // htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "</div>";
+                       htmlToInsert += responseText;
                     }
-
                     htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
                     htmlToInsert += "</article></div>";
                     htmlToInsert += "</div></section>";
@@ -349,13 +356,8 @@
                     htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
                     if (isFirst == 1) {
-                        htmlToInsert += "<div class=\"author-info\">";
-                        htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        // htmlToInsert += "<div class=\"author-name\">Paul Anthony Webb</div>";
-                        // htmlToInsert += "<img class=\"author-avatar\" src=\"/static/images/users/11.jpg\"/>";
-                        htmlToInsert += "</div>";
-                    }
+                                htmlToInsert += responseText;
+                            }
 
                     htmlToInsert += "<div class=\"page-desc\">" + current.text + "</div>";
                     htmlToInsert += "</article>";

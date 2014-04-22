@@ -172,13 +172,12 @@ function getNumSubscribers() {
 function getFeaturedBooks() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-        url: "/api/users/getFeaturedBooksForUser",
+        url: "/api/users/getFeaturedBooks",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         async: false,
         data: {
-            sessionId: sessionId,
-            userId: user.userId
+            sessionId: sessionId
         },
         success: function (data) {
             books = data;
@@ -494,7 +493,7 @@ function getLibrary() {
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
-            toInsert += "<h1>" + userName + " · "+numSubscribers+"subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+            toInsert += "<h1>" + userName + " · "+numSubscribers+" subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
         },
@@ -566,11 +565,10 @@ function getLibraries() {
         },
         success: function (data) {
             libraries = data;
-            lib = "<ul id=\"library-list\">";
             for (i in libraries) {
                 library = libraries[i];
 
-                lib += "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                lib = "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
                 lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 
@@ -582,10 +580,8 @@ function getLibraries() {
                 }
 
                 lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-            }
-
-            lib += "</ul>";
-            $(".library-list-wrapper").html(lib);
+                $("#explore-list").append(lib);
+             }
             getUser();
 
         },
@@ -731,7 +727,8 @@ function updateLibrary() {
             tags: tags
         },
         success: function (data) {
-            console.log(data)
+            console.log(data);
+            location="/managelibrary/"+libraryId;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -946,7 +943,32 @@ function getUserFromBookId(bookId) {
     });
     return responseText;
 }
-
+function addLoggedInMenu(){
+	sessionId = readCookie("JSESSIONID");
+	if(sessionId != null) {
+	 $.ajax({
+        url: "/api/users/getUser",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            user = data;
+            menu = "<div class=\"mp-level\"><h2><a href=\"/featured\">FOLIO</a></h2><ul><li class=\"home\"><a href=\"/featured\">Folio</a></li>";
+			menu +="<li><a href=\"/me\">Me</a><a class=\"icon not-mobile\" href=\"/accounts\">&#xf13d;</a></li>";
+			menu +="<li class=\"not-mobile\"><a href=\"/createbook\">Create book</a></li><li class=\"not-mobile\"><a href=\"/librarymanager\">Library Manager</a>";
+			menu +="</li><li id=\"gpl-menu-drafts\" class=\"not-mobile\"><a>Drafts</a><ul id=\"draft-menu\"></ul></li>";
+			menu +="<li id=\"gpl-menu-notify\"><a>Notifications</a><a class=\"icon\">0</a><ul></ul></li>";
+			menu +="<li class=\"fq\"><a href=\"#\">Help</a><li class=\"help\"><a href=\"#\">Contact</a><li class=\"logout\"><a href=\"#\">Log Out</a></ul></div>";
+			$("#site-menu").html(menu);
+			var third = getUserDrafts();
+			var fifth = getNotifications();
+			loadDelete();
+        }
+    });
+	}
+}
 function getNumberVotes(incomingBookId) {
     $.ajax({
 	url: "/api/books/getNumVotes",
@@ -958,8 +980,7 @@ function getNumberVotes(incomingBookId) {
 	    bookId: incomingBookId
 	},
 	success: function (data) {
-		
-		if (data == null) {
+		if (data == null || data == undefined) {
 			numVotes = 0;
 		}
 		else{
@@ -974,8 +995,6 @@ function getNumberVotes(incomingBookId) {
 	    }
 	}
     });
-    
-    return numVotes;
 }
 
 
@@ -1717,6 +1736,61 @@ function deletePage(deletePageId) {
     });
 }
 
+function getRecentlyPublished() {
+	$.ajax({
+        url: "/api/users/getLastPublished",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+        	sessionId: sessionId,
+            userId: user.userId
+        },
+        success: function (data) {
+            lastPublished = data;
+            if(lastPublished.title != undefined) {
+            	$("#recently-published").html("Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
+            }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function getContributedTo() {
+	$.ajax({
+        url: "/api/users/getLibrariesContributedTo",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+        	sessionId: sessionId,
+            userId: user.userId
+        },
+        success: function (data) {
+            contributions = data;
+            if(contributions.length >0) {
+				toInsert = "Contributes to";
+	            for(i in contributions) {
+	            	toInsert+=",<a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a>";
+	            }
+	            $("#contributes-to").html(toInsert);
+            }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
 function updateBookAndPages(isPublished) {
     tags = '';
     if (isPublished == true) {

@@ -8,22 +8,10 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Gapelia &middot; [Library Name] Library</title>
-
-    <!--/ LIBRARY VIEW
-			 ______   ______   ______  ______   __       __   ______
-			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
-			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
-			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
-
-				01000111011000010111000001100101011011000110100101100001
-
-		/-->
-
-    <meta name="author" content="Gapelia" />
+    <title>FOLIO</title>
+    <meta name="author" content="FOLIO" />
     <meta name="description" content="Better stories, together." />
-    <meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension" />
+    <meta name="keywords" content="FOLIO, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
@@ -52,35 +40,22 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-
-                <h2><a href="/featured">Gapelia</a></h2>
-
+                <h2><a href="/featured">FOLIO</a></h2>
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a>
-                    </li>
-                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-                    </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
-                    </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
-                    </li>
-
+                    <li class="home"><a href="/featured">Folio</a></li>
+                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+                    <li class="not-mobile"><a href="/createbook">Create book</a></li>
+                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
                         <ul id="draft-menu"></ul>
                     </li>
-
                     <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
-                        <ul>
-
-                        </ul>
+                        <ul></ul>
                     </li>
-		    
-		    <li class="fq"><a href="#">Help</a>
-		    <li class="help"><a href="#">Contact</a>
+                    <li class="fq"><a href="#">Help</a>
+                    <li class="help"><a href="#">Contact</a>
                     <li class="logout"><a href="#">Log Out</a>
-
                 </ul>
-
             </div>
         </nav>
         <!--//site-menu /-->
@@ -97,95 +72,23 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Library Books</a>
-                    </li>
-                    <li id="nav-submissions"><a href="#">Submissions</a>
-                    </li>
-
-                    <ul id="stay-right">
-                        <li id="my-submissions">
-                            <a href="#">Add my stories</a>
-
-                            <ul>
-                                <li><a href="/">hikari: The Future of the Operating System</a>
-                                </li>
-                                <li><a href="/">007: The Diego Regules Story</a>
-                                </li>
-                                <li><a href="/">From the Rennaisance, to the Future of Blogging</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <li id="nav-books" class="current"><a href="#">Books</a></li>
+                    <li id="nav-submissions"><a href="#">Submissions</a></li>
                 </ul>
             </div>
 
-            <!--/ Featured Books /-->
             <div class="book-list-wrapper">
-                <!--/
-					<section>
-						<p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p>
-					</section>
-					/-->
-
-                <ul id="book-list">
-
-
-                </ul>
+               <ul id="book-list"></ul>
             </div>
-            <!--//Featured Books /-->
 
-
-            <!--/ Submission List /-->
             <div class="submission-list-wrapper">
-                <ul id="submission-list">
-
-                    <li class="book">
-                        <div class="book-buttons">
-                            <a href="#" class="approve-this-book">&#xf120;</a>
-                            <a href="#" class="deny-this-book">&#xf128;</a>
-                        </div>
-
-                        <div class="book-title"><a href="#">Submitted Book #01</a>
-                        </div>
-
-                        <div class="book-info">
-                            <div class="author-name"><a href="#">Jane Lane</a>
-                            </div>
-                        </div>
-
-                        <span class="image-overlay"></span>
-                        <img src="/static/images/covers/architecture-sonn-visionsofart.jpg" alt="" />
-                    </li>
-
-                    <li class="book">
-                        <div class="book-buttons">
-                            <a href="#" class="approve-this-book">&#xf120;</a>
-                            <a href="#" class="deny-this-book">&#xf128;</a>
-                        </div>
-
-                        <div class="book-title"><a href="#">Submitted Book #02</a>
-                        </div>
-
-                        <div class="book-info">
-                            <div class="author-name"><a href="#">Daria Morgendorffer</a>
-                            </div>
-                        </div>
-
-                        <span class="image-overlay"></span>
-                        <img src="/static/images/covers/biography-dieterrams.jpg" alt="" />
-                    </li>
-
-
-
-                </ul>
+                <ul id="submission-list"></ul>
             </div>
-            <!--//Submission List /-->
 
         </div>
 
     </div>
 
-    <!--/ scripts /-->
     <script src="/static/scripts/touchSwipe.min.js"></script>
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
@@ -209,10 +112,8 @@
         });
     </script>
 
-    <!--/ scripts/layout-scroller /-->
     <script src="/static/scripts/mousewheel.js"></script>
     <script src="/static/scripts/scroll.js"></script>
-     <!--/ scripts/layout-scroller /-->s
 
     <script>
         $(document).ready(function () {
@@ -288,14 +189,6 @@
                 });
 
             }
-
-            // Click "Add my stories"
-            $("#my-submissions a").click(function (e) {
-
-                $("#my-submissions ul").toggle();
-                e.preventDefault();
-
-            });
 
             // Load Gapelia
             NProgress.start();
@@ -438,7 +331,7 @@
             if ($vW < "1025") {
 
                 $("#featured-panel .featured-info").remove();
-                $("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
+                $("#featured-panel").append("<span id='category-title'>"+library.title+"</span>");
 
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
@@ -458,7 +351,8 @@
         setTimeout(function () {
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
-        }, 2000);
+            document.title = "Folio's" + library.title
+        }, 1500);
         setTimeout(function () {
             getBooksInLibraryOwner();
             getSubmissionsInLibrary();

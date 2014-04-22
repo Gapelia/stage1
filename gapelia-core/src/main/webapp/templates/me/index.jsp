@@ -76,7 +76,7 @@
 		    <li class="fq"><a href="#">Help</a>
 		    <li class="help"><a href="#">Contact</a>
                     <li class="logout"><a href="#">Log Out</a>
-		    
+
                 </ul>
 
             </div>
@@ -162,6 +162,8 @@
             var second = getUserCreatedBooks();
             var third = getUserDrafts();
             var first = getUser();
+            getContributedTo();
+            getRecentlyPublished();
         });
 
          // Splash page

@@ -74,7 +74,7 @@
 
                         </ul>
                     </li>
-		    
+
 		    <li class="fq"><a href="#">Help</a>
 		    <li class="help"><a href="#">Contact</a>
                     <li class="logout"><a href="#">Log Out</a>
@@ -92,9 +92,7 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Library Books</a>
-                    </li>
-                    </li>
+                    <li id="nav-books" class="current"><a href="#">Library Books</a></li>
 
                     <ul id="stay-right">
                         <li id="my-submissions">
@@ -436,7 +434,8 @@
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;
                     $(".book").css("height", h);
-         },3000);
+                    document.title = "Folio's" + library.title
+         },2000);
     </script>
     <!--//scripts /-->
 

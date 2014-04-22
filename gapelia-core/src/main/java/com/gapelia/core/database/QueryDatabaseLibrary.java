@@ -294,7 +294,6 @@ public class QueryDatabaseLibrary {
             insert.setString(4, library.getCoverPhoto());
             insert.setString(5, library.getDescription());
             insert.setTimestamp(6, library.getCreated());
-            LOG.info(insert.toString());
             insert.executeUpdate();
             return "Success";
         } catch (SQLException ex) {

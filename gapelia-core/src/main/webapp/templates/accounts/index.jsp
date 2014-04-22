@@ -86,18 +86,6 @@
 
 			<div id="account-information">
 
-				<div id="nav-wrapper">
-					<ul id="featured-nav">
-						<li id="nav-personal" class="current"><a href="#">Account Settings</a></li>
-						<li id="nav-logout"><a href="#" id="logout">Log Out</a></li>
-						<!--/ <li id="nav-password"><a href="#">Password</a></li> /-->
-						<!--/ <li id="nav-notify"><a href="#">Notifications</a></li> /-->
-						<!--/ <li id="nav-pro"><a href="#">Pro</a></li> /-->
-						<!--/ <li id="nav-billing"><a href="#">Billing</a></li> /-->
-						<!--/ <li id="nav-delete"><a href="#">Delete Account</a></li> /-->	
-					</ul>
-				</div>
-
 				<!--/ Personal Settings /-->
 				<div class="account-info-wrapper">
 
@@ -199,7 +187,7 @@
 
 		<script>
 			$(function() {
-
+                getNotifications();
 				var third = getUserDrafts();
 				getUser();
 

@@ -130,6 +130,12 @@ function loadBook() {
 
 
     }
+    share = "";
+
+        share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+        share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+        share += "<li><a href=\"emailShare\"><i class=\"ion-email\"></i></a></li>";
+        $(".share-book").html(share)
 
 }
 $(function () {
@@ -246,7 +252,7 @@ $(function () {
 	
 	
     }
-    
+    /*
     function getNumberVotes() {
         $.ajax({
             url: "/api/books/getNumVotes",
@@ -276,7 +282,7 @@ $(function () {
         });
         
         return numVotes;
-    }
+    }*/
 
     function getReadNextBook() {
         $.ajax({
@@ -289,7 +295,7 @@ $(function () {
             },
             success: function (data) {
                 nextBook = data[0];
-                backPage += "<div id=\"fin-next\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                 htmlToInsert += backPage;
                 $("#bb-bookblock").html(htmlToInsert);
                 $("#header-author").html(bookOwner.name);
@@ -420,20 +426,23 @@ $(function () {
         }
 
     }
-
     function fluidLayout(isFirst) {
+        if(current.photoUrl ==null ||current.photoUrl=="static/images/grayBG.png") {
+            htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
+            htmlToInsert += "</section>";
+            htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
+        } else {
+            htmlToInsert += "<section class=\"fluid-wrapper\">";
+            htmlToInsert += "<section class=\"draggable-placeholder\">";
+            htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
 
-        htmlToInsert += "<section class=\"fluid-wrapper\">";
-        htmlToInsert += "<section class=\"draggable-placeholder\">";
-        htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+            if (current.creativeCommons != "Add photo credit?") {
+                htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+            }
 
-        if (current.creativeCommons != "Add photo credit?") {
-            htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+            htmlToInsert += "</section>";
+            htmlToInsert += "<div class=\"fluid-preview\">";
         }
-
-        htmlToInsert += "</section>";
-        htmlToInsert += "<div class=\"fluid-preview\">";
-
         if (isFirst == 1) {
             htmlToInsert += responseText;
         }
@@ -686,7 +695,7 @@ $(function () {
         emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
 
         share = "";
-        share += "<ul id=\"share-menu\" style=\"display: none;\">";
+        share += "<ul id=\"share-menu\" style=\"display: block;\">";
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";

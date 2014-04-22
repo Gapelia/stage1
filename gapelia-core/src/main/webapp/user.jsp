@@ -139,6 +139,8 @@
             var first = getUserPublic();
             var second = getListBookmarked();
             var third = getUserDrafts();
+            getRecentlyPublished();
+            getContributedTo();
         });
 
         function load() {

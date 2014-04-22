@@ -4,18 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Gapelia &middot; Now reading *BOOK TITLE*</title>
-
-    <!--/
-			 ______   ______   ______  ______   __       __   ______    
-			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
-			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
-			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
-
-				01000111011000010111000001100101011011000110100101100001
-
-		/-->
+    <title>Folio: Now Reading</title>
 
     <meta name="author" content="Gapelia" />
     <meta name="description" content="This should be a synopsis about the book" />
@@ -46,54 +35,14 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-
-                <h2><a href="/featured">Gapelia</a></h2>
-
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a>
-                    </li>
-                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-                    </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
-                    </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
-                    </li>
-
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
-                        <ul id="draft-menu"></ul>
-                    </li>
-
-                    <li id="gpl-menu-notify"><a>Notifications</a>
-                        <a class="icon" href="#"></a>
-                        <ul></ul>
-                    </li>
-
-		    <li class="fq"><a href="#">Help</a>
-		    <li class="help"><a href="#">Contact</a>
-		    <li class="logout"><a href="#">Log Out</a>
-			
+                    <li class="home"><a href="/">Folio</a></li>
+                    <li><a href="/">Sign up</a> </li>
+		            <li><a href="#">Learn more</a></li>
                 </ul>
-
             </div>
         </nav>
         <!--//site-menu /-->
-	
-	<!--/ site-menu when not logged in /-->
-	<nav id="site-menu-not-logged" class="mp-menu">
-            <div class="mp-level">
-
-                <ul>
-                    <li class="home"><a href="/">Folio</a>
-                    </li>
-                    <li><a href="/">Sign up</a>
-		    </li>
-		    <li><a href="#">Learn more</a>
-		    </li>			
-                </ul>
-
-            </div>
-        </nav>
-	<!--/ site-menu when not logged in /-->
 
         <button id="g-menu-toggle"><i class="ion-drag"></i>
         </button>
@@ -163,7 +112,7 @@
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
             $(".inserted-img").fluidbox();
         }, 1000);
-
+        addLoggedInMenu();
 	
     </script>
 </body>
