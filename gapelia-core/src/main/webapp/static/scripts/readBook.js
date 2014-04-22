@@ -258,7 +258,13 @@ $(function () {
                 bookId: bookId
             },
             success: function (data) {
-                numVotes = data[0];
+
+                if (data == null) {
+                	numVotes = 0;
+                }
+                else{
+                	numVotes = data[0];
+                }
             },
             error: function (q, status, err) {
                 if (status == "timeout") {
