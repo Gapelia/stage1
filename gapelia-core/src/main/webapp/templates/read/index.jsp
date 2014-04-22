@@ -141,6 +141,10 @@
 
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/readBook.js"></script>
+    
+    <script src="/static/scripts/cookie.js"></script>
+    <script src="/static/scripts/merci.js"></script>
+    
     <script>
         setTimeout(function () {
             $(".fluid-wrapper").imgLiquid({
@@ -159,6 +163,8 @@
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
             $(".inserted-img").fluidbox();
         }, 1000);
+
+	
     </script>
 </body>
 
