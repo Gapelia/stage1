@@ -977,8 +977,7 @@ function getNumberVotes(incomingBookId) {
 	type: "POST",
 	async: false,
 	data: {
-		    sessionId: sessionId,
-	    bookId: incomingBookId
+		bookId: incomingBookId
 	},
 	success: function (data) {
 		if (data != null) {

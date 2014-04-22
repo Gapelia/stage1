@@ -113,6 +113,7 @@
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
     <script src="/static/scripts/ajax.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
     <script>
         if ($vW > "1024") {
             new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
@@ -151,7 +152,7 @@
 		        stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
                 stuff += "<div id=\"splash-user-bio\"></div>";
-		        stuff += "<h5 id=\"recently-published\">Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
+		        stuff += "<h5 id=\"recently-published\"></h5>";
 		        stuff += "<h5 id=\"contributes-to\"></h5>";
 		        stuff += "</div>";
                 stuff += "<div id=\"close-splash\">SEE MY BOOKS</div>";

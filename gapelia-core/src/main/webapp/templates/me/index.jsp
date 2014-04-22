@@ -375,6 +375,7 @@
                         }
                         getContributedTo();
                         getRecentlyPublished();
+                        loadDelete();
                         NProgress.done();
 
                         $("#user-book-list").css("opacity", "1");

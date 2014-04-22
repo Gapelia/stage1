@@ -158,7 +158,7 @@ $(function () {
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
-                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes() + "</span>";
+                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
                 backPage += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure>";
                 backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
                 backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";

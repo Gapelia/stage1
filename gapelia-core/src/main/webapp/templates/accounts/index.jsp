@@ -38,6 +38,7 @@
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+        <script src="/static/scripts/userNotifications.js"></script>
 
 	</head>
 
@@ -187,8 +188,7 @@
 
 		<script>
 			$(function() {
-                getNotifications();
-				var third = getUserDrafts();
+
 				getUser();
 
 				// Fixes menu positioning issue when scrolled
@@ -202,7 +202,8 @@
 			});
 
 			function load() {
-
+                 getNotifications();
+                var third = getUserDrafts();
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
 				var elem = document.querySelector(".js-switch");

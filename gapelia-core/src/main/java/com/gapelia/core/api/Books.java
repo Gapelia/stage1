@@ -44,9 +44,7 @@ public class Books {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getNumVotes(@FormParam("sessionId") String sessionId, @FormParam("bookId") int bookId) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
+	public String getNumVotes(@FormParam("bookId") int bookId) {
 		Gson gson = new GsonBuilder().create();
 		return gson.toJson(QueryDatabaseBook.getNumVotes(bookId));
 	}

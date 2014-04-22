@@ -69,8 +69,18 @@
 			this.end();
 			this.incrementCount();
 			this.element.addClass("complete");
-
+            $.ajax({
+            	url: "/api/actions/voteBook",
+            	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            	type: "POST",
+            	async: false,
+            	data: {
+            		sessionId: sessionId,
+            	    bookId: bookId
+            	}
+             });
 			return this.element.trigger("merci:added");
+
 
 		};
 
@@ -81,7 +91,16 @@
 			if (this.isMercid()) {
 				this.decrementCount();
 				this.element.removeClass("complete");
-
+                $.ajax({
+                	url: "/api/actions/removeVoteBook",
+                	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                	type: "POST",
+                	async: false,
+                	data: {
+                		sessionId: sessionId,
+                	    bookId: bookId
+                	}
+                 });
 				return this.element.trigger("merci:removed");
 			}
 
