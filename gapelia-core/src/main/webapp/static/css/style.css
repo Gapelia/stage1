@@ -2572,11 +2572,12 @@ body.landing h1 {
   display: inherit !important;
   margin: 0 0 0.5rem 0; }
 .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes, .app .new .book-info .num-votes, .app .draft .book-info .num-votes {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   float: right;
   position: absolute;
   right: 2rem;
-  bottom: 5%; }
+  bottom: 5%;
+  width: 2rem; }
 .app .book .bookmark-this, .app .collection .bookmark-this, .app .library .bookmark-this, .app .new .bookmark-this, .app .draft .bookmark-this {
   width: auto;
   height: auto;
