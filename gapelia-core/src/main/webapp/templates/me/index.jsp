@@ -162,8 +162,6 @@
             var second = getUserCreatedBooks();
             var third = getUserDrafts();
             var first = getUser();
-            getContributedTo();
-            getRecentlyPublished();
         });
 
          // Splash page
@@ -375,7 +373,8 @@
                         if ($vW > "1024") {
                             $("#user-book-list").css("width", w + 320 + "px");
                         }
-
+                        getContributedTo();
+                        getRecentlyPublished();
                         NProgress.done();
 
                         $("#user-book-list").css("opacity", "1");

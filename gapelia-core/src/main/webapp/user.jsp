@@ -139,12 +139,10 @@
             var first = getUserPublic();
             var second = getListBookmarked();
             var third = getUserDrafts();
-            getRecentlyPublished();
-            getContributedTo();
+
         });
 
         function load() {
-
             $(function () {
                 stuff = "";
                 stuff += "<section id=\"user-splash\">";
@@ -292,6 +290,8 @@
             $("#user-book-list li").each(function () {
                 w += $(this).outerWidth();
             });
+            getContributedTo();
+            getRecentlyPublished();
 
             w += 1000;
 

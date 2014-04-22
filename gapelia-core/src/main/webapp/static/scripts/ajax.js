@@ -970,6 +970,7 @@ function addLoggedInMenu(){
 	}
 }
 function getNumberVotes(incomingBookId) {
+    numVotes=0;
     $.ajax({
 	url: "/api/books/getNumVotes",
 	contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -980,10 +981,7 @@ function getNumberVotes(incomingBookId) {
 	    bookId: incomingBookId
 	},
 	success: function (data) {
-		if (data == null || data == undefined) {
-			numVotes = 0;
-		}
-		else{
+		if (data != null) {
 			numVotes = data[0];
 		}
 	},
@@ -995,6 +993,7 @@ function getNumberVotes(incomingBookId) {
 	    }
 	}
     });
+    return numVotes;
 }
 
 
