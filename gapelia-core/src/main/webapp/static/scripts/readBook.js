@@ -143,16 +143,17 @@ $(function () {
                 userId: bookOwner.userId
             },
             success: function (data) {
+                
                 bookUser = data;
                 currentWebsite = document.URL;
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
                 twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
+                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this out' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"1\"><a class=\"mercibject\"><div class=\"opening\">";
-                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">0</span>";
-                backPage += "<span class=\"txt\">merci'd</span><span class=\"dont-move\">Don't move</span></a></figure>";
+                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes() + "</span>";
+                backPage += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure>";
                 backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
                 backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
                 backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section>";
@@ -161,7 +162,6 @@ $(function () {
                 getReadNextBook();
                 
                 initializeMerciObject();
-                
                 
             },
             error: function (q, status, err) {
@@ -245,6 +245,37 @@ $(function () {
 			});
 	
 	
+    }
+    
+    function getNumberVotes() {
+        $.ajax({
+            url: "/api/books/getNumVotes",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            async: false,
+            data: {
+			sessionId: sessionId,
+                bookId: bookId
+            },
+            success: function (data) {
+
+                if (data == null) {
+                	numVotes = 0;
+                }
+                else{
+                	numVotes = data[0];
+                }
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                } else {
+                    alert("Some issue happened with your request: " + err.message);
+                }
+            }
+        });
+        
+        return numVotes;
     }
 
     function getReadNextBook() {

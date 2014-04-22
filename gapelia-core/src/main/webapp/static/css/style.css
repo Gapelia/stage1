@@ -2553,24 +2553,42 @@ body.landing h1 {
   height: auto;
   margin: 0 0 0 1rem;
   padding: 0;
-  background-color: rgba(231, 231, 231, 0.4);
+  background-color: rgba(231, 231, 231, 0.7);
   border-radius: 10px;
   float: left;
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.2s ease; }
+.app .book:hover, .app .collection:hover, .app .library:hover, .app .new:hover, .app .draft:hover {
+  border: 5px solid #fcfcfc !important;
+  border-radius: 0px !important; }
 .app .book:hover .book-info, .app .book:hover .collection-info, .app .book:hover .library-info, .app .book:hover .draft-info, .app .collection:hover .book-info, .app .collection:hover .collection-info, .app .collection:hover .library-info, .app .collection:hover .draft-info, .app .library:hover .book-info, .app .library:hover .collection-info, .app .library:hover .library-info, .app .library:hover .draft-info, .app .new:hover .book-info, .app .new:hover .collection-info, .app .new:hover .library-info, .app .new:hover .draft-info, .app .draft:hover .book-info, .app .draft:hover .collection-info, .app .draft:hover .library-info, .app .draft:hover .draft-info {
   text-shadow: 0 3px 6px #191919 !important; }
 .app .book:hover .book-title, .app .book:hover .library-location, .app .book:hover .author-name, .app .collection:hover .book-title, .app .collection:hover .library-location, .app .collection:hover .author-name, .app .library:hover .book-title, .app .library:hover .library-location, .app .library:hover .author-name, .app .new:hover .book-title, .app .new:hover .library-location, .app .new:hover .author-name, .app .draft:hover .book-title, .app .draft:hover .library-location, .app .draft:hover .author-name {
   text-shadow: 0 3px 6px #191919 !important; }
 .app .book:hover:after, .app .collection:hover:after, .app .library:hover:after, .app .new:hover:after, .app .draft:hover:after {
-  background: rgba(25, 25, 25, 0.4) !important; }
+  background: rgba(25, 25, 25, 0.7) !important; }
 .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar, .app .new .author-avatar, .app .draft .author-avatar {
   width: 50px;
   height: 50px;
   border-radius: 300rem;
   display: inherit !important;
   margin: 0 0 0.5rem 0; }
+.app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes, .app .new .book-info .num-votes, .app .draft .book-info .num-votes {
+  font-size: 1.3rem;
+  float: right;
+  position: absolute;
+  right: 2rem;
+  bottom: 5%;
+  width: 2rem; }
+.app .book .book-snippet, .app .collection .book-snippet, .app .library .book-snippet, .app .new .book-snippet, .app .draft .book-snippet {
+  color: #fcfcfc;
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 1.75;
+  text-transform: lowercase; }
+.app .book .book-snippet :first-letter, .app .collection .book-snippet :first-letter, .app .library .book-snippet :first-letter, .app .new .book-snippet :first-letter, .app .draft .book-snippet :first-letter {
+  text-transform: uppercase; }
 .app .book .bookmark-this, .app .collection .bookmark-this, .app .library .bookmark-this, .app .new .bookmark-this, .app .draft .bookmark-this {
   width: auto;
   height: auto;
@@ -2632,7 +2650,7 @@ body.landing h1 {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(25, 25, 25, 0.7);
+  background: rgba(25, 25, 25, 0.9);
   content: "";
   opacity: 0.6;
   position: absolute; }
@@ -2678,7 +2696,7 @@ body.landing h1 {
   text-align: left;
   text-shadow: 0 1px 3px rgba(25, 25, 25, 0.7);
   transition: text-shadow 0.2s ease-in-out;
-  top: 35%;
+  top: 32%;
   width: 100%;
   z-index: 1; }
 .app .featured-info .title, .app .new-inner-wrapper .title, .app .draft-info .title, .app .library-info .title, .app .submission-info .title {
@@ -2713,6 +2731,10 @@ body.landing h1 {
   display: none; }
 .app .library-info {
   text-align: center; }
+.app .library-info .title {
+  border-bottom: 1px solid rgba(252, 252, 252, 0.5);
+  font-size: 1.75rem;
+  padding-bottom: 0.5rem; }
 .app .library-location {
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.8);
@@ -6700,7 +6722,7 @@ a.count span.dont-move {
     right: 30px; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
-    width: 500px; }
+    width: 450px; }
   .app #featured-nav {
     font-size: 1.25rem; }
   .app #featured-panel {
@@ -6715,7 +6737,7 @@ a.count span.dont-move {
     left: 60%; }
 
   .mp-menu ul .fq {
-    margin-top: 225%; }
+    margin-top: 175%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; } }

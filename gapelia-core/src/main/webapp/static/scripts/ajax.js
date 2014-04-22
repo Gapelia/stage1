@@ -194,16 +194,16 @@ function getFeaturedBooks() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-                toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
+		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
             }
             $("#book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
-            if ($vW < "321") {
+            if ($vW > "300") {
                 $(".book-snippet").css("display", "block")
             }
         },
@@ -934,7 +934,7 @@ function getUserFromBookId(bookId) {
         },
         success: function (data) {
             bookOwner = data;
-            responseText = "<a href=\"" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\">" + data.displayName + "</a>";
+            responseText = "<a href=\"/" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\">" + data.displayName + "</a>";
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -945,6 +945,37 @@ function getUserFromBookId(bookId) {
         }
     });
     return responseText;
+}
+
+function getNumberVotes(incomingBookId) {
+    $.ajax({
+	url: "/api/books/getNumVotes",
+	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	type: "POST",
+	async: false,
+	data: {
+		    sessionId: sessionId,
+	    bookId: incomingBookId
+	},
+	success: function (data) {
+		
+		if (data == null) {
+			numVotes = 0;
+		}
+		else{
+			numVotes = data[0];
+		}
+	},
+	error: function (q, status, err) {
+	    if (status == "timeout") {
+		alert("Request timed out");
+	    } else {
+		alert("Some issue happened with your request: " + err.message);
+	    }
+	}
+    });
+    
+    return numVotes;
 }
 
 
