@@ -172,17 +172,16 @@ function getFeaturedBooks() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\">";
-                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div><div class=\"book-info\">";
+                toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div>";
-                toInsert += "</div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
+		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
             }
             $("#book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
-            if ($vW < "321") {
+            if ($vW > "300") {
                 $(".book-snippet").css("display", "block")
             }
         },
