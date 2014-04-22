@@ -5800,23 +5800,24 @@ a.mercibject {
   margin: 0 0 0.5rem 0;
   overflow: hidden; }
 a.mercibject div.opening {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   background-color: #fcfcfc;
   border: 1px solid #191919;
   border-radius: 50%;
   margin: 0 auto;
   position: relative; }
 a.mercibject div.opening div.circle {
-  width: 60px;
-  height: 60px;
-  top: 50%;
-  left: 50%;
+  width: 80px;
+  height: 80px;
+  top: 42%;
+  left: 39%;
   backface-visibility: visible;
   border-radius: 50%;
   font-family: "Ionicons";
   font-size: 4rem;
   margin: -30px 0 0 -30px;
+  opacity: 0.8;
   position: absolute;
   transform: scale(0.3);
   transition-duration: 0.5s;
@@ -5863,7 +5864,8 @@ a.mercibject div.opening div.circle:after {
   background-color: #59b3a6;
   color: #fcfcfc;
   font-size: 2.4rem;
-  padding: 0.9rem 0 0 0;
+  padding: 1.3rem 0 0 0;
+  top: 39% !important;
   transform: scale(0.85);
   transition-property: none;
   -o-animation: merci-bounce 0.5s;
@@ -5899,7 +5901,8 @@ a.count span {
 a.count span.num {
   font-size: 18px; }
 a.count span.txt {
-  font-size: 11px; }
+  font-size: 11px;
+  padding: 3px; }
 a.count span.dont-move {
   display: none;
   font-size: 11px;
@@ -6433,7 +6436,8 @@ a.count span.dont-move {
 .full-book .video-wrapper .image-attribution {
   visibility: hidden; }
 .full-book .backcover-wrapper hr {
-  border-top: 1px solid rgba(25, 25, 25, 0.1); }
+  border-top: 1px solid rgba(25, 25, 25, 0.1);
+  margin-bottom: 30px; }
 .full-book .backcover-wrapper #fin, .full-book .backcover-wrapper #fin-next {
   float: left;
   height: 100%; }
@@ -6453,18 +6457,25 @@ a.count span.dont-move {
   position: relative;
   width: 100px; }
 .full-book .backcover-wrapper #fin h2 {
-  margin: 0; }
+  line-height: 1.2;
+  margin: 0;
+  max-width: 550px; }
 .full-book .backcover-wrapper #fin h2:before {
   content: "You just read";
   display: block;
-  font-size: 0.5em;
+  font-size: 0.4em;
   line-height: 1em;
-  margin: 0 0 0 0.1rem; }
+  margin: 0 0 0 0.1rem;
+  margin-bottom: 5px;
+  opacity: 0.7; }
 .full-book .backcover-wrapper #fin .share-book {
-  margin: -2rem 0 3rem 8.5rem; }
+  font-size: 1.7rem;
+  margin: -2rem 0 4rem 8.5rem;
+  padding-top: 5px; }
 .full-book .backcover-wrapper #fin .share-book:before {
   content: "Share this";
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
+  display: none;
   float: left;
   font-style: italic;
   line-height: inherit;
@@ -6499,8 +6510,8 @@ a.count span.dont-move {
 .full-book .backcover-wrapper #fin section {
   margin: 0 0 5rem 0; }
 .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin #library-avatar {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 300rem;
   overflow: hidden;
   position: relative; }
@@ -6517,6 +6528,8 @@ a.count span.dont-move {
   margin: 0 auto;
   opacity: 0.3;
   position: absolute; }
+.full-book .backcover-wrapper #fin .author-avatar {
+  margin-left: 9px; }
 .full-book .backcover-wrapper #fin .author-avatar img {
   width: auto;
   height: 100%; }
@@ -6528,19 +6541,24 @@ a.count span.dont-move {
   vertical-align: top; }
 .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-name {
   font-size: 24px;
-  margin: 0 0 0.5rem 2rem; }
+  margin: 0 0 0.5rem 2.3rem; }
+.full-book .backcover-wrapper #fin .author-name :first-letter, .full-book .backcover-wrapper #fin #library-name :first-letter {
+  text-transform: uppercase; }
 .full-book .backcover-wrapper #fin .author-name:before, .full-book .backcover-wrapper #fin #library-name:before {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 0.8em;
   font-style: italic; }
 .full-book .backcover-wrapper #fin .author-name:before {
-  content: "by "; }
+  content: "by ";
+  display: none; }
 .full-book .backcover-wrapper #fin #library-name:before {
   content: "found in "; }
 .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
   font-size: 1.2rem;
   line-height: 1.5rem;
-  margin: -4rem 0 0 8.5rem; }
+  margin: -3.5rem 0 0 8.5rem; }
+.full-book .backcover-wrapper #fin #author-bio-blurb {
+  font-weight: 100; }
 .full-book .backcover-wrapper #fin-next {
   color: #fcfcfc;
   position: relative;

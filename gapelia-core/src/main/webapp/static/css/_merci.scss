@@ -18,7 +18,7 @@ a.mercibject {
 	overflow: hidden;
 
 	div.opening {
-		width: 60px; height: 60px; // width: 50px; height: 50px;
+		width: 90px; height: 90px; // width: 50px; height: 50px;
 
 		background-color: $white;
 		border: 1px solid $black; // 5px
@@ -27,14 +27,15 @@ a.mercibject {
 		position: relative;
 
 		div.circle {
-			width: 60px; height: 60px; // width: 50px; height: 50px;
-			top: 50%; left: 50%;
+			width: 80px; height: 80px; // width: 50px; height: 50px;
+			top: 42%; left: 39%;
 
 			backface-visibility: visible;
 			border-radius: 50%;
 			@include icon;
 			font-size: 4rem;
 			margin: -30px 0 0 -30px; // margin: -25px 0 0 -25px;
+			opacity: 0.8;
 			position: absolute;
 			transform: scale(0.3);
 			transition-duration: 0.5s;
@@ -101,7 +102,8 @@ a.mercibject {
 				background-color: $slate;
 				color: $white;
 				font-size: 2.4rem; // 2rem
-				padding: 0.9rem 0 0 0; // 0.7rem 0 0 0
+				padding: 1.3rem 0 0 0; // 0.7rem 0 0 0
+				top: 39% !important;
 				transform: scale(0.85);
 				transition-property: none;
 
@@ -146,7 +148,10 @@ a.count {
 	}
 
 	span.num { font-size: 18px; }
-	span.txt { font-size: 11px; }
+	span.txt {
+		font-size: 11px;
+		padding: 3px;
+	}
 
 	span.dont-move {
 		display: none;
