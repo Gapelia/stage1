@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
@@ -26,6 +28,7 @@ public class QueryDatabaseUser {
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
+    private static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ?";
     private static final String UPDATE_USER = "UPDATE users set email = ?, name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
@@ -82,6 +85,25 @@ public class QueryDatabaseUser {
 			}
 		}
 		return bookList;
+	}
+
+	public static boolean isBookInLibrary(int bookId) {
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(IS_BOOK_IN_LIBRARY);
+			insert.setInt(1, bookId);
+			ResultSet rs = insert.executeQuery();
+
+			boolean result = rs.isBeforeFirst();
+
+			rs.close();
+			insert.close();
+			return result;
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot get if book in library bookid:" + bookId + ex.getMessage());
+			return false;
+		}
 	}
 
     public static String onboard(User u) {
@@ -637,8 +659,6 @@ public class QueryDatabaseUser {
                 LOG.error("Error closing connection" + ex.getMessage());
             }
         }
-
-
         return bookList;
     }
 
@@ -661,7 +681,9 @@ public class QueryDatabaseUser {
 				book.setLastUpdated(rs.getTimestamp("last_updated"));
 				book.setIsPublished(rs.getBoolean("is_published"));
 				book.setSnippet(rs.getString("snippet"));
-				bookList.add(book);
+
+				if(isBookInLibrary(book.getBookId()))
+					bookList.add(book);
 			}
 		} catch (Exception ex) {
 			LOG.error("Cannot get featured books ", ex);
@@ -686,7 +708,8 @@ public class QueryDatabaseUser {
 		Collections.shuffle(subscribedLibraries);
 
 		for(int i = 0; i < subscribedLibraries.size() && i < 3;i++){
-			bookList.add(i,subscribedLibraries.get(i));
+			if(!bookList.contains(subscribedLibraries.get(i)))
+				bookList.add(i,subscribedLibraries.get(i));
 		}
 
 		return bookList;

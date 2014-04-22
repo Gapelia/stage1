@@ -168,21 +168,27 @@ public class Users {
     public String getFeaturedBooks(@FormParam("sessionId") String sessionId) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+
+		User u = SessionManager.getUserFromSessionId(sessionId);
+
         Gson gson = new GsonBuilder().create();
-        return gson.toJson(QueryDatabaseUser.getFeaturedBooks());
+        return gson.toJson(QueryDatabaseUser.getFeaturedBooks(u.getUserId()));
     }
-
-	@Path("getFeaturedBooksForUser")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getFeaturedBooksForUser(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
-
-		Gson gson = new GsonBuilder().create();
-		return gson.toJson(QueryDatabaseUser.getFeaturedBooks(userId));
-	}
+//
+//	@Path("getFeaturedBooksForUser")
+//	@POST
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//	public String getFeaturedBooksForUser(@FormParam("sessionId") String sessionId) {
+//		if (!APIUtil.isValidSession(sessionId))
+//			return APIUtil.INVALID_SESSION_ERROR_MSG;
+//
+//		User u = SessionManager.getUserFromSessionId(sessionId);
+//
+//		Gson gson = new GsonBuilder().create();
+//		return gson.toJson(QueryDatabaseUser.getFeaturedBooks(userId));
+//	}
 
     @Path("getLastPublished")
     @POST
