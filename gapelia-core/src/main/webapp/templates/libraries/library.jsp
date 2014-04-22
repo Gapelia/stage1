@@ -430,6 +430,7 @@
             getBooksInLibrary();
             getUserCreatedBooksForLibrary();
             load();
+            loadDelete();
         }, 300);
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;

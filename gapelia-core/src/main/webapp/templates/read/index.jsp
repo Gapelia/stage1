@@ -97,6 +97,7 @@
     
     <script>
         setTimeout(function () {
+        loadDelete();
             $(".fluid-wrapper").imgLiquid({
                 fill: true
             });

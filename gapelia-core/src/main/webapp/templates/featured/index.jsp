@@ -364,7 +364,7 @@
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();
-
+                loadDelete();
             });
         }
     </script>

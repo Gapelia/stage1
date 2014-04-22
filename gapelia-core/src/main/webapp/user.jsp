@@ -285,6 +285,7 @@
 
         }
         setInterval(function () {
+        loadDelete();
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             var w = 0;

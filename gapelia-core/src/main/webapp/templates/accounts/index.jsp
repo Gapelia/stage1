@@ -274,7 +274,7 @@
 					e.preventDefault();
 
 				});
-
+                loadDelete();
 				// Log Out
 				$("#logout").click(function (e) {
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";

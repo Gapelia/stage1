@@ -364,6 +364,7 @@
                                                 $(".library").css("height", h);
                                                 h = $(this).outerHeight() - 92;
                                                 $(".book").css("height", h);
+                                                loadDelete();
                     }, 1000);
 		</script>
 		<!--//scripts /-->

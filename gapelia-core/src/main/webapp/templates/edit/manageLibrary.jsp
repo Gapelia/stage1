@@ -358,6 +358,7 @@
             getSubmissionsInLibrary();
             getUserCreatedBooksForLibrary();
             load();
+            loadDelete();
         }, 300);
     </script>
     <!--//scripts /-->
