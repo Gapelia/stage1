@@ -1795,7 +1795,7 @@ function loadPagesEditor() {
                     "title": page.title,
                     "text": page.content,
                     "image": page.photoUrl,
-                    "video": page.videourl,
+                    "video": page.videoUrl,
                     "user": page.userId,
                     "attribution": page.creativeCommons
                 };
@@ -1848,7 +1848,7 @@ function loadEditorExtra(templateId) {
                 "templateId": 0,
                 "title": null,
                 "text": null,
-                "image": "/static/images/grayBG.png",
+                "image": "/static/images/whiteBG.png",
                 "video": "null",
                 "attribution": null
             };
@@ -1865,13 +1865,13 @@ function loadEditorExtra(templateId) {
             pages.page[currentPage].attribution = attribution;
             createPage();
             currentPage = pagesCreated;
-            templateId = 0;
+            templateId = 6;
             title = null;
             text = null;
             imageURL = null;
             videoURL = null;
             attribution = null;
-            fluidLayout();
+            baseLayout();
         }
 
         // Page Sorter
@@ -1880,6 +1880,15 @@ function loadEditorExtra(templateId) {
         }).bind("sortupdate", function () {});
 
         e.preventDefault();
+	
+	// Delete page
+	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
+
+		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
+
+		e.preventDefault();
+
+	});
 
     });
     switch (templateId) {
@@ -1907,7 +1916,7 @@ function loadEditorExtra(templateId) {
         videoLayout();
         break;
 
-    default:
+    case 6:
         baseLayout();
     }
 }
