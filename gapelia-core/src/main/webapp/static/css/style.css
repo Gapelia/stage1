@@ -6729,7 +6729,9 @@ a.count span.dont-move {
   justify-content: center;
   overflow: hidden; }
 
-@media all and (max-width: 1599px), screen and (max-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #g-menu-toggle, .app .app #next-book-toggle {
+    top: 0.25rem; }
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
   .app .bookmarked .bookmark-this .top-bm {
@@ -6738,33 +6740,69 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+    top: 53%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
     width: 450px; }
+  .app .book-title {
+    top: 34%; }
+  .app .featured-info, .app .new-inner-wrapper, .app .draft-info, .app .library-info, .app .submission-info {
+    padding: 0 3rem;
+    top: 38%; }
   .app #featured-nav {
     font-size: 1.25rem; }
   .app #featured-panel {
     margin: 0.7rem 0 0 0; }
+  .app .library-location {
+    left: 7%; }
+  .app .library .wrapper {
+    bottom: 12rem; }
+  .app #new-library .button-wrapper {
+    top: 28%; }
+  .app #new-library .library-controls {
+    bottom: 4.5rem; }
+  .app #new-library #close-splash {
+    bottom: 4.5rem; }
   .app .book-list-wrapper .library-empty {
     left: 260%; }
   .app .library-list-wrapper .library-empty {
-    left: 108%; }
+    left: 70%; }
   .app .submission-list-wrapper .library-empty {
-    left: 200%; }
-  .app .subcription-list-library .library-empty {
-    left: 60%; }
+    left: 115%; }
+  .app .subcription-list-wrapper .library-empty {
+    left: 37%; }
+  .app .user-book-list-wrapper {
+    top: 51.75%; }
 
   .mp-menu ul .fq {
     margin-top: 170%; }
+
+  .profile #user-splash #splash-user-bio {
+    font-size: 1.5rem;
+    margin: 0 0 3rem 0; }
+  .profile #user-splash h1 {
+    font-size: 3.5rem;
+    line-height: 75px; }
+  .profile #user-splash h5 {
+    font-size: 1.5rem; }
+  .profile #user-splash .user-avatar {
+    top: 20%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; }
   .full-book .backcover-wrapper #fin {
     padding: 12rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
+    display: inline !important;
     font-size: 2rem; }
+  .full-book .backcover-wrapper #fin .author-name :first-letter {
+    text-transform: uppercase; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
-    font-size: 1.8rem; } }
+    font-size: 1.5rem;
+    line-height: 1.2; }
+  .full-book .backcover-wrapper #fin .share-book {
+    margin: -4rem 0 4rem 8.5rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;
