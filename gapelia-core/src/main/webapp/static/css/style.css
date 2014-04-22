@@ -6722,7 +6722,7 @@ a.count span.dont-move {
     right: 30px; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
-    width: 500px; }
+    width: 450px; }
   .app #featured-nav {
     font-size: 1.25rem; }
   .app #featured-panel {
@@ -6737,7 +6737,7 @@ a.count span.dont-move {
     left: 60%; }
 
   .mp-menu ul .fq {
-    margin-top: 225%; }
+    margin-top: 175%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; } }
