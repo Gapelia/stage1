@@ -353,6 +353,11 @@
       display: inherit !important; //
 			margin: 0 0 0.5rem 0;
 		}
+    
+    .book-info .num-votes {
+      font-size: 1.5rem;
+      float: right;
+    }
 
 		.bookmark-this {
 			width: auto; height: auto;
