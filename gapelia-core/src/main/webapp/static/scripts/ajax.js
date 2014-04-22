@@ -1856,6 +1856,35 @@ function loadPagesEditor() {
 }
 
 function loadEditorExtra(templateId) {
+    switch (templateId) {
+		case 0:
+			fluidLayout();
+			break;
+
+		case 1:
+			photoLayout();
+			break;
+
+		case 2:
+			overlayLayout();
+			break;
+
+		case 3:
+			photoTextLayout();
+			break;
+
+		case 4:
+			verticalLayout();
+			break;
+
+		case 5:
+			videoLayout();
+			break;
+
+		case 6:
+			baseLayout();
+	}
+    
     $("#add-page").click(function (e) {
 
         if (pagesCreated > 20) {
@@ -1876,7 +1905,7 @@ function loadEditorExtra(templateId) {
         if (pagesCreated == 0) {
             pages.page[0] = {
                 "pageNumber": pagesCreated,
-                "templateId": 0,
+                "templateId": 6,
                 "title": null,
                 "text": null,
                 "image": "/static/images/whiteBG.png",
@@ -1884,9 +1913,9 @@ function loadEditorExtra(templateId) {
                 "attribution": null
             };
 
-            templateId = 0;
+            templateId = 6;
             createPage();
-            fluidLayout();
+	    baseLayout();
         } else {
             pages.page[currentPage].templateId = templateId;
             pages.page[currentPage].title = title;
@@ -1904,6 +1933,10 @@ function loadEditorExtra(templateId) {
             attribution = null;
             baseLayout();
         }
+	
+	if (templateId == undefined || templateId == null) {
+		templateId = 6;
+	}
 
         // Page Sorter
         $("#pages-scroller ul").sortable({
@@ -1911,7 +1944,9 @@ function loadEditorExtra(templateId) {
         }).bind("sortupdate", function () {});
 
         e.preventDefault();
-	
+
+    });
+    
 	// Delete page
 	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
 
@@ -1921,33 +1956,29 @@ function loadEditorExtra(templateId) {
 
 	});
 
-    });
-    switch (templateId) {
-    case 0:
-        fluidLayout();
-        break;
-
-    case 1:
-        photoLayout();
-        break;
-
-    case 2:
-        overlayLayout();
-        break;
-
-    case 3:
-        photoTextLayout();
-        break;
-
-    case 4:
-        verticalLayout();
-        break;
-
-    case 5:
-        videoLayout();
-        break;
-
-    case 6:
-        baseLayout();
-    }
-}
+	// Confirm page deletion
+	$(document).on("click", ".yay-delete-page", function (e) {
+		
+		pageToDeleteId = $(this).closest("li").attr("id");
+		pageToDelete = pages.page[pageToDeleteId].pageId;
+		deletePage(pageToDelete);
+		
+		$(this).closest("li").remove();
+		currentPage = $(this).closest("img").attr("id");
+		pages.page.splice(currentPage, 1);
+		
+		currentPage--;
+		pagesCreated--;
+		
+		e.preventDefault();
+		
+	});
+		
+	// Cancel page deletion
+	$(document).on("click", ".nay-delete-page", function (e) {
+		
+		$(this).closest(".delete-page-confirm").remove();
+		e.preventDefault();
+		
+	});
+}	

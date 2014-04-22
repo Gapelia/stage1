@@ -741,9 +741,9 @@
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
-		if (text == null) {
+		if (title == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
-			insert += "<div class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write a quote here.\"></div>";
+			insert += "<div class=\"page-title-elem\" contenteditable=\"true\" data-placeholder=\"Write a quote here\"></div>";
 		} else {
 			insert += "<div class=\"overlay-preview\"><article>";
 			insert += "<div class=\"page-title-elem\" contenteditable=\"true\">" + title + "</div>";
@@ -754,7 +754,7 @@
 		insert += "</section>";
 
 		// no paragraphs in this view, but having this allows it to keep between layout switching
-		if (title == null) {
+		if (text == null) {
 			insert += "<h1 class=\"page-desc\" data-placeholder=\"Write story here\" style=\"display: none;\"></h1>";
 		} else {
 			insert += "<h1 class=\"page-desc\" style=\"display: none;\">" + text + "</h1>";

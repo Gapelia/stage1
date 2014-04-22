@@ -195,7 +195,7 @@
                  		if (pagesCreated == 0) {
                  			pages.page[0] = {
                  				"pageNumber": pagesCreated,
-                 				"templateId": 0,
+                 				"templateId": 6,
                  				"title": null,
                  				"text": null,
                  				"image": "/static/images/whiteBG.jpg",
@@ -203,9 +203,9 @@
                  				"attribution": null
                  			};
 
-                 			templateId = 0;
+                 			templateId = 6;
                  			createPage();
-                 			fluidLayout();
+					baseLayout();
                  		} else {
                  			pages.page[currentPage].templateId = templateId;
                  			pages.page[currentPage].title = title;
@@ -223,6 +223,10 @@
                  			attribution = null;
                  			baseLayout();
                  		}
+				
+				if (templateId == undefined || templateId == null) {
+					templateId = 6;
+				}
 
                  		// Page Sorter
                  		$("#pages-scroller ul").sortable({
