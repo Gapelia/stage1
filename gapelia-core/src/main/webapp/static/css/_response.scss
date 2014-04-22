@@ -1517,9 +1517,15 @@
 			#fin {
 				padding: 3rem 5rem 0 5rem;
 				
-				h2 { font-size: 1.7rem; }
+				h2 {
+					font-size: 1.3rem;
+					max-width: 400px;
+					padding-top: 0.3rem;
+				}
 				
 				#author-bio-blurb { font-size: 1rem; }
+				
+				section { padding-right: 2rem; }
 			}
 			
 			#fin-next .book-title {
@@ -1527,6 +1533,8 @@
 				text-align: center;
 				width: 100%;
 			}
+			
+			.share-book { margin: -4.5rem 0 4rem 8.5rem; }
 		}
 
 	}

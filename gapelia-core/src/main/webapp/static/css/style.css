@@ -7774,13 +7774,19 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin {
     padding: 3rem 5rem 0 5rem; }
   .full-book .backcover-wrapper #fin h2 {
-    font-size: 1.7rem; }
+    font-size: 1.3rem;
+    max-width: 400px;
+    padding-top: 0.3rem; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     font-size: 1rem; }
+  .full-book .backcover-wrapper #fin section {
+    padding-right: 2rem; }
   .full-book .backcover-wrapper #fin-next .book-title {
     margin: 5rem 0 0 0;
     text-align: center;
     width: 100%; }
+  .full-book .backcover-wrapper .share-book {
+    margin: -4.5rem 0 4rem 8.5rem; }
 
   .profile #g-menu-toggle {
     color: #59b3a6; }
