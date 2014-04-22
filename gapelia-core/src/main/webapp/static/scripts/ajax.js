@@ -147,16 +147,38 @@ function getBookmarkedBooks() {
         }
     });
 }
-
+function getNumSubscribers() {
+	$.ajax({
+        url: "/api/libraries/getNumSubscribers",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+        	sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            numSubscribers = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
 function getFeaturedBooks() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
-        url: "/api/users/getFeaturedBooks",
+        url: "/api/users/getFeaturedBooksForUser",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         async: false,
         data: {
-            sessionId: sessionId
+            sessionId: sessionId,
+            userId: user.userId
         },
         success: function (data) {
             books = data;
@@ -450,9 +472,8 @@ function getSubmissionsInLibrary() {
 }
 
 function getLibrary() {
-    libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
+    libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     sessionId = readCookie("JSESSIONID");
-
     $.ajax({
         url: "/api/libraries/getLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -463,7 +484,7 @@ function getLibrary() {
         },
         success: function (data) {
             library = data;
-            userName = "name";
+            userName = libraryOwner.name;
             featuredBookTitle = "STILL NEED TO GET";
             featuredBookId = library.featuredBook;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
@@ -473,7 +494,7 @@ function getLibrary() {
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
-            toInsert += "<h1>" + userName + " Â· 8,349 subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+            toInsert += "<h1>" + userName + " · "+numSubscribers+"subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
         },
@@ -850,7 +871,6 @@ function getUserPublic() {
     });
     return null;
 }
-
 function getUserFromLibraryId(libraryId) {
     $.ajax({
         url: "/api/utils/getUserFromLibraryId",
@@ -899,7 +919,8 @@ function checkName() {
                 alert("Some issue happened with your request: " + err.message);
             }
         }
-    }); }
+    });
+     }
 }
 function getUserFromBookId(bookId) {
     responseText = '';

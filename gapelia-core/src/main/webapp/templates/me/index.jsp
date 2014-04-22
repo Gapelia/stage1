@@ -196,8 +196,8 @@
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
                 stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
-                stuff += "<h5>Recently published <a href=\"\">The Picture of Dorian Gray</a></h5>";
-		        stuff += "<h5>Contributes to <a href=\"\">Digital Humanities</a> and <a href=\"\">Technological Marvels</a></h5>";
+                stuff += "<h5 id=\"recently-published\"></h5>";
+                stuff += "<h5 id=\"contributes-to\"></h5>";
                 stuff += "</div>";
                 stuff += "<div id=\"close-splash\">SEE ALL BOOKS</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";

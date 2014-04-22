@@ -159,6 +159,7 @@
     <script src="/static/scripts/mousewheel.js"></script>
 
     <script>
+        libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
         $(document).ready(function () {
                sessionId = readCookie("JSESSIONID");
                    $.ajax({
@@ -180,6 +181,8 @@
                            }
                        }
                    });
+               getNumSubscribers();
+               getUserFromLibraryId(libraryId);
             var first = getListSubscribed();
              getNotifications();
             var second = getListBookmarked();

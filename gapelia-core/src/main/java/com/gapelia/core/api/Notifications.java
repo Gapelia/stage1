@@ -21,7 +21,7 @@ public class Notifications {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String getAlreadySubmitted(@FormParam("sessionId") String sessionId,
-                                            @FormParam("libraryId") int libraryId) {
+                                      @FormParam("libraryId") int libraryId) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
