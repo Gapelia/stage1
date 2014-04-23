@@ -1876,7 +1876,7 @@ function loadBookEditor() {
             };
             pagesCreated = 0;
             author = book.ownedBy;
-            templateId = 0;
+            templateId = 6;
             currentPage = 0;
             imageURL = null;
             attribution = null;
@@ -1949,129 +1949,137 @@ function loadPagesEditor() {
 }
 
 function loadEditorExtra(templateId) {
-    switch (templateId) {
+    
+	switch (templateId) {
 		case 0:
 			fluidLayout();
 			break;
-
+    
 		case 1:
 			photoLayout();
 			break;
-
+    
 		case 2:
 			overlayLayout();
 			break;
-
+    
 		case 3:
 			photoTextLayout();
 			break;
-
+    
 		case 4:
 			verticalLayout();
 			break;
-
+    
 		case 5:
 			videoLayout();
 			break;
-
+    
 		case 6:
 			baseLayout();
 	}
-    
-    $("#add-page").click(function (e) {
-
-        if (pagesCreated > 20) {
-            alert("Your book is too big please remove a page!\n");
-            return;
-        }
-
-        pagesCreated++;
-
-        $(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
-
-        title = $(".page-title-elem").html();
-        text = $(".page-desc").html();
-        imageURL = $(".page-bg").attr("src");
-        attribution = $(".image-attribution").html();
-
-        // save to previous page
-        if (pagesCreated == 0) {
-            pages.page[0] = {
-                "pageNumber": pagesCreated,
-                "templateId": 6,
-                "title": null,
-                "text": null,
-                "image": "/static/images/whiteBG.png",
-                "video": "null",
-                "attribution": null
-            };
-
-            templateId = 6;
-            createPage();
-	    baseLayout();
-        } else {
-            pages.page[currentPage].templateId = templateId;
-            pages.page[currentPage].title = title;
-            pages.page[currentPage].text = text;
-            pages.page[currentPage].image = imageURL;
-            pages.page[currentPage].video = videoURL;
-            pages.page[currentPage].attribution = attribution;
-            createPage();
-            currentPage = pagesCreated;
-            templateId = 6;
-            title = null;
-            text = null;
-            imageURL = null;
-            videoURL = null;
-            attribution = null;
-            baseLayout();
-        }
 	
-	if (templateId == undefined || templateId == null) {
-		templateId = 6;
-	}
+	$("#add-page").click(function (e) {
 
-        // Page Sorter
-        $("#pages-scroller ul").sortable({
-            items: ":not(.disable-sort)"
-        }).bind("sortupdate", function () {});
+		if (pagesCreated > 20) {
+			alert("Your book is too big please remove a page!\n");
+			return;
+		}
 
-        e.preventDefault();
+		pagesCreated++;
 
-    });
+		$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/whiteBG.jpg\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+
+		title = $(".page-title-elem").html();
+		text = $(".page-desc").html();
+		imageURL = $(".page-bg").attr("src");
+		attribution = $(".image-attribution").html();
+
+		// save to previous page
+		if (pagesCreated == 0) {
+			pages.page[0] = {
+				"pageNumber": 0,
+				"templateId": 0,
+				"title": null,
+				"text": null,
+				"image": "/static/images/whiteBG.jpg",
+				"video": "null",
+				"attribution": null
+			};
+			createPage();
+			templateId = 0;
+			baseLayout();
+		} else {
+			pages.page[currentPage].templateId = templateId;
+			pages.page[currentPage].title = title;
+			pages.page[currentPage].text = text;
+			pages.page[currentPage].image = imageURL;
+			pages.page[currentPage].video = videoURL;
+			pages.page[currentPage].attribution = attribution;
+			createPage();
+			currentPage = pagesCreated;
+			templateId = 6;
+			title = null;
+			text = null;
+			imageURL = null;
+			videoURL = null;
+			attribution = null;
+			baseLayout();
+		}
+	    
+	    // Page Sorter
+	    $("#pages-scroller ul").sortable({
+		items: ":not(.disable-sort)"
+	    }).bind("sortupdate", function () {});
     
-	// Delete page
-	$(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
-
-		$(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
-
-		e.preventDefault();
-
+	    e.preventDefault();
+    
 	});
+	
+	    // Delete page
+	    $(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
+    
+		    $(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
+    
+		    e.preventDefault();
+    
+	    });
+    
+	    // Confirm page deletion
+	    $(document).on("click", ".yay-delete-page", function (e) {
+		    
+		    pageToDeleteId = $(this).closest("li").attr("id");
+		    pageToDelete = pages.page[pageToDeleteId].pageId;
+		    deletePage(pageToDelete);
+		    
+		    $(this).closest("li").remove();
+		    currentPage = $(this).closest("img").attr("id");
+		    pages.page.splice(currentPage, 1);
+		    
+		    currentPage--;
+		    pagesCreated--;
+		    
+		    e.preventDefault();
+		    
+	    });
+		    
+	    // Cancel page deletion
+	    $(document).on("click", ".nay-delete-page", function (e) {
+		    
+		    $(this).closest(".delete-page-confirm").remove();
+		    e.preventDefault();
+		    
+	    });
+	    
+	    // Image insertion
+	    // var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
+		var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
+	
+		function handleFile(file) {
+	
+			// pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
+			pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
+			console.log(file);
+		}	
 
-	// Confirm page deletion
-	$(document).on("click", ".yay-delete-page", function (e) {
-		
-		pageToDeleteId = $(this).closest("li").attr("id");
-		pageToDelete = pages.page[pageToDeleteId].pageId;
-		deletePage(pageToDelete);
-		
-		$(this).closest("li").remove();
-		currentPage = $(this).closest("img").attr("id");
-		pages.page.splice(currentPage, 1);
-		
-		currentPage--;
-		pagesCreated--;
-		
-		e.preventDefault();
-		
-	});
-		
-	// Cancel page deletion
-	$(document).on("click", ".nay-delete-page", function (e) {
-		
-		$(this).closest(".delete-page-confirm").remove();
-		e.preventDefault();
-		
-	});
-}	
+	}
