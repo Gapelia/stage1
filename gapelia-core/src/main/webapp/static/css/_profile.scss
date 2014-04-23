@@ -217,13 +217,13 @@
 		h1 { margin: 0 0 -0.5rem 0; }
 
 		h5 {
-			font-size: 0.8rem;
+			font-size: 1rem;
 			font-weight: lighter;
 			margin: 0 0 1rem 0;
 
 			a {
 				border-bottom: 1px solid $white;
-				display: inline !important;
+				display: inline-block !important;
 				@include serif;
 				font-style: italic;
 				font-weight: bolder;
@@ -235,7 +235,7 @@
 			font-weight: 700;
 			position: relative;
 			text-align: center;
-			top: 33.5%;
+			top: 29.5%;
 			width: 100%;
 		}
 

@@ -1,10 +1,12 @@
 
 ///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
-@media all and (min-width: 1281px), screen and (min-width: 1281px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	.app {
 
+		#g-menu-toggle, .app #next-book-toggle { top: 0.25rem; }
+		
 		.bookmarked {
 			.bookmark-this {
 				.right-bm { width: 47px; }
@@ -21,33 +23,111 @@
 			}
 		}
 		
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53%; }
+		
 		.book, .collection, .library, .new, .draft {
 			margin: 0 0 0 1.5rem;
 			width: 450px;
+		}
+		
+		.book-title { top: 34%; }
+		
+		.featured-info, .new-inner-wrapper, .draft-info, .library-info, .submission-info {
+			padding: 0 3rem;
+			top: 38%;
 		}
 		
 		#featured-nav { font-size: 1.25rem; }
 		
 		#featured-panel { margin: 0.7rem 0 0 0; }
 		
+		.library-location { left: 7%; }
+		
+		.library .wrapper { bottom: 12rem; }
+		
+		#new-library {
+			
+			.button-wrapper { top: 28%; }
+			
+			.library-controls { bottom: 4.5rem;}
+			
+			#close-splash { bottom: 4.5rem; }
+		}	
+		
+		//empty lists //
+		
 		.book-list-wrapper .library-empty { left: 260%; }
 		
-		.library-list-wrapper .library-empty { left: 108%; }
+		.library-list-wrapper .library-empty { left: 70%; }
 		
-		.submission-list-wrapper .library-empty { left: 200%; }
+		.submission-list-wrapper .library-empty { left: 115%; }
 		
-		.subcription-list-library .library-empty { left: 60%; }
+		.subcription-list-wrapper .library-empty { left: 37%; }
+		
+		//empty lists //
+		
+		.user-book-list-wrapper { top: 51.75%; }
 	}
 	
-	.mp-menu ul .fq { margin-top: 175%; }
+	.mp-menu ul .fq { margin-top: 170%; }
 
+	
+	/// PROFILE ///
+	
+	.profile {
+		
+		#user-splash {
+			#splash-user-bio {
+				font-size: 1.5rem;
+				margin: 0 0 3rem 0;
+			}
+		
+			h1 {
+				font-size: 3.5rem;
+				line-height: 75px;
+			}
+			
+			h5 { font-size: 1.5rem; }
+			
+			.user-avatar { top: 20%; }
+		}	
+	}
+	
+	
+	///FULL BOOK///
+	
 	.full-book {
 
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			height: 100% !important;
 		}
-
+		
+		.fluid-wrapper .author-info .author-avatar { margin-left: 81%; }
+		
+		.photo-wrapper .author-info .author-avatar { margin-left: 86%; }
+		
+		.overlay-wrapper .author-info .author-avatar { margin-left: 45%; }
+		
+		.backcover-wrapper {
+			#fin {
+				padding: 12rem 10rem 0 10rem;
+				
+				.author-name {
+					display: inline !important; 
+					font-size: 2rem;
+					margin: 0 0 0.5rem 2rem;
+					:first-letter { text-transform: uppercase; }
+				}
+				
+				#author-bio-blurb {
+					font-size: 1.25rem;
+					line-height: 1.5;
+				}
+				
+				.share-book { margin: -4rem 0 4rem 8.5rem; }
+			}	
+		}
 	}
 
 }
@@ -901,7 +981,7 @@
 			}
 
 			#fin {
-				padding: 3rem 8rem 0 8rem;
+				padding: 3rem 8rem 0 10rem;
 				height: auto;
 				
 				h2 {
@@ -922,15 +1002,18 @@
 					width: 75px;
 				}
 				
+				.author-avatar { margin-left: 0; }
+				
 				.author-name {
 					font-size: 1.5rem;
-					margin: 0 0 0.5rem 2.8rem;
+					margin: 0 0 0.5rem 2.7rem;
+					display: inline !important;
 				}
 				
 				#author-bio-blurb {
 					color: rgba($black, 0.8);
-					font-size: 1.5rem;
-					margin: -4.8rem 0 0 7.5rem;
+					font-size: 1.2rem;
+					margin: -2.8rem 0 0 7.5rem;
 					max-width: 500px;
 				}
 				
@@ -968,6 +1051,13 @@
 		.text-fade { display: none !important; }
 
 	}
+	
+	a.mercibject div.opening div.circle {
+		width: 75px; height: 75px;
+		left: 40%;
+	}
+	
+	.merci.complete a.mercibject div.opening div.circle { top: 40% !important;  left: 40% !important; }
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
@@ -1515,7 +1605,7 @@
 			.book-title { padding: 0 4rem; }
 			
 			#fin {
-				padding: 3rem 5rem 0 5rem;
+				padding: 3rem 3rem 0 5rem;
 				
 				h2 {
 					font-size: 1.3rem;
@@ -1866,14 +1956,19 @@
 		}
 		
 		.backcover-wrapper {
+			
 			.book-title { padding: 0 4rem; }
 			
 			#fin {
-				padding: 1rem 3rem 0 3rem;
+				padding: 1rem 1rem 0 2rem;
 				
-				h2 { font-size: 1.5rem; }
+				h2 { font-size: 1.2rem; }
 				
 				#author-bio-blurb { font-size: 0.9rem; }
+				
+				.author-name { display: block !important; }
+				
+				.share-book { margin: -5.5rem 0 4rem 8.5rem; }
 			}
 			
 			#fin-next .book-title {
@@ -1928,7 +2023,7 @@
 
 	body.landing {
 
-		.super-wrapper { padding: 20% 10%; }
+		.super-wrapper { padding: 6% 6%; }
 
 		h4 { width: 90%; }
 
@@ -1982,7 +2077,7 @@
 		}
 		
 		#user-splash #close-splash {
-			left: 37%;
+			left: 32%;
 		}
 
 		// Header
@@ -2200,7 +2295,7 @@
 				}
 			}
 			
-			h5 { font-size: 0.7rem; }
+			h5 { font-size: 0.8rem; }
 			
 			#splash-user-info {
 				color: rgba($black, 0.8);
@@ -2214,6 +2309,7 @@
 				
 				#splash-user-bio {
 					font-size: 0.9rem;
+					line-height: 1.25;
 					margin: 0 0 1.5rem 0;
 					padding: 0;
 					
@@ -2222,7 +2318,7 @@
 			}	
 				
 			#close-splash {
-				bottom: 30%;
+				bottom: 12%;
 				color: rgba($black, 0.5);
 				font-size: 0.8rem !important;
 			}
@@ -2237,7 +2333,7 @@
 			
 			#library-info {
 				left: 4%;
-				top: 34%;
+				top: 38%;
 				width: 88%;
 			}
 			
@@ -2258,13 +2354,23 @@
 			section { font-size: 0.8rem !important; }
 			
 			#close-splash {
-				bottom: 18% !important;
+				bottom: 12% !important;
 				font-size: 0.8rem !important;
 				left: 35%;
 			}
 		}
 	}
 
+	/// MERCI ////
+	
+	a.mercibject div.opening div.circle {
+		height: 75px; width: 75px;
+		left: 40%;
+	}
+	
+	.merci.complete a.mercibject div.opening div.circle { top: 40% !important; }
+	
+	
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
@@ -2538,6 +2644,7 @@
 				section {
 					margin-left: 0;
 					margin: 0rem 0rem 1rem 0;
+					padding-right: 0rem;
 				}
 			}
 

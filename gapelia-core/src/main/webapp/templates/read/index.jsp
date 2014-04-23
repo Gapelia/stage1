@@ -101,6 +101,9 @@
             $(".fluid-wrapper").imgLiquid({
                 fill: true
             });
+	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+                fill: true
+            });
             $(".overlay-wrapper").imgLiquid({
                 fill: true
             });
@@ -112,7 +115,11 @@
             });
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-            $(".inserted-img").fluidbox();
+            
+	    /*
+	    $(".inserted-img").fluidbox();
+	    */
+	    
         }, 1000);
         addLoggedInMenu();
 	

@@ -644,7 +644,7 @@
 
 			.share-book {
 				font-size: 1.7rem;
-        margin: -2rem 0 4rem 8.5rem; // -2rem 0 2rem 8.5rem
+        margin: -4.2rem 0 4rem 8.5rem; 
         padding-top: 5px;
 
 				&:before {
@@ -731,7 +731,8 @@
 			}
 
 			.author-name, #library-name {
-				font-size: 24px;
+				display: inline !important;
+        font-size: 24px;
 				margin: 0 0 0.5rem 2.3rem;
         :first-letter { text-transform: uppercase; }
 
