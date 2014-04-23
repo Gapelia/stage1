@@ -7414,13 +7414,16 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin .merci a.mercibject div.opening, .full-book .backcover-wrapper #fin .author-avatar {
     height: 75px;
     width: 75px; }
+  .full-book .backcover-wrapper #fin .author-avatar {
+    margin-left: 0; }
   .full-book .backcover-wrapper #fin .author-name {
     font-size: 1.5rem;
-    margin: 0 0 0.5rem 2.8rem; }
+    margin: 0 0 0.5rem 2.7rem;
+    display: inline !important; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     color: rgba(25, 25, 25, 0.8);
     font-size: 1.5rem;
-    margin: -4.8rem 0 0 7.5rem;
+    margin: -2.8rem 0 0 7.5rem;
     max-width: 500px; }
   .full-book .backcover-wrapper #fin .share-book {
     margin: -4.5rem 0 4rem 8.5rem; }
@@ -7443,6 +7446,15 @@ a.count span.dont-move {
     background-image: linear-gradient(to top, #191919, transparent); }
   .full-book .text-fade {
     display: none !important; }
+
+  a.mercibject div.opening div.circle {
+    width: 75px;
+    height: 75px;
+    left: 40%; }
+
+  .merci.complete a.mercibject div.opening div.circle {
+    top: 40% !important;
+    left: 40% !important; }
 
   .profile #user-splash {
     z-index: 10; }
