@@ -3347,6 +3347,11 @@ body.library-manager .library-buttons .delete-this-library, body.library-manager
   padding: 0;
   text-align: center;
   text-shadow: 0 0 0.13rem #191919 !important; }
+body.library-manager .library-buttons .delete-this-library {
+  opacity: 0.85; }
+body.library-manager .library-buttons .edit-this-library {
+  font-size: 26px;
+  font-weight: bolder; }
 body.library-manager .delete-library-confirm {
   width: 100%;
   height: 100%;
@@ -3809,6 +3814,11 @@ body.library-manager #stay-right {
   padding: 0;
   text-align: center;
   text-shadow: 0 0 0.13rem #191919 !important; }
+.profile .book-buttons .delete-this-book {
+  opacity: 0.85; }
+.profile .book-buttons .edit-this-book {
+  font-size: 26px;
+  font-weight: bolder; }
 .profile .deny-book-confirm {
   display: none; }
 .profile .delete-book-confirm {

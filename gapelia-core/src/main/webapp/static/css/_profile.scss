@@ -290,6 +290,12 @@
 			text-align: center;
 			text-shadow: 0 0 0.13rem $black !important;
 		}
+		
+		.delete-this-book { opacity: 0.85; }
+		.edit-this-book {
+			font-size: 26px;
+			font-weight: bolder;
+		}
 	}
 
 	.deny-book-confirm { display: none; }

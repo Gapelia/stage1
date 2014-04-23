@@ -219,7 +219,7 @@
 
 				}, 1000);
 
-				$("#nav-explore").addClass("current");
+				//$("#nav-explore").addClass("current");
 
 				NProgress.done();
 
@@ -236,7 +236,7 @@
 
 					setTimeout(function () {
 
-                    $("#explore-list").hide();
+                                        $("#explore-list").hide();
 					$("#library-list").hide();
 					$("#subscription-list").hide();
 
@@ -263,12 +263,12 @@
 
 					$("#nav-libraries").addClass("current");
 					$("#nav-subscriptions").removeClass("current");
-                    $("#explore-libraries").removeClass("current");
+                                        $("#nav-explore").removeClass("current");
 					NProgress.done();
 
 				});
 
-                // Click "Explore"
+                                // Click "Explore"
 				$("#nav-explore").click(function (e) {
 
 					NProgress.start();
@@ -307,7 +307,7 @@
 
 					$("#nav-libraries").removeClass("current");
 					$("#nav-subscriptions").removeClass("current");
-                    $("#explore-libraries").addClass("current");
+                                        $("#nav-explore").addClass("current");
 					NProgress.done();
 
 				});
@@ -353,7 +353,7 @@
 
 					$("#nav-libraries").removeClass("current");
 					$("#nav-subscriptions").addClass("current");
-                    $("#explore-libraries").removeClass("current");
+                                        $("#nav-explore").removeClass("current");
 					NProgress.done();
 
 				});
