@@ -101,6 +101,9 @@
             $(".fluid-wrapper").imgLiquid({
                 fill: true
             });
+	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+                fill: true
+            });
             $(".overlay-wrapper").imgLiquid({
                 fill: true
             });
