@@ -7422,7 +7422,7 @@ a.count span.dont-move {
     display: inline !important; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     color: rgba(25, 25, 25, 0.8);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: -2.8rem 0 0 7.5rem;
     max-width: 500px; }
   .full-book .backcover-wrapper #fin .share-book {
@@ -7828,7 +7828,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper .book-title {
     padding: 0 4rem; }
   .full-book .backcover-wrapper #fin {
-    padding: 3rem 5rem 0 5rem; }
+    padding: 3rem 3rem 0 3rem; }
   .full-book .backcover-wrapper #fin h2 {
     font-size: 1.3rem;
     max-width: 400px;
@@ -8039,11 +8039,13 @@ a.count span.dont-move {
   .full-book .backcover-wrapper .book-title {
     padding: 0 4rem; }
   .full-book .backcover-wrapper #fin {
-    padding: 1rem 3rem 0 3rem; }
+    padding: 1rem 1rem 0 1rem; }
   .full-book .backcover-wrapper #fin h2 {
-    font-size: 1.5rem; }
+    font-size: 1.2rem; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     font-size: 0.9rem; }
+  .full-book .backcover-wrapper #fin .share-book {
+    margin: -5.5rem 0 4rem 8.5rem; }
   .full-book .backcover-wrapper #fin-next .book-title {
     margin: 5rem 0 0 0;
     text-align: center;
