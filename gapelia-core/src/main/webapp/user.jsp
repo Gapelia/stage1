@@ -49,7 +49,9 @@
 
                 <h2><a href="/featured">Gapelia</a></h2>
 
-                <ul id='user-dock'>
+                <ul>
+                    <li class="home"><a href="/featured">Folio</a>
+                    </li>
                     <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
                     <li class="not-mobile"><a href="/createbook">Create book</a>
@@ -57,19 +59,20 @@
                     <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
                     </li>
 
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><a class="icon" href="#">&#xf104;</a>
+                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
                         <ul id="draft-menu"></ul>
                     </li>
 
-                    <li id="gpl-menu-notify"><a>Notifications</a>
-                        <a class="icon" href="#"></a>
+                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
                         <ul>
                         </ul>
                     </li>
-		    
-		    <li class="logout"><a href="#">Log Out</a></li>
-		    
+
+                    <li class="fq"><a href="#">Help</a>
+		    <li class="help"><a href="#">Contact</a>
+                    <li class="logout"><a href="#">Log Out</a>
                 </ul>
+
             </div>
         </nav>
         <!--//site-menu /-->
