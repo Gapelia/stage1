@@ -79,6 +79,18 @@
             	    bookId: bookId
             	}
              });
+             $.ajax({
+             	url: "/api/notifications/createBookNotification",
+             	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+             	type: "POST",
+             	async: false,
+             	data: {
+             		sessionId: sessionId,
+             	    recipient: bookOwner.userId,
+             	    sender: user.userId,
+             	    referencedBook: bookId
+             	}
+             });
 			return this.element.trigger("merci:added");
 
 

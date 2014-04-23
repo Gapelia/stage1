@@ -39,16 +39,29 @@ function loadDelete() {
     $(".remove-notification").click(function () {
         e = $(this).closest(".remove-notification");
         notificationId = e.parent().attr("id");
+        type = e.parent().attr('class');
         $(this).closest("li").remove();
-        $.ajax({
-            url: "/api/notifications/removeLibraryNotification",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                notificationId: notificationId
-            }
-        });
+        if(type == "library-notification") {
+            $.ajax({
+                url: "/api/notifications/removeLibraryNotification",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                data: {
+                    sessionId: sessionId,
+                    notificationId: notificationId
+                }
+            });
+        } else {
+            $.ajax({
+                url: "/api/notifications/removeBookNotification",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                data: {
+                    sessionId: sessionId,
+                    notificationId: notificationId
+                }
+            });
+        }
     });
     $(".respond-link").click(function (e) {
         $(this).next(".respond-submision").toggle();
@@ -469,10 +482,35 @@ function getSubmissionsInLibrary() {
         }
     });
 }
-
+function getFeaturedBook() {
+    featuredBookTitle = '';
+    featuredBookId= '';
+    $.ajax({
+    	url: "/api/libraries/getMostVotedBookInLibrary",
+    	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+    	type: "POST",
+    	async: false,
+    	data: {
+    		sessionId: sessionId,
+    	    libraryId: libraryId
+    	},
+    	success: function (data) {
+    		featuredBookTitle = data.title;
+    		featuredBookId = data.bookId;
+    	},
+    	error: function (q, status, err) {
+    	    if (status == "timeout") {
+    		alert("Request timed out");
+    	    } else {
+    		alert("Some issue happened with your request: " + err.message);
+    	    }
+    	}
+    });
+}
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     sessionId = readCookie("JSESSIONID");
+    getFeaturedBook();
     $.ajax({
         url: "/api/libraries/getLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -484,8 +522,6 @@ function getLibrary() {
         success: function (data) {
             library = data;
             userName = libraryOwner.name;
-            featuredBookTitle = "STILL NEED TO GET";
-            featuredBookId = library.featuredBook;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
             toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
@@ -857,6 +893,29 @@ function getUserPublic() {
                 window.history.replaceState({}, document.title, clean_uri);
             }
             load();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return null;
+}
+
+function getUserFromUserId(userId) {
+    profileUserId = document.URL.split('?id=')[1]
+    $.ajax({
+        url: "/api/users/getUserPublic",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            userId: userId
+        },
+        success: function (data) {
+            userFrom = data;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
