@@ -283,7 +283,11 @@ function getUserDrafts() {
             toInsert = "";
             for (i in drafts) {
                 draft = drafts[i]
-                toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";
+		if (draft.title == "") {
+			toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + "Untitled" + "</a>";	
+		} else {
+			toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";	
+		}
                 toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
                 toInsert += "<span class=\"delete-draft\">";
                 toInsert += "Delete draft?";
@@ -1799,9 +1803,6 @@ function updateBookAndPages(isPublished) {
             tags += elm.html() + ",";
         });
         tags = tags.substring(0, tags.length - 1);
-    }
-    if (title == "") {
-        title = "Untitled Draft";
     }
     $.ajax({
         url: "/api/books/updateBook",
