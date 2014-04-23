@@ -6470,7 +6470,7 @@ a.count span.dont-move {
   opacity: 0.7; }
 .full-book .backcover-wrapper #fin .share-book {
   font-size: 1.7rem;
-  margin: -2rem 0 4rem 8.5rem;
+  margin: -4.2rem 0 4rem 8.5rem;
   padding-top: 5px; }
 .full-book .backcover-wrapper #fin .share-book:before {
   content: "Share this";
@@ -6540,6 +6540,7 @@ a.count span.dont-move {
   display: inline-block;
   vertical-align: top; }
 .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-name {
+  display: inline !important;
   font-size: 24px;
   margin: 0 0 0.5rem 2.3rem; }
 .full-book .backcover-wrapper #fin .author-name :first-letter, .full-book .backcover-wrapper #fin #library-name :first-letter {
@@ -6795,12 +6796,13 @@ a.count span.dont-move {
     padding: 12rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
-    font-size: 2rem; }
+    font-size: 2rem;
+    margin: 0 0 0.5rem 2rem; }
   .full-book .backcover-wrapper #fin .author-name :first-letter {
     text-transform: uppercase; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
-    font-size: 1.5rem;
-    line-height: 1.2; }
+    font-size: 1.25rem;
+    line-height: 1.5; }
   .full-book .backcover-wrapper #fin .share-book {
     margin: -4rem 0 4rem 8.5rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -7400,7 +7402,7 @@ a.count span.dont-move {
     float: none;
     width: 100%; }
   .full-book .backcover-wrapper #fin {
-    padding: 3rem 8rem 0 8rem;
+    padding: 3rem 8rem 0 10rem;
     height: auto; }
   .full-book .backcover-wrapper #fin h2 {
     font-size: 1.5rem;
@@ -7828,7 +7830,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper .book-title {
     padding: 0 4rem; }
   .full-book .backcover-wrapper #fin {
-    padding: 3rem 3rem 0 3rem; }
+    padding: 3rem 3rem 0 5rem; }
   .full-book .backcover-wrapper #fin h2 {
     font-size: 1.3rem;
     max-width: 400px;
@@ -8039,11 +8041,13 @@ a.count span.dont-move {
   .full-book .backcover-wrapper .book-title {
     padding: 0 4rem; }
   .full-book .backcover-wrapper #fin {
-    padding: 1rem 1rem 0 1rem; }
+    padding: 1rem 1rem 0 2rem; }
   .full-book .backcover-wrapper #fin h2 {
     font-size: 1.2rem; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     font-size: 0.9rem; }
+  .full-book .backcover-wrapper #fin .author-name {
+    display: block !important; }
   .full-book .backcover-wrapper #fin .share-book {
     margin: -5.5rem 0 4rem 8.5rem; }
   .full-book .backcover-wrapper #fin-next .book-title {

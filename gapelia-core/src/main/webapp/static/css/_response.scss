@@ -110,12 +110,13 @@
 				.author-name {
 					display: inline !important; 
 					font-size: 2rem;
+					margin: 0 0 0.5rem 2rem;
 					:first-letter { text-transform: uppercase; }
 				}
 				
 				#author-bio-blurb {
-					font-size: 1.5rem;
-					line-height: 1.2;
+					font-size: 1.25rem;
+					line-height: 1.5;
 				}
 				
 				.share-book { margin: -4rem 0 4rem 8.5rem; }
@@ -974,7 +975,7 @@
 			}
 
 			#fin {
-				padding: 3rem 8rem 0 8rem;
+				padding: 3rem 8rem 0 10rem;
 				height: auto;
 				
 				h2 {
@@ -1598,7 +1599,7 @@
 			.book-title { padding: 0 4rem; }
 			
 			#fin {
-				padding: 3rem 3rem 0 3rem;
+				padding: 3rem 3rem 0 5rem;
 				
 				h2 {
 					font-size: 1.3rem;
@@ -1949,14 +1950,17 @@
 		}
 		
 		.backcover-wrapper {
+			
 			.book-title { padding: 0 4rem; }
 			
 			#fin {
-				padding: 1rem 1rem 0 1rem;
+				padding: 1rem 1rem 0 2rem;
 				
 				h2 { font-size: 1.2rem; }
 				
 				#author-bio-blurb { font-size: 0.9rem; }
+				
+				.author-name { display: block !important; }
 				
 				.share-book { margin: -5.5rem 0 4rem 8.5rem; }
 			}
