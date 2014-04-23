@@ -94,6 +94,8 @@ var Page = (function () {
 })();
 
 function loadBook() {
+    
+    /*
     $(document).on("mouseenter", ".inserted-img", function () {
         if ($(this).parent().hasClass("minimized-p")) {
             $(this).before("<div class=\"resize-bigger\">[bigger]</div>");
@@ -116,6 +118,7 @@ function loadBook() {
         $(this).parent().mouseleave();
 
     });
+    */
 
     $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
         $(".resize-smaller, .resize-bigger").remove();
