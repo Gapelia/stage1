@@ -28,6 +28,12 @@ body.library-manager {
 			text-align: center;
 			text-shadow: 0 0 0.13rem $black !important;
 		}
+		
+		.delete-this-library { opacity: 0.85; }
+		.edit-this-library {
+			font-size: 26px;
+			font-weight: bolder;
+		}
 	}
 
 	.delete-library-confirm {

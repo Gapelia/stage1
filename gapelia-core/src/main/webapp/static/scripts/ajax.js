@@ -232,7 +232,7 @@ function getUserCreatedBooks() {
                 book = books[i];
                 toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                 toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
-                toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#xf13d;</a></div><div class=\"library-location\">";
+                toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#9998;</a></div><div class=\"library-location\">"; 
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "</a></div>";
                 toInsert += "</div></div><div style=\"display:none\" class=\"book-snippet\"><p>" + book.snippet + "</p></div></li>";
@@ -408,7 +408,7 @@ function getCreatedLibraries() {
             for (i in libraries) {
                 library = libraries[i];
                 toInsert += "<li id=\"" + library.libraryId + "\" class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat; class=\"library\" ><div class=\"library-buttons\">";
-                toInsert += "<a class=\"delete-this-library\">&#xf252;</a><a class=\"edit-this-library\" href=\"/editlibrary/" + library.libraryId + "\">&#xf13d;</a></div>";
+                toInsert += "<a class=\"delete-this-library\">&#xf252;</a><a class=\"edit-this-library\" href=\"/editlibrary/" + library.libraryId + "\">&#9998;</a></div>";
                 toInsert += "<div class=\"library-info\"><div class=\"title\"><a href=\"/managelibrary/" + library.libraryId + "\">" + library.title + "</a></div>";
                 toInsert += "<div class=\"lib-blurb\">" + library.description + "</div></div>";
                 toInsert += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
