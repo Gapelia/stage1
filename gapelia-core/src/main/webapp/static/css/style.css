@@ -5368,7 +5368,7 @@ body.library-manager #stay-right {
   font-size: 2rem;
   text-align: center; }
 .modal .wrapper .wrapper {
-  padding-top: 1rem !important;
+  padding-top: 1.6rem !important;
   text-align: center;
   width: 100%; }
 .modal .wrapper .wrapper a {
@@ -5381,14 +5381,17 @@ body.library-manager #stay-right {
 .modal .button {
   border: none !important; }
 .modal .close-modal {
-  top: -3rem;
+  top: -2.5rem;
   right: 0;
   cursor: pointer;
   font-size: 3em;
+  font-weight: 100;
+  opacity: 0.7;
   position: absolute; }
 .modal h1 {
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   font-weight: 600;
+  line-height: 1.25;
   color: rgba(25, 25, 25, 0.8); }
 .modal .add-description {
   color: rgba(128, 128, 128, 0.85);
@@ -5422,6 +5425,7 @@ body.library-manager #stay-right {
   width: auto !important; }
 
 #publish-modal {
+  padding: 10rem 4rem;
   transition: all 0.5s ease; }
 
 .clearfix:after {

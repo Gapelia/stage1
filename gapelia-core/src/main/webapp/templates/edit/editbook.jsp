@@ -178,7 +178,7 @@
 
 			$("#publish-this").on("click", function (e) {
 
-				$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/Me'>Read it from profile</a></div>");
+				$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/libraryManager'>Submit it to a library and gain exposure.</a></div>");
 				e.preventDefault();
 
 			});
