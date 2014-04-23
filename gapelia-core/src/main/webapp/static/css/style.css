@@ -8094,7 +8094,7 @@ a.count span.dont-move {
     font-size: 1rem;
     line-height: initial; }
   .app #user-splash #close-splash {
-    left: 37%; }
+    left: 32%; }
   .app #featured-panel {
     height: 55px; }
   .app #featured-panel #category-title {
@@ -8242,7 +8242,7 @@ a.count span.dont-move {
     height: 75px;
     width: 75px; }
   .app #user-splash h5 {
-    font-size: 0.7rem; }
+    font-size: 0.8rem; }
   .app #user-splash #splash-user-info {
     color: rgba(25, 25, 25, 0.8);
     padding: 0;
@@ -8252,18 +8252,19 @@ a.count span.dont-move {
     line-height: 60px; }
   .app #user-splash #splash-user-info #splash-user-bio {
     font-size: 0.9rem;
+    line-height: 1.25;
     margin: 0 0 1.5rem 0;
     padding: 0; }
   .app #user-splash #splash-user-info #splash-user-bio span {
     font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
-    bottom: 30%;
+    bottom: 12%;
     color: rgba(25, 25, 25, 0.5);
     font-size: 0.8rem !important; }
 
   .library #library-splash #library-info {
     left: 4%;
-    top: 34%;
+    top: 38%;
     width: 88%; }
   .library #library-splash button {
     top: -3rem;
@@ -8279,7 +8280,7 @@ a.count span.dont-move {
   .library #library-splash section {
     font-size: 0.8rem !important; }
   .library #library-splash #close-splash {
-    bottom: 18% !important;
+    bottom: 12% !important;
     font-size: 0.8rem !important;
     left: 35%; }
 
@@ -8458,7 +8459,8 @@ a.count span.dont-move {
     text-align: center !important; }
   .full-book .backcover-wrapper #fin section {
     margin-left: 0;
-    margin: 0rem 0rem 1rem 0; }
+    margin: 0rem 0rem 1rem 0;
+    padding-right: 0rem; }
   .full-book .backcover-wrapper #fin-next {
     height: 200px;
     padding: 0; }

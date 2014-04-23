@@ -2055,7 +2055,7 @@
 		}
 		
 		#user-splash #close-splash {
-			left: 37%;
+			left: 32%;
 		}
 
 		// Header
@@ -2273,7 +2273,7 @@
 				}
 			}
 			
-			h5 { font-size: 0.7rem; }
+			h5 { font-size: 0.8rem; }
 			
 			#splash-user-info {
 				color: rgba($black, 0.8);
@@ -2287,6 +2287,7 @@
 				
 				#splash-user-bio {
 					font-size: 0.9rem;
+					line-height: 1.25;
 					margin: 0 0 1.5rem 0;
 					padding: 0;
 					
@@ -2295,7 +2296,7 @@
 			}	
 				
 			#close-splash {
-				bottom: 30%;
+				bottom: 12%;
 				color: rgba($black, 0.5);
 				font-size: 0.8rem !important;
 			}
@@ -2310,7 +2311,7 @@
 			
 			#library-info {
 				left: 4%;
-				top: 34%;
+				top: 38%;
 				width: 88%;
 			}
 			
@@ -2331,7 +2332,7 @@
 			section { font-size: 0.8rem !important; }
 			
 			#close-splash {
-				bottom: 18% !important;
+				bottom: 12% !important;
 				font-size: 0.8rem !important;
 				left: 35%;
 			}
@@ -2611,6 +2612,7 @@
 				section {
 					margin-left: 0;
 					margin: 0rem 0rem 1rem 0;
+					padding-right: 0rem;
 				}
 			}
 
