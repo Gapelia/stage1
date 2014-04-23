@@ -1751,7 +1751,7 @@ function getRecentlyPublished() {
         success: function (data) {
             lastPublished = data;
             if(lastPublished.title != undefined) {
-            	$("#recently-published").html("Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
+            	$("#recently-published").html("&#9675; Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
             }
         },
         error: function (q, status, err) {

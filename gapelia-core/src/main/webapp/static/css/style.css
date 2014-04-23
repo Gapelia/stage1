@@ -3752,12 +3752,12 @@ body.library-manager #stay-right {
 .profile #user-splash h1 {
   margin: 0 0 -0.5rem 0; }
 .profile #user-splash h5 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: lighter;
   margin: 0 0 1rem 0; }
 .profile #user-splash h5 a {
   border-bottom: 1px solid #fcfcfc;
-  display: inline !important;
+  display: inline-block !important;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-style: italic;
   font-weight: bolder; }
@@ -3766,7 +3766,7 @@ body.library-manager #stay-right {
   font-weight: 700;
   position: relative;
   text-align: center;
-  top: 33.5%;
+  top: 29.5%;
   width: 100%; }
 .profile #user-splash #splash-user-bio {
   margin: 0 0 2rem 0;
