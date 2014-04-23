@@ -8284,6 +8284,14 @@ a.count span.dont-move {
     font-size: 0.8rem !important;
     left: 35%; }
 
+  a.mercibject div.opening div.circle {
+    height: 75px;
+    width: 75px;
+    left: 40%; }
+
+  .merci.complete a.mercibject div.opening div.circle {
+    top: 40% !important; }
+
   .full-book #book-menu, .full-book #share-menu {
     font-size: 1rem;
     max-height: 300px; }

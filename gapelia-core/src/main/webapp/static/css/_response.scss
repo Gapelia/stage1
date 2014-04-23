@@ -2339,6 +2339,16 @@
 		}
 	}
 
+	/// MERCI ////
+	
+	a.mercibject div.opening div.circle {
+		height: 75px; width: 75px;
+		left: 40%;
+	}
+	
+	.merci.complete a.mercibject div.opening div.circle { top: 40% !important; }
+	
+	
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
