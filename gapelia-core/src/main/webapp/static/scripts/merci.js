@@ -7,6 +7,7 @@
 	};
 
 	Merciful = (function () {
+		
 
 		function Merciful(element) {
 
@@ -40,13 +41,15 @@
 			return this.element.hasClass("complete");
 		};
 
+		// mouseover
 		Merciful.prototype.start = function () {
+			
 
 			if (this.isMerciful() && !this.isMercid()) {
 				this.element.trigger("merci:active");
 				this.element.addClass("active");
 
-				return this.timer = setTimeout(this.complete, 700);
+				return this.timer = setTimeout(this.complete, 800);
 			}
 
 		};
@@ -69,31 +72,7 @@
 			this.end();
 			this.incrementCount();
 			this.element.addClass("complete");
-            $.ajax({
-            	url: "/api/actions/voteBook",
-            	contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            	type: "POST",
-            	async: false,
-            	data: {
-            		sessionId: sessionId,
-            	    bookId: bookId
-            	}
-             });
-             $.ajax({
-             	url: "/api/notifications/createBookNotification",
-             	contentType: "application/x-www-form-urlencoded;charset=utf-8",
-             	type: "POST",
-             	async: false,
-             	data: {
-             		sessionId: sessionId,
-             	    recipient: bookOwner.userId,
-             	    sender: user.userId,
-             	    referencedBook: bookId
-             	}
-             });
 			return this.element.trigger("merci:added");
-
-
 		};
 
 		Merciful.prototype.unmerci = function (event) {
@@ -103,16 +82,6 @@
 			if (this.isMercid()) {
 				this.decrementCount();
 				this.element.removeClass("complete");
-                $.ajax({
-                	url: "/api/actions/removeVoteBook",
-                	contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                	type: "POST",
-                	async: false,
-                	data: {
-                		sessionId: sessionId,
-                	    bookId: bookId
-                	}
-                 });
 				return this.element.trigger("merci:removed");
 			}
 
@@ -137,9 +106,11 @@
 		return Merciful;
 
 	})();
+	
 
 	jQuery(function ($) {
 		return $.fn.merciful = function () {
+			
 			return this.each(function () { return new Merciful($(this)); });
 		};
 	});
