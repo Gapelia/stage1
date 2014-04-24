@@ -15,6 +15,7 @@ public class QueryDatabaseActions {
     private static final String REMOVE_SUBCRIPTION_LIBRARY = "DELETE FROM user_subscriptions where user_id = ? and library_id = ?";
     private static final String VOTE_BOOK = "INSERT INTO user_votes (user_id, book_id)" + "VALUES (?,?)";
     private static final String REMOVE_VOTE_BOOK= "DELETE FROM user_votes where user_id =? and book_id = ?";
+    private static final String HAS_ALREADY_VOTED_FOR= "SELECT * FROM user_votes where user_id =? and book_id = ?";
 
     public static String bookmarkBook(User u, int bookId) {
         PreparedStatement insert = null;
@@ -38,6 +39,36 @@ public class QueryDatabaseActions {
             }
         }
     }
+
+
+	public static String hasAlreadyVotedFor(User u, int bookId) {
+
+		String result = "False";
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(HAS_ALREADY_VOTED_FOR);
+			insert.setInt(1, u.getUserId());
+			insert.setInt(2, bookId);
+			ResultSet rs = insert.executeQuery();
+			if(rs.isBeforeFirst()) result = "True";
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot check if user already voted book:" + u + " " + bookId + " " + ex.getMessage());
+		} finally {
+			try {
+				if (insert != null) {
+					insert.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + u + " " + ex.getMessage());
+				return "Error closing connection";
+			}
+		}
+
+		return result;
+	}
+
+
     public static String removeBookmarkBook(User u, int bookId) {
         PreparedStatement insert = null;
         try {

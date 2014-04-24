@@ -28,6 +28,20 @@ public class Actions {
         return QueryDatabaseActions.bookmarkBook(u, bookId);
     }
 
+	@Path("hasAlreadyVoted")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String hasAlreadyVoted(@FormParam("sessionId") String sessionId,
+									 @FormParam("bookId") int bookId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+		Gson gson = new GsonBuilder().create();
+		User u = SessionManager.getUserFromSessionId(sessionId);
+		return QueryDatabaseActions.hasAlreadyVotedFor(u, bookId);
+	}
+
     @Path("removeBookmarkBook")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
