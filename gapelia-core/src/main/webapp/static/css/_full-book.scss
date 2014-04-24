@@ -76,7 +76,7 @@
 	}
 
 	#g-menu-toggle, #next-book-toggle {
-		color: $white !important ;
+    color: $white;
 		padding: 0 !important;
 		position: fixed;
 		width: 45px;
@@ -85,7 +85,14 @@
 		i { text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important }
 	}
 
-	#g-menu-toggle { left: 1rem; }
+	#g-menu-toggle {
+    background-image: url("../images/folio-icon-white.png") !important;
+    color: transparent !important ;
+    left: 1rem;
+    
+    i { text-shadow: none !important }
+  }
+  
 	#next-book-toggle { right: 1rem; }
 
 	#header-info {

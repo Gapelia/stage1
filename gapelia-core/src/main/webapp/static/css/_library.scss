@@ -20,6 +20,18 @@ body.library {
 			transition: opacity 5s ease;
 			width: 800px;
 		}
+		
+		#g-menu-toggle {
+			background-image: url("../images/folio-icon.png") !important;
+			color: transparent !important;
+			top: 0.5rem;
+		}
+	}
+	
+	#g-menu-toggle {
+		background-image: url("../images/folio-icon.png") !important;
+		color: transparent !important;
+		top: 0.5rem;
 	}
 
 	#stay-right {
