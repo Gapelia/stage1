@@ -2205,7 +2205,7 @@ ol {
 .mp-menu ul li #draft-menu .a {
   margin: 0 0 0 2.5rem !important; }
 .mp-menu ul .fq {
-  margin-top: 84%; }
+  margin-top: 75%; }
 .mp-menu ul .help, .mp-menu ul .fq, .mp-menu ul .logout {
   font-size: 0.8rem;
   line-height: 0.5rem; }
@@ -2312,15 +2312,13 @@ body.landing h1 {
   background-color: rgba(11, 72, 107, 0.05);
   display: none; }
 .app #site-menu h2 {
-  width: 100%;
-  height: 80px;
-  background-image: url("../images/sprite-sheet.png");
-  background-position: 42px -342px;
+  height: 52px;
+  background-image: url("../images/folio-logo.png");
   background-repeat: no-repeat;
-  background-size: 200px 500px;
-  margin: 2rem 0 0 0;
+  background-size: 40%;
+  margin: 1.5rem 0 0 0;
+  margin-left: 1.5rem;
   transition: all 0.2s ease;
-  display: none;
   border: 0;
   color: transparent;
   font: 0/0 a;
@@ -2331,7 +2329,7 @@ body.landing h1 {
   display: block;
   margin: 1rem 0; }
 .app #site-menu h2:hover {
-  opacity: 0.3; }
+  opacity: 0.8; }
 .app #site-menu #account-links {
   width: 100%;
   height: auto;
@@ -6802,7 +6800,7 @@ a.count span.dont-move {
     top: 51.75%; }
 
   .mp-menu ul .fq {
-    margin-top: 130%; }
+    margin-top: 160%; }
 
   .profile #user-splash #splash-user-bio {
     font-size: 1.5rem;

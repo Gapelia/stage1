@@ -53,10 +53,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li class="home"><a href="/featured">Folio</a></li>
 						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+						<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
-						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>

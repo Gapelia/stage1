@@ -35,10 +35,10 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-                <ul>
-                    <li class="home"><a href="/">Folio</a></li>
+                <h2><a href="/featured">Gapelia</a></h2>
+		<ul>
                     <li><a href="/">Sign up</a> </li>
-		            <li><a href="#">Learn more</a></li>
+		    <li><a href="#">Learn more</a></li>
                 </ul>
             </div>
         </nav>

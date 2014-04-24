@@ -20,16 +20,15 @@
 
 	#site-menu {
 		h2 {
-			width: 100%; height: 80px;
+			height: 52px;
 
-			background-image: url("../images/sprite-sheet.png");
-			background-position: 42px -342px;
+			background-image: url("../images/folio-logo.png");
+			//background-position: 42px -342px;
 			background-repeat: no-repeat;
-			background-size: 200px 500px;
-			margin: 2rem 0 0 0;
+			background-size: 40%;
+			margin: 1.5rem 0 0 0;
+      margin-left: 1.5rem;
 			transition: all 0.2s ease;
-      
-      display: none; 
 
 			@include hide-text;
 
@@ -40,7 +39,7 @@
 				margin: 1rem 0;
 			}
 
-			&:hover { opacity: 0.3; }
+			&:hover { opacity: 0.8; }
 		}
 
 		#account-links {
