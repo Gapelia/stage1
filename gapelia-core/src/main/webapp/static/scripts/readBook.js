@@ -292,6 +292,17 @@ $(function () {
     
     function voteBook(bookId) {
         $.ajax({
+	    url: "/api/notifications/createBookNotification",
+	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	    type: "POST",
+	    async: false,
+	    data: {
+		sessionId: sessionId,
+		recipient: bookOwner.userId,
+		sender: user.userId,
+		referencedBook: bookId
+	    }});
+            $.ajax({
             url: "/api/actions/voteBook",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
             type: "POST",
