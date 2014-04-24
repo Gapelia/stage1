@@ -3055,10 +3055,21 @@ body.landing h1 {
   border-radius: 5px;
   color: #fcfcfc; }
 .app #new-library #close-splash {
-  bottom: 2.5rem !important;
-  left: 41% !important;
+  background-color: #59b3a6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: none !important;
+  height: 8%;
+  left: 25% !important;
+  letter-spacing: 0.015555em;
   opacity: 0;
+  padding: 1rem 1rem 1rem 1rem;
+  top: 0 !important;
   transition: opacity 0.5s ease; }
+.app #new-library #close-splash a {
+  display: inline !important;
+  margin: 5px;
+  text-decoration: underline; }
 .app #user-splash .overlay-controls {
   top: 2rem;
   right: 2rem;
@@ -6787,7 +6798,9 @@ a.count span.dont-move {
   .app #new-library .library-controls {
     bottom: 4.5rem; }
   .app #new-library #close-splash {
-    bottom: 4.5rem; }
+    height: 7%;
+    left: 29% !important;
+    padding: 1.5rem 1rem 1rem 1rem; }
   .app .book-list-wrapper .library-empty {
     left: 260%; }
   .app .library-list-wrapper .library-empty {

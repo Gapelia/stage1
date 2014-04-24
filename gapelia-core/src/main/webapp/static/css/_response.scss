@@ -62,7 +62,11 @@
 			
 			.library-controls { bottom: 4.5rem;}
 			
-			#close-splash { bottom: 4.5rem; }
+			#close-splash {
+				height: 7%;
+				left: 29% !important;
+				padding: 1.5rem 1rem 1rem 1rem;
+			}
 		}	
 		
 		//empty lists //

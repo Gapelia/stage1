@@ -1000,10 +1000,23 @@
 		}
     
 		#close-splash {
-			bottom: 2.5rem !important;
-      left: 41% !important;
+			background-color: $slate;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom: none !important;
+      height: 8%;
+      left: 25% !important;
+      letter-spacing: 0.015555em;
       opacity: 0;
+      padding: 1rem 1rem 1rem 1rem;
+      top: 0 !important;
 			transition: opacity 0.5s ease;
+      
+      a {
+        display: inline !important;
+        margin: 5px;
+        text-decoration: underline;
+      }
 		}
 	}
 

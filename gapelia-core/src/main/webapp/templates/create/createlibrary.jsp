@@ -85,7 +85,7 @@
 			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
-					<button id="confirm-create-library" class="outline">Save</button>
+					<button id="confirm-create-library" class="outline">Create</button>
 				</div>
 
 				<div class="button-wrapper">
@@ -117,7 +117,7 @@
 					</section>
 				</div>
 
-				<div id="close-splash">Continue to Library Manager</div>
+				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library" href="/library/202">Go to your library</a></div>
 				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
