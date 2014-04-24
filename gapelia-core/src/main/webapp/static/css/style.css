@@ -2559,9 +2559,6 @@ body.landing h1 {
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.2s ease; }
-.app .book:hover, .app .collection:hover, .app .library:hover, .app .new:hover, .app .draft:hover {
-  border: 5px solid #fcfcfc !important;
-  border-radius: 0px !important; }
 .app .book:hover .book-info, .app .book:hover .collection-info, .app .book:hover .library-info, .app .book:hover .draft-info, .app .collection:hover .book-info, .app .collection:hover .collection-info, .app .collection:hover .library-info, .app .collection:hover .draft-info, .app .library:hover .book-info, .app .library:hover .collection-info, .app .library:hover .library-info, .app .library:hover .draft-info, .app .new:hover .book-info, .app .new:hover .collection-info, .app .new:hover .library-info, .app .new:hover .draft-info, .app .draft:hover .book-info, .app .draft:hover .collection-info, .app .draft:hover .library-info, .app .draft:hover .draft-info {
   text-shadow: 0 3px 6px #191919 !important; }
 .app .book:hover .book-title, .app .book:hover .library-location, .app .book:hover .author-name, .app .collection:hover .book-title, .app .collection:hover .library-location, .app .collection:hover .author-name, .app .library:hover .book-title, .app .library:hover .library-location, .app .library:hover .author-name, .app .new:hover .book-title, .app .new:hover .library-location, .app .new:hover .author-name, .app .draft:hover .book-title, .app .draft:hover .library-location, .app .draft:hover .author-name {
@@ -3758,20 +3755,24 @@ body.library-manager #stay-right {
   margin: 0 0 -0.5rem 0; }
 .profile #user-splash h5 {
   font-size: 1rem;
-  font-weight: lighter;
+  font-weight: 100;
   margin: 0 0 1rem 0; }
 .profile #user-splash h5 a {
-  border-bottom: 1px solid #fcfcfc;
+  border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   display: inline-block !important;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-style: italic;
-  font-weight: bolder; }
+  font-weight: 600 !important;
+  margin-left: 8px;
+  text-transform: lowercase; }
+.profile #user-splash h5 a:first-letter {
+  text-transform: uppercase; }
 .profile #user-splash #splash-user-info {
   font-size: 2.8rem;
   font-weight: 700;
   position: relative;
   text-align: center;
-  top: 29.5%;
+  top: 33.5%;
   width: 100%; }
 .profile #user-splash #splash-user-bio {
   margin: 0 0 2rem 0;
@@ -3779,22 +3780,23 @@ body.library-manager #stay-right {
   display: block;
   font-size: 1.1rem;
   font-weight: 200;
-  line-height: 2.1rem; }
+  line-height: 2.1rem;
+  text-align: center; }
 .profile #user-splash #splash-user-bio:empty:after {
   content: "Add bio here"; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;
   bottom: 1rem;
-  right: 1rem;
-  border-bottom: none;
   color: rgba(252, 252, 252, 0.5);
   cursor: pointer;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-style: italic !important;
+  font-weight: 400;
+  left: 47%;
   position: fixed;
-  text-align: right;
+  text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
 .profile .book-buttons {
@@ -6805,13 +6807,21 @@ a.count span.dont-move {
   .profile #user-splash #splash-user-bio {
     font-size: 1.5rem;
     margin: 0 0 3rem 0; }
+  .profile #user-splash #close-splash {
+    bottom: 2rem; }
   .profile #user-splash h1 {
     font-size: 3.5rem;
     line-height: 75px; }
   .profile #user-splash h5 {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    line-height: 1.75; }
+  .profile #user-splash #splash-user-bio {
+    padding-left: 3rem;
+    padding-right: 3rem; }
+  .profile #user-splash #splash-user-info {
+    top: 32.5%; }
   .profile #user-splash .user-avatar {
-    top: 20%; }
+    top: 16%; }
 
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; }
@@ -7156,6 +7166,7 @@ a.count span.dont-move {
   .app #user-splash .user-avatar {
     top: 14%; }
   .app #user-splash #close-splash {
+    left: 46.5%;
     right: inherit;
     text-align: center; }
 
@@ -7788,7 +7799,7 @@ a.count span.dont-move {
     font-size: 1.8rem; }
   .app .library .library-info .lib-blurb {
     font-size: 1rem; }
-  .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
+  .app #featured-splash #close-splash, .app #library-splash #close-splash {
     font-size: 1rem !important;
     left: 43%; }
   .app #library-splash #library-info {
@@ -7972,7 +7983,7 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #user-splash #splash-user-info {
     padding: 0 4rem;
-    top: 35%; }
+    top: 30%; }
   .app #user-splash #close-splash {
     font-size: 0.8rem !important;
     left: 43%; }

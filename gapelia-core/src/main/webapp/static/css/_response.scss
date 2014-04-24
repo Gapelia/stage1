@@ -93,14 +93,28 @@
 				margin: 0 0 3rem 0;
 			}
 		
+			#close-splash {
+				bottom: 2rem;
+			}
+			
 			h1 {
 				font-size: 3.5rem;
 				line-height: 75px;
 			}
 			
-			h5 { font-size: 1.5rem; }
+			h5 {
+				font-size: 1.5rem;
+				line-height: 1.75;
+			}
 			
-			.user-avatar { top: 20%; }
+			#splash-user-bio {
+				padding-left: 3rem;
+				padding-right: 3rem;
+			}
+			
+			#splash-user-info { top: 32.5%; }
+			
+			.user-avatar { top: 16%; }
 		}	
 	}
 	
@@ -611,7 +625,7 @@
 			.user-avatar { top: 14%; }
 			
 			#close-splash {
-				right: inherit;
+				left: 46.5%; right: inherit;
 				text-align: center;
 			}
 		}
@@ -1487,7 +1501,7 @@
 			}
 		}
 		
-		#featured-splash, #library-splash, #user-splash {
+		#featured-splash, #library-splash {
 			#close-splash {
 				font-size: 1rem !important;
 				left: 43%;
@@ -1794,7 +1808,7 @@
 			#splash-user-bio { font-size: 1rem; }
 			#splash-user-info {
 				padding: 0 4rem;
-				top: 35%;
+				top: 30%;
 			}
 			#close-splash {
 				font-size: 0.8rem !important;
