@@ -180,12 +180,13 @@ function addSubmission(notificationId,bookId,libraryId) {
 function getNotifications() {
     getLibrarySubmissions();
     getSubmissionsResponse();
-     getBookNotifications();
-     getUserDrafts();
+    getBookNotifications();
+    getUserDrafts();
     setTimeout(function () {
+        loadDelete();
         $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
         $("#notification-count").html($("#gpl-menu-notify li").size());
         $(".respond-submision").toggle();
         loadDelete();
-    }, 2000);
+    }, 1500);
 }

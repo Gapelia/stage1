@@ -1233,7 +1233,11 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
+        if(title=="") {
+            title = "Untitled Book"
+        }
         $("#publish-book-title").html(title);
+        $(".page-title-elem").html(title);
 		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",

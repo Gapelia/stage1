@@ -136,13 +136,14 @@ CREATE TABLE IF NOT EXISTS user_bookmarks (
 CREATE UNIQUE INDEX user_bookmarks_book_id_idx ON user_bookmarks(user_id,book_id);
 
 CREATE TABLE IF NOT EXISTS book_notifications (
+        id SERIAL PRIMARY KEY,
         recipient INT REFERENCES users(id) ON DELETE CASCADE,
         referenced_book INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
         sender INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
         date_sent TIMESTAMP WITH TIME ZONE NOT NULL,
         accepted BOOLEAN default false
 );
-CREATE INDEX book_notif_sender_idx ON book_notifications(sender);
+CREATE INDEX book_notif_sender_idx ON book_notifications(recipient,sender,referenced_book);
 
 CREATE TABLE IF NOT EXISTS library_notifications (
 	id SERIAL PRIMARY KEY,

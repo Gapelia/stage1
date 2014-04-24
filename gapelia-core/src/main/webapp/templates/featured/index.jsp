@@ -150,8 +150,7 @@
         }
 
         $(function () {
-            var third = getUserDrafts();
-             getNotifications();
+            getNotifications();
             var second = getBookmarkedBooks();
             var fourth = getListBookmarked();
             var fifth = getListSubscribed();
@@ -167,7 +166,6 @@
             $(".book").css("height", h);
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
-            loadDelete();
             if ($vW > "1024") {
                 // Scrolling on desktop
                 $("#featured-scroller").mousewheel(function (event, delta) {
@@ -235,6 +233,7 @@
 
                 setTimeout(function () {
 
+                    $("#library-list").hide();
                     $("#bookmark-list").hide();
                     $(".bookmark-list-wrapper section").remove();
 
@@ -263,6 +262,7 @@
                 e.preventDefault();
 
                 $("#nav-books").addClass("current");
+                $("#nav-libraries").removeClass("current");
                 $("#nav-bookmarks").removeClass("current");
 
                 NProgress.done();
@@ -283,6 +283,7 @@
                 setTimeout(function () {
 
                     $("#book-list").hide();
+                    $("#library-list").hide();
 
                     var w = 0,
                         h = 0;
@@ -304,10 +305,10 @@
                 e.preventDefault();
 
                 $("#nav-books").removeClass("current");
+                $("#nav-libraries").removeClass("current");
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();
-                loadDelete();
             });
         }
     </script>

@@ -198,9 +198,9 @@ function getFeaturedBooks() {
             for (i in books) {
                 book = books[i];
                 if (book.bookId in bookmarked == true) {
-                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+                    toInsert = "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
                 } else {
-                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                    toInsert = "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 }
                 toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
@@ -208,9 +208,9 @@ function getFeaturedBooks() {
                 toInsert += "</div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
+		        toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
+		        $("#book-list").append(toInsert);
             }
-            $("#book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
             $("#book-list li").fadeIn("100");
@@ -218,7 +218,6 @@ function getFeaturedBooks() {
             if ($vW > "300") {
                 $(".book-snippet").css("display", "block")
             }
-            loadDelete();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -314,7 +313,6 @@ function getUserDrafts() {
                 toInsert = "<li ><a>There are no drafts</a></li>"; //code
             }
             $("#draft-menu").html(toInsert);
-            loadDelete();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -322,7 +320,6 @@ function getUserDrafts() {
             }
         }
     });
-    loadDelete();
 }
 
 function getBooksInLibrary() {
@@ -1027,9 +1024,7 @@ function addLoggedInMenu(){
 			menu +="<li id=\"gpl-menu-notify\"><a>Notifications</a><a class=\"icon\">0</a><ul></ul></li>";
 			menu +="<li class=\"fq\"><a href=\"#\">Help</a><li class=\"help\"><a href=\"#\">Contact</a><li class=\"logout\"><a href=\"#\">Log Out</a></ul></div>";
 			$("#site-menu").html(menu);
-			var third = getUserDrafts();
 			var fifth = getNotifications();
-			loadDelete();
         }
     });
 	}
