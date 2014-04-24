@@ -218,6 +218,7 @@ function getFeaturedBooks() {
             if ($vW > "300") {
                 $(".book-snippet").css("display", "block")
             }
+            loadDelete();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -321,6 +322,7 @@ function getUserDrafts() {
             }
         }
     });
+    loadDelete();
 }
 
 function getBooksInLibrary() {
@@ -910,7 +912,7 @@ function getUserPublic() {
 }
 
 function getUserFromUserId(userId) {
-    profileUserId = document.URL.split('?id=')[1]
+    userFrom = null;
     $.ajax({
         url: "/api/users/getUserPublic",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -929,7 +931,7 @@ function getUserFromUserId(userId) {
             }
         }
     });
-    return null;
+    return userFrom;
 }
 function getUserFromLibraryId(libraryId) {
     $.ajax({
@@ -1350,11 +1352,29 @@ function getUserCreatedBooksForLibrary() {
         success: function (data) {
             books = data;
             toInsert = "";
-            for (i in books) {
-                book = books[i];
-                toInsert += "<li id=\"" + book.bookId + "\"><a >" + book.title + "</a></li>";
-            }
-            $("#my-submissions ul").html(toInsert);
+            $.ajax({
+                url: "/api/notifications/getAllreadySubmitted",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                async: false,
+                data: {
+                    sessionId: sessionId,
+                    libraryId: libraryId
+                },
+                success: function (data) {
+                    alreadyThere = {};
+                    for (i in data) {
+                        alreadyThere[data[i]] = true;
+                    }
+                    for (i in books) {
+                        book = books[i];
+                        if (alreadyThere[book.bookId] != true) {
+                            toInsert += "<li id=\"" + book.bookId + "\"><a >" + book.title + "</a></li>";
+                        }
+                    }
+                    $("#my-submissions ul").html(toInsert);
+                }
+            });
         },
         error: function (q, status, err) {
             if (status == "timeout") {

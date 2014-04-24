@@ -131,7 +131,7 @@
 
 		<section id="publish-modal" class="modal">
 			<div class="wrapper">
-				<h1>The book title goes here</h1>
+				<h1 id="publish-book-title"></h1>
 
 				<div class="add-description" contenteditable="true"></div>
 

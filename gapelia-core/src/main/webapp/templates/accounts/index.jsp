@@ -203,7 +203,6 @@
 
 			function load() {
                  getNotifications();
-                var third = getUserDrafts();
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
 				var elem = document.querySelector(".js-switch");

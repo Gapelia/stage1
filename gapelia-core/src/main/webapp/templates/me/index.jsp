@@ -160,8 +160,7 @@
         $(function () {
             var fifth = getNotifications();
             var second = getUserCreatedBooks();
-            var third = getUserDrafts();
-            var first = getUser();
+          var first = getUser();
         });
 
          // Splash page

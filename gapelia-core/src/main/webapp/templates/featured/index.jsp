@@ -167,6 +167,7 @@
             $(".book").css("height", h);
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
+            loadDelete();
             if ($vW > "1024") {
                 // Scrolling on desktop
                 $("#featured-scroller").mousewheel(function (event, delta) {
@@ -234,7 +235,6 @@
 
                 setTimeout(function () {
 
-                    $("#library-list").hide();
                     $("#bookmark-list").hide();
                     $(".bookmark-list-wrapper section").remove();
 
@@ -263,61 +263,6 @@
                 e.preventDefault();
 
                 $("#nav-books").addClass("current");
-                $("#nav-libraries").removeClass("current");
-                $("#nav-bookmarks").removeClass("current");
-
-                NProgress.done();
-
-            });
-
-            // Click "Libraries"
-            $("#nav-libraries").click(function (e) {
-
-                NProgress.start();
-
-                /*
-					var
-					allBooks = $("#library-list li"),		// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
-
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-					*/
-
-                setTimeout(function () {
-
-                    $("#book-list").hide();
-                    $("#bookmark-list").hide();
-                    $(".bookmark-list-wrapper section").remove();
-
-                    var w = 0,
-                        h = 0;
-
-                    $("#library-list li").each(function () {
-                        w += $(this).outerWidth();
-                        h += $(this).outerHeight();
-                    });
-
-                    w += 500;
-                    $("#library-list").css("width", w + "px");
-                    if ($vW > "1024") {
-
-                        $("#library-list").css("width", w + "px");
-                        $("#library-list .library").css("height", $vH - 97 + "px");
-
-                    } else {
-                        // $("#library-list").css("height", h + 379 + "px");
-                    }
-
-                    // fades in the all the books after section width is added
-                    $("#library-list li").fadeIn("100");
-                    $("#library-list").fadeIn("100");
-
-                }, 1000);
-
-                e.preventDefault();
-
-                $("#nav-books").removeClass("current");
-                $("#nav-libraries").addClass("current");
                 $("#nav-bookmarks").removeClass("current");
 
                 NProgress.done();
@@ -338,7 +283,6 @@
                 setTimeout(function () {
 
                     $("#book-list").hide();
-                    $("#library-list").hide();
 
                     var w = 0,
                         h = 0;
@@ -360,7 +304,6 @@
                 e.preventDefault();
 
                 $("#nav-books").removeClass("current");
-                $("#nav-libraries").removeClass("current");
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();

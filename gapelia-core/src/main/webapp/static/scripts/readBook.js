@@ -182,8 +182,7 @@ $(function () {
     }
     
     function initializeMerciObject(){
-        // "Merci" code
-			// needs to be a string for jquery.cookie
+
 			var postId = "1";
 
 			$(function () {

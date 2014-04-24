@@ -184,7 +184,6 @@
             var first = getListSubscribed();
              getNotifications();
             var second = getListBookmarked();
-            var third = getUserDrafts();
         });
 
         function load() {
@@ -430,7 +429,6 @@
             getBooksInLibrary();
             getUserCreatedBooksForLibrary();
             load();
-            loadDelete();
         }, 300);
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;

@@ -1233,7 +1233,7 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
-
+        $("#publish-book-title").html(title);
 		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",
@@ -1252,7 +1252,6 @@
 	$("#close-button").on("click", function (e) {
         updateBookAndPages(false);
 		document.location.href = "/featured";
-
 	});
 
 	$(document).on("click", ".close-modal", function (e) {

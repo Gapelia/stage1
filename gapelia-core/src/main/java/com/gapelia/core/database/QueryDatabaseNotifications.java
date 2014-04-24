@@ -70,21 +70,21 @@ public class QueryDatabaseNotifications {
     public static List<Integer> getSubmitted(User u,int libraryId) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<Integer> allreadySubmited = null;
+        ArrayList<Integer> alreadySubmitted = null;
         try {
-            allreadySubmited = new ArrayList<Integer>();
+            alreadySubmitted = new ArrayList<Integer>();
             insert = connection.prepareStatement(GET_LIBRARY_ALREADY_SUBMISSIONS);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
             rs = insert.executeQuery();
             while (rs.next()) {
-                allreadySubmited.add(rs.getInt("book_id"));
+                alreadySubmitted.add(rs.getInt("book_id"));
             }
             insert = connection.prepareStatement(GET_BOOKS_IN_LIBRARY);
             insert.setInt(1, libraryId);
             rs = insert.executeQuery();
             while (rs.next()) {
-                allreadySubmited.add(rs.getInt("book_id"));
+                alreadySubmitted.add(rs.getInt("book_id"));
             }
         } catch (SQLException ex) {
             LOG.error("Cannot get notifications:" + u + " " + ex.getMessage());
@@ -100,7 +100,7 @@ public class QueryDatabaseNotifications {
                 LOG.error("Error closing connection " + u + " " + ex.getMessage());
             }
         }
-        return allreadySubmited;
+        return alreadySubmitted;
     }
 
     public static ArrayList<LibraryNotifications> getLibraryNotifications(User u,int libraryId) {

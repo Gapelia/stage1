@@ -151,7 +151,7 @@
 
 		<script>
 			$(function () {
-
+                getNotifications();
 				getListSubscribed();
 				getSubscribedLibrary();
 				getCreatedLibraries();

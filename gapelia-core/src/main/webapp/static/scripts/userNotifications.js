@@ -33,15 +33,26 @@ $.ajax({
 	},
 	success: function (data) {
             notifications = data;
+            userFrom = '';
             for(i in notifications) {
                 notification = notifications[i];
-               	getUserFromUserId(notification.senderUserId);
-               	getBookFromBookId(notification.bookId);
-               	sender = userFrom.displayName;
-               	bookTitle = bookFromBookId.title;
-               	toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\">"+sender + "Has thanked you for your book " + bookTitle;
-               	toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
-               	$("#gpl-menu-notify ul").append(toInsert);
+               	$.ajax({
+                        url: "/api/users/getUserPublic",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        type: "POST",
+                        data: {
+                            userId: notification.senderUserId
+                        },
+                        success: function (data) {
+                            userFrom = data;
+                            getBookFromBookId(notification.bookId);
+                            sender = userFrom.displayName;
+                            bookTitle = bookFromBookId.title;
+                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\">"+sender + " Has thanked you for your book " + bookTitle;
+                            toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
+                            $("#gpl-menu-notify ul").append(toInsert);
+                        }
+                    });
             }
         }
 });
@@ -145,7 +156,7 @@ function addSubmission(notificationId,bookId,libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li class=\"submision\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\">\"" + book.title + " \" was submited to your library \"" + library.title + "\"</a>";
+                                toInsert = "<li class=\"submission\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\">\"" + book.title + " \" was submited to your library \"" + library.title + "\"</a>";
                                 toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
                                 toInsert += "<span class=\"respond-submision\">";
                                 toInsert += "Accept Book?";
@@ -169,11 +180,12 @@ function addSubmission(notificationId,bookId,libraryId) {
 function getNotifications() {
     getLibrarySubmissions();
     getSubmissionsResponse();
-    getBookNotifications();
+     getBookNotifications();
+     getUserDrafts();
     setTimeout(function () {
         $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
         $("#notification-count").html($("#gpl-menu-notify li").size());
-        loadDelete();
         $(".respond-submision").toggle();
-    }, 1400);
+        loadDelete();
+    }, 2000);
 }

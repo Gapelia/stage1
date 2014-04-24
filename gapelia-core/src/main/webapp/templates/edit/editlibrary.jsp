@@ -134,6 +134,8 @@
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
     <script src="/static/scripts/ajax.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
+
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -153,8 +155,8 @@
 
         $(function () {
 
-            var third = getUserDrafts();
-            editLibrary()
+            var third = getNotifications();
+            editLibrary();
             // Click "Save" button
             $("#confirm-create-library").click(function () {
                 updateLibrary();

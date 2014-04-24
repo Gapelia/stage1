@@ -114,12 +114,14 @@
 
     <script src="/static/scripts/mousewheel.js"></script>
     <script src="/static/scripts/scroll.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
+
 
     <script>
         $(document).ready(function () {
             var first = getListSubscribed();
             var second = getListBookmarked();
-            var third = getUserDrafts();
+            getNotifications();
             var fourth = getBooksInLibraryOwner();
             getUser();
         });
@@ -358,7 +360,6 @@
             getSubmissionsInLibrary();
             getUserCreatedBooksForLibrary();
             load();
-            loadDelete();
         }, 300);
     </script>
     <!--//scripts /-->
