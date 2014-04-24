@@ -1851,9 +1851,9 @@ function getContributedTo() {
         success: function (data) {
             contributions = data;
             if(contributions.length >0) {
-				toInsert = "Contributes to";
+				toInsert = "&#9675; Contributes to";
 	            for(i in contributions) {
-	            	toInsert+=",<a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a>";
+	            	toInsert+="<a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a>";
 	            }
 	            $("#contributes-to").html(toInsert);
             }
