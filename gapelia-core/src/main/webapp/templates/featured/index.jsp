@@ -58,7 +58,7 @@
                 <ul>
                     <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
-		    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
                     </li>
                     <li class="not-mobile"><a href="/createbook">Create book</a>
                     </li>
