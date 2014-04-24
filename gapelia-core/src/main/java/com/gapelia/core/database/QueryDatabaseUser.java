@@ -45,8 +45,10 @@ public class QueryDatabaseUser {
     private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ? order by created desc";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
-    private static final String GET_LAST_PUBLISHED = "select * from books where owned_by = ? order by created desc limit 1";
-    private static final String GET_LIBRARIES_CONTRIBUTED_TO = "SELECT DISTINCT library_id FROM library_books LEFT JOIN books on library_books.book_id = books.id where books.owned_by = ?";
+    //SELECT DISTINCT library_id FROM library_books LEFT JOIN books on library_books.book_id = books.id where books.owned_by = ?";
+    private static final String GET_LAST_PUBLISHED = "select * from books where owned_by = ? and is_published = 't' order by created desc limit 1";
+    private static final String GET_LIBRARIES_CONTRIBUTED_TO = "select distinct id,created from libraries join (select library_id from library_books join " +
+			"(select * from books where owned_by = ?) as t2 on library_books.book_id = t2.id) as t3 on t3.library_id = libraries.id order by created desc limit 2";
     private static final String NEXT_READ_RECOMMENDATION = "select book_id from library_books where library_id = ? and not book_id = ? order by random() limit 1;";
     private static final String GET_BOOKS_IN_SUBSCRIBED_LIBS = "select distinct book_id from library_books inner join " +
 			"(select * from user_subscriptions where user_id = ?) as t2 on library_books.library_id = t2.library_id limit 30";
