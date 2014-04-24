@@ -3,6 +3,17 @@
 
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	body.landing {
+		
+		#gapelia {
+			height: 24%;
+			left: 43.75%;
+			top: 2rem;
+		}
+		
+		footer { bottom: 3rem; }
+	}
+	
 	.app {
 
 		#g-menu-toggle, .app #next-book-toggle { top: 0.25rem; }
@@ -212,6 +223,8 @@
 	//// Landing (homepage + 404) ///
 	
 	body.landing {
+		
+		#gapelia { left: 40.25%; }
 		
 		h4 { font-size: 1.2rem; }
 		
@@ -1375,6 +1388,9 @@
 	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	body.landing {
+		
+		#gapelia { left: 37.25%; top: 1.5rem; }
+		
 		h4 { width: 80%; }
 		
 		h5 { font-size: 1.8rem; }
@@ -1718,6 +1734,8 @@
 	body.landing {
 		.super-wrapper { padding: 22% 10%; }
 		
+		#gapelia { left: 34.25%; }
+		
 		h4 { font-size: 1rem; }
 		
 		h5 { font-size: 1.4rem; }
@@ -2025,6 +2043,12 @@
 
 		.super-wrapper { padding: 6% 6%; }
 
+		#gapelia {
+			height: 25%;
+			left: 22.25%;
+			top: 1.6rem;
+		}
+		
 		h4 { width: 90%; }
 
 		footer {
