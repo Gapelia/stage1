@@ -856,6 +856,7 @@
       font-size: 2rem !important;
       position: absolute;
       right: 1.5rem; top: 1.5rem;
+      z-index: 100 !important;
       
       ul li {
         display: inline;

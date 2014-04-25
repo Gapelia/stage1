@@ -398,7 +398,7 @@
             if ($vW < "1025") {
 
                 $("#featured-panel .featured-info").remove();
-                $("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
+                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
