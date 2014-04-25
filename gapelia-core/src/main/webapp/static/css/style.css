@@ -6821,7 +6821,7 @@ a.count span.dont-move {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
-    top: 53.25%; }
+    top: 53.75%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
     width: 450px; }
@@ -6835,7 +6835,7 @@ a.count span.dont-move {
     left: 6rem;
     top: 0.3rem; }
   .app #featured-panel {
-    margin: 0.9rem 0 0 0; }
+    margin: 0.8rem 0 0 0; }
   .app .library-location {
     left: 7%; }
   .app .library .wrapper {
