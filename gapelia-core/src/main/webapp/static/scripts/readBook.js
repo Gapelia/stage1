@@ -137,7 +137,7 @@ function loadBook() {
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-        share += "<li><a href=\"emailShare\"><i class=\"ion-email\"></i></a></li>";
+        share += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li>";
         $(".share-book").html(share)
 
 }
@@ -157,7 +157,7 @@ $(function () {
                 currentWebsite = document.URL;
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
                 twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this out' + currentWebsite;
+                emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
@@ -766,14 +766,14 @@ $(function () {
 
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
         twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-        emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
+        emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
 
         share = "";
         share += "<ul id=\"share-menu\" style=\"display: block;\">";
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-        share += "<li><a href=\"emailShare\">Share via Email</a></li>";
+        share += "<li><a href=\""+emailShare+"\">Share via Email</a></li>";
         share += "</ul>";
 
         $("#g-menu-toggle").after(menu);

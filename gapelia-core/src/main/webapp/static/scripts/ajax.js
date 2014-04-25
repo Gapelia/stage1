@@ -525,7 +525,11 @@ function getLibrary() {
         success: function (data) {
             library = data;
             userName = libraryOwner.name;
-            toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+            currentWebsite = document.URL;
+            facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+            twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+            emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
+	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
@@ -538,7 +542,7 @@ function getLibrary() {
 	    toInsert += "<ul class=\"share-book\">";
 	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
             toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-            toInsert += "<li><a href=\"emailShare\"><i class=\"ion-email\"></i></a></li></ul><div/></section>";
+            toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><div/></section>";
             
 	    $("#mp-pusher").prepend(toInsert);
         },
