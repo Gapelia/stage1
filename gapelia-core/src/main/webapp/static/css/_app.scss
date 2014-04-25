@@ -851,6 +851,20 @@
         text-transform: uppercase;
 			}
 		}
+    
+    #library-share {
+      font-size: 2rem !important;
+      position: absolute;
+      right: 1.5rem; top: 1.5rem;
+      
+      ul li {
+        display: inline;
+        margin: 6px;
+        text-shadow: 1px 1px rgba(255, 255, 255, 0.2);
+        
+        .ion-email { color: $white; }
+      }
+    }
 
 		h1 {
 			border-bottom: 1px solid rgba($white, 0.5);

@@ -526,15 +526,21 @@ function getLibrary() {
             library = data;
             userName = libraryOwner.name;
             toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-            toInsert += "<div id=\"library-info\">";
+	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
             toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
-            toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
-            $("#mp-pusher").prepend(toInsert);
+	    toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
+	    toInsert += "<div id=\"library-share\">";
+	    toInsert += "<ul class=\"share-book\">";
+	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+            toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+            toInsert += "<li><a href=\"emailShare\"><i class=\"ion-email\"></i></a></li></ul><div/></section>";
+            
+	    $("#mp-pusher").prepend(toInsert);
         },
         error: function (q, status, err) {
             if (status == "timeout") {

@@ -2943,6 +2943,17 @@ body.landing h1 {
   font-size: 50px;
   font-weight: 700;
   text-transform: uppercase; }
+.app #library-splash #library-share {
+  font-size: 2rem !important;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem; }
+.app #library-splash #library-share ul li {
+  display: inline;
+  margin: 6px;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.2); }
+.app #library-splash #library-share ul li .ion-email {
+  color: #fcfcfc; }
 .app #library-splash h1 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   font-size: 0.9rem;
