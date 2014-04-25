@@ -14,7 +14,7 @@
 	background-color: #59B3A6;
 	position: absolute;
 	transform: translate3d(-100%, 0, 0);
-	z-index: 2 !important;
+	z-index: 5 !important;
 
 	-o-transform: translate3d(-100%, 0, 0);
 	-ms-transform: translate3d(-100%, 0, 0);
@@ -58,7 +58,7 @@
 // Open menu
 .super-wrapper.mp-pushed {
 
-	#g-menu-toggle { color: $white !important; } // stop changing this, white is the only color that makes sense
+	#g-menu-toggle { color: transparent !important; } 
 
 	#featured-panel, #user-panel { z-index: 0; }
 
@@ -146,7 +146,7 @@
 
 				font-size: 1.1rem;
 				height: auto;
-				padding: 0.7rem 1.5rem;
+				padding: 0.7rem 1rem;
 				position: absolute;
 			}
 

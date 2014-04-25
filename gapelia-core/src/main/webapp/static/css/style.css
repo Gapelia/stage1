@@ -2000,7 +2000,7 @@ ol {
   background-color: #59B3A6;
   position: absolute;
   transform: translate3d(-100%, 0, 0);
-  z-index: 2 !important;
+  z-index: 5 !important;
   -o-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
@@ -2037,7 +2037,7 @@ ol {
   z-index: -1; }
 
 .super-wrapper.mp-pushed #g-menu-toggle {
-  color: #fcfcfc !important; }
+  color: transparent !important; }
 .super-wrapper.mp-pushed #featured-panel, .super-wrapper.mp-pushed #user-panel {
   z-index: 0; }
 .super-wrapper.mp-pushed .book-info, .super-wrapper.mp-pushed .collection-info, .super-wrapper.mp-pushed .library-info, .super-wrapper.mp-pushed .new-inner-wrapper, .super-wrapper.mp-pushed .portal-info, .super-wrapper.mp-pushed canvas, .super-wrapper.mp-pushed .add-this, .super-wrapper.mp-pushed .wrapper, .super-wrapper.mp-pushed .user-avatar, .super-wrapper.mp-pushed .user-data, .super-wrapper.mp-pushed .button-wrapper, .super-wrapper.mp-pushed #the-book, .super-wrapper.mp-pushed .book-title {
@@ -2140,7 +2140,7 @@ ol {
   right: 0;
   font-size: 1.1rem;
   height: auto;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1rem;
   position: absolute; }
 .mp-menu ul li .notif-count {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
@@ -2381,6 +2381,8 @@ body.landing h1 {
   box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 0 0 1px rgba(25, 25, 25, 0.05);
   overflow: hidden;
   width: 25%; }
+.app #user-panel {
+  margin: 0.5rem 0 0 0 !important; }
 .app #featured-panel, .app #user-panel {
   width: 96px;
   /* 7% */
@@ -2450,9 +2452,9 @@ body.landing h1 {
   opacity: 0.7; }
 .app #g-menu-toggle {
   background-color: transparent;
-  background-image: url("../images/folio-icon.png");
+  background-image: url("../images/folio-icon-solid.png");
   background-repeat: no-repeat;
-  background-size: 40px;
+  background-size: 44px;
   color: transparent !important;
   left: 1.3rem; }
 .app #next-book-toggle {
@@ -2484,7 +2486,7 @@ body.landing h1 {
 .app #featured-nav {
   top: 0;
   right: 0;
-  left: 6rem;
+  left: 5.5rem;
   margin: 0;
   position: fixed; }
 .app #featured-nav #stay-right {
@@ -2503,7 +2505,7 @@ body.landing h1 {
   color: #fcfcfc; }
 .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
   position: absolute;
-  top: 53.5%;
+  top: 54.5%;
   transform: translateY(-50%);
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -3083,7 +3085,7 @@ body.landing h1 {
   opacity: 0.001;
   position: fixed;
   transition: all 0.2s ease;
-  z-index: -1; }
+  z-index: 0 !important; }
 .app .facebook, .app .ion-social-facebook {
   color: #3c699b; }
 .app .googleplus, .app .ion-social-googleplus {
@@ -3213,7 +3215,7 @@ body.library #featured-panel h4 {
   transition: opacity 5s ease;
   width: 800px; }
 body.library #featured-panel #g-menu-toggle {
-  background-image: url("../images/folio-icon.png") !important;
+  background-image: url("../images/folio-icon-solid.png") !important;
   color: transparent !important;
   top: 0.5rem; }
 body.library #g-menu-toggle {
@@ -3627,10 +3629,9 @@ body.library-manager #stay-right {
   color: rgba(25, 25, 25, 0.9);
   width: 80%; }
 .profile #user-panel #g-menu-toggle {
-  background-image: url("../images/folio-icon.png") !important;
+  background-image: url("../images/folio-icon-solid.png") !important;
   color: transparent !important;
-  left: 1rem;
-  width: auto; }
+  left: 1rem; }
 .profile #user-panel .button-wrapper {
   bottom: 5%;
   position: absolute;
@@ -6108,9 +6109,10 @@ a.count span.dont-move {
 .full-book #g-menu-toggle i, .full-book #next-book-toggle i {
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important; }
 .full-book #g-menu-toggle {
-  background-image: url("../images/folio-icon-white.png") !important;
+  background-image: url("../images/folio-icon-solid.png") !important;
   color: transparent !important;
-  left: 1rem; }
+  left: 0.5rem;
+  top: 0.5rem; }
 .full-book #g-menu-toggle i {
   text-shadow: none !important; }
 .full-book #next-book-toggle {
@@ -6799,7 +6801,7 @@ a.count span.dont-move {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
-    top: 53%; }
+    top: 53.25%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
     width: 450px; }
@@ -6809,9 +6811,13 @@ a.count span.dont-move {
     padding: 0 3rem;
     top: 38%; }
   .app #featured-nav {
-    font-size: 1.25rem; }
+    font-size: 1.25rem;
+    left: 6rem;
+    top: 0.3rem; }
   .app #featured-panel {
-    margin: 0.7rem 0 0 0; }
+    margin: 0.9rem 0 0 0; }
+  .app .library, .app .book {
+    height: 790px !important; }
   .app .library-location {
     left: 7%; }
   .app .library .wrapper {

@@ -34,7 +34,7 @@
 			}
 		}
 		
-		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53%; }
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53.25%; }
 		
 		.book, .collection, .library, .new, .draft {
 			margin: 0 0 0 1.5rem;
@@ -48,9 +48,15 @@
 			top: 38%;
 		}
 		
-		#featured-nav { font-size: 1.25rem; }
+		#featured-nav {
+			font-size: 1.25rem;
+			left: 6rem;
+			top: 0.3rem;
+		}
 		
-		#featured-panel { margin: 0.7rem 0 0 0; }
+		#featured-panel { margin: 0.9rem 0 0 0; }
+		
+		.library, .book { height: 790px !important; }
 		
 		.library-location { left: 7%; }
 		

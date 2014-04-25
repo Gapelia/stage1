@@ -109,7 +109,9 @@
 		width: 25%;
 	}
 
-	#featured-panel, #user-panel {
+	#user-panel { margin: 0.5rem 0 0 0 !important; }
+  
+  #featured-panel, #user-panel {
 		width: 96px; /* 7% */ height: 48px;
 
 		background-color: transparent;
@@ -191,11 +193,13 @@
 
 	#g-menu-toggle {
     background-color: transparent;
-    background-image: url("../images/folio-icon.png");
+    background-image: url("../images/folio-icon-solid.png");
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 44px;
 		color: transparent !important;
     left: 1.3rem;
+    
+    //&:hover { background-image: url("../images/folio-icon.png"); }
   }
 	
   #next-book-toggle { right: 0; }
@@ -234,7 +238,7 @@
 	}
 
 	#featured-nav {
-		top: 0; right: 0; left: 6rem;
+		top: 0; right: 0; left: 5.5rem;
 
 		margin: 0;
 		position: fixed;
@@ -263,7 +267,7 @@
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
 	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
 		position: absolute;
-		top: 53.5%;
+		top: 54.5%;
 		transform: translateY(-50%);
 
 		-o-transform: translateY(-50%);
@@ -1038,7 +1042,7 @@
 			opacity: 0.001;
 			position: fixed;
 			transition: all 0.2s ease;
-			z-index: -1;
+			z-index: 0 !important;
 		}
 	}
 
