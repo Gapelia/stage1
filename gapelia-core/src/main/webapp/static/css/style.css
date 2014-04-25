@@ -6836,8 +6836,6 @@ a.count span.dont-move {
     top: 0.3rem; }
   .app #featured-panel {
     margin: 0.9rem 0 0 0; }
-  .app .library, .app .book {
-    height: 790px !important; }
   .app .library-location {
     left: 7%; }
   .app .library .wrapper {
