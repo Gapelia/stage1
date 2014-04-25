@@ -532,7 +532,7 @@ function getLibrary() {
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
-            toInsert += "<h1>" + userName + " · "+numSubscribers+" subscribers</h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+            toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
             toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div></section>";
             $("#mp-pusher").prepend(toInsert);
         },

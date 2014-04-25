@@ -855,6 +855,15 @@
 		h1 {
 			border-bottom: 1px solid rgba($white, 0.5);
 			font-size: 0.9rem;
+      opacity: 0.8;
+      
+      a {
+        font-style: italic;
+        font-weight: bolder;
+        margin-right: 5px;
+      }
+      
+      c { margin-right: 7.5px; }
 		}
 
 		p {

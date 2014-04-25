@@ -2945,7 +2945,14 @@ body.landing h1 {
   text-transform: uppercase; }
 .app #library-splash h1 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+  opacity: 0.8; }
+.app #library-splash h1 a {
+  font-style: italic;
+  font-weight: bolder;
+  margin-right: 5px; }
+.app #library-splash h1 c {
+  margin-right: 7.5px; }
 .app #library-splash p {
   font-size: 1.5rem;
   font-weight: 200;
