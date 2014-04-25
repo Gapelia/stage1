@@ -93,7 +93,6 @@
 				</div>
 
 				<div id="new-library-info">
-					<small>Editor's Name &middot; 8,349 subscribers</small>
 
 					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 					<p data-placeholder="Add a description" contenteditable="true"></p>
