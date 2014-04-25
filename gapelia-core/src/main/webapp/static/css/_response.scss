@@ -313,12 +313,14 @@
 			-webkit-transform: translateY(0);
 		}
 
+		#book-scroller, #featured-scroller { background-color: rgba($black, 0.05); }
+		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
 			width: 100% !important; height: 100% !important; // auto
 			top: initial; bottom: 0; // 75px
 
-			background-color: rgba($black, 0.05);
+			//background-color: rgba($black, 0.05);
 			display: inline-block; // block
 			padding: 5.3rem 1.25rem 1.25rem 1.25rem; 
 			transform: translateY(0);

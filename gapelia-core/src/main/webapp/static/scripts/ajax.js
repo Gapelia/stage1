@@ -1580,6 +1580,9 @@ function getListBookmarked() {
             for (i in bookmarks) {
                 bookmarked[bookmarks[i].bookId] = true;
             }
+	    if ($vW < "1024") {
+                $(".bookmark-list-wrapper").css("display", "none");
+            }
 
         },
         error: function (q, status, err) {

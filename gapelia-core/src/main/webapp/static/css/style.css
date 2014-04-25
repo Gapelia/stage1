@@ -6981,12 +6981,13 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
+  .app #book-scroller, .app #featured-scroller {
+    background-color: rgba(25, 25, 25, 0.05); }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
     width: 100% !important;
     height: 100% !important;
     top: initial;
     bottom: 0;
-    background-color: rgba(25, 25, 25, 0.05);
     display: inline-block;
     padding: 5.3rem 1.25rem 1.25rem 1.25rem;
     transform: translateY(0);
