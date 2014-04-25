@@ -520,7 +520,7 @@
 		});
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
