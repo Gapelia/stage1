@@ -331,7 +331,7 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#user-book-list { padding: 4.3rem 1.25rem 1.25rem 1.25rem; }
+		#user-book-list { padding: 5rem 1.25rem 1.25rem 1.25rem; }
 
 		#book-cta {
 			background-color: transparent !important;
@@ -426,7 +426,7 @@
 			#featured-nav {
 				width: 100%; height: auto;
 				margin: 0; padding: 0;
-				top: 65px; left: 0;
+				top: 0; left: 0;
 
 				border-bottom: 1px solid rgba($black, 0.07);
 				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
@@ -478,6 +478,7 @@
 			-webkit-overflow-scrolling: touch;
 			
 			#category-title {
+				color: rgba(11, 72, 107, 0.5);
 				font-size: 1.25rem;
 				position: absolute;
 				text-align: center;
@@ -486,6 +487,10 @@
 			}
 			
 			#featured-nav { display: none; }
+		}
+		
+		#featured-scroller #category-title {
+			top: 1.8rem;
 		}
 
 		.book, .collection, .library {
@@ -658,10 +663,18 @@
 	
 	// optimizations for library and profile splash so icons are visible //
 	
-	body.library #featured-panel {
-		background-color: transparent !important;
-		z-index: 10;
-	}
+	body.library {
+		
+		#featured-panel {
+			background-color: transparent !important;
+			z-index: 10;
+			
+			#g-menu-toggle {
+				left: 1.2rem;
+				top: 1.1rem;
+			}
+		}
+	}	
 	
 	#book-scroller #user-header {
 		background-color: transparent !important;
@@ -1115,6 +1128,10 @@
 				&:after { background-image: linear-gradient(to top, $black, transparent); }
 			}
 		}
+		
+		#g-menu-toggle {
+				left: 0.7rem;
+		}
 
 		.text-fade { display: none !important; }
 
@@ -1193,10 +1210,10 @@
 			}
 
 			#g-menu-toggle {
-				background-image: none !important;
-				color: $slate !important;
+				background-image: url("../images/folio-icon-white.png");
+				color: transparent !important;
 				left: 1.1rem;
-				top: -10px;
+				top: 8px;
 			}
 			
 			#user-wrapper {

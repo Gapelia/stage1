@@ -6996,7 +6996,7 @@ a.count span.dont-move {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
   .app #user-book-list {
-    padding: 4.3rem 1.25rem 1.25rem 1.25rem; }
+    padding: 5rem 1.25rem 1.25rem 1.25rem; }
   .app #book-cta {
     background-color: transparent !important;
     background-image: none !important;
@@ -7074,7 +7074,7 @@ a.count span.dont-move {
     height: auto;
     margin: 0;
     padding: 0;
-    top: 65px;
+    top: 0;
     left: 0;
     border-bottom: 1px solid rgba(25, 25, 25, 0.07);
     box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 0 0 1px rgba(25, 25, 25, 0.05);
@@ -7113,6 +7113,7 @@ a.count span.dont-move {
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-overflow-scrolling: touch; }
   .app #featured-scroller #category-title, .app #book-scroller #category-title {
+    color: rgba(11, 72, 107, 0.5);
     font-size: 1.25rem;
     position: absolute;
     text-align: center;
@@ -7120,6 +7121,8 @@ a.count span.dont-move {
     width: 100%; }
   .app #featured-scroller #featured-nav, .app #book-scroller #featured-nav {
     display: none; }
+  .app #featured-scroller #category-title {
+    top: 1.8rem; }
   .app .book, .app .collection, .app .library {
     margin: 0 0 1.5rem 0;
     padding: 0;
@@ -7242,6 +7245,9 @@ a.count span.dont-move {
   body.library #featured-panel {
     background-color: transparent !important;
     z-index: 10; }
+  body.library #featured-panel #g-menu-toggle {
+    left: 1.2rem;
+    top: 1.1rem; }
 
   #book-scroller #user-header {
     background-color: transparent !important;
@@ -7570,6 +7576,8 @@ a.count span.dont-move {
     text-align: center; }
   .full-book .backcover-wrapper #fin-next:after {
     background-image: linear-gradient(to top, #191919, transparent); }
+  .full-book #g-menu-toggle {
+    left: 0.7rem; }
   .full-book .text-fade {
     display: none !important; }
 
@@ -7633,10 +7641,10 @@ a.count span.dont-move {
     bottom: 8%;
     left: 0; }
   .profile #user-panel #g-menu-toggle {
-    background-image: none !important;
-    color: #59b3a6 !important;
+    background-image: url("../images/folio-icon-white.png");
+    color: transparent !important;
     left: 1.1rem;
-    top: -10px; }
+    top: 8px; }
   .profile #user-panel #user-wrapper {
     width: 100%;
     height: 100%;
