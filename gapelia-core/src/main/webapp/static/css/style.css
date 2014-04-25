@@ -6967,9 +6967,10 @@ a.count span.dont-move {
   .app #header-message button {
     top: 2.1rem; }
   .app #g-menu-toggle {
-    background-image: none !important;
-    color: #fcfcfc !important;
-    left: 0.6rem; }
+    background-image: url("../images/folio-icon-white.png");
+    color: transparent !important;
+    left: 1.4rem;
+    top: 0.6rem; }
   .app #next-book-toggle {
     right: 1rem; }
   .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .subscription-list-wrapper {
@@ -6980,8 +6981,8 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
-  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
-    width: 100%;
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+    width: 100% !important;
     height: 100% !important;
     top: initial;
     bottom: 0;
@@ -7140,6 +7141,8 @@ a.count span.dont-move {
     font-size: 1.2rem; }
   .app .book .library-info button:hover, .app .book .draft-info button:hover, .app .book .featured-info button:hover, .app .collection .library-info button:hover, .app .collection .draft-info button:hover, .app .collection .featured-info button:hover, .app .library .library-info button:hover, .app .library .draft-info button:hover, .app .library .featured-info button:hover {
     padding: initial; }
+  .app .book .library-info .title, .app .collection .library-info .title, .app .library .library-info .title {
+    border-bottom: none !important; }
   .app .book .library-location, .app .collection .library-location, .app .library .library-location {
     left: 2rem;
     top: 15%; }
@@ -7811,8 +7814,8 @@ a.count span.dont-move {
     z-index: 1; }
 
   .notification-time #notification-count {
-    top: 1rem;
-    right: 0; } }
+    top: 0;
+    right: 5px; } }
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
     left: 37.25%;
