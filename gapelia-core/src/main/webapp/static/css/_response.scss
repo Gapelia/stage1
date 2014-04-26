@@ -2206,13 +2206,14 @@
 		#g-menu-toggle {
 			font-size: 2rem;
 			height: 60px;
-			left: 0.5rem;
+			left: 0.6rem !important;
+			top: 0.4rem !important;
 		}
 		
 		.library-list-wrapper, .bookmark-list-wrapper { z-index: 0; }
 		
 		
-		.notification-time #notification-count { top: 0.7rem; }
+		.notification-time #notification-count { display: none; }
 		
 		#next-book-toggle { right: 0; }
 
@@ -2233,7 +2234,7 @@
 
 			.author-avatar {
 				height: 35px; width: 35px;
-				margin: 0;
+				margin: 0; margin-top: 4px;
 			}
 			
 			&:hover {.book-title, .library-location, .author-name, .library-info, .collection-info { text-shadow: none !important; } }
@@ -2249,7 +2250,7 @@
 			}
 			
 			.book-title {
-				font-size: 1.4rem;
+				font-size: 1.2rem;
 				line-height: 1.6rem;
 				margin: 0 0 0.5rem 0;
 				text-shadow: none !important;
@@ -2279,6 +2280,8 @@
 					
 					&:before { margin: 0 0.1rem 0 0; }
 				}
+				
+				.num-votes { display: none; }
 			}
 			
 			.book-info, .collection-info { display: inline-block !important; }
@@ -2323,8 +2326,9 @@
 
 			.book-snippet {
 				p {
-					font-size: 0.8rem;
+					font-size: 0.9rem;
 					font-weight: lighter;
+					margin-top: 7px;
 				}
 			}
 
@@ -2337,7 +2341,8 @@
 			.book-snippet { display: none; }
 			
 			p {
-				font-size: 1.2rem;
+				font-size: 1rem;
+				opacity: 0.8;
 				top: initial;
 				transform: translateY(0);
 
@@ -2346,15 +2351,18 @@
 				-moz-transform: translateY(0);
 				-webkit-transform: translateY(0);
 			}
+			
+			img { display: none; }
 		}
 		
 		.library-location {
 			border: none;
-			font-size: 0.7rem;
+			font-size: 0.6rem;
 			font-style: italic;
 			font-weight: 100;
 			left: 0 !important;
 			margin-bottom: 5px;
+			opacity: 0.6;
 			text-shadow: none !important;
 			width: 100%;
 		}
@@ -2362,6 +2370,7 @@
 		// Libraries
 		.library {
 			border-bottom: none;
+			border: none;
 			margin: 1rem 1rem 0rem 0rem;
 			padding: 2rem;
 
@@ -2378,6 +2387,8 @@
 			
 			button { font-size: 0.6rem !important; }
 		}
+		
+		#explore-list { padding: 3.5rem 1rem 1rem 1rem; }
 		
 		// User-splash
 		#user-splash {
@@ -2438,8 +2449,10 @@
 				width: 88%;
 			}
 			
+			#library-share { display: none; }
+			
 			button {
-				top: -3rem; right: -2rem;
+				top: -6.5rem; right: -2rem;
 				position: fixed;
 			}
 			
@@ -2448,9 +2461,16 @@
 				margin: 0 0 2px 0;
 			}
 			
-			h2 { font-size: 1.2rem !important; }
+			h2 {
+				font-size: 1.2rem !important;
+				margin-bottom: 0;
+				text-align: center;
+			}
 			
-			p { font-size: 0.9rem !important; }
+			p {
+				font-size: 0.9rem !important;
+				line-height: 1.5;
+			}
 			
 			section { font-size: 0.8rem !important; }
 			
