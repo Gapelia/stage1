@@ -35,6 +35,34 @@ body.library {
 		top: 0.5rem;
 	}
 
+	
+	// submission modal on library-splash
+	#submission-pop {
+		background-color: $slate;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-bottom: none !important;
+		color: $white;
+		height: 8%;
+		left: 22% !important;
+		letter-spacing: 0.015555em;
+		position: absolute;
+		top: 0;
+		transition: opacity 0.5s ease;
+		z-index: 10 !important; 
+		
+		p {
+			font-size: 1rem;
+			padding: 0.75rem 1rem 0rem 1rem;
+		}
+		
+		a {
+			display: inline !important;
+			margin: 5px;
+			text-decoration: underline;
+		}	
+	}
+	
 	#stay-right {
 		top: 0; right: 0;
 
@@ -81,9 +109,10 @@ body.library {
 			text-align: right;
 
 			a {
-				color: rgba($black, 0.7);
+				color: rgba($black, 0.7) !important;
 				font-weight: 100;
-				padding: 0 1rem; }
+				padding: 0 1rem;
+			}
 
 			&:first-child { margin: 0 1rem 0 0; }
 
@@ -99,8 +128,9 @@ body.library {
 				width: auto;
 
 				li {
+					border: 1px solid rgba($black, 0.05);
 					display: block;
-					padding: 0.5rem 2rem;
+					padding: 0.8rem 0;
 
 					label, input[type="checkbox"] {
 						vertical-align: middle;

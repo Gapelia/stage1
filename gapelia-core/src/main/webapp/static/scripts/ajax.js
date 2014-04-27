@@ -546,6 +546,7 @@ function getLibrary() {
 	    } else {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
 	    }
+	    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 	    toInsert += "<div id=\"library-share\">";
 	    toInsert += "<ul class=\"share-book\">";
 	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
@@ -626,8 +627,8 @@ function getLibraries() {
                 library = libraries[i];
 
                 lib = "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-
-                lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+		
+		lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 
                 lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\">";
                 if (library.libraryId in subscribed == true) {
@@ -635,8 +636,8 @@ function getLibraries() {
                 } else {
                     lib += "<button class=\"subscribe white\">Subscribe</button></div>";
                 }
-
-                lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
+                                                                                                 		
+		lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
                 $("#explore-list").append(lib);
              }
             getUser();

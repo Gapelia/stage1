@@ -86,12 +86,11 @@
         					<i class="ion-drag"></i>
         				</button>
         			</div>
-        
+	
 	<ul id="stay-right">
 		<li id="my-submissions">
 		    <a class=submission-dropdown href="#">Add my stories</a>
-                        <ul>
-                        </ul>
+                        <ul></ul>
                 </li>
         </ul>
 	
@@ -205,6 +204,25 @@
                     $("#g-menu-toggle").css("color", "#70a1b1");
 
                 });
+		
+		// submissions confirm popup
+		
+		$(document).on("click", "#stay-right ul li a", function () {
+			$("#submission-pop").css({"display": "block"});
+		});
+		
+		// Hide submission dropdown when click outisde
+
+		$(document).mouseup(function (e) {
+
+		var container = $("#stay-right ul");
+
+		// if the target of the click isn't the container...
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			container.hide(); // ... nor a descendant of the container
+		}
+
+		});
 
                 // Controlled scrolling speed
                 $("#featured-scroller").mousewheel(function (event, delta) {

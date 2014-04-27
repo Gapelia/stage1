@@ -3250,6 +3250,26 @@ body.library #g-menu-toggle {
   background-image: url("../images/folio-icon.png") !important;
   color: transparent !important;
   top: 0.5rem; }
+body.library #submission-pop {
+  background-color: #59b3a6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: none !important;
+  color: #fcfcfc;
+  height: 8%;
+  left: 22% !important;
+  letter-spacing: 0.015555em;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.5s ease;
+  z-index: 10 !important; }
+body.library #submission-pop p {
+  font-size: 1rem;
+  padding: 0.75rem 1rem 0rem 1rem; }
+body.library #submission-pop a {
+  display: inline !important;
+  margin: 5px;
+  text-decoration: underline; }
 body.library #stay-right {
   top: 0;
   right: 0;
@@ -3284,7 +3304,7 @@ body.library #stay-right li {
   margin: 0;
   text-align: right; }
 body.library #stay-right li a {
-  color: rgba(25, 25, 25, 0.7);
+  color: rgba(25, 25, 25, 0.7) !important;
   font-weight: 100;
   padding: 0 1rem; }
 body.library #stay-right li:first-child {
@@ -3300,8 +3320,9 @@ body.library #stay-right li ul {
   position: relative;
   width: auto; }
 body.library #stay-right li ul li {
+  border: 1px solid rgba(25, 25, 25, 0.05);
   display: block;
-  padding: 0.5rem 2rem; }
+  padding: 0.8rem 0; }
 body.library #stay-right li ul li label, body.library #stay-right li ul li input[type="checkbox"] {
   vertical-align: middle; }
 body.library #stay-right li ul li label {
