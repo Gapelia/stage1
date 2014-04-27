@@ -537,11 +537,15 @@ function getLibrary() {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
 	    if (numSubscribers in library == false) {
-		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
-		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
-	    toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
+	    if (featuredBookTitle == "") {
+		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty." + "</a></section></div><div id=\"close-splash\">Become the first contributor!</div>";
+	    } else {
+		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
+	    }
 	    toInsert += "<div id=\"library-share\">";
 	    toInsert += "<ul class=\"share-book\">";
 	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
