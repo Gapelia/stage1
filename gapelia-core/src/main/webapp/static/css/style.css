@@ -2889,7 +2889,7 @@ body.landing h1 {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0), #191919);
+  background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0.25), #191919);
   content: "";
   opacity: 1;
   position: absolute; }
@@ -2955,7 +2955,7 @@ body.landing h1 {
   font-size: 2rem !important;
   position: absolute;
   right: 1.5rem;
-  top: 1.5rem;
+  bottom: 1.5rem;
   z-index: 100 !important; }
 .app #library-splash #library-share ul li {
   display: inline;
@@ -3254,8 +3254,20 @@ body.library #stay-right {
   top: 0;
   right: 0;
   display: inline-flex;
-  margin: 1.5rem 1rem 0 0;
-  position: absolute; }
+  margin: 1.5rem 0.5rem 0 0;
+  position: absolute;
+  z-index: 10 !important; }
+body.library #stay-right .submission-dropdown {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  color: #fcfcfc !important;
+  font-weight: 200;
+  padding: 0.4rem 0.75rem; }
+body.library #stay-right .submission-dropdown:hover {
+  background-color: #59b3a6;
+  border: 1px solid rgba(89, 179, 166, 0.5);
+  color: #fcfcfc !important;
+  opacity: 1; }
 body.library #stay-right a {
   color: rgba(11, 72, 107, 0.25) !important;
   font-size: 1rem !important; }
@@ -3300,7 +3312,9 @@ body.library #stay-right li ul li:last-child {
   padding-bottom: 1rem; }
 body.library .book-list-wrapper section {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  text-align: left;
+  padding: 0 0 3rem 24rem !important; }
 body.library .book-list-wrapper section p {
   font-size: 1.3rem;
   line-height: 1.8rem;

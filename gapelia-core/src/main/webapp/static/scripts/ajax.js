@@ -542,7 +542,7 @@ function getLibrary() {
 		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
 	    if (featuredBookTitle == "") {
-		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty." + "</a></section></div><div id=\"close-splash\">Become the first contributor!</div>";
+		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
 	    } else {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
 	    }

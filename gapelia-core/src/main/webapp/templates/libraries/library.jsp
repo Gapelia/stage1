@@ -86,26 +86,20 @@
         					<i class="ion-drag"></i>
         				</button>
         			</div>
-        <!--/ main-content /-->
+        
+	<ul id="stay-right">
+		<li id="my-submissions">
+		    <a class=submission-dropdown href="#">Add my stories</a>
+                        <ul>
+                        </ul>
+                </li>
+        </ul>
+	
+	<!--/ main-content /-->
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
                     <li id="nav-books" class="current"><a href="#">Library Books</a></li>
-
-                    <ul id="stay-right">
-                        <li id="my-submissions">
-                            <a href="#">Add my stories</a>
-
-                            <ul>
-                                <li><a href="/">hikari: The Future of the Operating System</a>
-                                </li>
-                                <li><a href="/">007: The Diego Regules Story</a>
-                                </li>
-                                <li><a href="/">From the Rennaisance, to the Future of Blogging</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </ul>
             </div>
 
@@ -118,7 +112,14 @@
 					/-->
 
                 <ul id="book-list">
-
+		
+		<ul id="stay-right">
+		<li id="my-submissions">
+		    <a class=submission-dropdown-ii href="#">Add my stories</a>
+                        <ul>
+                        </ul>
+                </li>
+		</ul>
 
                 </ul>
             </div>
