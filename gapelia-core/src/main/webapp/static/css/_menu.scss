@@ -202,23 +202,34 @@
 				margin: 0;
 				
 				li {
-					font-size: inherit;
+					font-size: 0.9rem;
+					line-height: 1.5;
 					padding: 0.7rem 1.5rem;
+					
 					position: relative;
 
 					&:hover {
 						background-color: $white;
+						color: $slate;
 						opacity: 1;
 
 						a { color: $slate; }
 					}
 
+					.remove-notification, .respond-link {
+						position: absolute;
+						right: 18px;
+						top: 1px;
+					}
+					
 					a {
 						margin: 0; padding: 0;
 
 						border: 0;
 						box-shadow: none !important;
-						font-size: 1rem;
+						font-size: 0.9rem;
+						line-height: 1.5;
+						padding-top: 5px;
 
 						&:hover {
 							background-color: inherit !important;

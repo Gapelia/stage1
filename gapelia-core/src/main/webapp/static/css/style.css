@@ -2154,20 +2154,28 @@ ol {
   color: #fcfcfc;
   margin: 0; }
 .mp-menu ul li ul li {
-  font-size: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
   padding: 0.7rem 1.5rem;
   position: relative; }
 .mp-menu ul li ul li:hover {
   background-color: #fcfcfc;
+  color: #59b3a6;
   opacity: 1; }
 .mp-menu ul li ul li:hover a {
   color: #59b3a6; }
+.mp-menu ul li ul li .remove-notification, .mp-menu ul li ul li .respond-link {
+  position: absolute;
+  right: 18px;
+  top: 1px; }
 .mp-menu ul li ul li a {
   margin: 0;
   padding: 0;
   border: 0;
   box-shadow: none !important;
-  font-size: 1rem; }
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-top: 5px; }
 .mp-menu ul li ul li a:hover {
   background-color: inherit !important;
   box-shadow: none !important;
@@ -3825,6 +3833,7 @@ body.library-manager #stay-right {
 .profile #user-splash #splash-user-bio {
   margin: 0 0 2rem 0;
   padding: 1rem;
+  border-bottom: 1px solid rgba(252, 252, 252, 0.6);
   display: block;
   font-size: 1.1rem;
   font-weight: 200;
@@ -7992,7 +8001,7 @@ a.count span.dont-move {
     margin: 1rem 0 2rem 0; }
   .profile #featured-nav {
     font-size: 1.3rem;
-    top: 65px; }
+    top: 0px; }
   .profile #user-book-list {
     background-color: rgba(128, 128, 128, 0.05);
     padding: 4.2rem 1rem 1rem 1rem; }
@@ -8412,7 +8421,7 @@ a.count span.dont-move {
   .app #user-splash:after {
     background-image: none !important; }
   .app #user-splash .user-avatar {
-    top: 2%; }
+    top: 12%; }
   .app #user-splash .user-avatar .avatar-wrapper, .app #user-splash .user-avatar .avatar-wrapper:after {
     height: 75px;
     width: 75px; }
@@ -8421,7 +8430,7 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     color: rgba(25, 25, 25, 0.8);
     padding: 0;
-    top: 23%; }
+    top: 28%; }
   .app #user-splash #splash-user-info h1 {
     font-size: 1.8rem;
     line-height: 60px; }
@@ -8435,7 +8444,8 @@ a.count span.dont-move {
   .app #user-splash #close-splash {
     bottom: 12%;
     color: rgba(25, 25, 25, 0.5);
-    font-size: 0.8rem !important; }
+    font-size: 0.8rem !important;
+    left: 40%; }
 
   .library #library-splash #library-info {
     left: 4%;
@@ -8444,14 +8454,14 @@ a.count span.dont-move {
   .library #library-splash #library-share {
     display: none; }
   .library #library-splash button {
-    top: -6.5rem;
+    top: -6rem;
     right: -2rem;
     position: fixed; }
   .library #library-splash h1 {
     font-size: 0.8rem !important;
     margin: 0 0 2px 0; }
   .library #library-splash h2 {
-    font-size: 1.2rem !important;
+    font-size: 1.5rem !important;
     margin-bottom: 0;
     text-align: center; }
   .library #library-splash p {
@@ -8662,9 +8672,14 @@ a.count span.dont-move {
     padding: 0 2rem; }
 
   .profile #featured-nav {
-    top: 55px; }
+    top: 0px; }
+  .profile #user-splash {
+    padding: 0.6rem !important; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
+  .profile #user-splash #splash-user-info #splash-user-bio {
+    border-bottom: 1px solid rgba(25, 25, 25, 0.3);
+    padding-bottom: 10px; }
   .profile #user-book-list {
     padding: 55px 0 0 0; }
   .profile #user-panel {
