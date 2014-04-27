@@ -1935,6 +1935,7 @@ ol {
   color: #fcfcfc !important; }
 .white-border:hover {
   background-color: #59b3a6 !important;
+  border: 1px solid #59b3a6 !important;
   color: #fcfcfc !important; }
 
 .fb-btn {
@@ -3257,7 +3258,7 @@ body.library #submission-pop {
   border-bottom: none !important;
   color: #fcfcfc;
   height: 8%;
-  left: 22% !important;
+  left: 23% !important;
   letter-spacing: 0.015555em;
   position: absolute;
   top: 0;
@@ -3278,7 +3279,7 @@ body.library #stay-right {
   position: absolute;
   z-index: 10 !important; }
 body.library #stay-right .submission-dropdown {
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background-color: #59b3a6;
   border-radius: 5px;
   color: #fcfcfc !important;
   font-weight: 400;
@@ -3314,7 +3315,6 @@ body.library #stay-right li ul {
   right: 0rem !important;
   background-color: #fcfcfc;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   display: none;
   min-width: 225px;
   position: relative;

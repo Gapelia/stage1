@@ -44,7 +44,7 @@ body.library {
 		border-bottom: none !important;
 		color: $white;
 		height: 8%;
-		left: 22% !important;
+		left: 23% !important;
 		letter-spacing: 0.015555em;
 		position: absolute;
 		top: 0;
@@ -72,7 +72,7 @@ body.library {
 		z-index: 10 !important;
 		
 		.submission-dropdown {
-			border: 1px solid rgba(white, 0.7);
+			background-color: $slate;
 			border-radius: 5px;
 			color: $white !important;
 			font-weight: 400;
@@ -121,7 +121,7 @@ body.library {
 
 				background-color: $white;
 				border-radius: 5px;
-				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
+				//box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
 				display: none;
 				min-width: 225px;
 				position: relative;
