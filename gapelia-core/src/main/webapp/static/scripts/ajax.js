@@ -536,7 +536,11 @@ function getLibrary() {
             } else {
                 toInsert += "<button class=\"subscribe white\">Subscribe</button>";
             }
-            toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+	    if (numSubscribers in library == false) {
+		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+	    } else {
+		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p><section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + featuredBookTitle;
+	    }
 	    toInsert += "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
 	    toInsert += "<div id=\"library-share\">";
 	    toInsert += "<ul class=\"share-book\">";
