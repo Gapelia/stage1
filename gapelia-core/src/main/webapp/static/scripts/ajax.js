@@ -534,7 +534,7 @@ function getLibrary() {
             if (libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
             } else {
-                toInsert += "<button class=\"subscribe white\">Subscribe</button>";
+                toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
             }
 	    if (numSubscribers in library == false) {
 		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";

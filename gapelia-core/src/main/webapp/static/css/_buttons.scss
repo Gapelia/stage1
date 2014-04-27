@@ -161,6 +161,16 @@
 	}
 }
 
+.white-border {
+	background-color: transparent !important;
+	border: 1px solid rgba($white, 0.7) !important;
+	color: $white !important;
+	&:hover {
+		background-color: $slate !important;
+		color: $white !important;
+	}
+}
+
 .fb-btn {
 	background-color: $facebook !important;
 	// background-image: linear-gradient(to bottom, saturate($facebook, 100%), darken($facebook, 10%)) !important;

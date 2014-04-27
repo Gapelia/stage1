@@ -1929,6 +1929,14 @@ ol {
   background-color: #59b3a6 !important;
   color: #fcfcfc !important; }
 
+.white-border {
+  background-color: transparent !important;
+  border: 1px solid rgba(252, 252, 252, 0.7) !important;
+  color: #fcfcfc !important; }
+.white-border:hover {
+  background-color: #59b3a6 !important;
+  color: #fcfcfc !important; }
+
 .fb-btn {
   background-color: #3c699b !important;
   color: #fcfcfc !important; }
@@ -2941,6 +2949,8 @@ body.landing h1 {
   content: "Story of the day"; }
 .app #featured-splash #pick-library:before {
   content: "Library of the day"; }
+.app #library-splash #close-splash {
+  bottom: 1.5rem; }
 .app #library-splash #library-info {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   left: 20%;
@@ -2985,16 +2995,6 @@ body.landing h1 {
   right: 0;
   position: absolute;
   z-index: 11; }
-.app #new-library {
-  /*
-  .button-wrapper {
-  	margin: 0 auto;
-  	position: relative; // absolute
-  	text-align: center;
-  	top: 2.5rem;
-  	width: 100%;
-  }
-  */ }
 .app #new-library .spinner {
   top: 50% !important;
   left: 50% !important;
@@ -3258,10 +3258,11 @@ body.library #stay-right {
   position: absolute;
   z-index: 10 !important; }
 body.library #stay-right .submission-dropdown {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   color: #fcfcfc !important;
-  font-weight: 200;
+  font-weight: 400;
+  letter-spacing: 0.041em;
   padding: 0.4rem 0.75rem; }
 body.library #stay-right .submission-dropdown:hover {
   background-color: #59b3a6;
@@ -3283,16 +3284,19 @@ body.library #stay-right li {
   margin: 0;
   text-align: right; }
 body.library #stay-right li a {
+  color: rgba(25, 25, 25, 0.7);
+  font-weight: 100;
   padding: 0 1rem; }
 body.library #stay-right li:first-child {
   margin: 0 1rem 0 0; }
 body.library #stay-right li ul {
-  top: 1rem;
-  right: -2rem !important;
+  top: 1.5rem;
+  right: 0rem !important;
   background-color: #fcfcfc;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   display: none;
+  min-width: 225px;
   position: relative;
   width: auto; }
 body.library #stay-right li ul li {
