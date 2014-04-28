@@ -401,10 +401,11 @@
 
 					.page-title-elem {
             color: rgba($black, 0.8);
-						font-size: 2.3rem;
+						font-size: 3rem;
 						font-weight: 700;
 						line-height: 2.8rem;
 						margin: 0 0 0.5rem 0;
+            margin-top: 1.75rem !important;
 
 						&:empty:after {
 							color: rgba($black, 0.6);
@@ -414,12 +415,12 @@
 
 					.page-desc {
 						@include serif;
-						font-size: 1.5rem;
+						font-size: 1.4rem;
             font-weight: 100;
 						letter-spacing: .01rem;
 						line-height: 2.3rem;
 						margin: 1rem 0 0 0;
-            margin-top: 1.5rem;
+            margin-top: 2rem !important;
 						text-align: center;
 
 						blockquote ~ p { margin: 0; }
@@ -750,6 +751,7 @@
 							font-size: 2rem;
 							line-height: 2.5rem;
 							margin: 0 auto 0.5rem;
+              margin-top: 0 !important;
 							text-align: center;
 							width: 52%;
 						}
@@ -823,23 +825,24 @@
 					.page-bg { display: none; }
 
           .phototext-preview {
-						width: 30%; height: 100%;
+						width: 40%; height: 100%;
 						top: 0; right: 0;
 
 						background-color: rgba($white, 0.75);
 						color: $black;
 						overflow-y: auto;
-						padding: 4rem 2rem 2rem 2rem;
+						padding: 2rem 2rem 2rem 2rem;
 						position: absolute;
 
 						.page-title-elem {
-							font-size: 1.5rem;
+							font-size: 1.7rem;
 							line-height: 1.7rem;
 						}
 
 						.page-desc {
-							font-size: 1rem;
+							font-size: 1.2rem;
 							line-height: 1.7rem;
+              margin-top: 1.25rem !important;
 							text-align: left;
 						}
 
@@ -883,7 +886,7 @@
 						background-color: $white;
 						border-left: 1px solid $gray-ii;
 						overflow-y: auto;
-						padding: 4rem 2rem 2rem 2rem;
+						padding: 2rem 2rem 2rem 2rem;
 						position: absolute;
 
             article { width: 90%; } //
@@ -915,7 +918,7 @@
 
 						color: $black;
 						overflow-y: auto;
-						padding: 4rem 2rem 2rem 2rem;
+						padding: 0rem 2rem 2rem 2rem;
 						position: absolute;
 
 						.page-title-elem {
@@ -928,6 +931,7 @@
 							font-size: 1rem;
 							line-height: 1.7rem;
 							text-align: left;
+              margin-top: 1.25rem !important;
 						}
 
 						::-o-input-placeholder			{ color: $black; }
@@ -1369,4 +1373,5 @@
 #publish-modal {
   padding: 10rem 4rem;
   transition: all 0.5s ease;
+  z-index: -1;
 }

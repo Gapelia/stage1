@@ -1243,7 +1243,8 @@
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",
-			"opacity": "1"
+			"opacity": "1",
+			"z-index": "10"
 		}).show();
 
 		e.preventDefault();

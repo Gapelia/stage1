@@ -4810,21 +4810,22 @@ body.library-manager #stay-right {
   display: block; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem {
   color: rgba(25, 25, 25, 0.8);
-  font-size: 2.3rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 2.8rem;
-  margin: 0 0 0.5rem 0; }
+  margin: 0 0 0.5rem 0;
+  margin-top: 1.75rem !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem:empty:after {
   color: rgba(25, 25, 25, 0.6);
   content: "Write a title"; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 100;
   letter-spacing: .01rem;
   line-height: 2.3rem;
   margin: 1rem 0 0 0;
-  margin-top: 1.5rem;
+  margin-top: 2rem !important;
   text-align: center; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-desc blockquote ~ p, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-desc blockquote ~ p {
   margin: 0; }
@@ -5059,6 +5060,7 @@ body.library-manager #stay-right {
   font-size: 2rem;
   line-height: 2.5rem;
   margin: 0 auto 0.5rem;
+  margin-top: 0 !important;
   text-align: center;
   width: 52%; }
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview ::-o-input-placeholder {
@@ -5116,21 +5118,22 @@ body.library-manager #stay-right {
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-bg {
   display: none; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview {
-  width: 30%;
+  width: 40%;
   height: 100%;
   top: 0;
   right: 0;
   background-color: rgba(252, 252, 252, 0.75);
   color: #191919;
   overflow-y: auto;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-title-elem {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 1.7rem; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-desc {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7rem;
+  margin-top: 1.25rem !important;
   text-align: left; }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview ::-o-input-placeholder {
   color: #191919; }
@@ -5163,7 +5166,7 @@ body.library-manager #stay-right {
   background-color: #fcfcfc;
   border-left: 1px solid #cfcfcf;
   overflow-y: auto;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview article {
   width: 90%; }
@@ -5185,7 +5188,7 @@ body.library-manager #stay-right {
   right: 0;
   color: #191919;
   overflow-y: auto;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
   position: absolute; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article .page-title-elem {
   font-size: 1.5rem;
@@ -5194,7 +5197,8 @@ body.library-manager #stay-right {
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article .page-desc {
   font-size: 1rem;
   line-height: 1.7rem;
-  text-align: left; }
+  text-align: left;
+  margin-top: 1.25rem !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article ::-o-input-placeholder {
   color: #191919; }
 .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper article ::-moz-placeholder {
@@ -5535,7 +5539,8 @@ body.library-manager #stay-right {
 
 #publish-modal {
   padding: 10rem 4rem;
-  transition: all 0.5s ease; }
+  transition: all 0.5s ease;
+  z-index: -1; }
 
 .clearfix:after {
   clear: both;
@@ -6231,18 +6236,20 @@ a.count span.dont-move {
   height: auto; }
 .full-book .fluid-wrapper .page-title-elem, .full-book .photo-wrapper .page-title-elem, .full-book .overlay-wrapper .page-title-elem, .full-book .phototext-wrapper .page-title-elem, .full-book .vertical-wrapper .page-title-elem, .full-book .video-wrapper .page-title-elem, .full-book .backcover-wrapper .page-title-elem {
   color: rgba(25, 25, 25, 0.8);
-  font-size: 2.3rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 2.8rem;
-  margin: 0 0 0.5rem 0; }
+  margin: 0 0 0.5rem 0;
+  margin-top: 1.75rem !important; }
 .full-book .fluid-wrapper .page-desc, .full-book .photo-wrapper .page-desc, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-desc {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   color: rgba(25, 25, 25, 0.7);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 100;
   letter-spacing: .01rem;
   line-height: 2.3rem;
-  margin: 1rem 0 0 0; }
+  margin: 1.5rem 0 0 0;
+  margin-top: 2rem !important; }
 .full-book .fluid-wrapper p, .full-book .photo-wrapper p, .full-book .overlay-wrapper p, .full-book .phototext-wrapper p, .full-book .vertical-wrapper p, .full-book .video-wrapper p, .full-book .backcover-wrapper p {
   color: inherit;
   font-size: inherit;
@@ -6396,6 +6403,7 @@ a.count span.dont-move {
   font-size: 2rem;
   line-height: 2.5rem;
   margin: 0 auto 0.5rem;
+  margin-top: 0 !important;
   text-align: center;
   width: 52%; }
 .full-book .photo-wrapper .author-info {
@@ -6468,20 +6476,21 @@ a.count span.dont-move {
   margin-top: -2rem;
   vertical-align: middle; }
 .full-book .phototext-wrapper .phototext-preview {
-  width: 30%;
+  width: 40%;
   height: 100%;
   top: 0;
   right: 0;
   background-color: rgba(252, 252, 252, 0.7);
   color: #191919;
   overflow-y: auto;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
 .full-book .phototext-wrapper .phototext-preview .page-title-elem {
-  font-size: 1.5rem;
-  line-height: 1.7rem; }
+  font-size: 1.7rem;
+  line-height: 1.7rem;
+  margin-top: 1.25rem !important; }
 .full-book .phototext-wrapper .phototext-preview .page-desc {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
@@ -6500,7 +6509,7 @@ a.count span.dont-move {
   background-color: #fcfcfc;
   border-left: 1px solid transparent;
   overflow-y: auto;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
 .full-book .vertical-wrapper .vertical-preview article {
   width: 90%; }
@@ -6517,14 +6526,15 @@ a.count span.dont-move {
   border-left: 1px solid transparent;
   color: #191919;
   overflow-y: auto;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
   position: absolute; }
 .full-book .video-wrapper article .page-title-elem {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 1.7rem; }
 .full-book .video-wrapper article .page-desc {
-  font-size: 1rem;
-  line-height: 1.7rem; }
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  margin-top: 1.25rem !important; }
 .full-book .video-wrapper .video-player-container {
   width: 70%;
   height: 100%;
