@@ -85,6 +85,7 @@ public class QueryDatabaseUser {
 				LOG.error("Error closing connection" + userId + " " + ex.getMessage());
 			}
 		}
+
 		return bookList;
 	}
 
@@ -711,6 +712,13 @@ public class QueryDatabaseUser {
 		for(int i = 0; i < subscribedLibraries.size() && i < 3;i++){
 			if(!bookList.contains(subscribedLibraries.get(i)))
 				bookList.add(i,subscribedLibraries.get(i));
+		}
+
+		//make sure no owned books are in there
+		ArrayList<Book> ownedBooks = getCreatedBooks(userId);
+		for(Book b : ownedBooks){
+			if(bookList.contains(b))
+				bookList.remove(b);
 		}
 
 		return bookList;

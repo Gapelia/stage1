@@ -286,6 +286,7 @@ public class QueryDatabaseLibrary {
 
     public static String createLibrary(Library library) {
         PreparedStatement insert = null;
+		String generated = "Failure";
         try {
             insert = connection.prepareStatement(CREATE_LIBRARY);
             insert.setInt(1, library.getUserId());
@@ -295,7 +296,12 @@ public class QueryDatabaseLibrary {
             insert.setString(5, library.getDescription());
             insert.setTimestamp(6, library.getCreated());
             insert.executeUpdate();
-            return "Success";
+
+			ResultSet generatedKeys = insert.getGeneratedKeys();
+			if (null != generatedKeys && generatedKeys.next()) {
+				generated = Long.toString(generatedKeys.getLong(1));
+			}
+
         } catch (SQLException ex) {
             LOG.error("ERROR: : " + library.getLibraryId() + " " + ex.getMessage());
         } finally {
@@ -305,10 +311,10 @@ public class QueryDatabaseLibrary {
                 }
             } catch (SQLException ex) {
                 LOG.error("error closing connection: " + library.getLibraryId() + " " + ex.getMessage());
-                return "Error closing connection";
+                generated = "Failure";
             }
         }
-        return "Failure";
+        return generated;
     }
 
     public static String updateLibrary(Library library) {
