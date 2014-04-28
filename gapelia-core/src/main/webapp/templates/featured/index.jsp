@@ -80,9 +80,9 @@
             </div>
         </nav>
         <!--//site-menu /-->
-
+	
         <!--/ main-panel /-->
-        <div id="featured-panel">
+	<div id="featured-panel">
             <button id="g-menu-toggle" class="notification-time">
                 <span id="notification-count">0</span>
                 <i class="ion-drag"></i>
@@ -182,26 +182,26 @@
                 $(".bookmark-list-wrapper").remove();
 		
 		$("#featured-panel .featured-info").remove();
-                $("#featured-panel").append('<span id="category-title">Featured on Folio</span>');
+                $("#featured-panel").append('<span id="welcoming-title">Featured on Folio</span>');
 
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Featured</a></li><li id="nav-libraries"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
-                $("#book-list").append('<li class="book" id="book-cta"><p><a href="/libraryManager">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
+                $("#book-list").append('<li class="book" id="book-cta"><p><a href="/libraryManager">Explore</a> topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 
                 $(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
                     $("#featured-nav").toggle();
                 });
 
                 $(document).on("click", "#nav-books", function () {
-                    $("#category-title").html("Bookshelf");
+                    $("#welcoming-title").html("Bookshelf");
                 });
 
                 $(document).on("click", "#nav-libraries", function () {
-                    $("#category-title").html("Libraries");
+                    $("#welcoming-title").html("Libraries");
                 });
 
                 $(document).on("click", "#nav-bookmarks", function () {
-                    $("#category-title").html("Bookmarks");
+                    $("#welcoming-title").html("Bookmarks");
                 });
 
                 // Log Out
@@ -209,7 +209,14 @@
                     document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
                     window.location = "";
                 });
-
+            }
+	    
+	    if ($vW < "1024") {
+                $(".book-list-wrapper").css({
+			"top": "300px",
+			"background-color": "white"
+		})
+		$("#featured-scroller").css({"z-index": "10"})
             }
 
             if ($vW < "321") {

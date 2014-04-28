@@ -322,7 +322,7 @@
 
 			//background-color: rgba($black, 0.05);
 			display: inline-block; // block
-			padding: 5.3rem 1.25rem 1.25rem 1.25rem; 
+			padding: 5.3rem 11.25rem 5.25rem 11.25rem;
 			transform: translateY(0);
 
 			-o-transform: translateY(0);
@@ -331,16 +331,19 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#user-book-list { padding: 5rem 1.25rem 1.25rem 1.25rem; }
+		#explore-list { padding: 5.3rem 1.25rem 1.25rem 1.25rem !important; }
 
 		#book-cta {
-			background-color: transparent !important;
+			background-color: white !important;
 			background-image: none !important;
+			border: none;
 			height: 100px !important;
 			padding: 0 3rem;
 			text-align: center;
 
 			&:after { background: none !important; }
+			
+			img { display: none; }
 			
 			p {
 				font-size: 1.6rem;
@@ -394,6 +397,23 @@
 
 		#featured-panel {
 			background-color: $slate;
+			
+			#welcoming-title {
+				width: 100%; height: 300px;
+				margin: 0; padding: 8.6rem 6rem;
+
+				background-image: url("../images/cover-error.jpg");
+				background-repeat: no-repeat;
+				color: $white;
+				font-size: 1.4rem;
+				font-weight: 500;
+				left: 0;
+				overflow: hidden;
+				position: absolute;
+				text-align: center;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 			
 			#category-title {
 				width: 100%; height: 75px;
@@ -493,9 +513,41 @@
 			top: 1.8rem;
 		}
 
+		/// removing cover photos and giving it a list format for mobile //
+		
+		.book, .collection { background-image: none !important; }
+		
 		.book, .collection, .library {
-			margin: 0 0 1.5rem 0; padding: 0;
-			width: 100%; height: 250px !important; 
+			
+			background-color: transparent;
+			border-radius: 0 !important;
+			border-bottom: 1px solid rgba($black, 0.15);
+			padding-bottom: 1.5rem !important;
+			text-shadow: none !important;
+			
+			&:after { background: none !important; }
+			
+			&:hover:after { background: none !important; }
+			
+			&:hover {
+				.book-title a, .library-location, .author-name, .num-votes { text-shadow: none !important; color: rgba($black, 0.8) !important; }
+			}
+			
+			.author-avatar { margin: 0 0 -1rem 0; }
+			
+			.book-title a, .library-location, .book-info, .author-name  a { color: rgba($black, 0.8) !important; text-shadow: none !important; }
+			
+			.book-info .num-votes {
+				bottom: 0; right: 2rem;
+				font-size: 1rem;
+			}
+			
+			.bookmark-this { display: none; }
+			
+			/// removing cover photos and giving it a list format for mobile //
+		
+			margin: 0 0 2.5rem 0; padding: 0;
+			width: 100%; height: auto !important; 
 
 			&:last-child { margin: 0; }
 
@@ -524,8 +576,11 @@
 			.library-info .title { border-bottom: none !important; }
 			
 			.library-location {
+				border: none !important;
+				font-weight: 100;
 				left: 2rem;
-				top: 15%;
+				opacity: 0.6;
+				position: relative;
 			}
 			
 			.wrapper {
@@ -602,7 +657,7 @@
 		.book-title, .book-info { position: relative; }
 
 		.book-title {
-			margin: 3rem 0 1.5rem 0; padding: 0 5rem 0 2rem;
+			margin: 0rem 0 1.5rem 0; padding: 0 5rem 0 2rem;
 
 			font-size: 2rem;
 			top: initial;
@@ -611,10 +666,16 @@
 		.book-info, .collection-info {
 			bottom: 1rem;
 			font-size: 1.2rem;
-			position: absolute;
+			height: 50px;
+			padding-top: 0.5rem;
+			position: relative;
 		}
 		
-		.book-info .author-name, .collection-info .author.name { font-size: 1rem; }
+		.book-info .author-name, .collection-info .author.name {
+			display: inline-block !important;
+			font-size: 1rem;
+			margin-left: 5px;
+		}
 
 		#featured-splash, #library-splash, #user-splash, #new-library {
 			z-index: 10;
@@ -658,10 +719,16 @@
 				text-align: center;
 			}
 		}
+		
+		.library {
+			height: 250px !important; width: 100% !important;
+		}
 
 	}
 	
 	// optimizations for library and profile splash so icons are visible //
+	
+	.notification-time #notification-count { display: none; }
 	
 	body.library {
 		
@@ -674,6 +741,8 @@
 				top: 1.1rem;
 			}
 		}
+		
+		#stay-right { display: none; }
 	}	
 	
 	#book-scroller #user-header {
@@ -2200,9 +2269,9 @@
 		// Lists
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #dimension-list, #library-list, #bookmark-list, #subscription-list {
-			background-color: transparent;
+			background-color: white;
 			display: block;
-			padding: 50px 0 0 0;
+			padding: 0px 0 0 0;
 		}
 
 		#g-menu-toggle {
@@ -2223,7 +2292,7 @@
 		.book, .collection, .library {
 			margin: 0; padding: 1.2rem;
 
-			background-color: transparent;
+			background-color: white;
 			border-bottom: 1px solid rgba($slate, 0.3);
 			box-shadow: none;
 			height: auto !important;
