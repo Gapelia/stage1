@@ -1,9 +1,10 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
+import com.gapelia.core.database.QueryDatabaseMetric;
 import com.gapelia.core.database.QueryDatabaseNotifications;
-import com.gapelia.core.model.BookNotifications;
-import com.gapelia.core.model.LibraryNotifications;
+import com.gapelia.core.model.BookNotification;
+import com.gapelia.core.model.LibraryNotification;
 import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -80,17 +81,17 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        LibraryNotifications libraryNotifications = new LibraryNotifications();
-        libraryNotifications.setBookId(bookId);
-        libraryNotifications.setRecipientUserId(recipient);
-        libraryNotifications.setSenderUserId(sender);
-        libraryNotifications.setAccepted(false);
-        libraryNotifications.setLibraryId(referencedLibrary);
-        libraryNotifications.setMessage(message);
+        LibraryNotification libraryNotification = new LibraryNotification();
+        libraryNotification.setBookId(bookId);
+        libraryNotification.setRecipientUserId(recipient);
+        libraryNotification.setSenderUserId(sender);
+        libraryNotification.setAccepted(false);
+        libraryNotification.setLibraryId(referencedLibrary);
+        libraryNotification.setMessage(message);
         java.util.Date date = new java.util.Date();
-        libraryNotifications.setDateSend(new Timestamp(date.getTime()));
-        libraryNotifications.setAccepted(false);
-        return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotifications));
+        libraryNotification.setDateSend(new Timestamp(date.getTime()));
+        libraryNotification.setAccepted(false);
+        return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotification));
     }
 
     @Path("acceptLibraryNotification")
@@ -103,7 +104,10 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId));
+
+		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
+		Email.sendAcceptanceToLibraryEmail(u,n);
+        return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
 
     @Path("rejectLibraryNotification")
@@ -116,7 +120,7 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId));
+        return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 
     @Path("removeLibraryNotification")
@@ -141,7 +145,7 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
-        return gson.toJson(QueryDatabaseNotifications.getBookNotifications(u));
+        return gson.toJson(QueryDatabaseNotifications.getBookNotification(u));
     }
 
     @Path("getAllreadySubmitted")
@@ -167,7 +171,7 @@ public class Notifications {
                                          @FormParam("sender") int sender) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
-        BookNotifications bookNotifications = new BookNotifications();
+        BookNotification bookNotifications = new BookNotification();
         bookNotifications.setRecipientUserId(recipient);
         bookNotifications.setBookId(referencedBook);
         bookNotifications.setSenderUserId(sender);

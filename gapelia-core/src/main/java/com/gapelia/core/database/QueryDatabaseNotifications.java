@@ -21,34 +21,111 @@ public class QueryDatabaseNotifications {
     private static final String GET_LIBRARY_ALREADY_SUBMISSIONS = "SELECT * FROM library_notifications where sender = ? and referenced_library = ? ";
     private static final String GET_ALL_SUBMISSIONS = "SELECT * FROM library_notifications where recipient = ? and accepted IS NULL";
     private static final String GET_LIBRARY_SUBMISSION_RESPONSES = "SELECT * FROM library_notifications where sender = ? and accepted IS NOT NULL";
+    private static final String GET_LIBRARY_NOTIFICATION = "SELECT * FROM library_notifications WHERE id = ?";
+    private static final String GET_BOOK_NOTIFICATION = "SELECT * FROM book_notifications WHERE id = ?";
     private static final String ACCEPT_LIBRARY_NOTIFICATIONS = "UPDATE library_notifications set accepted = 't' where id = ?";
     private static final String REJECT_LIBRARY_NOTIFICATIONS = "UPDATE library_notifications set accepted = 'f' where id = ?";
     private static final String INSERT_LIBRARY_NOTIFICATION = "INSERT into library_notifications(recipient,referenced_library,book_id,sender,date_sent,message)VALUES(?,?,?,?,?,?)";
     private static final String DELETE_LIBRARY_NOTIFICATIONS = "DELETE FROM library_notifications where id = ?";
     private static final String INSERT_BOOK_NOTIFICATION = "INSERT into book_notifications(recipient,referenced_book,sender,date_sent)VALUES(?,?,?,?)";
     private static final String DELETE_BOOK_NOTIFICATIONS = "DELETE FROM book_notifications where id = ?";
-    public static ArrayList<LibraryNotifications> getAlreadySubmitted(User u,int libraryId) {
+
+
+
+
+	public static BookNotification getBookNotification(int notificationId){
+		PreparedStatement selectStatement = null;
+		ResultSet rs = null;
+		BookNotification bookNotification = null;
+		try {
+			selectStatement = connection.prepareStatement(GET_BOOK_NOTIFICATION);
+			selectStatement.setInt(1, notificationId);
+			rs = selectStatement.executeQuery();
+			if(rs.next()) {
+				bookNotification = new BookNotification();
+				bookNotification.setRecipientUserId(rs.getInt("recipient"));
+				bookNotification.setSenderUserId(rs.getInt("sender"));
+				bookNotification.setBookId(rs.getInt("referenced_book"));
+				bookNotification.setDateSend(rs.getTimestamp("date_sent"));
+				bookNotification.setAccepted(rs.getBoolean("accepted"));
+				bookNotification.setNotificationId(rs.getInt("id"));
+			}
+		} catch (SQLException ex) {
+			LOG.error("Cannot get notifications:" + notificationId + " " + ex.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (selectStatement != null) {
+					selectStatement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + notificationId + " " + ex.getMessage());
+			}
+		}
+		return bookNotification;
+	}
+
+	public static LibraryNotification getLibraryNotification(int notificationId){
+		PreparedStatement selectStatement = null;
+		ResultSet rs = null;
+		LibraryNotification libraryNotification = null;
+		try {
+			selectStatement = connection.prepareStatement(GET_LIBRARY_NOTIFICATION);
+			selectStatement.setInt(1, notificationId);
+			rs = selectStatement.executeQuery();
+			if(rs.next()) {
+				libraryNotification = new LibraryNotification();
+				libraryNotification.setRecipientUserId(rs.getInt("recipient"));
+				libraryNotification.setLibraryId(rs.getInt("referenced_library"));
+				libraryNotification.setSenderUserId(rs.getInt("sender"));
+				libraryNotification.setBookId(rs.getInt("book_id"));
+				libraryNotification.setDateSend(rs.getTimestamp("date_sent"));
+				libraryNotification.setAccepted(rs.getBoolean("accepted"));
+				libraryNotification.setMessage(rs.getString("message"));
+				libraryNotification.setRead(rs.getBoolean("read"));
+				libraryNotification.setNotificationId(rs.getInt("id"));
+			}
+		} catch (SQLException ex) {
+			LOG.error("Cannot get notifications:" + notificationId + " " + ex.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (selectStatement != null) {
+					selectStatement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + notificationId + " " + ex.getMessage());
+			}
+		}
+		return libraryNotification;
+	}
+
+	public static ArrayList<LibraryNotification> getAlreadySubmitted(User u,int libraryId) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<LibraryNotifications> notificationList = null;
+        ArrayList<LibraryNotification> notificationList = null;
         try {
-            notificationList = new ArrayList<LibraryNotifications>();
+            notificationList = new ArrayList<LibraryNotification>();
             insert = connection.prepareStatement(GET_LIBRARY_AWAITING_RESPONSES);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
             rs = insert.executeQuery();
             while (rs.next()) {
-                LibraryNotifications libraryNotifications = new LibraryNotifications();
-                libraryNotifications.setRecipientUserId(rs.getInt("recipient"));
-                libraryNotifications.setLibraryId(rs.getInt("referenced_library"));
-                libraryNotifications.setSenderUserId(rs.getInt("sender"));
-                libraryNotifications.setBookId(rs.getInt("book_id"));
-                libraryNotifications.setDateSend(rs.getTimestamp("date_sent"));
-                libraryNotifications.setAccepted(rs.getBoolean("accepted"));
-                libraryNotifications.setMessage(rs.getString("message"));
-                libraryNotifications.setRead(rs.getBoolean("read"));
-                libraryNotifications.setNotificationId(rs.getInt("id"));
-                notificationList.add(libraryNotifications);
+                LibraryNotification libraryNotification = new LibraryNotification();
+                libraryNotification.setRecipientUserId(rs.getInt("recipient"));
+                libraryNotification.setLibraryId(rs.getInt("referenced_library"));
+                libraryNotification.setSenderUserId(rs.getInt("sender"));
+                libraryNotification.setBookId(rs.getInt("book_id"));
+                libraryNotification.setDateSend(rs.getTimestamp("date_sent"));
+                libraryNotification.setAccepted(rs.getBoolean("accepted"));
+                libraryNotification.setMessage(rs.getString("message"));
+                libraryNotification.setRead(rs.getBoolean("read"));
+                libraryNotification.setNotificationId(rs.getInt("id"));
+                notificationList.add(libraryNotification);
             }
             return notificationList;
         } catch (SQLException ex) {
@@ -103,28 +180,28 @@ public class QueryDatabaseNotifications {
         return alreadySubmitted;
     }
 
-    public static ArrayList<LibraryNotifications> getLibraryNotifications(User u,int libraryId) {
+    public static ArrayList<LibraryNotification> getLibraryNotifications(User u,int libraryId) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<LibraryNotifications> notificationList = null;
+        ArrayList<LibraryNotification> notificationList = null;
         try {
-            notificationList = new ArrayList<LibraryNotifications>();
+            notificationList = new ArrayList<LibraryNotification>();
             insert = connection.prepareStatement(GET_LIBRARY_SUBMISSIONS);
             insert.setInt(1, u.getUserId());
             insert.setInt(2, libraryId);
             rs = insert.executeQuery();
             while (rs.next()) {
-                LibraryNotifications libraryNotifications = new LibraryNotifications();
-                libraryNotifications.setRecipientUserId(rs.getInt("recipient"));
-                libraryNotifications.setLibraryId(rs.getInt("referenced_library"));
-                libraryNotifications.setSenderUserId(rs.getInt("sender"));
-                libraryNotifications.setBookId(rs.getInt("book_id"));
-                libraryNotifications.setDateSend(rs.getTimestamp("date_sent"));
-                libraryNotifications.setAccepted(rs.getBoolean("accepted"));
-                libraryNotifications.setMessage(rs.getString("message"));
-                libraryNotifications.setRead(rs.getBoolean("read"));
-                libraryNotifications.setNotificationId(rs.getInt("id"));
-                notificationList.add(libraryNotifications);
+                LibraryNotification libraryNotification = new LibraryNotification();
+                libraryNotification.setRecipientUserId(rs.getInt("recipient"));
+                libraryNotification.setLibraryId(rs.getInt("referenced_library"));
+                libraryNotification.setSenderUserId(rs.getInt("sender"));
+                libraryNotification.setBookId(rs.getInt("book_id"));
+                libraryNotification.setDateSend(rs.getTimestamp("date_sent"));
+                libraryNotification.setAccepted(rs.getBoolean("accepted"));
+                libraryNotification.setMessage(rs.getString("message"));
+                libraryNotification.setRead(rs.getBoolean("read"));
+                libraryNotification.setNotificationId(rs.getInt("id"));
+                notificationList.add(libraryNotification);
             }
             return notificationList;
         } catch (SQLException ex) {
@@ -144,27 +221,27 @@ public class QueryDatabaseNotifications {
         return notificationList;
     }
 
-    public static ArrayList<LibraryNotifications> getAllSubmissions(User u) {
+    public static ArrayList<LibraryNotification> getAllSubmissions(User u) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<LibraryNotifications> notificationList = null;
+        ArrayList<LibraryNotification> notificationList = null;
         try {
-            notificationList = new ArrayList<LibraryNotifications>();
+            notificationList = new ArrayList<LibraryNotification>();
             insert = connection.prepareStatement(GET_ALL_SUBMISSIONS);
             insert.setInt(1, u.getUserId());
             rs = insert.executeQuery();
             while (rs.next()) {
-                LibraryNotifications libraryNotifications = new LibraryNotifications();
-                libraryNotifications.setRecipientUserId(rs.getInt("recipient"));
-                libraryNotifications.setLibraryId(rs.getInt("referenced_library"));
-                libraryNotifications.setSenderUserId(rs.getInt("sender"));
-                libraryNotifications.setBookId(rs.getInt("book_id"));
-                libraryNotifications.setDateSend(rs.getTimestamp("date_sent"));
-                libraryNotifications.setAccepted(rs.getBoolean("accepted"));
-                libraryNotifications.setMessage(rs.getString("message"));
-                libraryNotifications.setRead(rs.getBoolean("read"));
-                libraryNotifications.setNotificationId(rs.getInt("id"));
-                notificationList.add(libraryNotifications);
+                LibraryNotification libraryNotification = new LibraryNotification();
+                libraryNotification.setRecipientUserId(rs.getInt("recipient"));
+                libraryNotification.setLibraryId(rs.getInt("referenced_library"));
+                libraryNotification.setSenderUserId(rs.getInt("sender"));
+                libraryNotification.setBookId(rs.getInt("book_id"));
+                libraryNotification.setDateSend(rs.getTimestamp("date_sent"));
+                libraryNotification.setAccepted(rs.getBoolean("accepted"));
+                libraryNotification.setMessage(rs.getString("message"));
+                libraryNotification.setRead(rs.getBoolean("read"));
+                libraryNotification.setNotificationId(rs.getInt("id"));
+                notificationList.add(libraryNotification);
             }
             return notificationList;
         } catch (SQLException ex) {
@@ -184,27 +261,27 @@ public class QueryDatabaseNotifications {
         return notificationList;
     }
 
-    public static ArrayList<LibraryNotifications> getAllResponses(User u) {
+    public static ArrayList<LibraryNotification> getAllResponses(User u) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<LibraryNotifications> notificationList = null;
+        ArrayList<LibraryNotification> notificationList = null;
         try {
-            notificationList = new ArrayList<LibraryNotifications>();
+            notificationList = new ArrayList<LibraryNotification>();
             insert = connection.prepareStatement(GET_LIBRARY_SUBMISSION_RESPONSES);
             insert.setInt(1, u.getUserId());
             rs = insert.executeQuery();
             while (rs.next()) {
-                LibraryNotifications libraryNotifications = new LibraryNotifications();
-                libraryNotifications.setRecipientUserId(rs.getInt("recipient"));
-                libraryNotifications.setLibraryId(rs.getInt("referenced_library"));
-                libraryNotifications.setSenderUserId(rs.getInt("sender"));
-                libraryNotifications.setBookId(rs.getInt("book_id"));
-                libraryNotifications.setDateSend(rs.getTimestamp("date_sent"));
-                libraryNotifications.setAccepted(rs.getBoolean("accepted"));
-                libraryNotifications.setMessage(rs.getString("message"));
-                libraryNotifications.setRead(rs.getBoolean("read"));
-                libraryNotifications.setNotificationId(rs.getInt("id"));
-                notificationList.add(libraryNotifications);
+                LibraryNotification libraryNotification = new LibraryNotification();
+                libraryNotification.setRecipientUserId(rs.getInt("recipient"));
+                libraryNotification.setLibraryId(rs.getInt("referenced_library"));
+                libraryNotification.setSenderUserId(rs.getInt("sender"));
+                libraryNotification.setBookId(rs.getInt("book_id"));
+                libraryNotification.setDateSend(rs.getTimestamp("date_sent"));
+                libraryNotification.setAccepted(rs.getBoolean("accepted"));
+                libraryNotification.setMessage(rs.getString("message"));
+                libraryNotification.setRead(rs.getBoolean("read"));
+                libraryNotification.setNotificationId(rs.getInt("id"));
+                notificationList.add(libraryNotification);
             }
             return notificationList;
         } catch (SQLException ex) {
@@ -224,7 +301,7 @@ public class QueryDatabaseNotifications {
         return notificationList;
     }
 
-    public  static String acceptLibraryNotification(int notificationId) {
+    public  static String acceptLibraryNotification(int notificationId, User u) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(ACCEPT_LIBRARY_NOTIFICATIONS);
@@ -244,7 +321,7 @@ public class QueryDatabaseNotifications {
         return "SUCCESS";
     }
 
-    public  static String rejectLibraryNotification(int notificationId) {
+    public  static String rejectLibraryNotification(int notificationId, User u) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(REJECT_LIBRARY_NOTIFICATIONS);
@@ -265,7 +342,7 @@ public class QueryDatabaseNotifications {
     }
 
 
-    public static String createLibraryNotification(LibraryNotifications l) {
+    public static String createLibraryNotification(LibraryNotification l) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(INSERT_LIBRARY_NOTIFICATION);
@@ -310,7 +387,7 @@ public class QueryDatabaseNotifications {
         return "SUCCESS";
     }
 
-    public static String createBookNotification(BookNotifications b) {
+    public static String createBookNotification(BookNotification b) {
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(INSERT_BOOK_NOTIFICATION);
@@ -353,25 +430,25 @@ public class QueryDatabaseNotifications {
         return "SUCCESS";
     }
 
-    public static ArrayList<BookNotifications> getBookNotifications(User u) {
+    public static ArrayList<BookNotification> getBookNotification(User u) {
         PreparedStatement insert = null;
         ResultSet rs = null;
-        ArrayList<BookNotifications> notificationList = null;
+        ArrayList<BookNotification> notificationList = null;
         try {
-            notificationList = new ArrayList<BookNotifications>();
+            notificationList = new ArrayList<BookNotification>();
             insert = connection.prepareStatement(GET_BOOK_NOTIFICATIONS);
             insert.setInt(1, u.getUserId());
             LOG.info(insert.toString());
             rs = insert.executeQuery();
             while (rs.next()) {
-                BookNotifications bookNotifications = new BookNotifications();
-                bookNotifications.setRecipientUserId(rs.getInt("recipient"));
-                bookNotifications.setSenderUserId(rs.getInt("sender"));
-                bookNotifications.setBookId(rs.getInt("referenced_book"));
-                bookNotifications.setDateSend(rs.getTimestamp("date_sent"));
-                bookNotifications.setAccepted(rs.getBoolean("accepted"));
-                bookNotifications.setNotificationId(rs.getInt("id"));
-                notificationList.add(bookNotifications);
+                BookNotification bookNotification = new BookNotification();
+                bookNotification.setRecipientUserId(rs.getInt("recipient"));
+                bookNotification.setSenderUserId(rs.getInt("sender"));
+                bookNotification.setBookId(rs.getInt("referenced_book"));
+                bookNotification.setDateSend(rs.getTimestamp("date_sent"));
+                bookNotification.setAccepted(rs.getBoolean("accepted"));
+                bookNotification.setNotificationId(rs.getInt("id"));
+                notificationList.add(bookNotification);
             }
             return notificationList;
         } catch (SQLException ex) {
