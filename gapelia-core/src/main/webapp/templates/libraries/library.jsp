@@ -110,17 +110,7 @@
 					</section>
 					/-->
 
-                <ul id="book-list">
-		
-		<ul id="stay-right">
-		<li id="my-submissions">
-		    <a class=submission-dropdown-ii href="#">Add my stories</a>
-                        <ul>
-                        </ul>
-                </li>
-		</ul>
-
-                </ul>
+                <ul id="book-list"></ul>
             </div>
         </div>
 
@@ -215,7 +205,7 @@
 
 		$(document).mouseup(function (e) {
 
-		var container = $("#stay-right ul");
+		var container = $("#stay-right ul, #submission-pop");
 
 		// if the target of the click isn't the container...
 		if (!container.is(e.target) && container.has(e.target).length === 0) {
