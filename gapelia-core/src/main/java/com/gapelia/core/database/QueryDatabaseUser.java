@@ -200,6 +200,10 @@ public class QueryDatabaseUser {
             insert.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
             insert.setTimestamp(13, new Timestamp(System.currentTimeMillis()));
+
+			LOG.info("Signing up new user:"+p.getEmail()+" query :" + insert.toString());
+
+
             insert.executeUpdate();
 
 
