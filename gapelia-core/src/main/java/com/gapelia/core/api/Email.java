@@ -21,8 +21,8 @@ public class Email {
 		String[] cmd = {
 				"/bin/sh",
 				"-c",
-				"/emailScripts/acceptanceEmail.sh "+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
-						" "+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+" " + u.getEmail()
+				"/emailScripts/acceptanceEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"'"
 		};
 
 		LOG.info("Emailing Acceptance email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
