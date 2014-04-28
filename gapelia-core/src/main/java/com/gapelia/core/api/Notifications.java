@@ -3,6 +3,7 @@ package com.gapelia.core.api;
 import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseMetric;
 import com.gapelia.core.database.QueryDatabaseNotifications;
+import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.model.BookNotification;
 import com.gapelia.core.model.LibraryNotification;
 import com.gapelia.core.model.User;
@@ -92,7 +93,7 @@ public class Notifications {
         libraryNotification.setDateSend(new Timestamp(date.getTime()));
         libraryNotification.setAccepted(false);
 
-		Email.sendSubmissionToLibraryEmail(u,libraryNotification);
+		Email.sendSubmissionToLibraryEmail(QueryDatabaseUser.getUserById(recipient),libraryNotification);
 
         return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotification));
     }
@@ -109,7 +110,7 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendAcceptanceToLibraryEmail(u,n);
+		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()),n);
         return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
 
@@ -125,7 +126,7 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendRejectionToLibraryEmail(u, n);
+		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()), n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 
