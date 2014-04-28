@@ -171,6 +171,7 @@ public class QueryDatabaseUser {
         try {
             insert = connection.prepareStatement(INSERT_USER);
             insert.setString(1, p.getFirstName());
+
             insert.setString(2, p.getEmail());
             insert.setString(3, p.getFirstName() + " " + p.getLastName());
             if (p.getDob() != null) {

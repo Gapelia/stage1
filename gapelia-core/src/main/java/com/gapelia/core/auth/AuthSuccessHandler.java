@@ -43,6 +43,7 @@ public class AuthSuccessHandler extends HttpServlet {
 				return;
 			}
 			profile = provider.getUserProfile();
+			LOG.info("user authenticated:  profile email: " + profile.getEmail());
 
 			if(provider.getProviderId().equals(AuthHelper.APP_GOOGLE))
 			{
