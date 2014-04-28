@@ -91,6 +91,9 @@ public class Notifications {
         java.util.Date date = new java.util.Date();
         libraryNotification.setDateSend(new Timestamp(date.getTime()));
         libraryNotification.setAccepted(false);
+
+		Email.sendSubmissionToLibraryEmail(u,libraryNotification);
+
         return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotification));
     }
 
@@ -120,6 +123,9 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
+
+		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
+		Email.sendRejectionToLibraryEmail(u, n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 

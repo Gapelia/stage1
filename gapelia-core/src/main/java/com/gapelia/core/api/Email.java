@@ -38,4 +38,47 @@ public class Email {
 			LOG.error("Error sending notification acceptance:" + e.getMessage());
 		}
 	}
+
+	public static void sendRejectionToLibraryEmail(User u, LibraryNotification n){
+		if(u.getEmailOptOut()) return;
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/rejectionEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"'"
+		};
+
+		LOG.info("Emailing rejection email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
+
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending notification acceptance:" + e.getMessage());
+		}
+	}
+
+	public static void sendSubmissionToLibraryEmail(User u, LibraryNotification n){
+		if(u.getEmailOptOut()) return;
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/submissionEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"'"
+		};
+
+		LOG.info("Emailing submission email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending notification acceptance:" + e.getMessage());
+		}
+	}
 }

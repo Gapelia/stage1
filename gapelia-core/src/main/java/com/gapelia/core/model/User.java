@@ -30,7 +30,7 @@ public class User {
 
 	public Boolean getEmailOptOut() {
 		if(emailOptOut == null) return false;
-		
+
 		return emailOptOut;
 	}
 
