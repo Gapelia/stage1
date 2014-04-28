@@ -8247,7 +8247,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     font-size: 0.9rem; }
   .full-book .backcover-wrapper #fin .author-name {
-    display: block !important; }
+    display: inline !important; }
   .full-book .backcover-wrapper #fin .share-book {
     margin: -5.5rem 0 4rem 8.5rem; }
   .full-book .backcover-wrapper #fin-next .book-title {
