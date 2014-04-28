@@ -1234,8 +1234,9 @@
 
 	$("#publish-toggle").on("click", function (e) {
         if(title=="") {
-            title = "Untitled Book"
+            alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
         }
+	
         $("#publish-book-title").html(title);
         $(".page-title-elem").html(title);
 		// Publish modal, to be deleted and replaced with better
