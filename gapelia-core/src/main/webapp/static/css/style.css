@@ -2475,6 +2475,7 @@ body.landing h1 {
   color: transparent !important;
   left: 1.3rem; }
 .app #next-book-toggle {
+  display: none !important;
   right: 0; }
 .app #nav-wrapper {
   top: 0;
@@ -3113,7 +3114,7 @@ body.landing h1 {
   opacity: 0.001;
   position: fixed;
   transition: all 0.2s ease;
-  z-index: 0 !important; }
+  z-index: 1 !important; }
 .app .facebook, .app .ion-social-facebook {
   color: #3c699b; }
 .app .googleplus, .app .ion-social-googleplus {
