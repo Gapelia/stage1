@@ -1,5 +1,5 @@
 var Page = (function () {
-
+    
     var config = {
         $bookBlock: $("#bb-bookblock"),
         $navNext: $("#bb-nav-next"),
@@ -137,11 +137,12 @@ function loadBook() {
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-        share += "<li><a href=\"emailShare\"><i class=\"ion-email\"></i></a></li>";
+        share += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li>";
         $(".share-book").html(share)
 
 }
 $(function () {
+    
     function makeBackPage() {
         getUserFromBookId(bookId);
         $.ajax({
@@ -152,12 +153,11 @@ $(function () {
                 userId: bookOwner.userId
             },
             success: function (data) {
-                
                 bookUser = data;
                 currentWebsite = document.URL;
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
                 twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-                emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this out' + currentWebsite;
+                emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
@@ -181,73 +181,89 @@ $(function () {
         });
     }
     
+    
     function initializeMerciObject(){
         // "Merci" code
 			// needs to be a string for jquery.cookie
 			var postId = "1";
+                        //console.log("merci'ing initializing outside");
+                        
+                        
+                        
 
 			$(function () {
+                                //console.log("merci'ing initializing");
 
 				// initialize merci
 				$("figure.merciful").merciful();
 
-				// check to see if user has already merci'd
-				// fyi cookies do not work when you are viewing this as a file
-				if ($.cookie(postId) == "true") {
-					// make merci already mercid
-					$("figure.merciful").removeClass("animate").addClass("complete");
-
+                                
+                                //  this is the check at the server if user has already voted   (this is the prefill if already voted)
+				//if ($.cookie(postId) == "false") {
+                                
+                                if (hasAlreadyVoted(bookId) == "True") {
+                                    $("figure.merciful").removeClass("animate").addClass("complete");
+                                }
+                                else{
+                                    //console.log("has not voted");
+				    $("figure.merciful").removeClass("animate").removeClass("complete");
+                                    //$(".num").html(1);
+                                }
+				//	$("figure.merciful").removeClass("animate").addClass("complete");
+                                  //      console.log("merci'ing cookie true");
 					// your server would take care of the proper merci count, but because this is a
 					// static page, we need to set it here so it doesn't become -1 when you remove
 					// the merci after a reload
-					$(".num").html(1);
-				}
+					
+				//}
 
-				// when merci'ing
+				// when merci'ing      MOUSEOVER
 				$("figure.merci").bind("merci:active", function (e) {
 
 					$("span.num, span.txt").hide();
 					$("span.dont-move").show();
 
-					console.log("merci'ing active");
+					//console.log("merci'ing active");
 
 				});
 
-				// when not merci'ing
+				// when not merci'ing      MOUSE LEAVES
 				$("figure.merci").bind("merci:inactive", function (e) {
 
-					console.log("merci'ing inactive");
+					//console.log("merci'ing inactive");
 
 					$("span.num, span.txt").show();
 					$("span.dont-move").hide();
 
 				});
 
-				// after merci'd
+				// after merci'd        MERCI VOTES
 				$("figure.merci").bind("merci:added", function (e) {
 
 					var element = $(this);
 
 					// ajax'y stuff or whatever you want
-					console.log("Merci'd:", element.data("id"), ":)");
+					//console.log("Merci'd:", element.data("id"), ":)");
+                                        
+                                        voteBook(bookId);
 
 					// set cookie so user cannot merci again for 7 days
-					$.cookie(postId, "true", { expires: 7 });
+					//$.cookie(postId, "true", { expires: 7 });
 
 					$("span.num, span.txt").show();
 					$("span.dont-move").hide();
 
 				});
 
-				// after removing a merci
+				// after removing a merci  UNVOTE
 				$("figure.merci").bind("merci:removed", function (e) {
 
 					var element = $(this);
 					// ajax'y stuff or whatever you want
-					console.log("Un-merci'd:", element.data("id"), ":(");
+					//console.log("Un-merci'd:", element.data("id"), ":(");
+                                        
+                                        removeVoteBook(bookId);
 
-					// remove cookie
-					$.removeCookie(postId);
 
 				});
 
@@ -255,6 +271,61 @@ $(function () {
 	
 	
     }
+    
+    function hasAlreadyVoted(bookId) {
+        var result = "Null";
+        $.ajax({
+            url: "/api/actions/hasAlreadyVoted",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            async: false,
+            data: {
+			sessionId: sessionId,
+                        bookId: bookId
+            },
+            complete: function(r){
+                 result = r.responseText;
+        }
+        });
+        return result;
+    }
+    
+    function voteBook(bookId) {
+        $.ajax({
+	    url: "/api/notifications/createBookNotification",
+	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	    type: "POST",
+	    async: false,
+	    data: {
+		sessionId: sessionId,
+		recipient: bookOwner.userId,
+		sender: user.userId,
+		referencedBook: bookId
+	    }});
+            $.ajax({
+            url: "/api/actions/voteBook",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            async: false,
+            data: {
+                    sessionId: sessionId,
+                    bookId: bookId
+            }});
+    }
+    
+    function removeVoteBook(bookId) {
+        $.ajax({
+            url: "/api/actions/removeVoteBook",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            async: false,
+            data: {
+                    sessionId: sessionId,
+                    bookId: bookId
+            }});
+    }
+    
+    
     /*
     function getNumberVotes() {
         $.ajax({
@@ -695,14 +766,14 @@ $(function () {
 
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
         twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-        emailShare = 'mailto:?subject=Oh%20hai&amp;body=check this shit out' + currentWebsite;
+        emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
 
         share = "";
         share += "<ul id=\"share-menu\" style=\"display: block;\">";
 
         share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
         share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-        share += "<li><a href=\"emailShare\">Share via Email</a></li>";
+        share += "<li><a href=\""+emailShare+"\">Share via Email</a></li>";
         share += "</ul>";
 
         $("#g-menu-toggle").after(menu);

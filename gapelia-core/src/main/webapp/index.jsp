@@ -47,7 +47,7 @@
 		<div id="mp-pusher" class="super-wrapper">
 
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>Collaborative publishing. Create as you would never do on your own. Follow stories and ideas you value.</h4>
+			<h4>Reimagining scholarly publishing.</h4>
 
 			<div class="wrapper">
 				<button class="fb-btn">Sign in with Facebook</button>
@@ -59,10 +59,7 @@
 			<footer>
 				<nav>
 					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
-						<li><a href="">Privacy</a></li>
-						<li><a href="">Terms</a></li>
+						<li><a href="">Learn More</a></li>
 					</ul>
 				</nav>
 			</footer>

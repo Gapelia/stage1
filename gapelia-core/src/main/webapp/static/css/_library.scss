@@ -20,14 +20,72 @@ body.library {
 			transition: opacity 5s ease;
 			width: 800px;
 		}
+		
+		#g-menu-toggle {
+			background-image: url("../images/folio-icon-solid.png") !important;
+			color: transparent !important;
+			left: 1rem;
+			top: 0.5rem;
+		}
+	}
+	
+	#g-menu-toggle {
+		background-image: url("../images/folio-icon.png") !important;
+		color: transparent !important;
+		top: 0.5rem;
 	}
 
+	
+	// submission modal on library-splash
+	#submission-pop {
+		background-color: $slate;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-bottom: none !important;
+		color: $white;
+		height: 8%;
+		left: 23% !important;
+		letter-spacing: 0.015555em;
+		position: absolute;
+		top: 0;
+		transition: opacity 0.5s ease;
+		z-index: 10 !important; 
+		
+		p {
+			font-size: 1rem;
+			padding: 0.75rem 1rem 0rem 1rem;
+		}
+		
+		a {
+			display: inline !important;
+			margin: 5px;
+			text-decoration: underline;
+		}	
+	}
+	
 	#stay-right {
 		top: 0; right: 0;
 
 		display: inline-flex;
-		margin: 1.5rem 1rem 0 0;
+		margin: 1.5rem 0.5rem 0 0;
 		position: absolute;
+		z-index: 10 !important;
+		
+		.submission-dropdown {
+			background-color: $slate;
+			border-radius: 5px;
+			color: $white !important;
+			font-weight: 400;
+			letter-spacing: 0.041em;
+			padding: 0.4rem 0.75rem;
+			
+			&:hover {
+				background-color: $slate;
+				border: 1px solid rgba($slate, 0.5);
+				color: $white !important;
+				opacity: 1;
+			}
+		}
 		
 		a {
 			color: rgba(11, 72, 107, 0.25) !important;
@@ -50,23 +108,29 @@ body.library {
 			margin: 0;
 			text-align: right;
 
-			a { padding: 0 1rem; }
+			a {
+				color: rgba($black, 0.7) !important;
+				font-weight: 100;
+				padding: 0 1rem;
+			}
 
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
-				top: 1rem; right: -2rem !important;
+				top: 1.5rem; right: 0rem !important;
 
 				background-color: $white;
-				border-top-left-radius: 10px;
-				border-bottom-left-radius: 10px;
+				border-radius: 5px;
+				//box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
 				display: none;
+				min-width: 225px;
 				position: relative;
 				width: auto;
 
 				li {
+					border: 1px solid rgba($black, 0.05);
 					display: block;
-					padding: 0.5rem 2rem;
+					padding: 0.8rem 0;
 
 					label, input[type="checkbox"] {
 						vertical-align: middle;
@@ -94,6 +158,8 @@ body.library {
 	.book-list-wrapper {
 		section {
 			width: 100%; height: 100%;
+			text-align: left;
+			padding: 0 0 3rem 24rem !important;
 
 			p {
 				font-size: 1.3rem;

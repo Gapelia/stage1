@@ -52,10 +52,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li class="home"><a href="/featured">Folio</a></li>
                                                 <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+                                                <li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
-						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
@@ -142,6 +141,31 @@
 					$(".book-info").prepend('<img class="author-avatar" src="/static/images/users/01.jpg"/>');
 				}
 			});
+                        
+                        // Dropdown menu for mobile
+                        if ($vW < "1024") {
+        
+                        $(".bookmark-list-wrapper").remove();
+                        
+                        $("#featured-panel .featured-info").remove();
+                        $("#featured-panel").append('<span id="category-title">Explore Libraries</span>');
+        
+                        $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-profile"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+        
+                        $("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
+        
+                        $(document).on("click", "#g-menu-toggle, #nav-books", function () {
+                            $("#featured-nav").toggle();
+                        });
+
+
+                // Log Out
+                $("#logout").click(function (e) {
+                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+                    window.location = "";
+                });
+
+            }
 		</script>
 
 		<!--/ scripts/layout-scroller /-->
@@ -151,7 +175,7 @@
 
 		<script>
 			$(function () {
-
+                getNotifications();
 				getListSubscribed();
 				getSubscribedLibrary();
 				getCreatedLibraries();

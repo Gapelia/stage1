@@ -56,13 +56,11 @@
                 <h2><a href="/featured">Gapelia</a></h2>
 
                 <ul>
-		    <li class="home"><a href="/featured">Folio</a>
-                    </li>
 		    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
+		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
                     </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+                    <li class="not-mobile"><a href="/createbook">Create book</a>
                     </li>
 
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
@@ -88,26 +86,19 @@
         					<i class="ion-drag"></i>
         				</button>
         			</div>
-        <!--/ main-content /-->
+	
+	<ul id="stay-right">
+		<li id="my-submissions">
+		    <a class=submission-dropdown href="#">Add my stories</a>
+                        <ul></ul>
+                </li>
+        </ul>
+	
+	<!--/ main-content /-->
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
                     <li id="nav-books" class="current"><a href="#">Library Books</a></li>
-
-                    <ul id="stay-right">
-                        <li id="my-submissions">
-                            <a href="#">Add my stories</a>
-
-                            <ul>
-                                <li><a href="/">hikari: The Future of the Operating System</a>
-                                </li>
-                                <li><a href="/">007: The Diego Regules Story</a>
-                                </li>
-                                <li><a href="/">From the Rennaisance, to the Future of Blogging</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </ul>
             </div>
 
@@ -119,10 +110,7 @@
 					</section>
 					/-->
 
-                <ul id="book-list">
-
-
-                </ul>
+                <ul id="book-list"></ul>
             </div>
         </div>
 
@@ -184,7 +172,6 @@
             var first = getListSubscribed();
              getNotifications();
             var second = getListBookmarked();
-            var third = getUserDrafts();
         });
 
         function load() {
@@ -207,6 +194,25 @@
                     $("#g-menu-toggle").css("color", "#70a1b1");
 
                 });
+		
+		// submissions confirm popup
+		
+		$(document).on("click", "#stay-right ul li a", function () {
+			$("#submission-pop").css({"display": "block"});
+		});
+		
+		// Hide submission dropdown when click outisde
+
+		$(document).mouseup(function (e) {
+
+		var container = $("#stay-right ul, #submission-pop");
+
+		// if the target of the click isn't the container...
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			container.hide(); // ... nor a descendant of the container
+		}
+
+		});
 
                 // Controlled scrolling speed
                 $("#featured-scroller").mousewheel(function (event, delta) {
@@ -401,7 +407,7 @@
             if ($vW < "1025") {
 
                 $("#featured-panel .featured-info").remove();
-                $("#featured-panel").append("<span id='category-title'>[ Library Name ]</span>");
+                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
@@ -430,7 +436,6 @@
             getBooksInLibrary();
             getUserCreatedBooksForLibrary();
             load();
-            loadDelete();
         }, 300);
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;

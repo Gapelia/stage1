@@ -40,12 +40,11 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-                <h2><a href="/featured">FOLIO</a></h2>
+                <h2><a href="/featured">Gapelia</a></h2>
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a></li>
                     <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+		    <li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
                     <li class="not-mobile"><a href="/createbook">Create book</a></li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
                         <ul id="draft-menu"></ul>
                     </li>
@@ -114,12 +113,14 @@
 
     <script src="/static/scripts/mousewheel.js"></script>
     <script src="/static/scripts/scroll.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
+
 
     <script>
         $(document).ready(function () {
             var first = getListSubscribed();
             var second = getListBookmarked();
-            var third = getUserDrafts();
+            getNotifications();
             var fourth = getBooksInLibraryOwner();
             getUser();
         });
@@ -358,7 +359,6 @@
             getSubmissionsInLibrary();
             getUserCreatedBooksForLibrary();
             load();
-            loadDelete();
         }, 300);
     </script>
     <!--//scripts /-->

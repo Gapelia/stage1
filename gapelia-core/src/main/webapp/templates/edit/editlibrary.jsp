@@ -50,13 +50,11 @@
                 <h2><a href="/featured">Gapelia</a></h2>
 
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a>
-                    </li>
                     <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
+		    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
                     </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+                    <li class="not-mobile"><a href="/createbook">Create book</a>
                     </li>
 
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
@@ -134,6 +132,8 @@
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
     <script src="/static/scripts/ajax.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
+
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -153,8 +153,8 @@
 
         $(function () {
 
-            var third = getUserDrafts();
-            editLibrary()
+            var third = getNotifications();
+            editLibrary();
             // Click "Save" button
             $("#confirm-create-library").click(function () {
                 updateLibrary();

@@ -45,6 +45,7 @@ public class QueryDatabaseUser {
     private static final String GET_OWNED_LIBRARIES = "SELECT * FROM libraries WHERE created_by = ? order by created desc";
     private static final String GET_PAGES = "SELECT * FROM pages where book_id = ?";
     private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
+    //SELECT DISTINCT library_id FROM library_books LEFT JOIN books on library_books.book_id = books.id where books.owned_by = ?";
     private static final String GET_LAST_PUBLISHED = "select * from books where owned_by = ? and is_published = 't' order by created desc limit 1";
     private static final String GET_LIBRARIES_CONTRIBUTED_TO = "select distinct id,created from libraries join (select library_id from library_books join " +
 			"(select * from books where owned_by = ?) as t2 on library_books.book_id = t2.id) as t3 on t3.library_id = libraries.id order by created desc limit 2";

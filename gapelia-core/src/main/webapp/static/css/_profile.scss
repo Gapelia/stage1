@@ -16,8 +16,10 @@
 		width: 80%;
 
 		#g-menu-toggle {
-			left: 2rem;
-			width: auto;
+			background-image: url("../images/folio-icon-solid.png") !important;
+			color: transparent !important;
+			left: 1rem;
+			//width: auto;
 		}
 
 		.button-wrapper {
@@ -218,15 +220,18 @@
 
 		h5 {
 			font-size: 1rem;
-			font-weight: lighter;
+			font-weight: 100;
 			margin: 0 0 1rem 0;
 
 			a {
-				border-bottom: 1px solid $white;
+				border-bottom: 1px solid rgba($white, 0.5);
 				display: inline-block !important;
 				@include serif;
 				font-style: italic;
-				font-weight: bolder;
+				font-weight: 600 !important;
+				margin-left: 8px;
+				text-transform: lowercase;
+				&:first-letter { text-transform: uppercase; }
 			}
 		}
 
@@ -235,35 +240,36 @@
 			font-weight: 700;
 			position: relative;
 			text-align: center;
-			top: 29.5%;
+			top: 33.5%;
 			width: 100%;
 		}
 
 		#splash-user-bio {
 			margin: 0 0 2rem 0; padding: 1rem;
 
+			border-bottom: 1px solid rgba($white, 0.6);
 			display: block;
 			font-size: 1.1rem;
 			font-weight: 200;
 			line-height: 2.1rem;
+			text-align: center;
 
 			&:empty:after { content: "Add bio here"; }
 		}
 
 		#close-splash {
 			width: auto; height: auto;
-			bottom: 1rem; right: 1rem; 
+			bottom: 1rem; 
 
-			border-bottom: none;
 			color: rgba($white, 0.5);
 			cursor: pointer;
 			@include serif;
 			font-size: 1rem;
-			font-weight: 700;
-			//font-style: italic;
+			font-style: italic !important;
+			font-weight: 400;
+			left: 47%;
 			position: fixed;
-			text-align: right;
-			//text-decoration: underline;
+			text-align: center;
 			transition: bottom 1.3s ease, left 1.3s ease;
 			z-index: 10;
 		}

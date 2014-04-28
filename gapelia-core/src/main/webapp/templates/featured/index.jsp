@@ -56,13 +56,11 @@
                 <h2><a href="/featured">Gapelia</a></h2>
 
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a>
-                    </li>
                     <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
+		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
                     </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+                    <li class="not-mobile"><a href="/createbook">Create book</a>
                     </li>
 
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
@@ -150,8 +148,7 @@
         }
 
         $(function () {
-            var third = getUserDrafts();
-             getNotifications();
+            getNotifications();
             var second = getBookmarkedBooks();
             var fourth = getListBookmarked();
             var fifth = getListSubscribed();
@@ -182,12 +179,14 @@
             // Dropdown menu for mobile
             if ($vW < "1024") {
 
-                $("#featured-panel .featured-info").remove();
-                $("#featured-panel").append('<span id="category-title">Bookshelf</span>');
+                $(".bookmark-list-wrapper").remove();
+		
+		$("#featured-panel .featured-info").remove();
+                $("#featured-panel").append('<span id="category-title">Featured on Folio</span>');
 
-                $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Bookshelf</a></li><li id="nav-libraries"><a href="#">Libraries</a></li><li id="nav-bookmarks"><a href="#">Bookmarks</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id=\"nav-notify\"><a href=\"#\">Notifications</a><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+                $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Featured</a></li><li id="nav-libraries"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
-                $("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
+                $("#book-list").append('<li class="book" id="book-cta"><p><a href="/libraryManager">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 
                 $(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
                     $("#featured-nav").toggle();
@@ -270,60 +269,6 @@
 
             });
 
-            // Click "Libraries"
-            $("#nav-libraries").click(function (e) {
-
-                NProgress.start();
-
-                /*
-					var
-					allBooks = $("#library-list li"),		// gets all books in a section
-					firstBook = $(allBooks).first();		// gets first book in list
-
-					$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
-					*/
-
-                setTimeout(function () {
-
-                    $("#book-list").hide();
-                    $("#bookmark-list").hide();
-                    $(".bookmark-list-wrapper section").remove();
-
-                    var w = 0,
-                        h = 0;
-
-                    $("#library-list li").each(function () {
-                        w += $(this).outerWidth();
-                        h += $(this).outerHeight();
-                    });
-
-                    w += 500;
-                    $("#library-list").css("width", w + "px");
-                    if ($vW > "1024") {
-
-                        $("#library-list").css("width", w + "px");
-                        $("#library-list .library").css("height", $vH - 97 + "px");
-
-                    } else {
-                        // $("#library-list").css("height", h + 379 + "px");
-                    }
-
-                    // fades in the all the books after section width is added
-                    $("#library-list li").fadeIn("100");
-                    $("#library-list").fadeIn("100");
-
-                }, 1000);
-
-                e.preventDefault();
-
-                $("#nav-books").removeClass("current");
-                $("#nav-libraries").addClass("current");
-                $("#nav-bookmarks").removeClass("current");
-
-                NProgress.done();
-
-            });
-
             // Click "Bookmarks"
             $("#nav-bookmarks").click(function (e) {
 
@@ -364,7 +309,6 @@
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();
-                loadDelete();
             });
         }
     </script>

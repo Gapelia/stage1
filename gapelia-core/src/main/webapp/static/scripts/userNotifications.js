@@ -13,13 +13,49 @@ function getSubmissionsResponse() {
             for(i in notifications) {
                 notification = notifications[i]
                 if(notification.accepted==true) {
-                    addAcceptedtNotification(notification.notificationId, notification.bookId, notification.libraryId);
+                    addAcceptedNotification(notification.notificationId, notification.bookId, notification.libraryId);
                 } else {
                     addRejectNotification(notification.notificationId, notification.bookId, notification.libraryId);
                 }
             }
         }
     });
+}
+
+function getBookNotifications() {
+$.ajax({
+	url: "/api/notifications/getNotificationsBooks",
+	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	type: "POST",
+	async: false,
+	data: {
+		sessionId: sessionId,
+	},
+	success: function (data) {
+            notifications = data;
+            userFrom = '';
+            for(i in notifications) {
+                notification = notifications[i];
+               	$.ajax({
+                        url: "/api/users/getUserPublic",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        type: "POST",
+                        data: {
+                            userId: notification.senderUserId
+                        },
+                        success: function (data) {
+                            userFrom = data;
+                            getBookFromBookId(notification.bookId);
+                            sender = userFrom.displayName;
+                            bookTitle = bookFromBookId.title;
+                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\">"+sender + " Has thanked you for your book " + bookTitle;
+                            toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
+                            $("#gpl-menu-notify ul").append(toInsert);
+                        }
+                    });
+            }
+        }
+});
 }
 function getLibrarySubmissions() {
     sessionId = readCookie("JSESSIONID");
@@ -39,7 +75,7 @@ function getLibrarySubmissions() {
         }
     });
 }
-function addAcceptedtNotification(notificationId, bookId, libraryId) {
+function addAcceptedNotification(notificationId, bookId, libraryId) {
     $.ajax({
                     url: "/api/libraries/getLibrary",
                     contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -61,7 +97,7 @@ function addAcceptedtNotification(notificationId, bookId, libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li id=\""+notificationId+"\"><a href=/read/\""+bookId+"\>Congrats! \"" + book.title + " \" was accepted to the library \"" + library.title + "\"</a><a class=\"remove-notification\">&#x2717;</a></li>";
+                                toInsert = "<li class=\"library-notification\" id=\""+notificationId+"\"><a href=/read/\""+bookId+"\>Congrats! \"" + book.title + " \" was accepted to the library \"" + library.title + "\"</a><a class=\"remove-notification\">&#x2717;</a></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
                             }
                         });
@@ -91,7 +127,7 @@ function addRejectNotification(notificationId, bookId, libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li id=\""+notificationId+"\"><a>Sorry, your book\"" + book.title + " \" was not accepted to the library \"" + library.title + "\" at this time</a><a class=\"remove-notification\">&#x2717;</a></li>";
+                                toInsert = "<li class=\"library-notification\"  id=\""+notificationId+"\"><a>Sorry, your book\"" + book.title + " \" was not accepted to the library \"" + library.title + "\" at this time</a><a class=\"remove-notification\">&#x2717;</a></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
                             }
                         });
@@ -120,7 +156,7 @@ function addSubmission(notificationId,bookId,libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li class=\"submision\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\">\"" + book.title + " \" was submited to your library \"" + library.title + "\"</a>";
+                                toInsert = "<li class=\"submission\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\">\"" + book.title + " \" was submited to your library \"" + library.title + "\"</a>";
                                 toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
                                 toInsert += "<span class=\"respond-submision\">";
                                 toInsert += "Accept Book?";
@@ -142,12 +178,15 @@ function addSubmission(notificationId,bookId,libraryId) {
 }
 
 function getNotifications() {
-    getLibrarySubmissions()
-    getSubmissionsResponse()
+    getLibrarySubmissions();
+    getSubmissionsResponse();
+    getBookNotifications();
+    getUserDrafts();
     setTimeout(function () {
+        loadDelete();
         $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
         $("#notification-count").html($("#gpl-menu-notify li").size());
-        loadDelete();
         $(".respond-submision").toggle();
-    }, 1400);
+        loadDelete();
+    }, 1500);
 }

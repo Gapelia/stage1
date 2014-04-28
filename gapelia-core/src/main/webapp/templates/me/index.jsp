@@ -55,12 +55,11 @@
                 <h2><a href="/featured">Gapelia</a></h2>
 
                 <ul>
-                    <li class="home"><a href="/featured">Folio</a></li>
 		    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
                     </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
+		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
                     </li>
-                    <li class="not-mobile"><a href="/librarymanager">Library Manager</a>
+                    <li class="not-mobile"><a href="/createbook">Create book</a>
                     </li>
 
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
@@ -160,8 +159,7 @@
         $(function () {
             var fifth = getNotifications();
             var second = getUserCreatedBooks();
-            var third = getUserDrafts();
-            var first = getUser();
+          var first = getUser();
         });
 
          // Splash page
@@ -199,7 +197,7 @@
                 stuff += "<h5 id=\"recently-published\"></h5>";
                 stuff += "<h5 id=\"contributes-to\"></h5>";
                 stuff += "</div>";
-                stuff += "<div id=\"close-splash\">SEE ALL BOOKS</div>";
+                stuff += "<div id=\"close-splash\">See all posts</div>";
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
@@ -294,8 +292,9 @@
 
                 // Dropdown menu for mobile
                 if ($vW < "1025") {
-
-                    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-profile" class="current"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+		$("#book-scroller").append("<span id='user-header'><span/>");	
+                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
+		    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
                     $(function () {
 

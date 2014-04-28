@@ -520,7 +520,7 @@
 		});
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
@@ -1233,7 +1233,11 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
-
+        if(title=="") {
+            title = "Untitled Book"
+        }
+        $("#publish-book-title").html(title);
+        $(".page-title-elem").html(title);
 		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",
@@ -1252,7 +1256,6 @@
 	$("#close-button").on("click", function (e) {
         updateBookAndPages(false);
 		document.location.href = "/featured";
-
 	});
 
 	$(document).on("click", ".close-modal", function (e) {

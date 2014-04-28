@@ -53,10 +53,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li class="home"><a href="/featured">Folio</a></li>
 						<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+						<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 						<li class="not-mobile"><a href="/createbook">Create book</a></li>
-						<li class="not-mobile"><a href="/librarymanager">Library Manager</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
@@ -203,7 +202,6 @@
 
 			function load() {
                  getNotifications();
-                var third = getUserDrafts();
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
 				var elem = document.querySelector(".js-switch");
@@ -235,7 +233,7 @@
 					$("#featured-panel .featured-info").remove();
 					$("#featured-panel").append('<span id="category-title">Account Settings</span>');
 
-					$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books"><a href="/featured">Explore</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id=\"nav-notify\"><a href=\"#\">Notifications</a><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+					$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books"><a href="/featured">Explore</a></li><li id="nav-explore"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
 					$("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 

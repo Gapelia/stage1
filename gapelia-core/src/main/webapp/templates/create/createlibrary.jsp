@@ -48,10 +48,9 @@
 					<h2><a href="/featured">Gapelia</a></h2>
 
 					<ul>
-						<li class="home"><a href="/featured">Folio</a></li>
 						<li><a href="/me">Me</a><a class="icon" href="/accounts">&#xf13d;</a></li>
+						<li><a href="/libraryManager" id="create-library">Libraries</a></li>
 						<li><a href="/createlibrary">Create book</a></li>
-						<li><a href="#" id="create-library">Start library</a></li>
 
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
@@ -86,7 +85,7 @@
 			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
-					<button id="confirm-create-library" class="outline">Save</button>
+					<button id="confirm-create-library" class="outline">Create</button>
 				</div>
 
 				<div class="button-wrapper">
@@ -94,7 +93,6 @@
 				</div>
 
 				<div id="new-library-info">
-					<small>Editor's Name &middot; 8,349 subscribers</small>
 
 					<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 					<p data-placeholder="Add a description" contenteditable="true"></p>
@@ -118,7 +116,7 @@
 					</section>
 				</div>
 
-				<div id="close-splash">Continue to Library Manager</div>
+				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library" href="/library/202">Go to your library</a></div>
 				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
@@ -131,6 +129,8 @@
 		<script src="/static/scripts/g.money.js"></script>
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
+		<script src="/static/scripts/userNotifications.js"></script>
+
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -147,7 +147,7 @@
 
 			$(function () {
 
-				var third = getUserDrafts();
+
 
 				// Click "Save" button
 				$("#confirm-create-library").click(function () {
