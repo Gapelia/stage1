@@ -18,6 +18,8 @@ public class Email {
 	static final Runtime rt = Runtime.getRuntime();
 
 	public static void sendAcceptanceToLibraryEmail(User u, LibraryNotification n){
+		if(u.getEmailOptOut()) return;
+
 		String[] cmd = {
 				"/bin/sh",
 				"-c",

@@ -29,6 +29,8 @@ public class User {
     private Boolean isOnboarded;
 
 	public Boolean getEmailOptOut() {
+		if(emailOptOut == null) return false;
+		
 		return emailOptOut;
 	}
 
