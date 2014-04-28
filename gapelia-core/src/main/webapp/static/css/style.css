@@ -7320,7 +7320,7 @@ a.count span.dont-move {
   .full-book {
     overflow-x: hidden;
     overflow-y: auto; }
-  .full-book #book-menu, .full-book #share-menu {
+  .full-book #book-menu {
     width: 100%;
     height: auto;
     max-height: 500px;
@@ -7336,7 +7336,7 @@ a.count span.dont-move {
     text-align: center;
     transition: all 0.5s ease;
     z-index: 101; }
-  .full-book #book-menu li, .full-book #share-menu li {
+  .full-book #book-menu li {
     margin: 0;
     padding: 1rem 0;
     background-color: #fcfcfc;
@@ -7345,6 +7345,8 @@ a.count span.dont-move {
     cursor: pointer;
     display: block;
     top: 0; }
+  .full-book #share-menu {
+    display: none !important; }
   .full-book #book-menu #nav-notify ul {
     display: none;
     font-size: 0.8rem;

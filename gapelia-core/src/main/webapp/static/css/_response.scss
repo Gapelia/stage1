@@ -693,7 +693,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 
-		#book-menu, #share-menu {
+		#book-menu {
 			width: 100%; height: auto; max-height: 500px;
 			margin: 0; padding: 64px 0 0 0;
 			top: 0; left: 0;
@@ -718,6 +718,8 @@
 				top: 0;
 			}
 		}
+		
+		#share-menu { display: none !important; } // hidden due to loading bugs and no really needed because share is on footer
 
 		#book-menu {
 			#nav-notify {
