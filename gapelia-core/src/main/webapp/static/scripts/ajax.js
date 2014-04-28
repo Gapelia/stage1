@@ -345,7 +345,7 @@ function getBooksInLibrary() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-                toInsert += "</li>";
+		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
             }
             if (toInsert == "") {
                 toInsert = "<section><p/>No stories have been publised here yet.</p></section>";
