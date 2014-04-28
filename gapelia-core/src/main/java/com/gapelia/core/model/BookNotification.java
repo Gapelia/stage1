@@ -3,16 +3,13 @@ package com.gapelia.core.model;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class LibraryNotifications {
+public class BookNotification {
     private int notificationId;
     private int recipientUserId;
-    private int libraryId;
-    private int senderUserId;
     private int bookId;
-    private String message;
+    private int senderUserId;
     private Timestamp dateSend;
     private Boolean accepted;
-    private Boolean read;
 
     public int getNotificationId() {
         return notificationId;
@@ -28,14 +25,6 @@ public class LibraryNotifications {
 
     public void setRecipientUserId(int recipientUserId) {
         this.recipientUserId = recipientUserId;
-    }
-
-    public int getLibraryId() {
-        return libraryId;
-    }
-
-    public void setLibraryId(int libraryId) {
-        this.libraryId = libraryId;
     }
 
     public int getSenderUserId() {
@@ -54,10 +43,6 @@ public class LibraryNotifications {
         this.bookId = bookId;
     }
 
-    public String getMessage() { return message;}
-
-    public void setMessage(String message) { this.message = message;}
-
     public Timestamp  getDateSend() {
         return dateSend;
     }
@@ -72,13 +57,5 @@ public class LibraryNotifications {
 
     public void setAccepted(Boolean accepted) {
         this.accepted = accepted;
-    }
-
-    public Boolean getRead() {
-        return read;
-    }
-
-    public void setRead(Boolean read) {
-        this.read = read;
     }
 }

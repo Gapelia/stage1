@@ -22,8 +22,8 @@ public class QueryDatabaseUser {
     //User Related Queries
     private static final String CHECK_USER = "SELECT * FROM users WHERE validated_id = ?";
     private static final String INSERT_USER = "INSERT INTO users (name, email, full_name, dob, gender, location, " +
-            "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated,is_public, is_onboarded, tags)" +
-            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'f', 'f','NULL')";
+            "avatar_image, display_name, validated_id, provider_id, member_since, last_login, last_updated,is_public, is_onboarded, tags, opt_out)" +
+            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'f', 'f','NULL','f')";
     private static final String SELECT_VALIDATE = "SELECT * FROM users WHERE validated_id = ?";
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
@@ -256,6 +256,7 @@ public class QueryDatabaseUser {
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
                 user.setIsOnboarded(rs.getBoolean("is_onboarded"));
+				user.setEmailOptOut(rs.getBoolean("opt_out"));
             }
         } catch (Exception ex) {
             LOG.error("Cannot get user by validate Id u:" + user, ex);
@@ -307,6 +308,7 @@ public class QueryDatabaseUser {
                 user.setPersonalWebsite(rs.getString("personal_website"));
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setIsOnboarded(rs.getBoolean("is_onboarded"));
+				user.setEmailOptOut(rs.getBoolean("opt_out"));
                 user.setTags(rs.getString("tags"));
             }
         } catch (Exception ex) {
@@ -359,7 +361,7 @@ public class QueryDatabaseUser {
                 user.setIsPublic(rs.getBoolean("is_public"));
                 user.setTags(rs.getString("tags"));
                 user.setIsOnboarded(rs.getBoolean("is_onboarded"));
-
+				user.setEmailOptOut(rs.getBoolean("opt_out"));
             }
         } catch (Exception ex) {
             LOG.error("Cannot get user u:" + userId, ex);

@@ -24,6 +24,7 @@ public class QueryDatabaseBook {
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
 
 
+
 	public static String getNumVotes(int bookId) {
 		PreparedStatement statement = null;
 		ResultSet rs = null;

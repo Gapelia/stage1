@@ -28,6 +28,16 @@ public class User {
     private Boolean isPublic;
     private Boolean isOnboarded;
 
+	public Boolean getEmailOptOut() {
+		return emailOptOut;
+	}
+
+	public void setEmailOptOut(Boolean emailOptOut) {
+		this.emailOptOut = emailOptOut;
+	}
+
+	private Boolean emailOptOut;
+
     public int getUserId() {
         return userId;
     }
