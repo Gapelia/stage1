@@ -8393,7 +8393,7 @@ a.count span.dont-move {
     padding: 1.8rem 1rem 0 0;
     text-align: right; }
   .app #featured-panel #featured-nav {
-    top: 55px; }
+    top: 70px; }
   .app #featured-scroller #g-menu-toggle {
     background-size: 100px;
     left: 6.6rem !important;
@@ -8806,7 +8806,7 @@ a.count span.dont-move {
     padding: 0 2rem; }
 
   .profile #featured-nav {
-    top: 0px; }
+    top: 70px; }
   .profile #user-splash {
     padding: 0.6rem !important; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
