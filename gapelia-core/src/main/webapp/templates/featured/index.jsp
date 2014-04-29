@@ -290,6 +290,9 @@
                 NProgress.done();
 
             });
+	    
+	    //delete draft	
+	     loadDelete();
 
             // Click "Bookmarks"
             $("#nav-bookmarks").click(function (e) {

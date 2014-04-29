@@ -49,7 +49,7 @@
 				this.element.trigger("merci:active");
 				this.element.addClass("active");
 
-				return this.timer = setTimeout(this.complete, 800);
+				return this.timer = setTimeout(this.complete, 550);
 			}
 
 		};

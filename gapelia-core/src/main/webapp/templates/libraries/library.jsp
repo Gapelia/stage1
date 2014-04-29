@@ -140,6 +140,7 @@
             });
         });
     </script>
+    	
 
     <!--/ scripts/layout-scroller /-->
     <script src="/static/scripts/mousewheel.js"></script>
@@ -174,7 +175,8 @@
             var second = getListBookmarked();
         });
 
-        function load() {
+	
+	function load() {
             $("#library-splash").imgLiquid({
                 fill: true
             });
@@ -213,6 +215,7 @@
 		}
 
 		});
+		
 
                 // Controlled scrolling speed
                 $("#featured-scroller").mousewheel(function (event, delta) {
@@ -355,6 +358,9 @@
                 NProgress.done();
 
             });
+	    
+		//delete draft	
+		loadDelete();
 
             // Click "Submissions"
             $("#nav-submissions").click(function (e) {

@@ -2303,7 +2303,7 @@ body.landing h5 {
   padding: 0 0 1rem 0;
   position: relative;
   top: 15%;
-  width: 68%;
+  width: 100%;
   z-index: 1; }
 body.landing h5 a {
   border-bottom: 1px solid rgba(252, 252, 252, 0.8);
@@ -3058,6 +3058,7 @@ body.landing h1 {
 .app #new-library #new-library-info h2 {
   font-size: 50px;
   font-weight: 700;
+  line-height: 1;
   text-transform: uppercase; }
 .app #new-library #new-library-info h2:empty:after {
   color: rgba(252, 252, 252, 0.7);
@@ -6918,6 +6919,12 @@ a.count span.dont-move {
   .app .user-book-list-wrapper {
     top: 51.75%; }
 
+  body.library #submission-pop {
+    height: 7%;
+    left: 28% !important; }
+  body.library #submission-pop p {
+    padding: 1.25rem 1rem 0rem 1rem; }
+
   .mp-menu ul .fq {
     margin-top: 160%; }
 
@@ -7001,8 +7008,7 @@ a.count span.dont-move {
   body.landing h4 {
     font-size: 1.2rem; }
   body.landing h5 {
-    font-size: 2.4rem;
-    width: 45%; }
+    font-size: 2.4rem; }
   body.landing footer {
     bottom: 2rem; }
 

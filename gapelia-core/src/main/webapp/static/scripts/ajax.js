@@ -1427,9 +1427,7 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
         addBookToLibrary(bookId);
     }
-    $("#my-submissions ul li a").css({
-        "opacity": "0.3"
-    })
+    $("#my-submissions ul").hide();
 });
 
 $(document).on("click", ".approve-book-confirm button", function (ev) {

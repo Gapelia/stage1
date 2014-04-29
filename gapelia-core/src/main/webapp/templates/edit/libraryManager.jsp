@@ -192,6 +192,10 @@
 				load();
 
 			});
+                        
+                        
+                        // delete draft
+                        loadDelete();
 
 			function load() {
 

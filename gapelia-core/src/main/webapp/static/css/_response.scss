@@ -90,6 +90,15 @@
 		.user-book-list-wrapper { top: 51.75%; }
 	}
 	
+	body.library {
+		#submission-pop {
+			height: 7%;
+			left: 28% !important;
+				
+			p { padding: 1.25rem 1rem 0rem 1rem; }
+		}	
+	}
+	
 	.mp-menu ul .fq { margin-top: 160%; }
 
 	
@@ -254,7 +263,6 @@
 		
 		h5 {
 			font-size: 2.4rem;
-			width: 45%;
 		}
 		
 		footer { bottom: 2rem; }
