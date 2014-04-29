@@ -138,7 +138,8 @@
 							<label for="user-gp">Google+</label>
 							<input id="user-gp" type="text" placeholder="Google+ URL"></input>
 
-							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span> <input type="checkbox" class="js-switch" checked/></div>
+							<div id="notifications-toggle"><span>Would you like to receive email notifications?</span>
+							<input type="checkbox" class="js-switch" checked /></div>
 
 							<button class="update-user" onclick="updateUserAccounts();"><a>Update Settings</a></button>
 		
