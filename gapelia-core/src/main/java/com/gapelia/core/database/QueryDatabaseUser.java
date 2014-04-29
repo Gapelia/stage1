@@ -431,7 +431,8 @@ public class QueryDatabaseUser {
             statement.setString(13, user.getGp());
             statement.setString(14, user.getTwt());
             statement.setBoolean(15, user.getIsPublic());
-            statement.setBoolean(16, user.getEmailOptOut());
+			statement.setBoolean(16, user.getEmailOptOut());
+            statement.setInt(17, user.getUserId());
 
             LOG.info(statement.toString());
             statement.executeUpdate();
