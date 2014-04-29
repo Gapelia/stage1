@@ -92,6 +92,8 @@
                 <h2>Gapelia</h2>
             </div>
         </div>
+	
+	<span id="welcoming-title">Forward Thinking</span>
         <!--//main-panel /-->
 
         <!--/ main-content /-->
@@ -182,17 +184,19 @@
                 $(".bookmark-list-wrapper").remove();
 		
 		$("#featured-panel .featured-info").remove();
-                $("#featured-panel").append('<span id="welcoming-title">Featured on Folio</span>');
+		
+		//$("featured-scroller").append('<button id="cover-header-mobile" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
 
-                $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Featured</a></li><li id="nav-libraries"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+                //$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Featured</a></li><li id="nav-libraries"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
                 $("#book-list").append('<li class="book" id="book-cta"><p><a href="/libraryManager">Explore</a> topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
 
-                $(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
+                /*
+		$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
                     $("#featured-nav").toggle();
                 });
 
-                $(document).on("click", "#nav-books", function () {
+		$(document).on("click", "#nav-books", function () {
                     $("#welcoming-title").html("Bookshelf");
                 });
 
@@ -202,7 +206,7 @@
 
                 $(document).on("click", "#nav-bookmarks", function () {
                     $("#welcoming-title").html("Bookmarks");
-                });
+                });*/
 
                 // Log Out
                 $("#logout").click(function (e) {
@@ -216,7 +220,10 @@
 			"top": "300px",
 			"background-color": "white"
 		})
+		
 		$("#featured-scroller").css({"z-index": "10"})
+		
+		$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
             }
 
             if ($vW < "321") {

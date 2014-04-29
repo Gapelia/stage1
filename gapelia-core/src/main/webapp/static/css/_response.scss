@@ -294,7 +294,7 @@
 		}
 		
 		#g-menu-toggle {
-			background-image: url("../images/folio-icon-white.png");
+			background-image: url("../images/folio-icon-solid.png");
 			color: transparent !important;
 			left: 1.4rem;
 			top: 0.6rem;
@@ -314,6 +314,10 @@
 		}
 
 		#book-scroller, #featured-scroller { background-color: rgba($black, 0.05); }
+		
+		#featured-scroller #g-menu-toggle {
+			background-image: url("../images/folio-logo.png");
+		}
 		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
@@ -395,17 +399,14 @@
 			&:after { display: none; }
 		}
 
-		#featured-panel {
-			background-color: $slate;
-			
-			#welcoming-title {
+		#welcoming-title {
 				width: 100%; height: 300px;
 				margin: 0; padding: 8.6rem 6rem;
 
 				background-image: url("../images/cover-error.jpg");
 				background-repeat: no-repeat;
 				color: $white;
-				font-size: 1.4rem;
+				font-size: 1rem;
 				font-weight: 500;
 				left: 0;
 				overflow: hidden;
@@ -413,13 +414,17 @@
 				text-align: center;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				z-index: 10;
 			}
+		
+		#featured-panel {
+			background-color: transparent !important;
 			
 			#category-title {
 				width: 100%; height: 75px;
 				margin: 0; padding: 1.6rem 6rem;
 
-				color: $white;
+				color: $slate;
 				font-size: 1.4rem;
 				font-weight: 200;
 				left: 0;
@@ -428,6 +433,7 @@
 				text-align: center;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				z-index: 1;
 			}
 
 			#category-switcher {
@@ -1558,7 +1564,6 @@
 			height: 65px;
 
 			#category-title {
-				color: $white;
 				font-size: 1.3rem;
 			}
 
@@ -2253,17 +2258,32 @@
 		}
 
 		// Header
+		#welcoming-title {
+			font-size: 1rem;
+			padding: 10.6rem 6rem;
+			text-align: center;
+		}
+		
 		#featured-panel {
 			height: 55px;
 			
 			#category-title {
 				font-size: 1rem;
 				height: 55px;
-				padding: 1.3rem 1rem 0 0;
+				padding: 1.8rem 1rem 0 0;
 				text-align: right;
 			}
 			
 			#featured-nav { top: 55px; }
+		}
+		
+		#featured-scroller {			
+			#g-menu-toggle {
+				background-size: 100px;
+				left:6.6rem !important;
+				top: 6.4rem !important;
+				width: 200px;
+			}
 		}
 
 		// Lists
@@ -2277,16 +2297,20 @@
 		#g-menu-toggle {
 			font-size: 2rem;
 			height: 60px;
-			left: 0.6rem !important;
-			top: 0.4rem !important;
+			left: 1rem !important;
+			top: 0.8rem !important;
 		}
 		
-		.library-list-wrapper, .bookmark-list-wrapper { z-index: 0; }
-		
+		.library-list-wrapper, .bookmark-list-wrapper { z-index: 0; top: 3.5rem; }
 		
 		.notification-time #notification-count { display: none; }
 		
 		#next-book-toggle { right: 0; }
+		
+		#explore-list {
+			padding: 0rem 1rem 1rem 1rem !important;
+			z-index: 10;
+		}
 
 		// Books
 		.book, .collection, .library {
@@ -2300,7 +2324,7 @@
 			
 			&:last-child {
 				border-bottom: none;
-				margin: 1rem 1rem 1rem 0rem;
+				margin: 0;
 			}
 
 			.author-avatar {
@@ -2407,7 +2431,9 @@
 		}
 
 		#book-cta {
-			margin-top: 2rem;
+			background-color: $white !important;
+			margin-top: 0rem; margin-bottom: 0rem;
+			padding-top: 1.5rem;
  
 			.book-snippet { display: none; }
 			
@@ -2459,8 +2485,6 @@
 			button { font-size: 0.6rem !important; }
 		}
 		
-		#explore-list { padding: 3.5rem 1rem 1rem 1rem; }
-		
 		// User-splash
 		#user-splash {
 			
@@ -2511,6 +2535,11 @@
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
+	body.library {
+		#book-list { top: 75px; }
+		.library-list-wrapper { z-index: 0; top: -1rem !important; }
+	}
+	
 	.library {
 
 		#library-splash {
@@ -2885,21 +2914,23 @@
 
 		#user-book-list { padding: 55px 0 0 0; }
 
+		#user-header {
+			font-size: 0.9rem !important;
+			margin-top: 0.8rem;
+			text-align: right !important;
+			padding-right: 1rem !important;
+		}
+		
 		#user-panel {
-			background: none;
+			background: $white !important;
 			height: 55px;
+			margin-top: 0 !important;
 
 			#g-menu-toggle {
 				color: $white;
 				left: 0.5rem;
+				top: 0.8rem !important;
 				width: 64px;
-			}
-
-			#user-header {
-				font-size: 1rem;
-				margin-top: 0.2rem;
-				text-align: right;
-				padding-right: 1rem;
 			}
 
 			#user-wrapper {

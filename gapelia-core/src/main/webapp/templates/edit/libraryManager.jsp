@@ -157,8 +157,17 @@
                         $(document).on("click", "#g-menu-toggle, #nav-books", function () {
                             $("#featured-nav").toggle();
                         });
-
-
+                        
+                        if ($vW < "321") {
+                        
+                            $("#featured-scroller").css({"top": "70px"})
+                            $(".library-list-wrapper").css({
+                                "z-index": "0",
+                                "top": "-1rem"
+                            })
+                        }
+                        
+                        
                 // Log Out
                 $("#logout").click(function (e) {
                     document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";

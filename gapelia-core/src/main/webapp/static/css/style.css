@@ -7026,7 +7026,7 @@ a.count span.dont-move {
   .app #header-message button {
     top: 2.1rem; }
   .app #g-menu-toggle {
-    background-image: url("../images/folio-icon-white.png");
+    background-image: url("../images/folio-icon-solid.png");
     color: transparent !important;
     left: 1.4rem;
     top: 0.6rem; }
@@ -7042,6 +7042,8 @@ a.count span.dont-move {
     -webkit-transform: translateY(0); }
   .app #book-scroller, .app #featured-scroller {
     background-color: rgba(25, 25, 25, 0.05); }
+  .app #featured-scroller #g-menu-toggle {
+    background-image: url("../images/folio-logo.png"); }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
     width: 100% !important;
     height: 100% !important;
@@ -7103,9 +7105,7 @@ a.count span.dont-move {
     width: 100%; }
   .app #featured-panel:after, .app #user-panel:after {
     display: none; }
-  .app #featured-panel {
-    background-color: #59b3a6; }
-  .app #featured-panel #welcoming-title {
+  .app #welcoming-title {
     width: 100%;
     height: 300px;
     margin: 0;
@@ -7113,20 +7113,23 @@ a.count span.dont-move {
     background-image: url("../images/cover-error.jpg");
     background-repeat: no-repeat;
     color: #fcfcfc;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 500;
     left: 0;
     overflow: hidden;
     position: absolute;
     text-align: center;
     text-overflow: ellipsis;
-    white-space: nowrap; }
+    white-space: nowrap;
+    z-index: 10; }
+  .app #featured-panel {
+    background-color: transparent !important; }
   .app #featured-panel #category-title {
     width: 100%;
     height: 75px;
     margin: 0;
     padding: 1.6rem 6rem;
-    color: #fcfcfc;
+    color: #59b3a6;
     font-size: 1.4rem;
     font-weight: 200;
     left: 0;
@@ -7134,7 +7137,8 @@ a.count span.dont-move {
     position: absolute;
     text-align: center;
     text-overflow: ellipsis;
-    white-space: nowrap; }
+    white-space: nowrap;
+    z-index: 1; }
   .app #featured-panel #category-switcher {
     width: 64px;
     height: 75px;
@@ -7961,7 +7965,6 @@ a.count span.dont-move {
     background-color: #59b3a6;
     height: 65px; }
   .app #featured-panel #category-title {
-    color: #fcfcfc;
     font-size: 1.3rem; }
   .app #featured-panel #featured-nav {
     top: 65px;
@@ -8378,15 +8381,24 @@ a.count span.dont-move {
     line-height: initial; }
   .app #user-splash #close-splash {
     left: 32%; }
+  .app #welcoming-title {
+    font-size: 1rem;
+    padding: 10.6rem 6rem;
+    text-align: center; }
   .app #featured-panel {
     height: 55px; }
   .app #featured-panel #category-title {
     font-size: 1rem;
     height: 55px;
-    padding: 1.3rem 1rem 0 0;
+    padding: 1.8rem 1rem 0 0;
     text-align: right; }
   .app #featured-panel #featured-nav {
     top: 55px; }
+  .app #featured-scroller #g-menu-toggle {
+    background-size: 100px;
+    left: 6.6rem !important;
+    top: 6.4rem !important;
+    width: 200px; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #dimension-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
     background-color: white;
     display: block;
@@ -8394,14 +8406,18 @@ a.count span.dont-move {
   .app #g-menu-toggle {
     font-size: 2rem;
     height: 60px;
-    left: 0.6rem !important;
-    top: 0.4rem !important; }
+    left: 1rem !important;
+    top: 0.8rem !important; }
   .app .library-list-wrapper, .app .bookmark-list-wrapper {
-    z-index: 0; }
+    z-index: 0;
+    top: 3.5rem; }
   .app .notification-time #notification-count {
     display: none; }
   .app #next-book-toggle {
     right: 0; }
+  .app #explore-list {
+    padding: 0rem 1rem 1rem 1rem !important;
+    z-index: 10; }
   .app .book, .app .collection, .app .library {
     margin: 0;
     padding: 1.2rem;
@@ -8412,7 +8428,7 @@ a.count span.dont-move {
     padding: 1.3rem; }
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
     border-bottom: none;
-    margin: 1rem 1rem 1rem 0rem; }
+    margin: 0; }
   .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar {
     height: 35px;
     width: 35px;
@@ -8486,7 +8502,10 @@ a.count span.dont-move {
   .app .book .author-avatar, .app .collection .author-avatar {
     width: 35px; }
   .app #book-cta {
-    margin-top: 2rem; }
+    background-color: #fcfcfc !important;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 1.5rem; }
   .app #book-cta .book-snippet {
     display: none; }
   .app #book-cta p {
@@ -8524,8 +8543,6 @@ a.count span.dont-move {
     margin: 0 0 1rem 0; }
   .app .library button {
     font-size: 0.6rem !important; }
-  .app #explore-list {
-    padding: 3.5rem 1rem 1rem 1rem; }
   .app #user-splash {
     background-color: #fcfcfc;
     background-image: none !important; }
@@ -8557,6 +8574,12 @@ a.count span.dont-move {
     color: rgba(25, 25, 25, 0.5);
     font-size: 0.8rem !important;
     left: 40%; }
+
+  body.library #book-list {
+    top: 75px; }
+  body.library .library-list-wrapper {
+    z-index: 0;
+    top: -1rem !important; }
 
   .library #library-splash #library-info {
     left: 4%;
@@ -8793,18 +8816,20 @@ a.count span.dont-move {
     padding-bottom: 10px; }
   .profile #user-book-list {
     padding: 55px 0 0 0; }
+  .profile #user-header {
+    font-size: 0.9rem !important;
+    margin-top: 0.8rem;
+    text-align: right !important;
+    padding-right: 1rem !important; }
   .profile #user-panel {
-    background: none;
-    height: 55px; }
+    background: #fcfcfc !important;
+    height: 55px;
+    margin-top: 0 !important; }
   .profile #user-panel #g-menu-toggle {
     color: #fcfcfc;
     left: 0.5rem;
+    top: 0.8rem !important;
     width: 64px; }
-  .profile #user-panel #user-header {
-    font-size: 1rem;
-    margin-top: 0.2rem;
-    text-align: right;
-    padding-right: 1rem; }
   .profile #user-panel #user-wrapper .user-data {
     display: none; }
   .profile .book {
