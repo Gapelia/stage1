@@ -1228,6 +1228,16 @@ function getUserAccounts() {
     if (user.gp != undefined && user.gp != "") {
         document.getElementById("user-gp").value = user.gp;
     }
+    if (user.emailOptOut != undefined && user.emailOptOut != "") {
+	
+	var elem = document.querySelector('.js-switch');
+	if(user.emailOptOut){
+		console.log("user opted out of email CLICKING");
+		$('.switchery').click();
+		//document.querySelector(".js-switch").checked = true;
+	}
+	
+    }
 
 }
 
@@ -1256,7 +1266,7 @@ function updateUserAccounts() {
         inputBox = document.getElementById("user-twt");
         twt = inputBox.value;
         isPublic = user.isPublic;
-	emailOptOut = document.querySelector(".js-switch").checked;
+	emailOptOut = !(document.querySelector(".js-switch").checked);
 	console.log("emailoptout : "+emailOptOut);
         
         if(checkName(displayName)) {
