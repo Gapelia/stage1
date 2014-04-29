@@ -747,16 +747,17 @@ $(function () {
 
         menu = "";
         menu += "<ul id=\"book-menu\" style=\"display: none;\">";
-        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Explore</a></li>";
+        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
+        menu += "<li id=\"nav-explore\"><a href=\"/me\">Libraries</a></li>";
         menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
-        menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
+        /*menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
         menu += "<ul>";
         menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
         menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
         menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
         menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
         menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
-        menu += "</ul>";
+        menu += "</ul>";*/
         menu += "</li>";
         menu += "<li id=\"nav-profile\"><a href=\"/accounts\">Account Settings</a></li>";
         menu += "<li id=\"nav-logout\"><a href=\"#\">Log Out</a></li>";
