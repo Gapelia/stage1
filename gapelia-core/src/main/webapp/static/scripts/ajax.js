@@ -970,12 +970,16 @@ function getUserFromLibraryId(libraryId) {
         }
     });
 }
-function checkName() {
+function checkName(displayName) {
+	console.log("new name: " + displayName);
     if (displayName=="") {//add check for all our pages
-                    return false;
+	console.log("null name: " + displayName);
+        return false;
     } else if(user.displayName == displayName) {
-    return true;
+	console.log("username unchanged");
+	return true;
     } else {
+	result = false;
     $.ajax({
         url: "/api/utils/isUserNameAvailable",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -984,22 +988,24 @@ function checkName() {
         data: {
             userName: displayName
         },
-        success: function (data) {
-        response = data;
-            if (data == "In Use") {
-               return false;
-            }
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            } else {
-                alert("Some issue happened with your request: " + err.message);
-            }
-        }
+	 complete: function(r){
+		console.log("responsetext:"+r.responseText);
+		if (r.responseText == "\"OK\"") {
+			console.log("username ok");
+			result =  true;
+		}
+		console.log("username taken");
+	}
+	
+       
     });
+    
+    return result;
      }
+     
+     
 }
+
 function getUserFromBookId(bookId) {
     responseText = '';
     $.ajax({
@@ -1250,8 +1256,10 @@ function updateUserAccounts() {
         inputBox = document.getElementById("user-twt");
         twt = inputBox.value;
         isPublic = user.isPublic;
-        checkName();
-        if(response == "OK") {
+	emailOptOut = document.querySelector(".js-switch").checked;
+	console.log("emailoptout : "+emailOptOut);
+        
+        if(checkName(displayName)) {
              $.ajax({
             url: "/api/users/updateUser",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1270,7 +1278,8 @@ function updateUserAccounts() {
                 fb: fb,
                 gp: gp,
                 twt: twt,
-                isPublic: true
+                isPublic: true,
+		emailOptOut: emailOptOut
             }
             });
         } else {
