@@ -147,6 +147,10 @@
             $(".mp-pushed").ready(function () {
                 $("#book-scroller").css("z-index", "0");
             });
+	    
+	    $(".mp-pushed").ready(function () {
+                $("#welcoming-title").css("display", "none");
+            });
         }
 
         $(function () {
@@ -180,7 +184,7 @@
 
             // Dropdown menu for mobile
             if ($vW < "1024") {
-
+		
                 $(".bookmark-list-wrapper").remove();
 		
 		$("#featured-panel .featured-info").remove();
