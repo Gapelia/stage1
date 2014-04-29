@@ -80,7 +80,14 @@ public class Notifications {
                                             @FormParam("message") String message) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+
+
+
         Gson gson = new GsonBuilder().create();
+		if(sender == recipient) return gson.toJson("Self");
+
+
         User u = SessionManager.getUserFromSessionId(sessionId);
         LibraryNotification libraryNotification = new LibraryNotification();
         libraryNotification.setBookId(bookId);
@@ -110,7 +117,10 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()),n);
+
+		if(n.getRecipientUserId() == n.getSenderUserId()) return gson.toJson("Self");
+
+		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()),n);
         return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
 
@@ -126,7 +136,10 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()), n);
+
+		if(n.getRecipientUserId() == n.getSenderUserId()) return gson.toJson("Self");
+
+		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()), n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 
@@ -178,6 +191,10 @@ public class Notifications {
                                          @FormParam("sender") int sender) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+		if(sender == recipient) return gson.toJson("Self");
+
         BookNotification bookNotifications = new BookNotification();
         bookNotifications.setRecipientUserId(recipient);
         bookNotifications.setBookId(referencedBook);
@@ -185,7 +202,6 @@ public class Notifications {
         bookNotifications.setAccepted(false);
         java.util.Date date = new java.util.Date();
         bookNotifications.setDateSend(new Timestamp(date.getTime()));
-        Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseNotifications.createBookNotification(bookNotifications));
     }
