@@ -317,6 +317,9 @@
 		
 		#featured-scroller #g-menu-toggle {
 			background-image: url("../images/folio-logo.png");
+			background-size: 130px;
+			left: 44%; top: 7rem;
+			width: 300px;
 		}
 		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
@@ -326,7 +329,7 @@
 
 			//background-color: rgba($black, 0.05);
 			display: inline-block; // block
-			padding: 5.3rem 11.25rem 5.25rem 11.25rem;
+			padding: 3.3rem 11.25rem 5.25rem 11.25rem;
 			transform: translateY(0);
 
 			-o-transform: translateY(0);
@@ -400,13 +403,13 @@
 		}
 
 		#welcoming-title {
-				width: 100%; height: 300px;
-				margin: 0; padding: 8.6rem 6rem;
+				width: 100%; height: 400px;
+				margin: 0; padding: 12.6rem 6rem;
 
 				background-image: url("../images/cover-error.jpg");
 				background-repeat: no-repeat;
 				color: $white;
-				font-size: 1rem;
+				font-size: 1.5rem;
 				font-weight: 500;
 				left: 0;
 				overflow: hidden;
@@ -671,8 +674,10 @@
 
 		.book-info, .collection-info {
 			bottom: 1rem;
-			font-size: 1.2rem;
+			font-size: 1rem;
+			font-weight: 100;
 			height: 50px;
+			opacity: 0.8;
 			padding-top: 0.5rem;
 			position: relative;
 		}
@@ -1538,6 +1543,7 @@
 }
 
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+	
 
 	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
@@ -1582,6 +1588,15 @@
 			
 		}
 		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
+			padding: 	3.3rem 6.25rem 0.25rem 6.25rem;
+		}	
+		
+		#featured-scroller #g-menu-toggle {
+			left: 41.75%; top: 7rem;
+		}
+		
 		
 		#book-cta {
 			background-image: none !important;
@@ -1598,35 +1613,6 @@
 				
 				a { border-bottom: 1px solid #191919; }
 			}
-		}
-		
-		#book-list, #library-list, #bookmark-list {
-			background-color: rgba(gray, 0.05);
-			padding: 5.2rem 1rem 1rem 1rem;
-		}
-		
-		.book, .library, .collection {
-			margin: 0 0 1.2rem 0;
-		}
-		
-		.book-title {
-			margin: 1.8rem 0 1.5rem 0; padding: 0 2rem 0 2rem;
-			font-size: 1.8rem;
-			width: 88%;
-		}
-
-		.book-info, .collection-info {
-			bottom: 1rem;
-			font-size: 1rem;
-			padding: 0 2rem;
-			position: absolute;
-			.author-name { display: block; }
-		}
-
-		.library-location {
-			left: 5% !important;
-			top: 9% !important;
-			width: 78%;
 		}
 		
 		.library {
@@ -1903,13 +1889,6 @@
 
 	.app {
 
-		.book-title {
-			font-size: 1.8rem;
-			line-height: 2.3rem;
-			margin: 2rem 0 1.5rem 0;
-			padding: 0 2rem 0 1.5rem;
-		}
-
 		#header-message {
 			font-size: 1.4rem;
 			line-height: 1.5rem;
@@ -1918,6 +1897,13 @@
 			
 			button { right: -38%; }
 		}
+		
+		#featured-scroller #g-menu-toggle { left: 39.75%; }
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
+			padding: 	3.3rem 4rem 0.25rem 4rem;
+		}	
 		
 		#featured-splash, #library-splash #user-splash {
 			#featured-info, #library-info {

@@ -221,7 +221,7 @@
 	    
 	    if ($vW < "1024") {
                 $(".book-list-wrapper").css({
-			"top": "300px",
+			"top": "400px",
 			"background-color": "white"
 		})
 		
@@ -232,6 +232,10 @@
 
             if ($vW < "321") {
                 $(".book-snippet").css("display", "block")
+		 $(".book-list-wrapper").css({
+			"top": "300px",
+			"background-color": "white"
+		})
             }
 
             $("#nav-books").addClass("current");
