@@ -191,6 +191,10 @@ public class Notifications {
                                          @FormParam("sender") int sender) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+        Gson gson = new GsonBuilder().create();
+		if(sender == recipient) return gson.toJson("Self");
+
         BookNotification bookNotifications = new BookNotification();
         bookNotifications.setRecipientUserId(recipient);
         bookNotifications.setBookId(referencedBook);
@@ -198,7 +202,6 @@ public class Notifications {
         bookNotifications.setAccepted(false);
         java.util.Date date = new java.util.Date();
         bookNotifications.setDateSend(new Timestamp(date.getTime()));
-        Gson gson = new GsonBuilder().create();
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseNotifications.createBookNotification(bookNotifications));
     }
