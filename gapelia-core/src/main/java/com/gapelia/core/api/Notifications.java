@@ -80,7 +80,14 @@ public class Notifications {
                                             @FormParam("message") String message) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+
+
+
         Gson gson = new GsonBuilder().create();
+		if(sender == recipient) return gson.toJson("Self");
+
+
         User u = SessionManager.getUserFromSessionId(sessionId);
         LibraryNotification libraryNotification = new LibraryNotification();
         libraryNotification.setBookId(bookId);
@@ -110,6 +117,9 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
+
+		if(n.getRecipientUserId() == n.getSenderUserId()) return gson.toJson("Self");
+
 		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()),n);
         return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
@@ -126,6 +136,9 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
+
+		if(n.getRecipientUserId() == n.getSenderUserId()) return gson.toJson("Self");
+
 		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()), n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
