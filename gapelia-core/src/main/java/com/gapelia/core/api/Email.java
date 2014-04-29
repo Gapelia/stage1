@@ -24,7 +24,7 @@ public class Email {
 				"/bin/sh",
 				"-c",
 				"/emailScripts/acceptanceEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
-						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"''" +n.getLibraryId() + "'"
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"' '" +n.getLibraryId() + "'"
 		};
 
 		LOG.info("Emailing Acceptance email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
@@ -68,7 +68,7 @@ public class Email {
 				"/bin/sh",
 				"-c",
 				"/emailScripts/submissionEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
-						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"''" +n.getLibraryId() + "'"
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"' '" +n.getLibraryId() + "'"
 		};
 
 		LOG.info("Emailing submission email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
