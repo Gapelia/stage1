@@ -7061,7 +7061,7 @@ a.count span.dont-move {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
   .app #explore-list {
-    padding: 5.3rem 1.25rem 1.25rem 1.25rem !important; }
+    padding: 1rem 1.25rem 1.25rem 1.25rem !important; }
   .app #book-cta {
     background-color: white !important;
     background-image: none !important;
@@ -7240,7 +7240,8 @@ a.count span.dont-move {
   .app .book .bookmark-this, .app .collection .bookmark-this, .app .library .bookmark-this {
     display: none; }
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
-    margin: 0; }
+    margin-top: 1rem;
+    bottom: 1rem; }
   .app .book .library-info, .app .book .draft-info, .app .book .featured-info, .app .collection .library-info, .app .collection .draft-info, .app .collection .featured-info, .app .library .library-info, .app .library .draft-info, .app .library .featured-info {
     padding: 0 4rem;
     top: 15%; }
@@ -7321,7 +7322,7 @@ a.count span.dont-move {
     top: initial; }
   .app .book-info, .app .collection-info {
     bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 100;
     height: 50px;
     opacity: 0.8;
@@ -7865,6 +7866,12 @@ a.count span.dont-move {
     position: relative;
     text-align: center; }
 
+  body.library #book-list {
+    top: 75px; }
+  body.library .library-list-wrapper {
+    z-index: 0;
+    top: -1rem !important; }
+
   .profile .user-avatar .avatar-wrapper {
     height: 135px;
     width: 135px; }
@@ -7965,8 +7972,7 @@ a.count span.dont-move {
     font-size: 1.8rem; }
 
   .app #g-menu-toggle {
-    color: #fcfcfc;
-    left: 0.5rem; }
+    color: #fcfcfc; }
   .app #featured-panel {
     background-color: #59b3a6;
     height: 65px; }

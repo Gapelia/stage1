@@ -338,7 +338,7 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#explore-list { padding: 5.3rem 1.25rem 1.25rem 1.25rem !important; }
+		#explore-list { padding: 1rem 1.25rem 1.25rem 1.25rem !important; }
 
 		#book-cta {
 			background-color: white !important;
@@ -558,7 +558,7 @@
 			margin: 0 0 2.5rem 0; padding: 0;
 			width: 100%; height: auto !important; 
 
-			&:last-child { margin: 0; }
+			&:last-child { margin-top: 1rem; bottom: 1rem; }
 
 			.library-info, .draft-info, .featured-info {
 				padding: 0 4rem;
@@ -1405,6 +1405,13 @@
 
 	}
 
+	///// LIBRARY /////
+	
+	body.library {
+		#book-list { top: 75px; }
+		.library-list-wrapper { z-index: 0; top: -1rem !important; }
+	}
+	
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 	
 	
@@ -1562,7 +1569,6 @@
 
 		#g-menu-toggle {
 			color: $white;
-			left: 0.5rem;
 		}
 
 		#featured-panel {

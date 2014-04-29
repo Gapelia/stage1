@@ -158,7 +158,7 @@
                             $("#featured-nav").toggle();
                         });
                         
-                        if ($vW < "321") {
+                        if ($vW < "1025") {
                         
                             $("#featured-scroller").css({"top": "70px"})
                             $(".library-list-wrapper").css({
