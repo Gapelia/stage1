@@ -110,7 +110,7 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()),n);
+		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()),n);
         return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
 
@@ -126,7 +126,7 @@ public class Notifications {
         User u = SessionManager.getUserFromSessionId(sessionId);
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
-		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getRecipientUserId()), n);
+		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()), n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 
