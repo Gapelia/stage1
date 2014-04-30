@@ -187,6 +187,7 @@ function getNotifications() {
         $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
         $("#notification-count").html($("#gpl-menu-notify li").size());
         $(".respond-submision").toggle();
+	if ($("#gpl-menu-notify li").size() == 0) { $(".notification-time span").remove();}
         loadDelete();
     }, 1500);
 }

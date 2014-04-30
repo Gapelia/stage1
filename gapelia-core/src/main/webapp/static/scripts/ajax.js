@@ -510,6 +510,7 @@ function getFeaturedBook() {
     	}
     });
 }
+
 function getLibrary() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     sessionId = readCookie("JSESSIONID");
@@ -524,11 +525,12 @@ function getLibrary() {
         },
         success: function (data) {
             library = data;
-            userName = libraryOwner.name;
+            userName = libraryOwner.displayName;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
             twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
             emailShare = 'mailto:?subject=Recommended%20Library&amp;body=This is an exceptional library you should contribute to:  ' + currentWebsite;
+	    $("#nav-books a").html(library.title + " Books");
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
@@ -537,9 +539,9 @@ function getLibrary() {
                 toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
             }
 	    if (numSubscribers in library == false) {
-		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
-		toInsert += "<h1>Edited by " + "<a>" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
 	    if (featuredBookTitle == "") {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
@@ -564,7 +566,6 @@ function getLibrary() {
         }
     });
 }
-
 function getLibraryFromLibraryId(libraryId) {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
