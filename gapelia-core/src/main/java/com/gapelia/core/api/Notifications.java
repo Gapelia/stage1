@@ -85,7 +85,7 @@ public class Notifications {
 
 
         Gson gson = new GsonBuilder().create();
-		if(sender == recipient) return gson.toJson("Self");
+
 
 
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -100,7 +100,8 @@ public class Notifications {
         libraryNotification.setDateSend(new Timestamp(date.getTime()));
         libraryNotification.setAccepted(false);
 
-		Email.sendSubmissionToLibraryEmail(QueryDatabaseUser.getUserById(recipient),libraryNotification);
+		if(sender != recipient)
+			Email.sendSubmissionToLibraryEmail(QueryDatabaseUser.getUserById(recipient),libraryNotification);
 
         return gson.toJson(QueryDatabaseNotifications.createLibraryNotification(libraryNotification));
     }
@@ -118,8 +119,8 @@ public class Notifications {
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
 
-
-		Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()),n);
+		if(n.getRecipientUserId() != n.getSenderUserId())
+			Email.sendAcceptanceToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()),n);
         return gson.toJson(QueryDatabaseNotifications.acceptLibraryNotification(notificationId,u));
     }
 
@@ -136,8 +137,8 @@ public class Notifications {
 
 		LibraryNotification n = QueryDatabaseNotifications.getLibraryNotification(notificationId);
 
-
-		Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()), n);
+		if(n.getRecipientUserId() != n.getSenderUserId())
+			Email.sendRejectionToLibraryEmail(QueryDatabaseUser.getUserById(n.getSenderUserId()), n);
         return gson.toJson(QueryDatabaseNotifications.rejectLibraryNotification(notificationId,u));
     }
 
@@ -191,6 +192,7 @@ public class Notifications {
             return APIUtil.INVALID_SESSION_ERROR_MSG;
 
         Gson gson = new GsonBuilder().create();
+		if(sender == recipient) return gson.toJson("Self");
 
         BookNotification bookNotifications = new BookNotification();
         bookNotifications.setRecipientUserId(recipient);
