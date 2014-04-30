@@ -710,8 +710,8 @@ function editLibrary() {
             library = data;
             $("#new-library-info h2").html(library.title);
             $("#new-library-info p").html(library.description);
-            $("#new-library").css("background-image", 'url(' + library.coverPhoto + ')');
-        },
+            $("#new-library").css({"background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
+	},
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
