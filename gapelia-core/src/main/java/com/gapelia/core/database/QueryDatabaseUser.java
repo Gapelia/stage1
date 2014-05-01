@@ -10,10 +10,7 @@ import org.brickred.socialauth.Profile;
 
 import javax.servlet.http.HttpSession;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class QueryDatabaseUser {
     private static Logger LOG = Logger.getLogger(QueryDatabaseUser.class);
@@ -55,8 +52,19 @@ public class QueryDatabaseUser {
 
 
 
-	public static Book getNextReadRecommendation(int userId) {
-		return getFeaturedBooks(userId).get(0);
+	public static Book getNextReadRecommendation(int userId,int bookId) {
+
+		ArrayList<Book> recommended = getFeaturedBooks(userId);
+
+		for(Book b : recommended){
+			if(b.getBookId() == bookId){
+				recommended.remove(b);
+				break;
+			}
+		}
+
+		Random r = new Random();
+		return recommended.get(r.nextInt(recommended.size()));
 	}
 
 	public static ArrayList<Book> getBooksInSubscribedLibraries(int userId) {
