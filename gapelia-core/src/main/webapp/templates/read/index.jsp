@@ -17,6 +17,7 @@
     <link href="/static/css/fluidbox.css" rel="stylesheet" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
+    <script defer src='http://www.readrboard.com/static/engage.js'></script>
     <script>
         try {
             Typekit.load();
@@ -73,6 +74,7 @@
     <script src="/static/scripts/imgLiquid.js"></script>
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/books.js"></script>
+    <script defer src='http://www.readrboard.com/static/engage.js'></script>
 
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
@@ -122,6 +124,7 @@
 	    
         }, 1000);
         addLoggedInMenu();
+	window.READRBOARDCOM.actions.reInit();
 	
     </script>
 </body>

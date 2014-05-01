@@ -49,7 +49,7 @@ var Page = (function () {
 									*/
 
             // add swipe events
-            $slides.on({
+            /*$slides.on({
                 "swipeleft": function (event) {
                     config.$bookBlock.bookblock("next");
                     return false;
@@ -59,7 +59,7 @@ var Page = (function () {
                     config.$bookBlock.bookblock("prev");
                     return false;
                 }
-            });
+            });*/
 
             // add keyboard events
             $(document).keydown(function (e) {
@@ -119,6 +119,8 @@ function loadBook() {
 
     });
     */
+    
+    //window.READRBOARDCOM.actions.reInit();
 
     $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
         $(".resize-smaller, .resize-bigger").remove();
