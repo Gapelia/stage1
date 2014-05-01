@@ -100,6 +100,8 @@ public class Notifications {
         libraryNotification.setDateSend(new Timestamp(date.getTime()));
         libraryNotification.setAccepted(false);
 
+
+
 		if(sender != recipient)
 			Email.sendSubmissionToLibraryEmail(QueryDatabaseUser.getUserById(recipient),libraryNotification);
 
