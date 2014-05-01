@@ -248,7 +248,9 @@ function getUserCreatedBooks() {
                 toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#9998;</a></div><div class=\"library-location\">"; 
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
-                toInsert += "</div></div></li>";
+                toInsert += "<div class=\"book-info\"";
+		toInsert += "<div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "</div></div></li>";
 
             }
             if (toInsert == "") {

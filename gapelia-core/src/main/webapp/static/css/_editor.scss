@@ -1298,7 +1298,7 @@
     }
 
 		.wrapper {
-      padding-top: 1.6rem !important;
+      padding-top: 5rem !important;
       text-align: center;
       width: 100%;
       
@@ -1313,7 +1313,7 @@
     }  
 	}
 
-	.button { border: none !important; }
+	//.button { border: none !important; }
   
   .close-modal {
 		top: -2.5rem; right: 0;
@@ -1333,20 +1333,24 @@
   }
   
   .add-description {
-    color: rgba(gray, 0.85);
+    color: rgba($black, 0.85);
     border-radius: 5px;
-    background: white;
-    font-size: 1rem;
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: 100;
     height: 100px;
-    line-height: 1.5rem;
+    line-height: 2rem;
     margin-bottom: 1rem;
-    padding: 8px 8px;
+    padding: 8px 2px;
     
-    &:empty:after { content: "Write a summary of your story"; }
+    &:empty:after {
+      color: rgba($black, 0.5);
+      content: "Write a summary of your story";
+    }
   }
 
-  .selectize-control { margin: 0 0 1rem 0; }
-	.multi { margin: 0 0 2rem 0; }
+  .selectize-control { margin: 0 0 1rem 0; display: none; } // tagging disabled temporarily
+	.multi { margin: 0 0 2rem 0; } 
   
   .selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1rem; }
   

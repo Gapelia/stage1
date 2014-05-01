@@ -1918,6 +1918,14 @@ ol {
   background-color: #59b3a6 !important;
   color: #fcfcfc !important; }
 
+.brand-ii {
+  background-color: transparent !important;
+  border: 1px solid #59b3a6 !important;
+  color: #59b3a6 !important; }
+.brand-ii:hover {
+  background-color: #59b3a6 !important;
+  color: #fcfcfc !important; }
+
 .brand-blue {
   background-color: #0B486B !important;
   color: #fcfcfc !important; }
@@ -5482,7 +5490,7 @@ body.library-manager #stay-right {
   font-size: 2rem;
   text-align: center; }
 .modal .wrapper .wrapper {
-  padding-top: 1.6rem !important;
+  padding-top: 5rem !important;
   text-align: center;
   width: 100%; }
 .modal .wrapper .wrapper a {
@@ -5492,8 +5500,6 @@ body.library-manager #stay-right {
   color: rgba(25, 25, 25, 0.7);
   font-size: 1.8rem;
   font-weight: 100; }
-.modal .button {
-  border: none !important; }
 .modal .close-modal {
   top: -2.5rem;
   right: 0;
@@ -5508,18 +5514,21 @@ body.library-manager #stay-right {
   line-height: 1.25;
   color: rgba(25, 25, 25, 0.8); }
 .modal .add-description {
-  color: rgba(128, 128, 128, 0.85);
+  color: rgba(25, 25, 25, 0.85);
   border-radius: 5px;
-  background: white;
-  font-size: 1rem;
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: 100;
   height: 100px;
-  line-height: 1.5rem;
+  line-height: 2rem;
   margin-bottom: 1rem;
-  padding: 8px 8px; }
+  padding: 8px 2px; }
 .modal .add-description:empty:after {
+  color: rgba(25, 25, 25, 0.5);
   content: "Write a summary of your story"; }
 .modal .selectize-control {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 1rem 0;
+  display: none; }
 .modal .multi {
   margin: 0 0 2rem 0; }
 .modal .selectize-dropdown, .modal .selectize-input, .modal .selectize-input input {

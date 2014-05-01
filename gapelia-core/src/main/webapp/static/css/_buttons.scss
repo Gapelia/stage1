@@ -147,6 +147,16 @@
 	}
 }
 
+.brand-ii {
+	background-color: transparent !important;
+	border: 1px solid $slate !important;
+	color: $slate !important;
+	&:hover {
+		background-color: $slate !important;
+		color: $white !important;
+	}
+}
+
 .brand-blue {
 	background-color: #0B486B !important;
 	color: $white !important;
