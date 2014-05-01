@@ -41,7 +41,7 @@
 
 			<h1>404 error</h1>
 			
-			<h5>Wait, what are you doing here?<a href="/">Go explore some stories!</a></h5>
+			<h5>Wait, what are you doing here?<br><a href="/">Go explore some stories!</a></h5>
 
 			<img src="/static/images/cover-error.jpg" alt=""/>
 

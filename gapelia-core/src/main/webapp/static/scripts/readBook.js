@@ -360,15 +360,17 @@ $(function () {
 
     function getReadNextBook() {
         $.ajax({
-            url: "/api/users/getCreatedBooksPublic",
+            url: "/api/users/getNextReadRecommendation",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
             type: "POST",
             async: false,
             data: {
-                userId: bookOwner.userId
+                sessionId: sessionId,
+                userId: user.userId,
+                bookId:current.bookId 
             },
             success: function (data) {
-                nextBook = data[0];
+                nextBook = data;
                 backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                 htmlToInsert += backPage;
                 $("#bb-bookblock").html(htmlToInsert);
