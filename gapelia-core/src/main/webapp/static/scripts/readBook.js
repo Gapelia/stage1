@@ -503,6 +503,7 @@ $(function () {
         }
 
     }
+    
     function fluidLayout(isFirst) {
         if(current.photoUrl ==null ||current.photoUrl=="static/images/grayBG.png") {
             htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
@@ -534,7 +535,7 @@ $(function () {
 
         htmlToInsert += "</div>";
         
-        if (isFirst == 1) {
+        if (pages.length == 1) {
         
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
         twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
