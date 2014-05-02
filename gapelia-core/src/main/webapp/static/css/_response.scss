@@ -142,6 +142,8 @@
 	
 	.full-book {
 
+		#g-menu-toggle { top: 1.25rem; }
+		
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			height: 100% !important;
@@ -152,6 +154,13 @@
 		.photo-wrapper .author-info .author-avatar { margin-left: 86%; }
 		
 		.overlay-wrapper .author-info .author-avatar { margin-left: 45%; }
+		
+		// footer //
+		
+		.fluid-wrapper .fluid-preview article {
+			#fin-next { margin-left: -2rem; }
+			#fin #credits { margin: -2.8rem 0 0 9rem; }
+		}	
 		
 		.backcover-wrapper {
 			#fin {

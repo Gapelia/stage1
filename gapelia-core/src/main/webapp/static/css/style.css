@@ -7008,6 +7008,8 @@ a.count span.dont-move {
   .profile #user-splash .user-avatar {
     top: 16%; }
 
+  .full-book #g-menu-toggle {
+    top: 1.25rem; }
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; }
   .full-book .fluid-wrapper .author-info .author-avatar {
@@ -7016,6 +7018,10 @@ a.count span.dont-move {
     margin-left: 86%; }
   .full-book .overlay-wrapper .author-info .author-avatar {
     margin-left: 45%; }
+  .full-book .fluid-wrapper .fluid-preview article #fin-next {
+    margin-left: -2rem; }
+  .full-book .fluid-wrapper .fluid-preview article #fin #credits {
+    margin: -2.8rem 0 0 9rem; }
   .full-book .backcover-wrapper #fin {
     padding: 12rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
