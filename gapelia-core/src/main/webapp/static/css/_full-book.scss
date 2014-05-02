@@ -41,15 +41,20 @@
 				position: absolute;
 				width: auto;
         
-        li a {
-          border: none;
+        li {
+          margin-bottom: 1rem;
           
-          &:hover {
-            background-color: transparent !important;
-            border: none !important;
-            color: #59B3A6 !important;
-          }
+          &:last-child { margin-bottom: 0; }
           
+          a {
+            border: none;
+            
+            &:hover {
+              background-color: transparent !important;
+              border: none !important;
+              color: #59B3A6 !important;
+            }
+          }  
         }
       }
     }

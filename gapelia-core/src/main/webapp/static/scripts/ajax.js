@@ -444,6 +444,35 @@ function getCreatedLibraries() {
     });
 }
 
+function getCreatedLibraries() {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/users/getCreatedLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+            toInsert = '';
+            for (i in libraries) {
+                library = libraries[i];
+                toInsert += "<li id=\"" + library.libraryId + "\"><a >" + library.title + "</a></li>";
+            }
+	    $("#my-libraries ul").html(toInsert);
+
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
 function getSubmissionsInLibrary() {
     $.ajax({
         url: "/api/notifications/getNotificationsLibraries",

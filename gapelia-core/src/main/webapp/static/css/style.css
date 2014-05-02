@@ -6167,6 +6167,10 @@ a.count span.dont-move {
   padding: 0.5rem;
   position: absolute;
   width: auto; }
+.full-book #the-book #stay-right ul li {
+  margin-bottom: 1rem; }
+.full-book #the-book #stay-right ul li:last-child {
+  margin-bottom: 0; }
 .full-book #the-book #stay-right ul li a {
   border: none; }
 .full-book #the-book #stay-right ul li a:hover {
