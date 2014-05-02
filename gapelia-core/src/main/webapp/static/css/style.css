@@ -6353,10 +6353,62 @@ a.count span.dont-move {
   position: absolute; }
 .full-book .fluid-wrapper .fluid-preview article {
   background-color: #fcfcfc;
-  padding: 0 0 4rem 0;
+  padding: 0 0 2rem 0;
   left: 0;
   position: absolute;
   width: 100%; }
+.full-book .fluid-wrapper .fluid-preview article #fin {
+  padding-top: 2rem;
+  width: 100%; }
+.full-book .fluid-wrapper .fluid-preview article #fin #credits {
+  color: rgba(25, 25, 25, 0.8);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 100;
+  margin: -2.5rem 0 0 9rem;
+  padding-bottom: 4rem; }
+.full-book .fluid-wrapper .fluid-preview article #fin #credits #go-to-credits {
+  margin-top: 4px; }
+.full-book .fluid-wrapper .fluid-preview article #fin #credits #go-to-credits a {
+  font-style: initial;
+  opacity: 0.8;
+  text-decoration: underline; }
+.full-book .fluid-wrapper .fluid-preview article #fin figure.merci {
+  left: 46%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  right: 0;
+  width: 90px; }
+.full-book .fluid-wrapper .fluid-preview article #fin h2 {
+  display: none; }
+.full-book .fluid-wrapper .fluid-preview article #fin .share-book {
+  font-size: 1.8rem;
+  margin: -3rem 8rem 1rem 0rem;
+  text-align: right; }
+.full-book .fluid-wrapper .fluid-preview article #fin .share-book li {
+  display: inline;
+  margin: 5px; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next {
+  background-color: #fcfcfc;
+  background-image: none !important; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next .book-title {
+  top: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  text-align: center;
+  text-shadow: none; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next .book-title a {
+  color: rgba(25, 25, 25, 0.7);
+  font-weight: 500; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next .book-title:before {
+  color: rgba(25, 25, 25, 0.7);
+  content: "Read next";
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-shadow: none; }
 .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
   margin: 1rem auto 0;
   width: 60%; }
@@ -7503,6 +7555,10 @@ a.count span.dont-move {
     left: initial;
     padding: 0;
     position: relative; }
+  .full-book .fluid-wrapper .fluid-preview article #fin {
+    display: none; }
+  .full-book .fluid-wrapper .fluid-preview article #fin-next {
+    display: none; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 70%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {

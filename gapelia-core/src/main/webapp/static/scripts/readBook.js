@@ -4,9 +4,9 @@ var Page = (function () {
         $bookBlock: $("#bb-bookblock"),
         $navNext: $("#bb-nav-next"),
         $navPrev: $("#bb-nav-prev"),
-        $navFirst: $("#bb-nav-first")
-        // $navLast: $("#next-book-toggle")
-        // $navLast: $('#bb-nav-last')
+        $navFirst: $("#bb-nav-first"),
+        //$navLast: $("#go-to-credits"),
+        //$navLast: $("#go-to-credits")
     },
 
         init = function () {
@@ -41,12 +41,11 @@ var Page = (function () {
                 return false;
             });
 
-            /*
-									config.$navLast.on("click touchstart", function () {
-										config.$bookBlock.bookblock("last");
-										return false;
-									});
-									*/
+            
+	    config.$navLast.on("click touchstart", function () {
+		config.$bookBlock.bookblock("last");
+		return false;
+	    });
 
             // add swipe events
             /*$slides.on({
@@ -528,12 +527,28 @@ $(function () {
         htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
 
         htmlToInsert += "<div class=\"page-desc\">" + current.content + "";
-
+        
         if (current.file != undefined) {
             htmlToInsert += "" + current.file + "";
         }
 
         htmlToInsert += "</div>";
+        
+        if (isFirst == 1) {
+        
+        facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+        twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+        emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
+        htmlToInsert += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
+        htmlToInsert += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
+        htmlToInsert += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure><div/>";
+        htmlToInsert += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
+        htmlToInsert += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
+        htmlToInsert += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul>";
+        htmlToInsert += "<div id=\"credits\">" + current.title + "<div id=\"go-to-credits\" href=\"#\"><a>" + "Go to credits" + "<a></div></div></div><hr/>";
+        getReadNextBook();
+        
+        }
 
         htmlToInsert += "</article></div>";
         htmlToInsert += "</section>";
@@ -783,7 +798,7 @@ $(function () {
 
         $("#g-menu-toggle").after(menu);
         $("#next-book-toggle").after(share);
-
+        
         $(document).on("click", "#g-menu-toggle", function () {
 
             $("#book-menu").toggle();

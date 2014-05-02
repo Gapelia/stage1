@@ -902,6 +902,9 @@
 					left: initial;
 					padding: 0;
 					position: relative;
+					
+					#fin { display: none; }
+					#fin-next { display: none; }
 				}
 
 				.page-title-elem, .page-desc { width: 70%; }
