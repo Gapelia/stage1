@@ -42,7 +42,7 @@ var Page = (function () {
             });
 
             
-	    config.$navLast.on("click touchstart", function () {
+	    /*config.$navLast.on("click touchstart", function () {
 		config.$bookBlock.bookblock("last");
 		return false;
 	    });
