@@ -134,12 +134,6 @@
 
 	});
 	
-	setTimeout(function () {
-
-            getCreatedLibraries();
-            load();
-        }, 300);
-	
         setTimeout(function () {
         loadDelete();
             $(".fluid-wrapper").imgLiquid({
@@ -166,6 +160,8 @@
 	    
         }, 1000);
         addLoggedInMenu();
+	getCreatedLibraries();
+	load();
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>
