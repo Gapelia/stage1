@@ -6,6 +6,53 @@
 	#the-book {
 		width: 100%; height: 100%;
 		position: relative;
+    
+    #stay-right {
+      background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+      height: 75px;
+      padding: 1.3rem 1.4rem 0 0;
+      position: absolute;
+      text-align:right;
+      top: 0; right: 0;
+      width: 100%;
+      z-index: 100;
+      
+      a {
+        border: 1px solid rgba(black, 0.2);
+        color: rgba(black, 0.4);
+        border-radius: 8px;
+        padding: 6px;
+        
+        &:hover {
+          background-color: #59B3A6 !important;
+          border: 1px solid #59B3A6 !important;
+          color: white;
+          opacity: 1;
+        }
+      }
+      
+      ul {
+        display: none;
+        top: 3.5rem; right: 1rem !important;
+				background-color: white;
+				border-radius: 5px;
+				min-width: 225px;
+        padding: 0.5rem;
+				position: absolute;
+				width: auto;
+        
+        li a {
+          border: none;
+          
+          &:hover {
+            background-color: transparent !important;
+            border: none !important;
+            color: #59B3A6 !important;
+          }
+          
+        }
+      }
+    }
 	}
 
 	.mp-pushed {
@@ -332,7 +379,7 @@
             position: relative;
             text-align: center;
             right: 0;
-            width: 90px;
+            width: 91px;
           }
           
           h2 { display: none; }

@@ -65,6 +65,12 @@
         <div id="the-book" class="bb-custom-wrapper">
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
+	    		<ul id="stay-right">
+			<li id="my-libraries">
+			    <a class=submission-dropdown href="#">Collect to library</a>
+				<ul></ul>
+			</li>
+		</ul>
         </div>
 
     </div>
@@ -98,6 +104,42 @@
     <script src="/static/scripts/merci.js"></script>
     
     <script>
+	
+	
+        // Click "Add my stories"
+        $("#the-book #my-libraries a").click(function (e) {
+
+		$("#my-libraries ul").toggle();
+		e.preventDefault();
+
+        });		
+	
+	
+	// submissions confirm popup
+		
+	$(document).on("click", "#stay-right ul li a", function () {
+		$("#submission-pop").css({"display": "block"});
+	});
+		
+	// Hide submission dropdown when click outisde
+
+	$(document).mouseup(function (e) {
+
+	var container = $("#stay-right ul, #submission-pop");
+
+	// if the target of the click isn't the container...
+	if (!container.is(e.target) && container.has(e.target).length === 0) {
+		container.hide(); // ... nor a descendant of the container
+	}
+
+	});
+	
+	setTimeout(function () {
+
+            getCreatedLibraries();
+            load();
+        }, 300);
+	
         setTimeout(function () {
         loadDelete();
             $(".fluid-wrapper").imgLiquid({
@@ -127,6 +169,7 @@
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>
+
 </body>
 
 </html>

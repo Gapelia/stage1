@@ -430,7 +430,8 @@ function getCreatedLibraries() {
             if (toInsert == "") {
                 toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
             }
-            $("#library-list").html(toInsert)
+            $("#library-list").html(toInsert);
+	    $("#my-libraries ul").html("<li id=\"" + library.libraryId + "\"><a >" + library.title + "</a></li>");
 
         },
         error: function (q, status, err) {
