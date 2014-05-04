@@ -1463,6 +1463,18 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     $("#my-submissions ul").hide();
 });
 
+$(document).on("click", "#my-libraries ul a", function (ev) {
+    e = $(this).closest("li");
+    libraryId = e.attr("id");
+    $(this).closest("li").remove();
+    
+     addBookToSpecificLibrary(bookId,libraryId);
+    
+    $("#my-submissions ul").hide();
+});
+
+
+
 $(document).on("click", ".approve-book-confirm button", function (ev) {
     e = $(this).closest(".approve-book-confirm");
     bookId = e.parent().attr("id")
@@ -1576,6 +1588,30 @@ function addBookToLibrary(bookId) {
         }
     });
 }
+
+
+function addBookToSpecificLibrary(bookId,libraryId) {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/libraries/addBookToLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            bookId: bookId,
+            libraryId: libraryId
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
+}
+
+
+
+
 $(document).on("click", ".deny-book-confirm button", function (ev) {
     e = $(this).closest(".deny-book-confirm");
     senderId = e.parent().attr("booksuser");
