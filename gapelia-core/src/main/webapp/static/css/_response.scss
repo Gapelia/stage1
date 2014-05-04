@@ -140,6 +140,8 @@
 	
 	///FULL BOOK///
 	
+	.g-body hr { margin: 6rem auto 20px auto; }
+	
 	.full-book {
 
 		#g-menu-toggle { top: 1.25rem; }
@@ -158,8 +160,16 @@
 		// footer //
 		
 		.fluid-wrapper .fluid-preview article {
-			#fin-next { margin-left: -2rem; }
-			#fin #credits { margin: -2.8rem 0 0 9rem; }
+			#fin-next {
+				margin-left: -2rem;
+				
+				.book-title { right: 8rem; }
+			}
+			
+			#fin {
+				#credits { margin: -2.8rem 0 0 9rem; }
+				figure.merci { left: 47%; }
+			}	
 		}	
 		
 		.backcover-wrapper {
@@ -425,6 +435,7 @@
 				margin: 0; padding: 12.6rem 6rem;
 
 				background-image: url("../images/cover-error.jpg");
+				background-position: 50% 50%;
 				background-repeat: no-repeat;
 				color: $white;
 				font-size: 1.5rem;
@@ -787,6 +798,8 @@
 	
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
+	.g-body hr { display: none; }
+	
 	.full-book {
 
 		overflow-x: hidden;
