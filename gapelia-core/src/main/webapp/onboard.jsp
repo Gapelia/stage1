@@ -51,7 +51,9 @@
 			</div>
 
 			<!--/ Featured Libraries /-->
-			<div class="library-list-wrapper"></div>
+			<div class="library-list-wrapper">
+				<ul id="explore-list"></ul>
+			</div>	
 		</div>
 		<!--//main-content /-->
 
@@ -112,8 +114,9 @@
 				// Load Gapelia
 				NProgress.start();
 
-				var
-				allBooks = $("#library-list li"),		// gets all books in a section
+				
+			var
+				allBooks = $("#explore-list li"),		// gets all books in a section
 				firstBook = $(allBooks).first();		// gets first book in list
 
 				$(allBooks).not(firstBook).hide();	// hides all books in a section, except the first book
@@ -122,7 +125,7 @@
 
 					var w = 0, h = 0;
 
-					$("#library-list li").each(function () {
+					$("#explore-list li").each(function () {
 						w += $(this).outerWidth();
 						h += $(this).outerHeight();
 					});
@@ -133,16 +136,16 @@
 
 						// $("#library-list").css("width", w - 155 + "px");
 
-						$("#library-list").css("width", w + "px");
-						$("#library-list .library").css("height", $vH - 97 + "px");
+						$("#explore-list").css("width", w + "px");
+						$("#explore-list .library").css("height", $vH - 97 + "px");
 
 					} else {
 						// $("#library-list").css("height", h + 379 + "px");
 					}
 
 					// fades in the all the books after section width is added
-					$("#library-list li").fadeIn("100");
-					$("#library-list").fadeIn("100");
+					$("#explore-list li").fadeIn("1");
+					$("#explore-list").fadeIn("1");
 
 				}, 1000);
 
