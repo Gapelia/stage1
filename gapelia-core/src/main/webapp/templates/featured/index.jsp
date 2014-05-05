@@ -221,7 +221,7 @@
 	    
 	    if ($vW < "1024") {
                 $(".book-list-wrapper").css({
-			"top": "400px",
+			"top": "450px",
 			"background-color": "white"
 		})
 		

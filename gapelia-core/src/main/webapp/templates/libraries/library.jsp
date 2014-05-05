@@ -421,6 +421,8 @@
                 $(document).on("click", "#g-menu-toggle", function () {
                     $("#featured-nav").toggle();
                 });
+		
+		$("#close-splash").append("<div id=\"close-splash\">hahaha</div>");
 
                 // Log Out
                 $("#logout").click(function (e) {

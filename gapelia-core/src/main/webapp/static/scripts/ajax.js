@@ -622,7 +622,12 @@ function getLibrary() {
 	    if (featuredBookTitle == "") {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
 	    } else {
-		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div><div id=\"close-splash\">OPEN LIBRARY</div>";
+		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div>";
+	    }
+	    if ($vW > "1024") {
+		toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
+	    } else {
+		toInsert += "<div id=\"close-splash\">&#8964;</div>";
 	    }
 	    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 	    toInsert += "<div id=\"library-share\">";

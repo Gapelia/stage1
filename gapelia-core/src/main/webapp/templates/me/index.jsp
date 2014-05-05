@@ -197,7 +197,11 @@
                 stuff += "<h5 id=\"recently-published\"></h5>";
                 stuff += "<h5 id=\"contributes-to\"></h5>";
                 stuff += "</div>";
-                stuff += "<div id=\"close-splash\">See all posts</div>";
+		if ($vW > "1024") {
+			stuff += "<div id=\"close-splash\">See all posts</div>";
+		} else {
+			stuff += "<div id=\"close-splash\">^</div>";
+		}
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
