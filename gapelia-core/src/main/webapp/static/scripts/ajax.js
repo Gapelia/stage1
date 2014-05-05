@@ -475,12 +475,9 @@ function getCreatedLibrariesForBook() {
 		}
 		else{
 		        toInsert += "<li id=\"" + library.libraryId + "\"><a>" + library.title + "</a></li>";
-		}
-		
-               
+		} 
             }
 	    $("#my-libraries ul").html(toInsert);
-
         },
         error: function (q, status, err) {
             if (status == "timeout") {

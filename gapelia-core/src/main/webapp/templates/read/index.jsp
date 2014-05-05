@@ -65,12 +65,13 @@
         <div id="the-book" class="bb-custom-wrapper">
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
-	    		<ul id="stay-right">
+	    	<ul id="stay-right">
 			<li id="my-libraries">
 			    <a class=submission-dropdown href="#">Collect to library</a>
 				<ul></ul>
 			</li>
 		</ul>
+		"<ul id="collection-pop" style="display: none;"><p>Story added to collection<p/></ul>";
         </div>
 
     </div>
@@ -111,7 +112,7 @@
     <script>
 	
 	
-        // Click "Add my stories"
+        // Click "Collect to Libraries"
         $("#the-book #my-libraries a").click(function (e) {
 
 		$("#my-libraries ul").toggle();
@@ -122,15 +123,19 @@
 	
 	// submissions confirm popup
 		
-	$(document).on("click", "#stay-right ul li a", function () {
-		$("#submission-pop").css({"display": "block"});
-	});
+	$(document).on("click", "#my-libraries ul a", function () {
+		$("#collection-pop").css({"display": "block"});
 		
+		setTimeout(function() {
+		$("#collection-pop").fadeOut("slow");
+		}, 2500);
+	});
+	
 	// Hide submission dropdown when click outisde
 
 	$(document).mouseup(function (e) {
 
-	var container = $("#stay-right ul, #submission-pop");
+	var container = $("#my-libraries ul, #collection-pop");
 
 	// if the target of the click isn't the container...
 	if (!container.is(e.target) && container.has(e.target).length === 0) {

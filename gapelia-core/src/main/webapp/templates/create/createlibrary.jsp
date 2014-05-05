@@ -151,7 +151,7 @@
 
 				// Click "Save" button
 				$("#confirm-create-library").click(function () {
-                    createLibrary();
+				createLibrary();
 					// Disable
 					$(".button-wrapper").css("opacity", "0").hide();
 					$("#confirm-cancel-library, #confirm-create-library").hide();
