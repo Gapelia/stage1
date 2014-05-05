@@ -471,7 +471,7 @@ function getCreatedLibrariesForBook() {
 		}
 		
 		if (doesContain == true) {
-			toInsert += "<li id=\"" + library.libraryId + "\" style=\"opacity: 0.5;\"><a id=\"check-icon\">&#10003;<a/>" + library.title + "</li>";
+			toInsert += "<li id=\"" + library.libraryId + "\" style=\"opacity: 0.5; color: #59B3A6;\"><a id=\"check-icon\">&#10003;<a/>" + library.title + "</li>";
 		}
 		else{
 		        toInsert += "<li id=\"" + library.libraryId + "\"><a>" + library.title + "</a></li>";
@@ -623,11 +623,11 @@ function getLibrary() {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
 	    } else {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div>";
-	    }
-	    if ($vW > "1024") {
-		toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
-	    } else {
-		toInsert += "<div id=\"close-splash\">&#8964;</div>";
+		if ($vW > "1024") {
+			toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
+		} else {
+			toInsert += "<div id=\"close-splash\">&#8964;</div>";
+		}
 	    }
 	    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 	    toInsert += "<div id=\"library-share\">";
@@ -1502,10 +1502,10 @@ function getUserCreatedBooksForLibrary() {
 			else{
 				
 				if (contains(libraryBooks,book) == true) {
-					toInsert += "<li div=\"" + book.bookId + "\" style=\"opacity: 0.5;\"><a id=\"check-icon\">&#10003;<a/>" + book.title + "</li>";
+					toInsert += "<li div=\"" + book.bookId + "\" style=\"opacity: 0.7;\"><a id=\"check-icon\">&#10003;<a/>" + book.title + "</li>";
 				}
 				else{
-					toInsert += "<li id=\"" + book.bookId + "\"><a id=\"pending-icon\">&#10711;<a/>" + book.title + "</li>";
+					toInsert += "<li id=\"" + book.bookId + "\"style=\"opacity: 0.7;\"><a id=\"pending-icon\">Pending review<a/>" + book.title + "</li>";
 				}
 			}
                     }
@@ -1525,7 +1525,7 @@ function getUserCreatedBooksForLibrary() {
 $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
-    $(this).closest("li").prepend("<span id=\"pending-icon\">!<span/>");
+    $(this).closest("li").prepend("<span id=\"pending-icon\">Pending review<span/>").css("opacity", "0.7");
     if (document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
         submitToLibrary(bookId);
     } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
