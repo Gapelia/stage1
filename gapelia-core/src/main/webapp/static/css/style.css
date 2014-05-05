@@ -3314,10 +3314,6 @@ body.library #stay-right li {
   display: inline-block;
   margin: 0;
   text-align: right; }
-body.library #stay-right li a {
-  color: rgba(25, 25, 25, 0.7) !important;
-  font-weight: 100;
-  padding: 0 1rem; }
 body.library #stay-right li:first-child {
   margin: 0 1rem 0 0; }
 body.library #stay-right li ul {
@@ -3325,21 +3321,19 @@ body.library #stay-right li ul {
   right: 0rem !important;
   background-color: #fcfcfc;
   border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   display: none;
   min-width: 225px;
   position: relative;
   width: auto; }
 body.library #stay-right li ul li {
   border: 1px solid rgba(25, 25, 25, 0.05);
+  color: rgba(25, 25, 25, 0.7) !important;
   display: block;
-  padding: 0.8rem 0; }
-body.library #stay-right li ul li label, body.library #stay-right li ul li input[type="checkbox"] {
-  vertical-align: middle; }
-body.library #stay-right li ul li label {
-  color: rgba(25, 25, 25, 0.95);
-  padding: 0; }
-body.library #stay-right li ul li input[type="checkbox"] {
-  margin: 0 0 0 0.5rem; }
+  font-weight: 100;
+  padding: 0.75rem; }
+body.library #stay-right li ul li #check-icon, body.library #stay-right li ul li #pending-icon {
+  margin-right: 10px; }
 body.library #stay-right li ul li:first-child {
   margin: 0;
   padding-top: 1rem; }
@@ -6141,6 +6135,26 @@ a.count span.dont-move {
   width: 100%;
   height: 100%;
   position: relative; }
+.full-book #the-book #collection-pop {
+  background-color: #59b3a6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: none !important;
+  color: white;
+  height: 8%;
+  left: 43% !important;
+  letter-spacing: 0.015555em;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.5s ease;
+  z-index: 100 !important; }
+.full-book #the-book #collection-pop p {
+  font-size: 1rem;
+  padding: 1rem 1rem 0rem 1rem; }
+.full-book #the-book #collection-pop a {
+  display: inline !important;
+  margin: 5px;
+  text-decoration: underline; }
 .full-book #the-book #stay-right {
   height: 75px;
   padding: 1.3rem 1.4rem 0 0;
@@ -6169,18 +6183,26 @@ a.count span.dont-move {
   top: 3.5rem;
   right: 1rem !important;
   background-color: white;
+  border: 1px solid rgba(25, 25, 25, 0.1);
   border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   min-width: 225px;
-  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
   position: absolute;
   width: auto; }
 .full-book #the-book #stay-right ul li {
-  margin-bottom: 1.25rem; }
+  border-bottom: 1px solid rgba(25, 25, 25, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 100;
+  padding: 12px; }
+.full-book #the-book #stay-right ul li #check-icon {
+  margin-right: 10px; }
 .full-book #the-book #stay-right ul li:last-child {
-  margin-bottom: 0.5rem; }
+  border: 0;
+  margin-bottom: 0; }
 .full-book #the-book #stay-right ul li a {
   background-image: none;
-  border: none; }
+  border: none;
+  padding: 0; }
 .full-book #the-book #stay-right ul li a:hover {
   background-color: transparent !important;
   border: none !important;
@@ -7072,6 +7094,15 @@ a.count span.dont-move {
 
   .full-book #g-menu-toggle {
     top: 1.25rem; }
+  .full-book #the-book #collection-pop {
+    left: 46%; }
+  .full-book #the-book #collection-pop p {
+    padding: 1rem 1rem 0rem 1rem; }
+  .full-book #the-book #stay-right {
+    padding: 1.75rem 1.75rem 0 0; }
+  .full-book #the-book #stay-right ul {
+    right: 1.5rem !important;
+    top: 4rem; }
   .full-book .frontcover-wrapper, .full-book .photo-wrapper, .full-book .text-wrapper, .full-book .horizontal-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
     height: 100% !important; }
   .full-book .fluid-wrapper .author-info .author-avatar {

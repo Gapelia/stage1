@@ -146,6 +146,20 @@
 
 		#g-menu-toggle { top: 1.25rem; }
 		
+		#the-book {
+			
+			#collection-pop {
+			left: 46%;
+			
+			p { padding: 1rem 1rem 0rem 1rem; }
+			}
+			
+			#stay-right {
+				padding: 1.75rem 1.75rem 0 0;
+				
+				ul { right: 1.5rem !important; top: 4rem; }
+			}
+		}
 		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
 		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
 			height: 100% !important;

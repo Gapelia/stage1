@@ -471,7 +471,7 @@ function getCreatedLibrariesForBook() {
 		}
 		
 		if (doesContain == true) {
-			toInsert += "<li id=\"" + library.libraryId + "\"><a><span id=\"check-icon\">&#10003;<span/>" + library.title + "</a></li>";
+			toInsert += "<li id=\"" + library.libraryId + "\" style=\"opacity: 0.5;\"><a id=\"check-icon\">&#10003;<a/>" + library.title + "</li>";
 		}
 		else{
 		        toInsert += "<li id=\"" + library.libraryId + "\"><a>" + library.title + "</a></li>";
@@ -1500,10 +1500,10 @@ function getUserCreatedBooksForLibrary() {
 			else{
 				
 				if (contains(libraryBooks,book) == true) {
-					toInsert += "<li id=\"" + book.bookId + "\"><a ><span id=\"check-icon\">&#10003;<span/>" + book.title + "</a></li>";
+					toInsert += "<li div=\"" + book.bookId + "\" style=\"opacity: 0.5;\"><a id=\"check-icon\">&#10003;<a/>" + book.title + "</li>";
 				}
 				else{
-					toInsert += "<li id=\"" + book.bookId + "\"><a ><span id=\"pending-icon\">!<span/>" + book.title + "</a></li>";
+					toInsert += "<li id=\"" + book.bookId + "\"><a id=\"pending-icon\">&#10711;<a/>" + book.title + "</li>";
 				}
 			}
                     }
@@ -1535,7 +1535,7 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
 $(document).on("click", "#my-libraries ul a", function (ev) {
     e = $(this).closest("li");
     libraryId = e.attr("id");
-    $(this).closest("li").prepend("<span id=\"check-icon\">&#10003;<span/>");
+    $(this).closest("li").prepend("<span id=\"check-icon\">&#10003;<span/>").css("opacity", "0.5");
     
      addBookToSpecificLibrary(bookId,libraryId);
     

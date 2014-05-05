@@ -5,9 +5,37 @@
 
 .full-book {
 
-	#the-book {
+	// modal for collecting to library //
+  
+  #the-book {
 		width: 100%; height: 100%;
 		position: relative;
+    
+    #collection-pop {
+      background-color: $slate;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom: none !important;
+      color: white;
+      height: 8%;
+      left: 43% !important;
+      letter-spacing: 0.015555em;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.5s ease;
+      z-index: 100 !important; 
+      
+      p {
+        font-size: 1rem;
+        padding: 1rem 1rem 0rem 1rem;
+      }
+      
+      a {
+        display: inline !important;
+        margin: 5px;
+        text-decoration: underline;
+      }	
+    }
     
     #stay-right {
       height: 75px;
@@ -40,20 +68,27 @@
         display: none;
         top: 3.5rem; right: 1rem !important;
 				background-color: white;
+        border: 1px solid rgba($black, 0.1);
 				border-radius: 5px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
 				min-width: 225px;
-        padding: 0.75rem 0.5rem 0.5rem 0.5rem;
 				position: absolute;
 				width: auto;
         
         li {
-          margin-bottom: 1.25rem;
+          border-bottom: 1px solid rgba($black, 0.1);
+          color: rgba(black, 0.75);
+          font-weight: 100;
+          padding: 12px;
           
-          &:last-child { margin-bottom: 0.5rem; }
+          #check-icon { margin-right: 10px; }
+          
+          &:last-child { border: 0; margin-bottom: 0; }
           
           a {
             background-image: none;
             border: none;
+            padding: 0;
             
             &:hover {
               background-color: transparent !important;
@@ -65,6 +100,8 @@
       }
     }
 	}
+  
+  // modal for collecting to library //
 
 	.mp-pushed {
 		#g-menu-toggle {
