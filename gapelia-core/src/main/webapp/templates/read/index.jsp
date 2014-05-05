@@ -103,6 +103,11 @@
     <script src="/static/scripts/cookie.js"></script>
     <script src="/static/scripts/merci.js"></script>
     
+    
+     <script>
+				$(function () {getCreatedLibrariesForBook();});
+    </script>
+    
     <script>
 	
 	
@@ -163,6 +168,7 @@
         }, 1000);
         addLoggedInMenu();
 	getCreatedLibraries();
+	window.READRBOARDCOM.actions.reInit();
 	
     </script>
 

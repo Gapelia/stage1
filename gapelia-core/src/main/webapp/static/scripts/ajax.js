@@ -431,7 +431,6 @@ function getCreatedLibraries() {
                 toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
             }
             $("#library-list").html(toInsert);
-	    $("#my-libraries ul").html("<li id=\"" + library.libraryId + "\"><a >" + library.title + "</a></li>");
 
         },
         error: function (q, status, err) {
@@ -444,7 +443,7 @@ function getCreatedLibraries() {
     });
 }
 
-function getCreatedLibraries() {
+function getCreatedLibrariesForBook() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
         url: "/api/users/getCreatedLibraries",
@@ -458,7 +457,27 @@ function getCreatedLibraries() {
             toInsert = '';
             for (i in libraries) {
                 library = libraries[i];
-                toInsert += "<li id=\"" + library.libraryId + "\"><a >" + library.title + "</a></li>";
+		
+		containedBooks = getAlreadyAddedBookIdsInLibrary(library.libraryId);
+		
+		var doesContain = false;
+		for(b in containedBooks){
+			book = containedBooks[b];
+			console.log(book);
+			if(current.title == book.title){
+				console.log("yes");
+				 doesContain = true;
+			}
+		}
+		
+		if (doesContain == true) {
+			toInsert += "<li id=\"" + library.libraryId + "\"><a><span id=\"check-icon\">&#10003;<span/>" + library.title + "</a></li>";
+		}
+		else{
+		        toInsert += "<li id=\"" + library.libraryId + "\"><a>" + library.title + "</a></li>";
+		}
+		
+               
             }
 	    $("#my-libraries ul").html(toInsert);
 
@@ -472,6 +491,34 @@ function getCreatedLibraries() {
         }
     });
 }
+
+
+function getAlreadyAddedBookIdsInLibrary(libraryId) {
+	books = [];
+	$.ajax({
+        url: "/api/libraries/getBooksInLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            books = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+	
+	return books;
+}
+
 
 function getSubmissionsInLibrary() {
     $.ajax({
@@ -1406,6 +1453,16 @@ $(document).on("click", ".unsubscribe", function (ev) {
     });
 });
 
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+       if (a[i].title === obj.title) {
+           return true;
+       }
+    }
+    return false;
+}
+
 function getUserCreatedBooksForLibrary() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -1416,7 +1473,7 @@ function getUserCreatedBooksForLibrary() {
             sessionId: sessionId
         },
         success: function (data) {
-            books = data;
+            userCreatedBooks = data;
             toInsert = "";
             $.ajax({
                 url: "/api/notifications/getAllreadySubmitted",
@@ -1429,14 +1486,26 @@ function getUserCreatedBooksForLibrary() {
                 },
                 success: function (data) {
                     alreadyThere = {};
+		    
+		    libraryBooks = getAlreadyAddedBookIdsInLibrary(library.libraryId);
+		    
                     for (i in data) {
                         alreadyThere[data[i]] = true;
                     }
-                    for (i in books) {
-                        book = books[i];
+                    for (i in userCreatedBooks) {
+                        book = userCreatedBooks[i];
                         if (alreadyThere[book.bookId] != true) {
                             toInsert += "<li id=\"" + book.bookId + "\"><a >" + book.title + "</a></li>";
                         }
+			else{
+				
+				if (contains(libraryBooks,book) == true) {
+					toInsert += "<li id=\"" + book.bookId + "\"><a ><span id=\"check-icon\">&#10003;<span/>" + book.title + "</a></li>";
+				}
+				else{
+					toInsert += "<li id=\"" + book.bookId + "\"><a ><span id=\"pending-icon\">!<span/>" + book.title + "</a></li>";
+				}
+			}
                     }
                     $("#my-submissions ul").html(toInsert);
                 }
@@ -1454,7 +1523,7 @@ function getUserCreatedBooksForLibrary() {
 $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
-    $(this).closest("li").remove();
+    $(this).closest("li").prepend("<span id=\"pending-icon\">!<span/>");
     if (document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
         submitToLibrary(bookId);
     } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
@@ -1466,11 +1535,11 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
 $(document).on("click", "#my-libraries ul a", function (ev) {
     e = $(this).closest("li");
     libraryId = e.attr("id");
-    $(this).closest("li").remove();
+    $(this).closest("li").prepend("<span id=\"check-icon\">&#10003;<span/>");
     
      addBookToSpecificLibrary(bookId,libraryId);
     
-    $("#my-submissions ul").hide();
+    $("#my-libraries ul").hide();
 });
 
 
