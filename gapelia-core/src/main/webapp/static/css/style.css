@@ -3261,6 +3261,12 @@ body.library .book .wrapper, body.library .library .wrapper {
   width: 100%; }
 body.library #featured-nav .current {
   margin: 0.7rem 1rem 0 0; }
+body.library #featured-nav .current c {
+  font-weight: 100;
+  margin-left: 8px;
+  opacity: 0.8; }
+body.library #featured-nav .current c a {
+  margin-left: 5px; }
 body.library #featured-panel {
   overflow: initial; }
 body.library #featured-panel h4 {

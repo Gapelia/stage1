@@ -117,9 +117,7 @@
                     </script>
                 </section>
             </div>
-
-            <div id="close-splash">Continue to Library Manager</div>
-            </div>
+        </div>
             <img class="page-bg" src="/static/images/cover-bg.jpg" />
         </section>
         <!--//library-editing /-->
@@ -158,48 +156,6 @@
             // Click "Save" button
             $("#confirm-create-library").click(function () {
                 updateLibrary();
-                // Disable
-                $(".button-wrapper").css("opacity", "0").hide();
-                $("#confirm-cancel-library, #confirm-create-library").hide();
-                $("[contenteditable='true']").attr("contenteditable", "false");
-
-                // Enable
-                $("#new-library-info").css({
-                    "border-top": "1px solid #fcfcfc",
-                    "border-bottom": "1px solid #fcfcfc"
-                });
-
-                $("#new-library-info small").css("opacity", "1");
-                $("#close-splash").css("opacity", "1");
-
-                $("#confirm-edit-library").css("right", "0");
-
-            });
-
-            // Click "Edit" button
-            $("#confirm-edit-library").click(function () {
-
-                // Disable
-                $("#new-library-info small").css("opacity", "0");
-                $("#close-splash").css("opacity", "0");
-                $("#confirm-edit-library").css("right", "-10rem");
-
-                // Enable
-                $(".button-wrapper").css("opacity", "1").show();
-
-                $("#new-library-info").css({
-                    "border-top": "1px solid transparent",
-                    "border-bottom": "1px solid transparent"
-                });
-
-                $("[contenteditable='false']").attr("contenteditable", "true");
-                $("#confirm-cancel-library, #confirm-create-library").show();
-
-            });
-
-            // Close overlay and get to user's library manager
-            $(document).on("click", "#close-splash", function () {
-                window.location.href = "/librarymanager";
             });
 
             $("button.photo-picker").html("&#xf2e4;");

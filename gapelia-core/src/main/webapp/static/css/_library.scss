@@ -9,7 +9,17 @@ body.library {
 		.wrapper { width: 100%; }
 	}
 	
-	#featured-nav .current { margin: 0.7rem 1rem 0 0; }
+	#featured-nav .current {
+		margin: 0.7rem 1rem 0 0;
+		
+		c {
+			font-weight: 100;
+			margin-left: 8px;
+			opacity: 0.8;
+			
+			a { margin-left: 5px; }
+		}
+	}
 	
 	#featured-panel {
 		overflow: initial;

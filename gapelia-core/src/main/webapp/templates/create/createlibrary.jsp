@@ -116,7 +116,7 @@
 					</section>
 				</div>
 
-				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library" href="/library/202">Go to your library</a></div>
+				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
 				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
@@ -191,9 +191,9 @@
 
 				});
 
-				// Close overlay and get to user's library manager
+				// Close overlay and get to user's library managerz
 				$(document).on("click", "#close-splash", function () {
-					window.location.href = "/librarymanager";
+					window.location.href = "/library";
 				});
 
 				$("button.photo-picker").html("&#xf2e4;");

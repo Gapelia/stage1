@@ -474,7 +474,7 @@ function getCreatedLibraries() {
                 library = libraries[i];
                 toInsert += "<li id=\"" + library.libraryId + "\" class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat; class=\"library\" ><div class=\"library-buttons\">";
                 toInsert += "<a class=\"delete-this-library\">&#xf252;</a><a class=\"edit-this-library\" href=\"/editlibrary/" + library.libraryId + "\">&#9998;</a></div>";
-                toInsert += "<div class=\"library-info\"><div class=\"title\"><a href=\"/managelibrary/" + library.libraryId + "\">" + library.title + "</a></div>";
+                toInsert += "<div class=\"library-info\"><div class=\"title\"><a href=\"/library/" + library.libraryId + "\">" + library.title + "</a></div>";
                 toInsert += "<div class=\"lib-blurb\">" + library.description + "</div></div>";
                 toInsert += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
@@ -482,6 +482,7 @@ function getCreatedLibraries() {
                 toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
             }
             $("#library-list").html(toInsert);
+	    toInsert += "<div id=\"close-splash\">Your library was created! Other users can now submit stories to it.<a Id=\"go-to-library\" href=\"/library/" + library.libraryId + "\">Go to your library</a></div>";
 
         },
         error: function (q, status, err) {
@@ -652,12 +653,12 @@ function getLibrary() {
         },
         success: function (data) {
             library = data;
-            userName = libraryOwner.displayName;
+            userName = libraryOwner.fullName;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
             twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
             emailShare = 'mailto:?subject=Recommended%20Library&amp;body=This is an exceptional library you should contribute to:  ' + currentWebsite;
-	    $("#nav-books a").html(library.title + " Books");
+	    $("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
@@ -937,7 +938,7 @@ function updateLibrary() {
         },
         success: function (data) {
             console.log(data);
-            location="/managelibrary/"+libraryId;
+            location="/library/"+libraryId;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1169,7 +1170,7 @@ function getUserFromBookId(bookId) {
         },
         success: function (data) {
             bookOwner = data;
-            responseText = "<a href=\"/" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\">" + data.displayName + "</a>";
+            responseText = "<a href=\"/" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\">" + data.fullName + "</a>";
         },
         error: function (q, status, err) {
             if (status == "timeout") {
