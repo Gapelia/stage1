@@ -3368,6 +3368,8 @@ body.library #stay-right li ul li:first-child {
   padding-top: 1rem; }
 body.library #stay-right li ul li:last-child {
   padding-bottom: 1rem; }
+body.library .submission-list-wrapper .library-empty {
+  left: 6rem; }
 body.library .book-list-wrapper section {
   width: 100%;
   height: 100%;
