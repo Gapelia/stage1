@@ -511,6 +511,7 @@ $(function () {
             htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
         } else {
             htmlToInsert += "<section class=\"fluid-wrapper\">";
+            getUserFromBook(bookId)
             htmlToInsert += "<section class=\"draggable-placeholder\">";
             htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
 
@@ -572,6 +573,7 @@ $(function () {
         htmlToInsert += "<div class=\"photo-preview\">";
         htmlToInsert += "<article>";
         htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        getUserFromBook(bookId)
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
@@ -590,6 +592,7 @@ $(function () {
         htmlToInsert += "<div class=\"overlay-preview\">";
         htmlToInsert += "<article>";
         htmlToInsert += "<div class=\"page-title-elem\">" + current.title + "</div>";
+        getUserFromBook(bookId)
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
@@ -618,6 +621,7 @@ $(function () {
         htmlToInsert += "<div class=\"phototext-preview\">";
         htmlToInsert += "<article>";
         htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        getUserFromBook(bookId)
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
@@ -643,6 +647,7 @@ $(function () {
         htmlToInsert += "<div class=\"vertical-preview\">";
         htmlToInsert += "<article>";
         htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        getUserFromBook(bookId)
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
@@ -671,6 +676,7 @@ $(function () {
         htmlToInsert += "</div>";
         htmlToInsert += "<article>";
         htmlToInsert += "<h1 class=\"page-title-elem\">" + current.title + "</h1>";
+        getUserFromBook(bookId)
 
         if (isFirst == 1) {
             htmlToInsert += responseText;
