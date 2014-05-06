@@ -2251,6 +2251,9 @@ ol {
   background-color: transparent;
   box-shadow: none;
   color: transparent; }
+.mp-menu div::-webkit-scrollbar {
+  height: 0px;
+  width: 0px; }
 
 body.landing {
   text-align: center; }

@@ -321,4 +321,10 @@
 			color: transparent;
 		}
 	}
+	
+	// scrollbar inside of side menu
+	
+	div::-webkit-scrollbar {
+		height: 0px; width: 0px;
+	}
 }
