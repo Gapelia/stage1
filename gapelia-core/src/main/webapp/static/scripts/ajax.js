@@ -675,8 +675,8 @@ function getLibrary() {
 	    }
 	    else{
 			    $("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
+			    $("#nav-submissions").css("display", "none");
 	    }	    
-	    //$("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {

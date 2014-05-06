@@ -101,7 +101,7 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Library Books</a></li>
+                    <li id="nav-books" class="current"><a></a></li>
 		    <li id="nav-submissions"><a href="#">Review Submissions</a></li>
                 </ul>
             </div>
