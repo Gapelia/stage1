@@ -88,10 +88,13 @@
         			</div>
 	
 	<ul id="stay-right">
+		
 		<li id="my-submissions">
 		    <a class=submission-dropdown href="#">Add my stories</a>
                         <ul></ul>
                 </li>
+		
+	
         </ul>
 	
 	<!--/ main-content /-->
@@ -99,18 +102,17 @@
             <div id="nav-wrapper">
                 <ul id="featured-nav">
                     <li id="nav-books" class="current"><a href="#">Library Books</a></li>
+		    <li id="nav-submissions" class="current"><a href="#">Submissions</a></li>
                 </ul>
             </div>
 
             <!--/ Featured Books /-->
             <div class="book-list-wrapper">
-                <!--/
-					<section>
-						<p>No stories have been added to your library yet.<br/><br/>You can add your own stories, collect stories from others, and manage submissions once people start submitting their books to your library.</p>
-					</section>
-					/-->
-
                 <ul id="book-list"></ul>
+            </div>
+	    
+	    <div class="submission-list-wrapper">
+                <ul id="submission-list"></ul>
             </div>
         </div>
 
@@ -442,6 +444,7 @@
 
             getLibrary();
             getBooksInLibrary();
+	    getSubmissionsInLibrary();
             getUserCreatedBooksForLibrary();
             load();
         }, 300);

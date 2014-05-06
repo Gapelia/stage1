@@ -2593,6 +2593,9 @@ body.landing h1 {
   width: 500%; }
 .app .library-list-wrapper .library-empty {
   width: 176% !important; }
+.app .submission-list-wrapper .library-empty {
+  left: 21rem;
+  width: 300%; }
 .app .subscription-list-wrapper .library-empty {
   left: 8% !important; }
 .app #book-list {

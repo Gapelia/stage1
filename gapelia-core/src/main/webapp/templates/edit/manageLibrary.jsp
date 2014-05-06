@@ -71,13 +71,8 @@
         <div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-books" class="current"><a href="#">Books</a></li>
-                    <li id="nav-submissions"><a href="#">Submissions</a></li>
+                    <li id="nav-submissions" class="current"><a href="#">Submissions</a></li>
                 </ul>
-            </div>
-
-            <div class="book-list-wrapper">
-               <ul id="book-list"></ul>
             </div>
 
             <div class="submission-list-wrapper">
@@ -197,31 +192,30 @@
             $("#featured-panel, #featured-scroller").css("opacity", "0").show();
 
             var
-            allBooks = $("#book-list li"), // gets all books in a section
+            allBooks = $("#submission-list li"), // gets all books in a section
                 firstBook = $(allBooks).first(); // gets first book in list
 
             $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
 
             setTimeout(function () {
-
-                $("#book-list").hide();
+		
                 $("#submission-list").hide();
 
                 var w = 0;
 
-                $("#book-list li").each(function () {
+                $("#submission-list li").each(function () {
                     w += $(this).outerWidth();
                 });
 
                 w += 500;
 
                 if ($vW > "1024") {
-                    $("#book-list").css("width", w - 320 + "px");
+                    $("#submission-list").css("width", w - 320 + "px");
                 }
 
                 // fades in the all the books after section width is added
-                $("#book-list li").fadeIn("100");
-                $("#book-list").fadeIn("100");
+                $("#submission-list li").fadeIn("100");
+                $("#submission-list").fadeIn("100");
 
                 // "fix" featured menu pop-in
                 setTimeout(function () {
@@ -230,103 +224,10 @@
 
             }, 1000);
 
-            $("#nav-books").addClass("current");
+            $("#nav-submissions").addClass("current");
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
             NProgress.done();
-
-            // Click "Books"
-            $("#nav-books").click(function (e) {
-
-                NProgress.start();
-
-                var
-                allBooks = $("#book-list li"), // gets all books in a section
-                    firstBook = $(allBooks).first(); // gets first book in list
-
-                $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
-
-                setTimeout(function () {
-
-                    $("#submission-list").hide();
-
-                    var w = 0,
-                        h = 0;
-
-                    $("#book-list li").each(function () {
-                        w += $(this).outerWidth();
-                        h += $(this).outerHeight();
-                    });
-
-                    w += 500;
-
-                    if ($vW > "1024") {
-                        $("#book-list").css("width", w - 320 + "px");
-                    } else {
-                        // $("#book-list").css("height", h + 219 + "px");
-                    }
-
-                    // fades in the all the books after section width is added
-                    $("#book-list li").fadeIn("100");
-                    $("#book-list").fadeIn("100");
-
-                }, 1000);
-
-                e.preventDefault();
-
-                $("#nav-books").addClass("current");
-                $("#nav-submissions").removeClass("current");
-
-                NProgress.done();
-
-            });
-
-            // Click "Submissions"
-            $("#nav-submissions").click(function (e) {
-
-                NProgress.start();
-
-                var
-                allBooks = $("#submission-list li"), // gets all books in a section
-                    firstBook = $(allBooks).first(); // gets first book in list
-
-                $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
-
-                setTimeout(function () {
-
-                    $("#book-list").hide();
-                    $(".book-list-wrapper section").hide(); // need to create conditional, later
-
-                    var w = 0,
-                        h = 0;
-
-                    $("#submission-list li").each(function () {
-                        w += $(this).outerWidth();
-                        h += $(this).outerHeight();
-                    });
-
-                    w += 500;
-
-                    if ($vW > "1024") {
-                        $("#submission-list").css("width", w - 155 + "px");
-                    } else {
-                        // $("#submission-list").css("height", h + 379 + "px");
-                    }
-
-                    // fades in the all the books after section width is added
-                    $("#submission-list li").fadeIn("100");
-                    $("#submission-list").fadeIn("100");
-
-                }, 1000);
-
-                e.preventDefault();
-
-                $("#nav-books").removeClass("current");
-                $("#nav-submissions").addClass("current");
-
-                NProgress.done();
-
-            });
 
             // Dropdown menu for mobile
             if ($vW < "1025") {
