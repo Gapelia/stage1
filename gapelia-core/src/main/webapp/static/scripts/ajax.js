@@ -658,7 +658,25 @@ function getLibrary() {
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
             twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
             emailShare = 'mailto:?subject=Recommended%20Library&amp;body=This is an exceptional library you should contribute to:  ' + currentWebsite;
-	    $("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
+
+	    
+	    myLibraries = getCreatedLibrariesArray(sessionId);
+		var ownThisLibrary = false;
+    
+		for (i in myLibraries) {
+		    currentLibrary = myLibraries[i];
+		    if (currentLibrary.libraryId == library.libraryId) {
+			    ownThisLibrary = true;
+		    }
+		}
+	    
+	    if (ownThisLibrary) {
+			    $("#nav-books a").html(library.title);
+	    }
+	    else{
+			    $("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
+	    }	    
+	    //$("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
