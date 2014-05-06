@@ -153,7 +153,24 @@
 			.notif-count {
 				@include sans;
 				font-size: 0.85rem;
-				padding: 0.7rem 1.5rem;
+				padding: 0.7rem 1.1rem;
+			}
+			
+			.submission {
+				a { margin-bottom: 18px; }
+				
+				.respond-submission .a { margin-left: 1rem; }
+			}
+			
+			.vote-notification {
+				padding-top: 8px;
+				
+				img {
+					height: 40px; width: 40px;
+					border-radius: 300em;
+					display: inherit;
+					margin-bottom: 4px;
+				}
 			}
 
 			/*
@@ -202,6 +219,7 @@
 				margin: 0;
 				
 				li {
+					border-bottom: 1px solid rgba($white, 0.2);
 					font-size: 0.9rem;
 					line-height: 1.5;
 					padding: 0.7rem 1.5rem;
@@ -218,8 +236,8 @@
 
 					.remove-notification, .respond-link {
 						position: absolute;
-						right: 18px;
-						top: 1px;
+						right: 10px;
+						top: -1px;
 					}
 					
 					a {

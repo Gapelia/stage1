@@ -2162,7 +2162,19 @@ ol {
 .mp-menu ul li .notif-count {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
   font-size: 0.85rem;
-  padding: 0.7rem 1.5rem; }
+  padding: 0.7rem 1.1rem; }
+.mp-menu ul li .submission a {
+  margin-bottom: 18px; }
+.mp-menu ul li .submission .respond-submission .a {
+  margin-left: 1rem; }
+.mp-menu ul li .vote-notification {
+  padding-top: 8px; }
+.mp-menu ul li .vote-notification img {
+  height: 40px;
+  width: 40px;
+  border-radius: 300em;
+  display: inherit;
+  margin-bottom: 4px; }
 .mp-menu ul li ul {
   width: 100%;
   height: 0.001%;
@@ -2171,6 +2183,7 @@ ol {
   color: #fcfcfc;
   margin: 0; }
 .mp-menu ul li ul li {
+  border-bottom: 1px solid rgba(252, 252, 252, 0.2);
   font-size: 0.9rem;
   line-height: 1.5;
   padding: 0.7rem 1.5rem;
@@ -2183,8 +2196,8 @@ ol {
   color: #59b3a6; }
 .mp-menu ul li ul li .remove-notification, .mp-menu ul li ul li .respond-link {
   position: absolute;
-  right: 18px;
-  top: 1px; }
+  right: 10px;
+  top: -1px; }
 .mp-menu ul li ul li a {
   margin: 0;
   padding: 0;

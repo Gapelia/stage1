@@ -52,7 +52,7 @@ $.ajax({
 			    
                             sender = userFrom.displayName;
                             bookTitle = bookFromBookId.title;
-                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img src=\""+userFrom.avatarImage+"\">"+sender + " liked " + bookTitle +"</a>";
+                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
                             toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                             $("#gpl-menu-notify ul").append(toInsert);
                         }
@@ -166,9 +166,9 @@ function addSubmission(notificationId,bookId,libraryId) {
                                 //toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
 				//$(this).next(".respond-submision").toggle();
                                 toInsert += "<span class=\"respond-submission\">";
-                                toInsert += "Accept Book?";
-                                toInsert += "<button class=\"a yay-respond-link red\">&#x2713;</button>";
-                                toInsert += "<button class=\"b nay-respond-link white\">&#x2717;</button>";
+                                toInsert += "Accept Submission?";
+                                toInsert += "<button class=\"a yay-respond-link green\" style=\"margin-left: 1rem !important;\">&#x2713;</button>";
+                                toInsert += "<button class=\"b nay-respond-link red\">&#x2717;</button>";
                                 toInsert += "</span></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
                             },
