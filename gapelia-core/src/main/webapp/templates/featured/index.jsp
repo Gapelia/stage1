@@ -84,7 +84,7 @@
         <!--/ main-panel /-->
 	<div id="featured-panel">
             <button id="g-menu-toggle" class="notification-time">
-                <span id="notification-count">0</span>
+                <span id="notification-count" style="display: none;"></span>
                 <i class="ion-drag"></i>
             </button>
 

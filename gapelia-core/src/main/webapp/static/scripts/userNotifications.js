@@ -36,19 +36,23 @@ $.ajax({
             userFrom = '';
             for(i in notifications) {
                 notification = notifications[i];
+		
+		
                	$.ajax({
                         url: "/api/users/getUserPublic",
                         contentType: "application/x-www-form-urlencoded;charset=utf-8",
                         type: "POST",
+			async: false,
                         data: {
                             userId: notification.senderUserId
                         },
                         success: function (data) {
                             userFrom = data;
                             getBookFromBookId(notification.bookId);
+			    
                             sender = userFrom.displayName;
                             bookTitle = bookFromBookId.title;
-                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\">"+sender + " Has thanked you for your book " + bookTitle;
+                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img src=\""+userFrom.avatarImage+"\">"+sender + " liked " + bookTitle +"</a>";
                             toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                             $("#gpl-menu-notify ul").append(toInsert);
                         }
@@ -57,6 +61,7 @@ $.ajax({
         }
 });
 }
+
 function getLibrarySubmissions() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -75,6 +80,7 @@ function getLibrarySubmissions() {
         }
     });
 }
+
 function addAcceptedNotification(notificationId, bookId, libraryId) {
     $.ajax({
                     url: "/api/libraries/getLibrary",
@@ -97,7 +103,7 @@ function addAcceptedNotification(notificationId, bookId, libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li class=\"library-notification\" id=\""+notificationId+"\"><a href=/read/\""+bookId+"\>Congrats! \"" + book.title + " \" was accepted to the library \"" + library.title + "\"</a><a class=\"remove-notification\">&#x2717;</a></li>";
+                                toInsert = "<li class=\"library-notification\" id=\""+notificationId+"\"><a href=/library/"+libraryId+"\><b>" + book.title + "</b> was accepted to the library <b>" + library.title + "</b></a><a class=\"remove-notification\">&#x2717;</a></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
                             }
                         });
@@ -127,7 +133,7 @@ function addRejectNotification(notificationId, bookId, libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li class=\"library-notification\"  id=\""+notificationId+"\"><a>Sorry, your book\"" + book.title + " \" was not accepted to the library \"" + library.title + "\" at this time</a><a class=\"remove-notification\">&#x2717;</a></li>";
+                                toInsert = "<li class=\"library-notification\"  id=\""+notificationId+"\"><a><b>" + book.title + "</b> was not accepted to <b>" + library.title + "</b></a><a class=\"remove-notification\">&#x2717;</a></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
                             }
                         });
@@ -156,9 +162,10 @@ function addSubmission(notificationId,bookId,libraryId) {
                             },
                             success: function (data) {
                                 book = data;
-                                toInsert = "<li class=\"submission\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\">\"" + book.title + " \" was submited to your library \"" + library.title + "\"</a>";
-                                toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
-                                toInsert += "<span class=\"respond-submision\">";
+                                toInsert = "<li class=\"submission\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\"><b>" + book.title + "</b>  was submitted for consideration in <b>" + library.title + "</b></a>";
+                                //toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
+				//$(this).next(".respond-submision").toggle();
+                                toInsert += "<span class=\"respond-submission\">";
                                 toInsert += "Accept Book?";
                                 toInsert += "<button class=\"a yay-respond-link red\">&#x2713;</button>";
                                 toInsert += "<button class=\"b nay-respond-link white\">&#x2717;</button>";
@@ -182,12 +189,12 @@ function getNotifications() {
     getSubmissionsResponse();
     getBookNotifications();
     getUserDrafts();
-    setTimeout(function () {
-        loadDelete();
-        $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
-        $("#notification-count").html($("#gpl-menu-notify li").size());
-        $(".respond-submision").toggle();
-	if ($("#gpl-menu-notify li").size() == 0) { $(".notification-time span").remove();}
-        loadDelete();
-    }, 1500);
+    
+    loadDelete();
+    $("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
+    $("#notification-count").css("display", "block").html($("#gpl-menu-notify li").size());
+    $(".respond-submision").toggle();
+    if ($("#gpl-menu-notify li").size() == 0) { $(".notification-time span").css("display", "none");}
+    
+    
 }

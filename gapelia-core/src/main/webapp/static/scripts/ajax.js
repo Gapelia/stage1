@@ -40,7 +40,16 @@ function loadDelete() {
         e = $(this).closest(".remove-notification");
         notificationId = e.parent().attr("id");
         type = e.parent().attr('class');
+	
+	//remove li
         $(this).closest("li").remove();
+	
+	//update counters
+	$("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
+	
+	if ($("#gpl-menu-notify li").size() == 0)  $(".notification-time span").css("display", "none");
+	else $("#notification-count").html($("#gpl-menu-notify li").size());
+	
         if(type == "library-notification") {
             $.ajax({
                 url: "/api/notifications/removeLibraryNotification",
@@ -63,16 +72,23 @@ function loadDelete() {
             });
         }
     });
+    
     $(".respond-link").click(function (e) {
         $(this).next(".respond-submision").toggle();
         e.preventDefault();
     });
+    
     $(".nay-respond-link").click(function () {
         e = $(this).closest(".nay-respond-link");
         notificationId = e.parent().parent().attr("id");
         $(this).closest("li").remove();
         rejectBook(notificationId)
+	$("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
+	
+        if ($("#gpl-menu-notify li").size() == 0)  $(".notification-time span").css("display", "none");
+	else $("#notification-count").html($("#gpl-menu-notify li").size());
     });
+    
     $(".yay-respond-link").click(function () {
         e = $(this).closest(".yay-respond-link");
         notificationId = e.parent().parent().attr("id");
@@ -81,6 +97,12 @@ function loadDelete() {
         $(this).closest("li").remove();
         addBookToLibrary2(bookId, libraryId);
         acceptBook(notificationId);
+	
+	
+	$("#gpl-menu-notify .icon").html($("#gpl-menu-notify li").size());
+	
+	if ($("#gpl-menu-notify li").size() == 0)  $(".notification-time span").css("display", "none");
+	else $("#notification-count").html($("#gpl-menu-notify li").size());
     });
     $(".dd-link").click(function (e) {
         $(this).next(".delete-draft").toggle();
@@ -407,6 +429,35 @@ function getBooksInLibraryOwner() {
     });
 }
 
+
+function getCreatedLibrariesArray() {
+    sessionId = readCookie("JSESSIONID");
+    libraries = [];
+    $.ajax({
+        url: "/api/users/getCreatedLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+            
+
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return libraries;
+}
+
+
 function getCreatedLibraries() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -629,7 +680,25 @@ function getLibrary() {
 			toInsert += "<div id=\"close-splash\">&#8964;</div>";
 		}
 	    }
-	    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
+	    
+	    myLibraries = getCreatedLibrariesArray(sessionId);
+		var ownThisLibrary = false;
+    
+		for (i in myLibraries) {
+		    currentLibrary = myLibraries[i];
+		    if (currentLibrary.libraryId == library.libraryId) {
+			    ownThisLibrary = true;
+		    }
+		}
+	    
+	    if (ownThisLibrary) {
+			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Added to your library." + "<p/></ul>";
+
+	    }
+	    else{
+			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
+	    }
+
 	    toInsert += "<div id=\"library-share\">";
 	    toInsert += "<ul class=\"share-book\">";
 	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
@@ -1525,13 +1594,29 @@ function getUserCreatedBooksForLibrary() {
 $(document).on("click", "#my-submissions ul li a", function (ev) {
     e = $(this).closest("li");
     bookId = e.attr("id");
-    $(this).closest("li").prepend("<span id=\"pending-icon\">Pending review<span/>").css("opacity", "0.7");
-    if (document.URL.split("/")[document.URL.split("/").length - 2] == "library") {
+    
+    
+    //detect if this is the users own library
+    
+    myLibraries = getCreatedLibrariesArray(sessionId);
+    var ownThisLibrary = false;
+    
+    for (i in myLibraries) {
+	currentLibrary = myLibraries[i];
+	if (currentLibrary.libraryId == library.libraryId) {
+		ownThisLibrary = true;
+	}
+    }
+    
+    if (ownThisLibrary == false) {
+	$(this).closest("li").prepend("<span id=\"pending-icon\">Pending review<span/>").css("opacity", "0.7");
         submitToLibrary(bookId);
-    } else if (document.URL.split("/")[document.URL.split("/").length - 2] == "managelibrary") {
+	$("#my-submissions ul").hide();
+    } else{
+	$(this).closest("li").prepend("<span id=\"check-icon\">&#10003;<span/>").css("opacity", "0.7");
         addBookToLibrary(bookId);
     }
-    $("#my-submissions ul").hide();
+    
 });
 
 $(document).on("click", "#my-libraries ul a", function (ev) {

@@ -71,7 +71,7 @@
 				<ul></ul>
 			</li>
 		</ul>
-		<ul id="collection-pop" style="display: none;"><p>Story added to collection<p/></ul>
+		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
         </div>
 
     </div>
