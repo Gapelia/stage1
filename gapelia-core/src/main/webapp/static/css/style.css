@@ -2060,7 +2060,7 @@ ol {
 .super-wrapper.mp-pushed .book-info, .super-wrapper.mp-pushed .collection-info, .super-wrapper.mp-pushed .library-info, .super-wrapper.mp-pushed .new-inner-wrapper, .super-wrapper.mp-pushed .portal-info, .super-wrapper.mp-pushed canvas, .super-wrapper.mp-pushed .add-this, .super-wrapper.mp-pushed .wrapper, .super-wrapper.mp-pushed .user-avatar, .super-wrapper.mp-pushed .user-data, .super-wrapper.mp-pushed .button-wrapper, .super-wrapper.mp-pushed #the-book, .super-wrapper.mp-pushed .book-title {
   transition: all 0.2s ease;
   z-index: 0 !important; }
-.super-wrapper.mp-pushed .featured-info, .super-wrapper.mp-pushed .bookmark-this, .super-wrapper.mp-pushed #bb-nav-prev, .super-wrapper.mp-pushed #bb-nav-next, .super-wrapper.mp-pushed #header-toggle, .super-wrapper.mp-pushed #next-book-toggle {
+.super-wrapper.mp-pushed .featured-info, .super-wrapper.mp-pushed .bookmark-this, .super-wrapper.mp-pushed #bb-nav-prev, .super-wrapper.mp-pushed #bb-nav-next, .super-wrapper.mp-pushed #header-toggle {
   opacity: 0.1;
   transition: all 0.2s ease; }
 
@@ -2624,7 +2624,7 @@ body.landing h1 {
   display: inherit !important;
   margin: 0 0 0.5rem 0; }
 .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes, .app .new .book-info .num-votes, .app .draft .book-info .num-votes {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   float: right;
   position: absolute;
   right: 2rem;
@@ -6284,13 +6284,13 @@ a.count span.dont-move {
   display: block; }
 .full-book header .share-book li:last-child {
   margin: 0; }
-.full-book #g-menu-toggle, .full-book #next-book-toggle {
+.full-book #g-menu-toggle {
   color: #fcfcfc;
   padding: 0 !important;
   position: fixed;
   width: 45px;
   z-index: 103 !important; }
-.full-book #g-menu-toggle i, .full-book #next-book-toggle i {
+.full-book #g-menu-toggle i {
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important; }
 .full-book #g-menu-toggle {
   background-image: url("../images/folio-icon-solid.png") !important;
@@ -6299,8 +6299,6 @@ a.count span.dont-move {
   top: 0.5rem; }
 .full-book #g-menu-toggle i {
   text-shadow: none !important; }
-.full-book #next-book-toggle {
-  right: 1rem; }
 .full-book #header-info {
   cursor: default;
   font-size: 0.8rem;

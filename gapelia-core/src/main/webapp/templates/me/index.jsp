@@ -324,7 +324,7 @@
                 }
 
                 // User details
-                $("#splash-user-info h1, #user-header").text(user.name);
+                $("#splash-user-info h1, #user-header").text(user.fullName);
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 

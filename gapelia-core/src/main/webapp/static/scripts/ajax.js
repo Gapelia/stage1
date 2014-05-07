@@ -977,7 +977,7 @@ function updateLibrary() {
 
 function updateUserOnboard() {
 
-    name = user.name;
+    name = user.fullName;
     email = null;
     current = user.location; // if not, redirect
     var bg = $(".account-avatar-wrapper").css("background-image");
@@ -1369,7 +1369,7 @@ function getPublicCreatedBooks() {
 
 
 function quickUpdateUser() {
-    name = user.name;
+    name = user.fullName;
     email = user.email;
     current = user.location; // if not, redirect
     avatarImage = user.avatarImage;
@@ -1393,7 +1393,7 @@ function getUserAccounts() {
         document.getElementById("user-email").value = user.email;
     }
     if (user.name != undefined && user.name != "") {
-            document.getElementById("user-name").value = user.name;
+            document.getElementById("user-name").value = user.fullName;
     }
 
     if (user.displayName != undefined && user.displayName != "") {
