@@ -174,19 +174,29 @@
 		// footer //
 		
 		.fluid-wrapper .fluid-preview article {
+			
 			#fin-next {
 				margin-left: -2rem;
 				
-				.book-title { right: 8rem; }
+				.book-title {
+					bottom: 6rem;
+					right: 8rem;
+				}
 			}
 			
 			#fin {
-				#credits { margin: -2.8rem 0 0 9rem; }
-				figure.merci { left: 47%; }
+				#credits { margin: 4rem 0 0 9rem; }
+				figure.merci {
+					left: 47%;
+					top: 15rem;
+				}
 			}	
 		}	
 		
 		.backcover-wrapper {
+			
+			hr { margin-bottom: 60px; }
+			
 			#fin {
 				padding: 12rem 10rem 0 10rem;
 				
@@ -202,7 +212,7 @@
 					line-height: 1.5;
 				}
 				
-				.share-book { margin: -4rem 0 4rem 8.5rem; }
+				.share-book { margin: 1.5rem 0 4rem 8.5rem; }
 			}	
 		}
 	}
@@ -1249,7 +1259,7 @@
 				}
 				
 				.share-book {
-					margin: -4.5rem 0 4rem 8.5rem;
+					margin: 0.5rem 0 6rem 8.5rem;
 					
 					li {
 						font-size: 1.5rem;
@@ -2200,8 +2210,6 @@
 				#author-bio-blurb { font-size: 0.9rem; }
 				
 				.author-name { display: inline !important; }
-				
-				.share-book { margin: -5.5rem 0 4rem 8.5rem; }
 			}
 			
 			#fin-next .book-title {

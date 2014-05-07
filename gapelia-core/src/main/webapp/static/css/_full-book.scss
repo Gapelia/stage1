@@ -408,7 +408,7 @@
             font-size: 1rem;
             font-style: italic;
             font-weight: 100;
-            margin: -2.5rem 0 0 9rem;
+            margin: 2.5rem 0 0 9rem;
             padding-bottom: 4rem;
             
             .author-name {
@@ -439,9 +439,9 @@
           figure.merci {
             left: 46%;
             margin: 0;
-            position: relative;
+            position: absolute;
             text-align: center;
-            right: 0;
+            right: 0; top: 13rem;
             width: 91px;
           }
           
@@ -819,13 +819,13 @@
 				top: initial; right: initial; left: initial;
 
 				margin: 0 2rem 2rem 0;
-				position: relative;
+				position: absolute;
 				width: 100px;
 			}
 
 			h2 {
 				line-height: 1.2;
-        margin: 0;
+        margin-left: 8.3rem;
         max-width: 550px;
 
 				&:before {
@@ -841,7 +841,7 @@
 
 			.share-book {
 				font-size: 1.7rem;
-        margin: -4.2rem 0 4rem 8.5rem; 
+        margin: 1.3rem 0 4rem 8.5rem;
         padding-top: 5px;
 
 				&:before {
