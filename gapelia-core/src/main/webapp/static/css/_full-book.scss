@@ -401,6 +401,7 @@
         
         #fin {
           padding-top: 2rem;
+          position: relative;
           width: 100%;
           
           #credits {
@@ -441,8 +442,10 @@
             margin: 0;
             position: absolute;
             text-align: center;
-            right: 0; top: 13rem;
+            right: 0; top: 2rem;
             width: 91px;
+            
+            .opening { margin: 0 !important; }
           }
           
           h2 { display: none; }
