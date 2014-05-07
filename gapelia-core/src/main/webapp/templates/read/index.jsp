@@ -47,8 +47,6 @@
 
         <button id="g-menu-toggle"><i class="ion-drag"></i>
         </button>
-        <button id="next-book-toggle"><i class="ion-forward"></i>
-        </button>
 
         <header>
             <div id="header-info">

@@ -173,7 +173,7 @@
 		}
 	}
 
-	#g-menu-toggle, #next-book-toggle {
+	#g-menu-toggle {
     color: $white;
 		padding: 0 !important;
 		position: fixed;
@@ -190,8 +190,6 @@
     
     i { text-shadow: none !important }
   }
-  
-	#next-book-toggle { right: 1rem; }
 
 	#header-info {
 		cursor: default;

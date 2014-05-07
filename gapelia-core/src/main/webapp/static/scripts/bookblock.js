@@ -449,11 +449,6 @@
 			// close header overlay
 			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
 
-			$(".full-book #next-book-toggle").css({
-				"opacity": "1",
-				"top": "0.5rem"
-			});
-
 			$(".full-book header").css("top", "-50rem");
 
 		},
@@ -465,11 +460,6 @@
 
 			// close header overlay
 			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
-
-			$(".full-book #next-book-toggle").css({
-				"opacity": "1",
-				"top": "0.5rem"
-			});
 
 			$(".full-book header").css("top", "-50rem");
 

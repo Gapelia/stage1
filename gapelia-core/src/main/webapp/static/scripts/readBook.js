@@ -736,7 +736,6 @@ $(function () {
     // Streamline book for mobile
     if ($vW < "1025") {
 
-        // $("#header-toggle, #next-book-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
         $("#header-toggle, #bb-nav-prev, #bb-nav-next").css("display", "none");
 
         $(".video-player-container img").hide();
@@ -805,36 +804,19 @@ $(function () {
         share += "</ul>";
 
         $("#g-menu-toggle").after(menu);
-        $("#next-book-toggle").after(share);
         
         $(document).on("click", "#g-menu-toggle", function () {
 
             $("#book-menu").toggle();
 
             if ($("#book-menu").css("display") == "block") {
-                $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
+                $("#g-menu-toggle").css("color", "#70a1b1");
             } else {
-                $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
+                $("#g-menu-toggle").css("color", "#fcfcfc");
             }
 
             if ($("#share-menu").css("display") == "block") {
                 $("#share-menu").hide();
-            }
-
-        });
-
-        $(document).on("click", "#next-book-toggle", function () {
-
-            $("#share-menu").toggle();
-
-            if ($("#share-menu").css("display") == "block") {
-                $("#g-menu-toggle, #next-book-toggle").css("color", "#70a1b1");
-            } else {
-                $("#g-menu-toggle, #next-book-toggle").css("color", "#fcfcfc");
-            }
-
-            if ($("#book-menu").css("display") == "block") {
-                $("#book-menu").hide();
             }
 
         });
