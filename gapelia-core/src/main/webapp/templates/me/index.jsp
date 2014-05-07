@@ -336,8 +336,13 @@
                     $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
                 }
 
-                $("#splash-user-bio").html(user.bio);
-
+		
+		if (user.bio == "") {
+			$("#splash-user-bio").html("Check settings and add a bio!");
+		}
+		else{
+			$("#splash-user-bio").html(user.bio);
+		}
                 // Load Gapelia
                 $(function () {
 

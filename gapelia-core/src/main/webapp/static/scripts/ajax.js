@@ -37,9 +37,9 @@ function getFullBookFromBookId(bookId) {
 
 function loadDelete() {
     $(".remove-notification").click(function () {
-        e = $(this).closest(".remove-notification");
-        notificationId = e.parent().attr("id");
-        type = e.parent().attr('class');
+        
+        notificationId = $(this).closest("li").attr('id');
+        type = $(this).closest("li").attr('class');
 	
 	//remove li
         $(this).closest("li").remove();
@@ -51,6 +51,9 @@ function loadDelete() {
 	else $("#notification-count").html($("#gpl-menu-notify li").size());
 	
         if(type == "library-notification") {
+		e = $(this).closest(".vote-notification");
+		notificationId = e.attr("id");
+		
             $.ajax({
                 url: "/api/notifications/removeLibraryNotification",
                 contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -529,6 +532,11 @@ function getCreatedLibrariesForBook() {
 		        toInsert += "<li id=\"" + library.libraryId + "\"><a>" + library.title + "</a></li>";
 		} 
             }
+	    
+	    if (libraries.length == 0) {
+			toInsert += "<li style=\"opacity: 0.7;\">You have no libraries</li>";
+	    }
+	    
 	    $("#my-libraries ul").html(toInsert);
         },
         error: function (q, status, err) {
@@ -647,6 +655,7 @@ function getLibrary() {
         url: "/api/libraries/getLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId,
             libraryId: libraryId
@@ -700,15 +709,6 @@ function getLibrary() {
 		}
 	    }
 	    
-	    myLibraries = getCreatedLibrariesArray(sessionId);
-		var ownThisLibrary = false;
-    
-		for (i in myLibraries) {
-		    currentLibrary = myLibraries[i];
-		    if (currentLibrary.libraryId == library.libraryId) {
-			    ownThisLibrary = true;
-		    }
-		}
 	    
 	    if (ownThisLibrary) {
 			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Added to your library." + "<p/></ul>";
@@ -905,6 +905,9 @@ function createLibrary() {
     });
     tags = tags.substring(0, tags.length - 1);
     sessionId = readCookie("JSESSIONID");
+    
+       
+    
     $.ajax({
         url: "/api/libraries/createLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -974,6 +977,7 @@ function updateUserOnboard() {
     email = null;
     current = user.location; // if not, redirect
     var bg = $(".account-avatar-wrapper").css("background-image");
+    
 
     if (bg == null) {
         avatarImage = user.avatarImage;
@@ -994,6 +998,11 @@ function updateUserOnboard() {
     displayName = user.displayName;
     personalWebsite = null;
     bio = $("#user-bio").html();
+    
+    if (bio == "Add your bio...") {
+	bio = "";
+    }
+    
     tags = null;
     fb = null;
     gp = null;
@@ -1314,7 +1323,7 @@ function getPublicCreatedBooks() {
         },
         success: function (data) {
             books = data;
-            toInsert = "";
+            var toInsert = "";
             for (i in books) {
                 book = books[i];
                 if (book.bookId in bookmarked == true) {
@@ -1328,12 +1337,20 @@ function getPublicCreatedBooks() {
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
                 toInsert += "</li>";
             }
+	    
+	    if (toInsert == "") {
+                (elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
+            }
+	    
             $("#user-book-list").html(toInsert);
             h = $(this).outerHeight() - 92;
             $("#user-book-list .book").css("height", h);
             if ($vW < "321") {
                 $(".book-snippet").css("display", "block")
             }
+	    
+	    
+	    
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1597,7 +1614,14 @@ function getUserCreatedBooksForLibrary() {
 				}
 			}
                     }
-                    $("#my-submissions ul").html(toInsert);
+		    
+		    
+		    if (userCreatedBooks.length == 0) {
+			toInsert += "<li style=\"opacity: 0.7;\">You have no stories</li>";
+		    }
+                
+		    $("#my-submissions ul").html(toInsert);
+		    
                 }
             });
         },
@@ -2107,7 +2131,10 @@ function getRecentlyPublished() {
         },
         success: function (data) {
             lastPublished = data;
-            if(lastPublished.title != undefined) {
+	    if (lastPublished == null) {
+		$("#recently-published").html("This user has not published anything yet.");
+	    }
+            else if(lastPublished.title != undefined) {
             	$("#recently-published").html("&#9675; Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
             }
         },

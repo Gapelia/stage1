@@ -85,7 +85,7 @@
 			<!--/ library-editing /-->
 			<section id="new-library">
 				<div class="library-controls">
-					<button id="confirm-create-library" class="outline">Create</button>
+					<button id="confirm-create-library" style="display: none;" class="outline">Create</button>
 				</div>
 
 				<div class="button-wrapper">
@@ -144,6 +144,22 @@
 			}
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
+			
+			
+			//poll until all forms are filled
+			function doPoll(){
+				title = $("#new-library-info h2").html();
+				description = $("#new-library-info p").html();
+				 bg = $("#new-library").css("background-image");
+				 coverPhoto = bg.replace("url(", "").replace(")", "");
+				if ( !(description == "" || coverPhoto.indexOf("static/images/cover-bg.jpg") != -1 || title == "")) {
+					$("#confirm-create-library").css("display", "block");
+				 }
+				 else setTimeout(doPoll,1000);
+			}
+			doPoll();
+	
+	
 
 			$(function () {
 

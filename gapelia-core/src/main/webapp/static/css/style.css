@@ -3914,8 +3914,6 @@ body.library-manager #stay-right {
   font-weight: 200;
   line-height: 2.1rem;
   text-align: center; }
-.profile #user-splash #splash-user-bio:empty:after {
-  content: "Add bio here"; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;

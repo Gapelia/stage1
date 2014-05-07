@@ -68,6 +68,7 @@ function getLibrarySubmissions() {
         url: "/api/notifications/getAllSubmissions",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId
         },
