@@ -298,8 +298,8 @@ public class QueryDatabaseLibrary {
             insert.executeUpdate();
 
 			ResultSet generatedKeys = insert.getGeneratedKeys();
-			if (null != generatedKeys && generatedKeys.next()) {
-				generated = Long.toString(generatedKeys.getLong(1));
+			if (generatedKeys.next()) {
+				generated = Integer.toString(generatedKeys.getInt(1));
 			}
 
         } catch (SQLException ex) {
