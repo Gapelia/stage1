@@ -6199,7 +6199,7 @@ a.count span.dont-move {
   text-decoration: underline; }
 .full-book #the-book #stay-right {
   height: 75px;
-  padding: 1.3rem 1.4rem 0 0;
+  padding: 1.4rem 1.25rem 0 0;
   position: absolute;
   text-align: right;
   top: 0;
@@ -6207,23 +6207,37 @@ a.count span.dont-move {
   width: 100%;
   z-index: 100; }
 .full-book #the-book #stay-right a {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
-  color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-style: italic;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2));
+  color: white;
+  border-radius: 400em;
+  border: 1px solid rgba(252, 252, 252, 0.35);
+  font-size: 1rem;
   letter-spacing: 0.5px;
-  padding: 8px; }
+  padding: 8px 11px 8px 11px; }
 .full-book #the-book #stay-right a:hover {
   background-color: #59B3A6 !important;
   background-image: none !important;
   border: 1px solid #59B3A6 !important;
   color: white;
+  border-radius: 8px;
   opacity: 1; }
+.full-book #the-book #stay-right a:hover:after {
+  content: "Collect Library";
+  margin-left: 5px; }
+.full-book #the-book #stay-right .clicked-list {
+  background-color: #59B3A6 !important;
+  background-image: none !important;
+  border: 1px solid #59B3A6 !important;
+  color: white;
+  border-radius: 8px;
+  opacity: 1; }
+.full-book #the-book #stay-right .clicked-list:after {
+  content: "Collect Library";
+  margin-left: 5px; }
 .full-book #the-book #stay-right ul {
   display: none;
-  top: 3.5rem;
-  right: 1.5rem !important;
+  top: 3.8rem;
+  right: 1.25rem !important;
   background-color: white;
   border: 1px solid rgba(25, 25, 25, 0.1);
   border-radius: 5px;
@@ -6242,14 +6256,20 @@ a.count span.dont-move {
 .full-book #the-book #stay-right ul li:last-child {
   border: 0;
   margin-bottom: 0; }
+.full-book #the-book #stay-right ul li:first-letter {
+  text-transform: uppercase; }
 .full-book #the-book #stay-right ul li a {
   background-image: none;
   border: none;
+  color: rgba(25, 25, 25, 0.8);
   padding: 0; }
 .full-book #the-book #stay-right ul li a:hover {
   background-color: transparent !important;
   border: none !important;
   color: #59B3A6 !important; }
+.full-book #the-book #stay-right ul li a:hover:after {
+  content: none;
+  margin-left: 0; }
 .full-book .mp-pushed #g-menu-toggle {
   display: none;
   z-index: 1; }

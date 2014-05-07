@@ -65,7 +65,7 @@
             </div>
 	    	<ul id="stay-right">
 			<li id="my-libraries">
-			    <a class=submission-dropdown href="#">Collect to library</a>
+			    <a class=submission-dropdown href="#">&#9733;</a>
 				<ul></ul>
 			</li>
 		</ul>
@@ -115,6 +115,9 @@
 
 		$("#my-libraries ul").toggle();
 		e.preventDefault();
+		
+		$("#stay-right .submission-dropdown").addClass("clicked-list");
+
 
         });		
 	
@@ -134,10 +137,12 @@
 	$(document).mouseup(function (e) {
 
 	var container = $("#my-libraries ul, #collection-pop");
+	var clicked = $("#stay-right .clicked-list");
 
 	// if the target of the click isn't the container...
 	if (!container.is(e.target) && container.has(e.target).length === 0) {
 		container.hide(); // ... nor a descendant of the container
+		clicked.removeClass();
 	}
 
 	});

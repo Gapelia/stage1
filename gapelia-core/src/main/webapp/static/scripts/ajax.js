@@ -669,7 +669,7 @@ function getLibrary() {
 	    bookId = featuredBookId;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-            twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+            twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
             emailShare = 'mailto:?subject=Recommended%20Library&amp;body=This is an exceptional library you should contribute to:  ' + currentWebsite;
 
 	    

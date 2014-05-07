@@ -21,9 +21,9 @@
 
 		/-->
 
-    <meta name="author" content="Gapelia" />
+    <meta name="author" content="Folio" />
     <meta name="description" content="Better stories, together." />
-    <meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension" />
+    <meta name="keywords" content="storytelling, academia, knowledge, research, writing, blogging, plublishing, stories, ideas" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />

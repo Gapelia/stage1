@@ -157,7 +157,7 @@ $(function () {
                 bookUser = data;
                 currentWebsite = document.URL;
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-                twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+                twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
                 emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
@@ -539,7 +539,7 @@ $(function () {
         if (pages.length == 1) {
         
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-        twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
+        twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
         emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
         htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
         htmlToInsert += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
@@ -792,9 +792,7 @@ $(function () {
         var currentWebsite = document.URL;
 
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-        twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
-        emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
-
+        twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
         share = "";
         share += "<ul id=\"share-menu\" style=\"display: block;\">";
 
