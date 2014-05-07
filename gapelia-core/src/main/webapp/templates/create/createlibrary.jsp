@@ -137,12 +137,12 @@
 		<script>
 			if ($vW > "1024") {
 				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
-
+				
 				$(".mp-pushed").ready(function () {
 					$("#book-scroller").css("z-index", "0");
 				});
 			}
-
+			
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("new-library"));
 			
 			
@@ -155,71 +155,69 @@
 				if ( !(description == "" || coverPhoto.indexOf("static/images/cover-bg.jpg") != -1 || title == "")) {
 					$("#confirm-create-library").css("display", "block");
 				 }
-				 else setTimeout(doPoll,1000);
+				 else {
+					$("#confirm-create-library").css("display", "none");
+					
+				}
+				setTimeout(doPoll,1000);
 			}
 			doPoll();
-	
-	
-
+			
+			//Frankie searched for library array intersection
+			function intersection(a, b)
+				{
+				  var result = new Array();
+				  while( a.length > 0 && b.length > 0 )
+				  {  
+				     if      (a[0] < b[0] ){ a.shift(); }
+				     else if (a[0] > b[0] ){ b.shift(); }
+				     else /* they're equal */
+				     {
+				       result.push(a.shift());
+				       b.shift();
+				     }
+				}
+				
+				return result;
+			}
+			
+			
+			// Events after clicking "Save" button
 			$(function () {
-
-
-
-				// Click "Save" button
-				$("#confirm-create-library").click(function () {
+				
+			$("#confirm-create-library").click(function () {
+				
+				sessionId = readCookie("JSESSIONID");
 				createLibrary();
-					// Disable
+				$("#confirm-create-library").remove();
+				
+				libraryId = getCreatedLibrariesArray()[0];
+				
+				$("#go-to-library").attr("href", "/library/"+libraryId.libraryId);
+				
+				// Disable
 					$(".button-wrapper").css("opacity", "0").hide();
-					$("#confirm-cancel-library, #confirm-create-library").hide();
+					$("#confirm-create-library").hide();
 					$("[contenteditable='true']").attr("contenteditable", "false");
-
-					// Enable
+					
+				// Enable
 					$("#new-library-info").css({
 						"border-top": "1px solid #fcfcfc",
 						"border-bottom": "1px solid #fcfcfc"
 					});
-
+					
 					$("#new-library-info small").css("opacity", "1");
 					$("#close-splash").css("opacity", "1");
-
-					$("#confirm-edit-library").css("right", "0");
-
 				});
-
-				// Click "Edit" button
-				$("#confirm-edit-library").click(function () {
-
-					// Disable
-					$("#new-library-info small").css("opacity", "0");
-					$("#close-splash").css("opacity", "0");
-					$("#confirm-edit-library").css("right", "-10rem");
-
-					// Enable
-					$(".button-wrapper").css("opacity", "1").show();
-
-					$("#new-library-info").css({
-						"border-top": "1px solid transparent",
-						"border-bottom": "1px solid transparent"
-					});
-
-					$("[contenteditable='false']").attr("contenteditable", "true");
-					$("#confirm-cancel-library, #confirm-create-library").show();
-
-				});
-
-				// Close overlay and get to user's library managerz
-				$(document).on("click", "#close-splash", function () {
-					window.location.href = "/library";
-				});
-
+				
 				$("button.photo-picker").html("&#xf2e4;");
 				$("#new-library").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
-
+				
 			});
 		</script>
 		<!--//scripts /-->
-
+		
 	</body>
-
+	
 </html>

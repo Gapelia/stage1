@@ -467,6 +467,7 @@ function getCreatedLibraries() {
         url: "/api/users/getCreatedLibraries",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId
         },
@@ -893,10 +894,10 @@ function editLibrary() {
 }
 
 function createLibrary() {
-    title = $("#new-library-info h2").html();
-    description = $("#new-library-info p").html();
-    bg = $("#new-library").css("background-image");
-    coverPhoto = bg.replace("url(", "").replace(")", "");
+    //title = $("#new-library-info h2").html();
+    //description = $("#new-library-info p").html();
+    //bg = $("#new-library").css("background-image");
+    //coverPhoto = bg.replace("url(", "").replace(")", "");
     tags = '';
     var elms = $(".selectize-input div");
     elms.each(function (i) {
@@ -904,7 +905,6 @@ function createLibrary() {
         tags += elm.html() + ",";
     });
     tags = tags.substring(0, tags.length - 1);
-    sessionId = readCookie("JSESSIONID");
     
        
     
@@ -912,6 +912,7 @@ function createLibrary() {
         url: "/api/libraries/createLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId,
             title: title,
@@ -921,6 +922,7 @@ function createLibrary() {
         },
         success: function (data) {
             console.log(data)
+	    return data;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
