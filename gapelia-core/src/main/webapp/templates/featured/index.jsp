@@ -118,7 +118,7 @@
 
             <!--/ User's Bookmarks /-->
             <div class="bookmark-list-wrapper">
-                <!--/ <ul id="bookmark-list"></ul> /-->
+                <ul id="bookmark-list"></ul>
             </div>
             <!--//User's Bookmarks /-->
         </div>

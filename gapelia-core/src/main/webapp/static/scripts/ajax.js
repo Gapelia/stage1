@@ -162,9 +162,11 @@ function getBookmarkedBooks() {
                     }
                     toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                     toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
-                    //toInsert += "<div class=\"library-location\"><a href=\"#\" style=\"display: block; width: 100%; height: 100%;\">Camp Awesome</a></div>";
-                    toInsert += "<div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div><div class=\"book-info\">";
+                    toInsert += "<div class=\"library-location\">";
+		    toInsert += getLibraryFromBook(bookmark.bookId);
+                    toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div><div class=\"book-info\">";
                     toInsert += getUserFromBookId(bookmark.bookId);
+		    toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(bookmark.bookId) + "</div>";
                     toInsert += "</div></div></li>";
                 }
 
@@ -233,8 +235,8 @@ function getFeaturedBooks() {
                 toInsert += "</div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-		        toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
-		        $("#book-list").append(toInsert);
+		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
+		$("#book-list").append(toInsert);
             }
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
