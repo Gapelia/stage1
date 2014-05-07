@@ -845,7 +845,7 @@
     #library-info {
 			border-bottom: 1px solid rgba($white, 0.5);
 			left: 20%;
-			padding: 0 !important;
+			padding: 0 0 15px 0 !important;
 			top: 45%;
 			width: 60%;
 
@@ -892,8 +892,25 @@
 		}
 
 		section {
-			font-weight: 700;
+			display: inline;
+      font-weight: 700;
 			padding: 0 0 15px 0;
+      
+      #featured-library { display: inline !important; }
+      
+      .author-name {
+        display: inline;
+        font-weight: 100;
+        font-style: italic;
+        margin-left: 8px;
+        opacity: 0.75;
+        padding-bottom: 15px;
+        
+        &:before {
+          content: "by";
+          margin-right: 5px;
+        }
+      }
 		}
 
 		button {

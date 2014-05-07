@@ -2983,7 +2983,7 @@ body.landing h1 {
 .app #library-splash #library-info {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   left: 20%;
-  padding: 0 !important;
+  padding: 0 0 15px 0 !important;
   top: 45%;
   width: 60%; }
 .app #library-splash #library-info h2 {
@@ -3017,8 +3017,21 @@ body.landing h1 {
   font-weight: 200;
   padding: 12px 0 0 0; }
 .app #library-splash section {
+  display: inline;
   font-weight: 700;
   padding: 0 0 15px 0; }
+.app #library-splash section #featured-library {
+  display: inline !important; }
+.app #library-splash section .author-name {
+  display: inline;
+  font-weight: 100;
+  font-style: italic;
+  margin-left: 8px;
+  opacity: 0.75;
+  padding-bottom: 15px; }
+.app #library-splash section .author-name:before {
+  content: "by";
+  margin-right: 5px; }
 .app #library-splash button {
   top: 0.4rem;
   right: 0;

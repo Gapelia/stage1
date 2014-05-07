@@ -666,6 +666,7 @@ function getLibrary() {
         success: function (data) {
             library = data;
             userName = libraryOwner.fullName;
+	    bookId = featuredBookId;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
             twitterShare = 'http://twitter.com/share?url=' + currentWebsite + 'is an exceptionally gratifying read on Gapelia';
@@ -704,12 +705,14 @@ function getLibrary() {
 	    if (featuredBookTitle == "") {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
 	    } else {
-		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + featuredBookTitle + "</a></section></div>";
+		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">";
+		toInsert += featuredBookTitle + getUserFromBookIdForFeaturedBook(bookId) + "</a></section></div>";
 		if ($vW > "1024") {
 			toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
 		} else {
 			toInsert += "<div id=\"close-splash\">&#8964;</div>";
 		}
+		//getUserFromBookId(bookId);
 	    }
 	    
 	    
@@ -1213,6 +1216,32 @@ function getUserFromBookId(bookId) {
     });
     return responseText;
 }
+
+function getUserFromBookIdForFeaturedBook(bookId) {
+    responseText = '';
+    $.ajax({
+        url: "/api/utils/getUserFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            bookOwner = data;
+            responseText = "<a href=\"/" + data.displayName + "\"><div class=\"author-name\">" + data.fullName + "</a>";
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return responseText;
+}
+
 function addLoggedInMenu(){
 	sessionId = readCookie("JSESSIONID");
 	if(sessionId != null) {
