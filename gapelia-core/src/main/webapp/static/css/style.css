@@ -6484,7 +6484,7 @@ a.count span.dont-move {
   position: absolute; }
 .full-book .fluid-wrapper .fluid-preview article {
   background-color: #fcfcfc;
-  padding: 0 0 2rem 0;
+  padding: 0;
   left: 0;
   position: absolute;
   width: 100%; }
@@ -6497,8 +6497,7 @@ a.count span.dont-move {
   font-size: 1rem;
   font-style: italic;
   font-weight: 100;
-  margin: 2.5rem 0 0 9rem;
-  padding-bottom: 4rem; }
+  margin: 2.5rem 0 0 9rem; }
 .full-book .fluid-wrapper .fluid-preview article #fin #credits .author-name {
   display: inline;
   margin-left: 6px;
@@ -6529,7 +6528,8 @@ a.count span.dont-move {
   display: none; }
 .full-book .fluid-wrapper .fluid-preview article #fin .share-book {
   font-size: 1.8rem;
-  margin: -3rem 0rem 1rem 9rem;
+  margin: 0.75rem 0rem 1rem -0.25rem;
+  position: relative;
   text-align: left; }
 .full-book .fluid-wrapper .fluid-preview article #fin .share-book li {
   display: inline;
@@ -6538,13 +6538,14 @@ a.count span.dont-move {
   background-color: #fcfcfc;
   background-image: none !important; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title {
-  bottom: 5rem;
-  right: 6rem;
+  bottom: 6rem;
+  left: 42%;
   font-size: 1.6rem;
   padding-bottom: 2rem;
   position: relative;
   text-align: right;
-  text-shadow: none; }
+  text-shadow: none;
+  width: 50%; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title a {
   color: rgba(25, 25, 25, 0.7);
   font-weight: 500; }

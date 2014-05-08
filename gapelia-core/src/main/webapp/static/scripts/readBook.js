@@ -157,8 +157,8 @@ $(function () {
                 bookUser = data;
                 currentWebsite = document.URL;
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-                twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
-                emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
+                twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20story%20on%20Folio&url=' + currentWebsite;
+                emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this story on Folio ' + currentWebsite;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
@@ -539,15 +539,16 @@ $(function () {
         if (pages.length == 1) {
         
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-        twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
-        emailShare = 'mailto:?subject=Recommended%20Read&amp;body=Check this out:  ' + currentWebsite;
+        twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20story%20on%20Folio&url=' + currentWebsite;
+        emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this story on Folio ' + currentWebsite;
         htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
         htmlToInsert += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
         htmlToInsert += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure><div/>";
-        htmlToInsert += "<h2>" + pages[0].title + "</h2><div id=\"credits\">" + current.title + getUserFromBookId(bookId) + "</div></div>";
+        htmlToInsert += "<h2>" + pages[0].title + "</h2><div id=\"credits\">" + current.title + getUserFromBookId(bookId);
         htmlToInsert += "<ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
         htmlToInsert += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
         htmlToInsert += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul>";
+        htmlToInsert += "</div></div>";
         htmlToInsert += "</div>";
         getReadNextBook();
         
@@ -792,7 +793,8 @@ $(function () {
         var currentWebsite = document.URL;
 
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-        twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
+        twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20story%20on%20Folio&url=' + currentWebsite;
+        emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this story on Folio ' + currentWebsite;
         share = "";
         share += "<ul id=\"share-menu\" style=\"display: block;\">";
 

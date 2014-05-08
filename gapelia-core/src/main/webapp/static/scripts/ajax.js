@@ -667,7 +667,7 @@ function getLibrary() {
 	    bookId = featuredBookId;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-            twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20library%20on%20Folio!&url=' + currentWebsite;
+            twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20library%20on%20Folio&url=' + currentWebsite;
             emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this library on Folio ' + currentWebsite;
 
 	    
