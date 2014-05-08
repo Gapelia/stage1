@@ -391,53 +391,38 @@
                         setTimeout(function () {
                             $("#user-panel, #book-scroller").css("opacity", "1");
                         }, 600);
-
-
-
-
-
- setTimeout(function () {
-  $("#book-list li").fadeIn("100");
-                                                                                    $("#book-list").fadeIn("100");
-                                                                                    if ($vW > "1024") {
-                                                                                       $(".user-book-list-wrapper").sly({
-                                                                        			horizontal: 1,
-                                                                        			itemNav: 'forceCentered',
-                                                                        			smart: 1,
-                                                                        			activateMiddle: 1,
-                                                                        			activateOn: 'click',
-                                                                        			mouseDragging: 1,
-                                                                        			touchDragging: 1,
-                                                                        			swingSpeed: 0.2,
-                                                                        			releaseSwing: 0,
-                                                                        			startAt: 0,
-                                                                        			scrollBar: $(".scrollbar"),
-                                                                        			scrollBy: 1,
-                                                                        			speed: 0.2,
-                                                                        			elasticBounds: 1,
-                                                                        			easing: 'swing',
-                                                                        			dragHandle: 1,
-                                                                        			dynamicHandle: 1,
-                                                                        			clickBar: 1,
-                                                                        			keyboardNavBy: 'items'
-
-                                                                        		});
-											}
-                        }, 1000);
-
-
-
-
-
-
-
+			
+			
+			setTimeout(function () {
+			$("#book-list li").fadeIn("100");
+			$("#book-list").fadeIn("100");
+			    if ($vW > "1024") {
+				$(".user-book-list-wrapper").sly({
+				horizontal: 1,
+				itemNav: 'forceCentered',
+				smart: 1,
+				activateMiddle: 1,
+				activateOn: 'click',
+				mouseDragging: 1,
+				touchDragging: 1,
+				swingSpeed: 0.2,
+				releaseSwing: 0,
+				startAt: 0,
+				scrollBar: $(".scrollbar"),
+				scrollBy: 1,
+				speed: 0.2,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+				keyboardNavBy: 'items'
+				});
+			    }
+			}, 1000);
                     });
-
                 });
-
-
             });
-
         }
     </script>
 
