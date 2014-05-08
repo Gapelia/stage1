@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
-<link href="/static/css/slytest.css" rel="stylesheet" />
+    <link href="/static/css/slytest.css" rel="stylesheet" />
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
@@ -41,7 +41,7 @@
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
-<script src="/static/scripts/sly.js"></script>
+    <script src="/static/scripts/sly.js"></script>
     <script src="/static/scripts/nprogress.js"></script>
 
 

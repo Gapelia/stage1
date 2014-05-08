@@ -27,6 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
+    <link href="/static/css/slytest.css" rel="stylesheet" />
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
@@ -38,6 +39,7 @@
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
+    <script src="/static/scripts/sly.js"></script>
 
     <script src="/static/scripts/nprogress.js"></script>
     <script src="/static/scripts/ajax.js"></script>
@@ -107,6 +109,11 @@
             </div>
 
             <!--/ Featured Books /-->
+	    	<div class="scrollbar">
+			<div class="handle">
+				<div class="mousearea"></div>
+			</div>
+		</div>
             <div class="book-list-wrapper">
                 <ul id="book-list"></ul>
             </div>
@@ -144,8 +151,6 @@
     </script>
     	
 
-    <!--/ scripts/layout-scroller /-->
-    <script src="/static/scripts/mousewheel.js"></script>
 
     <script>
         libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
@@ -218,17 +223,6 @@
 
 		});
 		
-
-                // Controlled scrolling speed
-                $("#featured-scroller").mousewheel(function (event, delta) {
-
-                    this.scrollLeft -= (delta * 40);
-                    event.preventDefault();
-
-                });
-
-            } else {
-
                 $(function () {
 
                     // Close splash on mobile
