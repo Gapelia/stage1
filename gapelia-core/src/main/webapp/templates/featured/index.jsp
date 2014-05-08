@@ -27,6 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
+<link href="/static/css/slytest.css" rel="stylesheet" />
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
@@ -36,16 +37,23 @@
         } catch (e) {}
     </script>
 
+
+
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
-
+<script src="/static/scripts/sly.js"></script>
     <script src="/static/scripts/nprogress.js"></script>
+
+
+
 
 </head>
 
 <!--/ <body class="app profile"> /-->
 
 <body class="app">
+
+
 
     <div id="mp-pusher" class="super-wrapper">
 
@@ -109,6 +117,12 @@
                 </ul>
             </div>
 
+
+		<div class="scrollbar">
+			<div class="handle">
+				<div class="mousearea"></div>
+			</div>
+		</div>
             <!--/ Featured Books /-->
             <div class="book-list-wrapper">
                 <ul id="book-list"></ul>
@@ -137,8 +151,6 @@
     <script src="/static/scripts/mlpushmenu.js"></script>
 
     <!--/ scripts/layout-scroller /-->
-    <script src="/static/scripts/mousewheel.js"></script>
-    <script src="/static/scripts/scroll.js"></script>
 
     <script>
         if ($vW > "1024") {
@@ -171,15 +183,27 @@
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             if ($vW > "1024") {
-                // Scrolling on desktop
-                $("#featured-scroller").mousewheel(function (event, delta) {
+               $(".book-list-wrapper").sly({
+			horizontal: 1,
+			itemNav: 'forceCentered',
+			smart: 1,
+			activateMiddle: 1,
+			activateOn: 'click',
+			mouseDragging: 1,
+			touchDragging: 1,
+			swingSpeed: 1,
+			releaseSwing: 0,
+			startAt: 3,
+			scrollBar: $(".scrollbar"),
+			scrollBy: 1,
+			speed: 1,
+			elasticBounds: 1,
+			easing: 'swing',
+			dragHandle: 1,
+			dynamicHandle: 1,
+			clickBar: 1,
 
-                    $("#featured-scroller").stop().animate({
-                        scrollLeft: "-=" + (75 * delta) + "px"
-                    }, "150", "easeOutCubic");
-
-                });
-
+		});
             }
 
             // Dropdown menu for mobile
@@ -334,6 +358,10 @@
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();
+
+		
+
+
             });
         }
     </script>
