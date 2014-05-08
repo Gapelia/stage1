@@ -910,7 +910,7 @@
 				}
 			}
 
-			section { margin: 0 0 5rem 0; }
+			section { margin: 0 0 -1rem 0; }
 
 			.author-avatar, #library-avatar {
 				width: 90px; height: 90px;
@@ -969,8 +969,19 @@
 			}
 
 			#library-name {
-				&:before { content: "found in "; }
+				margin-left: 2rem;
+        
+        a { display: inline !important; }
+        
+        &:before { content: "in "; }
 			}
+      
+      #library-avatar {
+        border-radius: 5px;
+        margin-left: 0.7rem;
+        
+        &:after { box-shadow: none; }
+      }
 
 			#author-bio-blurb, #library-info-blurb {
 				font-size: 1.2rem;
@@ -979,6 +990,8 @@
 			}
       
       #author-bio-blurb { font-weight: 100; }
+      
+      #library-info-blurb { margin-left: 8.5rem; font-weight: 100;  }
 		}
 
 		#fin-next {

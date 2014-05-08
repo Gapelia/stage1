@@ -6847,7 +6847,7 @@ a.count span.dont-move {
 .full-book .backcover-wrapper #fin .share-book li:last-child:after {
   content: ""; }
 .full-book .backcover-wrapper #fin section {
-  margin: 0 0 5rem 0; }
+  margin: 0 0 -1rem 0; }
 .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin #library-avatar {
   width: 90px;
   height: 90px;
@@ -6891,13 +6891,25 @@ a.count span.dont-move {
 .full-book .backcover-wrapper #fin .author-name:before {
   content: "by ";
   display: none; }
+.full-book .backcover-wrapper #fin #library-name {
+  margin-left: 2rem; }
+.full-book .backcover-wrapper #fin #library-name a {
+  display: inline !important; }
 .full-book .backcover-wrapper #fin #library-name:before {
-  content: "found in "; }
+  content: "in "; }
+.full-book .backcover-wrapper #fin #library-avatar {
+  border-radius: 5px;
+  margin-left: 0.7rem; }
+.full-book .backcover-wrapper #fin #library-avatar:after {
+  box-shadow: none; }
 .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
   font-size: 1.2rem;
   line-height: 1.5rem;
   margin: -3.5rem 0 0 8.5rem; }
 .full-book .backcover-wrapper #fin #author-bio-blurb {
+  font-weight: 100; }
+.full-book .backcover-wrapper #fin #library-info-blurb {
+  margin-left: 8.5rem;
   font-weight: 100; }
 .full-book .backcover-wrapper #fin-next {
   color: #fcfcfc;
