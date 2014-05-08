@@ -413,7 +413,7 @@
 				// margin: 0 0 4rem 0;
 
 				background-color: $white;
-				padding: 0 0 2rem 0;
+				padding: 0;
 				left: 0;
 				position: absolute;
 				width: 100%;
@@ -430,7 +430,6 @@
             font-style: italic;
             font-weight: 100;
             margin: 2.5rem 0 0 9rem;
-            padding-bottom: 4rem;
             
             .author-name {
               display: inline;
@@ -472,7 +471,8 @@
           
           .share-book {
             font-size: 1.8rem;
-            margin: -3rem 0rem 1rem 9rem;
+            margin: 0.75rem 0rem 1rem -0.25rem;
+            position: relative;
             text-align: left;
             
             li {
@@ -487,12 +487,13 @@
           background-image: none !important;
           
           .book-title {
-            bottom: 5rem; right: 6rem;
+            bottom: 6rem; left: 42%;
             font-size: 1.6rem;
             padding-bottom: 2rem;
             position: relative;
             text-align: right;
             text-shadow: none;
+            width: 50%;
             
             a {
               color: rgba($black, 0.7);

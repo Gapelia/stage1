@@ -6484,7 +6484,7 @@ a.count span.dont-move {
   position: absolute; }
 .full-book .fluid-wrapper .fluid-preview article {
   background-color: #fcfcfc;
-  padding: 0 0 2rem 0;
+  padding: 0;
   left: 0;
   position: absolute;
   width: 100%; }
@@ -6497,8 +6497,7 @@ a.count span.dont-move {
   font-size: 1rem;
   font-style: italic;
   font-weight: 100;
-  margin: 2.5rem 0 0 9rem;
-  padding-bottom: 4rem; }
+  margin: 2.5rem 0 0 9rem; }
 .full-book .fluid-wrapper .fluid-preview article #fin #credits .author-name {
   display: inline;
   margin-left: 6px;
@@ -6529,7 +6528,8 @@ a.count span.dont-move {
   display: none; }
 .full-book .fluid-wrapper .fluid-preview article #fin .share-book {
   font-size: 1.8rem;
-  margin: -3rem 0rem 1rem 9rem;
+  margin: 0.75rem 0rem 1rem -0.25rem;
+  position: relative;
   text-align: left; }
 .full-book .fluid-wrapper .fluid-preview article #fin .share-book li {
   display: inline;
@@ -6538,13 +6538,14 @@ a.count span.dont-move {
   background-color: #fcfcfc;
   background-image: none !important; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title {
-  bottom: 5rem;
-  right: 6rem;
+  bottom: 6rem;
+  left: 42%;
   font-size: 1.6rem;
   padding-bottom: 2rem;
   position: relative;
   text-align: right;
-  text-shadow: none; }
+  text-shadow: none;
+  width: 50%; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title a {
   color: rgba(25, 25, 25, 0.7);
   font-weight: 500; }
@@ -7245,7 +7246,7 @@ a.count span.dont-move {
   body.landing footer {
     bottom: 2rem; }
 
-  .app .book-list-wrapper {
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper {
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -7256,7 +7257,7 @@ a.count span.dont-move {
     diplay: none; }
   .app .scrollbar .handle .mousearea {
     display: none; }
-  .app .book-list-wrapper {
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper {
     -webkit-perspective: 0px;
     -ms-perspective: 0px;
     perspective: 0px;
@@ -7264,26 +7265,26 @@ a.count span.dont-move {
     -ms-perspective-origin: none;
     perspective-origin: none;
     overflow-y: hidden; }
-  .app .book-list-wrapper ul {
+  .app .book-list-wrapper ul, .app .library-list-wrapper ul, .app .user-book-list-wrapper ul {
     -webkit-transform-style: none;
     -ms-transform-style: none;
     transform-style: none; }
-  .app .book-list-wrapper ul li {
+  .app .book-list-wrapper ul li, .app .library-list-wrapper ul li, .app .user-book-list-wrapper ul li {
     -webkit-transform: none;
     -ms-transform: none;
     transform: none;
     -webkit-transition: none;
     transition: transform none; }
-  .app .book-list-wrapper ul li.active {
+  .app .book-list-wrapper ul li.active, .app .library-list-wrapper ul li.active, .app .user-book-list-wrapper ul li.active {
     z-index: none;
     -webkit-transform: none;
     -ms-transform: none;
     transform: none; }
-  .app .book-list-wrapper ul li.active ~ li {
+  .app .book-list-wrapper ul li.active ~ li, .app .library-list-wrapper ul li.active ~ li, .app .user-book-list-wrapper ul li.active ~ li {
     -webkit-transform: none;
     -ms-transform: none;
     transform: none; }
-  .app #book-list {
+  .app #book-list, .app #library-list, .app #user-book-list {
     -webkit-transform: none !important; }
   .app .book {
     width: 700px; }
