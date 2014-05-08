@@ -85,6 +85,7 @@
         <!--/ main-panel /-->
         <div id="user-panel">
             <button id="g-menu-toggle">
+		<span id="notification-count" style="display: none;"></span>
                 <i class="ion-drag"></i>
             </button>
 

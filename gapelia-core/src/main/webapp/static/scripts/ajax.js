@@ -51,8 +51,6 @@ function loadDelete() {
 	else $("#notification-count").html($("#gpl-menu-notify li").size());
 	
         if(type == "library-notification") {
-		e = $(this).closest(".vote-notification");
-		notificationId = e.attr("id");
 		
             $.ajax({
                 url: "/api/notifications/removeLibraryNotification",
@@ -669,8 +667,8 @@ function getLibrary() {
 	    bookId = featuredBookId;
             currentWebsite = document.URL;
             facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
-            twitterShare = 'http://twitter.com/share?url=' + currentWebsite;
-            emailShare = 'mailto:?subject=Recommended%20Library&amp;body=This is an exceptional library you should contribute to:  ' + currentWebsite;
+            twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20library%20on%20Folio!&url=' + currentWebsite;
+            emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this library on Folio ' + currentWebsite;
 
 	    
 	    myLibraries = getCreatedLibrariesArray(sessionId);
@@ -1640,10 +1638,10 @@ function getUserCreatedBooksForLibrary() {
 			else{
 				
 				if (contains(libraryBooks,book) == true) {
-					toInsert += "<li div=\"" + book.bookId + "\" style=\"opacity: 0.7;\"><a id=\"check-icon\">&#10003;<a/>" + book.title + "</li>";
+					toInsert += "<li div=\"" + book.bookId + "\" style=\"opacity: 0.7;\"><span id=\"check-icon\">&#10003;</span>" + book.title + "</li>";
 				}
 				else{
-					toInsert += "<li id=\"" + book.bookId + "\"style=\"opacity: 0.7;\"><a id=\"pending-icon\">Pending review<a/>" + book.title + "</li>";
+					toInsert += "<li id=\"" + book.bookId + "\"style=\"opacity: 0.7;\"><span id=\"pending-icon\">Pending review</span>" + book.title + "</li>";
 				}
 			}
                     }
@@ -1685,11 +1683,11 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     }
     
     if (ownThisLibrary == false) {
-	$(this).closest("li").prepend("<span id=\"pending-icon\">Pending review<span/>").css("opacity", "0.7");
+	$(this).closest("li").prepend("<span id=\"pending-icon\">Pending review</span>").css("opacity", "0.7");
         submitToLibrary(bookId);
 	$("#my-submissions ul").hide();
     } else{
-	$(this).closest("li").prepend("<span id=\"check-icon\">&#10003;<span/>").css("opacity", "0.7");
+	$(this).closest("li").prepend("<span id=\"check-icon\">&#10003;</span>").css("opacity", "0.7");
         addBookToLibrary(bookId);
     }
     
