@@ -168,7 +168,11 @@ $(function () {
                 backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
                 backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section>";
                 backPage += getUserFromBookId(bookId);
-                backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section></div>";
+                backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"
+                backPage += "<section><div id=\"library-avatar\"><img src=\"" + library.coverPhoto + "\"></div>";
+                backPage += "<div id=\"library-name\"><a href=\"#\">" + getLibraryFromBook(book.bookId) + "</a></div>";
+                backPage += "<div id=\"library-info-blurb\"><a>" + library.description + "</a>";
+                backPage += "</div></section></div>";
                 getReadNextBook();
                 
                 initializeMerciObject();
