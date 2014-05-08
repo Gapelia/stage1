@@ -2498,9 +2498,6 @@ body.landing h1 {
   background-size: 44px;
   color: transparent !important;
   left: 1.3rem; }
-.app #next-book-toggle {
-  display: none !important;
-  right: 0; }
 .app #nav-wrapper {
   top: 0;
   right: 0;
@@ -2545,6 +2542,9 @@ body.landing h1 {
   border-radius: 5px; }
 .app #featured-nav #stay-right:hover a {
   color: #fcfcfc; }
+.app div::-webkit-scrollbar {
+  height: 0;
+  width: 0; }
 .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
   position: absolute;
   top: 54.5%;

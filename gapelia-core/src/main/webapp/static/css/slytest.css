@@ -1,8 +1,8 @@
 @charset "UTF-8";
 .book-list-wrapper {
 	
-    margin: 0px 10px;
-    padding: 10px 100px; //(ver,hor)
+    margin: 0;
+    padding: 0 100px;
 	overflow: hidden;
     width: 1550px;
 }
@@ -10,13 +10,13 @@
 .scrollbar {
 	margin: 0 0 1em 0;
 	height: 2px;
-	background: #ccc;
+	background: transparent;
 	line-height: 0;
 }
 .scrollbar .handle {
 	width: 100px;
 	height: 100%;
-	background: #292a33;
+	background: #59B3A6;
 	cursor: pointer;
 }
 .scrollbar .handle .mousearea {
@@ -68,13 +68,13 @@ body { background: #e8e8e8; }
 .scrollbar {
 	margin: 0 0 1em 0;
 	height: 2px;
-	background: #ccc;
+	background: transparent;
 	line-height: 0;
 }
 .scrollbar .handle {
 	width: 100px;
 	height: 100%;
-	background: #292a33;
+	background: #59B3A6;
 	cursor: pointer;
 }
 .scrollbar .handle .mousearea {
@@ -125,6 +125,8 @@ body { background: #e8e8e8; }
 .crazy ul li:nth-child(4n) { width: 400px; margin: 0 30px 0 2px; }
 
 /* Effects */
+
+
 .book-list-wrapper {
 	-webkit-perspective: 800px;
 	-ms-perspective: 800px;
@@ -140,12 +142,13 @@ body { background: #e8e8e8; }
 	transform-style: preserve-3d;
 }
 .book-list-wrapper ul li {
-	-webkit-transform: rotateY(60deg) scale(0.9);
-	-ms-transform: rotateY(60deg) scale(0.9);
-	transform: rotateY(60deg) scale(0.9);
+	-webkit-transform: rotateY(10deg) scale(0.95);
+	-ms-transform: rotateY(10deg) scale(0.95);
+	transform: rotateY(10deg) scale(0.95);
 	-webkit-transition: -webkit-transform 300ms ease-out;
 	transition: transform 300ms ease-out;
 }
+
 .book-list-wrapper ul li.active {
 	z-index: 10;
 	-webkit-transform: scale(1);
@@ -153,7 +156,7 @@ body { background: #e8e8e8; }
 	transform: scale(1);
 }
 .book-list-wrapper ul li.active ~ li {
-	-webkit-transform: rotateY(-60deg) scale(0.9);
-	-ms-transform: rotateY(-60deg) scale(0.9);
-	transform: rotateY(-60deg) scale(0.9);
+	-webkit-transform: rotateY(-10deg) scale(0.95);
+	-ms-transform: rotateY(-10deg) scale(0.95);
+	transform: rotateY(-10deg) scale(0.95);
 }

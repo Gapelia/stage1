@@ -202,7 +202,6 @@
     //&:hover { background-image: url("../images/folio-icon.png"); }
   }
 	
-  #next-book-toggle { display: none !important; right: 0; } // share button hidden, will appear in coming footer for fluid layout
 
 	#nav-wrapper {
 		top: 0; right: 0;
@@ -263,9 +262,16 @@
       }
     }
 	}
-
+  
+  // regular scroll bar hidden
+    div::-webkit-scrollbar {
+    	height: 0; width: 0;
+    }
+   ///
+  
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
 	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
+  
 		position: absolute;
 		top: 54.5%;
 		transform: translateY(-50%);
