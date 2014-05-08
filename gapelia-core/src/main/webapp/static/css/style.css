@@ -7245,6 +7245,48 @@ a.count span.dont-move {
   body.landing footer {
     bottom: 2rem; }
 
+  .app .book-list-wrapper {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    width: 100%; }
+  .app .scrollbar {
+    display: none; }
+  .app .scrollbar .handle {
+    diplay: none; }
+  .app .scrollbar .handle .mousearea {
+    display: none; }
+  .app .book-list-wrapper {
+    -webkit-perspective: 0px;
+    -ms-perspective: 0px;
+    perspective: 0px;
+    -webkit-perspective-origin: none;
+    -ms-perspective-origin: none;
+    perspective-origin: none;
+    overflow-y: hidden; }
+  .app .book-list-wrapper ul {
+    -webkit-transform-style: none;
+    -ms-transform-style: none;
+    transform-style: none; }
+  .app .book-list-wrapper ul li {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    -webkit-transition: none;
+    transition: transform none; }
+  .app .book-list-wrapper ul li.active {
+    z-index: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; }
+  .app .book-list-wrapper ul li.active ~ li {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; }
+  .app #book-list {
+    -webkit-transform: none !important; }
+  .app .book {
+    width: 700px; }
   .app .not-mobile {
     display: none; }
   .app #site-menu {
@@ -7458,7 +7500,8 @@ a.count span.dont-move {
   .app #featured-scroller #category-title {
     top: 1.8rem; }
   .app .book, .app .collection {
-    background-image: none !important; }
+    background-image: none !important;
+    width: 700px; }
   .app .book, .app .collection, .app .library {
     background-color: transparent;
     border-radius: 0 !important;

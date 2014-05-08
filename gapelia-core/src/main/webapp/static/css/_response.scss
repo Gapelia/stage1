@@ -314,7 +314,68 @@
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
-
+		
+		//fixing scrollbar for mobile//
+		
+		.book-list-wrapper {
+			margin: 0;
+			padding: 0;
+			overflow-y: scroll;
+			width: 100%;
+		}
+		
+		.scrollbar {
+			display: none;
+		}
+		.scrollbar .handle {
+			diplay: none;
+		}
+		.scrollbar .handle .mousearea {
+			display: none;
+		}
+		
+		.book-list-wrapper {
+			-webkit-perspective: 0px;
+			-ms-perspective: 0px;
+			perspective: 0px;
+			-webkit-perspective-origin: none;
+			-ms-perspective-origin: none;
+			perspective-origin: none;
+			overflow-y: hidden;
+		}
+		.book-list-wrapper ul {
+			-webkit-transform-style: none;
+			-ms-transform-style: none;
+			transform-style: none;
+		}
+		.book-list-wrapper ul li {
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+			-webkit-transition: none;
+			transition: transform none;
+		}
+		
+		.book-list-wrapper ul li.active {
+			z-index: none;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+		}
+		.book-list-wrapper ul li.active ~ li {
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+		}
+		
+		#book-list {
+			-webkit-transform: none !important;
+		}
+		
+		.book { width: 700px; }
+		
+		//fixing scrollbar for mobile//
+		
 		.not-mobile { display: none; }
 
 		#site-menu { display: none; }
@@ -585,7 +646,10 @@
 
 		/// removing cover photos and giving it a list format for mobile //
 		
-		.book, .collection { background-image: none !important; }
+		.book, .collection {
+			background-image: none !important;
+			width: 700px;
+		}
 		
 		.book, .collection, .library {
 			
