@@ -458,7 +458,7 @@
 			background-image: none !important;
 			border: none;
 			height: 100px !important;
-			padding: 0 3rem;
+			padding: 2rem 3rem;
 			text-align: center;
 
 			&:after { background: none !important; }
@@ -468,13 +468,15 @@
 			p {
 				font-size: 1.5rem;
 				font-weight: 100;
+				line-height: 2;
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
 				z-index: 1;
 
 				a {
-					border-bottom: 1px solid $black;
+					border-bottom: 1px solid rgba($slate, 0.7);
+					color: $slate;
 					display: inline !important;
 				}
 
@@ -686,7 +688,7 @@
 			margin: 0 0 2.5rem 0; padding: 0;
 			width: 100%; height: auto !important; 
 
-			&:last-child { margin-top: 1rem; bottom: 1rem; }
+			&:last-child { margin-top: 1rem; bottom: 0; padding-bottom: 1rem !important; }
 
 			.library-info, .draft-info, .featured-info {
 				padding: 0 4rem;
@@ -1765,11 +1767,10 @@
 			&:after { background: none !important; }
 			
 			p {
+				color: rgba($black, 0.8);
 				font-size: 1.4rem;
 				font-weight: 100;
-				line-height: 2.2rem;
-				
-				a { border-bottom: 1px solid #191919; }
+				line-height: 2 !important;
 			}
 		}
 		

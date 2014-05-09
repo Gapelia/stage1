@@ -7365,7 +7365,7 @@ a.count span.dont-move {
     background-image: none !important;
     border: none;
     height: 100px !important;
-    padding: 0 3rem;
+    padding: 2rem 3rem;
     text-align: center; }
   .app #book-cta:after {
     background: none !important; }
@@ -7374,6 +7374,7 @@ a.count span.dont-move {
   .app #book-cta p {
     font-size: 1.5rem;
     font-weight: 100;
+    line-height: 2;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -7383,7 +7384,8 @@ a.count span.dont-move {
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%); }
   .app #book-cta p a {
-    border-bottom: 1px solid #191919;
+    border-bottom: 1px solid rgba(89, 179, 166, 0.7);
+    color: #59b3a6;
     display: inline !important; }
   .app #featured-panel, .app #featured-scroller, .app #user-panel, .app #book-scroller {
     display: block;
@@ -7549,7 +7551,8 @@ a.count span.dont-move {
     display: none; }
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
     margin-top: 1rem;
-    bottom: 1rem; }
+    bottom: 0;
+    padding-bottom: 1rem !important; }
   .app .book .library-info, .app .book .draft-info, .app .book .featured-info, .app .collection .library-info, .app .collection .draft-info, .app .collection .featured-info, .app .library .library-info, .app .library .draft-info, .app .library .featured-info {
     padding: 0 4rem;
     top: 15%; }
@@ -8333,11 +8336,10 @@ a.count span.dont-move {
   .app #book-cta:after {
     background: none !important; }
   .app #book-cta p {
+    color: rgba(25, 25, 25, 0.8);
     font-size: 1.4rem;
     font-weight: 100;
-    line-height: 2.2rem; }
-  .app #book-cta p a {
-    border-bottom: 1px solid #191919; }
+    line-height: 2 !important; }
   .app .library .library-info .title {
     margin: 1rem 0 0.5rem 0;
     padding: 0;

@@ -9,11 +9,10 @@
 	$(function () {
 
 		// Reload Gapelia when device orientation changes
-		window.onorientationchange = function () {
+		/*window.onorientationchange = function () {
 			window.location.reload();
-		};
+		};*/
 
-		/*
 		// Reload Gapelia when browser window resizing occurs
 		$(window).resize(function () {
 			if($vW != $(window).width()) {
@@ -21,7 +20,7 @@
 				return;
 			}
 		});
-		*/
+		
 
 		$(".super-wrapper").css("height", $vH + "px");
 		$(".super-wrapper").show();
