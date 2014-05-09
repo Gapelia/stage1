@@ -80,7 +80,8 @@
 
         <!--/ main-panel /-->
         <div id="user-panel">
-            <button id="g-menu-toggle">
+            <button id="g-menu-toggle" class="notification-time">
+		<span id="notification-count" style="display: none;"></span>
                 <i class="ion-drag"></i>
             </button>
 

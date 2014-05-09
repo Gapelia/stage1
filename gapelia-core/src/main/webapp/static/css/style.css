@@ -3741,12 +3741,13 @@ body.library-manager #stay-right {
 .profile #user-panel, .profile #book-scroller {
   transition: width 0.1s ease; }
 .profile #user-panel {
-  color: rgba(25, 25, 25, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   width: 80%; }
 .profile #user-panel #g-menu-toggle {
   background-image: url("../images/folio-icon-solid.png") !important;
   color: transparent !important;
-  left: 1rem; }
+  left: 1rem;
+  width: 9.5%; }
 .profile #user-panel .button-wrapper {
   bottom: 5%;
   position: absolute;
@@ -6329,7 +6330,8 @@ a.count span.dont-move {
   background-image: url("../images/folio-icon-solid.png") !important;
   color: transparent !important;
   left: 0.5rem;
-  top: 0.5rem; }
+  top: 0.5rem;
+  width: 7.5%; }
 .full-book #g-menu-toggle i {
   text-shadow: none !important; }
 .full-book #header-info {

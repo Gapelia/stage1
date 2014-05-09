@@ -12,16 +12,16 @@
 
 	// Start User Code
 	#user-panel {
-		color: rgba($black, 0.9);
+		color: rgba(black, 0.9);
 		width: 80%;
 
 		#g-menu-toggle {
 			background-image: url("../images/folio-icon-solid.png") !important;
 			color: transparent !important;
 			left: 1rem;
-			//width: auto;
+			width: 9.5%;
 		}
-
+		
 		.button-wrapper {
 			bottom: 5%;
 			position: absolute;
