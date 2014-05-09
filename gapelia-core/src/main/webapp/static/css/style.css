@@ -8986,18 +8986,8 @@ a.count span.dont-move {
     line-height: 1rem; }
   .full-book #book-menu #nav-notify ul li {
     padding: 1rem 2rem; }
-  .full-book .fluid-wrapper, .full-book .photo-wrapper, .full-book .overlay-wrapper, .full-book .phototext-wrapper, .full-book .vertical-wrapper, .full-book .video-wrapper, .full-book .backcover-wrapper {
-    			/*
-    			.page-title-elem {
-    				font-size: 1.4rem;
-    				line-height: 1.7rem;
-    			}
-    
-    			.page-desc {
-    				font-size: 1rem;
-    				line-height: 1.7rem;
-    			}
-    			*/ }
+  .full-book .fluid-wrapper .page-desc, .full-book .photo-wrapper .page-desc, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-desc {
+    margin-top: 1rem !important; }
   .full-book .fluid-wrapper {
     margin-bottom: 0.5rem; }
   .full-book .fluid-wrapper .author-info {

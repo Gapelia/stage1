@@ -2788,6 +2788,8 @@
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
+		
+		
 
 		#book-menu, #share-menu {
 			font-size: 1rem;
@@ -2805,20 +2807,10 @@
 			}
 		}
 
-		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
-			/*
-			.page-title-elem {
-				font-size: 1.4rem;
-				line-height: 1.7rem;
-			}
-
-			.page-desc {
-				font-size: 1rem;
-				line-height: 1.7rem;
-			}
-			*/
+		.fluid-wrapper .page-desc, .photo-wrapper .page-desc, .overlay-wrapper .page-desc, .phototext-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc, .backcover-wrapper .page-desc {
+			margin-top: 1rem !important;
 		}
-
+		
 		.fluid-wrapper {
 			margin-bottom: 0.5rem;
 			

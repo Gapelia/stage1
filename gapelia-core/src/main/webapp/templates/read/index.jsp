@@ -112,7 +112,17 @@
     <script>
 	
 	
-        // Click "Collect to Libraries"
+        // Hide logo after 100px when scrolling book on mobile
+	$(window).scroll(function() {
+		if ($(window).scrollTop() < 100) {
+		    $("#g-menu-toggle").show();
+		}
+		else {
+		    $("#g-menu-toggle").hide();
+		}
+	});
+	
+	// Click "Collect to Libraries"
         $("#the-book #my-libraries a").click(function (e) {
 
 		$("#my-libraries ul").toggle();
@@ -121,8 +131,7 @@
 		$("#stay-right .submission-dropdown").addClass("clicked-list");
 
 
-        });		
-	
+        });
 	
 	// submissions confirm popup
 		
