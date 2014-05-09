@@ -124,6 +124,12 @@
 			h5 {
 				font-size: 1.5rem;
 				line-height: 1.75;
+				text-align: left;
+				
+				a {
+					display: block !important;
+					margin: 8px 8px 0 0;
+				}
 			}
 			
 			#splash-user-bio {
@@ -494,10 +500,9 @@
 			width: 100%;
 		}
 
-		#featured-panel, #user-panel {
+		#featured-panel  {
 			background-color: $white;
 			border-bottom: 0;
-			// box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
 			height: 65px; // 301px // 188px
 			margin: 0;
 			overflow: visible;
@@ -872,6 +877,12 @@
 		
 		.library {
 			height: 250px !important; width: 100% !important;
+			
+			&:last-child {
+				bottom: 1rem;
+				margin: 2rem 0 2rem 0;
+				padding-bottom: 1rem !important;
+			}
 		}
 
 	}
@@ -2401,7 +2412,10 @@
 
 			#library-info {
 				h2 { font-size: 26px; }
-				p { font-size: 0.9rem; }
+				p {
+					font-size: 0.9rem;
+					text-align: center;
+				}
 			}
 
 			section { font-size: 1rem; line-height: initial; }
@@ -2413,6 +2427,8 @@
 
 		// Header
 		#welcoming-title {
+			background-size: 600px;
+			height: 0;
 			font-size: 1rem;
 			padding: 10.6rem 6rem;
 			text-align: center;
@@ -2434,7 +2450,7 @@
 		#featured-scroller {			
 			#g-menu-toggle {
 				background-size: 100px;
-				left:6.6rem !important;
+				left: 33% !important;
 				top: 6.4rem !important;
 				width: 200px;
 			}
@@ -2476,11 +2492,6 @@
 			height: auto !important;
 			padding: 1.3rem;
 			
-			&:last-child {
-				border-bottom: none;
-				margin: 0;
-			}
-
 			.author-avatar {
 				height: 35px; width: 35px;
 				margin: 0; margin-top: 4px;
@@ -2564,7 +2575,9 @@
 				position: relative;
 			}
 
-			.bookmark-this, .image-overlay, &:after { display: none; }
+			.bookmark-this, &:after { display: none; }
+			
+			.library .image-overlay { background: rgba($black, 0.3); }
 
 			&:hover { box-shadow: none; }
 		}
@@ -2586,7 +2599,7 @@
 
 		#book-cta {
 			background-color: $white !important;
-			margin-top: 0rem; margin-bottom: 0rem;
+			margin-top: 0rem; margin-bottom: 1rem;
 			padding-top: 1.5rem;
  
 			.book-snippet { display: none; }
@@ -2651,17 +2664,33 @@
 				top: 12%;
 				
 				.avatar-wrapper, .avatar-wrapper:after {
-					height: 75px;
-					width: 75px;
+					height: 100px;
+					width: 100px;
+					
+					box-shadow: none;
 				}
 			}
 			
-			h5 { font-size: 0.8rem; }
+			h5 {
+				font-size: 0.7rem;
+				font-weight: 300;
+				margin-left: 7px;
+				opacity: 0.6;
+				text-align: left;
+				text-transform: uppercase;
+				
+				a {
+					color: $black;
+					display: block !important;
+					font-size: 0.8rem;
+					margin: 8px 8px 0 0;
+				}
+			}
 			
 			#splash-user-info {
 				color: rgba($black, 0.8);
 				padding: 0;
-				top: 28%;
+				top: 37%;
 				
 				h1 {
 					font-size: 1.8rem;
@@ -2669,9 +2698,9 @@
 				}
 				
 				#splash-user-bio {
-					font-size: 0.9rem;
+					font-size: 0.8rem;
 					line-height: 1.25;
-					margin: 0 0 1.5rem 0;
+					margin: 0.4rem 0 1.5rem 0;
 					padding: 0;
 					
 					span { font-size: 0.9rem !important; }
@@ -2679,6 +2708,9 @@
 			}	
 				
 			#close-splash {
+				
+				display: none; // hidden unti book repo is optimized
+				
 				bottom: 12%;
 				color: rgba($black, 0.5);
 				font-size: 0.8rem !important;
@@ -2699,16 +2731,16 @@
 		#library-splash {
 			
 			#library-info {
-				left: 4%;
-				top: 38%;
-				width: 88%;
+				left: 0;
+				top: 42%;
+				width: 100%;
 			}
 			
 			#library-share { display: none; }
 			
 			button {
-				top: -6rem; right: -2rem;
-				position: fixed;
+				top: -16%; left: 30%;
+				position: absolute;
 			}
 			
 			h1 {
@@ -3052,9 +3084,12 @@
 
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
+	
 	.profile {
 		
 		#featured-nav { top: 0; }
+		
+		.user-book-list-wrapper { display: none; }
 		
 		#user-splash {
 			padding: 0.6rem !important;
@@ -3066,8 +3101,8 @@
 			}
 			
 			#splash-user-info #splash-user-bio {
-				border-bottom: 1px solid rgba($black, 0.3);
-				padding-bottom: 10px;
+				border-bottom: 1px solid rgba($black, 0.2);
+				padding-bottom: 17px;
 			}
 		}
 
@@ -3081,7 +3116,7 @@
 		}
 		
 		#user-panel {
-			background: $white !important;
+			background: transparent !important;
 			height: 55px;
 			margin-top: 0 !important;
 
@@ -3108,6 +3143,8 @@
 		#account-splash-wrapper {
 			margin-bottom: -1rem;
 			top: 0;
+			
+			#account-user-splash .button-wrapper { display: none; }
 		}
 		
 		.account-info-wrapper {
@@ -3115,13 +3152,14 @@
 			label { text-align: center; }
 			
 			.col-0 .bl_form input {
-				font-size: 0.8rem;
+				font-size: 0.7rem;
 				text-align: center;
-				width: 80%;
+				width: 100%;
 			}
 		}
 		
 		#notifications-toggle {
+			line-height: 1.5;
 			margin-left: 0;
 			text-align: center;
 			

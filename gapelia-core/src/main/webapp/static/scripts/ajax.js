@@ -705,15 +705,8 @@ function getLibrary() {
 	    } else {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">";
 		toInsert += featuredBookTitle + getUserFromBookIdForFeaturedBook(bookId) + "</a></section></div>";
-		if ($vW > "1024") {
-			toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
-		} else {
-			toInsert += "<div id=\"close-splash\">&#8964;</div>";
-		}
-		//getUserFromBookId(bookId);
+		toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
 	    }
-	    
-	    
 	    if (ownThisLibrary) {
 			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Added to your library." + "<p/></ul>";
 
@@ -2166,7 +2159,7 @@ function getRecentlyPublished() {
 		$("#recently-published").html("This user has not published anything yet.");
 	    }
             else if(lastPublished.title != undefined) {
-            	$("#recently-published").html("&#9675; Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
+            	$("#recently-published").html("Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");
             }
         },
         error: function (q, status, err) {
@@ -2192,7 +2185,7 @@ function getContributedTo() {
         success: function (data) {
             contributions = data;
             if(contributions.length >0) {
-				toInsert = "&#9675; Contributes to";
+			toInsert = "Contributes to";
 	            for(i in contributions) {
 	            	toInsert+="<a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a>";
 	            }
