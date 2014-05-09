@@ -84,7 +84,8 @@
 
         			<!--/ main-panel /-->
         			<div id="featured-panel">
-        				<button id="g-menu-toggle">
+        				<button id="g-menu-toggle" class="notification-time">
+						<span id="notification-count" style="display: none;"></span>
         					<i class="ion-drag"></i>
         				</button>
         			</div>
@@ -447,38 +448,33 @@
                     $(".book").css("height", h);
                     document.title = "Folio's" + library.title
 
-
- $(".book").css("height", h);
-                                                                                    $("#book-list li").fadeIn("100");
-                                                                                    $("#book-list").fadeIn("100");
-                                                                                    if ($vW > "1024") {
- $(".book-list-wrapper").sly({
-                                                                        			horizontal: 1,
-                                                                        			itemNav: 'forceCentered',
-                                                                        			smart: 1,
-                                                                        			activateMiddle: 1,
-                                                                        			activateOn: 'click',
-                                                                        			mouseDragging: 1,
-                                                                        			touchDragging: 1,
-                                                                        			swingSpeed: 0.2,
-                                                                        			releaseSwing: 0,
-                                                                        			startAt: 0,
-                                                                        			scrollBar: $(".scrollbar"),
-                                                                        			scrollBy: 1,
-                                                                        			speed: 0.2,
-                                                                        			elasticBounds: 1,
-                                                                        			easing: 'swing',
-                                                                        			dragHandle: 1,
-                                                                        			dynamicHandle: 1,
-                                                                        			clickBar: 1,
-                                                                        			keyboardNavBy: 'items',
-
-                                                                        		});
-}
-
-
-
-         },2000);
+	$(".book").css("height", h);
+		$("#book-list li").fadeIn("100");
+		$("#book-list").fadeIn("100");
+                if ($vW > "1024") {
+			$(".book-list-wrapper").sly({
+                                horizontal: 1,
+                                itemNav: 'forceCentered',
+                                smart: 1,
+                                activateMiddle: 1,
+                                activateOn: 'click',
+                                mouseDragging: 1,
+                                touchDragging: 1,
+                                swingSpeed: 0.2,
+                                releaseSwing: 0,
+                                startAt: 0,
+                                scrollBar: $(".scrollbar"),
+                                scrollBy: 1,
+                                speed: 0.2,
+                                elasticBounds: 1,
+                                easing: 'swing',
+                                dragHandle: 1,
+                                dynamicHandle: 1,
+                                clickBar: 1,
+                                keyboardNavBy: 'items',
+                        });
+		}
+        },2000);
     </script>
     <!--//scripts /-->
 
