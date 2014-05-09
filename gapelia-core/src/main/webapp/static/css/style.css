@@ -7347,7 +7347,7 @@ a.count span.dont-move {
   .app #featured-scroller #g-menu-toggle {
     background-image: url("../images/folio-logo.png");
     background-size: 130px;
-    left: 44%;
+    left: 43.5%;
     top: 7rem;
     width: 300px; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
@@ -7657,8 +7657,6 @@ a.count span.dont-move {
   .app #featured-splash #library-info, .app #featured-splash #splash-user-info, .app #library-splash #library-info, .app #library-splash #splash-user-info, .app #user-splash #library-info, .app #user-splash #splash-user-info {
     padding: 0 10rem; }
   .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
-    border-bottom: none;
-    font-size: 5rem !important;
     left: 48%; }
   .app #library-splash #library-info {
     left: 10%;
@@ -7686,10 +7684,17 @@ a.count span.dont-move {
     font-size: 4rem;
     left: 48.5% !important;
     right: inherit;
-    text-align: center; }
+    text-align: center;
+    display: none !important; }
   .app .library {
     height: 250px !important;
-    width: 100% !important; }
+    width: 100% !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none; }
+  .app .library:hover {
+    box-shadow: none;
+    -webkit-box-shadow: none; }
   .app .library:last-child {
     bottom: 1rem;
     margin: 2rem 0 2rem 0;
@@ -8542,8 +8547,6 @@ a.count span.dont-move {
     font-size: 2rem; }
   .app #library-splash #library-info p {
     font-size: 1rem; }
-  .app #library-splash #close-splash {
-    font-size: 4rem !important; }
   .app #user-splash .user-avatar {
     top: 12%; }
   .app #user-splash #splash-user-bio {

@@ -205,26 +205,8 @@
 
                 });
 		
-		// submissions confirm popup
-		
-		$(document).on("click", "#stay-right ul li a", function () {
-			$("#submission-pop").css({"display": "block"});
-		});
-		
-		// Hide submission dropdown when click outisde
-
-		$(document).mouseup(function (e) {
-
-		var container = $("#stay-right ul, #submission-pop");
-
-		// if the target of the click isn't the container...
-		if (!container.is(e.target) && container.has(e.target).length === 0) {
-			container.hide(); // ... nor a descendant of the container
-		}
-
-		});
-		
-                $(function () {
+	    } else {
+		  $(function () {
 
                     // Close splash on mobile
                     $("#library-splash").swipe({
@@ -259,7 +241,27 @@
 
             }
 
-            // Click "Add my stories"
+            		
+		// submissions confirm popup
+		
+		$(document).on("click", "#stay-right ul li a", function () {
+			$("#submission-pop").css({"display": "block"});
+		});
+		
+		// Hide submission dropdown when click outisde
+
+		$(document).mouseup(function (e) {
+
+		var container = $("#stay-right ul, #submission-pop");
+
+		// if the target of the click isn't the container...
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			container.hide(); // ... nor a descendant of the container
+		}
+
+		});
+	    
+	    // Click "Add my stories"
             $("#my-submissions a").click(function (e) {
 
                 $("#my-submissions ul").toggle();
@@ -419,7 +421,7 @@
                     $("#featured-nav").toggle();
                 });
 		
-		$("#close-splash").append("<div id=\"close-splash\"></div>");
+		//$("#close-splash").append("<div id=\"close-splash\"></div>");
 
                 // Log Out
                 $("#logout").click(function (e) {

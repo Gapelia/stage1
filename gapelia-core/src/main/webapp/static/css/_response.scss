@@ -437,7 +437,7 @@
 		#featured-scroller #g-menu-toggle {
 			background-image: url("../images/folio-logo.png");
 			background-size: 130px;
-			left: 44%; top: 7rem;
+			left: 43.5%; top: 7rem;
 			width: 300px;
 		}
 		
@@ -835,8 +835,6 @@
 			#library-info, #splash-user-info { padding: 0 10rem; }
 
 			#close-splash {
-				border-bottom: none; 
-				font-size: 5rem !important;
 				left: 48%;
 			}
 		}
@@ -872,11 +870,21 @@
 				font-size: 4rem;
 				left: 48.5% !important; right: inherit;
 				text-align: center;
+				
+				display: none !important; 
 			}
 		}
 		
 		.library {
 			height: 250px !important; width: 100% !important;
+			box-shadow: none;
+			-webkit-box-shadow: none; 
+			border: none;
+			
+			&:hover {
+				box-shadow: none;
+				-webkit-box-shadow: none; 	
+			}
 			
 			&:last-child {
 				bottom: 1rem;
@@ -2109,8 +2117,6 @@
 				
 				p { font-size: 1rem; }
 			}
-			
-			#close-splash { font-size: 4rem !important; }
 		}
 		
 		#user-splash {
