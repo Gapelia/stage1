@@ -857,6 +857,7 @@
 					content: "You just read";
 					display: block;
 					font-size: 0.4em;
+          font-weight: 0.8;
 					line-height: 1em;
 					margin: 0 0 0 0.1rem;
           margin-bottom: 5px;
@@ -970,11 +971,9 @@
 			}
 
 			#library-name {
-				margin-left: 2rem;
+				margin-left: 2.1rem;
         
         a { display: inline !important; }
-        
-        &:before { content: "in "; }
 			}
       
       #library-avatar {
@@ -990,9 +989,16 @@
 				margin: -3.5rem 0 0 8.5rem;
 			}
       
-      #author-bio-blurb { font-weight: 100; }
+      #author-bio-blurb {
+        font-weight: 100;
+        opacity: 0.8;
+      }
       
-      #library-info-blurb { margin-left: 8.5rem; font-weight: 100;  }
+      #library-info-blurb {
+        margin-left: 8.5rem;
+        font-weight: 100;
+        opacity: 0.8;
+      }
 		}
 
 		#fin-next {

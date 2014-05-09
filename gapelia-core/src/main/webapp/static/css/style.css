@@ -6805,6 +6805,7 @@ a.count span.dont-move {
   content: "You just read";
   display: block;
   font-size: 0.4em;
+  font-weight: 0.8;
   line-height: 1em;
   margin: 0 0 0 0.1rem;
   margin-bottom: 5px;
@@ -6894,11 +6895,9 @@ a.count span.dont-move {
   content: "by ";
   display: none; }
 .full-book .backcover-wrapper #fin #library-name {
-  margin-left: 2rem; }
+  margin-left: 2.1rem; }
 .full-book .backcover-wrapper #fin #library-name a {
   display: inline !important; }
-.full-book .backcover-wrapper #fin #library-name:before {
-  content: "in "; }
 .full-book .backcover-wrapper #fin #library-avatar {
   border-radius: 5px;
   margin-left: 0.7rem; }
@@ -6909,10 +6908,12 @@ a.count span.dont-move {
   line-height: 1.5rem;
   margin: -3.5rem 0 0 8.5rem; }
 .full-book .backcover-wrapper #fin #author-bio-blurb {
-  font-weight: 100; }
+  font-weight: 100;
+  opacity: 0.8; }
 .full-book .backcover-wrapper #fin #library-info-blurb {
   margin-left: 8.5rem;
-  font-weight: 100; }
+  font-weight: 100;
+  opacity: 0.8; }
 .full-book .backcover-wrapper #fin-next {
   color: #fcfcfc;
   position: relative;
@@ -7175,9 +7176,8 @@ a.count span.dont-move {
   .full-book #g-menu-toggle {
     top: 1.25rem; }
   .full-book #the-book #collection-pop {
-    left: 46%; }
-  .full-book #the-book #collection-pop p {
-    padding: 1rem 1rem 0rem 1rem; }
+    height: 6%;
+    padding-top: 10px; }
   .full-book #the-book #stay-right {
     padding: 1.75rem 1.75rem 0 0; }
   .full-book #the-book #stay-right ul {
@@ -7204,7 +7204,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper hr {
     margin-bottom: 60px; }
   .full-book .backcover-wrapper #fin {
-    padding: 12rem 10rem 0 10rem; }
+    padding: 11rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
     font-size: 2rem;
@@ -7215,7 +7215,9 @@ a.count span.dont-move {
     font-size: 1.25rem;
     line-height: 1.5; }
   .full-book .backcover-wrapper #fin .share-book {
-    margin: 1.5rem 0 4rem 8.5rem; } }
+    margin: 1.5rem 0 4rem 8.5rem; }
+  .full-book .backcover-wrapper #fin section {
+    margin: 0 0 -3rem 0; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;
@@ -7746,6 +7748,8 @@ a.count span.dont-move {
     margin: 1rem 0 0 0; }
   .full-book #the-book {
     height: auto; }
+  .full-book #the-book #stay-right {
+    display: none; }
   .full-book #the-book #bb-bookblock {
     height: auto;
     overflow-x: initial;
@@ -8022,9 +8026,19 @@ a.count span.dont-move {
     padding-top: 1rem; }
   .full-book .backcover-wrapper #fin .share-book:before {
     display: none; }
+  .full-book .backcover-wrapper #fin #author-section {
+    margin-bottom: 4rem; }
   .full-book .backcover-wrapper #fin section {
     margin: 0rem 0rem 5rem 0;
     margin-left: 0.8rem; }
+  .full-book .backcover-wrapper #fin #library-avatar {
+    height: 75px;
+    width: 75px;
+    margin-left: 0; }
+  .full-book .backcover-wrapper #fin #library-name {
+    margin-left: 2.7rem; }
+  .full-book .backcover-wrapper #fin #library-info-blurb {
+    margin: -3rem 7.4rem 0 7.5rem; }
   .full-book .backcover-wrapper #fin-next {
     height: 300px;
     padding: 2rem 0;
@@ -8631,12 +8645,12 @@ a.count span.dont-move {
     padding: 0 4rem; }
   .full-book .backcover-wrapper #fin {
     padding: 1rem 1rem 0 2rem; }
-  .full-book .backcover-wrapper #fin h2 {
-    font-size: 1.2rem; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
     font-size: 0.9rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important; }
+  .full-book .backcover-wrapper #fin #share-book {
+    margin: 0rem 0 6rem 8.5rem; }
   .full-book .backcover-wrapper #fin-next .book-title {
     margin: 5rem 0 0 0;
     text-align: center;
@@ -9081,7 +9095,8 @@ a.count span.dont-move {
     display: none; }
   .full-book .backcover-wrapper #fin .merci {
     display: inline;
-    margin: 2rem 0; }
+    margin: 0;
+    position: relative; }
   .full-book .backcover-wrapper #fin .merci section {
     margin: 0; }
   .full-book .backcover-wrapper #fin .share-book {
@@ -9104,6 +9119,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin #library-avatar {
     margin: 0 0 1rem 0; }
   .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-name {
+    display: block !important;
     font-size: 1rem;
     margin: 0 0 1rem 0; }
   .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
@@ -9116,6 +9132,8 @@ a.count span.dont-move {
     margin-left: 0;
     margin: 0rem 0rem 1rem 0;
     padding-right: 0rem; }
+  .full-book .backcover-wrapper #fin #author-section {
+    margin: 2rem 0 2rem 0; }
   .full-book .backcover-wrapper #fin-next {
     height: 200px;
     padding: 0; }
