@@ -103,7 +103,7 @@
 	<!--/ main-content /-->
         <div id="featured-scroller">
             <div id="nav-wrapper">
-                <ul id="featured-nav">
+                <ul id="featured-nav" style="opacity: 0;">
                     <li id="nav-books" class="current"><a></a></li>
 		    <li id="nav-submissions"><a href="#">Review Submissions</a></li>
                 </ul>
@@ -115,7 +115,7 @@
 				<div class="mousearea"></div>
 			</div>
 		</div>
-            <div class="book-list-wrapper">
+            <div class="book-list-wrapper" style="opacity: 0;">
                 <ul id="book-list"></ul>
             </div>
 	    
@@ -150,9 +150,7 @@
             });
         });
     </script>
-    	
-
-
+    
     <script>
         libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
         $(document).ready(function () {
@@ -200,7 +198,8 @@
                         "right": "initial"
                     });
 
-                    $("#library-splash").css("left", "-200%");
+		    $("#library-splash").css("left", "-200%");
+		    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
                     $("#g-menu-toggle").css("color", "#70a1b1");
 
                 });
@@ -220,6 +219,7 @@
 
                             $("#library-splash").css("top", "-200%");
                             $("#g-menu-toggle").css("color", "#fcfcfc");
+			    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
 
                         },
                         threshold: 0
@@ -234,6 +234,7 @@
 
                         $("#library-splash, #library-splash button").css("top", "-200%");
                         $("#g-menu-toggle").css("color", "#fcfcfc");
+			$(".book-list-wrapper, #featured-nav").css("opacity", "1");
 
                     });
 
@@ -273,7 +274,7 @@
             NProgress.start();
 
             $("#featured-panel, #featured-scroller").css("opacity", "0").show();
-
+	    
             var
             allBooks = $("#book-list li"), // gets all books in a section
                 firstBook = $(allBooks).first(); // gets first book in list

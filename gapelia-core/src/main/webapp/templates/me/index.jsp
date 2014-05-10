@@ -91,7 +91,7 @@
                 <i class="ion-drag"></i>
             </button>
 
-            <span id="user-header">USERNAME</span>
+            <span id="user-header" style="opacity: 0;">USERNAME</span>
 
             <h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
@@ -122,7 +122,7 @@
 				<div class="mousearea"></div>
 			</div>
 		</div>
-            <div class="user-book-list-wrapper">
+            <div class="user-book-list-wrapper" style="opacity: 0;">
                 <ul id="user-book-list"></ul>
             </div>
             <!--//your-books /-->
@@ -236,6 +236,7 @@
                     $("#user-panel").css("width", "100%");
                     $("#user-splash .overlay-controls").css("left", "-200%");
                     $("#g-menu-toggle").css("color", "#70a1b1");
+	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
 
                     $("#user-header").css("opacity", "1");
 
@@ -271,6 +272,7 @@
                         $("#user-splash").css("top", "-200%");
                         $("#user-splash .overlay-controls").css("top", "-200%");
                         $("#g-menu-toggle").css("color", "#70a1b1");
+			$(".user-book-list-wrapper, #user-header").css("opacity", "1");
 
                     });
 
@@ -311,6 +313,7 @@
                     });
 
                 }
+		
 
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.fullName);
@@ -332,7 +335,13 @@
 		else{
 			$("#splash-user-bio").html(user.bio);
 		}
-                // Load Gapelia
+                
+		
+		$(document).ready(function() {
+			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
+		});
+		
+		// Load Gapelia
                 $(function () {
 
                     NProgress.start();

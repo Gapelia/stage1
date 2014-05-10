@@ -1453,7 +1453,7 @@ function getUserAccounts() {
 }
 
 function updateUserAccounts() {
-    inputBox = document.getElementById("user-name");
+        inputBox = document.getElementById("user-name");
         name = inputBox.value;
         inputBox = document.getElementById("user-display-name");
         displayName = inputBox.value;
