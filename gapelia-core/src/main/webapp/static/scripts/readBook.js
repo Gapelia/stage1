@@ -545,7 +545,7 @@ $(function () {
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
         twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20story%20on%20Folio&url=' + currentWebsite;
         emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this story on Folio ' + currentWebsite;
-        htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
+        htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" style=\"z-index: 10;\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
         htmlToInsert += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
         htmlToInsert += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure><div/>";
         htmlToInsert += "<h2>" + pages[0].title + "</h2><div id=\"credits\">" + current.title + getUserFromBookId(bookId);
