@@ -93,7 +93,7 @@
 	<ul id="stay-right">
 		
 		<li id="my-submissions">
-		    <a class=submission-dropdown href="#">Add my stories</a>
+		    <a class=submission-dropdown href="#">Submit a story</a>
                         <ul></ul>
                 </li>
 		

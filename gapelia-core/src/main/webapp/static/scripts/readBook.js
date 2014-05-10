@@ -170,7 +170,7 @@ $(function () {
                 backPage += getUserFromBookId(bookId);
                 backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"
                 backPage += "<hr/><section><div id=\"library-avatar\"><img src=\"" + library.coverPhoto + "\"></div>";
-                backPage += "<div id=\"library-name\"><a href=\"#\">" + getLibraryFromBook(book.bookId) + "</a></div>";
+                backPage += "<div id=\"library-name\">" + getLibraryFromBook(current.bookId) + "</div>";
                 backPage += "<div id=\"library-info-blurb\"><a>" + library.description + "</a>";
                 backPage += "</div></section></div>";
                 getReadNextBook();

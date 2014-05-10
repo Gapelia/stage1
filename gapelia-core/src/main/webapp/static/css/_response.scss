@@ -698,7 +698,7 @@
 
 			.library-info, .draft-info, .featured-info {
 				padding: 0 4rem;
-				top: 15%;
+				top: 22%;
 
 				.title, .lib-blurb { padding: 0; }
 
@@ -708,7 +708,7 @@
 				}
 
 				.lib-blurb {
-					font-size: 1.5em;
+					font-size: 1.2em;
 					line-height: 1.9rem;
 				}
 
@@ -839,6 +839,18 @@
 			}
 		}
 		
+		.library {
+			margin: 0 0 1.5rem 0 !important;
+			
+			.image-overlay { background: rgba($black, 0.4); }
+			
+			.library-wrapper {
+				top: 1rem !important;
+				right: 1rem !important;
+				text-align: right;
+			}
+		}
+		
 		#library-splash #library-info {
 			left: 10%;
 			top: 39%;
@@ -888,7 +900,7 @@
 			
 			&:last-child {
 				bottom: 1rem;
-				margin: 2rem 0 2rem 0;
+				margin-top: 1rem !important;
 				padding-bottom: 1rem !important;
 			}
 		}

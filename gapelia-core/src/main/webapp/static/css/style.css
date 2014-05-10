@@ -2553,6 +2553,8 @@ body.landing h1 {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
+.app .library-list-wrapper {
+  padding-bottom: 0.5rem; }
 .app .bookmark-list-wrapper section, .app .book-list-wrapper section {
   width: 100%;
   height: 100%;
@@ -5563,7 +5565,7 @@ body.library-manager #stay-right {
   padding: 8px 2px; }
 .modal .add-description:empty:after {
   color: rgba(25, 25, 25, 0.5);
-  content: "Write a summary of your story"; }
+  content: "Add a subtitle or summary of your story..."; }
 .modal .selectize-control {
   margin: 0 0 1rem 0;
   display: none; }
@@ -6223,7 +6225,7 @@ a.count span.dont-move {
   border-radius: 8px;
   opacity: 1; }
 .full-book #the-book #stay-right a:hover:after {
-  content: "Collect Library";
+  content: "Add to library";
   margin-left: 5px; }
 .full-book #the-book #stay-right .clicked-list {
   background-color: #59B3A6 !important;
@@ -6233,7 +6235,7 @@ a.count span.dont-move {
   border-radius: 8px;
   opacity: 1; }
 .full-book #the-book #stay-right .clicked-list:after {
-  content: "Collect Library";
+  content: "Add to library";
   margin-left: 5px; }
 .full-book #the-book #stay-right ul {
   display: none;
@@ -7561,14 +7563,14 @@ a.count span.dont-move {
     padding-bottom: 1rem !important; }
   .app .book .library-info, .app .book .draft-info, .app .book .featured-info, .app .collection .library-info, .app .collection .draft-info, .app .collection .featured-info, .app .library .library-info, .app .library .draft-info, .app .library .featured-info {
     padding: 0 4rem;
-    top: 15%; }
+    top: 22%; }
   .app .book .library-info .title, .app .book .library-info .lib-blurb, .app .book .draft-info .title, .app .book .draft-info .lib-blurb, .app .book .featured-info .title, .app .book .featured-info .lib-blurb, .app .collection .library-info .title, .app .collection .library-info .lib-blurb, .app .collection .draft-info .title, .app .collection .draft-info .lib-blurb, .app .collection .featured-info .title, .app .collection .featured-info .lib-blurb, .app .library .library-info .title, .app .library .library-info .lib-blurb, .app .library .draft-info .title, .app .library .draft-info .lib-blurb, .app .library .featured-info .title, .app .library .featured-info .lib-blurb {
     padding: 0; }
   .app .book .library-info .title, .app .book .draft-info .title, .app .book .featured-info .title, .app .collection .library-info .title, .app .collection .draft-info .title, .app .collection .featured-info .title, .app .library .library-info .title, .app .library .draft-info .title, .app .library .featured-info .title {
     font-size: 2.1rem;
     margin: 0 0 1rem 0; }
   .app .book .library-info .lib-blurb, .app .book .draft-info .lib-blurb, .app .book .featured-info .lib-blurb, .app .collection .library-info .lib-blurb, .app .collection .draft-info .lib-blurb, .app .collection .featured-info .lib-blurb, .app .library .library-info .lib-blurb, .app .library .draft-info .lib-blurb, .app .library .featured-info .lib-blurb {
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1.9rem; }
   .app .book .library-info button, .app .book .draft-info button, .app .book .featured-info button, .app .collection .library-info button, .app .collection .draft-info button, .app .collection .featured-info button, .app .library .library-info button, .app .library .draft-info button, .app .library .featured-info button {
     font-size: 1.2rem; }
@@ -7658,6 +7660,14 @@ a.count span.dont-move {
     padding: 0 10rem; }
   .app #featured-splash #close-splash, .app #library-splash #close-splash, .app #user-splash #close-splash {
     left: 48%; }
+  .app .library {
+    margin: 0 0 1.5rem 0 !important; }
+  .app .library .image-overlay {
+    background: rgba(25, 25, 25, 0.4); }
+  .app .library .library-wrapper {
+    top: 1rem !important;
+    right: 1rem !important;
+    text-align: right; }
   .app #library-splash #library-info {
     left: 10%;
     top: 39%;
@@ -7697,7 +7707,7 @@ a.count span.dont-move {
     -webkit-box-shadow: none; }
   .app .library:last-child {
     bottom: 1rem;
-    margin: 2rem 0 2rem 0;
+    margin-top: 1rem !important;
     padding-bottom: 1rem !important; }
 
   .notification-time #notification-count {
