@@ -705,7 +705,11 @@ function getLibrary() {
 	    } else {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">";
 		toInsert += featuredBookTitle + getUserFromBookIdForFeaturedBook(bookId) + "</a></section></div>";
-		toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
+		if ($vW > "1024") {
+			toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
+		} else {
+			toInsert += "<div id=\"close-splash\">^</div>";
+		}
 	    }
 	    if (ownThisLibrary) {
 			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Added to your library." + "<p/></ul>";

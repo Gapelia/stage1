@@ -220,7 +220,9 @@
                             $("#library-splash").css("top", "-200%");
                             $("#g-menu-toggle").css("color", "#fcfcfc");
 			    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
-
+			    $("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
+			    $("#featured-panel").css("background-color", "rgba(230, 231, 233, 1)");
+			    $("#featured-panel .subscribe").remove();
                         },
                         threshold: 0
                     });
@@ -235,14 +237,15 @@
                         $("#library-splash, #library-splash button").css("top", "-200%");
                         $("#g-menu-toggle").css("color", "#fcfcfc");
 			$(".book-list-wrapper, #featured-nav").css("opacity", "1");
-
+			$("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
+			$("#featured-panel").css("background-color", "rgba(230, 231, 233, 1)");
+			$("#featured-panel .subscribe").remove();
                     });
 
                 });
 
             }
-
-            		
+	    
 		// submissions confirm popup
 		
 		$(document).on("click", "#stay-right ul li a", function () {
@@ -413,16 +416,12 @@
             if ($vW < "1025") {
 
                 $("#featured-panel .featured-info").remove();
-                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
-
-                // $(document).on("click", "#category-switcher, #nav-books, #nav-libraries, #nav-bookmarks", function () {
-                $(document).on("click", "#g-menu-toggle", function () {
+		
+		$(document).on("click", "#g-menu-toggle", function () {
                     $("#featured-nav").toggle();
                 });
-		
-		//$("#close-splash").append("<div id=\"close-splash\"></div>");
 
                 // Log Out
                 $("#logout").click(function (e) {
@@ -433,10 +432,12 @@
             }
 
             if ($vW < "321") {
-                                    $(".book-snippet").css("display","block")
-            				}
-            h = $(this).outerHeight() - 92;
-            $(".book").css("height", h);
+                $(".book-snippet").css("display","block")
+		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.7rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
+	    }
+		
+		h = $(this).outerHeight() - 92;
+		$(".book").css("height", h);
         }
         setTimeout(function () {
 
