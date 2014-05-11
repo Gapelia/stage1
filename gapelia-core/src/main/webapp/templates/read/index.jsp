@@ -45,9 +45,9 @@
         </nav>
         <!--//site-menu /-->
 
-	<button id="g-menu-toggle" class="notification-time">
-		<span id="notification-count"></span>
-		<i class="ion-drag"></i>
+        <button id="g-menu-toggle" class="notification-time">
+		<span id="notification-count" style="display: none;"></span>
+                <i class="ion-drag"></i>
         </button>
 
         <header>

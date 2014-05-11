@@ -5530,7 +5530,7 @@ body.library-manager #stay-right {
   font-size: 2rem;
   text-align: center; }
 .modal .wrapper .wrapper {
-  padding-top: 5rem !important;
+  padding-top: 2rem !important;
   text-align: center;
   width: 100%; }
 .modal .wrapper .wrapper a {
@@ -5591,6 +5591,21 @@ body.library-manager #stay-right {
   padding: 10rem 4rem;
   transition: all 0.5s ease;
   z-index: -1; }
+#publish-modal #book-share {
+  font-size: 2rem;
+  margin-top: 6rem;
+  opacity: 0.7;
+  text-align: center; }
+#publish-modal #book-share .share-book:before {
+  content: "Share with your network";
+  display: inherit;
+  font-size: 0.8rem;
+  font-weight: 100;
+  margin-bottom: 15px; }
+#publish-modal #book-share li {
+  display: inline;
+  margin: 7px;
+  position: relative; }
 
 .clearfix:after {
   clear: both;
@@ -6402,11 +6417,11 @@ a.count span.dont-move {
   margin: 0 0 1.5rem 0;
   position: relative; }
 .full-book .fluid-wrapper .image-attribution, .full-book .photo-wrapper .image-attribution, .full-book .overlay-wrapper .image-attribution, .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution, .full-book .backcover-wrapper .image-attribution {
-  background-color: rgba(252, 252, 252, 0.5);
+  background-color: rgba(252, 252, 252, 0.75);
   bottom: 0;
   color: rgba(25, 25, 25, 0.95);
   cursor: default;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   line-height: 1.1rem;
   padding: 0.2rem 1rem;
   position: absolute;
@@ -6584,7 +6599,7 @@ a.count span.dont-move {
 .full-book .fluid-wrapper .author-info .author-name:before {
   text-align: right; }
 .full-book .fluid-wrapper .image-attribution {
-  right: 7px; }
+  right: 0; }
 .full-book .no-img .fluid-preview {
   top: 2%; }
 .full-book .photo-wrapper .author-info, .full-book .overlay-wrapper .author-info {

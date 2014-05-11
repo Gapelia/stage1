@@ -142,6 +142,7 @@
 
     <script>
         $(function () {
+	    getNotifications();
             var first = getUserPublic();
             var second = getListBookmarked();
             var third = getUserDrafts();
@@ -251,14 +252,14 @@
                         });
 
                     });
-
-                    // Log Out
-                    $("#logout").click(function (e) {
-                        document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-                        window.location = "";
-                    });
-
                 }
+		
+		// Log Out
+                $("#logout").click(function (e) {
+                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+                    window.location = "";
+                });
+
 
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.fullName);
