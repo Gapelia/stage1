@@ -2379,18 +2379,30 @@
 	body.landing {
 
 		.super-wrapper { padding: 6% 6%; }
-
+		
+		#beta { display: none; }
+		
 		#gapelia {
 			height: 25%;
 			left: 22.25%;
-			top: 1.6rem;
+			top: 4.6rem;
 		}
 		
-		h4 { width: 90%; }
+		h4 {
+			margin-top: 2rem;
+			width: 90%;
+		}
 
 		footer {
-			bottom: 2rem; left: 0;
+			bottom: 3rem; left: 0;
 			text-align: center;
+			
+			ul li {
+				display: block;
+				margin: 15px 0 0 0;
+				
+				&:last-child { margin: 15px 0 0 0; }
+			}
 		}
 
 	}

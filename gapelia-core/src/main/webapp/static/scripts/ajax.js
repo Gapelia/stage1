@@ -1258,11 +1258,9 @@ function addLoggedInMenu(){
 			$("#site-menu").html(menu);
 			var fifth = getNotifications();
 		}
-		
 	});
 	}
 }
-
 function getNumberVotes(incomingBookId) {
     numVotes=0;
     $.ajax({

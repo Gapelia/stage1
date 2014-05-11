@@ -2272,6 +2272,15 @@ body.landing .super-wrapper:after {
   opacity: 1;
   position: absolute;
   z-index: 0; }
+body.landing #beta {
+  color: white;
+  font-size: 1rem;
+  font-weight: 100;
+  opacity: 0.8;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10; }
 body.landing #gapelia, body.landing h4, body.landing .wrapper, body.landing footer {
   z-index: 1; }
 body.landing #gapelia {
@@ -2279,7 +2288,7 @@ body.landing #gapelia {
   height: 28%;
   background-image: url("/static/images/folio-logo.png");
   background-repeat: no-repeat;
-  left: 42.25%;
+  left: 42%;
   margin: 0 auto;
   position: relative;
   border: 0;
@@ -2289,7 +2298,7 @@ body.landing #gapelia {
 body.landing h4 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.25);
   color: rgba(252, 252, 252, 0.85);
-  font-weight: 400;
+  font-weight: 100;
   margin: 0 auto;
   padding: 0 0 1rem 0;
   position: relative;
@@ -2313,7 +2322,7 @@ body.landing footer {
   text-align: center; }
 body.landing footer ul li {
   display: inline-block;
-  margin: 0 1rem 0 0; }
+  margin: 0 1.5rem 0 0; }
 body.landing footer ul li a {
   color: #fcfcfc; }
 body.landing footer ul li:last-child {
@@ -8715,16 +8724,24 @@ a.count span.dont-move {
 
   body.landing .super-wrapper {
     padding: 6% 6%; }
+  body.landing #beta {
+    display: none; }
   body.landing #gapelia {
     height: 25%;
     left: 22.25%;
-    top: 1.6rem; }
+    top: 4.6rem; }
   body.landing h4 {
+    margin-top: 2rem;
     width: 90%; }
   body.landing footer {
-    bottom: 2rem;
+    bottom: 3rem;
     left: 0;
     text-align: center; }
+  body.landing footer ul li {
+    display: block;
+    margin: 15px 0 0 0; }
+  body.landing footer ul li:last-child {
+    margin: 15px 0 0 0; }
 
   .app #header-message {
     font-size: 0.9rem;

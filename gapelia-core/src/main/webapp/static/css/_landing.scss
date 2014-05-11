@@ -22,6 +22,16 @@ body.landing {
 		}
 	}
 
+	#beta {
+		color: white;
+		font-size: 1rem;
+		font-weight: 100;
+		opacity: 0.8;
+		position: absolute;
+		top: 1rem; right: 1rem;
+		z-index: 10;
+	}
+	
 	#gapelia, h4, .wrapper, footer { z-index: 1; }
 
 	#gapelia {
@@ -31,7 +41,7 @@ body.landing {
 		//background-position: -16px -360px;
 		background-repeat: no-repeat;
 		//background-size: 240px 540px;
-		left: 42.25%;
+		left: 42%;
 		margin: 0 auto;
 		position: relative;
 
@@ -41,7 +51,7 @@ body.landing {
 	h4 {
 		border-bottom: 1px solid rgba($white, 0.25);
 		color: rgba($white, 0.85);
-		font-weight: 400;
+		font-weight: 100;
 		margin: 0 auto;
 		padding: 0 0 1rem 0;
 		position: relative;
@@ -72,7 +82,7 @@ body.landing {
 		ul {
 			li {
 				display: inline-block;
-				margin: 0 1rem 0 0;
+				margin: 0 1.5rem 0 0;
 
 				a { color: $white; }
 
