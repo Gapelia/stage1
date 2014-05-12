@@ -7110,6 +7110,9 @@ a.count span.dont-move {
   justify-content: center;
   overflow: hidden; }
 
+.g-body blockquote {
+  margin-bottom: 2rem; }
+
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
     height: 24%;
@@ -8717,6 +8720,76 @@ a.count span.dont-move {
     margin-left: 11%; }
   .accounts #notifications-toggle span {
     font-size: 0.9rem; } }
+@media all and (max-width: 420px), screen and (max-width: 420px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #featured-scroller #g-menu-toggle {
+    left: 34.75%; }
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+    padding: 2.3rem 2rem 0.25rem 2rem; }
+  .app .book-title {
+    font-size: 1.4rem; }
+  .app .book-info .author-name, .app .collection-info .author.name {
+    font-size: 0.7rem; }
+  .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes {
+    bottom: 10px;
+    font-size: 0.8rem; }
+  .app #book-cta {
+    padding: 0rem 3rem; }
+  .app #book-cta p {
+    font-size: 1rem; }
+  .app .library-location {
+    font-size: 0.7rem; }
+  .app .library {
+    height: 200px !important; }
+  .app .library .library-info {
+    top: 4.5rem; }
+  .app .library .library-info .title {
+    font-size: 1.4rem; }
+  .app .library .library-info .lib-blurb {
+    display: none; }
+  .app .library .wrapper button {
+    font-size: 0.7rem; }
+  .app #library-splash {
+    padding: 0; }
+  .app #library-splash button {
+    display: none; }
+  .app #library-splash #library-info {
+    left: 5%;
+    width: 90%; }
+  .app #library-splash #library-share {
+    display: none; }
+  .app #user-splash h1 {
+    font-size: 1.7rem; }
+  .app #user-splash h5 {
+    font-size: 0.8rem; }
+  .app #user-splash #splash-user-bio span {
+    font-size: 0.9rem !important; }
+  .app #user-splash #splash-user-info {
+    padding: 0 1rem; }
+  .app #user-splash .user-avatar {
+    top: 9%; }
+
+  .accounts #account-splash-wrapper {
+    margin-bottom: -2rem;
+    top: -1em; }
+  .accounts .account-info-wrapper .col-0 .bl_form input {
+    font-size: 0.8rem;
+    width: 90%; }
+  .accounts #notifications-toggle {
+    margin-left: 6%;
+    width: 97%; }
+  .accounts #notifications-toggle span {
+    line-height: 1.5;
+    text-align: center; }
+  .accounts .switchery {
+    margin: 0.5rem 6.5rem;
+    left: 1rem; }
+
+  body.library-manager .library .wrapper {
+    bottom: 0;
+    top: 0.5rem;
+    height: 50px;
+    padding-right: 0.5rem;
+    text-align: right; } }
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;

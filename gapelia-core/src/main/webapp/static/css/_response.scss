@@ -2366,6 +2366,120 @@
 	}
 }
 
+@media all and (max-width: 420px), screen and (max-width: 420px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	.app {
+		
+		#featured-scroller #g-menu-toggle { left: 34.75%; }
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list, #book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
+			padding: 2.3rem 2rem 0.25rem 2rem;
+		}
+		
+		//books//
+		
+		.book-title { font-size: 1.4rem; }
+		
+		.book-info .author-name, .collection-info .author.name { font-size: 0.7rem; }
+		
+		.book .book-info .num-votes, .collection .book-info .num-votes, .library .book-info .num-votes {
+			bottom: 10px;
+			font-size: 0.8rem;
+		}
+		
+		#book-cta {
+			padding: 0rem 3rem;
+				p {
+				font-size: 1rem;
+			}
+		}
+		
+		.library-location { font-size: 0.7rem; }
+		
+		//libraries//
+		
+		.library {
+			height: 200px !important;
+			
+			.library-info {
+				top: 4.5rem;
+				
+				.title { font-size: 1.4rem; }
+				
+				.lib-blurb { display: none; }
+			}
+			
+			.wrapper button {
+				font-size: 0.7rem;
+			}
+		}
+		
+		//library-splash//
+		
+		#library-splash {
+			padding: 0;
+			
+			button { display: none; }
+			
+			#library-info {
+				left: 5%; width: 90%;
+			}
+			
+			#library-share { display: none; }
+		}
+		
+		//user-splash//
+		
+		#user-splash{
+			
+			h1 { font-size: 1.7rem; }
+			
+			h5 { font-size: 0.8rem; }
+			
+			#splash-user-bio span { font-size: 0.9rem !important; }
+			
+			#splash-user-info { padding: 0 1rem; }
+			
+			.user-avatar { top: 9%; }
+		}
+	}
+	
+	//accounts//
+		
+	.accounts {
+		#account-splash-wrapper {
+			margin-bottom: -2rem;
+			top: -1em;
+		}
+			
+		.account-info-wrapper .col-0 .bl_form input {
+			font-size: 0.8rem;
+			width: 90%;
+		}
+			
+		#notifications-toggle {
+			margin-left: 6%; width: 97%;
+			
+			span {
+				line-height: 1.5;
+				text-align: center;
+			}		
+		}
+			
+		.switchery { margin: 0.5rem 6.5rem; left: 1rem; }
+	}	
+	
+	body.library-manager .library .wrapper {
+		bottom: 0; top: 0.5rem;
+		height: 50px;
+		padding-right: 0.5rem;
+		text-align: right;
+	}
+}
+	
+	
+	
+
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	html, body {

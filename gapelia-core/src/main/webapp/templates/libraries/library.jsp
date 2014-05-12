@@ -431,7 +431,7 @@
 
             }
 
-            if ($vW < "321") {
+            if ($vW < "421") {
                 $(".book-snippet").css("display","block")
 		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.7rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
 	    }
