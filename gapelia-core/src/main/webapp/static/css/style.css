@@ -7965,7 +7965,7 @@ a.count span.dont-move {
     right: initial;
     overflow-y: initial;
     margin-bottom: 2rem;
-    padding: 2rem;
+    padding: 2rem 4rem 0rem 4rem;
     position: relative; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
     margin: 1rem auto 0;
@@ -7975,7 +7975,7 @@ a.count span.dont-move {
     font-size: 2.1rem;
     line-height: 3.3rem; }
   .full-book .phototext-wrapper .phototext-preview .page-desc {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 2.5rem; }
   .full-book .phototext-wrapper .page-bg {
     display: initial !important; }

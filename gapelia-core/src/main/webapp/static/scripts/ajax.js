@@ -728,7 +728,7 @@ function getLibrary() {
 		}
 	    }
 	    if (ownThisLibrary) {
-			    toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Added to your library." + "<p/></ul>";
+			    toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem;\"><p>" + "Added to your library." + "<p/></ul>";
 
 	    }
 	    else{
@@ -1702,6 +1702,8 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
     } else{
 	$(this).closest("li").prepend("<span id=\"check-icon\">&#10003;</span>").css("opacity", "0.7");
         addBookToLibrary(bookId);
+	$("#my-submissions ul").hide();
+	$(this).closest("li a").contents().unwrap();
     }
     
 });
