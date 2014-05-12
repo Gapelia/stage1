@@ -4870,7 +4870,7 @@ body.library-manager #stay-right {
   color: rgba(25, 25, 25, 0.8);
   font-size: 3rem;
   font-weight: 700;
-  line-height: 2.8rem;
+  line-height: 1.25;
   margin: 0 0 0.5rem 0;
   margin-top: 1.75rem !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-title-elem:empty:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .page-title-elem:empty:after {
@@ -6407,7 +6407,7 @@ a.count span.dont-move {
   color: rgba(25, 25, 25, 0.8);
   font-size: 3rem;
   font-weight: 700;
-  line-height: 2.8rem;
+  line-height: 1.25;
   margin: 0 0 0.5rem 0;
   margin-top: 1.75rem !important; }
 .full-book .fluid-wrapper .page-desc, .full-book .photo-wrapper .page-desc, .full-book .overlay-wrapper .page-desc, .full-book .phototext-wrapper .page-desc, .full-book .vertical-wrapper .page-desc, .full-book .video-wrapper .page-desc, .full-book .backcover-wrapper .page-desc {

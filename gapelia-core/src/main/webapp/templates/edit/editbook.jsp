@@ -180,6 +180,13 @@
 
 				$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/libraryManager'>Submit it to a library and gain exposure.</a></div>");
 				e.preventDefault();
+				
+				currentWebsite = document.URL;
+				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+				twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20library%20on%20Folio&url=' + currentWebsite;
+				emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this library on Folio ' + currentWebsite;
+				
+				$("#publish-modal").append("<div id=\"book-share\"><ul class=\"share-book\"><li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul></div>");
 
 			});
 		</script>
