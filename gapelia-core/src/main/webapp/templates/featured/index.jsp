@@ -191,19 +191,18 @@
 			activateOn: 'click',
 			mouseDragging: 1,
 			touchDragging: 1,
-			swingSpeed: 0.2,
+			swingSpeed: 1,
 			releaseSwing: 0,
 			startAt: 0,
 			scrollBar: $(".scrollbar"),
 			scrollBy: 1,
-			speed: 0.2,
+			speed: 0.0001,
 			elasticBounds: 1,
 			easing: 'swing',
 			dragHandle: 1,
 			dynamicHandle: 1,
 			clickBar: 1,
 			keyboardNavBy: 'items',
-
 		});
             }
 

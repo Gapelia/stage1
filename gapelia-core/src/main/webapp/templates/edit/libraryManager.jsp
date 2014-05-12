@@ -37,9 +37,9 @@
 	<script src="/static/scripts/modernizr.custom.js"></script>
 	<script src="/static/scripts/jquery-2.1.0.min.js"></script>
         <script src="/static/scripts/sly.js"></script>
+        <script src="/static/scripts/nprogress.js"></script>
 
 	<script src="/static/scripts/selectize.js"></script>
-	<script src="/static/scripts/nprogress.js"></script>
 
         </head>
 
@@ -104,9 +104,9 @@
             </div>
             </div>
                                 
-               <div class="library-list-wrapper">
-                    <ul id="explore-list"></ul>
-		</div>
+        <div class="library-list-wrapper">
+            <ul id="explore-list"></ul>
+	</div>
 	<!--//explore List /-->
         
         <!--/ Subscription List /-->
@@ -205,30 +205,30 @@
 
         var $vW = $(window).width(), $vH = $(window).height();
         h = $(this).outerHeight() - 92;
-        $(".book").css("height", h);
-            $("#book-list li").fadeIn("100");
-        $("#book-list").fadeIn("100");
+        $(".library").css("height", h);
+            $("#explore-list li").fadeIn("100");
+        $("#explore-list").fadeIn("100");
         if ($vW > "1024") {
             $(".library-list-wrapper").sly({
-                horizontal: 1,
-                itemNav: 'forceCentered',
-                smart: 1,
-                activateMiddle: 1,
-                activateOn: 'click',
-                mouseDragging: 1,
-                touchDragging: 1,
-                swingSpeed: 0.2,
-                releaseSwing: 0,
-                startAt: 0,
-                scrollBar: $(".scrollbar"),
-                scrollBy: 1,
-                speed: 0.2,
-                elasticBounds: 1,
-                easing: 'swing',
-                dragHandle: 1,
-                dynamicHandle: 1,
-                clickBar: 1,
-                keyboardNavBy: 'items',
+			horizontal: 1,
+			itemNav: 'forceCentered',
+			smart: 1,
+			activateMiddle: 1,
+			activateOn: 'click',
+			mouseDragging: 1,
+			touchDragging: 1,
+			swingSpeed: 1,
+			releaseSwing: 0,
+			startAt: 0,
+			scrollBar: $(".scrollbar"),
+			scrollBy: 1,
+			speed: 0.0001,
+			elasticBounds: 1,
+			easing: 'swing',
+			dragHandle: 1,
+			dynamicHandle: 1,
+			clickBar: 1,
+			keyboardNavBy: 'items',
             });
         }
 
