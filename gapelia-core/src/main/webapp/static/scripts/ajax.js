@@ -360,6 +360,16 @@ function getBooksInLibrary() {
         },
         success: function (data) {
             books = data;
+	    
+	    myLibraries = getCreatedLibrariesArray(sessionId);
+		var ownThisLibrary = false;
+    
+		for (i in myLibraries) {
+		    currentLibrary = myLibraries[i];
+		    if (currentLibrary.libraryId == library.libraryId) {
+			    ownThisLibrary = true;
+		    }
+		}
             toInsert = '';
             for (i in books) {
                 book = books[i];
@@ -368,7 +378,13 @@ function getBooksInLibrary() {
                 } else {
                     toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
                 }
-                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+		if (ownThisLibrary) {
+		toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
+		}else {
+		toInsert += "";	
+		}
+		toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\">";
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);

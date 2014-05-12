@@ -3407,7 +3407,7 @@ body.library .book-list-wrapper section p {
   width: 60%; }
 body.library .book-buttons {
   top: 0;
-  right: 0;
+  left: 0;
   padding: 1rem;
   position: absolute;
   z-index: 1; }
@@ -8789,7 +8789,10 @@ a.count span.dont-move {
     top: 0.5rem;
     height: 50px;
     padding-right: 0.5rem;
-    text-align: right; } }
+    text-align: right; }
+
+  body.landing #gapelia {
+    left: 28.25%; } }
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;

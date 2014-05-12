@@ -2475,10 +2475,12 @@
 		padding-right: 0.5rem;
 		text-align: right;
 	}
+	
+	body.landing {
+		#gapelia { left: 28.25%; }
+	}
 }
-	
-	
-	
+
 
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
