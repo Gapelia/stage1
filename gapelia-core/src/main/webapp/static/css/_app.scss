@@ -480,13 +480,13 @@
 	}
   
   .library {
-    box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
-    -webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
-    border: 5px solid rgba(179, 213, 208, 1);
+    //box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    //-webkit-box-shadow: 5px 5px 0 0 rgba(11, 72, 107, 0.4);
+    //border: 5px solid rgba(179, 213, 208, 1);
     
     margin-right: 0.25rem;
     
-    &:hover { box-shadow: 7.5px 7.5px 0 0 $slate; }
+    //&:hover { box-shadow: 7.5px 7.5px 0 0 $slate; }
     
     a { text-transform: uppercase; }
   }
