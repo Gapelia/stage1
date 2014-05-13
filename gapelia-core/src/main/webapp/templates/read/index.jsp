@@ -106,7 +106,12 @@
     
     
      <script>
-				$(function () {getCreatedLibrariesForBook();});
+				$(function () {
+					if (typeof user != "undefined")
+						getCreatedLibrariesForBook();
+					else
+						$(".submission-dropdown").remove();
+					});
     </script>
     
     <script>
@@ -191,7 +196,7 @@
 	    
         }, 1000);
         addLoggedInMenu();
-	getCreatedLibraries();
+	//getCreatedLibraries();
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>

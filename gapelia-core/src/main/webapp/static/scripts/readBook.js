@@ -169,13 +169,16 @@ $(function () {
                 backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section id=\"author-section\">";
                 backPage += getUserFromBookId(bookId);
                 backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"
-                backPage += "<hr/><section><div id=\"library-avatar\"><img src=\"" + library.coverPhoto + "\"></div>";
-                backPage += "<div id=\"library-name\">" + getLibraryFromBook(current.bookId) + "</div>";
-                backPage += "<div id=\"library-info-blurb\"><a>" + library.description + "</a>";
+                backPage += "<hr/><section><div id=\"library-avatar\">";
+                backPage += getLibraryFromBookBackCover(current.bookId);
                 backPage += "</div></section></div>";
                 getReadNextBook();
                 
-                initializeMerciObject();
+               // if (typeof user != "undefined") {
+                    initializeMerciObject();
+                //}
+                //else{$(".merci").remove();}
+                
                 
             },
             error: function (q, status, err) {
@@ -363,35 +366,49 @@ $(function () {
         return numVotes;
     }*/
 
-    function getReadNextBook() {
-        $.ajax({
-            url: "/api/users/getNextReadRecommendation",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            async: false,
-            data: {
-                sessionId: sessionId,
-                userId: user.userId,
-                bookId:current.bookId 
-            },
-            success: function (data) {
-                nextBook = data;
-                backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
-                htmlToInsert += backPage;
-                $("#bb-bookblock").html(htmlToInsert);
-                $("#header-author").html(bookOwner.name);
-                $("#header-title").html(pages[0].title);
-                $(".inserted-img").fluidbox();
-                loadBook();
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                } else {
-                    alert("Some issue happened with your request: " + err.message);
+function getReadNextBook() {
+        
+        if (typeof user == "undefined") {
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url(\"/static/images/cover.jpg\"); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio for personalized recommendations</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    
+                    htmlToInsert += backPage;
+                    $("#bb-bookblock").html(htmlToInsert);
+                    loadBook();
+                    
+                    //$("#header-author").html(bookOwner.name);
+                    //$("#header-title").html(pages[0].title);
+                    //$(".inserted-img").fluidbox();
+        }
+        else{
+            $.ajax({
+                url: "/api/users/getNextReadRecommendation",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                async: false,
+                data: {
+                    sessionId: sessionId,
+                    userId: user.userId,
+                    bookId:current.bookId 
+                },
+                success: function (data) {
+                    nextBook = data;
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    htmlToInsert += backPage;
+                    $("#bb-bookblock").html(htmlToInsert);
+                    $("#header-author").html(bookOwner.name);
+                    $("#header-title").html(pages[0].title);
+                    $(".inserted-img").fluidbox();
+                    loadBook();
+                },
+                error: function (q, status, err) {
+                    if (status == "timeout") {
+                        alert("Request timed out");
+                    } else {
+                        alert("Some issue happened with your request: " + err.message);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     function getUserFromBook(bookId) {
@@ -406,7 +423,7 @@ $(function () {
             },
             success: function (data) {
                 bookOwner = data
-                responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"/" + data.fullName + "\">" + data.fullName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+                responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"/" + data.displayName + "\">" + data.name + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
             },
             error: function (q, status, err) {
                 if (status == "timeout") {

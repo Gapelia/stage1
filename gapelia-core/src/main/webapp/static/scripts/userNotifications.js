@@ -50,9 +50,9 @@ $.ajax({
                             userFrom = data;
                             getBookFromBookId(notification.bookId);
 			    
-                            sender = userFrom.fullName;
+                            sender = userFrom.name;
                             bookTitle = bookFromBookId.title;
-                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.fullName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
+                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.name+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
                             toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                             $("#gpl-menu-notify ul").append(toInsert);
                         }

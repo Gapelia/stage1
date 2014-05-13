@@ -195,7 +195,12 @@
 				e.preventDefault();
 				
 				currentWebsite = document.URL;
-				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=' + currentWebsite;
+				lastPublishedBook = getLastPublishedBookId();
+				
+				// lastPublishedBook.title 
+				
+				
+				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + lastPublishedBook.bookId;
 				twitterShare = 'http://twitter.com/share?text=Check%20out%20this%20library%20on%20Folio&url=' + currentWebsite;
 				emailShare = 'mailto:?subject=Recommended%20Library&amp;body=Check out this library on Folio ' + currentWebsite;
 				
