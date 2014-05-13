@@ -48,31 +48,11 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-
                 <h2><a href="/featured">Gapelia</a></h2>
-
-                <ul>
-                    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-                    </li>
-		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
-                    </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
-                    </li>
-
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
-                        <ul id="draft-menu"></ul>
-                    </li>
-
-                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
-                        <ul>
-                        </ul>
-                    </li>
-
-                    <li class="fq"><a href="#">Help</a>
-		    <li class="help"><a href="#">Contact</a>
-                    <li class="logout"><a href="#">Log Out</a>
+		<ul>
+                    <li><a href="/">Sign up</a> </li>
+		    <li><a href="#">Learn more</a></li>
                 </ul>
-
             </div>
         </nav>
 	
@@ -289,6 +269,7 @@
             });
             getContributedTo();
             getRecentlyPublished();
+	    addLoggedInMenu();
 
             w += 1000;
 

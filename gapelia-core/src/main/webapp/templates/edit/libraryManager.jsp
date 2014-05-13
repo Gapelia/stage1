@@ -194,6 +194,7 @@
             getListSubscribed();
             getSubscribedLibrary();
             getCreatedLibraries();
+	    getNumSubscribers();
             var fifth = getLibraries();
         });
                         
