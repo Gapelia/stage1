@@ -1405,7 +1405,10 @@ function getPublicCreatedBooks() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
-                toInsert += "</li>";
+                toInsert += "<div class=\"book-info\"";
+		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\">&hearts; " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "</div>";
+		toInsert += "</li>";
             }
 	    
 	    if (toInsert == "") {
