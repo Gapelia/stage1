@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-
+	
     <meta charset="utf-8" />
-    <title>Folio: Now Reading</title>
+
+    <title> Book Title </title>
 
     <meta name="author" content="Gapelia" />
     <meta name="description" content="This should be a synopsis about the book" />

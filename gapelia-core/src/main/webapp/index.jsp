@@ -46,6 +46,7 @@
 
 		<div id="mp-pusher" class="super-wrapper">
 
+			<h5 id="beta">Product in Beta</h5>
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
 			<h4>Reimagining scholarly publishing.</h4>
 
@@ -54,12 +55,14 @@
 				<button class="gplus-btn">Sign in with Google+</button>
 			</div>
 
-			<img class="page-bg" src="/static/images/splash-bg.jpg"/>
+			<img class="page-bg" src="/static/images/cover.jpg"/>
 
 			<footer>
 				<nav>
 					<ul>
-						<li><a href="">Learn More</a></li>
+						<li><a href="">Our Mission</a></li>
+						<li><a href="">How It Works</a></li>
+						<li><a href="">Become an Editor</a></li>
 					</ul>
 				</nav>
 			</footer>
