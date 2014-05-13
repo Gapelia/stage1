@@ -6,6 +6,7 @@ body.landing {
 	text-align: center;
 
 	.super-wrapper {
+		background-image: none !important;
 		padding: 12%;
 
 		&:after {
@@ -28,7 +29,8 @@ body.landing {
 		font-weight: 100;
 		opacity: 0.8;
 		position: absolute;
-		top: 1rem; right: 1rem;
+		text-align: right;
+		top: 0; right: 1rem;
 		z-index: 10;
 	}
 	
@@ -58,6 +60,13 @@ body.landing {
 		width: 40%;
 	}
 
+	img {
+		display: block !important;
+		left: 0; top: 0;
+		height: auto; width: 100%;
+		position: absolute;
+	}
+	
 	.wrapper {
 		margin: 1rem 0 0 0;
 		position: relative;
@@ -111,11 +120,12 @@ body.landing {
 		}
 	}
 	
-	h1 {
+	.error {
 		color: $white;
 		font-size: 2rem;
 		font-weight: 100;
 		margin: 0;
+		opacity: 0.6;
 	}
 
 }

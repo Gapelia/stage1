@@ -39,7 +39,7 @@
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<h1>404 error</h1>
+			<h5 class="error">404 error</h5>
 			
 			<h5>Wait, what are you doing here?<br><a href="/">Go explore some stories!</a></h5>
 

@@ -2258,6 +2258,7 @@ ol {
 body.landing {
   text-align: center; }
 body.landing .super-wrapper {
+  background-image: none !important;
   padding: 12%; }
 body.landing .super-wrapper:after {
   width: 100%;
@@ -2278,7 +2279,8 @@ body.landing #beta {
   font-weight: 100;
   opacity: 0.8;
   position: absolute;
-  top: 1rem;
+  text-align: right;
+  top: 0;
   right: 1rem;
   z-index: 10; }
 body.landing #gapelia, body.landing h4, body.landing .wrapper, body.landing footer {
@@ -2303,6 +2305,13 @@ body.landing h4 {
   padding: 0 0 1rem 0;
   position: relative;
   width: 40%; }
+body.landing img {
+  display: block !important;
+  left: 0;
+  top: 0;
+  height: auto;
+  width: 100%;
+  position: absolute; }
 body.landing .wrapper {
   margin: 1rem 0 0 0;
   position: relative; }
@@ -2342,11 +2351,12 @@ body.landing h5 a {
   border-bottom: 1px solid rgba(252, 252, 252, 0.8);
   color: #fcfcfc;
   display: inline !important; }
-body.landing h1 {
+body.landing .error {
   color: #fcfcfc;
   font-size: 2rem;
   font-weight: 100;
-  margin: 0; }
+  margin: 0;
+  opacity: 0.6; }
 
 .app {
   width: 100%;
@@ -3909,7 +3919,6 @@ body.library-manager #stay-right {
   font-weight: 100;
   margin: 0 0 1rem 0; }
 .profile #user-splash h5 a {
-  border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   display: inline-block !important;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-style: italic;
@@ -7186,7 +7195,7 @@ a.count span.dont-move {
   .profile #user-splash h5 {
     font-size: 1.5rem;
     line-height: 1.75;
-    text-align: left; }
+    text-align: center; }
   .profile #user-splash h5 a {
     display: block !important;
     margin: 8px 8px 0 0; }
@@ -7194,7 +7203,7 @@ a.count span.dont-move {
     padding-left: 3rem;
     padding-right: 3rem; }
   .profile #user-splash #splash-user-info {
-    top: 32.5%; }
+    top: 38.5%; }
   .profile #user-splash .user-avatar {
     top: 16%; }
 
