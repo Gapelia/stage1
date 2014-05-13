@@ -526,7 +526,7 @@ function getReadNextBook() {
     
     function fluidLayout(isFirst) {
         if(current.photoUrl ==null ||current.photoUrl=="static/images/grayBG.png") {
-            htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -2rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
+            htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
             htmlToInsert += "</section>";
             htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
         } else {

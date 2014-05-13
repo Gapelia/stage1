@@ -254,7 +254,7 @@
 		$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
             }
 
-            if ($vW < "321") {
+            if ($vW < "361") {
                 $(".book-snippet").css("display", "block")
 		$(".book-list-wrapper").css({
 			"top": "300px",

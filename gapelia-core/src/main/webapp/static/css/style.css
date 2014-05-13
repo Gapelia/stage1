@@ -7300,6 +7300,9 @@ a.count span.dont-move {
     font-size: 1.2rem; }
   body.landing h5 {
     font-size: 2.4rem; }
+  body.landing img {
+    height: 100%;
+    width: auto; }
   body.landing footer {
     bottom: 2rem; }
 
@@ -8794,13 +8797,142 @@ a.count span.dont-move {
 
   body.library-manager .library .wrapper {
     bottom: 0;
-    top: 0.5rem;
+    top: 1rem;
     height: 50px;
     padding-right: 0.5rem;
-    text-align: right; }
+    text-align: center; }
 
   body.landing #gapelia {
     left: 28.25%; } }
+@media all and (max-width: 360px), screen and (max-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #welcoming-title {
+    height: 300px;
+    font-size: 1.3rem;
+    padding: 12.6rem 5.7rem;
+    text-align: left; }
+  .app #featured-scroller #g-menu-toggle {
+    left: 29.75%; }
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+    padding: 1.5rem 0.75rem 0.25rem 0.75rem; }
+  .app .book:last-child {
+    bottom: 10px;
+    margin-top: 0; }
+  .app .book-title {
+    padding: 0 2rem; }
+  .app #library-splash #close-splash {
+    font-size: 2rem; }
+
+  body.library-manager #nav-wrapper {
+    display: none !important; }
+  body.library-manager .library .wrapper {
+    text-align: right;
+    top: 0.5rem; }
+
+  .profile #user-panel #g-menu-toggle {
+    width: 13.5%; }
+  .profile #user-splash .avatar-wrapper #splash-edit-profile {
+    display: none !important; }
+
+  .full-book .fluid-wrapper {
+    margin-bottom: 0; }
+  .full-book .fluid-wrapper .fluid-preview {
+    padding: 0 !important; }
+  .full-book .fluid-wrapper .fluid-preview .page-desc {
+    font-size: 1rem; }
+  .full-book .fluid-wrapper .fluid-preview span {
+    font-size: 1rem !important; }
+  .full-book .photo-wrapper .photo-preview {
+    margin: 0 0 0.5rem 0; }
+  .full-book .photo-wrapper .photo-preview .page-title-elem {
+    font-sze: 1.5rem !important;
+    width: 90%; }
+  .full-book .photo-wrapper .author-info {
+    top: -1.5rem; }
+  .full-book .phototext-wrapper .phototext-preview {
+    padding: 0.75rem 0 0 0; }
+  .full-book .phototext-wrapper .phototext-preview .page-desc {
+    font-size: 1rem;
+    margin-top: 1rem !important;
+    text-align: left; }
+  .full-book .phototext-wrapper .phototext-preview .page-title-elem {
+    font-size: 1.6rem; }
+  .full-book .vertical-wrapper .vertical-preview {
+    padding: 0; }
+  .full-book .vertical-wrapper .vertical-preview .page-desc {
+    font-size: 1rem; }
+  .full-book .vertical-wrapper .vertical-preview .page-title-elem {
+    font-size: 1.4rem; }
+  .full-book .backcover-wrapper #fin {
+    padding: 2rem 2rem;
+    text-align: center; }
+  .full-book .backcover-wrapper #fin h2 {
+    display: none; }
+  .full-book .backcover-wrapper #fin .merci {
+    display: inline;
+    margin: 0;
+    position: relative; }
+  .full-book .backcover-wrapper #fin .merci section {
+    margin: 0; }
+  .full-book .backcover-wrapper #fin .share-book {
+    margin: 1rem 0; }
+  .full-book .backcover-wrapper #fin .share-book:before {
+    display: none;
+    float: none;
+    margin: 0 0 0.5rem 0;
+    vertical-align: initial; }
+  .full-book .backcover-wrapper #fin .share-book li {
+    display: inline;
+    float: none;
+    margin: 0 0 0.5rem 0;
+    padding: 10px; }
+  .full-book .backcover-wrapper #fin .share-book li:after {
+    display: none; }
+  .full-book .backcover-wrapper #fin hr {
+    margin: 2rem 0;
+    width: 100%; }
+  .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin #library-avatar {
+    margin: 0 0 1rem 0; }
+  .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-name {
+    display: block !important;
+    font-size: 1rem;
+    margin: 0 0 1rem 0; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin: 0;
+    margin-top: 1rem;
+    text-align: center !important; }
+  .full-book .backcover-wrapper #fin section {
+    margin-left: 0;
+    margin: 0rem 0rem 1rem 0;
+    padding-right: 0rem; }
+  .full-book .backcover-wrapper #fin #author-section {
+    margin: 2rem 0 2rem 0; }
+  .full-book .backcover-wrapper #fin-next {
+    height: 200px;
+    padding: 0; }
+  .full-book .backcover-wrapper #fin-next .book-title {
+    display: block;
+    font-size: 1.5rem;
+    margin: 2.5rem 0 0 0;
+    padding: 0 1rem; }
+  .full-book .backcover-wrapper #fin-next .book-info {
+    font-size: 0.8rem;
+    padding: 0 2rem; }
+
+  .accounts .account-delete-wrapper {
+    margin-top: 0; }
+  .accounts .account-info-wrapper .bl_form .update-user {
+    margin-top: 3rem !important; }
+  .accounts #notifications-toggle {
+    line-height: 1.5;
+    margin-left: 0;
+    text-align: center; }
+  .accounts #notifications-toggle span {
+    font-size: 0.9rem;
+    padding: 0.5rem 0rem 1rem 0; }
+  .accounts #notifications-toggle .switchery {
+    left: 0; } }
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;
@@ -8817,6 +8949,8 @@ a.count span.dont-move {
   body.landing h4 {
     margin-top: 2rem;
     width: 90%; }
+  body.landing h5 {
+    font-size: 1.2rem; }
   body.landing footer {
     bottom: 3rem;
     left: 0;
@@ -8836,7 +8970,7 @@ a.count span.dont-move {
     top: 1.8rem; }
   .app #featured-splash, .app #library-splash, .app #user-splash {
     font-size: 1rem;
-    padding: 2rem; }
+    padding: 1rem; }
   .app #featured-splash p, .app #library-splash p, .app #user-splash p {
     font-size: 1rem;
     padding: 0; }
@@ -9013,7 +9147,8 @@ a.count span.dont-move {
     margin: 1rem 1rem 0rem 0rem;
     padding: 2rem; }
   .app .library .library-info {
-    margin: 1rem 0; }
+    margin: 1rem 0;
+    top: 1rem; }
   .app .library .library-info .title {
     font-size: 1.4rem;
     line-height: 1.6rem; }
@@ -9088,7 +9223,7 @@ a.count span.dont-move {
   .library #library-splash section {
     font-size: 0.8rem !important; }
   .library #library-splash #close-splash {
-    bottom: 12% !important;
+    bottom: 4% !important;
     font-size: 1.5rem !important;
     left: 47%; }
 
@@ -9296,6 +9431,7 @@ a.count span.dont-move {
     display: none !important; }
   .profile #user-splash #splash-user-info #splash-user-bio {
     border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+    opacity: 0.8;
     padding-bottom: 17px; }
   .profile #user-book-list {
     padding: 55px 0 0 0; }
@@ -9321,12 +9457,19 @@ a.count span.dont-move {
     display: none; }
 
   .accounts #account-splash-wrapper {
-    margin-bottom: -1rem;
-    top: 0; }
+    margin-bottom: -2rem;
+    top: -7rem; }
+  .accounts #account-splash-wrapper .account-avatar-wrapper {
+    hegith: 100px;
+    width: 100px; }
   .accounts #account-splash-wrapper #account-user-splash .button-wrapper {
     display: none; }
+  .accounts .account-delete-wrapper {
+    margin-top: 0; }
   .accounts .account-info-wrapper label {
     text-align: center; }
+  .accounts .account-info-wrapper .bl_form .update-user {
+    margin-top: 3rem !important; }
   .accounts .account-info-wrapper .col-0 .bl_form input {
     font-size: 0.7rem;
     text-align: center;
@@ -9337,7 +9480,9 @@ a.count span.dont-move {
     text-align: center; }
   .accounts #notifications-toggle span {
     font-size: 0.9rem;
-    padding: 0.5rem 0rem 1rem 0; } }
+    padding: 0.5rem 0rem 1rem 0; }
+  .accounts #notifications-toggle .switchery {
+    left: 0; } }
 /*************************************************************************************** SHAME/SCSS **/
 /****************************** FOR THOSE BROWSERS THAT STILL NEED VENDOR PREFIXES TO WORK. PUSSIES **/
 /** FULL-BOOK/SCSS ***********************************************************************************/

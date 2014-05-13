@@ -707,7 +707,7 @@ function getLibrary() {
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (libraryId in subscribed == true) {
-                toInsert += "<button class=\"unsubscribe red\">Unsubscribe</button>";
+                toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
             } else {
                 toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
             }
@@ -816,19 +816,18 @@ function getLibraries() {
                 lib = "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		
 		lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
-
-                lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\">";
+		
+		lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\">";
                 if (library.libraryId in subscribed == true) {
-                    lib += "<button class=\"unsubscribe red\">Unsubscribe</button></div>";
+                    lib += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button></div>";
                 } else {
-                    lib += "<button class=\"subscribe white\">Subscribe</button></div>";
+                    lib += "<button class=\"subscribe white-border\">Subscribe</button></div>";
                 }
-                                                                                                 		
+                                                                               		
 		lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
                 $("#explore-list").append(lib);
              }
             getUser();
-
         },
         error: function (q, status, err) {
             if (status == "timeout") {
