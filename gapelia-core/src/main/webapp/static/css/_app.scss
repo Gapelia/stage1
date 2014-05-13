@@ -503,10 +503,16 @@
 
 	.bookmarked {
 		.bookmark-this {
-			.right-bm {
+			.right-bm, {
 				background-color: $red;
 				border-right: 0;
 			}
+      .top-bm {
+        border-top: 20px solid $red;
+      }
+      .bottom-bm {
+        border-bottom: 20px solid $red;
+      }
 		}
 	}
 
