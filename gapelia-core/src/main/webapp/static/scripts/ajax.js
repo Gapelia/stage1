@@ -711,7 +711,7 @@ function getLibrary() {
             } else {
                 toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
             }
-	    if (numSubscribers in library == false) {
+	    if (numSubscribers in library == null) {
 		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
 		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
