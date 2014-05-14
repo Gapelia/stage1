@@ -241,6 +241,8 @@
 			$("#featured-panel").css("background-color", "rgba(230, 231, 233, 1)");
 			$("#featured-panel .subscribe").remove();
                     });
+		    
+		    
 
                 });
 
@@ -450,7 +452,7 @@
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;
                     $(".book").css("height", h);
-                    document.title = "Folio's" + library.title
+                    document.title = "Folio's" + library.title;
 
 	$(".book").css("height", h);
 		$("#book-list li").fadeIn("100");

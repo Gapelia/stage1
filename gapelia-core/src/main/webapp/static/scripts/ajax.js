@@ -609,7 +609,7 @@ function getSubmissionsInLibrary() {
             for (i in notificationLibraries) {
                 currBook = getFullBookFromBookId(notificationLibraries[i].bookId);
                 toInsert += "<li notificationId=\"" + notificationLibraries[i].notificationId + "\"id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserId + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
-                toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
+                toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\" style=\"top: 0; left: 75%;\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
                 toInsert += "<a class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(currBook.bookId);
@@ -1945,6 +1945,8 @@ $(document).on("click", ".deny-book-confirm button", function (ev) {
     });
 
 });
+
+// DELETE BOOK FROM ME //
 $(document).on("click", ".yay-delete-book", function (ev) {
     e = $(this).closest(".yay-delete-book");
     bookId = e.parent().parent().parent().attr("id");
@@ -1967,6 +1969,29 @@ $(document).on("click", ".yay-delete-book", function (ev) {
         });
     }
 });
+
+// DELETE BOOK FROM LIBRARY BY LIRARY OWNER //
+$(document).on("click", ".yay-delete-library-book", function (ev) {
+    e = $(this).closest(".yay-delete-library-book");
+    bookId = e.parent().parent().parent().attr("id");
+    $(this).closest("li").remove();
+    sessionId = readCookie("JSESSIONID");
+        $.ajax({
+            url: "/api/books/deleteBook",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                bookId: bookId
+            },
+            error: function (q, status, err) {
+                if (status == "timeout") {
+                    alert("Request timed out");
+                }
+            }
+        });
+    }
+);
 
 function getListBookmarked() {
     bookmarked = {};

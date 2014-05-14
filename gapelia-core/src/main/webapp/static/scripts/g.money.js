@@ -416,7 +416,7 @@
 		// @Gapelia
 		// ----------------------------------------------------------------------------------
 
-		// Delete book
+		// Delete library
 		$(document).on("click", ".library-buttons .delete-this-library", function (e) {
 
 			$(this).closest("li").prepend("<div class=\"delete-library-confirm\"><h3>Hold on there, are you *sure* you want to delete your library?</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-library\">Yes, delete</a><a href=\"#\" class=\"button b green nay-delete-library\">No, cancel</a></div></div>");
@@ -425,7 +425,7 @@
 
 		});
 
-		// Confirm book deletion
+		// Confirm library deletion
 		$(document).on("click", ".yay-delete-library", function (e) {
 
 			if ($vW > "1024") {
@@ -470,7 +470,7 @@
 
 		});
 
-		// Cancel book deletion
+		// Cancel library deletion
 		$(document).on("click", ".nay-delete-library", function (e) {
 
 			$(this).closest(".delete-library-confirm").remove();
@@ -479,6 +479,9 @@
 			e.preventDefault();
 
 		});
+		
+		
+		//// SUBMISSION OVERLAYS ////
 
 		// Approve submission overlay
 		$(document).on("click", ".book-buttons .approve-this-book", function (e) {
@@ -493,15 +496,6 @@
 		$(document).on("click", ".book-buttons .deny-this-book", function (e) {
 
 			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><textarea placeholder='Add optional message'></textarea><button class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
-
-			e.preventDefault();
-
-		});
-		
-		// Deny submission overlay
-		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
-
-			$(this).closest("li").prepend("<div class=\"deny-book-confirm\" style=\"padding: 10rem 2rem\";><h3>Remove story</h3><button class='white' style=\"margin-top: 1rem !important\";>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
 			e.preventDefault();
 
@@ -612,45 +606,27 @@
 			e.preventDefault();
 
 		});
+		
+		/// DELETE BOOK FROM LIBRARY BY LIBRARY OWNER ///
+		
+		$(document).on("click", ".book-buttons .delete-this-book", function (e) {
 
-		/*
-		$(function () {
-
-			// Initialize "Overlay — create library"
-			ocl = "";
-			ocl += "<div id=\"create-library-overlay\" class=\"overlay\">";
-			ocl += "<div class=\"overlay-controls\">";
-			ocl += "<a href=\"#\" class=\"overlay-close oc-01\">Cancel</a>";
-			ocl += "<button class=\"overlay-close oc-02\">Create</button>";
-			ocl += "</div>";
-			ocl += "<section>";
-			ocl += "<h2>Library Creation</h2>";
-			ocl += "<div id=\"create-library-name\" contenteditable=\"true\">Library name</div>";
-			ocl += "<div id=\"create-library-desc\" contenteditable=\"true\">Description of library</div>";
-			ocl += "</section>";
-			ocl += "</div>";
-
-			$("body").append(ocl);
-
-		});
-
-		// Overlay — create library
-		$("#create-library").click(function (e) {
-
-			$("#create-library-overlay").addClass("open");
-
-			$("#mp-pusher").css({
-				"transform": "translate3d(0, 0, 0)",
-				"-o-transform": "translate3d(0, 0, 0)",
-				"-ms-transform": "translate3d(0, 0, 0)",
-				"-moz-transform": "translate3d(0, 0, 0)",
-				"-webkit-transform": "translate3d(0, 0, 0)"
-			});
+			$(this).closest("li").prepend("<div class=\"deny-book-confirm\" style=\"padding: 10rem 2rem\";><h3>Remove story</h3><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-library-book\">Yes, delete</a><a href=\"#\" class=\"button b white nay-delete-book\">No, cancel</a></div>");
 
 			e.preventDefault();
 
 		});
-		*/
+		
+		// Cancel book deletion
+		$(document).on("click", ".nay-delete-book", function (e) {
+
+			$(this).closest(".deny-book-confirm").remove();
+			$(this).closest(".image-overlay").css("display", "block");
+
+			e.preventDefault();
+
+		});
+		
 
 		// Close any opened overlay
 		$(document).on("click", ".overlay-close", function (e) {
