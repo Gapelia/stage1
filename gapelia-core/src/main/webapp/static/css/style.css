@@ -7484,7 +7484,7 @@ a.count span.dont-move {
     height: 450px;
     margin: 0;
     padding: 12.6rem 6rem;
-    background-image: url("../images/cover-error.jpg");
+    background-image: url("../images/cover.jpg");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     color: #fcfcfc;
@@ -9048,7 +9048,7 @@ a.count span.dont-move {
     z-index: 0;
     top: 3.5rem; }
   .app .notification-time #notification-count {
-    display: none; }
+    display: none !important; }
   .app #explore-list {
     padding: 0rem 1rem 1rem 1rem !important;
     z-index: 10; }
@@ -9312,10 +9312,14 @@ a.count span.dont-move {
     width: 100%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {
     font-size: 1.5rem;
-    line-height: 2rem; }
+    line-height: 2rem;
+    margin-left: 1rem; }
+  .full-book .fluid-wrapper .fluid-preview .page-title-elem span {
+    font-size: 1.5rem !important; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
     font-size: 1rem;
-    line-height: 2rem; }
+    line-height: 2rem;
+    padding: 0.75rem; }
   .full-book .photo-wrapper .photo-preview .page-title-elem {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -9372,6 +9376,8 @@ a.count span.dont-move {
   .full-book .vertical-wrapper .vertical-preview .page-desc {
     font-size: 1rem;
     line-height: 2rem; }
+  .full-book .vertical-wrapper .vertical-preview span {
+    font-size: 1rem !important; }
   .full-book .video-wrapper .author-info .author-name a {
     margin-left: 6.5rem; }
   .full-book .video-wrapper .video-player-container {
