@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
+                  website: http://ogp.me/ns/website#">
 	
     <meta charset="utf-8" />
 
@@ -11,7 +12,7 @@
    
     <meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<meta property="og:title"           content="This is a title test" /> 
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
