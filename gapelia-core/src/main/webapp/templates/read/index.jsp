@@ -7,12 +7,15 @@
     <meta charset="utf-8" />
 
     <title></title>
-
-    <meta name="author" content="Gapelia" />
-   
-    <meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias" />
+    <meta name="author" content="Folio" />
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta property="og:title"           content="This is a title test" /> 
+    
+    <meta property=Óog:titleÓ content=""/>
+    <meta property=Óog:imageÓ content=""/>
+    <meta property=Óog:urlÓ content=""/>
+    <meta property=Óog:descriptionÓ content=""/>
+    
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
@@ -209,12 +212,16 @@
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
             
-	    /*
-	    $(".inserted-img").fluidbox();
-	    */
-	    document.title = current.title;
-	    $("head").append("<meta name=\"description\" content="+current.snippet+" />");
-	     
+	    
+	    //Meta Tags//
+	    document.title = current.title + " by " + bookOwner.name;
+	    $('meta[property="description"]').attr('content', book.snippet);
+	    //Chaging Facebook Meta Tags//
+	    $('meta[property="og:title"]').attr('content', current.title);
+	    $('meta[property="og:description"]').attr('content', book.snippet);
+	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
+	    $('meta[property="og:url"]').attr('content', window.location.href);
+
 	    
         }, 1000);
         addLoggedInMenu();
