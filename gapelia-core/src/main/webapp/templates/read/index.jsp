@@ -5,10 +5,10 @@
 	
     <meta charset="utf-8" />
 
-    <title> Book Title </title>
+    <title></title>
 
     <meta name="author" content="Gapelia" />
-    <meta name="description" content="This should be a synopsis about the book" />
+   
     <meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -179,6 +179,7 @@
         $(document).on("click", "#g-menu-toggle, #nav-books", function () {
         $("#featured-nav").toggle();
         });
+	}
 	
 	// Log Out
         $("#logout").click(function (e) {
@@ -210,6 +211,9 @@
 	    /*
 	    $(".inserted-img").fluidbox();
 	    */
+	    document.title = current.title;
+	    $("head").append("<meta name=\"description\" content="+current.snippet+" />");
+	     
 	    
         }, 1000);
         addLoggedInMenu();
