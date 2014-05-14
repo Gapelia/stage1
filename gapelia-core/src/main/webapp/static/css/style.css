@@ -3291,6 +3291,14 @@ body.landing .error {
   position: absolute;
   text-align: right; }
 
+.subbranding {
+  display: none; }
+
+#servicePane {
+  top: 0; }
+#servicePane .well {
+  background-color: transparent; }
+
 body.library #nav-wrapper {
   z-index: 1; }
 body.library .book .wrapper, body.library .library .wrapper {
@@ -3445,7 +3453,7 @@ body.library .approve-book-confirm, body.library .deny-book-confirm {
   width: 100%;
   height: 100%;
   color: #fcfcfc;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   position: relative;
   text-align: center;
   transition: all 0.2s ease;
@@ -3459,31 +3467,43 @@ body.library .approve-book-confirm {
   background: linear-gradient(180deg, #59b3a6 0%, #59b3a6 34%, #9fe0d7 67%, #acf3e9 84%, #b7e5df 100%); }
 body.library .approve-book-confirm textarea {
   width: 100%;
-  height: 60%;
+  height: 52.5%;
   margin: 1rem auto 2rem;
   padding: 1rem;
+  background: transparent;
   border: none;
+  color: rgba(25, 25, 25, 0.7);
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1rem;
+  font-style: italic;
   line-height: 1.5rem;
   outline: none;
-  resize: none; }
+  padding: 2rem;
+  resize: none;
+  text-align: center; }
 body.library .deny-book-confirm {
   background: linear-gradient(180deg, #59b3a6 0%, #59b3a6 34%, #9fe0d7 67%, #acf3e9 84%, #b7e5df 100%); }
 body.library .deny-book-confirm textarea {
   width: 100%;
-  height: 60%;
+  height: 52.5%;
   margin: 1rem auto 2rem;
   padding: 1rem;
+  background: transparent;
   border: none;
+  color: rgba(25, 25, 25, 0.7);
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1rem;
+  font-style: italic;
   line-height: 1.5rem;
   outline: none;
-  resize: none; }
+  padding: 2rem;
+  resize: none;
+  text-align: center; }
 body.library .deny-book-confirm h5 {
   margin: 2rem 0;
   width: 100%; }
+body.library ::-webkit-input-placeholder {
+  color: white !important; }
 
 body.library-manager #nav-wrapper {
   z-index: 1; }

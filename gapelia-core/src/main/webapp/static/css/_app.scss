@@ -1249,3 +1249,11 @@
 	}
 
 }
+
+.subbranding { display: none; }
+
+#servicePane {
+  top: 0;
+  
+  .well { background-color: transparent; }
+}
