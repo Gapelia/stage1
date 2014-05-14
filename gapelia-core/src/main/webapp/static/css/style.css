@@ -6931,7 +6931,7 @@ a.count span.dont-move {
   height: 100%; }
 .full-book .backcover-wrapper #fin #library-avatar img {
   width: 100%;
-  height: auto; }
+  height: 100%; }
 .full-book .backcover-wrapper #fin .author-avatar, .full-book .backcover-wrapper #fin .author-name, .full-book .backcover-wrapper #fin #library-avatar, .full-book .backcover-wrapper #fin #library-name {
   display: inline-block;
   vertical-align: top; }
@@ -7221,8 +7221,9 @@ a.count span.dont-move {
     line-height: 1.75;
     text-align: center; }
   .profile #user-splash h5 a {
-    display: block !important;
-    margin: 8px 8px 0 0; }
+    display: inline;
+    margin: 8px 10px 0 0;
+    margin-left: 10px; }
   .profile #user-splash #splash-user-bio {
     padding-left: 3rem;
     padding-right: 3rem; }
@@ -7230,6 +7231,8 @@ a.count span.dont-move {
     top: 38.5%; }
   .profile #user-splash .user-avatar {
     top: 16%; }
+  .profile .notification-time #notification-count {
+    right: 4rem; }
 
   .g-body hr {
     margin: 6rem auto 20px auto; }
@@ -7265,7 +7268,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper hr {
     margin-bottom: 60px; }
   .full-book .backcover-wrapper #fin {
-    padding: 11rem 10rem 0 10rem; }
+    padding: 10rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
     font-size: 2rem;
@@ -7278,7 +7281,9 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin .share-book {
     margin: 1.5rem 0 4rem 8.5rem; }
   .full-book .backcover-wrapper #fin section {
-    margin: 0 0 -3rem 0; } }
+    margin: 0 0 -3rem 0; }
+  .full-book .notification-time #notification-count {
+    right: 4rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;

@@ -127,8 +127,9 @@
 				text-align: center;
 				
 				a {
-					display: block !important;
-					margin: 8px 8px 0 0;
+					display: inline;
+					margin: 8px 10px 0 0;
+					margin-left: 10px;
 				}
 			}
 			
@@ -140,7 +141,8 @@
 			#splash-user-info { top: 38.5%; }
 			
 			.user-avatar { top: 16%; }
-		}	
+		}
+		.notification-time #notification-count { right: 4rem; }
 	}
 	
 	
@@ -203,7 +205,7 @@
 			hr { margin-bottom: 60px; }
 			
 			#fin {
-				padding: 11rem 10rem 0 10rem;
+				padding: 10rem 10rem 0 10rem;
 				
 				.author-name {
 					display: inline !important; 
@@ -222,6 +224,7 @@
 				section { margin: 0 0 -3rem 0; }
 			}	
 		}
+		.notification-time #notification-count { right: 4rem; }
 	}
 
 }
