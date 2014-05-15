@@ -6596,13 +6596,13 @@ a.count span.dont-move {
   background-image: none !important; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title {
   bottom: 6rem;
-  left: 42%;
+  left: 59%;
   font-size: 1.6rem;
   padding-bottom: 2rem;
   position: relative;
   text-align: right;
   text-shadow: none;
-  width: 50%; }
+  max-width: 35%; }
 .full-book .fluid-wrapper .fluid-preview article #fin-next .book-title a {
   color: rgba(25, 25, 25, 0.7);
   font-weight: 500; }

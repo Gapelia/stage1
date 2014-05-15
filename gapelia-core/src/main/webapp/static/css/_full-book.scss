@@ -488,13 +488,13 @@
           background-image: none !important;
           
           .book-title {
-            bottom: 6rem; left: 42%;
+            bottom: 6rem; left: 59%;
             font-size: 1.6rem;
             padding-bottom: 2rem;
             position: relative;
             text-align: right;
             text-shadow: none;
-            width: 50%;
+            max-width: 35%;
             
             a {
               color: rgba($black, 0.7);
