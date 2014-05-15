@@ -5,7 +5,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Gapelia &middot; [Library Name] Library</title>
+		<title>Folio &middot; New Library</title>
 
 		<!--/ LIBRARY VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -18,10 +18,10 @@
 
 		/-->
 
-		<meta name="author" content="Gapelia"/>
-		<meta name="description" content="Better stories, together."/>
-		<meta name="keywords" content="Gapelia, storytelling, lifestyle, story, creator, travel, pulse, art, wow, life, flow, wonder, dimension"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<meta name="author" content="Folio" />
+		<meta name="description" content="Reimagining scholarly publishing" />
+		<meta name="keywords" content="academia, publishing, blogging, scholar, ideas, storytelling, long-form, platform, collaboration" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>

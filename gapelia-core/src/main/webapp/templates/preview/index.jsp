@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Gapelia &middot; Your Book Preview</title>
+    <title>Preview</title>
 
     <!--/
 			 ______   ______   ______  ______   __       __   ______    
@@ -17,9 +17,9 @@
 
 		/-->
 
-    <meta name="author" content="Gapelia" />
-    <meta name="description" content="This should be a synopsis about the book" />
-    <meta name="keywords" content="This should be the keywords the author chose, as well as the author's name/username/alias" />
+    <meta name="author" content="Folio" />
+    <meta name="description" content="Reimagining scholarly publishing" />
+    <meta name="keywords" content="academia, publishing, blogging, scholar, ideas, storytelling, long-form, platform, collaboration" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="/static/css/style.css" rel="stylesheet" />

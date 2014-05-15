@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Gapelia &middot; [Library Name] Library</title>
+    <title></title>
 
     <!--/ LIBRARY VIEW
 			 ______   ______   ______  ______   __       __   ______
@@ -22,9 +22,10 @@
 		/-->
 
     <meta name="author" content="Folio" />
-    <meta name="description" content="Better stories, together." />
-    <meta name="keywords" content="storytelling, academia, knowledge, research, writing, blogging, plublishing, stories, ideas" />
+    <meta name="description" content="Reimagining scholarly publishing" />
+    <meta name="keywords" content="academia, publishing, blogging, scholar, ideas, storytelling, long-form, platform, collaboration" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/slytest.css" rel="stylesheet" />
@@ -455,7 +456,6 @@
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;
                     $(".book").css("height", h);
-                    document.title = "Folio's" + library.title;
 
 	$(".book").css("height", h);
 		$("#book-list li").fadeIn("100");
@@ -483,6 +483,7 @@
                                 keyboardNavBy: 'items',
                         });
 		}
+		document.title = library.title;
         },2000);
     </script>
     <!--//scripts /-->

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
-                  website: http://ogp.me/ns/website#">
+<head>
 	
     <meta charset="utf-8" />
 
     <title></title>
-    <meta name="author" content="Folio" />
+    <meta name="author" content="" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
@@ -213,8 +212,10 @@
 	
 	 //Meta Tags//
 	    document.title = current.title + " by " + bookOwner.name;
+	    $('meta[property="author"]').attr('content', bookOwner.name);
 	    $('meta[property="description"]').attr('content', book.snippet);
-	    //Chaging Facebook Meta Tags//
+	    
+	//Chaging Facebook Meta Tags//
 	    $('meta[property="og:title"]').attr('content', current.title);
 	    $('meta[property="og:description"]').attr('content', book.snippet);
 	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
