@@ -684,7 +684,7 @@ function getLibrary() {
             currentWebsite = document.URL;
 	facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/library/' + libraryId;
 	twitterShare = "http://twitter.com/share?text="+library.title+" edited by "+ libraryOwner.fullName;"&url=http://folio.is/library" + libraryId;
-	emailShare = 'mailto:?subject=Recommended%20Library%20on%20Folio&amp;body='+ library.title + " edited by " + libraryOwner.fullName + "   " +  "folio.is/read/" + libraryId;
+	emailShare = 'mailto:?subject=Recommended%20Library%20on%20Folio&amp;body='+ library.title + " edited by " + libraryOwner.fullName + "   " +  "www.folio.is/read/" + libraryId;
 
 	    
 	    myLibraries = getCreatedLibrariesArray(sessionId);
