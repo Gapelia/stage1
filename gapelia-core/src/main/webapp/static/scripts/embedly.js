@@ -10,7 +10,7 @@
 	var defaults = {
 		key: "81a6f8e978774b2b83d15029865e3ca5",
 		endpoint: "oembed",		// default endpoint is oembed (preview and objectify available too)
-		secure: null,					// use https endpoint vs http
+		secure: http,					// use https endpoint vs http
 		query: {},
 		method: "replace",		// embed handling option for standard callback
 		addImageStyles: true,	// add style="" attribute to images for query.maxwidth and query.maxhidth

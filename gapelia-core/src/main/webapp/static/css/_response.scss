@@ -229,6 +229,12 @@
 
 }
 
+@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	.mp-menu ul .fq { margin-top: 160%; }
+	
+}	
+
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////

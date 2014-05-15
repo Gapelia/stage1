@@ -202,7 +202,7 @@
         loadDelete();
 
         function load() {
-
+            
         var $vW = $(window).width(), $vH = $(window).height();
         h = $(this).outerHeight() - 92;
         $(".library").css("height", h);
@@ -213,8 +213,8 @@
 			horizontal: 1,
 			itemNav: 'forceCentered',
 			smart: 1,
-			activateMiddle: 1,
-			activateOn: 'click',
+                        activateMiddle: 1,
+			//activateOn: 'mouseenter',
 			mouseDragging: 1,
 			touchDragging: 1,
 			swingSpeed: 1,
@@ -276,7 +276,7 @@
         // Click "My Libraries"
         $("#nav-libraries").click(function (e) {
 
-        NProgress.start();
+        //NProgress.start();
 
         var
         allBooks = $("#library-list li"),  // gets all books in a section
@@ -314,7 +314,7 @@
         $("#nav-libraries").addClass("current");
         $("#nav-subscriptions").removeClass("current");
         $("#nav-explore").removeClass("current");
-        NProgress.done();
+        //NProgress.done();
 
         });
 

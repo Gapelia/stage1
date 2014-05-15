@@ -805,6 +805,7 @@ function getLibraries() {
         url: "/api/libraries/getGodLibraries",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId
         },
@@ -1259,6 +1260,7 @@ function addLoggedInMenu(){
         url: "/api/users/getUser",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: false,
         data: {
             sessionId: sessionId
         },
@@ -1272,6 +1274,7 @@ function addLoggedInMenu(){
 			menu +="<li class=\"fq\"><a href=\"#\">Help</a><li class=\"help\"><a href=\"#\">Contact</a><li class=\"logout\"><a href=\"#\">Log Out</a></ul></div>";
 			$("#site-menu").html(menu);
 			var fifth = getNotifications();
+			
 		}
 	});
 	}
@@ -1977,19 +1980,20 @@ $(document).on("click", ".yay-delete-library-book", function (ev) {
     $(this).closest("li").remove();
     sessionId = readCookie("JSESSIONID");
         $.ajax({
-            url: "/api/books/deleteBook",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                bookId: bookId
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                }
+        url: "/api/libraries/removeBookFromLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            bookId: bookId,
+            libraryId: currentLibrary.libraryId
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
             }
-        });
+        }
+    });
     }
 );
 
@@ -2278,7 +2282,6 @@ function getLastPublishedBookId() {
     });
 	return lastPublished;
 }
-
 
 function getRecentlyPublished() {
 	$.ajax({

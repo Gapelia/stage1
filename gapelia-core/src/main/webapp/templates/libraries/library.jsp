@@ -312,6 +312,8 @@
                     $("#featured-panel, #featured-scroller").css("opacity", "1");
                 }, 400);
 
+		
+		
             }, 1000);
 
             $("#nav-books").addClass("current");
@@ -426,13 +428,14 @@
                 });
 
                 // Log Out
-                $("#logout").click(function (e) {
+                $(".logout").click(function (e) {
                     document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
                     window.location = "";
                 });
 
             }
 
+	    
             if ($vW < "421") {
                 $(".book-snippet").css("display","block")
 		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.7rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")

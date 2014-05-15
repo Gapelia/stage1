@@ -11,10 +11,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
-    <meta property=Óog:titleÓ content=""/>
-    <meta property=Óog:imageÓ content=""/>
-    <meta property=Óog:urlÓ content=""/>
-    <meta property=Óog:descriptionÓ content=""/>
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:description" content=""/>
     
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
@@ -168,6 +168,7 @@
 
 	});
 	
+	
 	// Dropdown menu for mobile
         if ($vW < "1024") {
         
@@ -184,12 +185,6 @@
         $("#featured-nav").toggle();
         });
 	}
-	
-	// Log Out
-        $("#logout").click(function (e) {
-		document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-                window.location = "";
-        });
 	
 
         setTimeout(function () {
@@ -213,7 +208,10 @@
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
             
 	    
-	    //Meta Tags//
+	   
+	book = getFullBookFromBookId(current.bookId);
+	
+	 //Meta Tags//
 	    document.title = current.title + " by " + bookOwner.name;
 	    $('meta[property="description"]').attr('content', book.snippet);
 	    //Chaging Facebook Meta Tags//
@@ -223,7 +221,7 @@
 	    $('meta[property="og:url"]').attr('content', window.location.href);
 
 	    
-        }, 1000);
+        }, 2000);
         addLoggedInMenu();
 	//getCreatedLibraries();
 	window.READRBOARDCOM.actions.reInit();

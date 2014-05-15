@@ -279,11 +279,13 @@
 
 		// Library Subscriptions
 		$(document).on("click", "button.subscribe", function () {
+			console.log("subscribe button");
 			$(this).text("Unsubscribe").removeClass("subscribe white-border").addClass("unsubscribe brand-blue");
 			// $(this).text("Unsubscribe").removeClass("subscribe slate").addClass("unsubscribe red");
 		});
 
 		$(document).on("click", "button.unsubscribe", function () {
+			console.log("unsubscribe button");
 			$(this).text("Subscribe").removeClass("unsubscribe brand-blue").addClass("subscribe white-border");
 			// $(this).text("Subscribe").removeClass("unsubscribe red").addClass("subscribe slate");
 		});
@@ -654,9 +656,9 @@
 
 		// Log Out
 		$(".logout").click(function (e) {
-
-			document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-			window.location = "";
+			console.log("logging out")
+			document.cookie = "JSESSIONID" + "=;expires=0;path=/";
+			window.location = "/";
 
 			e.preventDefault();
 

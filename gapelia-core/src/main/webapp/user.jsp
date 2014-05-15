@@ -232,14 +232,10 @@
                         });
 
                     });
+		    
                 }
 		
-		// Log Out
-                $("#logout").click(function (e) {
-                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-                    window.location = "";
-                });
-
+		
 
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.name);
@@ -259,7 +255,7 @@
             });
 
         }
-        setInterval(function () {
+        setTimeout(function () {
         loadDelete();
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
@@ -306,6 +302,17 @@
                 keyboardNavBy: 'items'
                 });
 	    }
+	    
+	    // Log Out
+		$(".logout").click(function (e) {
+			console.log("logging out")
+			document.cookie = "JSESSIONID" + "=;expires=0;path=/";
+			window.location = "/";
+
+			e.preventDefault();
+
+		});
+	    
         }, 1000);
     </script>
 

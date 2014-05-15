@@ -7284,6 +7284,9 @@ a.count span.dont-move {
     margin: 0 0 -3rem 0; }
   .full-book .notification-time #notification-count {
     right: 4rem; } }
+@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+  .mp-menu ul .fq {
+    margin-top: 160%; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;
