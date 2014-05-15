@@ -229,10 +229,75 @@
 
 }
 
-@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	//menu//
+	
 	.mp-menu ul .fq { margin-top: 160%; }
 	
+	//size of book&libraries in carousel//
+	
+	.app {
+		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
+			top: 52.5%;
+		}
+		
+		.book, .collection, .library {
+			width: 450px;
+		}
+	}
+	
+	// library manager //
+	
+	body.library-manager {
+		.library .wrapper { bottom: 10rem; }
+	}
+	
+	// library //
+	
+	body.library {
+		#submission-pop {
+			height: 6%;
+			left: 25% !important;
+			
+			p { padding: 1rem 1rem 0rem 1rem; } 
+		}
+	}
+	
+	//profile//
+	
+	.profile {
+		#user-splash .user-avatar { top: 16%; }
+		
+		.notification-time #notification-count { right: 3.25rem; }
+	}
+	
+	// full book //
+	
+	.full-book {
+		.notification-time #notification-count { right: 3.25rem; }
+		
+		#the-book {
+			#collection-pop { height: 5.5%; }
+		}
+		
+		.backcover-wrapper #fin { padding: 12rem 5rem 0 9rem; }
+	}
+	
+	#publish-modal { padding: 15rem 4rem; }
+	
+	.modal .wrapper .wrapper { padding-top: 4rem !important; }
+	
+	// accounts //
+	
+	.accounts .notification-time #notification-count { right: 2.5rem; }
+	
+	// splash home //
+	
+	body.landing #gapelia {
+		left: 42.75%;
+		top: 3rem;
+	}
 }	
 
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {

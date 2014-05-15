@@ -7284,9 +7284,48 @@ a.count span.dont-move {
     margin: 0 0 -3rem 0; }
   .full-book .notification-time #notification-count {
     right: 4rem; } }
-@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+@media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
   .mp-menu ul .fq {
-    margin-top: 160%; } }
+    margin-top: 160%; }
+
+  .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+    top: 52.5%; }
+  .app .book, .app .collection, .app .library {
+    width: 450px; }
+
+  body.library-manager .library .wrapper {
+    bottom: 10rem; }
+
+  body.library #submission-pop {
+    height: 6%;
+    left: 25% !important; }
+  body.library #submission-pop p {
+    padding: 1rem 1rem 0rem 1rem; }
+
+  .profile #user-splash .user-avatar {
+    top: 16%; }
+  .profile .notification-time #notification-count {
+    right: 3.25rem; }
+
+  .full-book .notification-time #notification-count {
+    right: 3.25rem; }
+  .full-book #the-book #collection-pop {
+    height: 5.5%; }
+  .full-book .backcover-wrapper #fin {
+    padding: 12rem 5rem 0 9rem; }
+
+  #publish-modal {
+    padding: 15rem 4rem; }
+
+  .modal .wrapper .wrapper {
+    padding-top: 4rem !important; }
+
+  .accounts .notification-time #notification-count {
+    right: 2.5rem; }
+
+  body.landing #gapelia {
+    left: 42.75%;
+    top: 3rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {
     bottom: -15px;
