@@ -2530,7 +2530,7 @@ body.landing .error {
   padding: 1.05rem 0 0 0;
   font-size: 1rem; }
 .app #book-nav li, .app #featured-nav li {
-  display: inline-flex;
+  display: inline-block;
   margin: 0.5rem 1rem 0 0; }
 .app #book-nav a, .app #featured-nav a {
   color: rgba(11, 72, 107, 0.25); }
@@ -3352,7 +3352,7 @@ body.library #submission-pop a {
 body.library #stay-right {
   top: 0;
   right: 0;
-  display: inline-flex;
+  display: inline-block;
   margin: 1.4rem 0.5rem 0 0;
   position: absolute;
   z-index: 10 !important; }
