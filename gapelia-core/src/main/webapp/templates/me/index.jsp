@@ -240,7 +240,6 @@
 			"width": "7.5%"
 		    });
 	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
-
                     $("#user-header").css("opacity", "1");
 
                 });

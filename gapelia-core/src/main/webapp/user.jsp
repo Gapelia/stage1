@@ -90,7 +90,7 @@
 			<div class="mousearea"></div>
 		</div>
 	    </div>
-            <div class="user-book-list-wrapper">
+            <div class="user-book-list-wrapper style="opacity: 0;">
                 <ul id="user-book-list"></ul>
             </div>
 
@@ -168,9 +168,12 @@
                     $("#user-splash").css("left", "-200%");
                     $("#user-panel").css("width", "100%");
                     $("#user-splash .overlay-controls").css("left", "-200%");
-                    $("#g-menu-toggle").css("color", "#70a1b1");
-
+                    $("#g-menu-toggle").css({
+			"color": "#70a1b1",
+			"width": "7.5%"
+		    });
                     $("#user-header").css("opacity", "1");
+		    $(".user-book-list-wrapper, #user-header").css("opacity", "1");
 
                 });
 
