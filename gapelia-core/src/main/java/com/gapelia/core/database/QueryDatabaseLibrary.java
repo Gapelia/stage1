@@ -14,8 +14,8 @@ public class QueryDatabaseLibrary {
 //    private static final String GET_GOD_LIBRARIES = "SELECT * FROM libraries where created_by=1 order by random()";
 
 	private static final String GET_ALL_LIBRARIES = "select * from libraries left join (select count(library_id) as num_subscribers, " +
-			"library_id from library_books group by library_id order by num_subscribers limit 20) as t2 on libraries.id = t2.library_id where num_subscribers > 4 " +
-			"order by num_subscribers desc nulls last limit 20";
+			"library_id from user_subscriptions group by library_id order by num_subscribers limit 20) as t2 on libraries.id = t2.library_id " +
+			"where num_subscribers > 4 order by num_subscribers desc nulls last limit 20";
 
 	private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
 	private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
