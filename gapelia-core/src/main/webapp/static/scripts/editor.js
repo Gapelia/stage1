@@ -384,7 +384,7 @@
 		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
 
 		insert += "<div class=\"gapelia-editor-toolbar-form-anchor\">";
-		insert += "<input type=\"text\" value=\"Paste or type link here\" placeholder=\"Paste or type link here\">";
+		insert += "<input type=\"text\" style=\"background-color: #59b3a6;\" value=\"Paste the link you want to embed\" placeholder=\"Paste the link you want to be\">";
 		insert += "<a href=\"#\">&#xf2bb;</a>";
 		insert += "</div>";
 		insert += "</div>";
@@ -1213,6 +1213,7 @@
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
 		title= title.replace(/&lt;br&gt;/g," ");
+		firstTitle=pages.page[0].title;
 		$(".page-title-elem").html(title);
 		text = $(".page-desc").html();
 		templateId = pages.page[currentPage].templateId;
@@ -1237,7 +1238,7 @@
             alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
         }
 	
-        $("#publish-book-title").html(title);
+        $("#publish-book-title").html(firstTitle);
         $(".page-title-elem").html(title);
 		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({

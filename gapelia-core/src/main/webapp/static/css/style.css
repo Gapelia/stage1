@@ -5002,8 +5002,9 @@ body.library-manager #stay-right {
   width: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .inline-embed-insert:after {
   color: #59b3a6 !important;
-  content: "Embed rich media";
-  font-weight: lighter; }
+  content: "Embed a link (YouTube, Tweet..)";
+  font-weight: lighter;
+  width: 220px; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor {
   top: 0;
   left: 50px;
@@ -5767,7 +5768,7 @@ body.library-manager #stay-right {
   -webkit-transition: top 0.075s ease-out, left 0.075s ease-out; }
 
 .gapelia-editor-toolbar-form-anchor {
-  background-color: #191919;
+  background-color: #59b3a6;
   border-radius: 5px;
   box-sizing: border-box;
   color: #999;
