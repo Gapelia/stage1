@@ -164,7 +164,7 @@ function getBookmarkedBooks() {
 		    toInsert += getLibraryFromBook(bookmark.bookId);
                     toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div><div class=\"book-info\">";
                     toInsert += getUserFromBookId(bookmark.bookId);
-		    toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(bookmark.bookId) + "</div>";
+		    toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(bookmark.bookId) + "</div>";
                     toInsert += "</div></div></li>";
                 }
 
@@ -233,7 +233,7 @@ function getFeaturedBooks() {
                 toInsert += "</div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
+		toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
 		$("#book-list").append(toInsert);
             }
             h = $(this).outerHeight() - 92;
@@ -274,7 +274,7 @@ function getUserCreatedBooks() {
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
                 toInsert += "<div class=\"book-info\"";
-		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\">&hearts; " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 		toInsert += "</div></div></li>";
 
             }
@@ -388,7 +388,7 @@ function getBooksInLibrary() {
                 toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
-		toInsert += "</div><div class=\"num-votes\">&hearts; " + getNumberVotes(book.bookId) + "</div></li>";
+		toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
             }
             if (toInsert == "") {
                 toInsert = "<section><p/>No stories have been publised here yet.</p></section>";
@@ -1408,7 +1408,7 @@ function getPublicCreatedBooks() {
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
                 toInsert += "<div class=\"book-info\"";
-		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\">&hearts; " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 		toInsert += "</div>";
 		toInsert += "</li>";
             }

@@ -6070,7 +6070,8 @@ a.mercibject div.opening div.circle {
   -moz-transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out; }
 a.mercibject div.opening div.circle:after {
-  content: "\f199"; }
+  content: "\f199";
+  display: none; }
 
 .merci.active a.mercibject div.opening div.circle {
   transform: scale(1.1);

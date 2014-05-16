@@ -161,7 +161,7 @@ $(function () {
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
-                backPage += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
+                backPage += "<div class=\"circle\"><i class=\"ion-lightbulb\"></i></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
                 backPage += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure>";
                 backPage += "<h2>" + pages[0].title + "</h2><ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";
                 backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
@@ -562,7 +562,7 @@ function getReadNextBook() {
         twitterShare = "http://twitter.com/share?text="+current.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + current.bookId;
         emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ current.title + " by " + bookOwner.fullName + "   " +  "www.folio.is/read/" + current.bookId;
         htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" style=\"z-index: 10;\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
-        htmlToInsert += "<div class=\"circle\"></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
+        htmlToInsert += "<div class=\"circle\"><i class=\"ion-lightbulb\"></i></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
         htmlToInsert += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure><div/>";
         htmlToInsert += "<h2>" + pages[0].title + "</h2><div id=\"credits\">" + current.title + getUserFromBookId(bookId);
         htmlToInsert += "<ul class=\"share-book\"><li><a href=\"javascript:window.open("+ facebookShare +",'','width=555,height=368');void(0)\">";

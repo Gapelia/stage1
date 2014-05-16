@@ -43,7 +43,7 @@ a.mercibject {
 			transition-style: preserve-3d;
 			transition-timing-function: ease-out;
 
-			&:after { content: "\f199"; }
+			&:after { content: "\f199"; display: none; }  /// changed by new light bulb in ajax code
 
 			-o-backface-visibility: visible;
 			-ms-backface-visibility: visible;
