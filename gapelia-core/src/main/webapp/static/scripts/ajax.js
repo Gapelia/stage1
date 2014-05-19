@@ -169,7 +169,7 @@ function getBookmarkedBooks() {
                 }
 
                 if (toInsert == "<ul id=\"bookmark-list\">") {
-                    toInsert += "<ul id=\"bookmark-list\"><section><p>No books have been added to your bookmarks yet.</p></section></ul>";		    
+		    toInsert += "<ul id=\"bookmark-list\" style=\"display: block;\"><section style=\"position: absolute; width: 800px; left: 0; top: -3rem;\"><p>No books have been added to your bookmarks yet.</p></section></ul>";		    
                 }
             }
             $(".bookmark-list-wrapper").html(toInsert);
@@ -499,8 +499,8 @@ function getCreatedLibraries() {
                 toInsert += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
             if (toInsert == "") {
-                toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
-            }
+		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
+	    }
             $("#library-list").html(toInsert);
 	    toInsert += "<div id=\"close-splash\">Your library was created! Other users can now submit stories to it.<a Id=\"go-to-library\" href=\"/library/" + library.libraryId + "\">Go to your library</a></div>";
 
@@ -706,7 +706,7 @@ function getLibrary() {
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
-            if (libraryId in subscribed == true) {
+            if (library.libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
             } else {
                 toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
@@ -1635,6 +1635,7 @@ $(document).on("click", ".unsubscribe", function (ev) {
     });
 });
 
+
 function contains(a, obj) {
     var i = a.length;
     while (i--) {
@@ -2105,7 +2106,7 @@ $(document).on("click", ".bookmark-this", function (ev) {
                 if (status == "timeout") {
                     alert("Request timed out");
                 }
-            }
+	    }
         });
     } else {
         $.ajax({
@@ -2124,6 +2125,7 @@ $(document).on("click", ".bookmark-this", function (ev) {
         });
     }
 });
+
 $(document).on("click", ".update-user", function () {
     updateUser();
 });

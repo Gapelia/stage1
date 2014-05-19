@@ -393,7 +393,7 @@
   
   .book-list-wrapper .library-empty { width: 500%; }
   
-  .library-list-wrapper .library-empty { width: 176% !important; }
+  .library-list-wrapper .library-empty { position: absolute; top: 100px; }
   
   .submission-list-wrapper .library-empty { left: 21rem; width: 300%; }
   
@@ -954,7 +954,7 @@
 		}
 
 		p {
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 			font-weight: 200;
 			padding: 12px 0 0 0;
 		}
@@ -1089,7 +1089,7 @@
 		}
     
 		p {
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 			letter-spacing: 0.006rem;
 			line-height: 2rem;
       padding: 12px 0 0 0;

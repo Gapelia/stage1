@@ -1,6 +1,81 @@
 
 ///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
+@media all and (min-width: 1919px), screen and (min-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
+	.app{
+		.book, .collection, .library, .new, .draft {
+			width: 500px !important;
+			height: 900px !important;
+		}
+		
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; }
+		
+		#featured-nav { top: 1.05rem !important; }
+		#featured-panel { height: 100px; }
+		
+		#g-menu-toggle { top: 1rem !important; }
+		
+		#featured-nav {
+			.selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1.2rem; }
+			.selectize-control { width: 550px; margin-left: 24%; }
+			#stay-right {
+				right: 0.75rem;
+				top: -0.6rem;
+				
+				a { font-size: 1rem; }
+			}
+		}
+		
+		#new-library #close-splash { margin-left: 32% !important; height: 6% !important; }
+	}
+	
+	body.library {
+		#featured-panel #g-menu-toggle { left: 1.8rem; }
+		
+		#stay-right {
+			top: 0.5rem;
+			right: 0.25rem;
+		}
+		
+		#submission-pop {
+			height: 5% !important;
+			margin-left: 8% !important;
+		}
+	}
+	
+	.profile #user-panel {
+		height: 100px;
+		#g-menu-toggle { left: 1.7rem; }
+		
+		.notification-time #notification-count { right: 5.7rem; }
+		
+		#user-heard { margin-top: 14px; }
+		
+		#user-splash .user-avatar { top: 20%; }
+	}
+	
+	.accounts .account-delete-wrapper { padding-bottom: 7rem; }
+	
+	.mp-menu ul .fq { margin-top: 220% !important; }
+	
+	.full-book {
+		.notification-time #notification-count {	right: 5.5rem !important; }
+		.backcover-wrapper #fin { padding: 14rem 5rem 0 11rem !important; }
+		.fluid-wrapper .fluid-preview article #fin figure.merci { left: 47.5%; }
+		.fluid-wrapper {
+			.author-info .author-avatar {
+				margin-left: 86% !important;
+			}
+		}
+	}
+	
+	a.mercibject div.opening div.circle { left: 38.5%; }
+	
+	#publish-modal { padding: 19rem 4rem !important; }
+	
+	body.landing #gapelia { left: 44.5%; }
+}	
+
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	body.landing {
@@ -34,7 +109,7 @@
 			}
 		}
 		
-		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53.75%; }
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53.75%; width: 100%; }
 		
 		.book, .collection, .library, .new, .draft {
 			margin: 0 0 0 1.5rem;
@@ -1825,6 +1900,7 @@
 
 	.notification-time {
 		#notification-count {
+			display: none !important;
 			top: 0; right: 5px;
 		}
 	}

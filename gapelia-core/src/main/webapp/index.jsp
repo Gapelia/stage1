@@ -60,9 +60,9 @@
 			<footer>
 				<nav>
 					<ul>
-						<li><a href="">Our Mission</a></li>
-						<li><a href="">How It Works</a></li>
-						<li><a href="">Become an Editor</a></li>
+						<li><a href="/read/754">Our Mission</a></li>
+						<li><a href="/read/755">How It Works</a></li>
+						<li><a href="/read/756">Become an Editor</a></li>
 					</ul>
 				</nav>
 			</footer>

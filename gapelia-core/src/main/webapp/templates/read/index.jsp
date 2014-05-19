@@ -141,6 +141,7 @@
 
 
         });
+
 	
 	// submissions confirm popup
 		
@@ -166,7 +167,6 @@
 	}
 
 	});
-	
 	
 	// Dropdown menu for mobile
         if ($vW < "1024") {

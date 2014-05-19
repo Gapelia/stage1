@@ -221,6 +221,12 @@
 		$("#nav-search").fadeIn("slow");
             });
         }
+	
+	if ($vW > "1919") {
+		$(".mp-pushed").ready(function () {
+                $("#nav-search").css("margin-left", "34%");
+            });
+	}	
 
         $(function () {
             getNotifications();
