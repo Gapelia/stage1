@@ -7019,7 +7019,7 @@ a.count span.dont-move {
   box-shadow: none; }
 .full-book .backcover-wrapper #fin #author-bio-blurb, .full-book .backcover-wrapper #fin #library-info-blurb {
   font-size: 1.2rem;
-  line-height: 1.5rem;
+  line-height: 1.25;
   margin: -3.5rem 0 0 8.5rem; }
 .full-book .backcover-wrapper #fin #author-bio-blurb {
   font-weight: 100;
@@ -7028,6 +7028,9 @@ a.count span.dont-move {
   margin-left: 8.5rem;
   font-weight: 100;
   opacity: 0.8; }
+.full-book .backcover-wrapper #fin #library-info-blurb span {
+  font-size: 1.2rem !important;
+  line-height: 1.25 !important; }
 .full-book .backcover-wrapper #fin-next {
   color: #fcfcfc;
   position: relative;
@@ -7201,7 +7204,34 @@ a.count span.dont-move {
 .g-body blockquote {
   margin-bottom: 2rem; }
 
+@media all and (min-height: 1199px), screen and (min-height: 1199px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contactable-inner {
+    top: 93% !important; }
+
+  #contactable-contactForm {
+    top: 82.5% !important; }
+
+  body.landing #gapelia {
+    top: 4rem !important; }
+
+  .profile #user-splash .user-avatar {
+    top: 22% !important; }
+  .profile #user-header {
+    margin-top: 14px; }
+
+  .full-book .photo-wrapper .page-bg-wrapper {
+    top: 10% !important; }
+  .full-book .photo-wrapper .author-info {
+    top: -7.5%; }
+  .full-book .overlay-wrapper .overlay-preview article {
+    margin: 22% auto; } }
 @media all and (min-width: 1919px), screen and (min-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contactable-inner {
+    top: 92% !important; }
+
+  #contactable-contactForm {
+    top: 80% !important; }
+
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 500px !important;
     height: 900px !important; }
@@ -7261,6 +7291,10 @@ a.count span.dont-move {
     left: 47.5%; }
   .full-book .fluid-wrapper .author-info .author-avatar {
     margin-left: 86% !important; }
+  .full-book .photo-wrapper .author-info {
+    top: -7.5%; }
+  .full-book .photo-wrapper .author-avatar {
+    margin-left: 88% !important; }
 
   a.mercibject div.opening div.circle {
     left: 38.5%; }
@@ -7269,8 +7303,14 @@ a.count span.dont-move {
     padding: 19rem 4rem !important; }
 
   body.landing #gapelia {
-    left: 44.5%; } }
+    left: 44.5% !important; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contactable-inner {
+    top: 90% !important; }
+
+  #contactable-contactForm {
+    top: 76%; }
+
   body.landing #gapelia {
     height: 24%;
     left: 43.75%;
@@ -7415,6 +7455,12 @@ a.count span.dont-move {
   .full-book .notification-time #notification-count {
     right: 4rem; } }
 @media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contactable-inner {
+    top: 90% !important; }
+
+  #contactable-contactForm {
+    top: 82%; }
+
   .mp-menu ul .fq {
     margin-top: 160%; }
 
@@ -7481,6 +7527,9 @@ a.count span.dont-move {
   .profile #user-splash .avatar-wrapper #splash-edit-wrapper {
     top: 3.85rem; } }
 @media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contactable-inner {
+    display: none !important; }
+
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 12px;
     height: 12px; }

@@ -184,7 +184,6 @@
         $("#featured-nav").toggle();
         });
 	}
-	
 
         setTimeout(function () {
         loadDelete();

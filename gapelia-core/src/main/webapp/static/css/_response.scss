@@ -1,7 +1,34 @@
 
 ///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
 
+@media all and (min-height: 1199px), screen and (min-height: 1199px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#contactable-inner { top: 93% !important; }
+	#contactable-contactForm { top: 82.5% !important; }
+	
+	body.landing #gapelia { top: 4rem !important; }
+	
+	.profile {
+		#user-splash .user-avatar { top: 22% !important; }
+		#user-header { margin-top: 14px; }
+	}
+	
+	.full-book {
+		.photo-wrapper {
+			.page-bg-wrapper { top: 10% !important; }
+			.author-info { top: -7.5%; }
+		}
+		.overlay-wrapper .overlay-preview article { margin: 22% auto; }
+	}
+}	
+
+
+
 @media all and (min-width: 1919px), screen and (min-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#contactable-inner { top: 92% !important; }
+	#contactable-contactForm { top: 80% !important; }
+	
 	.app{
 		.book, .collection, .library, .new, .draft {
 			width: 500px !important;
@@ -63,21 +90,28 @@
 		.backcover-wrapper #fin { padding: 14rem 5rem 0 11rem !important; }
 		.fluid-wrapper .fluid-preview article #fin figure.merci { left: 47.5%; }
 		.fluid-wrapper {
-			.author-info .author-avatar {
-				margin-left: 86% !important;
-			}
+			.author-info {
+				.author-avatar { margin-left: 86% !important; }
+			}	
 		}
+		.photo-wrapper {
+			.author-info { top: -7.5%; }
+			.author-avatar { margin-left: 88% !important; }
+		}	
 	}
 	
 	a.mercibject div.opening div.circle { left: 38.5%; }
 	
 	#publish-modal { padding: 19rem 4rem !important; }
 	
-	body.landing #gapelia { left: 44.5%; }
+	body.landing #gapelia { left: 44.5% !important; }
 }	
 
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	#contactable-inner { top: 90% !important; }
+	#contactable-contactForm { top: 76%; }
+	
 	body.landing {
 		
 		#gapelia {
@@ -306,6 +340,9 @@
 
 @media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	#contactable-inner { top: 90% !important; }
+	#contactable-contactForm { top: 82%; }
+	
 	//menu//
 	
 	.mp-menu ul .fq { margin-top: 160%; }
@@ -439,6 +476,8 @@
 
 @media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
 
+	#contactable-inner { display: none !important; }
+	
 	html, body {
 		::-webkit-scrollbar {
 			width: 12px; height: 12px;

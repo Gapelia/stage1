@@ -176,7 +176,7 @@
                 stuff = "";
                 stuff += "<section id=\"user-splash\">";
                 stuff += "<div class=\"overlay-controls\">";
-                stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"ABFuSiQFbQRylrWy9nCs7z\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
+                stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('#user-splash').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();\">";
                 stuff += "</div>";
                 stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
                 stuff += "<a href=\"#\" id=\"splash-edit-profile\">&#xf13d;</a>";
@@ -298,7 +298,7 @@
                             $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
                         }
                         if ($vW < "321") {
-                                                $(".book-snippet").css("display","block")
+                            $(".book-snippet").css("display","block")
                         				}
 
 			$("#g-menu-toggle").click(function () {
@@ -314,6 +314,11 @@
                     });
 
                 }
+		
+		if ($vH > "1190") {
+			$(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
+			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		}
 		
 
                 // User details

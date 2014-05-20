@@ -988,7 +988,7 @@
 
 			#author-bio-blurb, #library-info-blurb {
 				font-size: 1.2rem;
-				line-height: 1.5rem;
+				line-height: 1.25;
 				margin: -3.5rem 0 0 8.5rem;
 			}
       
@@ -1001,6 +1001,8 @@
         margin-left: 8.5rem;
         font-weight: 100;
         opacity: 0.8;
+        
+        span { font-size: 1.2rem !important;  line-height: 1.25 !important; }
       }
 		}
 

@@ -217,22 +217,31 @@
 
                 // Dropdown menu for mobile
                 if ($vW < "1025") {
-
-                    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured"></a><li id="nav-featured"><a href="/featured">Featured</a>Folio</li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+		$("#book-scroller").remove(); // removed until book list is optimized
+                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
+		    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
                     $(function () {
 
                         if ($vW < "321") {
                             $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
                         }
+                        if ($vW < "321") {
+                            $(".book-snippet").css("display","block")
+                        				}
 
-                        $("#g-menu-toggle").click(function () {
+			$("#g-menu-toggle").click(function () {
                             $("#featured-nav").toggle();
                         });
 
                     });
 		    
                 }
+		
+		if ($vH > "1190") {
+		    $(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
+		    $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		}
 		
 		
 

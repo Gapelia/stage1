@@ -176,8 +176,7 @@
                 "z-index": "0",
                 "top": "-1rem"
             })
-        }
-                        
+        }                       
                         
         // Log Out
         $("#logout").click(function (e) {
@@ -186,6 +185,11 @@
         });
 
         }
+        
+        if ($vH > "1190") {
+	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 50.5% !important");
+            $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+	}
 	</script>
 
 	<script>

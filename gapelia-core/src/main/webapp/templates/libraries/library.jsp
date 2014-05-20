@@ -150,6 +150,11 @@
                 fill: true
             });
         });
+	
+	if ($vH > "1190") {
+		$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
+		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+	}
     </script>
     
     <script>

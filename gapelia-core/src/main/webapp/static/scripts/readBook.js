@@ -789,6 +789,11 @@ function getReadNextBook() {
         });
     }
 
+    //side menu for iMac
+    if ($vH > "1190") {
+	$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+    }
+        
     // Dropdown menu for mobile
     if ($vW < "1025") {
 
