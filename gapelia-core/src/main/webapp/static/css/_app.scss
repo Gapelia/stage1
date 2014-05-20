@@ -172,12 +172,13 @@
 		}
 	}
 
-	#g-menu-toggle, #next-book-toggle {
+	#g-menu-toggle {
 		width: 100%; height: auto;
 
 		background-color: transparent;
     background-repeat: no-repeat;
     background-size: 40px;
+    border-radius: 0 !important;
 		color: $white;
 		cursor: pointer;
 		font-size: 36px;
@@ -451,7 +452,12 @@
       font-weight: 100;
       line-height: 1.75;
       text-transform: lowercase;
-      :first-letter { text-transform: uppercase; } 
+      :first-letter { text-transform: uppercase; }
+      
+      p {
+        line-height: 1.25;
+        margin-top: 3px;
+      }
     }
 
 		.bookmark-this {
@@ -948,6 +954,8 @@
 			border-bottom: 1px solid rgba($white, 0.5);
 			font-size: 0.9rem;
       opacity: 0.8;
+      
+      span { font-size: 0.9rem !important; font-style: italic; }
       
       a {
         font-style: italic;

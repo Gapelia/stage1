@@ -9,7 +9,7 @@
 	background-color:white;
 	cursor:pointer;
 	height:88px;
-	left:0;
+	left:-2px;
 	*margin-left: 0;
 	overflow:hidden;
 	position:fixed;

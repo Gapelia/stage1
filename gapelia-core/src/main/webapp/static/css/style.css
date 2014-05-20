@@ -2494,12 +2494,13 @@ body.landing .error {
 .app #featured-panel img, .app #user-panel img {
   width: auto;
   height: 100%; }
-.app #g-menu-toggle, .app #next-book-toggle {
+.app #g-menu-toggle {
   width: 100%;
   height: auto;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: 40px;
+  border-radius: 0 !important;
   color: #fcfcfc;
   cursor: pointer;
   font-size: 36px;
@@ -2508,7 +2509,7 @@ body.landing .error {
   top: 0.35rem;
   transition: all 0.5s ease;
   z-index: 5 !important; }
-.app #g-menu-toggle:hover, .app #next-book-toggle:hover {
+.app #g-menu-toggle:hover {
   opacity: 0.7; }
 .app #g-menu-toggle {
   background-color: transparent;
@@ -2701,6 +2702,9 @@ body.landing .error {
   text-transform: lowercase; }
 .app .book .book-snippet :first-letter, .app .collection .book-snippet :first-letter, .app .library .book-snippet :first-letter, .app .new .book-snippet :first-letter, .app .draft .book-snippet :first-letter {
   text-transform: uppercase; }
+.app .book .book-snippet p, .app .collection .book-snippet p, .app .library .book-snippet p, .app .new .book-snippet p, .app .draft .book-snippet p {
+  line-height: 1.25;
+  margin-top: 3px; }
 .app .book .bookmark-this, .app .collection .bookmark-this, .app .library .bookmark-this, .app .new .bookmark-this, .app .draft .bookmark-this {
   width: auto;
   height: auto;
@@ -3071,6 +3075,9 @@ body.landing .error {
   border-bottom: 1px solid rgba(252, 252, 252, 0.5);
   font-size: 0.9rem;
   opacity: 0.8; }
+.app #library-splash h1 span {
+  font-size: 0.9rem !important;
+  font-style: italic; }
 .app #library-splash h1 a {
   font-style: italic;
   font-weight: bolder;
@@ -3367,11 +3374,13 @@ body.library #featured-panel h4 {
   width: 800px; }
 body.library #featured-panel #g-menu-toggle {
   background-image: url("../images/folio-icon-solid.png") !important;
+  border-radius: 0 !important;
   color: transparent !important;
   left: 0.8rem;
   top: 0.4rem; }
 body.library #g-menu-toggle {
   background-image: url("../images/folio-icon.png") !important;
+  border-radius: 0 !important;
   color: transparent !important;
   top: 0.4rem; }
 body.library #submission-pop {
@@ -3830,6 +3839,7 @@ body.library-manager #stay-right {
   width: 80%; }
 .profile #user-panel #g-menu-toggle {
   background-image: url("../images/folio-icon-solid.png") !important;
+  border-radius: 0 !important;
   color: transparent !important;
   left: 0.7rem;
   width: 9.5%; }
@@ -6373,6 +6383,7 @@ a.count span.dont-move {
   content: none;
   margin-left: 0; }
 .full-book .mp-pushed #g-menu-toggle {
+  border-radius: 0 !important;
   display: none;
   z-index: 1; }
 .full-book .bb-item .content {
@@ -6420,6 +6431,7 @@ a.count span.dont-move {
 .full-book header .share-book li:last-child {
   margin: 0; }
 .full-book #g-menu-toggle {
+  border-radius: 0 !important;
   color: #fcfcfc;
   padding: 0 !important;
   position: fixed;
@@ -6429,6 +6441,7 @@ a.count span.dont-move {
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important; }
 .full-book #g-menu-toggle {
   background-image: url("../images/folio-icon-solid.png") !important;
+  border-radius: 0 !important;
   color: transparent !important;
   left: 0.7rem;
   top: 0.6rem;

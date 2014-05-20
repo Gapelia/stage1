@@ -128,6 +128,7 @@
 
 	.mp-pushed {
 		#g-menu-toggle {
+      border-radius: 0 !important;
 			display: none;
 			z-index: 1;
 		}
@@ -194,6 +195,7 @@
 	}
 
 	#g-menu-toggle {
+    border-radius: 0 !important;
     color: $white;
 		padding: 0 !important;
 		position: fixed;
@@ -205,6 +207,7 @@
 
 	#g-menu-toggle {
     background-image: url("../images/folio-icon-solid.png") !important;
+    border-radius: 0 !important;
     color: transparent !important ;
     left: 0.7rem; top: 0.6rem;
     width: 7.5%;
