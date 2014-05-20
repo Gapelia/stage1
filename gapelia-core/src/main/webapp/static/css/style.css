@@ -2844,7 +2844,8 @@ body.landing .error {
   text-transform: none; }
 .app .featured-info .lib-blurb span, .app .new-inner-wrapper .lib-blurb span, .app .draft-info .lib-blurb span, .app .library-info .lib-blurb span, .app .submission-info .lib-blurb span {
   font-size: 0.9rem !important;
-  font-style: italic !important; }
+  font-style: italic !important;
+  line-height: 1.2em !important; }
 .app .featured-info {
   display: none; }
 .app .library-info {

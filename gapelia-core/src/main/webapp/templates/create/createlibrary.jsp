@@ -88,7 +88,7 @@
 				</div>
 
 				<div class="button-wrapper">
-					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
+					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
 				</div>
 
 				<div id="new-library-info">
