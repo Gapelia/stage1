@@ -28,6 +28,7 @@
 
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/slytest.css" rel="stylesheet" />
+    <link href="/static/css/feedback.css" rel="stylesheet" />
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
@@ -106,7 +107,7 @@
         <!--//main-panel /-->
 
         <!--/ main-content /-->
-        <div id="featured-scroller">
+	<div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
                     <li id="nav-books" class="current"><a href="#">Stories</a></li>
@@ -161,6 +162,7 @@
                         <button id="start-story" class="brand-i"><a href="/createBook">New Story</a>
                         </button>
                     </div>
+		    <div id="contactable"></div>
                 </ul>
             </div>
 
@@ -193,6 +195,7 @@
     <script src="/static/scripts/imgLiquid.js"></script>
     <script src="/static/scripts/userNotifications.js"></script>
     <script src="/static/scripts/ajax.js"></script>
+    <script src="/static/scripts/feedback.js"></script>
 
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
@@ -220,6 +223,10 @@
                 $("#featured-nav .selectize-control").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
+		$('#contactable').contactable({
+		subject: 'A Feeback Message'
+	    });
+	    
         }
 	
 	if ($vW > "1919") {

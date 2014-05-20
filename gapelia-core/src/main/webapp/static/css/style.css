@@ -2838,6 +2838,9 @@ body.landing .error {
   color: #fcfcfc;
   font-style: normal;
   text-transform: none; }
+.app .featured-info .lib-blurb span, .app .new-inner-wrapper .lib-blurb span, .app .draft-info .lib-blurb span, .app .library-info .lib-blurb span, .app .submission-info .lib-blurb span {
+  font-size: 0.9rem !important;
+  font-style: italic !important; }
 .app .featured-info {
   display: none; }
 .app .library-info {
@@ -3074,10 +3077,10 @@ body.landing .error {
   margin-right: 5px; }
 .app #library-splash h1 c {
   margin-right: 7.5px; }
-.app #library-splash p {
-  font-size: 1.25rem;
-  font-weight: 200;
-  padding: 12px 0 0 0; }
+.app #library-splash p, .app #library-splash span {
+  font-size: 1.25rem !important;
+  font-weight: 200 !important;
+  padding: 12px 0 0 0 !important; }
 .app #library-splash section {
   display: inline;
   font-weight: 700;

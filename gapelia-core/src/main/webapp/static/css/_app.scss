@@ -633,6 +633,11 @@
 				font-style: normal;
 				text-transform: none;
 			}
+      
+      span {
+        font-size: 0.9rem !important;
+        font-style: italic !important;
+      }
 		}
 	}
 
@@ -953,10 +958,10 @@
       c { margin-right: 7.5px; }
 		}
 
-		p {
-			font-size: 1.25rem;
-			font-weight: 200;
-			padding: 12px 0 0 0;
+		p, span {
+			font-size: 1.25rem !important;
+			font-weight: 200 !important;
+			padding: 12px 0 0 0 !important;
 		}
 
 		section {
