@@ -2324,7 +2324,8 @@ body.landing .wrapper button {
   font-size: 0.8rem;
   letter-spacing: 0.03rem;
   margin: 1rem auto !important;
-  text-transform: none; }
+  text-transform: none;
+  width: 190px; }
 body.landing footer {
   width: 100%;
   height: auto;
@@ -2533,8 +2534,8 @@ body.landing .error {
   width: auto;
   height: auto;
   margin: 0 0 1rem 1rem;
-  padding: 1.05rem 0 0 0;
-  font-size: 1rem; }
+  padding: 1.1rem 0 0 0;
+  font-size: 1.035rem; }
 .app #book-nav li, .app #featured-nav li {
   display: inline-block;
   margin: 0.5rem 1rem 0 0; }
@@ -2570,7 +2571,7 @@ body.landing .error {
 .app #featured-nav .selectize-control {
   display: none;
   position: absolute;
-  margin-left: 17%;
+  margin-left: 20.5%;
   width: 400px; }
 .app #featured-nav .selectize-input {
   border-bottom: 1px solid rgba(89, 179, 166, 0.16);
@@ -2701,7 +2702,7 @@ body.landing .error {
 .app .book .book-snippet, .app .collection .book-snippet, .app .library .book-snippet, .app .new .book-snippet, .app .draft .book-snippet {
   color: #fcfcfc;
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 1.75;
   text-transform: lowercase; }
 .app .book .book-snippet :first-letter, .app .collection .book-snippet :first-letter, .app .library .book-snippet :first-letter, .app .new .book-snippet :first-letter, .app .draft .book-snippet :first-letter {
@@ -2840,16 +2841,17 @@ body.landing .error {
   opacity: 0.7; }
 .app .featured-info .lib-blurb, .app .new-inner-wrapper .lib-blurb, .app .draft-info .lib-blurb, .app .library-info .lib-blurb, .app .submission-info .lib-blurb {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
+  font-size: 1rem;
   font-style: italic;
-  line-height: 1.2em; }
+  line-height: 1.3em; }
 .app .featured-info .lib-blurb a, .app .new-inner-wrapper .lib-blurb a, .app .draft-info .lib-blurb a, .app .library-info .lib-blurb a, .app .submission-info .lib-blurb a {
   color: #fcfcfc;
   font-style: normal;
   text-transform: none; }
 .app .featured-info .lib-blurb span, .app .new-inner-wrapper .lib-blurb span, .app .draft-info .lib-blurb span, .app .library-info .lib-blurb span, .app .submission-info .lib-blurb span {
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
   font-style: italic !important;
-  line-height: 1.2em !important; }
+  line-height: 1.3em !important; }
 .app .featured-info {
   display: none; }
 .app .library-info {
@@ -3566,6 +3568,9 @@ body.library ::-webkit-input-placeholder {
 
 body.library-manager #nav-wrapper {
   z-index: 1; }
+body.library-manager #featured-nav .selectize-control {
+  margin-left: 13%;
+  z-index: 10; }
 body.library-manager .book .wrapper, body.library-manager .library .wrapper {
   width: 100%; }
 body.library-manager .library-buttons {
@@ -3602,6 +3607,8 @@ body.library-manager .delete-library-confirm {
   z-index: 2; }
 body.library-manager .delete-library-confirm h3 {
   margin: 8rem 0 0 0; }
+body.library-manager .library-list-wrapper, body.library-manager .subscription-list-wrapper {
+  z-index: 0; }
 body.library-manager #stay-right {
   top: 0;
   right: 0;
@@ -5828,7 +5835,7 @@ body.library-manager #stay-right {
   -webkit-transition: top 0.075s ease-out, left 0.075s ease-out; }
 
 .gapelia-editor-toolbar-form-anchor {
-  background-color: #59b3a6;
+  background-color: #191919;
   border-radius: 5px;
   box-sizing: border-box;
   color: #999;
@@ -6617,7 +6624,7 @@ a.count span.dont-move {
   color: rgba(25, 25, 25, 0.8);
   font-size: 1rem;
   font-style: italic;
-  font-weight: 100;
+  font-weight: 400;
   margin: 2.5rem 0 0 9rem; }
 .full-book .fluid-wrapper .fluid-preview article #fin #credits .author-name {
   display: inline;
@@ -7263,7 +7270,8 @@ a.count span.dont-move {
     height: 6% !important; }
 
   body.library #featured-panel #g-menu-toggle {
-    left: 1.8rem; }
+    left: 1.8rem;
+    top: 0; }
   body.library #stay-right {
     top: 0.5rem;
     right: 0.25rem; }
@@ -7323,9 +7331,9 @@ a.count span.dont-move {
   body.landing footer {
     bottom: 3rem; }
 
-  .app #g-menu-toggle, .app .app #next-book-toggle {
+  .app #g-menu-toggle {
     top: 0.25rem;
-    left: 1.5rem; }
+    left: 1.1rem; }
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
   .app .bookmarked .bookmark-this .top-bm {
@@ -7335,10 +7343,11 @@ a.count span.dont-move {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
-    top: 53.75%;
+    top: 53% !important;
     width: 100%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
+    height: 790px !important;
     width: 450px; }
   .app .book-title {
     top: 34%; }
@@ -7386,6 +7395,8 @@ a.count span.dont-move {
   .profile #user-splash #splash-user-bio {
     font-size: 1.5rem;
     margin: 0 0 3rem 0; }
+  .profile #user-splash #splash-user-bio span {
+    font-size: 1.5rem !important; }
   .profile #user-splash #close-splash {
     bottom: 2rem; }
   .profile #user-splash h1 {
@@ -7407,7 +7418,7 @@ a.count span.dont-move {
   .profile #user-splash .user-avatar {
     top: 16%; }
   .profile .notification-time #notification-count {
-    right: 4rem; }
+    right: 4rem !important; }
 
   .g-body hr {
     margin: 6rem auto 20px auto; }
@@ -7458,13 +7469,16 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin section {
     margin: 0 0 -3rem 0; }
   .full-book .notification-time #notification-count {
-    right: 4rem; } }
+    right: 4rem; }
+
+  .accounts .notification-time #notification-count {
+    right: 2.5rem !important; } }
 @media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
   #contactable-inner {
     top: 90% !important; }
 
   #contactable-contactForm {
-    top: 82%; }
+    top: 81% !important; }
 
   .mp-menu ul .fq {
     margin-top: 160%; }
@@ -7473,9 +7487,17 @@ a.count span.dont-move {
     top: 52.5%; }
   .app .book, .app .collection, .app .library {
     width: 450px; }
+  .app #featured-nav #nav-search {
+    margin-left: 34.5% !important; }
+  .app .selectize-control {
+    margin-left: 24.5% !important; }
 
   body.library-manager .library .wrapper {
     bottom: 10rem; }
+  body.library-manager #featured-nav #nav-search {
+    margin-left: 27.5% !important; }
+  body.library-manager .selectize-control {
+    margin-left: 18.5% !important; }
 
   body.library #submission-pop {
     height: 6%;
@@ -7484,7 +7506,7 @@ a.count span.dont-move {
     padding: 1rem 1rem 0rem 1rem; }
 
   .profile #user-splash .user-avatar {
-    top: 16%; }
+    top: 18.5%; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 
@@ -7505,7 +7527,7 @@ a.count span.dont-move {
     right: 2.5rem; }
 
   body.landing #gapelia {
-    left: 42.75%;
+    left: 43%;
     top: 3rem; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
   .app .bookmarked .bookmark-this .top-bm {

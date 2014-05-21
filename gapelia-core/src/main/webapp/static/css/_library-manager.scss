@@ -4,6 +4,11 @@
 body.library-manager {
 
 	#nav-wrapper { z-index: 1; }
+	
+	#featured-nav .selectize-control {
+		margin-left: 13%;
+		z-index: 10;
+	}
 
 	.book, .library {
 		.wrapper { width: 100%; }
@@ -50,6 +55,8 @@ body.library-manager {
 
 		h3 { margin: 8rem 0 0 0; }
 	}
+	
+	.library-list-wrapper, .subscription-list-wrapper { z-index: 0; }
 
 	#stay-right {
 		top: 0; right: 0;

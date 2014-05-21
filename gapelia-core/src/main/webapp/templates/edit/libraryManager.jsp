@@ -88,6 +88,51 @@
                     <li id="nav-explore" class="current"><a href="#">Explore</a></li>
                     <li id="nav-subscriptions"><a href="#">Subscriptions</a></li>
                     <li id="nav-libraries"><a href="#">My Libraries</a></li>
+                    <div id="nav-search" style="display: inline-block; margin-left: 22%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
+		    <div id="library-search" placeholder="Search users, stories or libraries on Folio..."></div>
+				<script>
+					$("#library-search").selectize({
+						valueField: 'title',
+						labelField: 'title',
+						searchField: 'title',
+						options: [],
+						create: false,
+						render: {
+						    option: function(item, escape) {
+							var actors = [];
+							for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
+							    actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
+							}
+					    
+							return '<div>' +
+							    '<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
+							    '<span class="title">' +
+								'<span class="name">' + escape(item.title) + '</span>' +
+							    '<span Id="category-search">  &#x2022;  Library</span></span>' + 
+							'</div>';
+						    }
+						},
+						load: function(query, callback) {
+						    if (!query.length) return callback();
+						    $.ajax({
+							url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
+							type: 'GET',
+							dataType: 'jsonp',
+							data: {
+							    q: query,
+							    page_limit: 10,
+							    apikey: '3qqmdwbuswut94jv4eua3j85'
+							},
+							error: function() {
+							    callback();
+							},
+							success: function(res) {
+							    callback(res.movies);
+							}
+						    });
+						}
+					    });
+				</script>
                     <div id="stay-right">
                      <button id="add-new-library" class="brand-i">New Library</button>
                     </div>
@@ -139,6 +184,17 @@
 	    $(".mp-pushed").ready(function () {
                 $("#book-scroller").css("z-index", "0");
 	    });
+            
+            //hide and show search engine//
+            $("#nav-search").mouseenter(function () {
+                $("#featured-nav .selectize-control").css("display", "inline-block");
+		$("#nav-search").hide();
+            });
+	    
+	    $(".library-list-wrapper, .subscription-list-wrapper").mouseenter(function () {
+                $("#featured-nav .selectize-control").css("display", "none");
+		$("#nav-search").fadeIn("slow");
+            });
 	}
 
 	$(document).on("ready", function () {
@@ -210,7 +266,7 @@
             $("#explore-list li").fadeIn("100");
         $("#explore-list").fadeIn("100");
         if ($vW > "1024") {
-            $(".library-list-wrapper").sly({
+            $(".library-list-wrapper, .subscription-list-wrapper").sly({
 			horizontal: 1,
 			itemNav: 'forceCentered',
 			smart: 1,

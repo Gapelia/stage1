@@ -57,7 +57,7 @@
 	}
 	
 	body.library {
-		#featured-panel #g-menu-toggle { left: 1.8rem; }
+		#featured-panel #g-menu-toggle { left: 1.8rem; top: 0; }
 		
 		#stay-right {
 			top: 0.5rem;
@@ -125,7 +125,7 @@
 	
 	.app {
 
-		#g-menu-toggle, .app #next-book-toggle { top: 0.25rem; left: 1.5rem; }
+		#g-menu-toggle { top: 0.25rem; left: 1.1rem; }
 		
 		.bookmarked {
 			.bookmark-this {
@@ -143,10 +143,11 @@
 			}
 		}
 		
-		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53.75%; width: 100%; }
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; width: 100%; }
 		
 		.book, .collection, .library, .new, .draft {
 			margin: 0 0 0 1.5rem;
+			height: 790px !important;
 			width: 450px;
 		}
 		
@@ -219,6 +220,8 @@
 			#splash-user-bio {
 				font-size: 1.5rem;
 				margin: 0 0 3rem 0;
+				
+				span { font-size: 1.5rem !important; }
 			}
 		
 			#close-splash {
@@ -251,7 +254,7 @@
 			
 			.user-avatar { top: 16%; }
 		}
-		.notification-time #notification-count { right: 4rem; }
+		.notification-time #notification-count { right: 4rem !important; }
 	}
 	
 	
@@ -332,22 +335,24 @@
 				
 				section { margin: 0 0 -3rem 0; }
 			}	
-		}
+		}		
 		.notification-time #notification-count { right: 4rem; }
 	}
+	
+	.accounts .notification-time #notification-count { right: 2.5rem !important; }
 
 }
 
 @media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
 
 	#contactable-inner { top: 90% !important; }
-	#contactable-contactForm { top: 82%; }
+	#contactable-contactForm { top: 81% !important; }
 	
 	//menu//
 	
 	.mp-menu ul .fq { margin-top: 160%; }
 	
-	//size of book&libraries in carousel//
+	//size of book & libraries in carousel//
 	
 	.app {
 		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
@@ -357,12 +362,20 @@
 		.book, .collection, .library {
 			width: 450px;
 		}
+		
+		#featured-nav #nav-search { margin-left: 34.5% !important }
+		
+		.selectize-control { margin-left: 24.5% !important; }
 	}
 	
 	// library manager //
 	
 	body.library-manager {
 		.library .wrapper { bottom: 10rem; }
+		
+		#featured-nav #nav-search { margin-left: 27.5% !important; }
+		
+		.selectize-control { margin-left: 18.5% !important; }
 	}
 	
 	// library //
@@ -379,7 +392,7 @@
 	//profile//
 	
 	.profile {
-		#user-splash .user-avatar { top: 16%; }
+		#user-splash .user-avatar { top: 18.5%; }
 		
 		.notification-time #notification-count { right: 3.25rem; }
 	}
@@ -407,7 +420,7 @@
 	// splash home //
 	
 	body.landing #gapelia {
-		left: 42.75%;
+		left: 43%;
 		top: 3rem;
 	}
 }	

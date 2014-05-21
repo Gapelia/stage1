@@ -205,6 +205,7 @@
                 $("#welcoming-title").css("display", "none");
             });
 	    
+	    //hide and show search engine//
 	    $("#nav-search").mouseenter(function () {
                 $("#featured-nav .selectize-control").css("display", "inline-block");
 		$("#nav-search").hide();
@@ -214,7 +215,9 @@
                 $("#featured-nav .selectize-control").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
-		$('#contactable').contactable({
+	    
+	    //feedback form//
+	    $('#contactable').contactable({
 		subject: 'A Feeback Message'
 	    });
 	    
@@ -244,7 +247,7 @@
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             if ($vW > "1024") {
-               $(".book-list-wrapper").sly({
+               $(".book-list-wrapper, .bookmark-list-wrapper").sly({
 			horizontal: 1,
 			itemNav: 'forceCentered',
 			smart: 1,

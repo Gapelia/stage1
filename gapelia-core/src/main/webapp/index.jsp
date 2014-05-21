@@ -51,7 +51,7 @@
 
 			<div class="wrapper">
 				<button class="fb-btn">Sign in with Facebook</button>
-				<button class="gplus-btn">Sign in with Google+</button>
+				<button class="gplus-btn">Sign in with Gmail</button>
 			</div>
 
 			<img class="page-bg" src="/static/images/cover.jpg"/>

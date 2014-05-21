@@ -97,8 +97,6 @@
 		    <a class=submission-dropdown href="#">Submit a story</a>
                         <ul></ul>
                 </li>
-		
-	
         </ul>
 	
 	<!--/ main-content /-->

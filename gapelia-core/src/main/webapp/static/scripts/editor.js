@@ -383,7 +383,7 @@
 
 		insert += "<input class=\"inline-image-insert\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; handleFile(url);\">";
 
-		insert += "<div class=\"gapelia-editor-toolbar-form-anchor\">";
+		insert += "<div class=\"gapelia-editor-toolbar-form-anchor\" style=\"background-color: #59b3a6;\">";
 		insert += "<input type=\"text\" style=\"background-color: #59b3a6;\" value=\"Paste the link you want to embed\" placeholder=\"Paste the link you want to be\">";
 		insert += "<a href=\"#\">&#xf2bb;</a>";
 		insert += "</div>";
