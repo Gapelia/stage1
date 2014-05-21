@@ -1613,7 +1613,7 @@ $(document).on("click", ".unsubscribe", function (ev) {
     e = $(this).closest("button");
     library = e.parent().parent();
     libraryId = library.attr("id");
-    $(this).closest("li").remove();
+    $(this).closest("li").show();
     if (libraryId == "library-splash") {
         libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
     }
