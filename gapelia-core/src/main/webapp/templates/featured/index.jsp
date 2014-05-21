@@ -30,16 +30,7 @@
     <link href="/static/css/slytest.css" rel="stylesheet" />
     <link href="/static/css/feedback.css" rel="stylesheet" />
     <link href="/static/images/favicon.png" rel="shortcut icon" />
-
-    <script src="//use.typekit.net/web3vzl.js"></script>
-    <script>
-        try {
-            Typekit.load();
-        } catch (e) {}
-    </script>
-
-
-
+    
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
     <script src="/static/scripts/sly.js"></script>

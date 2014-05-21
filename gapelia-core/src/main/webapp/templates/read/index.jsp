@@ -20,13 +20,7 @@
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/fluidbox.css" rel="stylesheet" />
 
-    <script src="//use.typekit.net/web3vzl.js"></script>
     <script defer src='http://www.readrboard.com/static/engage.js'></script>
-    <script>
-        try {
-            Typekit.load();
-        } catch (e) {}
-    </script>
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
