@@ -9537,8 +9537,9 @@ a.count span.dont-move {
     position: relative; }
   .full-book .fluid-wrapper .author-info .author-name {
     border-right: none !important;
-    margin: 0;
-    padding-right: 1px;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    padding-top: 6px;
     position: relative;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-name a {
@@ -9554,7 +9555,7 @@ a.count span.dont-move {
   .full-book .fluid-wrapper .draggable-placeholder .page-bg {
     display: block !important; }
   .full-book .fluid-wrapper .fluid-preview {
-    padding: 1.2rem 1.2rem;
+    padding: 1rem 1rem;
     padding-bottom: 1rem; }
   .full-book .fluid-wrapper .fluid-preview article {
     margin: 0; }
@@ -9586,15 +9587,16 @@ a.count span.dont-move {
     padding-right: 0;
     text-align: center; }
   .full-book .overlay-wrapper {
-    margin: 0 0 2rem 0; }
+    margin: 0 0 5rem 0; }
   .full-book .overlay-wrapper .author-info {
-    top: 3rem; }
+    left: 30%;
+    top: 0.5rem; }
   .full-book .overlay-wrapper .author-info .author-avatar {
     margin-left: 30%; }
   .full-book .overlay-wrapper .overlay-preview {
     height: 100%; }
   .full-book .overlay-wrapper .overlay-preview article {
-    margin: 1.5rem auto; }
+    margin: 0rem auto; }
   .full-book .overlay-wrapper .overlay-preview .page-title-elem {
     font-size: 0.8rem;
     line-height: 2rem;
@@ -9607,7 +9609,7 @@ a.count span.dont-move {
     margin-left: 20%;
     margin-top: -1.8rem; }
   .full-book .phototext-wrapper .phototext-preview {
-    padding: 1rem 2rem; }
+    padding: 1rem 1rem; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
     width: 100%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem {
@@ -9617,7 +9619,7 @@ a.count span.dont-move {
     font-size: 1rem;
     line-height: 2rem; }
   .full-book .vertical-wrapper .vertical-preview {
-    padding: 1rem 2rem; }
+    padding: 1rem 1rem; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem, .full-book .vertical-wrapper .vertical-preview .page-desc {
     width: 100%; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem {
@@ -9684,6 +9686,8 @@ a.count span.dont-move {
     margin: 0;
     margin-top: 1rem;
     text-align: center !important; }
+  .full-book .backcover-wrapper #fin #author-bio-blurb span, .full-book .backcover-wrapper #fin #library-info-blurb span {
+    font-size: 0.9rem !important; }
   .full-book .backcover-wrapper #fin section {
     margin-left: 0;
     margin: 0rem 0rem 1rem 0;
