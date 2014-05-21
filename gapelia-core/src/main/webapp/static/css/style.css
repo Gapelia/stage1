@@ -7226,6 +7226,9 @@ a.count span.dont-move {
   body.landing #gapelia {
     top: 4rem !important; }
 
+  body.landing .super-wrapper {
+    height: 1200px; }
+
   .profile #user-splash .user-avatar {
     top: 22% !important; }
   .profile #user-header {
@@ -7241,20 +7244,17 @@ a.count span.dont-move {
   #contactable-inner {
     top: 92% !important; }
 
-  #contactable-contactForm {
-    top: 80% !important; }
-
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 500px !important;
     height: 900px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
     top: 53% !important; }
   .app #featured-nav {
-    top: 1.05rem !important; }
+    top: 0.6rem !important; }
   .app #featured-panel {
     height: 100px; }
   .app #g-menu-toggle {
-    top: 1rem !important; }
+    top: 0.5rem !important; }
   .app #featured-nav .selectize-dropdown, .app #featured-nav .selectize-input, .app #featured-nav .selectize-input input {
     font-size: 1.2rem; }
   .app #featured-nav .selectize-control {
@@ -7282,9 +7282,9 @@ a.count span.dont-move {
   .profile #user-panel {
     height: 100px; }
   .profile #user-panel #g-menu-toggle {
-    left: 1.7rem; }
+    left: 1rem; }
   .profile #user-panel .notification-time #notification-count {
-    right: 5.7rem; }
+    right: 5.7rem !important; }
   .profile #user-panel #user-heard {
     margin-top: 14px; }
   .profile #user-panel #user-splash .user-avatar {
@@ -7298,8 +7298,10 @@ a.count span.dont-move {
 
   .full-book .notification-time #notification-count {
     right: 5.5rem !important; }
+  .full-book #g-menu-toggle {
+    top: 1rem !important; }
   .full-book .backcover-wrapper #fin {
-    padding: 14rem 5rem 0 11rem !important; }
+    padding: 14rem 15rem 0 15rem !important; }
   .full-book .fluid-wrapper .fluid-preview article #fin figure.merci {
     left: 47.5%; }
   .full-book .fluid-wrapper .author-info .author-avatar {
@@ -7308,22 +7310,19 @@ a.count span.dont-move {
     top: -7.5%; }
   .full-book .photo-wrapper .author-avatar {
     margin-left: 88% !important; }
+  .full-book .photo-wrapper .page-bg {
+    height: 100%; }
 
   a.mercibject div.opening div.circle {
     left: 38.5%; }
 
   #publish-modal {
-    padding: 19rem 4rem !important; }
+    padding: 22rem 4rem !important; }
 
   body.landing #gapelia {
-    left: 44.5% !important; } }
+    left: 44.75% !important;
+    height: 24% !important; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
-  #contactable-inner {
-    top: 90% !important; }
-
-  #contactable-contactForm {
-    top: 76%; }
-
   body.landing #gapelia {
     height: 29%;
     left: 43.5%;
@@ -7332,7 +7331,7 @@ a.count span.dont-move {
     bottom: 3rem; }
 
   .app #g-menu-toggle {
-    top: 0.25rem;
+    top: 0.35rem;
     left: 1.1rem; }
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
@@ -7342,7 +7341,7 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
-  .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+  .app .book-list-wrapper, .app .user-book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
     top: 53% !important;
     width: 100%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
@@ -7388,6 +7387,8 @@ a.count span.dont-move {
     left: 28% !important; }
   body.library #submission-pop p {
     padding: 1.25rem 1rem 0rem 1rem; }
+  body.library #featured-panel #g-menu-toggle {
+    top: 0; }
 
   .mp-menu ul .fq {
     margin-top: 160%; }
@@ -7424,7 +7425,7 @@ a.count span.dont-move {
     margin: 6rem auto 20px auto; }
 
   .full-book #g-menu-toggle {
-    top: 1.25rem; }
+    top: 1rem; }
   .full-book #the-book #collection-pop {
     height: 6%;
     padding-top: 10px; }
@@ -7469,7 +7470,7 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin section {
     margin: 0 0 -3rem 0; }
   .full-book .notification-time #notification-count {
-    right: 4rem; }
+    right: 4rem !important; }
 
   .accounts .notification-time #notification-count {
     right: 2.5rem !important; } }

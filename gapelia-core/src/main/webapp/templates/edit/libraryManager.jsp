@@ -239,6 +239,10 @@
 
         }
         
+        if ($vH > "1079") {
+	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 51% !important");
+	}
+        
         if ($vH > "1190") {
 	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 50.5% !important");
             $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");

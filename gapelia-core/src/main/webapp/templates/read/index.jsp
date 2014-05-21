@@ -178,6 +178,10 @@
         $("#featured-nav").toggle();
         });
 	}
+	
+	if ($vW > "1919") {
+		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
+	}
 
         setTimeout(function () {
         loadDelete();

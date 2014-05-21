@@ -155,7 +155,7 @@ body { background: #e8e8e8; }
 	-ms-transform: scale(1);
 	transform: scale(1);
 }
-.book-list-wrapper ul li.active ~ li, .library-list-wrapper ul li.active ~ li, user-book-list-wrapper ul li.active ~ li, .subscription-list-wrapper ul li.active ~ li, .bookmark-list-wrapper ul li.active ~ li {
+.book-list-wrapper ul li.active ~ li, .library-list-wrapper ul li.active ~ li, .user-book-list-wrapper ul li.active ~ li, .subscription-list-wrapper ul li.active ~ li, .bookmark-list-wrapper ul li.active ~ li {
 	-webkit-transform: rotateY(-10deg) scale(0.95);
 	-ms-transform: rotateY(-10deg) scale(0.95);
 	transform: rotateY(-10deg) scale(0.95);

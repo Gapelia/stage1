@@ -8,6 +8,8 @@
 	
 	body.landing #gapelia { top: 4rem !important; }
 	
+	body.landing .super-wrapper { height: 1200px; }
+	
 	.profile {
 		#user-splash .user-avatar { top: 22% !important; }
 		#user-header { margin-top: 14px; }
@@ -27,7 +29,6 @@
 @media all and (min-width: 1919px), screen and (min-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
 	
 	#contactable-inner { top: 92% !important; }
-	#contactable-contactForm { top: 80% !important; }
 	
 	.app{
 		.book, .collection, .library, .new, .draft {
@@ -37,10 +38,10 @@
 		
 		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; }
 		
-		#featured-nav { top: 1.05rem !important; }
+		#featured-nav { top: 0.6rem !important; }
 		#featured-panel { height: 100px; }
 		
-		#g-menu-toggle { top: 1rem !important; }
+		#g-menu-toggle { top: 0.5rem !important; }
 		
 		#featured-nav {
 			.selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1.2rem; }
@@ -72,9 +73,9 @@
 	
 	.profile #user-panel {
 		height: 100px;
-		#g-menu-toggle { left: 1.7rem; }
+		#g-menu-toggle { left: 1rem; }
 		
-		.notification-time #notification-count { right: 5.7rem; }
+		.notification-time #notification-count { right: 5.7rem !important; }
 		
 		#user-heard { margin-top: 14px; }
 		
@@ -87,7 +88,8 @@
 	
 	.full-book {
 		.notification-time #notification-count {	right: 5.5rem !important; }
-		.backcover-wrapper #fin { padding: 14rem 5rem 0 11rem !important; }
+		#g-menu-toggle { top: 1rem !important; }
+		.backcover-wrapper #fin { padding: 14rem 15rem 0 15rem !important }
 		.fluid-wrapper .fluid-preview article #fin figure.merci { left: 47.5%; }
 		.fluid-wrapper {
 			.author-info {
@@ -97,20 +99,18 @@
 		.photo-wrapper {
 			.author-info { top: -7.5%; }
 			.author-avatar { margin-left: 88% !important; }
+			.page-bg { height: 100%; }
 		}	
 	}
 	
 	a.mercibject div.opening div.circle { left: 38.5%; }
 	
-	#publish-modal { padding: 19rem 4rem !important; }
+	#publish-modal { padding: 22rem 4rem !important; }
 	
-	body.landing #gapelia { left: 44.5% !important; }
+	body.landing #gapelia { left: 44.75% !important; height: 24% !important; }
 }	
 
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
-
-	#contactable-inner { top: 90% !important; }
-	#contactable-contactForm { top: 76%; }
 	
 	body.landing {
 		
@@ -125,7 +125,7 @@
 	
 	.app {
 
-		#g-menu-toggle { top: 0.25rem; left: 1.1rem; }
+		#g-menu-toggle { top: 0.35rem; left: 1.1rem; }
 		
 		.bookmarked {
 			.bookmark-this {
@@ -143,7 +143,7 @@
 			}
 		}
 		
-		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; width: 100%; }
+		.book-list-wrapper, .user-book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; width: 100%; }
 		
 		.book, .collection, .library, .new, .draft {
 			margin: 0 0 0 1.5rem;
@@ -206,7 +206,9 @@
 			left: 28% !important;
 				
 			p { padding: 1.25rem 1rem 0rem 1rem; }
-		}	
+		}
+		
+		#featured-panel #g-menu-toggle { top: 0; }
 	}
 	
 	.mp-menu ul .fq { margin-top: 160%; }
@@ -264,7 +266,7 @@
 	
 	.full-book {
 
-		#g-menu-toggle { top: 1.25rem; }
+		#g-menu-toggle { top: 1rem; }
 		
 		#the-book {
 			
@@ -336,7 +338,7 @@
 				section { margin: 0 0 -3rem 0; }
 			}	
 		}		
-		.notification-time #notification-count { right: 4rem; }
+		.notification-time #notification-count { right: 4rem !important; }
 	}
 	
 	.accounts .notification-time #notification-count { right: 2.5rem !important; }

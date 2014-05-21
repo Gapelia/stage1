@@ -326,9 +326,23 @@
 		})
             }
 	    
+	   if ($vW > "1599") {
+		$("#contactable-contactForm").css("cssText", "top: 76% !important");
+	    }
+	    
+	    //imacs specs//
+	    if ($vH > "1079") {
+		$(".book-list-wrapper, .bookmark-list-wrapper").css("cssText", "top: 51% !important");
+		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		$("#contactable-inner").css("cssText", "top: 92% !important");
+		$("#contactable-contactForm").css("cssText", "top: 80% !important");
+	    }
+	    
 	    if ($vH > "1190") {
 		$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
 		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		$("#contactable-contactForm").css("cssText", "top: 82% !important");
+		$("#contactable-inner").css("cssText", "top: 93% !important");
 	    }
 
             $("#nav-books").addClass("current");
