@@ -407,7 +407,7 @@
   //
     
   .book, .collection, .library, .new, .draft {
-		width: 400px; height: auto;
+		width: 400px; height: 530px !important;
 		margin: 0 0 0 1rem; padding: 0;
 
 		background-color: rgba($gray-i, 0.7);

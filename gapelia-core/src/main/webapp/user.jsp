@@ -1,3 +1,8 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +11,12 @@
     <meta charset="utf-8" />
     <title></title>
 
-    <!--/User Public VIEW
-			 ______   ______   ______  ______   __       __   ______    
-			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
-			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
-			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\ 
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/ 
+    <!--/ ME VIEW
+			 ______   ______   ______  ______   __       __   ______
+			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
+			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
+			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
+				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -48,7 +53,6 @@
                 </ul>
             </div>
         </nav>
-	
         <!--//site-menu /-->
 
         <!--/ main-panel /-->
@@ -58,37 +62,46 @@
                 <i class="ion-drag"></i>
             </button>
 
-            <span id="user-header">USERNAME</span>
+            <span id="user-header" style="opacity: 0;">USERNAME</span>
 
             <h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
 
             <div id="user-wrapper">
                 <div class="user-avatar">
                     <div class="avatar-wrapper">
+                        <!--/ <img src="/static/images/users/user-avatar.jpg"/> /-->
                     </div>
                 </div>
 
                 <div class="user-data">
                     <h2 id="user-info"></h2>
-                    <span id="user-bio"></span>
+                    <span id="user-bio" contenteditable="false"></span>
+                </div>
+
+                <div class="button-wrapper">
+                    <button class="edit-profile slate">Edit Profile</button>
                 </div>
             </div>
         </div>
         <!--//main-panel /-->
+
         <!--/ main-scroller /-->
         <div id="book-scroller">
             <!--/ your-books /-->
-	    <div class="scrollbar">
-		<div class="handle">
-			<div class="mousearea"></div>
+	    	<div class="scrollbar">
+			<div class="handle">
+				<div class="mousearea"></div>
+			</div>
 		</div>
-	    </div>
-            <div class="user-book-list-wrapper style="opacity: 0;">
+            <div class="user-book-list-wrapper" style="opacity: 0;">
                 <ul id="user-book-list"></ul>
             </div>
-
+            <!--//your-books /-->
         </div>
+        <!--//main-scroller /-->
+
     </div>
+
     <!--/ scripts /-->
     <script src="/static/scripts/touchSwipe.min.js"></script>
     <script src="/static/scripts/g.money.js"></script>
@@ -97,6 +110,8 @@
     <script src="/static/scripts/mlpushmenu.js"></script>
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/userNotifications.js"></script>
+
+
     <script>
         if ($vW > "1024") {
             new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
@@ -113,27 +128,32 @@
         });
     </script>
 
+
     <script>
         $(function () {
 	    getNotifications();
             var first = getUserPublic();
             var second = getListBookmarked();
             var third = getUserDrafts();
-
         });
 
+         // Splash page
         function load() {
+            h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
+            // Splash page
             $(function () {
+
                 stuff = "";
                 stuff += "<section id=\"user-splash\">";
-                stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\"></div>";
-                stuff += "</div>";
-		stuff += "<div id=\"splash-user-info\">";
+                stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
+                stuff += "</div></div>";
+                stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-                stuff += "<div id=\"splash-user-bio\"></div>";
-		stuff += "<h5 id=\"recently-published\"></h5>";
-		stuff += "<h5 id=\"contributes-to\"></h5>";
-		stuff += "</div>";
+                stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+                stuff += "<h5 id=\"recently-published\"></h5>";
+                stuff += "<h5 id=\"contributes-to\"></h5>";
+                stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
 		} else {
@@ -141,12 +161,14 @@
 		}
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
-		
+
                 $("#mp-pusher").prepend(stuff);
+
                 $("#user-splash").imgLiquid({
                     fill: true
                 });
                 $("#g-menu-toggle").css("color", "#fcfcfc");
+
             });
 
             if ($vW > "1024") {
@@ -165,8 +187,8 @@
 			"color": "#70a1b1",
 			"width": "7.5%"
 		    });
+	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
                     $("#user-header").css("opacity", "1");
-		    $(".user-book-list-wrapper, #user-header").css("opacity", "1");
 
                 });
 
@@ -185,7 +207,6 @@
                             $("#user-splash").css("top", "-200%");
                             $("#user-splash .overlay-controls").css("top", "-200%");
                             $("#g-menu-toggle").css("color", "#70a1b1");
-
                         },
                         threshold: 0
                     });
@@ -200,6 +221,7 @@
                         $("#user-splash").css("top", "-200%");
                         $("#user-splash .overlay-controls").css("top", "-200%");
                         $("#g-menu-toggle").css("color", "#70a1b1");
+			$(".user-book-list-wrapper, #user-header").css("opacity", "1");
 
                     });
 
@@ -232,14 +254,23 @@
                         });
 
                     });
-		    
+
+                    // Log Out
+                    $("#logout").click(function (e) {
+                        document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+                        window.location = "";
+                    });
+
                 }
 		
-		if ($vH > "1190") {
-		    $(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
-		    $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		if ($vH > "1079") {
+			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
 		}
 		
+		if ($vH > "1190") {
+			$(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
+			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		}
 		
 
                 // User details
@@ -255,70 +286,117 @@
                     $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
                 }
 
-                $("#splash-user-bio").html(user.bio);
-                var fourth = getPublicCreatedBooks();
-            });
-
-        }
-        setTimeout(function () {
-        loadDelete();
-            $("#book-list li").fadeIn("100");
-            $("#book-list").fadeIn("100");
-            var w = 0;
-            $("#user-book-list li").each(function () {
-                w += $(this).outerWidth();
-            });
-            getContributedTo();
-            getRecentlyPublished();
-	    addLoggedInMenu();
-
-            w += 1000;
-
-            if ($vW > "1024") {
-                $("#user-book-list").css("width", w + 320 + "px");
-            }
-            h = $(this).outerHeight() - 92;
-            $("#user-book-list .book").css("height", h);
-        }, 1000);
-	
-	setTimeout(function () {
-	$("#book-list li").fadeIn("100");
-	$("#book-list").fadeIn("100");
-            if ($vW > "1024") {
-                $(".user-book-list-wrapper").sly({
-                horizontal: 1,
-                itemNav: 'forceCentered',
-                smart: 1,
-                activateMiddle: 1,
-                activateOn: 'click',
-                mouseDragging: 1,
-                touchDragging: 1,
-                swingSpeed: 0.2,
-                releaseSwing: 0,
-                startAt: 0,
-                scrollBar: $(".scrollbar"),
-                scrollBy: 1,
-                speed: 0.2,
-		elasticBounds: 1,
-                easing: 'swing',
-                dragHandle: 1,
-                dynamicHandle: 1,
-                clickBar: 1,
-                keyboardNavBy: 'items'
-                });
-	    }
-	    
-	    // Log Out
-		$(".logout").click(function (e) {
-			console.log("logging out")
-			document.cookie = "JSESSIONID" + "=;expires=0;path=/";
-			window.location = "/";
-
-			e.preventDefault();
-
+		
+		if (user.bio == "") {
+			$("#splash-user-bio").html("Check settings and add a bio!");
+		}
+		else{
+			$("#splash-user-bio").html(user.bio);
+		}
+		var fourth = getPublicCreatedBooks();
+                
+		
+		$(document).ready(function() {
+			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
 		});
-        }, 1000);
+		
+		// Load Gapelia
+                $(function () {
+
+                    NProgress.start();
+
+                    $("#user-panel, #book-scroller").css("opacity", "0").show();
+
+                    var
+                    allBooks = $("#user-book-list li"), // gets all books in a section
+                        firstBook = $(allBooks).first(); // gets first book in list
+                    $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
+
+                    setTimeout(function () {
+
+                        // $("#user-book-list").hide();
+                        $("#user-book-list").css("opacity", "0").show();
+
+                        if ($vW > "1024") {
+                            $("#user-book-list .book").css("height", $vH - 97 + "px");
+                        }
+
+                        $(".book").imgLiquid({
+                            fill: true
+                        });
+
+                        var w = 0,
+                            h = 0;
+
+                        $("#user-book-list li").each(function () {
+                            w += $(this).outerWidth();
+                            h += $(this).outerHeight();
+                        });
+
+                        w += 500;
+
+                        if ($vW > "1024") {
+                            $("#user-book-list").css("width", w + 320 + "px");
+
+                                                                                  
+                        }
+                        getContributedTo();
+                        getRecentlyPublished();
+			addLoggedInMenu();
+                        loadDelete();
+
+                        NProgress.done();
+
+                        $("#user-book-list").css("opacity", "1");
+
+                        // fades in the all the books after section width is added
+                        $("#user-book-list li").fadeIn("100");
+                        $("#user-book-list").fadeIn("100");
+
+                        // $(".user-book-list-wrapper").append("<section><p>You haven't created any books. <a href=\"/createbook\">Get started</a>!</p></section>");
+                        // $(".user-book-wrapper section").css("width", $vW + "px");
+
+                        // "fix" featured menu pop-in // not even sure if this is a problem anymore, I forget
+                        setTimeout(function () {
+                            $("#user-panel, #book-scroller").css("opacity", "1");
+                        }, 600);
+			
+			
+			setTimeout(function () {
+			$("#book-list li").fadeIn("100");
+			$("#book-list").fadeIn("100");
+			    if ($vW > "1024") {
+				$(".user-book-list-wrapper").sly({
+				horizontal: 1,
+				itemNav: 'forceCentered',
+				smart: 1,
+				activateMiddle: 1,
+				activateOn: 'click',
+				mouseDragging: 1,
+				touchDragging: 1,
+				swingSpeed: 0.2,
+				releaseSwing: 0,
+				startAt: 0,
+				scrollBar: $(".scrollbar"),
+				scrollBy: 1,
+				speed: 0.2,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+				keyboardNavBy: 'items'
+				});
+			    }
+			    document.title = user.name;
+			}, 1000);
+                    });
+                });
+            });
+        }
     </script>
+
+    <script src="/static/scripts/filepicker2.js"></script>
 
 </body>
 

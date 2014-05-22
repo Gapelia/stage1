@@ -249,7 +249,8 @@
             document.title = "Folio's" + library.title
         }, 1500);
         setTimeout(function () {
-            getBooksInLibraryOwner();
+            getLibrary();
+	    getBooksInLibraryOwner();
             getSubmissionsInLibrary();
             getUserCreatedBooksForLibrary();
             load();

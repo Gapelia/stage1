@@ -2671,7 +2671,7 @@ body.landing .error {
   width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
-  height: auto;
+  height: 530px !important;
   margin: 0 0 0 1rem;
   padding: 0;
   background-color: rgba(231, 231, 231, 0.7);
@@ -3404,8 +3404,8 @@ body.library #submission-pop {
   transition: opacity 0.5s ease;
   z-index: 10 !important; }
 body.library #submission-pop p {
-  font-size: 1rem;
-  padding: 0.75rem 1rem 0rem 1rem; }
+  font-size: 1rem !important;
+  padding: 0.75rem 1rem 0rem 1rem !important; }
 body.library #submission-pop a {
   display: inline !important;
   margin: 5px;
@@ -3861,6 +3861,8 @@ body.library-manager #stay-right {
   text-align: center;
   width: 100%;
   z-index: 1; }
+.profile #user-book-list {
+  -webkit-transform: translateZ(0px) translateX(459px); }
 .profile #user-wrapper {
   display: none; }
 .profile .user-bg {
