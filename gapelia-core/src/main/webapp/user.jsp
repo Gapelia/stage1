@@ -336,10 +336,9 @@
                         w += 500;
 
                         if ($vW > "1024") {
-                            $("#user-book-list").css("width", w + 320 + "px");
-
-                                                                                  
+                            $("#user-book-list").css("width", w + 320 + "px");                                                        
                         }
+			
                         getContributedTo();
                         getRecentlyPublished();
 			addLoggedInMenu();
@@ -352,13 +351,13 @@
                         // fades in the all the books after section width is added
                         $("#user-book-list li").fadeIn("100");
                         $("#user-book-list").fadeIn("100");
-
-                        // $(".user-book-list-wrapper").append("<section><p>You haven't created any books. <a href=\"/createbook\">Get started</a>!</p></section>");
-                        // $(".user-book-wrapper section").css("width", $vW + "px");
-
-                        // "fix" featured menu pop-in // not even sure if this is a problem anymore, I forget
+			
+                        // "fix" featured menu pop-in // fix height of books
                         setTimeout(function () {
                             $("#user-panel, #book-scroller").css("opacity", "1");
+			    if ($vW > "1024") {
+				$("#user-book-list .book").css("height", $vH - 97 + "px");
+			    }
                         }, 600);
 			
 			
