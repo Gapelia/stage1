@@ -2325,10 +2325,11 @@
 		}
 		
 		#library-splash {
+			padding: 0;
 			#library-info {
-				left: 12%;
+				left: 7%;
 				top: 36%;
-				width: 75%;
+				width: 85%;
 				
 				h2 { font-size: 2rem; }
 				
@@ -2713,6 +2714,13 @@
 		.book-title { padding: 0 2rem; }
 		
 		#library-splash #close-splash { font-size: 2rem; }
+		
+		#library-splash {
+			p { font-size: 1rem; }
+			span { font-size: 1rem !important; }
+			
+			#library-info { top: 40%; }
+		}
 
 	}
 	
@@ -2962,6 +2970,11 @@
 				h2 { font-size: 26px; }
 				p {
 					font-size: 0.9rem;
+					text-align: center;
+				}
+				
+				span {
+					font-size: 0.9rem !important;
 					text-align: center;
 				}
 			}

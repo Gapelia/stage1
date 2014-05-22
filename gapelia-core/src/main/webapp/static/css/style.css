@@ -8863,10 +8863,12 @@ a.count span.dont-move {
     left: 5%;
     padding: 0;
     width: 90%; }
+  .app #library-splash {
+    padding: 0; }
   .app #library-splash #library-info {
-    left: 12%;
+    left: 7%;
     top: 36%;
-    width: 75%; }
+    width: 85%; }
   .app #library-splash #library-info h2 {
     font-size: 2rem; }
   .app #library-splash #library-info p {
@@ -9097,6 +9099,12 @@ a.count span.dont-move {
     padding: 0 2rem; }
   .app #library-splash #close-splash {
     font-size: 2rem; }
+  .app #library-splash p {
+    font-size: 1rem; }
+  .app #library-splash span {
+    font-size: 1rem !important; }
+  .app #library-splash #library-info {
+    top: 40%; }
 
   body.library-manager #nav-wrapper {
     display: none !important; }
@@ -9260,6 +9268,9 @@ a.count span.dont-move {
     font-size: 26px; }
   .app #library-splash #library-info p {
     font-size: 0.9rem;
+    text-align: center; }
+  .app #library-splash #library-info span {
+    font-size: 0.9rem !important;
     text-align: center; }
   .app #library-splash section {
     font-size: 1rem;
