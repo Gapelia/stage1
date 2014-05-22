@@ -2671,7 +2671,7 @@ body.landing .error {
   width: 8240px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
-  height: 530px !important;
+  height: auto;
   margin: 0 0 0 1rem;
   padding: 0;
   background-color: rgba(231, 231, 231, 0.7);
@@ -7348,7 +7348,6 @@ a.count span.dont-move {
     width: 100%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
-    height: 790px !important;
     width: 450px; }
   .app .book-title {
     top: 34%; }
