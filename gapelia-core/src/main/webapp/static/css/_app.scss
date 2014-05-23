@@ -326,7 +326,7 @@
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
 	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
   
-		position: absolute;
+    position: absolute;
 		top: 54.5%;
 		transform: translateY(-50%);
     z-index: 1;
@@ -338,11 +338,11 @@
 	}
   
   .library-list-wrapper { padding-bottom: 0.5rem; }
-
+  
 	.bookmark-list-wrapper, .book-list-wrapper {
 		section {
 			width: 100%; height: 100%;
-      margin-top: -3rem;
+      margin-top: -3px;
 
 			color: rgba(11, 72, 107, 0.25);
       font-size: 1.6rem;
@@ -921,12 +921,21 @@
 
 	#library-splash {
     
-		#close-splash { bottom: 1.5rem; }
+		#close-splash {
+      background-image: url("../images/splash-arrow.png");
+      background-size: 70px;
+      background-repeat: no-repeat;
+      border-bottom: none !important;
+      height: 100px;
+      left: 94% !important;
+      width: 100px;
+      bottom: 42%;
+    }
     
     #library-info {
-			border-bottom: 1px solid rgba($white, 0.5);
+			border-bottom: 1px solid rgba($white, 0);
 			left: 20%;
-			padding: 0 0 15px 0 !important;
+			padding: 0 0 12px 0 !important;
 			top: 45%;
 			width: 60%;
 
@@ -938,9 +947,9 @@
 		}
     
     #library-share {
-      font-size: 2rem !important;
+      font-size: 1.8rem !important;
       position: absolute;
-      right: 1.5rem; bottom: 1.5rem;
+      right: 48%; bottom: 1.5rem;
       z-index: 100 !important;
       
       ul li {
@@ -953,8 +962,9 @@
     }
 
 		h1 {
-			border-bottom: 1px solid rgba($white, 0.5);
+			border-bottom: 1px solid rgba($white, 0);
 			font-size: 0.9rem;
+      margin: 0;
       opacity: 0.8;
       
       span { font-size: 0.9rem !important; font-style: italic; }
@@ -1165,10 +1175,10 @@
 		}
 	}
 
-	.facebook, .ion-social-facebook			{ color: $facebook; }
-	.googleplus, .ion-social-googleplus	{ color: $google; }
-	.twitter, .ion-social-twitter				{ color: $twitter; }
-	.email, .ion-email, .ion-ios7-at		{ color: $slate; }
+	.facebook, .ion-social-facebook			{ color: $white; opacity: 0.7; &:hover {color: $facebook; opacity: 1;} }
+	.googleplus, .ion-social-googleplus	{ color: $white; opacity: 0.7; &:hover {color: $google; opacity: 1;} }
+	.twitter, .ion-social-twitter				{ color: $white; opacity: 0.7; &:hover {color: $twitter; opacity: 1;} }
+	.email, .ion-email, .ion-ios7-at		{ color: $white; opacity: 0.7; &:hover {color: $slate; opacity: 1;} }
 
 }
 

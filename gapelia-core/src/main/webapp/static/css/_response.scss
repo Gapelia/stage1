@@ -151,11 +151,22 @@
 			width: 450px;
 		}
 		
-		.book-title { top: 34%; }
+		.book-title { top: 34%; font-size: 2.25rem; }
+		
+		.book .book-snippet { font-size: 1.25rem; }
+		
+		.book-info .author-name { font-size: 1.5rem; }
+		
+		.library-location { font-size: 1rem; }
+		
+		.library-info {
+			.title { font-size: 2rem; }
+			.lib-blurb { font-size: 1.3rem; }
+		}
 		
 		.featured-info, .new-inner-wrapper, .draft-info, .library-info, .submission-info {
 			padding: 0 3rem;
-			top: 38%;
+			top: 36%;
 		}
 		
 		#featured-nav {
@@ -169,6 +180,11 @@
 		.library-location { left: 7%; }
 		
 		.library .wrapper { bottom: 12rem; }
+		
+		#library-splash {
+			p { font-size: 1.4rem !important; opacity: 0.8; }
+			#library-info section { font-size: 1.25rem; }
+		}
 		
 		#new-library {
 			
@@ -1056,23 +1072,35 @@
 			}
 		}
 		
-		#library-splash #library-info {
-			left: 10%;
-			top: 39%;
-			width: 75%;
+		#library-splash {
+			#library-info {
+				left: 10%;
+				top: 39%;
+				width: 75%;
+				
+				h2 { font-size: 2rem; }
+			}
 			
-			h2 { font-size: 3rem; }
-			p { font-size: 1.2rem; }
+			#library-share {
+				right: 1.5rem;
+			}
+			
+			#close-splash {
+				background-image: none !important;
+				bottom: 1rem;
+				height: 50px !important;
+				left: 48% !important;
+			}
 		}
 		
-		#library-splash #library-share { top: 1.5rem !important; }
+		//#library-splash #library-share { top: 1.5rem !important; }
 
 		#user-splash {
 			
 			h1 { font-size: 2.4rem; }
-			
+			h2 { font-size: 55px; }
 			h5 { line-height: 20px; }
-			
+	
 			#splash-user-bio {
 				font-size: 1rem;
 				margin: 0 0 2rem 0;
@@ -3290,6 +3318,8 @@
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
+	body.library-manager .library .wrapper { text-align: center !important; }
+	
 	body.library {
 		#book-list { top: 75px; }
 		.library-list-wrapper { z-index: 0; top: -1rem !important; }

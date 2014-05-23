@@ -2624,7 +2624,7 @@ body.landing .error {
 .app .bookmark-list-wrapper section, .app .book-list-wrapper section {
   width: 100%;
   height: 100%;
-  margin-top: -3rem;
+  margin-top: -3px;
   color: rgba(11, 72, 107, 0.25);
   font-size: 1.6rem;
   line-height: 1.8rem;
@@ -3055,11 +3055,18 @@ body.landing .error {
 .app #featured-splash #pick-library:before {
   content: "Library of the day"; }
 .app #library-splash #close-splash {
-  bottom: 1.5rem; }
+  background-image: url("../images/splash-arrow.png");
+  background-size: 70px;
+  background-repeat: no-repeat;
+  border-bottom: none !important;
+  height: 100px;
+  left: 94% !important;
+  width: 100px;
+  bottom: 42%; }
 .app #library-splash #library-info {
-  border-bottom: 1px solid rgba(252, 252, 252, 0.5);
+  border-bottom: 1px solid rgba(252, 252, 252, 0);
   left: 20%;
-  padding: 0 0 15px 0 !important;
+  padding: 0 0 12px 0 !important;
   top: 45%;
   width: 60%; }
 .app #library-splash #library-info h2 {
@@ -3067,9 +3074,9 @@ body.landing .error {
   font-weight: 700;
   text-transform: uppercase; }
 .app #library-splash #library-share {
-  font-size: 2rem !important;
+  font-size: 1.8rem !important;
   position: absolute;
-  right: 1.5rem;
+  right: 48%;
   bottom: 1.5rem;
   z-index: 100 !important; }
 .app #library-splash #library-share ul li {
@@ -3079,8 +3086,9 @@ body.landing .error {
 .app #library-splash #library-share ul li .ion-email {
   color: #fcfcfc; }
 .app #library-splash h1 {
-  border-bottom: 1px solid rgba(252, 252, 252, 0.5);
+  border-bottom: 1px solid rgba(252, 252, 252, 0);
   font-size: 0.9rem;
+  margin: 0;
   opacity: 0.8; }
 .app #library-splash h1 span {
   font-size: 0.9rem !important;
@@ -3236,13 +3244,29 @@ body.landing .error {
   transition: all 0.2s ease;
   z-index: 1 !important; }
 .app .facebook, .app .ion-social-facebook {
-  color: #3c699b; }
+  color: #fcfcfc;
+  opacity: 0.7; }
+.app .facebook:hover, .app .ion-social-facebook:hover {
+  color: #3c699b;
+  opacity: 1; }
 .app .googleplus, .app .ion-social-googleplus {
-  color: #dd4b39; }
+  color: #fcfcfc;
+  opacity: 0.7; }
+.app .googleplus:hover, .app .ion-social-googleplus:hover {
+  color: #dd4b39;
+  opacity: 1; }
 .app .twitter, .app .ion-social-twitter {
-  color: #00acee; }
+  color: #fcfcfc;
+  opacity: 0.7; }
+.app .twitter:hover, .app .ion-social-twitter:hover {
+  color: #00acee;
+  opacity: 1; }
 .app .email, .app .ion-email, .app .ion-ios7-at {
-  color: #59b3a6; }
+  color: #fcfcfc;
+  opacity: 0.7; }
+.app .email:hover, .app .ion-email:hover, .app .ion-ios7-at:hover {
+  color: #59b3a6;
+  opacity: 1; }
 
 .notification-time #notification-count {
   min-width: 20px;
@@ -3418,9 +3442,10 @@ body.library #stay-right {
   position: absolute;
   z-index: 10 !important; }
 body.library #stay-right .submission-dropdown {
-  background-color: #59b3a6;
+  background-color: transparent;
+  border: 1px solid rgba(252, 252, 252, 0.5);
   border-radius: 5px;
-  color: #fcfcfc !important;
+  color: #fcfcfc;
   font-weight: 400;
   letter-spacing: 0.041em;
   padding: 0.4rem 0.75rem; }
@@ -7350,10 +7375,21 @@ a.count span.dont-move {
     margin: 0 0 0 1.5rem;
     width: 450px; }
   .app .book-title {
-    top: 34%; }
+    top: 34%;
+    font-size: 2.25rem; }
+  .app .book .book-snippet {
+    font-size: 1.25rem; }
+  .app .book-info .author-name {
+    font-size: 1.5rem; }
+  .app .library-location {
+    font-size: 1rem; }
+  .app .library-info .title {
+    font-size: 2rem; }
+  .app .library-info .lib-blurb {
+    font-size: 1.3rem; }
   .app .featured-info, .app .new-inner-wrapper, .app .draft-info, .app .library-info, .app .submission-info {
     padding: 0 3rem;
-    top: 38%; }
+    top: 36%; }
   .app #featured-nav {
     font-size: 1.25rem;
     left: 6rem;
@@ -7364,6 +7400,11 @@ a.count span.dont-move {
     left: 7%; }
   .app .library .wrapper {
     bottom: 12rem; }
+  .app #library-splash p {
+    font-size: 1.4rem !important;
+    opacity: 0.8; }
+  .app #library-splash #library-info section {
+    font-size: 1.25rem; }
   .app #new-library .button-wrapper {
     top: 28%; }
   .app #new-library .library-controls {
@@ -7988,13 +8029,18 @@ a.count span.dont-move {
     top: 39%;
     width: 75%; }
   .app #library-splash #library-info h2 {
-    font-size: 3rem; }
-  .app #library-splash #library-info p {
-    font-size: 1.2rem; }
+    font-size: 2rem; }
   .app #library-splash #library-share {
-    top: 1.5rem !important; }
+    right: 1.5rem; }
+  .app #library-splash #close-splash {
+    background-image: none !important;
+    bottom: 1rem;
+    height: 50px !important;
+    left: 48% !important; }
   .app #user-splash h1 {
     font-size: 2.4rem; }
+  .app #user-splash h2 {
+    font-size: 55px; }
   .app #user-splash h5 {
     line-height: 20px; }
   .app #user-splash #splash-user-bio {
@@ -9488,6 +9534,9 @@ a.count span.dont-move {
     font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
     display: none; }
+
+  body.library-manager .library .wrapper {
+    text-align: center !important; }
 
   body.library #book-list {
     top: 75px; }

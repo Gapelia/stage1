@@ -35,7 +35,7 @@
 				$("#user-draft-list .draft").css("height", $vH - 97 + "px");
 
 				// Set height of books in feed on "Featured" page
-				$("#book-list .book, #submission-list .book, #subscription-list .library").css("height", $vH - 97 + "px");
+				$("#book-list .book, #submission-list .book, #subscription-list .library").css("height", $vH - 197 + "px");
 				$("#library-list .library").css("height", $vH - 97 + "px");
 				$("#bookmark-list .collection, #bookmark-list .new").css("height", $vH - 97 + "px");
 

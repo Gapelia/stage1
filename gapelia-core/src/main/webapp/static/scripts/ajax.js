@@ -698,18 +698,18 @@ function getLibrary() {
 		}
 	    
 	    if (ownThisLibrary) {
-			    $("#nav-books a").html(library.title);
+		$("#nav-books a").html(library.title);
 	    }
 	    else{
-			    $("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
-			    $("#nav-submissions").css("display", "none");
+		$("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
+		$("#nav-submissions").css("display", "none");
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    toInsert += "<div id=\"library-info\">";
             if (library.libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
             } else {
-                toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
+                toInsert += "<button class=\"subscribe slate\">Subscribe</button>";
             }
 	    if (numSubscribers != null) {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
@@ -722,7 +722,7 @@ function getLibrary() {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">";
 		toInsert += featuredBookTitle + getUserFromBookIdForFeaturedBook(bookId) + "</a></section></div>";
 		if ($vW > "1024") {
-			toInsert += "<div id=\"close-splash\">OPEN LIBRARY</div>";
+			toInsert += "<div id=\"close-splash\"></div>";
 		} else {
 			toInsert += "<div id=\"close-splash\">^</div>";
 		}
@@ -742,6 +742,15 @@ function getLibrary() {
             toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><div/></section>";
             
 	    $("#mp-pusher").prepend(toInsert);
+	    	    
+	    $("#library-info").mouseenter(function (e) {
+		$("#library-splash #close-splash").css("cssText", "color: #59B3A6 !important")
+	    });
+	    
+	    $("#library-info").mouseleave(function (e) {
+		$("#library-splash #close-splash").css("cssText", "color: white !important")
+	    });
+	    
         },
         error: function (q, status, err) {
             if (status == "timeout") {

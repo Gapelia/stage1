@@ -148,6 +148,7 @@
                 fill: true
             });
         });
+
 	
 	if ($vH > "1190") {
 		$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
@@ -199,12 +200,19 @@
 
                     $("#close-splash").css({
                         "left": "-200%",
-                        "right": "initial"
+                        "right": "initial",
+			"background-image": "none"
                     });
 
 		    $("#library-splash").css("left", "-200%");
 		    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
                     $("#g-menu-toggle").css("color", "#70a1b1");
+		    $(".submission-dropdown").css({
+			"background-color": "#transparent",
+			"border-color": "#59B3A6",
+			"border-width": "0",
+			"color": "#59B3A6"
+		     });
 
                 });
 		
@@ -278,7 +286,7 @@
                 e.preventDefault();
 
             });
-
+	    
             // Load Gapelia
             NProgress.start();
 

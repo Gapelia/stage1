@@ -86,9 +86,10 @@ body.library {
 		z-index: 10 !important;
 		
 		.submission-dropdown {
-			background-color: $slate;
+			background-color: transparent;
+			border: 1px solid rgba($white, 0.5);
 			border-radius: 5px;
-			color: $white !important;
+			color: $white;
 			font-weight: 400;
 			letter-spacing: 0.041em;
 			padding: 0.4rem 0.75rem;
