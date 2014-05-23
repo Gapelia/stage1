@@ -246,11 +246,11 @@
 
                             $("#close-splash").css({
                                 "height": "0",
-                                "top": "-200%"
+                                "top": "0" // -200%
                             });
 
-                            $("#user-splash").css("top", "-200%");
-                            $("#user-splash .overlay-controls").css("top", "-200%");
+                            $("#user-splash").css("top", "0"); // -200%
+                            $("#user-splash .overlay-controls").css("top", "0"); // -200%
                             $("#g-menu-toggle").css("color", "#70a1b1");
                         },
                         threshold: 0
@@ -260,11 +260,11 @@
 
                         $("#close-splash").css({
                             "height": "0",
-                            "top": "-200%"
+                            "top": "0" // -200%
                         });
 
-                        $("#user-splash").css("top", "-200%");
-                        $("#user-splash .overlay-controls").css("top", "-200%");
+                        $("#user-splash").css("top", "0"); // -200%
+                        $("#user-splash .overlay-controls").css("top", "0"); -200%
                         $("#g-menu-toggle").css("color", "#70a1b1");
 			$(".user-book-list-wrapper, #user-header").css("opacity", "1");
 

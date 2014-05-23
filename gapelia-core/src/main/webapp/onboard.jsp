@@ -28,10 +28,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		
 		<link href="/static/css/style.css" rel="stylesheet"/>
+		<link href="/static/css/slytest.css" rel="stylesheet" />
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
+		<script src="/static/scripts/sly.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
@@ -59,10 +61,6 @@
 		<script src="/static/scripts/imgLiquid.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/charLimiter.js"></script>
-
-		<!--/ scripts/layout-scroller /-->
-		<script src="/static/scripts/mousewheel.js"></script>
-		<script src="/static/scripts/scroll.js"></script>
 		<script src="/static/scripts/filepicker2.js"></script>
 
 		<script>
@@ -93,20 +91,6 @@
 
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
-				// Scrolling on desktop
-				if ($vW > "1024") {
-
-					$("#featured-scroller").mousewheel(function (event, delta) {
-
-						$("#featured-scroller").stop().animate({
-							scrollLeft: "-=" + (75 * delta) + "px"
-						}, "150", "easeOutCubic");
-
-						event.preventDefault();
-
-					});
-
-				}
 
 				// Load Gapelia
 				NProgress.start();
@@ -130,20 +114,49 @@
 					w += 500;
 
 					if ($vW > "1024") {
-
-						// $("#library-list").css("width", w - 155 + "px");
-
 						$("#explore-list").css("width", w + "px");
 						$("#explore-list .library").css("height", $vH - 97 + "px");
-
-					} else {
-						// $("#library-list").css("height", h + 379 + "px");
 					}
-
 					// fades in the all the books after section width is added
 					$("#explore-list li").fadeIn("1");
 					$("#explore-list").fadeIn("1");
-
+					
+				if ($vW > "1024") {
+				    $(".library-list-wrapper").sly({
+						horizontal: 1,
+						itemNav: 'forceCentered',
+						smart: 1,
+						activateMiddle: 1,
+						//activateOn: 'mouseenter',
+						mouseDragging: 1,
+						touchDragging: 1,
+						swingSpeed: 1,
+						releaseSwing: 0,
+						startAt: 0,
+						scrollBar: $(".scrollbar"),
+						scrollBy: 1,
+						speed: 0.0001,
+						elasticBounds: 1,
+						easing: 'swing',
+						dragHandle: 1,
+						dynamicHandle: 1,
+						clickBar: 1,
+						keyboardNavBy: 'items',
+				    });
+				}
+				
+				if ($vW < "1025") {
+					$("#explore-list").css("cssText", "padding: 6rem 1.25rem 1.25rem 1.25rem !important");
+				}
+				
+				if ($vW < "800") {
+					$("#explore-list").css("cssText", "padding: 5rem 1.25rem 1.25rem 1.25rem !important");
+				}
+				
+				if ($vW < "321") {
+					$("#explore-list").css("cssText", "padding: 2rem 1.25rem 1.25rem !important");
+				}
+				
 				}, 1000);
 
 				$(".library").imgLiquid({ fill: true });

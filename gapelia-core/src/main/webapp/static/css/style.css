@@ -7570,7 +7570,8 @@ a.count span.dont-move {
     overflow-y: auto; }
 
   body.landing #gapelia {
-    left: 40.25%; }
+    left: 40.5%;
+    top: 2rem; }
   body.landing h4 {
     font-size: 1.2rem; }
   body.landing h5 {
@@ -8002,7 +8003,7 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     top: 32.5%; }
   .app #user-splash .user-avatar {
-    top: 14%; }
+    top: 16.5%; }
   .app #user-splash #close-splash {
     bottom: 0.5rem;
     font-size: 4rem;
@@ -8652,7 +8653,7 @@ a.count span.dont-move {
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
     left: 37.25%;
-    top: 1.5rem; }
+    top: 7.5rem; }
   body.landing h4 {
     width: 80%; }
   body.landing h5 {
@@ -8708,7 +8709,7 @@ a.count span.dont-move {
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
   .app #user-splash .user-avatar {
-    top: 15%; }
+    top: 20%; }
   .app #user-splash #splash-user-info {
     font-size: 0.9rem; }
   .app #user-splash #splash-user-info {
@@ -8848,9 +8849,9 @@ a.count span.dont-move {
     font-size: 0.8rem; }
 
   .app #header-message {
-    font-size: 1.4rem;
+    font-size: 1rem;
     line-height: 1.5rem;
-    padding: 1.2rem 0 0.5rem 0;
+    padding: 1.8rem 0 0.5rem 0;
     width: 68%; }
   .app #header-message button {
     right: -38%; }
@@ -9083,6 +9084,11 @@ a.count span.dont-move {
   body.landing #gapelia {
     left: 28.25%; } }
 @media all and (max-width: 360px), screen and (max-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #header-message {
+    padding: 1.25rem 0 0.5rem 0; }
+  .app #header-message button {
+    font-size: 10px;
+    right: -32%; }
   .app #welcoming-title {
     height: 300px;
     font-size: 1.3rem;
@@ -9250,8 +9256,8 @@ a.count span.dont-move {
     padding: 1.3rem 0 0.5rem 0;
     width: 66%; }
   .app #header-message button {
-    right: -40%;
-    top: 1.8rem; }
+    right: -34%;
+    top: 2rem; }
   .app #featured-splash, .app #library-splash, .app #user-splash {
     font-size: 1rem;
     padding: 1rem; }
