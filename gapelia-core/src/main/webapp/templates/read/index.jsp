@@ -42,7 +42,7 @@
             </div>
         </nav>
         <!--//site-menu /-->
-
+	<div id="featured-panel" style="display: none;"></div>
         <button id="g-menu-toggle" class="notification-time">
 		<span id="notification-count" style="display: none;"></span>
                 <i class="ion-drag"></i>
@@ -164,20 +164,16 @@
 	
 	// Dropdown menu for mobile
         if ($vW < "1024") {
-        
+		
         $(".bookmark-list-wrapper").remove();
-                        
-        $("#featured-panel .featured-info").remove();
-        $("#featured-panel").append('<span id="category-title">Explore Libraries</span>');
-        
-        $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-profile"><a href="/featured"></a>Folio</li><li id="nav-profile"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/me">Me</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
-        
-        $("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
-        
-        $(document).on("click", "#g-menu-toggle, #nav-books", function () {
-        $("#featured-nav").toggle();
-        });
-	}
+                
+        $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-profile"><a href="/featured"></a>Folio</li><li id="nav-profile"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/librarmanager">Libraries</a></li><li id="nav-profile"><a href="/me">Me</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+	
+	$("#g-menu-toggle").click(function (e) {
+		$("#featured-nav").toggle();
+		$("#featured-panel").css("cssText", "z-index: 1000 !important;");
+		$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
+	})}
 	
 	if ($vW > "1919") {
 		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");

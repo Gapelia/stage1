@@ -8124,8 +8124,9 @@ a.count span.dont-move {
     cursor: pointer;
     display: block;
     top: 0; }
-  .full-book #share-menu {
-    display: none !important; }
+  .full-book #featured-panel {
+    height: 0px !important;
+    z-index: 100 !important; }
   .full-book #book-menu #nav-notify ul {
     display: none;
     font-size: 0.8rem;

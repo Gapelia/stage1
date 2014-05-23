@@ -1205,8 +1205,11 @@
 			}
 		}
 		
-		#share-menu { display: none !important; } // hidden due to loading bugs and no really needed because share is on footer
-
+		#featured-panel {
+			height: 0px !important;
+			z-index: 100 !important;
+		}
+		
 		#book-menu {
 			#nav-notify {
 				ul {
