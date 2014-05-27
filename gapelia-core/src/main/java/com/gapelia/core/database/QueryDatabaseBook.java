@@ -17,7 +17,9 @@ public class QueryDatabaseBook {
     private static final String CREATE_PAGE = "INSERT INTO pages (book_id, user_id, created, last_updated) VALUES(?,?,?,?)";
     private static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,page_number = ?,photo_url = ?,photo_id = ?,creative_commons = ?,last_updated = ? WHERE id = ?";
     private static final String DELETE_PAGE = "DELETE FROM pages WHERE id = ?";
-    // Book Related Queries
+	private static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ? and library_id = ?";
+
+	// Book Related Queries
     private static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
     private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ?, snippet = ?  WHERE id = ?";
     private static final String DELETE_FROM_USER_VOTES2 = "DELETE FROM user_votes where book_id = ?";
@@ -25,7 +27,25 @@ public class QueryDatabaseBook {
     private static final String DELETE_FROM_USER_BOOKMARKS2 = "DELETE FROM user_bookmarks where book_id = ?";
     private static final String DELETE_FROM_LIBRARY_NOTIFICATION2 = "DELETE FROM library_notifications where book_id = ?";
 
+	public static boolean isBookInLibrary(int bookId, int libraryId) {
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(IS_BOOK_IN_LIBRARY);
+			insert.setInt(1, bookId);
+			insert.setInt(2, libraryId);
+			ResultSet rs = insert.executeQuery();
 
+			boolean result = rs.isBeforeFirst();
+
+			rs.close();
+			insert.close();
+			return result;
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot get if book in library bookid:" + bookId + ex.getMessage());
+			return false;
+		}
+	}
 
 	public static String getNumVotes(int bookId) {
 		PreparedStatement statement = null;
