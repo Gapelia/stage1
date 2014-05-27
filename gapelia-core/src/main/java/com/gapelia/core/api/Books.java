@@ -82,6 +82,36 @@ public class Books {
         return QueryDatabaseBook.updatePage(page);
     }
 
+
+
+	@Path("getLibrariesBookBelongsTo")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getLibrariesBookBelongsTo(@FormParam("sessionId") String sessionId,
+									@FormParam("bookId") int bookId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseBook.getLibrariesBookBelongsTo(bookId));
+	}
+
+
+	@Path("isBookInLibrary")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String isBookInLibrary(@FormParam("sessionId") String sessionId,
+											@FormParam("bookId") int bookId,@FormParam("libraryId") int libraryId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseBook.isBookInLibrary(bookId,libraryId));
+	}
+
+
+
+
     @Path("deletePage")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

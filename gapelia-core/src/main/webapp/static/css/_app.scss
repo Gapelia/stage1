@@ -326,7 +326,7 @@
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
 	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
   
-		position: absolute;
+    position: absolute;
 		top: 54.5%;
 		transform: translateY(-50%);
     z-index: 1;
@@ -338,11 +338,11 @@
 	}
   
   .library-list-wrapper { padding-bottom: 0.5rem; }
-
+  
 	.bookmark-list-wrapper, .book-list-wrapper {
 		section {
 			width: 100%; height: 100%;
-      margin-top: -3rem;
+      margin-top: -3px;
 
 			color: rgba(11, 72, 107, 0.25);
       font-size: 1.6rem;
@@ -919,14 +919,27 @@
 		}
 	}
 
-	#library-splash {
+	#library-splash:after {
+    background-image: linear-gradient(to top, rgba(25, 25, 25, 0.4), rgba(25, 25, 25, 0.73));
+  }
+  
+  #library-splash {
     
-		#close-splash { bottom: 1.5rem; }
+		#close-splash {
+      background-image: url("../images/splash-arrow.png");
+      background-size: 70px;
+      background-repeat: no-repeat;
+      border-bottom: none !important;
+      height: 100px;
+      left: 94% !important;
+      width: 100px;
+      bottom: 42%;
+    }
     
     #library-info {
-			border-bottom: 1px solid rgba($white, 0.5);
+			border-bottom: 1px solid rgba($white, 0);
 			left: 20%;
-			padding: 0 0 15px 0 !important;
+			padding: 0 0 12px 0 !important;
 			top: 45%;
 			width: 60%;
 
@@ -938,23 +951,27 @@
 		}
     
     #library-share {
-      font-size: 2rem !important;
+      font-size: 1.8rem !important;
+      opacity: 0.7;
       position: absolute;
-      right: 1.5rem; bottom: 1.5rem;
+      right: 48%; bottom: 1.5rem;
       z-index: 100 !important;
       
       ul li {
         display: inline;
         margin: 6px;
         text-shadow: 1px 1px rgba(255, 255, 255, 0.2);
-        
-        .ion-email { color: $white; }
       }
+      
+      .ion-facebook, .ion-twitter, .ion-mail {
+        color: $white !important;
+      }  
     }
 
 		h1 {
-			border-bottom: 1px solid rgba($white, 0.5);
+			border-bottom: 1px solid rgba($white, 0);
 			font-size: 0.9rem;
+      margin: 0;
       opacity: 0.8;
       
       span { font-size: 0.9rem !important; font-style: italic; }
@@ -997,7 +1014,7 @@
 		}
 
 		button {
-			top: 0.4rem; right: 0;
+			top: 1.2rem; right: 11rem; padding: 9px !important;
 
 			position: absolute;
 			z-index: 11;
@@ -1165,10 +1182,10 @@
 		}
 	}
 
-	.facebook, .ion-social-facebook			{ color: $facebook; }
-	.googleplus, .ion-social-googleplus	{ color: $google; }
-	.twitter, .ion-social-twitter				{ color: $twitter; }
-	.email, .ion-email, .ion-ios7-at		{ color: $slate; }
+	.facebook, .ion-social-facebook			{ color: $facebook; opacity: 0.7; }
+	.googleplus, .ion-social-googleplus	{ color: $google; opacity: 0.7; }
+	.twitter, .ion-social-twitter				{ color: $twitter; opacity: 0.7; }
+	.email, .ion-email, .ion-ios7-at		{ color: $slate; opacity: 0.7; }
 
 }
 

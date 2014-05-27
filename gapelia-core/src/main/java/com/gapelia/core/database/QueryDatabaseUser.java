@@ -25,7 +25,7 @@ public class QueryDatabaseUser {
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
-    private static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ?";
+    protected static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ?";
     private static final String UPDATE_USER = "UPDATE users set email = ?, name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
@@ -51,6 +51,26 @@ public class QueryDatabaseUser {
 			"(select * from user_subscriptions where user_id = ?) as t2 on library_books.library_id = t2.library_id limit 30";
 
 
+	//returns the next book in the library(loops back to beginning if none)
+	public static Book getNextLibraryRead(int userId,int bookId, int libraryId) {
+
+		ArrayList<Book> libraryBooks = QueryDatabaseLibrary.getBooksInLibrary(libraryId);
+
+
+		if(libraryBooks.size() <= 1) return getNextReadRecommendation(userId,bookId);
+
+		for(Book b : libraryBooks){
+			if(b.getBookId() == bookId){
+				int currentIndex = libraryBooks.indexOf(b);
+				if(currentIndex == libraryBooks.size()-1)
+					return libraryBooks.get(0);
+				else
+					return libraryBooks.get(currentIndex+1);
+			}
+		}
+
+		return getNextReadRecommendation(userId,bookId);
+	}
 
 	public static Book getNextReadRecommendation(int userId,int bookId) {
 
@@ -116,6 +136,9 @@ public class QueryDatabaseUser {
 			return false;
 		}
 	}
+
+
+
 
     public static String onboard(User u) {
         PreparedStatement insert = null;

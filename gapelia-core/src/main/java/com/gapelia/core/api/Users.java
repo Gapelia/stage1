@@ -37,6 +37,18 @@ public class Users {
 		return gson.toJson(QueryDatabaseUser.getNextReadRecommendation(userId,bookId));
 	}
 
+	@Path("getNextLibraryRead")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getNextLibraryRead(@FormParam("sessionId") String sessionId,@FormParam("userId") int userId,
+									 @FormParam("bookId") int bookId, @FormParam("libraryId") int libraryId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getNextLibraryRead(userId,bookId,libraryId));
+	}
+
     @Path("onboard")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

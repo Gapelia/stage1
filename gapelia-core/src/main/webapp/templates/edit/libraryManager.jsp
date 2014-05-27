@@ -175,7 +175,7 @@
 	<script src="/static/scripts/ajax.js"></script>
 	<script src="/static/scripts/userNotifications.js"></script>
 	<script src="/static/scripts/classie.js"></script>
-	<script src="/static/scripts/mlpushmenu.js"></script>																								      	    
+	<script src="/static/scripts/mlpushmenu.js"></script>		
 
 	<script>
 	if ($vW > "1024") {
@@ -219,7 +219,7 @@
         $("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
         
         $(document).on("click", "#g-menu-toggle, #nav-books", function () {
-        $("#featured-nav").toggle();
+            $("#featured-nav").toggle();
         });
                         
         if ($vW < "1025") {
@@ -229,8 +229,8 @@
                 "z-index": "0",
                 "top": "-1rem"
             })
-        }                       
-                        
+        }
+        
         // Log Out
         $("#logout").click(function (e) {
             document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";

@@ -148,6 +148,7 @@
                 fill: true
             });
         });
+
 	
 	if ($vH > "1190") {
 		$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
@@ -199,12 +200,19 @@
 
                     $("#close-splash").css({
                         "left": "-200%",
-                        "right": "initial"
+                        "right": "initial",
+			"background-image": "none"
                     });
 
 		    $("#library-splash").css("left", "-200%");
 		    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
                     $("#g-menu-toggle").css("color", "#70a1b1");
+		    $(".submission-dropdown").css({
+			"background-color": "#transparent",
+			"border-color": "#59B3A6",
+			"border-width": "0",
+			"color": "#59B3A6"
+		     });
 
                 });
 		
@@ -278,7 +286,7 @@
                 e.preventDefault();
 
             });
-
+	    
             // Load Gapelia
             NProgress.start();
 
@@ -438,11 +446,14 @@
                 });
 
             }
-
+	    if ($vW < "1024") {
+		$("#library-splash .subscribe").remove();
+		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
+	    }
 	    
             if ($vW < "421") {
-                $(".book-snippet").css("display","block")
-		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.7rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
+                $(".book-snippet").css("display","block");
+		$("#featured-panel .subscribe").css("font-size", "0.7rem");
 	    }
 		
 		h = $(this).outerHeight() - 92;
