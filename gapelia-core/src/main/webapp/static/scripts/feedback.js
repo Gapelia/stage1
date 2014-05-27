@@ -15,7 +15,7 @@
 	jQuery.fn.contactable = function(options) {
 		// Set default options
 		var defaults = {
-			url: 'mail.java',
+			url: '',
 			header: '',
 			name: 'Name',
 			email: 'Email',
