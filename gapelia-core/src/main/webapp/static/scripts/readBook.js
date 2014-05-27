@@ -5,8 +5,6 @@ var Page = (function () {
         $navNext: $("#bb-nav-next"),
         $navPrev: $("#bb-nav-prev"),
         $navFirst: $("#bb-nav-first"),
-        //$navLast: $("#go-to-credits"),
-        //$navLast: $("#go-to-credits")
     },
 
         init = function () {
@@ -40,12 +38,6 @@ var Page = (function () {
                 config.$bookBlock.bookblock("first");
                 return false;
             });
-
-            
-	    /*config.$navLast.on("click touchstart", function () {
-		config.$bookBlock.bookblock("last");
-		return false;
-	    });
 
             // add swipe events
             /*$slides.on({
@@ -93,37 +85,7 @@ var Page = (function () {
 })();
 
 function loadBook() {
-    
-    /*
-    $(document).on("mouseenter", ".inserted-img", function () {
-        if ($(this).parent().hasClass("minimized-p")) {
-            $(this).before("<div class=\"resize-bigger\">[bigger]</div>");
-        } else {
-            $(this).before("<div class=\"resize-smaller\">[smaller]</div>");
-        }
 
-    });
-
-    $(document).on("click", ".resize-smaller", function () {
-
-        $(this).parent().addClass("minimized-p");
-        $(this).parent().mouseleave();
-
-    });
-
-    $(document).on("click", ".resize-bigger", function () {
-
-        $(this).parent().removeClass("minimized-p");
-        $(this).parent().mouseleave();
-
-    });
-    */
-    
-    //window.READRBOARDCOM.actions.reInit();
-
-    $(document).on("mouseleave", ".resize-smaller, .resize-bigger", function () {
-        $(".resize-smaller, .resize-bigger").remove();
-    });
     if ($vW > "1024") {
 
         $(".content").css({
@@ -131,17 +93,16 @@ function loadBook() {
             "height": $vH + "px"
         });
         Page.init();
-
-
     }
     share = "";
 
-        share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
-        share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-        share += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li>";
-        $(".share-book").html(share)
+    share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
+    share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
+    share += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li>";
+    $(".share-book").html(share)
 
 }
+
 $(function () {
     
     function makeBackPage() {
@@ -172,13 +133,7 @@ $(function () {
                 backPage += getLibraryFromBookBackCover(current.bookId);
                 backPage += "</div></section></div>";
                 getReadNextBook();
-                
-               // if (typeof user != "undefined") {
-                    initializeMerciObject();
-                //}
-                //else{$(".merci").remove();}
-                
-                
+                initializeMerciObject();
             },
             error: function (q, status, err) {
                 if (status == "timeout") {
@@ -191,92 +146,53 @@ $(function () {
     
     function initializeMerciObject(){
         // "Merci" code
-			// needs to be a string for jquery.cookie
-			var postId = "1";
-                        //console.log("merci'ing initializing outside");
-                        
-                        
-                        
+	// needs to be a string for jquery.cookie
+	    var postId = "1";
+            //console.log("merci'ing initializing outside");
+	    $(function () {
+            //console.log("merci'ing initializing");
 
-			$(function () {
-                                //console.log("merci'ing initializing");
-
-				// initialize merci
-				$("figure.merciful").merciful();
-
+	    // initialize merci
+	    $("figure.merciful").merciful();
                                 
-                                //  this is the check at the server if user has already voted   (this is the prefill if already voted)
-				//if ($.cookie(postId) == "false") {
-                                
-                                if (hasAlreadyVoted(bookId) == "True") {
-                                    $("figure.merciful").removeClass("animate").addClass("complete");
-                                }
-                                else{
-                                    //console.log("has not voted");
-				    $("figure.merciful").removeClass("animate").removeClass("complete");
-                                    //$(".num").html(1);
-                                }
-				//	$("figure.merciful").removeClass("animate").addClass("complete");
-                                  //      console.log("merci'ing cookie true");
-					// your server would take care of the proper merci count, but because this is a
-					// static page, we need to set it here so it doesn't become -1 when you remove
-					// the merci after a reload
-					
-				//}
+            //  this is the check at the server if user has already voted   (this is the prefill if already voted)
+            if (hasAlreadyVoted(bookId) == "True") {
+                $("figure.merciful").removeClass("animate").addClass("complete");
+            } else{
+            //console.log("has not voted");
+            $("figure.merciful").removeClass("animate").removeClass("complete");
+            }
+	    // when merci'ing      MOUSEOVER
+	    $("figure.merci").bind("merci:active", function (e) {
+		$("span.num, span.txt").hide();
+		$("span.dont-move").show();
+	    });
 
-				// when merci'ing      MOUSEOVER
-				$("figure.merci").bind("merci:active", function (e) {
+	    // when not merci'ing      MOUSE LEAVES
+	    $("figure.merci").bind("merci:inactive", function (e) {
 
-					$("span.num, span.txt").hide();
-					$("span.dont-move").show();
+	    //console.log("merci'ing inactive");
+                $("span.num, span.txt").show();
+                $("span.dont-move").hide();
+	    });
 
-					//console.log("merci'ing active");
+            // after merci'd        MERCI VOTES
+	    $("figure.merci").bind("merci:added", function (e) {
 
-				});
+	    var element = $(this);
+                        
+            voteBook(bookId);
+                $("span.num, span.txt").show();
+                $("span.dont-move").hide();
+	    });
 
-				// when not merci'ing      MOUSE LEAVES
-				$("figure.merci").bind("merci:inactive", function (e) {
+	    // after removing a merci  UNVOTE
+	    $("figure.merci").bind("merci:removed", function (e) {
 
-					//console.log("merci'ing inactive");
-
-					$("span.num, span.txt").show();
-					$("span.dont-move").hide();
-
-				});
-
-				// after merci'd        MERCI VOTES
-				$("figure.merci").bind("merci:added", function (e) {
-
-					var element = $(this);
-
-					// ajax'y stuff or whatever you want
-					//console.log("Merci'd:", element.data("id"), ":)");
-                                        
-                                        voteBook(bookId);
-
-					// set cookie so user cannot merci again for 7 days
-					//$.cookie(postId, "true", { expires: 7 });
-
-					$("span.num, span.txt").show();
-					$("span.dont-move").hide();
-
-				});
-
-				// after removing a merci  UNVOTE
-				$("figure.merci").bind("merci:removed", function (e) {
-
-					var element = $(this);
-					// ajax'y stuff or whatever you want
-					//console.log("Un-merci'd:", element.data("id"), ":(");
-                                        
-                                        removeVoteBook(bookId);
-
-
-				});
-
-			});
-	
-	
+		var element = $(this);
+                removeVoteBook(bookId);
+            });
+	});
     }
     
     function hasAlreadyVoted(bookId) {
@@ -315,8 +231,8 @@ $(function () {
             type: "POST",
             async: false,
             data: {
-                    sessionId: sessionId,
-                    bookId: bookId
+                sessionId: sessionId,
+                bookId: bookId
             }});
     }
     
@@ -327,43 +243,11 @@ $(function () {
             type: "POST",
             async: false,
             data: {
-                    sessionId: sessionId,
-                    bookId: bookId
-            }});
-    }
-    
-    
-    /*
-    function getNumberVotes() {
-        $.ajax({
-            url: "/api/books/getNumVotes",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            async: false,
-            data: {
-			sessionId: sessionId,
+                sessionId: sessionId,
                 bookId: bookId
-            },
-            success: function (data) {
-
-                if (data == null) {
-                	numVotes = 0;
-                }
-                else{
-                	numVotes = data[0];
-                }
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-                    alert("Request timed out");
-                } else {
-                    alert("Some issue happened with your request: " + err.message);
-                }
             }
         });
-        
-        return numVotes;
-    }*/
+    }
 
 function getReadNextBook() {
         
@@ -373,10 +257,6 @@ function getReadNextBook() {
                     htmlToInsert += backPage;
                     $("#bb-bookblock").html(htmlToInsert);
                     loadBook();
-                    
-                    //$("#header-author").html(bookOwner.name);
-                    //$("#header-title").html(pages[0].title);
-                    //$(".inserted-img").fluidbox();
         }
         else{
             $.ajax({
@@ -472,12 +352,8 @@ function getReadNextBook() {
                 }
             }
             makeBackPage();
-
-
-
-
         },
-
+        
         error: function (q, status, err) {
 
             if (status == "timeout") {
@@ -485,7 +361,6 @@ function getReadNextBook() {
             } else {
                 alert("Some issue happened with your request: " + err.message);
             }
-
         }
     });
 
@@ -521,7 +396,6 @@ function getReadNextBook() {
             fluidLayout(isFirst);
             break;
         }
-
     }
     
     function fluidLayout(isFirst) {
@@ -707,7 +581,6 @@ function getReadNextBook() {
         htmlToInsert += "</article>";
         htmlToInsert += "</div></section>";
         htmlToInsert += "</div></div>";
-
     }
 
     // Styling layouts
@@ -751,7 +624,6 @@ function getReadNextBook() {
             $(".video-player-container iframe").show();
 
         });
-
     }
 
     // Streamline book for mobile
@@ -761,7 +633,6 @@ function getReadNextBook() {
 
         $(".video-player-container img").hide();
         $(".video-player-container iframe").show();
-
     }
 
     if ($vW < "321") {
@@ -794,73 +665,8 @@ function getReadNextBook() {
 	$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
     }
         
-    // Dropdown menu for mobile
-    if ($vW < "1025") {
-
-        menu = "";
-        menu += "<ul id=\"book-menu\" style=\"display: none;\">";
-        menu += "<li id=\"nav-featured\"><a href=\"/featured\">Featured</a></li>";
-        menu += "<li id=\"nav-explore\"><a href=\"/me\">Libraries</a></li>";
-        menu += "<li id=\"nav-profile\"><a href=\"/me\">My Profile</a></li>";
-        /*menu += "<li id=\"nav-notify\"><a href=\"#\">Notifications</a>";
-        menu += "<ul>";
-        menu += "<li><a href=\"#\">Diego thanked you for your story: \"The Matrix Has You\"</a></li>";
-        menu += "<li><a href=\"#\">Tommy commented on your story: \"Well that was weird\"</a></li>";
-        menu += "<li><a href=\"#\">Daniel added your story to a library: \"Gapelia Nation\"</a></li>";
-        menu += "<li><a href=\"#\">Frankie wants to collaborate on your story: \"Hoverboards Are The Future\"</a></li>";
-        menu += "<li><a href=\"#\">2 edit requests are pending for your review</a></li>";
-        menu += "</ul>";*/
-        menu += "</li>";
-        menu += "<li id=\"nav-profile\"><a href=\"/accounts\">Account Settings</a></li>";
-        menu += "<li id=\"nav-logout\"><a href=\"#\">Log Out</a></li>";
-        menu += "</ul>";
-
-        var currentWebsite = document.URL;
-        
-	facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + current.bookId;
-        twitterShare = "http://twitter.com/share?text="+current.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + current.bookId;
-        emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ current.title + " by " + bookOwner.fullName + "   " +  "www.folio.is/read/" + current.bookId;
-        share = "";
-        share += "<ul id=\"share-menu\" style=\"display: block;\">";
-
-        share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\">Share via Facebook</a></li>";
-        share += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\">Share via Twitter</a></li>";
-        share += "<li><a href=\""+emailShare+"\">Share via Email</a></li>";
-        share += "</ul>";
-
-        $("#g-menu-toggle").after(menu);
-        
-        $(document).on("click", "#g-menu-toggle", function () {
-
-            $("#book-menu").toggle();
-
-            if ($("#book-menu").css("display") == "block") {
-                $("#g-menu-toggle").css("color", "#70a1b1");
-            } else {
-                $("#g-menu-toggle").css("color", "#fcfcfc");
-            }
-
-            if ($("#share-menu").css("display") == "block") {
-                $("#share-menu").hide();
-            }
-
-        });
-
-        $(document).on("click", "#nav-notify", function (e) {
-
-            $("#nav-notify ul").toggle();
-
-            if ($("#nav-notify ul").css("display") == "block") {
-                $("#nav-notify").css("padding", "1rem 0 0 0");
-            } else {
-                $("#nav-notify").css("padding", "1rem");
-            }
-
-            e.preventDefault();
-
-        });
-        
-        // Log Out
+    // Logout for mobile
+    if ($vW < "1025") {        
 	$("#logout").click(function (e) {
 	    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 	    window.location = "";

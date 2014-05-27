@@ -139,7 +139,6 @@ function loadDelete() {
 
 function getBookmarkedBooks() {
     sessionId = readCookie("JSESSIONID");
-    toInsert = "<section><p>No books have been added to your bookmarks yet.</p></section>";
     $.ajax({
         url: "/api/users/getBookmarkedBooks",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -169,8 +168,8 @@ function getBookmarkedBooks() {
                 }
 
                 if (toInsert == "<ul id=\"bookmark-list\">") {
-		    toInsert += "<ul id=\"bookmark-list\" style=\"display: block;\"><section style=\"position: absolute; width: 800px; left: 0; top: -3rem;\"><p>No books have been added to your bookmarks yet.</p></section></ul>";		    
-                }
+		    toInsert += "<section style=\"position: initial; margin-left: -30rem; text-align: left;\"><p>No books have been added to your bookmarks yet.</p></section>";		    
+		}
             }
             $(".bookmark-list-wrapper").html(toInsert);
             $("#library-list .library").css("height", $vH - 97 + "px");
@@ -685,7 +684,6 @@ function getLibrary() {
 	facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/library/' + libraryId;
 	twitterShare = "http://twitter.com/share?text="+library.title+" edited by "+ libraryOwner.fullName;"&url=http://folio.is/library" + libraryId;
 	emailShare = 'mailto:?subject=Recommended%20Library%20on%20Folio&amp;body='+ library.title + " edited by " + libraryOwner.fullName + "   " +  "www.folio.is/read/" + libraryId;
-
 	    
 	    myLibraries = getCreatedLibrariesArray(sessionId);
 		var ownThisLibrary = false;
@@ -693,7 +691,7 @@ function getLibrary() {
 		for (i in myLibraries) {
 		    currentLibrary = myLibraries[i];
 		    if (currentLibrary.libraryId == library.libraryId) {
-			    ownThisLibrary = true;
+			ownThisLibrary = true;
 		    }
 		}
 	    
@@ -705,12 +703,12 @@ function getLibrary() {
 		$("#nav-submissions").css("display", "none");
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-	    toInsert += "<div id=\"library-info\">";
-            if (library.libraryId in subscribed == true) {
+	    if (library.libraryId in subscribed == true) {
                 toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
             } else {
-                toInsert += "<button class=\"subscribe slate\">Subscribe</button>";
+                toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
             }
+	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
@@ -737,9 +735,9 @@ function getLibrary() {
 
 	    toInsert += "<div id=\"library-share\">";
 	    toInsert += "<ul class=\"share-book\">";
-	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";
-            toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li>";
-            toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><div/></section>";
+	    toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
+            toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\" style=\"color: white\"></i></a></li>";
+            toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
             
 	    $("#mp-pusher").prepend(toInsert);
 	    	    
@@ -807,7 +805,6 @@ function getAllLibraries() {
 }
 
 function getLibraries() {
-
     sessionId = readCookie("JSESSIONID");
 
     $.ajax({
@@ -821,19 +818,19 @@ function getLibraries() {
         success: function (data) {
             libraries = data;
             for (i in libraries) {
-                library = libraries[i];
+                library = libraries[i];	
+		subscribed[library.libraryId] = false;
 
                 lib = "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		
 		lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 		
-		lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\">";
-                if (library.libraryId in subscribed == true) {
+		lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\">";	
+		if (library in subscribed == true) {
                     lib += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button></div>";
-                } else {
+                } else if (library in subscribed == false) {
                     lib += "<button class=\"subscribe white-border\">Subscribe</button></div>";
-                }
-                                                                               		
+                }                                                             		
 		lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
                 $("#explore-list").append(lib);
              }
@@ -2077,7 +2074,7 @@ function getSubscribedLibrary() {
 
                 lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 
-                lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"><button class=\"unsubscribe red\">Unsubscribe</button></div>";
+                lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"><button class=\"unsubscribe brand-blue\">Unsubscribe</button></div>";
 
                 lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }

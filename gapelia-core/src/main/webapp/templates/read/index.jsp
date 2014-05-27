@@ -42,24 +42,17 @@
             </div>
         </nav>
         <!--//site-menu /-->
+	
 	<div id="featured-panel" style="display: none;"></div>
+	
         <button id="g-menu-toggle" class="notification-time">
 		<span id="notification-count" style="display: none;"></span>
                 <i class="ion-drag"></i>
         </button>
 
-        <header>
-            <div id="header-info">
-                <span id="header-title"></span>
-                <span id="header-author"></span>
-            </div>
-
-            <ul class="share-book"></ul>
-        </header>
-
         <div id="bb-nav-prev">&#xf153;</div>
         <div id="bb-nav-next">&#xf154;</div>
-        <!--/ div id="the-book" /-->
+
         <div id="the-book" class="bb-custom-wrapper">
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
@@ -102,18 +95,16 @@
     <script src="/static/scripts/cookie.js"></script>
     <script src="/static/scripts/merci.js"></script>
     
-    
-     <script>
-				$(function () {
-					if (typeof user != "undefined")
-						getCreatedLibrariesForBook();
-					else
-						$(".submission-dropdown").remove();
-					});
+    <script>
+	$(function () {
+	if (typeof user != "undefined")
+		getCreatedLibrariesForBook();
+	else
+		$(".submission-dropdown").remove();
+	});
     </script>
     
     <script>
-	
 	
         // Hide logo after 100px when scrolling book on mobile
 	$(window).scroll(function() {
@@ -132,10 +123,7 @@
 		e.preventDefault();
 		
 		$("#stay-right .submission-dropdown").addClass("clicked-list");
-
-
         });
-
 	
 	// submissions confirm popup
 		
@@ -158,9 +146,7 @@
 	if (!container.is(e.target) && container.has(e.target).length === 0) {
 		container.hide(); // ... nor a descendant of the container
 		clicked.removeClass();
-	}
-
-	});
+	}});
 	
 	// Dropdown menu for mobile
         if ($vW < "1024") {
@@ -198,9 +184,7 @@
             });
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-            
-	    
-	   
+             
 	book = getFullBookFromBookId(current.bookId);
 	
 	 //Meta Tags//
@@ -217,7 +201,6 @@
 	    
         }, 2000);
         addLoggedInMenu();
-	//getCreatedLibraries();
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>
