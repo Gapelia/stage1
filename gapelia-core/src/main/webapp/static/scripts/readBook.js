@@ -111,6 +111,7 @@ $(function () {
             url: "/api/users/getUserPublic",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
             type: "POST",
+	    async: false,
             data: {
                 userId: bookOwner.userId
             },

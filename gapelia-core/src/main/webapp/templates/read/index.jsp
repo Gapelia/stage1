@@ -165,8 +165,51 @@
 		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
 	}
 
-        setTimeout(function () {
-        loadDelete();
+//$(".fluid-wrapper").imgLiquid({
+ //               fill: true
+  //          });
+
+
+$( document ).ready(function() {
+     	 loadDelete();
+
+
+	book = getFullBookFromBookId(bookId);
+	
+	 //Meta Tags//
+	    document.title = book.title + " by " + bookOwner.name;
+	    $('meta[property="author"]').attr('content', bookOwner.name);
+	    $('meta[property="description"]').attr('content', book.snippet);
+	    
+	//Chaging Facebook Meta Tags//
+	    $('meta[property="og:title"]').attr('content', book.title);
+	    $('meta[property="og:description"]').attr('content', book.snippet);
+	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
+	    $('meta[property="og:url"]').attr('content', window.location.href);
+
+	      $(".fluid-wrapper").imgLiquid({
+                fill: true
+            });
+	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+                fill: true
+            });
+            $(".overlay-wrapper").imgLiquid({
+                fill: true
+            });
+            $(".phototext-wrapper").imgLiquid({
+                fill: true
+            });
+            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+                fill: true
+            });
+
+            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+});
+
+
+
+ setTimeout(function () {
+
             $(".fluid-wrapper").imgLiquid({
                 fill: true
             });
@@ -185,21 +228,15 @@
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
              
-	book = getFullBookFromBookId(current.bookId);
-	
-	 //Meta Tags//
-	    document.title = current.title + " by " + bookOwner.name;
-	    $('meta[property="author"]').attr('content', bookOwner.name);
-	    $('meta[property="description"]').attr('content', book.snippet);
-	    
-	//Chaging Facebook Meta Tags//
-	    $('meta[property="og:title"]').attr('content', current.title);
-	    $('meta[property="og:description"]').attr('content', book.snippet);
-	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
-	    $('meta[property="og:url"]').attr('content', window.location.href);
-
 	    
         }, 2000);
+
+
+
+
+
+
+      
         addLoggedInMenu();
 	window.READRBOARDCOM.actions.reInit();
 	
