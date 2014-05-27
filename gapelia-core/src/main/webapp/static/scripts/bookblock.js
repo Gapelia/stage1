@@ -5,6 +5,7 @@
 	"use strict";
 
 	// global
+var isLastPageAlready = false;
 	var
 	$window = $(window),
 	Modernizr = window.Modernizr;
@@ -88,6 +89,8 @@
 
 	};
 
+	
+
 	// the options
 	$.BookBlock.defaults = {
 		// page to start on
@@ -135,13 +138,28 @@
 		// old is the index of the previous item
 		// page is the current item's index
 		// isLimit is true if the current page is the last one (or the first one)
+		
+
 		onEndFlip: function (old, page, isLimit) {
+			if(pages.length == page) {
+				//console.log("IS LAST PAGE");
+				isLastPageAlready = true;
+			}
+			
+
+			//console.log("onEndFlip : old" + old + "  page: " + page + " isLimit: " + isLimit + "beforelastpagealready:"+isLastPageAlready);
+			
 			return false;
 		},
+
+                
 
 		// callback before the flip transition
 		// page is the current item´s index
 		onBeforeFlip: function (page) {
+			//console.log("onBeforeFlip : page: " + page + "  islimitglobal: " + isLastPageAlready);
+			
+
 			return false;
 		}
 	};
@@ -209,7 +227,11 @@
 
 			if (this.options.nextEl !== "") {
 				$(this.options.nextEl).on("click.bookblock touchstart.bookblock", function () {
+					//console.log("NEXT TRIGGER:");console.log("isalreadylast: " + isAlreadyLast);
+
 					self._action("next");
+
+
 					return false;
 				});
 			}
@@ -252,6 +274,7 @@
 			if (page !== undefined) {
 				this.current = page;
 			} else if (dir === "next" && this.options.direction === "ltr" || dir === "prev" && this.options.direction === "rtl") {
+
 				if (!this.options.circular && this.current === this.itemsCount - 1) {
 					this.end = true;
 				} else {
@@ -259,6 +282,7 @@
 					this.current = this.current < this.itemsCount - 1 ? this.current + 1 : 0;
 				}
 			} else if (dir === "prev" && this.options.direction === "ltr" || dir === "next" && this.options.direction === "rtl") {
+
 				if (!this.options.circular && this.current === 0) {
 					this.end = true;
 				} else {
@@ -443,9 +467,14 @@
 
 		// public method: flips forward
 		next: function () {
-
+			
 			this._action(this.options.direction === "ltr" ? "next" : "prev");
 
+			//console.log("nexting! " + isLastPageAlready);
+
+			if(isLastPageAlready){
+				setTimeout(function(){window.location = "/read/"+nextBook.bookId;}, 200);
+			}
 			// close header overlay
 			$(".full-book #g-menu-toggle").css("color", "#fcfcfc");
 
@@ -455,6 +484,13 @@
 
 		// public method: flips back
 		prev: function () {
+
+
+			if(isLastPageAlready){
+
+				isLastPageAlready = false;
+				console.log("turning isLastPage OFF " + isLastPageAlready);
+			}
 
 			this._action(this.options.direction === "ltr" ? "prev" : "next");
 
