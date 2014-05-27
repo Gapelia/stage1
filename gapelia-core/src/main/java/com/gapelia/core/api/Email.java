@@ -1,21 +1,57 @@
 package com.gapelia.core.api;
 
+import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.model.LibraryNotification;
+import com.gapelia.core.model.Page;
 import com.gapelia.core.model.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 /**
  * Created by frankie on 4/27/14.
  */
+@Path("/email/")
 public class Email {
 	private static Logger LOG = Logger.getLogger(Email.class);
 
 	static final Runtime rt = Runtime.getRuntime();
+
+
+	@Path("sendFeedbackEmail")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void sendFeedbackEmail(@FormParam("sessionId") String sessionId, @FormParam("name") String name, @FormParam("email") String email, @FormParam("message") String message) {
+		if (!APIUtil.isValidSession(sessionId))
+			return;
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/feedbackEmail.sh '"+name+
+						"' '"+email+"' '" + message+ "'"
+		};
+
+		LOG.info("Emailing feedback email...:\nuser email\ncmd: " + cmd[2]);
+
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending notification acceptance:" + e.getMessage());
+		}
+	}
 
 	public static void sendAcceptanceToLibraryEmail(User u, LibraryNotification n){
 		if(u.getEmailOptOut()) return;
