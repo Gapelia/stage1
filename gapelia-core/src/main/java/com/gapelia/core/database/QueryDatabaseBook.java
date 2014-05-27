@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 public class QueryDatabaseBook {
     private static Logger LOG = Logger.getLogger(QueryDatabaseBook.class);
     private static Connection connection = DatabaseManager.getInstance().getConnection();
@@ -140,6 +142,30 @@ public class QueryDatabaseBook {
             }
         }
     }
+
+
+	public static ArrayList<Library> getLibrariesBookBelongsTo(int bookId) {
+		ArrayList<Library> list = new ArrayList<Library>();
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(QueryDatabaseUser.IS_BOOK_IN_LIBRARY);
+			insert.setInt(1, bookId);
+			ResultSet rs = insert.executeQuery();
+
+			while(rs.next()){
+				list.add(QueryDatabaseLibrary.getLibrary(rs.getInt("library_id")));
+			}
+
+			rs.close();
+			insert.close();
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot get libraries of book:" + bookId + " " + ex.getMessage());
+			return null;
+		}
+
+		return list;
+	}
 
     public static int createBook(Book book){
         PreparedStatement insert = null;
