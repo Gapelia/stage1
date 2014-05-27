@@ -30,9 +30,9 @@ public class Email {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public void sendFeedbackEmail(@FormParam("sessionId") String sessionId, @FormParam("name") String name, @FormParam("email") String email, @FormParam("message") String message) {
+	public String sendFeedbackEmail(@FormParam("sessionId") String sessionId, @FormParam("name") String name, @FormParam("email") String email, @FormParam("message") String message) {
 		if (!APIUtil.isValidSession(sessionId))
-			return;
+			return "not a valid session";
 
 		String[] cmd = {
 				"/bin/sh",
@@ -48,9 +48,13 @@ public class Email {
 		try {
 			p = rt.exec(cmd);
 //			p .waitFor();
+
+			return "Success...sent to be emailed";
 		} catch (Exception e) {
 			LOG.error("Error sending notification acceptance:" + e.getMessage());
 		}
+
+		return "failed for some reason";
 	}
 
 	public static void sendAcceptanceToLibraryEmail(User u, LibraryNotification n){
