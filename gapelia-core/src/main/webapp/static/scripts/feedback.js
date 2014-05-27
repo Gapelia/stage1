@@ -130,7 +130,6 @@
 						subject:options.subject,
 						name:jQuery('#contactable-name').val(),
 						email:jQuery('#contactable-email').val(),
-						issue:jQuery('#contactable-dropdown').val(),
 						message:jQuery('#contactable-message').val()
 					},
 					success: function(data) {

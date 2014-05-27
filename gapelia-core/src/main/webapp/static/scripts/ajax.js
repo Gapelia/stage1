@@ -1365,6 +1365,8 @@ function getLibraryFromBook(bookId) {
     return responseText;
 }
 
+
+
 function getLibraryFromBookBackCover(bookId) {
     responseText = '';
     $.ajax({

@@ -249,17 +249,59 @@ $(function () {
         });
     }
 
-function getReadNextBook() {
-        
-        if (typeof user == "undefined") {
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url(\"/static/images/cover.jpg\"); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio for personalized recommendations</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
-                    
-                    htmlToInsert += backPage;
-                    $("#bb-bookblock").html(htmlToInsert);
-                    loadBook();
-        }
-        else{
-            $.ajax({
+    
+function getLibraryFromBookRec(bookId) {
+   
+    $.ajax({
+        url: "/api/utils/getLibraryFromBookId",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        async: false,
+        type: "POST",
+        data: {
+            bookId: bookId
+        },
+        success: function (data) {
+            if (data.libraryId != 0) {
+                
+               // console.log("getting next book in library");
+		
+			$.ajax({
+				url: "/api/users/getNextLibraryRead",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				async: false,
+				type: "POST",
+				data: {
+				    sessionId: sessionId,
+				    userId: user.userId,
+				    bookId: bookId,
+				    libraryId: data.libraryId
+				},
+				success: function (data) {
+					nextBook = data;
+					backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+					htmlToInsert += backPage;
+					$("#bb-bookblock").html(htmlToInsert);
+					$("#header-author").html(bookOwner.name);
+					$("#header-title").html(pages[0].title);
+					$(".inserted-img").fluidbox();
+					loadBook();
+				},
+				error: function (q, status, err) {
+				    if (status == "timeout") {
+					alert("Request timed out");
+				    } else {
+					alert("Some issue happened with your request: " + err.message);
+				    }
+				}
+			    });
+		
+                responseText = "<a href=\"library/" +  + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a>";
+            }
+            else{
+                
+              //  console.log("book not in library, recommending...");
+                
+                $.ajax({
                 url: "/api/users/getNextReadRecommendation",
                 contentType: "application/x-www-form-urlencoded;charset=utf-8",
                 type: "POST",
@@ -287,6 +329,30 @@ function getReadNextBook() {
                     }
                 }
             });
+            }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return responseText;
+}    
+    
+function getReadNextBook() {
+        
+        if (typeof user == "undefined") {
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url(\"/static/images/cover.jpg\"); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio for personalized recommendations</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    
+                    htmlToInsert += backPage;
+                    $("#bb-bookblock").html(htmlToInsert);
+                    loadBook();
+        }
+        else{
+                    getLibraryFromBookRec(current.bookId); 
         }
     }
 
