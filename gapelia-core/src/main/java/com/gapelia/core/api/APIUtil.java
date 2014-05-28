@@ -1,18 +1,24 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
+import com.gapelia.core.database.DatabaseManager;
 import com.gapelia.core.database.QueryUtils;
+import com.gapelia.core.model.Book;
+import com.gapelia.core.model.Search;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.Connection;
+import java.util.ArrayList;
 
 
 @Path("/utils/")
 public class APIUtil {
     private static Logger LOG = Logger.getLogger(APIUtil.class);
+
     public static String INVALID_SESSION_ERROR_MSG = "SessionID is not valid/Associated with a user";
 
     public static boolean isValidSession(String sessionId) {
@@ -81,6 +87,23 @@ public class APIUtil {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryUtils.getLibraryFromBookId(bookId));
     }
+
+	@GET
+	@Path("search/{query}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String searchQuery(@PathParam("query") String query) {
+		Gson gson = new GsonBuilder().create();
+		LOG.info("SEARCHING FOR:"+query);
+		Book b = new Book();
+		b.setTitle(query);
+		b.setBookId(777);
+
+
+		Search s = new Search();
+		s.addBook(b);
+		return gson.toJson(s);
+
+	}
 }
 
 
