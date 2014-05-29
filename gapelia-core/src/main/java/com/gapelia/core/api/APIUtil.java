@@ -1,19 +1,17 @@
 package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
-import com.gapelia.core.database.DatabaseManager;
+import com.gapelia.core.database.QueryDatabaseSearch;
 import com.gapelia.core.database.QueryUtils;
-import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Search;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.sql.Connection;
-import java.util.ArrayList;
 
 
 @Path("/utils/")
@@ -93,16 +91,26 @@ public class APIUtil {
 	@Path("search/{query}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response searchQuery(@PathParam("query") String query) {
+		query = StringEscapeUtils.unescapeHtml(query);
+		StringBuilder strb = new StringBuilder();
+
+		String[] tokens = query.split(" ");
+
+		if(tokens.length > 1){
+			for(String t : tokens){
+				strb.append(t + "|");
+			}
+
+			query = strb.substring(0,strb.length()-1) + ":*";
+		}
+		else if(query.charAt(query.length()-1) != ' ' && query.length()>0)
+			query = query + ":*";
+
 		Gson gson = new GsonBuilder().create();
-		LOG.info("SEARCHING FOR:"+query);
 
 		Search s = new Search();
-		for(int i = 0; i < query.length();i++){
-			Book b = new Book();
-			b.setTitle(query);
-			b.setBookId(i);
-			s.addBook(b);
-		}
+
+		QueryDatabaseSearch.searchBooks(query,s);
 
 		return Response.ok(gson.toJson(s), MediaType.APPLICATION_JSON).header("Access-Control-Allow-Origin", "*").build();
 
