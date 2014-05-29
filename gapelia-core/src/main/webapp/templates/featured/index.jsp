@@ -34,7 +34,7 @@
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
     <script src="/static/scripts/sly.js"></script>
-    <script src="/static/scripts/selectize.js"></script>
+    <script src="/static/scripts/typeahead.js"></script>
     <script src="/static/scripts/nprogress.js"></script>
 
 
@@ -104,50 +104,7 @@
                     <li id="nav-books" class="current"><a href="#">Stories</a></li>
                     <li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
 		    <div id="nav-search" style="display: inline-block; margin-left: 30%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
-		    <div id="library-search" placeholder="Search users, stories or libraries on Folio..."></div>
-				<script>
-					$("#library-search").selectize({
-						valueField: 'title',
-						labelField: 'title',
-						searchField: 'title',
-						options: [],
-						create: false,
-						render: {
-						    option: function(item, escape) {
-							var actors = [];
-							for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
-							    actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
-							}
-					    
-							return '<div>' +
-							    '<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
-							    '<span class="title">' +
-								'<span class="name">' + escape(item.title) + '</span>' +
-							    '<span Id="category-search">  &#x2022;  Library</span></span>' + 
-							'</div>';
-						    }
-						},
-						load: function(query, callback) {
-						    if (!query.length) return callback();
-						    $.ajax({
-							url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
-							type: 'GET',
-							dataType: 'jsonp',
-							data: {
-							    q: query,
-							    page_limit: 10,
-							    apikey: '3qqmdwbuswut94jv4eua3j85'
-							},
-							error: function() {
-							    callback();
-							},
-							success: function(res) {
-							    callback(res.movies);
-							}
-						    });
-						}
-					    });
-				</script>
+		    <input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 				
                     <div id="stay-right">
                         <button id="start-story" class="brand-i"><a href="/createBook">New Story</a>
@@ -191,7 +148,74 @@
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
 
-    <!--/ scripts/layout-scroller /-->
+    <script>
+	// instantiate the bloodhound suggestion engine
+	var books = new Bloodhound({
+	    datumTokenizer: function (d) {
+		return Bloodhound.tokenizers.whitespace(d.value);
+	    },
+	    
+	    limit: 20,
+	    queryTokenizer: Bloodhound.tokenizers.whitespace,
+	    remote: {
+		url: 'http://folio.is/api/utils/search/%QUERY',
+		filter: function (results) {
+		  return $.map(results.books, function (book) {
+			return {
+			    value: '<a href=\"http://folio.is/read/' + book.bookId + '\"><img src=\"'+book.coverPhoto+'\" height=50px width=50px>'+book.title+'</a>'
+			}
+		    }); 
+		}
+	    }
+	});
+	
+	var libraries = new Bloodhound({
+	    datumTokenizer: function (d) {
+		return Bloodhound.tokenizers.whitespace(d.value);
+	    },
+	    
+	    limit: 20,
+	    queryTokenizer: Bloodhound.tokenizers.whitespace,
+	    remote: {
+		url: 'http://folio.is/api/utils/search/%QUERY',
+		filter: function (results) {
+		  return $.map(results.libraries, function (library) {
+			return {
+			    value: '<a href=\"http://folio.is/library/' + library.libraryId + '\"><img src=\"'+library.coverPhoto+'\" height=50px width=50px>'+library.title+'</a>'
+			}
+		    });
+		}
+	    }
+	});
+	
+	// initialize the bloodhounds!
+	books.initialize();
+	libraries.initialize();
+	
+	// instantiate the typeahead UI
+	$('.typeahead').typeahead({
+	  highlight: true,
+	  hint: false,
+	  minLength: 2
+	},
+	{
+	  name: 'books',
+	  displayKey: 'value',
+	  source: books.ttAdapter(),
+	  templates: {
+	    header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; text-transform: uppercase;">Books</h5></center>'
+	  }
+	},
+	{
+	  name: 'libraries',
+	  displayKey: 'value',
+	  source: libraries.ttAdapter(),
+	  templates: {
+	    header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.5rem; opacity: 0.7; text-transform: uppercase;">Libraries</h5></center>'
+	  }
+	});
+    </script>
+
 
     <script>
         if ($vW > "1024") {
@@ -207,12 +231,12 @@
 	    
 	    //hide and show search engine//
 	    $("#nav-search").mouseenter(function () {
-                $("#featured-nav .selectize-control").css("display", "inline-block");
+                $(".typeahead").css("display", "inline-block");
 		$("#nav-search").hide();
             });
 	    
 	    $(".book-list-wrapper").mouseenter(function () {
-                $("#featured-nav .selectize-control").css("display", "none");
+                $(".typeahead").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
 	    

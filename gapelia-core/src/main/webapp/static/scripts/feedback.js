@@ -15,7 +15,7 @@
 	jQuery.fn.contactable = function(options) {
 		// Set default options
 		var defaults = {
-			url: 'mail.java',
+			url: '',
 			header: '',
 			name: 'Name',
 			email: 'Email',
@@ -122,6 +122,7 @@
 				jQuery('.contactable-holder').hide();
 				jQuery('#contactable-loading').show();
 
+	//HEAD
 				// Trigger form submission if form is valid
 				jQuery.ajax({
 					type: 'POST',
@@ -156,6 +157,25 @@
 						jQuery('#contactable-callback').show().append(options.notRecievedMsg);
 					}
 				});
+
+
+				$.ajax({
+                        url: "/api/email/sendFeedbackEmail",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        type: "POST",
+                async: false,
+                        data: {
+                            sessionId: sessionId,
+                            name: $('#contactable-name').val(),
+                            email: $('#contactable-email').val(),
+                            message: $('#contactable-message').val()
+                                                    },
+                        error: function (q, status, err) {
+                            if (status == "timeout") {
+                                alert("Request timed out");
+                            }
+                        }
+                    });
 			}
 		});
 	};

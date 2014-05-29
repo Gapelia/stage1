@@ -2568,11 +2568,105 @@ body.landing .error {
   border-radius: 5px; }
 .app #featured-nav #stay-right:hover a {
   color: #fcfcfc; }
-.app #featured-nav .selectize-control {
+.app #featured-nav .typeahead {
   display: none;
+  background-color: transparent !important;
+  border: none !important;
   position: absolute;
-  margin-left: 20.5%;
+  margin-left: 42%;
+  margin-top: -0.35rem !important;
   width: 400px; }
+.app #featured-nav .typeahead:after {
+  content: "hahaha"; }
+.app #featured-nav .typeahead, .app #featured-nav .tt-query, .app #featured-nav .tt-hint {
+  font-size: 1rem !important; }
+.app #featured-nav .tt-dropdown-menu {
+  margin-left: 38%; }
+.app #featured-nav .container {
+  margin: 0 auto;
+  max-width: 750px;
+  text-align: center; }
+.app #featured-nav .tt-dropdown-menu, .app #featured-nav .gist {
+  text-align: left; }
+.app #featured-nav html {
+  color: #333333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2; }
+.app #featured-nav .title, .app #featured-nav .example-name {
+  font-family: Prociono; }
+.app #featured-nav p {
+  margin: 0 0 10px; }
+.app #featured-nav .title {
+  font-size: 64px;
+  margin: 20px 0 0; }
+.app #featured-nav .example {
+  padding: 30px 0; }
+.app #featured-nav .example-name {
+  font-size: 32px;
+  margin: 20px 0; }
+.app #featured-nav .demo {
+  margin: 50px 0;
+  position: relative; }
+.app #featured-nav .typeahead, .app #featured-nav .tt-query, .app #featured-nav .tt-hint {
+  border: 2px solid #CCCCCC;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 24px;
+  height: 30px;
+  line-height: 30px;
+  outline: medium none;
+  padding: 8px 12px;
+  width: 396px; }
+.app #featured-nav .typeahead {
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  text-align: center; }
+.app #featured-nav .typeahead:focus {
+  border: 2px solid #0097CF; }
+.app #featured-nav .tt-query {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
+.app #featured-nav .tt-hint {
+  color: #999999; }
+.app #featured-nav .tt-dropdown-menu {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px 8px 8px 8px;
+  margin-top: 12px;
+  padding: 8px 0;
+  width: 422px; }
+.app #featured-nav .tt-suggestion {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 3px 20px; }
+.app #featured-nav .tt-suggestion.tt-cursor {
+  background-color: rgba(89, 179, 166, 0.25);
+  color: white !important; }
+.app #featured-nav .tt-suggestion p {
+  margin: 0; }
+.app #featured-nav .tt-suggestion img {
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  margin-right: 1rem; }
+.app #featured-nav .gist {
+  font-size: 14px; }
+.app #featured-nav .example-twitter-oss .tt-suggestion {
+  padding: 8px 20px; }
+.app #featured-nav .example-twitter-oss .tt-suggestion + .tt-suggestion {
+  border-top: 1px solid #CCCCCC; }
+.app #featured-nav .example-twitter-oss .repo-language {
+  float: right;
+  font-style: italic; }
+.app #featured-nav .example-twitter-oss .repo-name {
+  font-weight: bold; }
+.app #featured-nav .example-twitter-oss .repo-description {
+  font-size: 14px; }
+.app #featured-nav .example-sports .league-name {
+  border-bottom: 1px solid #CCCCCC;
+  margin: 0 20px 5px;
+  padding: 3px 0; }
+.app #featured-nav .example-arabic .tt-dropdown-menu {
+  text-align: right; }
 .app #featured-nav .selectize-input {
   border-bottom: 1px solid rgba(89, 179, 166, 0.16);
   border: none !important;
