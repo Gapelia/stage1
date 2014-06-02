@@ -45,9 +45,9 @@
 
 		<div id="mp-pusher" class="super-wrapper">
 
-			<h5 id="beta">Product in Beta</h5>
+			<h5 id="beta">Sweet Beta</h5>
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>Reimagining scholarly publishing.</h4>
+			<h4>A Laboratory of Ideas</h4>
 
 			<div class="wrapper">
 				<button class="fb-btn">Sign in with Facebook</button>
@@ -59,9 +59,7 @@
 			<footer>
 				<nav>
 					<ul>
-						<li><a href="/read/754">Our Mission</a></li>
-						<li><a href="/read/755">How It Works</a></li>
-						<li><a href="/read/756">Become an Editor</a></li>
+						<li><a href="/read/754">LEARN MORE</a></li>
 					</ul>
 				</nav>
 			</footer>
@@ -87,6 +85,10 @@
 				NProgress.done();
 
 			});
+			
+			if ($vW > "1919") {
+				$("#gapelia").css("cssText", "left: 44.75% !important");
+			}
 		</script>
 		<!--//scripts /-->
 

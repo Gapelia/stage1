@@ -301,28 +301,7 @@
 		
 		$("#featured-panel .featured-info").remove();
 		
-		//$("featured-scroller").append('<button id="cover-header-mobile" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
-
-                //$("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-books" class="current"><a href="#">Featured</a></li><li id="nav-libraries"><a href="/libraryManager">Libraries</a></li><li id="nav-profile"><a href="/me">My Profile</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
-
                 $("#book-list").append('<li class="book" id="book-cta"><p><a href="/libraryManager">Explore</a> topic-based libraries or revisit your latest <a href="/me">posts.</a></p></li>');
-
-                /*
-		$(document).on("click", "#g-menu-toggle, #nav-books, #nav-libraries, #nav-bookmarks", function () {
-                    $("#featured-nav").toggle();
-                });
-
-		$(document).on("click", "#nav-books", function () {
-                    $("#welcoming-title").html("Bookshelf");
-                });
-
-                $(document).on("click", "#nav-libraries", function () {
-                    $("#welcoming-title").html("Libraries");
-                });
-
-                $(document).on("click", "#nav-bookmarks", function () {
-                    $("#welcoming-title").html("Bookmarks");
-                });*/
 
                 // Log Out
                 $("#logout").click(function (e) {
@@ -356,7 +335,8 @@
 	    
 	    //imacs specs//
 	    if ($vH > "1079") {
-		$(".book-list-wrapper, .bookmark-list-wrapper").css("cssText", "top: 51% !important");
+		$(".book-list-wrapper, .bookmark-list-wrapper").css("cssText", "top: 52% !important");
+		$(".book, .collection, .library, .new, .draft").css("cssText", "height: 900px !important");
 		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 		$("#contactable-inner").css("cssText", "top: 92% !important");
 		$("#contactable-contactForm").css("cssText", "top: 80% !important");
@@ -367,7 +347,7 @@
 		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 		$("#contactable-contactForm").css("cssText", "top: 82% !important");
 		$("#contactable-inner").css("cssText", "top: 93% !important");
-	    }
+	    }	
 
             $("#nav-books").addClass("current");
 

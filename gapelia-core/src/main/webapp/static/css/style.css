@@ -2294,7 +2294,7 @@ body.landing #gapelia {
   height: 28%;
   background-image: url("/static/images/folio-logo.png");
   background-repeat: no-repeat;
-  left: 42%;
+  left: 42.5%;
   margin: 0 auto;
   position: relative;
   border: 0;
@@ -2338,7 +2338,8 @@ body.landing footer ul li {
   display: inline-block;
   margin: 0 1.5rem 0 0; }
 body.landing footer ul li a {
-  color: #fcfcfc; }
+  color: #fcfcfc;
+  font-weight: 500; }
 body.landing footer ul li:last-child {
   margin: 0; }
 body.landing h5 {
@@ -2647,7 +2648,8 @@ body.landing .error {
   height: 40px;
   width: 40px;
   border-radius: 4px;
-  margin-right: 1rem; }
+  margin-right: 1rem;
+  margin-top: 0.4rem; }
 .app #featured-nav .gist {
   font-size: 14px; }
 .app #featured-nav .example-twitter-oss .tt-suggestion {
@@ -7358,8 +7360,7 @@ a.count span.dont-move {
     top: 92% !important; }
 
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
-    width: 500px !important;
-    height: 900px !important; }
+    width: 500px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
     top: 53% !important; }
   .app #featured-nav {
@@ -7378,6 +7379,11 @@ a.count span.dont-move {
     top: -0.6rem; }
   .app #featured-nav #stay-right a {
     font-size: 1rem; }
+  .app #featured-nav .typeahead {
+    font-size: 1rem !important;
+    padding-left: 10rem; }
+  .app #featured-nav .tt-dropdown-menu {
+    font-size: 1.25rem !important; }
   .app #new-library #close-splash {
     margin-left: 32% !important;
     height: 6% !important; }
@@ -7434,14 +7440,16 @@ a.count span.dont-move {
 
   body.landing #gapelia {
     left: 44.75% !important;
-    height: 24% !important; } }
+    height: 27% !important; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
-    height: 29%;
-    left: 43.5%;
+    height: 30%;
+    left: 43.5% !important;
     top: 2rem; }
   body.landing footer {
     bottom: 3rem; }
+  body.landing .wrapper {
+    margin: 2rem 0 0 0 !important; }
 
   .app #g-menu-toggle {
     top: 0.35rem;
@@ -7466,7 +7474,7 @@ a.count span.dont-move {
   .app .book .book-snippet {
     font-size: 1.25rem; }
   .app .book-info .author-name {
-    font-size: 1.5rem; }
+    font-size: 1.25rem; }
   .app .library-location {
     font-size: 1rem; }
   .app .library-info .title {
@@ -7480,6 +7488,10 @@ a.count span.dont-move {
     font-size: 1.25rem;
     left: 6rem;
     top: 0.3rem; }
+  .app #featured-nav .typeahead {
+    margin-left: 80% !important; }
+  .app #featured-nav .tt-dropdown-menu {
+    margin-left: 77.5% !important; }
   .app #featured-panel {
     margin: 0.8rem 0 0 0; }
   .app .library-location {
@@ -7620,6 +7632,8 @@ a.count span.dont-move {
     margin-left: 34.5% !important; }
   .app .selectize-control {
     margin-left: 24.5% !important; }
+  .app #featured-nav .typeahead, .app #featured-nav .tt-dropdown-menu {
+    margin-left: 68%; }
 
   body.library-manager .library .wrapper {
     bottom: 10rem; }
@@ -7708,6 +7722,8 @@ a.count span.dont-move {
     width: auto; }
   body.landing footer {
     bottom: 2rem; }
+  body.landing .wrapper {
+    margin: 2rem 0 0 0 !important; }
 
   .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper {
     margin: 0;
@@ -7942,6 +7958,8 @@ a.count span.dont-move {
   .app #featured-panel #featured-nav .current a {
     border: 0;
     color: #fcfcfc; }
+  .app #featured-panel #featured-nav #nav-search {
+    display: none; }
   .app #featured-scroller, .app #book-scroller {
     overflow-x: hidden;
     overflow-y: auto;
@@ -8974,7 +8992,8 @@ a.count span.dont-move {
   body.landing .super-wrapper {
     padding: 22% 10%; }
   body.landing #gapelia {
-    left: 34.25%; }
+    left: 34.5%;
+    top: 2.5rem; }
   body.landing h4 {
     font-size: 1rem; }
   body.landing h5 {
@@ -9219,6 +9238,11 @@ a.count span.dont-move {
   body.landing #gapelia {
     left: 28.25%; } }
 @media all and (max-width: 360px), screen and (max-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+  body.landing #gapelia {
+    height: 32%;
+    left: 24.25%;
+    top: 3rem; }
+
   .app #header-message {
     padding: 1.25rem 0 0.5rem 0; }
   .app #header-message button {
@@ -9369,7 +9393,7 @@ a.count span.dont-move {
     display: none; }
   body.landing #gapelia {
     height: 25%;
-    left: 22.25%;
+    left: 24%;
     top: 4.6rem; }
   body.landing h4 {
     margin-top: 2rem;

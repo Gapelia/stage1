@@ -33,7 +33,6 @@
 	.app{
 		.book, .collection, .library, .new, .draft {
 			width: 500px !important;
-			height: 900px !important;
 		}
 		
 		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper { top: 53% !important; }
@@ -51,6 +50,13 @@
 				top: -0.6rem;
 				
 				a { font-size: 1rem; }
+			}
+			.typeahead {
+				font-size: 1rem !important;
+				padding-left: 10rem;
+			}
+			.tt-dropdown-menu {
+				font-size: 1.25rem !important;
 			}
 		}
 		
@@ -107,7 +113,7 @@
 	
 	#publish-modal { padding: 22rem 4rem !important; }
 	
-	body.landing #gapelia { left: 44.75% !important; height: 24% !important; }
+	body.landing #gapelia { left: 44.75% !important; height: 27% !important; }
 }	
 
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -115,12 +121,14 @@
 	body.landing {
 		
 		#gapelia {
-			height: 29%;
-			left: 43.5%;
+			height: 30%;
+			left: 43.5% !important;
 			top: 2rem;
 		}
 		
 		footer { bottom: 3rem; }
+		
+		.wrapper { margin: 2rem 0 0 0 !important; }
 	}
 	
 	.app {
@@ -155,7 +163,7 @@
 		
 		.book .book-snippet { font-size: 1.25rem; }
 		
-		.book-info .author-name { font-size: 1.5rem; }
+		.book-info .author-name { font-size: 1.25rem; }
 		
 		.library-location { font-size: 1rem; }
 		
@@ -173,6 +181,14 @@
 			font-size: 1.25rem;
 			left: 6rem;
 			top: 0.3rem;
+			
+			.typeahead {
+				margin-left: 80% !important;
+			}
+			
+			.tt-dropdown-menu {
+				margin-left: 77.5% !important;
+			}
 		}
 		
 		#featured-panel { margin: 0.8rem 0 0 0; }
@@ -382,6 +398,10 @@
 		#featured-nav #nav-search { margin-left: 34.5% !important }
 		
 		.selectize-control { margin-left: 24.5% !important; }
+		
+		#featured-nav .typeahead, #featured-nav .tt-dropdown-menu {
+			margin-left: 68%;
+		}
 	}
 	
 	// library manager //
@@ -535,6 +555,8 @@
 		img { height: 100%; width: auto; }
 		
 		footer { bottom: 2rem; }
+		
+		.wrapper { margin: 2rem 0 0 0 !important; }
 	}
 	
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
@@ -838,6 +860,8 @@
 						color: $white;
 					}
 				}
+				
+				#nav-search { display: none; }
 			}
 		}
 
@@ -2316,7 +2340,7 @@
 	body.landing {
 		.super-wrapper { padding: 22% 10%; }
 		
-		#gapelia { left: 34.25%; }
+		#gapelia { left: 34.5%; top: 2.5rem; }
 		
 		h4 { font-size: 1rem; }
 		
@@ -2724,6 +2748,14 @@
 
 //APP///
 
+	body.landing {
+		#gapelia {
+			height: 32%;
+			left: 24.25%;
+			top: 3rem;
+		}
+	}	
+
 	.app {
 		
 		#header-message {
@@ -2948,7 +2980,7 @@
 		
 		#gapelia {
 			height: 25%;
-			left: 22.25%;
+			left: 24%;
 			top: 4.6rem;
 		}
 		
@@ -2970,7 +3002,7 @@
 				&:last-child { margin: 15px 0 0 0; }
 			}
 		}
-
+	
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////

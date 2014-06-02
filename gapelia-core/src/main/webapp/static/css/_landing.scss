@@ -43,7 +43,7 @@ body.landing {
 		//background-position: -16px -360px;
 		background-repeat: no-repeat;
 		//background-size: 240px 540px;
-		left: 42%;
+		left: 42.5%;
 		margin: 0 auto;
 		position: relative;
 
@@ -94,7 +94,10 @@ body.landing {
 				display: inline-block;
 				margin: 0 1.5rem 0 0;
 
-				a { color: $white; }
+				a {
+					color: $white;
+					font-weight: 500;
+				}
 
 				&:last-child { margin: 0; }
 			}
