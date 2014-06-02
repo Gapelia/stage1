@@ -31,7 +31,6 @@
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
-		<script src="/static/scripts/selectize.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
 
 	</head>
@@ -116,21 +115,6 @@
 				<h1 id="publish-book-title"></h1>
 
 				<div class="add-description" contenteditable="true"></div>
-				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
-
-				<script>
-					$("#input-tags").selectize({
-						delimiter: ",",
-						maxItems: 3,
-						persist: false,
-						create: function (input) {
-							return {
-								value: input,
-								text: input
-							}
-						}
-					});
-				</script>
 
 				<div class="wrapper">
 					<a class="button branded" id="publish-this" href="#">Publish</a>

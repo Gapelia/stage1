@@ -3681,9 +3681,11 @@ body.library ::-webkit-input-placeholder {
 
 body.library-manager #nav-wrapper {
   z-index: 1; }
-body.library-manager #featured-nav .selectize-control {
-  margin-left: 13%;
+body.library-manager #featured-nav .typeahead {
+  margin-left: 24%;
   z-index: 10; }
+body.library-manager #featured-nav .tt-dropdown-menu {
+  margin-left: 21%; }
 body.library-manager .book .wrapper, body.library-manager .library .wrapper {
   width: 100%; }
 body.library-manager .library-buttons {
@@ -7639,8 +7641,11 @@ a.count span.dont-move {
     bottom: 10rem; }
   body.library-manager #featured-nav #nav-search {
     margin-left: 27.5% !important; }
-  body.library-manager .selectize-control {
-    margin-left: 18.5% !important; }
+  body.library-manager #featured-nav .typeahead {
+    margin-left: 45% !important;
+    z-index: 10; }
+  body.library-manager #featured-nav .tt-dropdown-menu {
+    margin-left: 42% !important; }
 
   body.library #submission-pop {
     height: 6%;

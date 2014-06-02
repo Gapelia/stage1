@@ -409,9 +409,19 @@
 	body.library-manager {
 		.library .wrapper { bottom: 10rem; }
 		
-		#featured-nav #nav-search { margin-left: 27.5% !important; }
+		#featured-nav {
 		
-		.selectize-control { margin-left: 18.5% !important; }
+		#nav-search { margin-left: 27.5% !important; }
+		
+		.typeahead {
+			margin-left: 45% !important;
+			z-index: 10;
+		}
+		
+		.tt-dropdown-menu {
+			margin-left: 42% !important;
+		}
+		}
 	}
 	
 	// library //

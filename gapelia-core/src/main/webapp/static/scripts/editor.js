@@ -1198,13 +1198,13 @@
 
 	}, 1000);
 
-	// Save book information every minute
+	// Save book information every 5 seconds
 	window.setInterval(function () {
 
 		updateBookAndPages(false);
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
-	}, 60000);
+	}, 5000);
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {

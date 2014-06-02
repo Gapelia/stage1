@@ -2566,8 +2566,6 @@ function loadEditorExtra(templateId) {
 				"attribution": null
 			};
 			createPage();
-			templateId = 0;
-			baseLayout();
 		} else {
 			pages.page[currentPage].templateId = templateId;
 			pages.page[currentPage].title = title;
