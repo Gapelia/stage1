@@ -13,6 +13,9 @@
 	.profile {
 		#user-splash .user-avatar { top: 22% !important; }
 		#user-header { margin-top: 14px; }
+		#user-extra {
+			bottom: -26rem !important;
+		}
 	}
 	
 	.full-book {
@@ -85,7 +88,12 @@
 		
 		#user-heard { margin-top: 14px; }
 		
-		#user-splash .user-avatar { top: 20%; }
+		#user-splash {
+			.user-avatar { top: 20%; }
+			#user-extra {
+				bottom: -21rem !important;
+			}
+		}	
 	}
 	
 	.accounts .account-delete-wrapper { padding-bottom: 7rem; }
@@ -261,12 +269,12 @@
 			}
 			
 			h1 {
-				font-size: 3.5rem;
+				font-size: 3.3rem;
 				line-height: 75px;
 			}
 			
 			h5 {
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 				line-height: 1.75;
 				text-align: center;
 				
@@ -283,6 +291,10 @@
 			}
 			
 			#splash-user-info { top: 38.5%; }
+			
+			#user-extra {
+				bottom: -14rem !important; 
+			}
 			
 			.user-avatar { top: 16%; }
 		}
@@ -439,6 +451,10 @@
 	
 	.profile {
 		#user-splash .user-avatar { top: 18.5%; }
+		
+		#user-extra {
+			bottom: -20rem !important;
+		}
 		
 		.notification-time #notification-count { right: 3.25rem; }
 	}

@@ -1943,7 +1943,7 @@ ol {
 
 .white-border {
   background-color: transparent !important;
-  border: 1px solid rgba(252, 252, 252, 0.7) !important;
+  border: 1px solid rgba(252, 252, 252, 0.5) !important;
   color: #fcfcfc !important; }
 .white-border:hover {
   background-color: #59b3a6 !important;
@@ -4151,6 +4151,15 @@ body.library-manager #stay-right {
   font-weight: 200;
   line-height: 2.1rem;
   text-align: center; }
+.profile #user-splash #user-extra {
+  bottom: -9rem;
+  left: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  position: absolute; }
+.profile #user-splash #user-extra li {
+  font-size: 1rem;
+  text-align: left; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;
@@ -4161,7 +4170,7 @@ body.library-manager #stay-right {
   font-size: 1rem;
   font-style: italic !important;
   font-weight: 400;
-  left: 47%;
+  left: 91%;
   position: fixed;
   text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
@@ -7350,6 +7359,8 @@ a.count span.dont-move {
     top: 22% !important; }
   .profile #user-header {
     margin-top: 14px; }
+  .profile #user-extra {
+    bottom: -26rem !important; }
 
   .full-book .photo-wrapper .page-bg-wrapper {
     top: 10% !important; }
@@ -7410,6 +7421,8 @@ a.count span.dont-move {
     margin-top: 14px; }
   .profile #user-panel #user-splash .user-avatar {
     top: 20%; }
+  .profile #user-panel #user-splash #user-extra {
+    bottom: -21rem !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
@@ -7543,10 +7556,10 @@ a.count span.dont-move {
   .profile #user-splash #close-splash {
     bottom: 2rem; }
   .profile #user-splash h1 {
-    font-size: 3.5rem;
+    font-size: 3.3rem;
     line-height: 75px; }
   .profile #user-splash h5 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.75;
     text-align: center; }
   .profile #user-splash h5 a {
@@ -7558,6 +7571,8 @@ a.count span.dont-move {
     padding-right: 3rem; }
   .profile #user-splash #splash-user-info {
     top: 38.5%; }
+  .profile #user-splash #user-extra {
+    bottom: -14rem !important; }
   .profile #user-splash .user-avatar {
     top: 16%; }
   .profile .notification-time #notification-count {
@@ -7655,6 +7670,8 @@ a.count span.dont-move {
 
   .profile #user-splash .user-avatar {
     top: 18.5%; }
+  .profile #user-extra {
+    bottom: -20rem !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

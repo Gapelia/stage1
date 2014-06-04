@@ -158,6 +158,13 @@
             $("#g-menu-toggle").css("color", "#fcfcfc");
 
         });
+	
+	//cleans up text when copty/paste
+	$('[contenteditable]').on('paste',function(e) {
+	    e.preventDefault();
+	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+	    document.execCommand('insertText', false, text);
+	});
     </script>
     <!--//scripts /-->
 

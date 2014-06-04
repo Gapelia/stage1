@@ -122,6 +122,9 @@
 
 							<label for="user-location">Location</label>
 							<input id="user-location" type="text" placeholder="Location"></input>
+							
+							<label for="user-university">University Affiliation</label>
+							<input id="user-university" type="text" placeholder="Academic, research or professional institution..."></input>
 
 							<label for="user-personal-website">Website</label>
 							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>

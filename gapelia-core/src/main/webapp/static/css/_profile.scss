@@ -259,6 +259,18 @@
 
 			//&:empty:after { content: "Add bio here"; }
 		}
+		
+		#user-extra {
+			bottom: -9rem; left: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			position: absolute;
+			
+			li {
+				font-size: 1rem;
+				text-align: left;
+			}
+		}
 
 		#close-splash {
 			width: auto; height: auto;
@@ -270,7 +282,7 @@
 			font-size: 1rem;
 			font-style: italic !important;
 			font-weight: 400;
-			left: 47%;
+			left: 91%;
 			position: fixed;
 			text-align: center;
 			transition: bottom 1.3s ease, left 1.3s ease;

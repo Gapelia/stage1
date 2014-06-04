@@ -190,9 +190,14 @@
                 stuff += "</div></div>";
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-                stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+		stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
                 stuff += "<h5 id=\"recently-published\"></h5>";
                 stuff += "<h5 id=\"contributes-to\"></h5>";
+		stuff += "<ul id=\"user-extra\">";
+		stuff += "<li id=\"location\"></li>"
+		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
+		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
+		stuff += "</ul>";
                 stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
@@ -320,6 +325,9 @@
 
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.name);
+		$("#splash-user-info #location").text(user.location);
+		$("#splash-user-info #website").text(user.personalWebsite);
+		$("#splash-user-info #twitter").text(user.twt);
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 
@@ -342,6 +350,13 @@
 		
 		$(document).ready(function() {
 			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
+		});
+		
+		//cleans up text when copty/paste
+		$('[contenteditable]').on('paste',function(e) {
+			e.preventDefault();
+			var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+			document.execCommand('insertText', false, text);
 		});
 		
 		// Load Gapelia
@@ -438,7 +453,7 @@
             });
         }
     </script>
-
+    
     <script src="/static/scripts/filepicker2.js"></script>
 
     <script>

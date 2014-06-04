@@ -167,6 +167,13 @@
 			}
 			doPoll();
 			
+			//cleans up text when copty/paste
+			$('[contenteditable]').on('paste',function(e) {
+				e.preventDefault();
+				var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+				document.execCommand('insertText', false, text);
+			});
+			
 			//Frankie searched for library array intersection
 			function intersection(a, b)
 				{
