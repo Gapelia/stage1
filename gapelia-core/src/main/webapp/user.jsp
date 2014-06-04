@@ -153,6 +153,11 @@
                 stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
                 stuff += "<h5 id=\"recently-published\"></h5>";
                 stuff += "<h5 id=\"contributes-to\"></h5>";
+		stuff += "<ul id=\"user-extra\">";
+		stuff += "<li id=\"location\"></li>"
+		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
+		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
+		stuff += "</ul>";
                 stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
@@ -275,6 +280,9 @@
 
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.name);
+		$("#splash-user-info #location").text(user.location);
+		$("#splash-user-info #website").text(user.personalWebsite);
+		$("#splash-user-info #twitter").text(user.twt);
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 

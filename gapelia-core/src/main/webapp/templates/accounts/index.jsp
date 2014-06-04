@@ -130,7 +130,7 @@
 							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>
 
 							<label for="user-twt">Twitter</label>
-							<input id="user-twt" type="text" placeholder="twitter.com/@yourname"></input>
+							<input id="user-twt" type="text" placeholder="@yourname"></input>
 
 							<label for="user-fb">Facebook</label>
 							<input id="user-fb" type="text" placeholder="Facebook URL"></input>
