@@ -131,23 +131,7 @@
 				<h1 id="publish-book-title"></h1>
 
 				<div class="add-description" contenteditable="true"></div>
-
-				<input type="text" id="input-tags" placeholder="Type up to three tags" value=""/>
-
-                				<script>
-                					$("#input-tags").selectize({
-                						delimiter: ",",
-                						maxItems: 3,
-                						persist: false,
-                						create: function (input) {
-                							return {
-                								value: input,
-                								text: input
-                							}
-                						}
-                					});
-                				</script>
-						
+				
 				<div class="wrapper">
 					<a class="button brand-ii" id="publish-this" href="#">Publish</a>
 				</div>
@@ -181,8 +165,9 @@
 
 		<script>
 			// $("img").VimeoThumb();
-			$(function () { getUser(); });
+			$(function () { getUser(); });	
 			function load() { createBook(); }
+		
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
 			

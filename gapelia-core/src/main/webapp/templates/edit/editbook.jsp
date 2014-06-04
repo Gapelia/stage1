@@ -148,31 +148,28 @@
 		<!--/ <script src="/static/scripts/draggable_background.js"></script> /-->
 
 		<script>
-			// $("img").VimeoThumb();
-				$(function () { getUser(); });
-
-            	function load() {
-                        loadBookEditor();
-            	}
+		// $("img").VimeoThumb();
+		$(function () { getUser(); });
+            	function load() { loadBookEditor(); }
 		 
-			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
+		Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
-			$("#publish-this").on("click", function (e) {
+		$("#publish-this").on("click", function (e) {
 
-				$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/libraryManager'>Submit it to a library and gain exposure.</a></div>");
-				e.preventDefault();
+			$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/libraryManager'>Submit it to a library and gain exposure.</a></div>");
+			e.preventDefault();
 				
-				currentWebsite = document.URL;
-				lastPublishedBook = getLastPublishedBookId();
-				getUserFromBookId(lastPublishedBook.bookId)
+			currentWebsite = document.URL;
+			lastPublishedBook = getLastPublishedBookId();
+			getUserFromBookId(lastPublishedBook.bookId)
 				
-				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + lastPublishedBook.bookId;
-				twitterShare = "http://twitter.com/share?text="+lastPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + lastPublishedBook.bookId;
-				emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ lastPublishedBook.title + " by " + bookOwner.fullName + "   " +  "folio.is/read/" + lastPublishedBook.bookId;
+			facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + lastPublishedBook.bookId;
+			twitterShare = "http://twitter.com/share?text="+lastPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + lastPublishedBook.bookId;
+			emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ lastPublishedBook.title + " by " + bookOwner.fullName + "   " +  "folio.is/read/" + lastPublishedBook.bookId;
 				
-				$("#publish-modal").append("<div id=\"book-share\"><ul class=\"share-book\"><li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul></div>");
+			$("#publish-modal").append("<div id=\"book-share\"><ul class=\"share-book\"><li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul></div>");
 
-			});
+		});
 		</script>
 		<!--//scripts /-->
 

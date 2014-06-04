@@ -331,19 +331,6 @@
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: none;\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 2rem 2rem 0 2rem; top: 0;\"><article style=\"padding: 7rem 0\">";
 
-			/*
-			// Image attribution
-			$(".image-attribution").css("display", "none");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "2rem 2rem 0 2rem",
-				"top": "0"
-			});
-
-			$(".fluid-preview article").css("padding", "4rem 0");
-			*/
-
 		} else {
 
 			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + ");";
@@ -355,20 +342,6 @@
 			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: block\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0 2rem; top: 75%;\"><article style=\"padding: 0 0 4rem 0;\">";
-
-			/*
-			// Image attribution
-			$(".image-attribution").css("display", "block");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "1rem 2rem 0 2rem",
-				"top": "75%"
-			});
-
-			$(".fluid-preview article").css("padding", "0 0 4rem 0");
-			*/
-
 		}
 
 		if (title == null) {
@@ -428,47 +401,6 @@
 		pages.page[currentPage].video = videoURL;
 		pages.page[currentPage].attribution = attribution;
 
-		/*
-		function handleFile(file) {
-
-			pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
-			console.log(file);
-
-		}
-		*/
-
-		/*
-		var BG = $("#page"+(pagesCreated)+"Image");
-
-		if (BG.src = "static/images/grayBG.png") {
-
-			// Image attribution
-			$(".image-attribution").css("display", "none");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "2rem 2rem 0 2rem",
-				"top": "0"
-			});
-
-			$(".fluid-preview article").css("padding", "4rem 0");
-
-		} else {
-
-			// Image attribution
-			$(".image-attribution").css("display", "block");
-
-			// Content positioning
-			$(".fluid-preview").css({
-				"padding": "1rem 2rem 0 2rem",
-				"top": "75%"
-			});
-
-			$(".fluid-preview article").css("padding", "0 0 4rem 0");
-
-		}
-		*/
-
 		var pageBG = $(".page-bg");
 
 		if ($(".page-bg").data("adaptive-background") == 1) {
@@ -526,8 +458,6 @@
 		$("button.photo-picker").html("&#xf2e4;");
 		$("button.inline-image-insert").html("&#xf147;");
 
-		// $(document).on("keydown", ".fluid-preview-wrapper", function () { $(this).css("overflow-y", "auto"); });
-
 		// Inline content embedder
 		$(".add-inline-content").click(function (e) {
 
@@ -578,8 +508,6 @@
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").hide();
 			e.preventDefault();
 		});
-
-		// $(document).one("keydown", ".fluid-preview-wrapper", function () { $(this).addClass("no-img"); });
 
 		// Update title in page menu
 		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {

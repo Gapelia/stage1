@@ -2567,12 +2567,6 @@ function loadEditorExtra(templateId) {
 			};
 			createPage();
 		} else {
-			pages.page[currentPage].templateId = templateId;
-			pages.page[currentPage].title = title;
-			pages.page[currentPage].text = text;
-			pages.page[currentPage].image = imageURL;
-			pages.page[currentPage].video = videoURL;
-			pages.page[currentPage].attribution = attribution;
 			createPage();
 			currentPage = pagesCreated;
 			templateId = 6;
@@ -2591,52 +2585,4 @@ function loadEditorExtra(templateId) {
     
 	    e.preventDefault();
     
-	});
-	
-	    // Delete page
-	    $(document).on("click", "#pages-scroller ul li .delete-page", function (e) {
-    
-		    $(this).closest("li").prepend("<div class=\"delete-page-confirm\"><h5>Confirm Delete</h5><div class=\"wrapper\"><a href=\"#\" class=\"button a red yay-delete-page\">Yes</a><a href=\"#\" class=\"button b white nay-delete-page\">No</a></div></div>");
-    
-		    e.preventDefault();
-    
-	    });
-    
-	    // Confirm page deletion
-	    $(document).on("click", ".yay-delete-page", function (e) {
-		    
-		    pageToDeleteId = $(this).closest("li").attr("id");
-		    pageToDelete = pages.page[pageToDeleteId].pageId;
-		    deletePage(pageToDelete);
-		    
-		    $(this).closest("li").remove();
-		    currentPage = $(this).closest("img").attr("id");
-		    pages.page.splice(currentPage, 1);
-		    
-		    currentPage--;
-		    pagesCreated--;
-		    
-		    e.preventDefault();
-		    
-	    });
-		    
-	    // Cancel page deletion
-	    $(document).on("click", ".nay-delete-page", function (e) {
-		    
-		    $(this).closest(".delete-page-confirm").remove();
-		    e.preventDefault();
-		    
-	    });
-	    
-	    // Image insertion
-	    // var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
-		var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
-	
-		function handleFile(file) {
-	
-			// pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
-			pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
-			console.log(file);
-		}	
-
-	}
+	});}
