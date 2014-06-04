@@ -245,13 +245,19 @@
 		subject: 'A Feeback Message'
 	    });
 	    
+	    //hide search box after clicking on item//
+	    $(".tt-dropdown-menu").click(function () {
+                $(".typeahead").css("display", "none");
+            });
+	    
         }
 	
 	if ($vW > "1919") {
 		$(".mp-pushed").ready(function () {
                 $("#nav-search").css("margin-left", "34%");
             });
-	}	
+	}
+	
 
         $(function () {
             getNotifications();

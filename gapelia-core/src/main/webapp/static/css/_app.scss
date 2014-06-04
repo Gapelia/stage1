@@ -272,14 +272,12 @@
       margin-left: 42%;
       margin-top: -0.35rem !important;
       width: 400px;
-      
-      &:after { content: "hahaha" }
     }
     
     .typeahead, .tt-query, .tt-hint {
       font-size: 1rem !important;
     }
-    
+
     .tt-dropdown-menu {
       margin-left: 38%;
     }
@@ -399,50 +397,6 @@
         text-align: right;
     }
     
-    .selectize-input {
-      border-bottom: 1px solid rgba(89, 179, 166, 0.16);
-      border: none !important;
-      background-color: transparent !important;
-      padding: 0;
-      top: 8px;
-      
-      input { opacity: 0.6 !important; padding-bottom: 8px !important; }
-    }
-    
-    .selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1rem;}
-    
-    .selectize-control.multi .selectize-input [data-value] { display: none;}
-    
-    .selectize-dropdown { margin-top: 0 !important;}
-    
-    .selectize-dropdown-content {
-      
-      max-height: 450px !important;
-      
-      img {
-        height: 40px;
-        width: 40px;
-        padding-top: 5px !important;
-      }
-      
-      .title {
-        margin-left: 10px; color: rgba($black, 0.75);
-      }
-    }
-    
-    #category-search {
-      color: $slate;
-      font-size: 0.7rem;
-      font-style: italic;
-      opacity: 0.65;
-      text-transform: uppercase;
-    }
-    
-    .selectize-dropdown [data-selectable] {
-      border-bottom: 1px solid rgba($black, 0.15);
-      margin-top: 5px !important;
-      padding: 5px !important;
-    }
   }
   
   // regular scroll bar hidden

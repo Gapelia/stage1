@@ -2577,8 +2577,6 @@ body.landing .error {
   margin-left: 42%;
   margin-top: -0.35rem !important;
   width: 400px; }
-.app #featured-nav .typeahead:after {
-  content: "hahaha"; }
 .app #featured-nav .typeahead, .app #featured-nav .tt-query, .app #featured-nav .tt-hint {
   font-size: 1rem !important; }
 .app #featured-nav .tt-dropdown-menu {
@@ -2669,40 +2667,6 @@ body.landing .error {
   padding: 3px 0; }
 .app #featured-nav .example-arabic .tt-dropdown-menu {
   text-align: right; }
-.app #featured-nav .selectize-input {
-  border-bottom: 1px solid rgba(89, 179, 166, 0.16);
-  border: none !important;
-  background-color: transparent !important;
-  padding: 0;
-  top: 8px; }
-.app #featured-nav .selectize-input input {
-  opacity: 0.6 !important;
-  padding-bottom: 8px !important; }
-.app #featured-nav .selectize-dropdown, .app #featured-nav .selectize-input, .app #featured-nav .selectize-input input {
-  font-size: 1rem; }
-.app #featured-nav .selectize-control.multi .selectize-input [data-value] {
-  display: none; }
-.app #featured-nav .selectize-dropdown {
-  margin-top: 0 !important; }
-.app #featured-nav .selectize-dropdown-content {
-  max-height: 450px !important; }
-.app #featured-nav .selectize-dropdown-content img {
-  height: 40px;
-  width: 40px;
-  padding-top: 5px !important; }
-.app #featured-nav .selectize-dropdown-content .title {
-  margin-left: 10px;
-  color: rgba(25, 25, 25, 0.75); }
-.app #featured-nav #category-search {
-  color: #59b3a6;
-  font-size: 0.7rem;
-  font-style: italic;
-  opacity: 0.65;
-  text-transform: uppercase; }
-.app #featured-nav .selectize-dropdown [data-selectable] {
-  border-bottom: 1px solid rgba(25, 25, 25, 0.15);
-  margin-top: 5px !important;
-  padding: 5px !important; }
 .app div::-webkit-scrollbar {
   height: 0;
   width: 0; }
@@ -7680,7 +7644,7 @@ a.count span.dont-move {
   .full-book #the-book #collection-pop {
     height: 5.5%; }
   .full-book .backcover-wrapper #fin {
-    padding: 10rem 5rem 0 9rem; }
+    padding: 9rem 5rem 0 9rem; }
 
   #publish-modal {
     padding: 15rem 4rem; }
