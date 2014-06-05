@@ -185,6 +185,10 @@
 			top: 36%;
 		}
 		
+		#no-bookmarks {
+			padding: 17rem 10rem 10rem 28rem;
+		}
+		
 		#featured-nav {
 			font-size: 1.25rem;
 			left: 6rem;
@@ -236,6 +240,10 @@
 		//empty lists //
 		
 		.user-book-list-wrapper { top: 51.75%; }
+	}
+	
+	body.library-manager #no-libraries {
+		padding: 17rem 10rem 10rem 28rem;
 	}
 	
 	body.library {

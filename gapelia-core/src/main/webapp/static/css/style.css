@@ -7476,6 +7476,8 @@ a.count span.dont-move {
   .app .featured-info, .app .new-inner-wrapper, .app .draft-info, .app .library-info, .app .submission-info {
     padding: 0 3rem;
     top: 36%; }
+  .app #no-bookmarks {
+    padding: 17rem 10rem 10rem 28rem; }
   .app #featured-nav {
     font-size: 1.25rem;
     left: 6rem;
@@ -7513,6 +7515,9 @@ a.count span.dont-move {
     left: 37%; }
   .app .user-book-list-wrapper {
     top: 51.75%; }
+
+  body.library-manager #no-libraries {
+    padding: 17rem 10rem 10rem 28rem; }
 
   body.library #submission-pop {
     height: 7%;
