@@ -220,6 +220,11 @@
                 $(".typeahead").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
+            
+            //hide search box after clicking on item//
+	    $(".tt-dropdown-menu").click(function () {
+                $(".typeahead").css("display", "none");
+            });
 	}
 
 	$(document).on("ready", function () {
