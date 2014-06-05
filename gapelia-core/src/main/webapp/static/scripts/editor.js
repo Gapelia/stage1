@@ -668,7 +668,7 @@
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -796,7 +796,7 @@
 		});
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-desc");
+		//var editor = new GapeliaEditor(".page-title-elem");
 
 		$("button.photo-picker").html("&#xf2e4;");
 
@@ -894,7 +894,7 @@
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
@@ -1003,7 +1003,7 @@
 
 		// .serialize(): returns a JSON object with element's contents
 		// var editor = new GapeliaEditor('[contenteditable="true"]').serialize();
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker").html("&#xf2e4;");
@@ -1107,7 +1107,7 @@
 		$(document).one("keydown", ".image-attribution", function () { $(this).text(""); });
 
 		// var editor = new GapeliaEditor('[contenteditable="true"]');
-		var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] });
+		//var editor = new GapeliaEditor(".page-title-elem", { buttons: ["bold", "italic", "underline"] }); // uncommenting this fixes issue with extra br on title
 		var editor = new GapeliaEditor(".page-desc");
 
 		$("button.photo-picker.video-btn").html("&#xf256;");
