@@ -285,13 +285,16 @@
 		}
 		
 
-		console.log("page to delete: " + pageToDelete);
-
 		deletePage(pageToDelete);
 
 		$(this).closest("li").remove();
 		currentPage = pageToDeleteId;
-		console.log("deleting currentPage: " + currentPage + "   "  + pages.page);
+
+
+		var listItems = $("#page-menu li section div .page-thumb-number");
+		listItems.each(function(idx, li) {
+   		 	$(li).text(idx);
+		});
 
 		pages.page.splice(currentPage, 1);
 
@@ -393,7 +396,7 @@
 
 			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
 
-			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: none;\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 2rem 2rem 0 2rem; top: 0;\"><article style=\"padding: 7rem 0\">";
 
@@ -405,7 +408,7 @@
 
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 
-			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: block\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0 2rem; top: 75%;\"><article style=\"padding: 0 0 4rem 0;\">";
 		}
@@ -578,8 +581,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
 			console.log("keyup: currentpage" + $(this).closest("li").index());
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
 			$(".fluid-preview-wrapper .page-title-elem p").each(function () {
@@ -627,7 +632,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -670,8 +675,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".photo-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
 			$(".photo-preview-wrapper .page-title-elem p").each(function () {
@@ -733,7 +740,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -796,8 +803,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".overlay-preview-wrapper .page-desc", function () {
 
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 		});
 
@@ -837,7 +846,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -893,8 +902,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".phototext-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
 			$(".phototext-preview-wrapper .page-title-elem p").each(function () {
@@ -943,7 +954,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $($('#page-menu li section img')["+currentPage+"]).attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -1000,8 +1011,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".vertical-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
 			$(".vertical-preview-wrapper .page-title-elem p").each(function () {
@@ -1043,7 +1056,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\">" + attribution + "</span>";
 		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker video-btn\">&#xf256;</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page" + $(this).closest("li").index() + "Image').addClass('large'); $('#page" + $(this).closest("li").index() + "Image').VimeoThumb(); $('.image-attribution').show().text('Add video credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page" + $(this).closest("li").index() + "Image').addClass('large'); $($('#page-menu li section img')["+currentPage+"]).VimeoThumb(); $('.image-attribution').show().text('Add video credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -1102,8 +1115,10 @@
 		// Update title in page menu
 		$(document).on("keyup", ".video-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
+			var titleThing = $($("#page-menu li section div .page-thumb-title")[currentPage]);
+			var numberThing = $($("#page-menu li section div .page-thumb-number")[currentPage]);
 			$(titleThing).text($(this).text());
+			$(numberThing).text(currentPage);
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
 			$(".video-preview-wrapper .page-title-elem p").each(function () {
@@ -1153,7 +1168,7 @@
 
 			var
 			videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1",
-			videoThumb = "#page" + $(this).closest("li").index() + "Image",
+			videoThumb = "$($('#page-menu li section img')["+currentPage+"])",
 			videoID = getVimeoId($(this).val());
 
 			if (e.which == 13) {
@@ -1198,7 +1213,7 @@
 		updateBookAndPages(false);
 		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
 
-	}, 5000);
+	}, 10000);
 
 	// Save page information every 5 seconds
 	window.setInterval(function () {
@@ -1213,7 +1228,7 @@
 		templateId = pages.page[currentPage].templateId;
 		attribution = $(".image-attribution").html();
 
-	}, 5000);
+	}, 10000);
 
 	// Toggle layout switcher
 	$("#select-fluid-layout").click(function ()			{ fluidLayout(); });
