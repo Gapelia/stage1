@@ -52,7 +52,11 @@
 		if (e.id == "add-page") { return; }
 
 		e.style.border = "3px solid #59b3a6";
-		currentPage = $(this).closest("li").attr("id");
+		currentPage = $(this).closest("li").index();
+
+		console.log("currentPage on click: " + currentPage);
+		console.log("li index: " + $(this).closest("li").index());
+		console.log(pages.page);
 		templateId = pages.page[currentPage].templateId;
 
 		if (templateId == undefined || templateId == null) {
@@ -178,6 +182,8 @@
 
 	$("#preview-book").click(function () {
 
+	
+
 		var temp = JSON.stringify(pages);
 		localStorage.setItem("pages", temp);
 
@@ -188,6 +194,7 @@
 			var temp = JSON.stringify(pages);
 			localStorage.setItem("pages", temp);
 		});
+
 
 	});
 
@@ -210,6 +217,8 @@
 		text = $(".page-desc").html();
 		imageURL = $(".page-bg").attr("src");
 		attribution = $(".image-attribution").html();
+
+		console.log("creating page: currenp: " + currentPage + "     pagesCreated:" + pagesCreated); 
 
 		// save to previous page
 		if (pagesCreated == 0) {
@@ -265,16 +274,73 @@
 	// Confirm page deletion
 	$(document).on("click", ".yay-delete-page", function (e) {
 
+		var deletingFirst = false;
+
 		pageToDeleteId = $(this).closest("li").attr("id");
 		pageToDelete = pages.page[pageToDeleteId].pageId;
+
+		console.log("page to delete:" + pageToDelete);
+		if(pageToDeleteId == 0){
+			deletingFirst = true;
+		}
+		
+
+		console.log("page to delete: " + pageToDelete);
+
 		deletePage(pageToDelete);
 
 		$(this).closest("li").remove();
-		currentPage = $(this).closest("img").attr("id");
+		currentPage = pageToDeleteId;
+		console.log("deleting currentPage: " + currentPage + "   "  + pages.page);
+
 		pages.page.splice(currentPage, 1);
 
-		currentPage--;
+		console.log(pages.page);
+
+		if(!deletingFirst) {
+			console.log("DELETING COVER: current poage: " + currentPage);
+			currentPage--;
+		}
+		//currentPage--;
 		pagesCreated--;
+
+
+		title = pages.page[currentPage].title;
+		text = pages.page[currentPage].text;
+		imageURL = pages.page[currentPage].image;
+		videoURL = pages.page[currentPage].video;
+		pageNumber = pages.page[currentPage].pageNumber;
+		attribution = pages.page[currentPage].attribution;
+		templateId = pages.page[currentPage].templateId;
+
+		switch (templateId) {
+			case 0:
+				fluidLayout();
+				break;
+
+			case 1:
+				photoLayout();
+				break;
+
+			case 2:
+				overlayLayout();
+				break;
+
+			case 3:
+				photoTextLayout();
+				break;
+
+			case 4:
+				verticalLayout();
+				break;
+
+			case 5:
+				videoLayout();
+				break;
+
+			case 6:
+				baseLayout();
+		}
 
 		e.preventDefault();
 
@@ -327,7 +393,7 @@
 
 			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\" data-adaptive-background=\"0\" style=\"0\"/>";
 
-			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: none;\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 2rem 2rem 0 2rem; top: 0;\"><article style=\"padding: 7rem 0\">";
 
@@ -339,7 +405,7 @@
 
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 
-			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
+			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.fluid-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.fluid-preview').css('top', '75%'); $('.fluid-preview article').css('padding', '0 0 4rem 0'); $('.spinner').hide(); $('.image-attribution').css('display', 'block'); $('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); $('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); }); \"></div>";
 
 			insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add photo credit?\" style=\"display: block\">" + attribution + "</span></section><div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0 2rem; top: 75%;\"><article style=\"padding: 0 0 4rem 0;\">";
 		}
@@ -511,8 +577,8 @@
 
 		// Update title in page menu
 		$(document).on("keyup", ".fluid-preview-wrapper .page-title-elem", function () {
-
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			console.log("keyup: currentpage" + $(this).closest("li").index());
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
@@ -561,7 +627,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.page-bg-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -604,7 +670,7 @@
 		// Update title in page menu
 		$(document).on("keyup", ".photo-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
@@ -667,7 +733,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.overlay-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"overlay-preview\"><article>";
@@ -730,7 +796,7 @@
 		// Update title in page menu
 		$(document).on("keyup", ".overlay-preview-wrapper .page-desc", function () {
 
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 		});
@@ -771,7 +837,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.phototext-preview-wrapper').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"phototext-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -827,7 +893,7 @@
 		// Update title in page menu
 		$(document).on("keyup", ".phototext-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
@@ -877,7 +943,7 @@
 			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/></div>";
 		}
 
-		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + currentPage + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
+		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#page" + $(this).closest("li").index() + "Image').attr('src', url); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('.vertical-preview-wrapper .draggable-placeholder').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); $('.image-attribution').show().text('Add photo credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); });\"></div>";
 
 		if (title == null) {
 			insert += "<div class=\"vertical-preview\"><article><h1 class=\"page-title-elem\" data-placeholder=\"Write your title here\" contenteditable=\"true\"></h1>";
@@ -934,7 +1000,7 @@
 		// Update title in page menu
 		$(document).on("keyup", ".vertical-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
@@ -977,7 +1043,7 @@
 		insert += "<span class=\"image-attribution\" contenteditable=\"true\" data-placeholder=\"Add video credit?\">" + attribution + "</span>";
 		insert += "<div class=\"button-wrapper\"><button class=\"photo-picker video-btn\">&#xf256;</button>";
 
-		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page" + currentPage + "Image').addClass('large'); $('#page" + currentPage + "Image').VimeoThumb(); $('.image-attribution').show().text('Add video credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
+		insert += "<input class=\"video-picker\" type=\"text\" data-placeholder=\"Vimeo URL here\" placeholder=\"Vimeo URL here\" onchange=\"$('#page" + $(this).closest("li").index() + "Image').addClass('large'); $('#page" + $(this).closest("li").index() + "Image').VimeoThumb(); $('.image-attribution').show().text('Add video credit?'); $.adaptiveBackground.run({ normalizeTextColor: true }); $('button.photo-picker').css('opacity', '1'); \" style=\"display: none;\"/></div>";
 
 		insert += "<div class=\"video-preview\"><span class=\"play-video\">Play</span>";
 
@@ -1036,7 +1102,7 @@
 		// Update title in page menu
 		$(document).on("keyup", ".video-preview-wrapper .page-title-elem", function () {
 
-			var titleThing = $("#page" + currentPage + "Title .page-thumb-title");
+			var titleThing = $("#page" + $(this).closest("li").index() + "Title .page-thumb-title");
 			$(titleThing).text($(this).text());
 
 			// Remove <p> from h1s...unfortunately, users can't Ctrl+A to select content now
@@ -1087,7 +1153,7 @@
 
 			var
 			videoURL = "http://player.vimeo.com/video/" + getVimeoId($(this).val()) + "?title=0&amp;byline=0&amp;portrait=0&amp;color=70a1b1",
-			videoThumb = "#page" + currentPage + "Image",
+			videoThumb = "#page" + $(this).closest("li").index() + "Image",
 			videoID = getVimeoId($(this).val());
 
 			if (e.which == 13) {
