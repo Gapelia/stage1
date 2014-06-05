@@ -338,6 +338,11 @@
 	   if ($vW > "1599") {
 		$("#contactable-contactForm").css("cssText", "top: 76% !important");
 	    }
+	   
+	   if ($vW > "1919") {
+		$("#book-list").css("cssText", "width: 10300px !important");
+		$("#book-list").css("cssText", "display: block !important");
+	    }
 	    
 	    //imacs specs//
 	    if ($vH > "1079") {

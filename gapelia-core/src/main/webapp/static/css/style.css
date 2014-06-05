@@ -7609,6 +7609,8 @@ a.count span.dont-move {
     top: 52.5%; }
   .app .book, .app .collection, .app .library {
     width: 450px; }
+  .app #book-list {
+    width: 9300px !important; }
   .app #featured-nav #nav-search {
     margin-left: 34.5% !important; }
   .app .selectize-control {
