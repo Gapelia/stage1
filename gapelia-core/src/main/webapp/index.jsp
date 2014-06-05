@@ -43,7 +43,7 @@
 
 	<body class="app landing">
 
-		<div id="mp-pusher" class="super-wrapper">
+		<div id="mp-pusher" class="super-wrapper" style="overflow: hidden;">
 
 			<h5 id="beta">Sweet Beta</h5>
 			<h1 id="gapelia"><a href="/">Gapelia</a></h1>

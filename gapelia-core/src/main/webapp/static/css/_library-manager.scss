@@ -65,6 +65,16 @@ body.library-manager {
 	
 	.library-list-wrapper, .subscription-list-wrapper { z-index: 0; }
 
+	#no-libraries {
+		opacity: 0.8;
+		padding: 12rem 10rem 10rem 16rem;
+		
+		.back-libs {
+			color: $slate;
+			opacity: 0.75;
+		}
+	}
+	
 	#stay-right {
 		top: 0; right: 0;
 

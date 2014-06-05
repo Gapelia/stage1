@@ -168,7 +168,9 @@ function getBookmarkedBooks() {
                 }
 
                 if (toInsert == "<ul id=\"bookmark-list\">") {
-		    toInsert += "<section style=\"position: initial; margin-left: -30rem; text-align: left;\"><p>No books have been added to your bookmarks yet.</p></section>";		    
+		    $("#nav-bookmarks").click(function() {
+			$("#featured-scroller").html("<div id=\"no-bookmarks\"><h1>You have not bookmarked any stories.<br><a href=\"/featured\">Explore stories</a></h1></div>");
+		});
 		}
             }
             $(".bookmark-list-wrapper").html(toInsert);
@@ -498,7 +500,9 @@ function getCreatedLibraries() {
                 toInsert += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
             }
             if (toInsert == "") {
-		toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Create libraries to organize content from across the platform.</a></div>";
+		$("#nav-libraries").click(function() {
+			$("#featured-scroller").html("<div id=\"no-libraries\"><h1>You have not created any libraries.<br><a class=\"back-libs\" href=\"/createlibrary\">Create New Library</a></h1><br><a href=\"/librarymanager\">Back to libraries</a></div>");
+		});
 	    }
             $("#library-list").html(toInsert);
 	    toInsert += "<div id=\"close-splash\">Your library was created! Other users can now submit stories to it.<a Id=\"go-to-library\" href=\"/library/" + library.libraryId + "\">Go to your library</a></div>";
@@ -819,7 +823,6 @@ function getLibraries() {
             libraries = data;
             for (i in libraries) {
                 library = libraries[i];	
-		subscribed[library.libraryId] = false;
 
                 lib = "<li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		

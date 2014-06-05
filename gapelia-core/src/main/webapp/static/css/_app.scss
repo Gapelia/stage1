@@ -461,6 +461,16 @@
 	}
   
   //empty lists
+  
+  #no-bookmarks {
+    opacity: 0.8;
+		padding: 12rem 10rem 10rem 16rem;
+		
+		a {
+			color: $slate;
+			opacity: 0.75;
+		}
+	}
 
   .library-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .book-list-wrapper, .bookmark-list-wrapper {
     .library-empty {

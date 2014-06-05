@@ -2709,6 +2709,12 @@ body.landing .error {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
+.app #no-bookmarks {
+  opacity: 0.8;
+  padding: 12rem 10rem 10rem 16rem; }
+.app #no-bookmarks a {
+  color: #59b3a6;
+  opacity: 0.75; }
 .app .library-list-wrapper .library-empty, .app .submission-list-wrapper .library-empty, .app .subscription-list-wrapper .library-empty, .app .book-list-wrapper .library-empty, .app .bookmark-list-wrapper .library-empty {
   color: rgba(11, 72, 107, 0.25);
   font-size: 1.6rem;
@@ -3688,6 +3694,12 @@ body.library-manager .delete-library-confirm h3 {
   margin: 8rem 0 0 0; }
 body.library-manager .library-list-wrapper, body.library-manager .subscription-list-wrapper {
   z-index: 0; }
+body.library-manager #no-libraries {
+  opacity: 0.8;
+  padding: 12rem 10rem 10rem 16rem; }
+body.library-manager #no-libraries .back-libs {
+  color: #59b3a6;
+  opacity: 0.75; }
 body.library-manager #stay-right {
   top: 0;
   right: 0;
@@ -7423,8 +7435,8 @@ a.count span.dont-move {
     height: 27% !important; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
-    height: 30%;
-    left: 43.5% !important;
+    height: 34%;
+    left: 43.75% !important;
     top: 2rem; }
   body.landing footer {
     bottom: 3rem; }
