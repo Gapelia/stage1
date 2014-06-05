@@ -165,7 +165,16 @@
 
                     $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
                     $(".inserted-img").fluidbox();
-
+		    
+		    //adding http://, underline styling and new-tab-location to all hyperlinks//
+		    $(function() {
+			$(".full-book .page-desc a").each(function() {
+			    var href = $(this).attr("href");
+			       $(this).attr("href", "http://" + href);
+			       $(this).attr("target", "_blank");
+			    });
+			$(".full-book .page-desc a").css("text-decoration", "underline");
+		    });
                 });
 
                 function insertPage(isFirst) {

@@ -356,6 +356,7 @@
 		e.preventDefault();
 
 	});
+	
 
 	// Image insertion
 	// var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
