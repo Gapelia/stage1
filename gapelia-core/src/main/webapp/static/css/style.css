@@ -3199,7 +3199,7 @@ body.landing .error {
   left: 50% !important;
   display: none; }
 .app #new-library .button-wrapper {
-  top: 20%;
+  top: 19%;
   left: 20%;
   position: absolute;
   text-align: center;
@@ -3239,7 +3239,7 @@ body.landing .error {
   margin: 0 0 0 1rem;
   opacity: 1; }
 .app #new-library #new-library-info {
-  top: 47.5%;
+  top: 51.5%;
   left: 20%;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -3432,6 +3432,10 @@ body.landing .error {
   position: absolute;
   text-align: right; }
 
+.chars-remaining {
+  text-align: right;
+  opacity: 0.75; }
+
 .subbranding {
   display: none; }
 
@@ -3520,7 +3524,8 @@ body.library #stay-right:hover {
   background: none !important; }
 body.library #stay-right #my-submissions {
   font-weight: 700;
-  padding-top: 0.5rem; }
+  padding-top: 0.5rem;
+  width: 140px; }
 body.library #stay-right li {
   display: inline-block;
   margin: 0;
@@ -4057,7 +4062,7 @@ body.library-manager #stay-right {
   transition: background-color 0.5s ease; }
 .profile #user-splash .user-avatar {
   position: relative;
-  top: 14%; }
+  top: 12%; }
 .profile #user-splash .avatar-wrapper {
   background-size: cover;
   background-position: 50% 50%;
@@ -4125,28 +4130,34 @@ body.library-manager #stay-right {
   display: block;
   font-size: 1.1rem;
   font-weight: 200;
-  line-height: 2.1rem;
-  text-align: center; }
+  line-height: 2.1rem; }
+.profile #user-splash #splash-user-bio div {
+  text-align: center !important; }
 .profile #user-splash #user-extra {
-  bottom: -9rem;
+  bottom: -8rem;
   left: 1rem;
+  color: white;
   font-weight: 400;
   line-height: 1.5;
-  position: absolute; }
+  position: absolute;
+  z-index: 1; }
 .profile #user-splash #user-extra li {
   font-size: 1rem;
   text-align: left; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;
-  bottom: 1rem;
-  color: rgba(252, 252, 252, 0.5);
+  bottom: 4.5rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(252, 252, 252, 0.8);
   cursor: pointer;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 1rem;
   font-style: italic !important;
   font-weight: 400;
-  left: 91%;
+  left: 46%;
+  padding: 10px;
   position: fixed;
   text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
@@ -7397,9 +7408,11 @@ a.count span.dont-move {
   .profile #user-panel #user-heard {
     margin-top: 14px; }
   .profile #user-panel #user-splash .user-avatar {
-    top: 20%; }
+    top: 20.5% !important; }
   .profile #user-panel #user-splash #user-extra {
     bottom: -21rem !important; }
+  .profile #user-panel #user-splash #close-splash {
+    bottom: 18.5rem !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
@@ -7481,7 +7494,8 @@ a.count span.dont-move {
   .app #featured-nav {
     font-size: 1.25rem;
     left: 6rem;
-    top: 0.3rem; }
+    padding-top: 0.9rem;
+    top: 0rem; }
   .app #featured-nav .typeahead {
     margin-left: 80% !important; }
   .app #featured-nav .tt-dropdown-menu {
@@ -7532,11 +7546,13 @@ a.count span.dont-move {
 
   .profile #user-splash #splash-user-bio {
     font-size: 1.5rem;
-    margin: 0 0 3rem 0; }
+    margin: 0 0 2rem 0; }
   .profile #user-splash #splash-user-bio span {
     font-size: 1.5rem !important; }
   .profile #user-splash #close-splash {
-    bottom: 2rem; }
+    bottom: 12.5rem !important;
+    font-size: 1.2rem;
+    left: 46%; }
   .profile #user-splash h1 {
     font-size: 3.3rem;
     line-height: 75px; }
@@ -7552,9 +7568,13 @@ a.count span.dont-move {
     padding-left: 3rem;
     padding-right: 3rem; }
   .profile #user-splash #splash-user-info {
-    top: 38.5%; }
+    top: 35.5%;
+    padding-top: 1rem; }
   .profile #user-splash #user-extra {
-    bottom: -14rem !important; }
+    bottom: -14rem !important;
+    left: 1.75rem; }
+  .profile #user-splash #user-extra li {
+    font-size: 1.5rem; }
   .profile #user-splash .user-avatar {
     top: 16%; }
   .profile .notification-time #notification-count {
@@ -7655,7 +7675,9 @@ a.count span.dont-move {
   .profile #user-splash .user-avatar {
     top: 18.5%; }
   .profile #user-extra {
-    bottom: -20rem !important; }
+    bottom: -19rem !important; }
+  .profile #close-splash {
+    bottom: 14.5rem !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 
@@ -9216,7 +9238,10 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     padding: 0 1rem; }
   .app #user-splash .user-avatar {
-    top: 9%; }
+    top: 12%; }
+
+  .profile #user-extra {
+    display: none; }
 
   .accounts #account-splash-wrapper {
     margin-bottom: -2rem;

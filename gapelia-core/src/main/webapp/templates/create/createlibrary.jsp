@@ -127,6 +127,7 @@
 		<script src="/static/scripts/userNotifications.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
 		
+		<script src="/static/scripts/charLimiter.js"></script>
 		<script src="/static/scripts/classie.js"></script>
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -173,6 +174,10 @@
 				var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
 				document.execCommand('insertText', false, text);
 			});
+			
+			
+			$("#new-library-info p").limit({ maxlength: 300 });
+			
 			
 			//Frankie searched for library array intersection
 			function intersection(a, b)

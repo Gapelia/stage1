@@ -1120,7 +1120,7 @@
 		}
 
 		.button-wrapper {
-			top: 20%; left: 20%;
+			top: 19%; left: 20%;
 
 			position: absolute;
 			text-align: center;
@@ -1170,7 +1170,7 @@
 		}
 
 		#new-library-info {
-			top: 47.5%; left: 20%;
+			top: 51.5%; left: 20%;
 
 			border-top: 1px solid transparent;
 			border-bottom: 1px solid transparent;
@@ -1427,6 +1427,11 @@
 	}
 
 }
+
+.chars-remaining {
+  text-align: right;
+  opacity: 0.75;
+} //character counter
 
 .subbranding { display: none; }
 

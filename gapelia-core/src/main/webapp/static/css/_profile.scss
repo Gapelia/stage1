@@ -172,7 +172,7 @@
 
 		.user-avatar {
 			position: relative;
-			top: 14%;
+			top: 12%;
 		}
 
 		.avatar-wrapper {
@@ -255,16 +255,17 @@
 			font-size: 1.1rem;
 			font-weight: 200;
 			line-height: 2.1rem;
-			text-align: center;
-
-			//&:empty:after { content: "Add bio here"; }
+			
+			div { text-align: center !important; }
 		}
 		
 		#user-extra {
-			bottom: -9rem; left: 1rem;
+			bottom: -8rem; left: 1rem;
+			color: white;
 			font-weight: 400;
 			line-height: 1.5;
 			position: absolute;
+			z-index: 1;
 			
 			li {
 				font-size: 1rem;
@@ -274,15 +275,18 @@
 
 		#close-splash {
 			width: auto; height: auto;
-			bottom: 1rem; 
+			bottom: 4.5rem; 
 
-			color: rgba($white, 0.5);
+			border-radius: 5px;
+			border: 1px solid rgba(255, 255, 255, 0.4);
+			color: rgba($white, 0.8);
 			cursor: pointer;
 			@include serif;
 			font-size: 1rem;
 			font-style: italic !important;
 			font-weight: 400;
-			left: 91%;
+			left: 46%;
+			padding: 10px;
 			position: fixed;
 			text-align: center;
 			transition: bottom 1.3s ease, left 1.3s ease;

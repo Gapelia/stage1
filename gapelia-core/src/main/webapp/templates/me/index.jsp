@@ -128,6 +128,7 @@
     <script src="/static/scripts/touchSwipe.min.js"></script>
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
+    <script src="/static/scripts/charLimiter.js"></script>
 
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
@@ -345,6 +346,20 @@
 		}
 		else{
 			$("#splash-user-bio").html(user.bio);
+		}
+		
+		// description input limiter
+		var titleElem = "splash-user-bio";
+		titleMax = 300;
+		
+		$("#" + titleElem).keydown(function (e) {
+		check_charcount(titleElem, titleMax, e);
+		});
+		
+		function check_charcount(titleElem, titleMax, e) {
+			if (e.which != 8 && $("#" + titleElem).text().length > titleMax) {
+			e.preventDefault();
+			}
 		}
                 
 		

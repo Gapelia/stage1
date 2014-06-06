@@ -126,6 +126,7 @@
     <script src="/static/scripts/userNotifications.js"></script>
 
     <script src="/static/scripts/classie.js"></script>
+    <script src="/static/scripts/charLimiter.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
 
     <script>
@@ -165,6 +166,9 @@
 	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
 	    document.execCommand('insertText', false, text);
 	});
+	
+	//description limiter//
+	$("#new-library-info p").limit({ maxlength: 300 });
     </script>
     <!--//scripts /-->
 
