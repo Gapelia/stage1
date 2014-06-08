@@ -7,13 +7,62 @@ body.library-manager {
 	
 	#featured-nav {
 		
+		.glass {
+			margin-top: 8rem;
+			margin-left: 3.5rem;
+			opacity: 0.3;
+			position: absolute !important;
+		}	
+			
 		.typeahead {
-			margin-left: 24%;
+			border-bottom: 1px solid rgba(89, 179, 166, 0.39) !important;
+			border-radius: 0;
+			color: #59B3A6;
+			font-size: 2rem !important;
+			height: auto; width: 600px;
+			left: -4rem;
+			opacity: 1;
+			position: absolute !important;
+			top: 6rem;
 			z-index: 10;
 		}
 		
 		.tt-dropdown-menu {
-			margin-left: 21%;
+			left: 1.25rem !important;
+			top: 9rem !important;
+		}
+		
+		.suggested-libs {
+			margin-left: 20%;
+			position: absolute;
+			top: 14rem;
+			width: 45%;
+			
+			#suggested-lib-list {
+				font-size: 1rem !important;
+				line-height: 1.25 !important;
+				opacity: 0.9 !important;
+				
+				a {
+					color: black;
+					font-weight: 700;
+					margin-right: 1rem;
+					opacity: 0.9;	
+				}
+				
+				li { margin-top: -1rem !important; }
+				
+				.lib-blurb {
+					position: relative;
+					top: -3.5rem; left: 5rem;
+				}
+			}
+			
+			span {
+				font-size: 1rem !important;
+				line-height: 1.25 !important;
+				opacity: 0.9 !important;
+			}
 		}
 	}
 

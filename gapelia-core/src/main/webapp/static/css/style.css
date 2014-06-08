@@ -2574,13 +2574,13 @@ body.landing .error {
   background-color: transparent !important;
   border: none !important;
   position: absolute;
-  margin-left: 42%;
+  margin-left: 24%;
   margin-top: -0.35rem !important;
   width: 400px; }
 .app #featured-nav .typeahead, .app #featured-nav .tt-query, .app #featured-nav .tt-hint {
   font-size: 1rem !important; }
 .app #featured-nav .tt-dropdown-menu {
-  margin-left: 38%; }
+  margin-left: 21%; }
 .app #featured-nav .container {
   margin: 0 auto;
   max-width: 750px;
@@ -3656,11 +3656,50 @@ body.library ::-webkit-input-placeholder {
 
 body.library-manager #nav-wrapper {
   z-index: 1; }
+body.library-manager #featured-nav .glass {
+  margin-top: 8rem;
+  margin-left: 3.5rem;
+  opacity: 0.3;
+  position: absolute !important; }
 body.library-manager #featured-nav .typeahead {
-  margin-left: 24%;
+  border-bottom: 1px solid rgba(89, 179, 166, 0.39) !important;
+  border-radius: 0;
+  color: #59B3A6;
+  font-size: 2rem !important;
+  height: auto;
+  width: 600px;
+  left: -4rem;
+  opacity: 1;
+  position: absolute !important;
+  top: 6rem;
   z-index: 10; }
 body.library-manager #featured-nav .tt-dropdown-menu {
-  margin-left: 21%; }
+  left: 1.25rem !important;
+  top: 9rem !important; }
+body.library-manager #featured-nav .suggested-libs {
+  margin-left: 20%;
+  position: absolute;
+  top: 14rem;
+  width: 45%; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  opacity: 0.9 !important; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list a {
+  color: black;
+  font-weight: 700;
+  margin-right: 1rem;
+  opacity: 0.9; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list li {
+  margin-top: -1rem !important; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list .lib-blurb {
+  position: relative;
+  top: -3.5rem;
+  left: 5rem; }
+body.library-manager #featured-nav .suggested-libs span {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  opacity: 0.9 !important; }
 body.library-manager .book .wrapper, body.library-manager .library .wrapper {
   width: 100%; }
 body.library-manager .library-buttons {
@@ -5807,24 +5846,48 @@ body.library-manager #stay-right {
   width: auto !important; }
 
 #publish-modal {
+  font-weight: 100;
   padding: 10rem 4rem;
   transition: all 0.5s ease;
   z-index: -1; }
 #publish-modal #book-share {
   font-size: 2rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
   opacity: 0.7;
   text-align: center; }
 #publish-modal #book-share .share-book:before {
-  content: "Share with your network";
+  content: "Share and seek feedback from your network";
   display: inherit;
-  font-size: 0.8rem;
+  font-size: 1.4rem;
   font-weight: 100;
   margin-bottom: 15px; }
 #publish-modal #book-share li {
   display: inline;
   margin: 7px;
   position: relative; }
+#publish-modal #lib-submission {
+  font-size: 1.4rem;
+  font-weight: 100;
+  margin-top: 3rem;
+  opacity: 0.7;
+  text-align: center; }
+#publish-modal .published, #publish-modal .published-i {
+  border-bottom: 1px solid rgba(25, 25, 25, 0.5); }
+#publish-modal .wrapper-ii {
+  border-bottom: 1px solid rgba(25, 25, 25, 0.15);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-left: 20%;
+  margin-top: -1rem;
+  opacity: 0.7;
+  text-align: center;
+  width: 60%; }
+#publish-modal .wrapper-ii:before {
+  content: "just pubslished";
+  font-size: 0.7rem;
+  font-weight: 100;
+  text-align: center;
+  text-transform: uppercase; }
 
 .clearfix:after {
   clear: both;
@@ -7370,11 +7433,6 @@ a.count span.dont-move {
     height: 100px; }
   .app #g-menu-toggle {
     top: 0.5rem !important; }
-  .app #featured-nav .selectize-dropdown, .app #featured-nav .selectize-input, .app #featured-nav .selectize-input input {
-    font-size: 1.2rem; }
-  .app #featured-nav .selectize-control {
-    width: 550px;
-    margin-left: 24%; }
   .app #featured-nav #stay-right {
     right: 0.75rem;
     top: -0.6rem; }
@@ -7382,9 +7440,11 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #featured-nav .typeahead {
     font-size: 1rem !important;
-    padding-left: 10rem; }
+    left: 13rem !important; }
   .app #featured-nav .tt-dropdown-menu {
     font-size: 1.25rem !important; }
+  .app #featured-nav .glass {
+    margin-left: 20.5rem !important; }
   .app #new-library #close-splash {
     margin-left: 32% !important;
     height: 6% !important; }
@@ -7394,10 +7454,13 @@ a.count span.dont-move {
     top: 0; }
   body.library #stay-right {
     top: 0.5rem;
-    right: 0.25rem; }
+    right: 0.253rem; }
   body.library #submission-pop {
     height: 5% !important;
     margin-left: 8% !important; }
+
+  body.library-manager #featured-nav .typeahead {
+    display: block; }
 
   .profile #user-panel {
     height: 100px; }
@@ -7493,13 +7556,13 @@ a.count span.dont-move {
     padding: 17rem 10rem 10rem 28rem; }
   .app #featured-nav {
     font-size: 1.25rem;
-    left: 6rem;
+    left: 5.5rem;
     padding-top: 0.9rem;
-    top: 0rem; }
+    top: 0.6rem; }
   .app #featured-nav .typeahead {
-    margin-left: 80% !important; }
+    margin-left: 58% !important; }
   .app #featured-nav .tt-dropdown-menu {
-    margin-left: 77.5% !important; }
+    margin-left: 54.5% !important; }
   .app #featured-panel {
     margin: 0.8rem 0 0 0; }
   .app .library-location {
@@ -7532,6 +7595,8 @@ a.count span.dont-move {
 
   body.library-manager #no-libraries {
     padding: 17rem 10rem 10rem 28rem; }
+  body.library-manager .glass {
+    margin-top: 8.2rem !important; }
 
   body.library #submission-pop {
     height: 7%;
@@ -7650,21 +7715,28 @@ a.count span.dont-move {
   .app #book-list {
     width: 9300px !important; }
   .app #featured-nav #nav-search {
-    margin-left: 34.5% !important; }
+    margin-left: 26.5% !important; }
   .app .selectize-control {
     margin-left: 24.5% !important; }
-  .app #featured-nav .typeahead, .app #featured-nav .tt-dropdown-menu {
-    margin-left: 68%; }
+  .app #featured-nav .typeahead {
+    margin-left: 50%; }
+  .app #featured-nav .tt-dropdown-menu {
+    margin-left: 47%; }
 
   body.library-manager .library .wrapper {
     bottom: 10rem; }
   body.library-manager #featured-nav #nav-search {
     margin-left: 27.5% !important; }
   body.library-manager #featured-nav .typeahead {
-    margin-left: 45% !important;
+    left: 5rem !important;
     z-index: 10; }
   body.library-manager #featured-nav .tt-dropdown-menu {
-    margin-left: 42% !important; }
+    left: 10.5rem !important; }
+  body.library-manager #featured-nav .glass {
+    margin-left: 12.5rem; }
+  body.library-manager #featured-nav .suggested-libs {
+    margin-left: 28.5% !important;
+    width: 39% !important; }
 
   body.library #submission-pop {
     height: 6%;

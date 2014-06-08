@@ -86,11 +86,15 @@
 	<div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-explore" class="current"><a href="#">Explore</a></li>
+                    <li id="nav-explore" class="current"><a href="#">Search</a></li>
                     <li id="nav-subscriptions"><a href="#">Subscriptions</a></li>
                     <li id="nav-libraries"><a href="#">My Libraries</a></li>
-                    <div id="nav-search" style="display: inline-block; margin-left: 22%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
-		      <input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
+                    <div id="nav-search" style="display: none; margin-left: 22%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
+		    <input class="typeahead" placeholder="Search libraries..." style="display: block;"></input>
+                    <img class="glass" href="#" src="../static/images/search.png" style="height: 18px; width: 18px;">
+                    <div class="suggested-libs">
+                        <ul id="suggested-lib-list"></ul>
+                    </div>
             <script>
             // instantiate the bloodhound suggestion engine
             var books = new Bloodhound({
@@ -132,7 +136,7 @@
             });
             
             // initialize the bloodhounds!
-            books.initialize();
+            //books.initialize();
             libraries.initialize();
             
             // instantiate the typeahead UI
@@ -154,7 +158,7 @@
               displayKey: 'value',
               source: libraries.ttAdapter(),
               templates: {
-                header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.5rem; opacity: 0.7; text-transform: uppercase;">Libraries</h5></center>'
+                //header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.5rem; opacity: 0.7; text-transform: uppercase;">Libraries</h5></center>'
               }
             });
         </script>
@@ -171,10 +175,11 @@
             </div>
             </div>
                                 
-        <div class="library-list-wrapper">
-            <ul id="explore-list"></ul>
+        <!--/ Explore List /-->
+	<div class="explore-list-wrapper">
+	    <ul id="explore-list"></ul>
 	</div>
-	<!--//explore List /-->
+	<!--//Explore List /-->
         
         <!--/ Subscription List /-->
 	<div class="subscription-list-wrapper">
@@ -210,20 +215,39 @@
                 $("#book-scroller").css("z-index", "0");
 	    });
             
-            //hide and show search engine//
-	    $("#nav-search").mouseenter(function () {
-                $(".typeahead").css("display", "inline-block");
-		$("#nav-search").hide();
-            });
-	    
-	    $(".library-list-wrapper, .subscription-list-wrapper").mouseenter(function () {
-                $(".typeahead").css("display", "none");
-		$("#nav-search").fadeIn("slow");
-            });
+            //explore carousel list doesnt appear on computer browser//
+            $("document").ready(function() {
+                $(".explore-list-wrapper").hide();
+            });    
             
             //hide search box after clicking on item//
 	    $(".tt-dropdown-menu").click(function () {
                 $(".typeahead").css("display", "none");
+                $(".suggested-libs").css("display", "none");
+            });
+            
+            //hide glass and suggestions when typing//
+            $(".typeahead").keydown(function () {
+                $(".glass").css("opacity", "0");
+                $(".suggested-libs").css("opacity", "0");
+                $(".tt-dropdown-menu").css("opacity", "1");
+            });
+            
+            //show suggestion when clicking on search//
+            $(".typeahead").click(function () {
+                $(".tt-dropdown-menu").css("opacity", "1");
+                $(".suggested-libs").css("opacity", "0");
+            });
+            
+            //bring back sugestion applicable when search box is empty//
+            $(".suggested-libs").mouseover(function () {
+                $(".suggested-libs").css("opacity", "1");
+            });
+   
+            //bring back suggestion when leaving the results//
+            $(".tt-dropdown-menu").mouseleave(function() {
+                $(".suggested-libs").css("opacity", "1");
+                $(".tt-dropdown-menu").css("opacity", "0");
             });
 	}
 
@@ -268,10 +292,11 @@
         });
 
         }
-                
+        
         if ($vH > "1079") {
 	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 52% !important");
             $(".library").css("cssText", "height: 900px !important");
+            $("#featured-nav .typeahead").css("cssText", "left: 13rem !important");
 	}
         
         if ($vH > "1190") {
@@ -289,6 +314,7 @@
             getSubscribedLibrary();
             getCreatedLibraries();
             var fifth = getLibraries();
+            getLibrariesSuggestion();
         });
                         
                         
@@ -300,7 +326,7 @@
         var $vW = $(window).width(), $vH = $(window).height();
         h = $(this).outerHeight() - 92;
         $(".library").css("height", h);
-            $("#explore-list li").fadeIn("100");
+        $("#explore-list li").fadeIn("100");
         $("#explore-list").fadeIn("100");
         if ($vW > "1024") {
             $(".library-list-wrapper, .subscription-list-wrapper").sly({
@@ -383,6 +409,9 @@
             $("#explore-list").hide();
 	    $("#library-list").hide();
             $("#subscription-list").hide();
+            $(".typeahead").hide();
+            $(".glass").hide();
+            $(".suggested-libs").hide();
 
             var w = 0, h = 0;
 
@@ -428,6 +457,8 @@
         $("#explore-list").hide();
         $("#library-list").hide();
         $("#subscription-list").hide();
+        $(".typeahead").show();
+        $(".suggested-libs").show();
         var w = 0, h = 0;
 
         $("#explore-list li").each(function () {
@@ -473,6 +504,9 @@
         $("#explore-list").hide();
         $("#library-list").hide();
         $("#subscription-list").hide();
+        $(".typeahead").hide();
+        $(".glass").hide();
+        $(".suggested-libs").hide();
         var w = 0, h = 0;
 
         $("#subscription-list li").each(function () {

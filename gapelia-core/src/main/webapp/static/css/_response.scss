@@ -46,8 +46,7 @@
 		#g-menu-toggle { top: 0.5rem !important; }
 		
 		#featured-nav {
-			.selectize-dropdown, .selectize-input, .selectize-input input { font-size: 1.2rem; }
-			.selectize-control { width: 550px; margin-left: 24%; }
+
 			#stay-right {
 				right: 0.75rem;
 				top: -0.6rem;
@@ -56,11 +55,14 @@
 			}
 			.typeahead {
 				font-size: 1rem !important;
-				padding-left: 10rem;
+				left: 13rem !important;
 			}
 			.tt-dropdown-menu {
 				font-size: 1.25rem !important;
 			}
+			
+			.glass { margin-left: 20.5rem !important; }
+			
 		}
 		
 		#new-library #close-splash { margin-left: 32% !important; height: 6% !important; }
@@ -71,7 +73,7 @@
 		
 		#stay-right {
 			top: 0.5rem;
-			right: 0.25rem;
+			right: 0.253rem;
 		}
 		
 		#submission-pop {
@@ -79,6 +81,12 @@
 			margin-left: 8% !important;
 		}
 	}
+	
+	body.library-manager {
+		#featured-nav {
+			.typeahead { display: block; }
+		}	
+	}	
 	
 	.profile #user-panel {
 		height: 100px;
@@ -192,16 +200,16 @@
 		
 		#featured-nav {
 			font-size: 1.25rem;
-			left: 6rem;
+			left: 5.5rem;
 			padding-top: 0.9rem;
-			top: 0rem;
+			top: 0.6rem;
 			
 			.typeahead {
-				margin-left: 80% !important;
+				margin-left: 58% !important;
 			}
 			
 			.tt-dropdown-menu {
-				margin-left: 77.5% !important;
+				margin-left: 54.5% !important;
 			}
 		}
 		
@@ -244,8 +252,14 @@
 		.user-book-list-wrapper { top: 51.75%; }
 	}
 	
-	body.library-manager #no-libraries {
-		padding: 17rem 10rem 10rem 28rem;
+	body.library-manager {
+		
+		#no-libraries {
+			padding: 17rem 10rem 10rem 28rem;
+		}
+		
+		.glass { margin-top: 8.2rem !important }
+		
 	}
 	
 	body.library {
@@ -424,12 +438,13 @@
 		
 		#book-list { width: 9300px !important; } // temporary fix so 20 books fit in featured for book width = 450px
 		
-		#featured-nav #nav-search { margin-left: 34.5% !important }
+		#featured-nav #nav-search { margin-left: 26.5% !important }
 		
 		.selectize-control { margin-left: 24.5% !important; }
 		
-		#featured-nav .typeahead, #featured-nav .tt-dropdown-menu {
-			margin-left: 68%;
+		#featured-nav {
+			.typeahead { margin-left: 50%; }
+			.tt-dropdown-menu { margin-left: 47%; }
 		}
 	}
 	
@@ -440,16 +455,25 @@
 		
 		#featured-nav {
 		
-		#nav-search { margin-left: 27.5% !important; }
-		
-		.typeahead {
-			margin-left: 45% !important;
-			z-index: 10;
-		}
-		
-		.tt-dropdown-menu {
-			margin-left: 42% !important;
-		}
+			#nav-search { margin-left: 27.5% !important; }
+			
+			.typeahead {
+				left: 5rem !important;
+				z-index: 10;
+			}
+			
+			.tt-dropdown-menu {
+				left: 10.5rem !important;
+			}
+			
+			.glass {
+				margin-left: 12.5rem;
+			}
+			
+			.suggested-libs {
+				margin-left: 28.5% !important;
+				width: 39% !important;
+			}
 		}
 	}
 	

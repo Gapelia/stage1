@@ -103,7 +103,8 @@
                 <ul id="featured-nav">
                     <li id="nav-books" class="current"><a href="#">Stories</a></li>
                     <li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
-		    <div id="nav-search" style="display: inline-block; margin-left: 30%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
+		    <li id="nav-subscriptions"><a href="#">Subscriptions</a></li>
+		    <div id="nav-search" style="display: inline-block; margin-left: 22%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
 		    <input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 				
                     <div id="stay-right">
@@ -126,13 +127,16 @@
             </div>
             <!--//Featured Books /-->
 
-
             <!--/ User's Bookmarks /-->
             <div class="bookmark-list-wrapper">
                 <ul id="bookmark-list"></ul>
             </div>
             <!--//User's Bookmarks /-->
-        </div>
+	    
+	    <!--/ Subscription List /-->
+	    <div class="subscription-list-wrapper">
+		<ul id="subscription-list"></ul>
+	  </div>
         <!--//main-content /-->
 
     </div>
@@ -235,7 +239,7 @@
 		$("#nav-search").hide();
             });
 	    
-	    $(".book-list-wrapper").mouseenter(function () {
+	    $(".book-list-wrapper, .subscription-list-wrapper").mouseenter(function () {
                 $(".typeahead").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
@@ -261,11 +265,11 @@
 
         $(function () {
             getNotifications();
+	    getListSubscribed();
+            getSubscribedLibrary();
             var second = getBookmarkedBooks();
             var fourth = getListBookmarked();
-            var fifth = getListSubscribed();
             var fifth = getLibraries();
-
         });
 
         function load() {
@@ -273,11 +277,11 @@
             var $vW = $(window).width(),
                 $vH = $(window).height();
             h = $(this).outerHeight() - 92;
-            $(".book").css("height", h);
+            $(".book, .library").css("height", h);
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             if ($vW > "1024") {
-               $(".book-list-wrapper, .bookmark-list-wrapper").sly({
+               $(".book-list-wrapper, .bookmark-list-wrapper, .subscription-list-wrapper").sly({
 			horizontal: 1,
 			itemNav: 'forceCentered',
 			smart: 1,
@@ -351,6 +355,7 @@
 		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 		$("#contactable-inner").css("cssText", "top: 92% !important");
 		$("#contactable-contactForm").css("cssText", "top: 80% !important");
+		$(".subscription-list-wrapper").css("cssText", "top: 52% !important");
 	    }
 	    
 	    if ($vH > "1190") {
@@ -358,6 +363,7 @@
 		$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 		$("#contactable-contactForm").css("cssText", "top: 82% !important");
 		$("#contactable-inner").css("cssText", "top: 93% !important");
+		$(".subscription-list-wrapper").css("cssText", "top: 52.5% !important");
 	    }	
 
             $("#nav-books").addClass("current");
@@ -377,7 +383,7 @@
 
                 setTimeout(function () {
 
-                    $("#library-list").hide();
+                    $("#subscription-list").hide();
                     $("#bookmark-list").hide();
                     $(".bookmark-list-wrapper section").remove();
 
@@ -406,7 +412,7 @@
                 e.preventDefault();
 
                 $("#nav-books").addClass("current");
-                $("#nav-libraries").removeClass("current");
+                $("#nav-subscriptions").removeClass("current");
                 $("#nav-bookmarks").removeClass("current");
 
                 NProgress.done();
@@ -430,7 +436,7 @@
                 setTimeout(function () {
 
                     $("#book-list").hide();
-                    $("#library-list").hide();
+                    $("#subscription-list").hide();
 
                     var w = 0,
                         h = 0;
@@ -452,7 +458,7 @@
                 e.preventDefault();
 
                 $("#nav-books").removeClass("current");
-                $("#nav-libraries").removeClass("current");
+                $("#nav-subscriptions").removeClass("current");
                 $("#nav-bookmarks").addClass("current");
 
                 NProgress.done();
@@ -461,7 +467,55 @@
 
 
             });
+	
+	// Click "My Subscriptions"
+        $("#nav-subscriptions").click(function (e) {
+
+        NProgress.start();
+
+        var
+        allBooks = $("#subscription-list li"),  // gets all books in a section
+        firstBook = $(allBooks).first();  // gets first book in list
+
+        $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
+
+        setTimeout(function () {
+
+        $("#book-list").hide();
+        $("#bookmark-list").hide();
+	$("#subscription-list").hide();
+
+        var w = 0, h = 0;
+
+        $("#subscription-list li").each(function () {
+            w += $(this).outerWidth();
+            h += $(this).outerHeight();
+        });
+
+        w += 500;
+
+        if ($vW > "1024") {
+            $("#subscription-list").css("width", w + "px");
+        } else {
+        // $("#submission-list").css("height", h + 379 + "px");
         }
+
+        // fades in the all the books after section width is added
+        $("#subscription-list li").fadeIn("100");
+        $("#subscription-list").fadeIn("100");
+
+        }, 1000);
+
+        e.preventDefault();
+
+        $("#nav-books").removeClass("current");
+        $("#nav-bookmarks").removeClass("current");
+        $("#nav-subscriptions").addClass("current");
+        NProgress.done();
+
+        });
+
+	}
     </script>
     <!--//scripts /-->
 

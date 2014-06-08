@@ -1377,21 +1377,22 @@
 }
 
 #publish-modal {
+  font-weight: 100;
   padding: 10rem 4rem;
   transition: all 0.5s ease;
   z-index: -1;
   
   #book-share{
     font-size: 2rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
     opacity: 0.7;
     text-align: center;
     
     .share-book {
       &:before {
-        content: "Share with your network";
+        content: "Share and seek feedback from your network";
         display: inherit;
-        font-size: 0.8rem;
+        font-size: 1.4rem;
         font-weight: 100;
         margin-bottom: 15px;
       }
@@ -1401,6 +1402,37 @@
       display: inline;
       margin: 7px;
       position: relative;
+    }
+  }
+  
+  #lib-submission {
+    font-size: 1.4rem;
+    font-weight: 100;
+    margin-top: 3rem;
+    opacity: 0.7;
+    text-align: center;
+  }
+  
+  .published, .published-i {
+    border-bottom: 1px solid rgba($black, 0.5);
+  }
+  
+  .wrapper-ii {
+    border-bottom: 1px solid rgba($black, 0.15);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-left: 20%;
+    margin-top: -1rem;
+    opacity: 0.7;
+    text-align: center;
+    width: 60%;
+    
+    &:before {
+      content: "just pubslished";
+      font-size: 0.7rem;
+      font-weight: 100;
+      text-align: center;
+      text-transform: uppercase;
     }
   }
 }

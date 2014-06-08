@@ -850,6 +850,39 @@ function getLibraries() {
 
 }
 
+function getLibrariesSuggestion() {
+    sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/libraries/getGodLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+            for (i in libraries) {
+                library = libraries[i];	
+		
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+
+                $("#suggested-lib-list").append(libs);
+             }
+            getUser();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
+}
+
 function callUpdate() {
 
     sessionId = readCookie("JSESSIONID");
