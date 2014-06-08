@@ -50,7 +50,10 @@ body.library-manager {
 					opacity: 0.9;	
 				}
 				
-				li { margin-top: -1rem !important; }
+				li {
+					height: 110px;
+					margin-top: -1rem !important;
+				}
 				
 				.lib-blurb {
 					position: relative;

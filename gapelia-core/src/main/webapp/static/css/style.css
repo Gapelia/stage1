@@ -3691,6 +3691,7 @@ body.library-manager #featured-nav .suggested-libs #suggested-lib-list a {
   margin-right: 1rem;
   opacity: 0.9; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list li {
+  height: 110px;
   margin-top: -1rem !important; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list .lib-blurb {
   position: relative;
