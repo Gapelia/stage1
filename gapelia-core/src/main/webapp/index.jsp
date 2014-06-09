@@ -54,7 +54,7 @@
 				<button class="gplus-btn">Sign in with Gmail</button>
 			</div>
 
-			<img class="page-bg" src="/static/images/cover.jpg"/>
+			<img class="page-bg" src="/static/images/rock-bg.gif"/>
 
 			<footer>
 				<nav>

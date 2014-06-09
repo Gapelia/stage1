@@ -15,7 +15,7 @@ body.landing {
 			bottom: 0; left: 0;
 
 			background-color: transparent;
-			background: rgba($black, 0.7);
+			background: rgba($black, 0.8);
 			content: "";
 			opacity: 1;
 			position: absolute;
@@ -30,7 +30,7 @@ body.landing {
 		opacity: 0.8;
 		position: absolute;
 		text-align: right;
-		top: 0; right: 1rem;
+		top: -10px; right: 1rem;
 		z-index: 10;
 	}
 	
@@ -53,7 +53,7 @@ body.landing {
 	h4 {
 		border-bottom: 1px solid rgba($white, 0.25);
 		color: rgba($white, 0.85);
-		font-weight: 100;
+		font-weight: 700;
 		margin: 0 auto;
 		padding: 0 0 1rem 0;
 		position: relative;
