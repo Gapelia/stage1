@@ -153,9 +153,9 @@ function getBookmarkedBooks() {
                 for (i in bookmarks) {
                     bookmark = bookmarks[i];
                     if (bookmark.bookId in bookmarked == true) {
-                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
                     } else {
-                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
                     }
                     toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
                     toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
@@ -2137,7 +2137,7 @@ $(document).on("click", ".bookmark-this", function (ev) {
     bookId = e.parent().attr("id");
     sessionId = readCookie("JSESSIONID");
     if (e.parent().hasClass('bookmarked') == true) {
-        $(this).closest("li").remove();
+	$(this).closest("li").addClass("active");
         $.ajax({
             url: "/api/actions/removeBookmarkBook",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",

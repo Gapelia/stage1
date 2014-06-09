@@ -155,8 +155,12 @@
 		Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 
 		$("#publish-this").on("click", function (e) {
+				
+		lastPublishedBook = getLastPublishedBookId();
+		getUserFromBookId(lastPublishedBook.bookId)
 
-			$("#publish-modal").html("<div class='wrapper'><p>Your story has been published!</p><div class='wrapper'><a class='published' href='/libraryManager'>Submit it to a library and gain exposure.</a></div>");
+			$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"http://folio.is/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
+				
 			e.preventDefault();
 				
 			currentWebsite = document.URL;
@@ -164,11 +168,12 @@
 			getUserFromBookId(lastPublishedBook.bookId)
 				
 			facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + lastPublishedBook.bookId;
-			twitterShare = "http://twitter.com/share?text="+lastPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + lastPublishedBook.bookId;
+			twitterShare = "http://twitter.com/share?text="+lastPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read" + lastPublishedBook.bookId;
 			emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ lastPublishedBook.title + " by " + bookOwner.fullName + "   " +  "folio.is/read/" + lastPublishedBook.bookId;
-				
+								
 			$("#publish-modal").append("<div id=\"book-share\"><ul class=\"share-book\"><li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul></div>");
-
+			$("#publish-modal").append("<div id=\"lib-submission\">Submit to a <a class='published' href='/libraryManager'>curated library</a> or start editing <a class='published-i' href='/createlibrary'>your own.</a></div>");
+			$("#publish-modal").append("<div id=\"lib-tutorial\" style=\"bottom: 1rem; right: 1rem; position: absolute\">Want to learn more about libraries? <a class='published' href='http://folio.is/read/756'>Read this</a></div>");
 		});
 		</script>
 		<!--//scripts /-->

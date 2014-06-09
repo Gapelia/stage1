@@ -370,7 +370,6 @@
 
 	}
 	
-
 	// Base Layout
 	// @Gapelia
 	// ------------------------------------------------------------------------------------
@@ -1209,7 +1208,7 @@
 
 	}, 1000);
 
-	// Save book information every 5 seconds
+	// Save book information every 10 seconds
 	window.setInterval(function () {
 
 		updateBookAndPages(false);
@@ -1217,7 +1216,7 @@
 
 	}, 10000);
 
-	// Save page information every 5 seconds
+	// Save page information every 10 seconds
 	window.setInterval(function () {
 
 		imageURL = $(".page-bg").attr("src");
@@ -1249,9 +1248,10 @@
             alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
         }
 	
+	firstTitle=pages.page[0].title;
+	
         $("#publish-book-title").html(firstTitle);
         $(".page-title-elem").html(title);
-		// Publish modal, to be deleted and replaced with better
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",

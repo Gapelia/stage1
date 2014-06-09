@@ -56,25 +56,6 @@
 			}
 		}
 
-		// Edit Profile on "Me" page
-		/*
-		$(document).on("click", "button.edit-profile", function () {
-
-			$("button.edit-profile").text("Save Profile").removeClass("edit-profile slate").addClass("save-profile green");
-			$("#user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
-			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(25, 25, 25, 0.3)").trigger("focus");
-
-		});
-
-		$(document).on("click", "button.save-profile", function () {
-
-			$("button.save-profile").text("Edit Profile").removeClass("save-profile green").addClass("edit-profile slate");
-			$("#user-bio").attr("contenteditable", "false").css("background-color", "transparent");
-			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
-
-		});
-		*/
-
 		// "Me" splash functionality
 		$(document).on("click", "#splash-edit-profile", function (e) {
 
@@ -215,12 +196,12 @@
 					"opacity": "0",
 					"margin": "2px 0 0 0"
 				});
-
+				
 				$(this).closest("li").remove();
-
+				
 				// gets all books in a section
 				var allBooks = $("#user-book-list li");
-
+				
 				// holds function for one second and then adds width to body tag
 				setTimeout(function () {
 
@@ -343,7 +324,12 @@
 					"margin": "2px 0 0 0"
 				});
 
-				$(this).closest("li").remove();
+				//color goes back to white//
+				$(this).find(".top-bm").css("border-top", "20px solid white");
+
+				$(this).find(".bottom-bm").css("border-bottom", "20px solid white");
+
+				$(this).find(".right-bm").css("background-color", "white");
 
 				// gets all books in a section
 				var allBooks = $("#user-book-list li");
@@ -374,7 +360,7 @@
 			}
 
 		});
-
+	
 		// Remove bookmark in Bookshelf section on / featured
 		$(document).on("click", ".book-list-wrapper .bookmarked .bookmark-this", function () {
 

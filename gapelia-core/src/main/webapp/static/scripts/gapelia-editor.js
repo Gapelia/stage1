@@ -157,7 +157,7 @@ function pasteHtmlAtCaret(html) {
 	GapeliaEditor.prototype = {
 		defaults: {
 			allowMultiParagraphSelection: true,
-			anchorInputPlaceholder: "Paste or type a link",
+			anchorInputPlaceholder: "Paste or type a link without www or http://",
 			buttons: ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "pre"],
 			delay: 0,
 			diffLeft: 0,
@@ -362,7 +362,7 @@ function pasteHtmlAtCaret(html) {
 
 				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">h2</button></li>',
 
-				"quote": '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote">&ldquo;</button></li>',
+				"quote": '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote" style="padding-top: 10px !important;">&ldquo;</button></li>',
 
 				"orderedlist": '<li><button class="gapelia-editor-action gapelia-editor-action-orderedlist" data-action="insertorderedlist" data-element="ol">1.</button></li>',
 
@@ -374,6 +374,7 @@ function pasteHtmlAtCaret(html) {
 			return buttonTemplates[btnType] || false;
 
 		},
+    
 
 		// TODO: actionTemplate
 		toolbarTemplate: function () {

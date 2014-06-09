@@ -346,7 +346,7 @@ function getLibraryFromBookRec(bookId) {
 function getReadNextBook() {
         
         if (typeof user == "undefined") {
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio and join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio. Join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                     
                     htmlToInsert += backPage;
                     $("#bb-bookblock").html(htmlToInsert);
