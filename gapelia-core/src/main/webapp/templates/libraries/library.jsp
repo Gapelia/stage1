@@ -63,7 +63,7 @@
                     </li>
 		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
                     </li>
-                    <li class="not-mobile"><a href="/createbook">Create book</a>
+                    <li class="not-mobile"><a href="/createbook">New Story</a>
                     </li>
 
                     <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
