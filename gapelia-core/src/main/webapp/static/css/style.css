@@ -2438,6 +2438,23 @@ body.landing .error {
   /* 1rem */
   right: 1rem;
   position: absolute; }
+.app #intro {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
+  color: black;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  padding: 4rem;
+  opacity: 0.75; }
+.app #intro #intro-hello {
+  width: 40%; }
+.app #intro #next-intro {
+  background-color: black !important;
+  margin-left: 26% !important;
+  padding: 11px !important;
+  position: absolute; }
 .app #user-panel, .app #book-scroller, .app #dimension-panel, .app #dimension-scroller, .app #featured-panel, .app #featured-scroller {
   float: left;
   height: 100%;
@@ -3353,8 +3370,6 @@ body.landing .error {
   transition: all 0.2s ease;
   width: 100%;
   z-index: 100; }
-.onboard #onboard-photos-overlay .button-wrapper button:hover {
-  padding: 0.5rem 0.5rem !important; }
 .onboard #onboard-photos-overlay .account-user-avatar, .onboard #onboard-photos-overlay #account-splash-user-info {
   z-index: 100; }
 .onboard #onboard-photos-overlay .account-avatar-wrapper {
@@ -3409,6 +3424,7 @@ body.landing .error {
   color: #fcfcfc;
   font-size: 3rem; }
 .onboard #onboard-photos-overlay #user-info #user-bio {
+  background-color: rgba(252, 252, 252, 0.5);
   display: block;
   font-size: 1.5rem;
   line-height: 2.1rem;
@@ -3418,6 +3434,7 @@ body.landing .error {
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-size: 0.7rem;
   font-style: italic;
+  margin-top: 5px;
   padding: 0 0.5rem 0.3rem 0.5rem;
   text-align: right;
   width: 110px; }
@@ -7523,6 +7540,14 @@ a.count span.dont-move {
   .app #g-menu-toggle {
     top: 0.35rem;
     left: 1.1rem; }
+  .app #intro {
+    font-size: 1.8rem;
+    padding-top: 4rem !important;
+    padding-left: 2rem !important; }
+  .app #intro p {
+    width: 33% !important; }
+  .app #intro #next-intro {
+    margin-left: 24% !important; }
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
   .app .bookmarked .bookmark-this .top-bm {

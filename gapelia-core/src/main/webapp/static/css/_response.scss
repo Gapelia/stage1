@@ -152,6 +152,17 @@
 
 		#g-menu-toggle { top: 0.35rem; left: 1.1rem; }
 		
+		//onboarding//
+		#intro {
+			font-size: 1.8rem;
+			padding-top: 4rem !important;
+			padding-left: 2rem !important;
+			
+			p { width: 33% !important; }
+			
+			#next-intro { margin-left: 24% !important; }
+		}
+		
 		.bookmarked {
 			.bookmark-this {
 				.right-bm { width: 47px; }

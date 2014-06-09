@@ -93,6 +93,28 @@
 			position: absolute;
 		}
 	}
+  
+  #intro {
+    height: 100%; width: 100%;
+    background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
+    color: black;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.25;
+    padding: 4rem;
+    opacity: 0.75;
+    
+    #intro-hello {
+      width: 40%;
+    }
+    
+    #next-intro {
+      background-color: black !important;
+      margin-left: 26% !important;
+      padding: 11px !important;
+      position: absolute;
+    }
+  }
 
 	#user-panel, #book-scroller,
 	#dimension-panel, #dimension-scroller,
@@ -1316,8 +1338,6 @@
 			transition: all 0.2s ease;
 			width: 100%;
 			z-index: 100; // 1
-
-			button:hover { padding: 0.5rem 0.5rem !important; }
 		}
 
 		.account-user-avatar, #account-splash-user-info {
@@ -1397,7 +1417,8 @@
 			}
 
 			#user-bio {
-				display: block;
+				background-color: rgba($white, 0.5);
+        display: block;
 				font-size: 1.5rem; // 1.8rem
 				line-height: 2.1rem;
 				padding: 1rem;
@@ -1408,6 +1429,7 @@
 				@include serif;
 				font-size: 0.7rem;
 				font-style: italic;
+        margin-top: 5px;
 				padding: 0 0.5rem 0.3rem 0.5rem;
 				text-align: right;
 				width: 110px;

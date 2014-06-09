@@ -44,13 +44,18 @@
 
 		<!--/ main-content /-->
 		<div id="featured-scroller">
-			<div id="header-message">
+			<div id="header-message" style="opacity: 0";>
 				Subscribe to at least 3 libraries. Personalize your experience.
 				<button id="onboard-next" class="branded">Next step</button>
 			</div>
+			
+			<div id="intro">
+				<p id="intro-hello"><b>Folio</b> is a network where ideas and stories are organized in topic-based libraries. Each library is curated by an editor, who can accept and reject submissions.</br></br>Because you are new to Folio, we invite you to subscribe to a few of the libraries that currently exist.</p>
+				</br><button id="next-intro" class="branded">Ok, I get it</button>
+			</div>
 
 			<!--/ Featured Libraries /-->
-			<div class="library-list-wrapper">
+			<div class="library-list-wrapper" style="z-index: -1">
 				<ul id="explore-list"></ul>
 			</div>	
 		</div>
@@ -151,7 +156,7 @@
 				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
 				oop += "<div class=\"overlay-controls\">";
-				oop += "<button class=\"transparent-ii\" id=\"finalize-setup\">Profile is all set!</button>";
+				oop += "<button class=\"branded\" id=\"finalize-setup\">Profile is all set!</button>";
 				oop += "</div>";
 
 				oop += "<div class=\"account-user-avatar\">";
@@ -183,6 +188,13 @@
 				$(document).one("click", "#user-bio", function () { $(this).text(""); });
 				$("#user-bio").limit({ maxlength: 150 });
 
+				
+				//intro message goes away on click//
+				$("#next-intro").click(function (e) {
+					$("#intro").css("opacity", "0");
+					$("#header-message").css("opacity", "1");
+				});
+				
 				// Overlay — onboard photos
 				$("#onboard-next").click(function (e) {
 
