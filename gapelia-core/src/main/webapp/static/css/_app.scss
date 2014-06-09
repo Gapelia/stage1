@@ -115,6 +115,65 @@
       position: absolute;
     }
   }
+  
+  #university-affiliation {
+    height: 100%; width: 100%;
+    
+    background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
+    padding: 9rem 15rem;
+    position: absolute;
+    text-align: center;
+    z-index: 10000000000;
+    
+    button {
+      position: absolute;
+      right: 1rem; top: 1rem;
+    }
+    
+    #university-search, #school-search {
+      margin-left: 25%;
+      width: 50%;
+    }
+    
+    #school-intro, #uni-intro {
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+    
+    #school-intro { margin-top: 3rem; }
+    
+    #uni-intro a { border-bottom: 1px solid rgba($black, 0.3); }
+    
+    #welcome {
+      position: absolute;
+      top: 0.5rem; left: 1rem;
+      
+      font-size: 1.5rem;
+      font-weight: 100;
+      
+      p {
+        display: inline;
+        font-weight: 500;
+      }
+    }
+    
+    //dropdown stuff//
+    .selectize-control {
+      margin-left: 25%;
+      width: 50%;
+      
+      input {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+    
+    .selectize-control.single .selectize-input {
+      background-image: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
 
 	#user-panel, #book-scroller,
 	#dimension-panel, #dimension-scroller,
@@ -1419,7 +1478,7 @@
 			#user-bio {
 				background-color: rgba($white, 0.5);
         display: block;
-				font-size: 1.5rem; // 1.8rem
+				font-size: 1.25rem; 
 				line-height: 2.1rem;
 				padding: 1rem;
 			}

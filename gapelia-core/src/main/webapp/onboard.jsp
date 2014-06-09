@@ -37,19 +37,29 @@
 
 		<script src="/static/scripts/nprogress.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
+		<script src="/static/scripts/selectize.js"></script>
 
 	</head>
 
 	<body class="app profile onboard">
 
 		<!--/ main-content /-->
-		<div id="featured-scroller">
+		<div id="featured-scroller" style="overflow-x: hidden";>
 			<div id="header-message" style="opacity: 0";>
 				Subscribe to at least 3 libraries. Personalize your experience.
 				<button id="onboard-next" class="branded">Next step</button>
 			</div>
 			
-			<div id="intro">
+			<div id="university-affiliation">
+				<h1 id="welcome"><p></p>, welcome to Folio</h1>
+				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Currently Harvard only. Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added.</p>
+				<select id="university-search" placeholder="Select university"></select>
+				<p id="school-intro"><b>School affiliation</b></br>We will use this information to personalize your experience.</p>
+				<select id="school-search" placeholder="Select school"></select>
+				</br><button id="uni-next" class="branded">NEXT STEP</button>
+			</div>
+			
+			<div id="intro" style="opacity: 0";>
 				<p id="intro-hello"><b>Folio</b> is a network where ideas and stories are organized in topic-based libraries. Each library is curated by an editor, who can accept and reject submissions.</br></br>Because you are new to Folio, we invite you to subscribe to a few of the libraries that currently exist.</p>
 				</br><button id="next-intro" class="branded">Ok, I get it</button>
 			</div>
@@ -111,25 +121,25 @@
 					
 				if ($vW > "1024") {
 				    $(".library-list-wrapper").sly({
-						horizontal: 1,
-						itemNav: 'forceCentered',
-						smart: 1,
-						activateMiddle: 1,
-						//activateOn: 'mouseenter',
-						mouseDragging: 1,
-						touchDragging: 1,
-						swingSpeed: 1,
-						releaseSwing: 0,
-						startAt: 0,
-						scrollBar: $(".scrollbar"),
-						scrollBy: 1,
-						speed: 0.0001,
-						elasticBounds: 1,
-						easing: 'swing',
-						dragHandle: 1,
-						dynamicHandle: 1,
-						clickBar: 1,
-						keyboardNavBy: 'items',
+					horizontal: 1,
+					itemNav: 'forceCentered',
+					smart: 1,
+					activateMiddle: 1,
+					//activateOn: 'mouseenter',
+					mouseDragging: 1,
+					touchDragging: 1,
+					swingSpeed: 1,
+					releaseSwing: 0,
+					startAt: 0,
+					scrollBar: $(".scrollbar"),
+					scrollBy: 1,
+					speed: 0.0001,
+					elasticBounds: 1,
+					easing: 'swing',
+					dragHandle: 1,
+					dynamicHandle: 1,
+					clickBar: 1,
+					keyboardNavBy: 'items',
 				    });
 				}
 				
@@ -156,7 +166,7 @@
 				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
 				oop += "<div class=\"overlay-controls\">";
-				oop += "<button class=\"branded\" id=\"finalize-setup\">Profile is all set!</button>";
+				oop += "<button class=\"branded\" id=\"finalize-setup\">Go to Folio!</button>";
 				oop += "</div>";
 
 				oop += "<div class=\"account-user-avatar\">";
@@ -169,7 +179,7 @@
 				oop += "</div>";
 
 				oop += "<div id=\"user-info\">";
-				oop += "<h2 id=\"user-name\">Paul Anthony Webb</h2>";
+				oop += "<h2 id=\"user-name\"></h2>";
 				oop += "<div id=\"user-bio\" contenteditable=\"true\">Add your bio...</div>";
 				oop += "</div>";
 
@@ -180,19 +190,57 @@
 				oop += "</div>";
 
 				$("body").append(oop);
-
+				
+				//asssign factors to html//
+				$("#university-affiliation #welcome p").html(user.name);
 				$("#user-info h2").html(user.name);
 				$(".account-avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
 
 				// Empty bio field when user clicks in it
 				$(document).one("click", "#user-bio", function () { $(this).text(""); });
-				$("#user-bio").limit({ maxlength: 150 });
+				$("#user-bio").limit({ maxlength: 300 });
 
 				
-				//intro message goes away on click//
+				//clicking on uni//
+				$("#uni-next").click(function (e) {
+					$("#intro").css("opacity", "0.75");
+					$("#university-affiliation").css("display", "none");
+				});
+				
+				//school and uni dropdowns//
+				$("#university-search").selectize({
+					options: [
+						{ name: "Harvard University", value: "harvard university" },
+					],
+					labelField: "name",
+					searchField: ["name"]
+				});
+				
+				$("#school-search").selectize({
+					options: [
+						{ name: "Harvard Business School", value: "harvardbusinessschool" },
+						{ name: "Division of Continuing Education", value: "harvardcontinuingeducation" },
+						{ name: "Harvard Graduate School of Arts and Sciences", value: "harvardschoolartsandsciences" },
+						{ name: "Graduate School of Design", value: "harvardgraduateschoolofdesign" },
+						{ name: "Harvard Graduate School of Education", value: "harvardgraduteschooleducation" },
+						{ name: "Harvard Kennedy School", value: "harvardkennedyschool" },
+						{ name: "Harvard Law School", value: "harvardlawschool" },
+						{ name: "Harvard School of Public Health", value: "harvardschoolofpublichealth" },
+						{ name: "Harvard College", value: "harvardcollege" },
+						{ name: "Harvard School of Dental Medicine", value: "harvardschoolofdentalmedicine" },
+						{ name: "Harvard Divinity School", value: "harvarddivinityschool" },
+						{ name: "Harvard School of Engineering and Applied Sciences", value: "harvard engineeringappliedsciences" },
+						{ name: "Harvard Medical School", value: "harvardmedicalschool" },
+					],
+					labelField: "name",
+					searchField: ["name"]
+				});
+								
+				//tutorial message goes away on click//
 				$("#next-intro").click(function (e) {
 					$("#intro").css("opacity", "0");
 					$("#header-message").css("opacity", "1");
+					$("#featured-scroller").css("overflow-x", "auto");
 				});
 				
 				// Overlay — onboard photos

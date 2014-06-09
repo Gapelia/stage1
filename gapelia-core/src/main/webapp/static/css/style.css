@@ -2455,6 +2455,47 @@ body.landing .error {
   margin-left: 26% !important;
   padding: 11px !important;
   position: absolute; }
+.app #university-affiliation {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
+  padding: 9rem 15rem;
+  position: absolute;
+  text-align: center;
+  z-index: 10000000000; }
+.app #university-affiliation button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem; }
+.app #university-affiliation #university-search, .app #university-affiliation #school-search {
+  margin-left: 25%;
+  width: 50%; }
+.app #university-affiliation #school-intro, .app #university-affiliation #uni-intro {
+  font-size: 1.25rem;
+  line-height: 1.25; }
+.app #university-affiliation #school-intro {
+  margin-top: 3rem; }
+.app #university-affiliation #uni-intro a {
+  border-bottom: 1px solid rgba(25, 25, 25, 0.3); }
+.app #university-affiliation #welcome {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 100; }
+.app #university-affiliation #welcome p {
+  display: inline;
+  font-weight: 500; }
+.app #university-affiliation .selectize-control {
+  margin-left: 25%;
+  width: 50%; }
+.app #university-affiliation .selectize-control input {
+  font-size: 1rem;
+  text-align: center; }
+.app #university-affiliation .selectize-control.single .selectize-input {
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important; }
 .app #user-panel, .app #book-scroller, .app #dimension-panel, .app #dimension-scroller, .app #featured-panel, .app #featured-scroller {
   float: left;
   height: 100%;
@@ -3426,7 +3467,7 @@ body.landing .error {
 .onboard #onboard-photos-overlay #user-info #user-bio {
   background-color: rgba(252, 252, 252, 0.5);
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 2.1rem;
   padding: 1rem; }
 .onboard #onboard-photos-overlay #user-info .chars-remaining {
@@ -7548,6 +7589,9 @@ a.count span.dont-move {
     width: 33% !important; }
   .app #intro #next-intro {
     margin-left: 24% !important; }
+  .app #university-affiliation .selectize-control {
+    margin-left: 30% !important;
+    width: 40% !important; }
   .app .bookmarked .bookmark-this .right-bm {
     width: 47px; }
   .app .bookmarked .bookmark-this .top-bm {
@@ -7748,6 +7792,8 @@ a.count span.dont-move {
     margin-left: 50%; }
   .app #featured-nav .tt-dropdown-menu {
     margin-left: 47%; }
+  .app #university-affiliation {
+    padding: 13rem 15rem; }
 
   body.library-manager .library .wrapper {
     bottom: 10rem; }

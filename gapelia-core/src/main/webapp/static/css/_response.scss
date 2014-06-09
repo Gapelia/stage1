@@ -163,6 +163,13 @@
 			#next-intro { margin-left: 24% !important; }
 		}
 		
+		#university-affiliation .selectize-control {
+			margin-left: 30% !important;
+			width: 40% !important;
+		}
+		
+		//onboarding//
+		
 		.bookmarked {
 			.bookmark-this {
 				.right-bm { width: 47px; }
@@ -457,6 +464,8 @@
 			.typeahead { margin-left: 50%; }
 			.tt-dropdown-menu { margin-left: 47%; }
 		}
+		
+		#university-affiliation { padding: 13rem 15rem; }
 	}
 	
 	// library manager //
