@@ -168,6 +168,8 @@
 
 $( document ).ready(function() {
      	 loadDelete();
+        
+	document.addEventListener("readrboard.reaction",function(){console.log("readrboard.reaction"); console.log( readrboard.getLastEvent() );},false);
 
 
 	book = getFullBookFromBookId(bookId);
