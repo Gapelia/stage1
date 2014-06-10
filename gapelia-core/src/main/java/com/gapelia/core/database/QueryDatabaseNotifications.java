@@ -41,9 +41,9 @@ public class QueryDatabaseNotifications {
 		ArrayList<CommentNotification> commentNotifications = new ArrayList<CommentNotification>();
 
 		for(Book b : ownedBooks){
-				CommentNotification c = getCommentNotificationByBookId(b.getBookId());
-				if(c != null){
-					commentNotifications.add(c);
+				ArrayList<CommentNotification> c = getCommentNotificationsByBookId(b.getBookId());
+				if(c.size() > 0){
+					commentNotifications.addAll(c);
 				}
 		}
 
@@ -74,19 +74,20 @@ public class QueryDatabaseNotifications {
 		return result;
 	}
 
-	public static CommentNotification getCommentNotificationByBookId(int bookId){
+	public static ArrayList<CommentNotification> getCommentNotificationsByBookId(int bookId){
 		PreparedStatement selectStatement = null;
 		ResultSet rs = null;
-		CommentNotification commentNotification = null;
+		ArrayList<CommentNotification> commentNotifications = new ArrayList<CommentNotification>();
 		try {
 			selectStatement = connection.prepareStatement(GET_COMMENT_NOTIFICATION);
 			selectStatement.setInt(1, bookId);
 			rs = selectStatement.executeQuery();
-			if(rs.next()) {
-				commentNotification = new CommentNotification();
+			while(rs.next()) {
+				CommentNotification commentNotification = new CommentNotification();
 				commentNotification.setNotificationId(rs.getInt("id"));
 				commentNotification.setCommenterUserId(rs.getInt("commenter"));
 				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
+				commentNotifications.add(commentNotification);
 			}
 		} catch (SQLException ex) {
 			LOG.error("Cannot get comment notifications for bookid:" + bookId + " " + ex.getMessage());
@@ -102,7 +103,7 @@ public class QueryDatabaseNotifications {
 				LOG.error("Error closing connection while getting comment notifs for bookid:" + bookId + " " + ex.getMessage());
 			}
 		}
-		return commentNotification;
+		return commentNotifications;
 	}
 
 	public  static String removeCommentNotification(int notificationId) {
