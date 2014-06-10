@@ -37,7 +37,29 @@
       }	
     }
     
-    #stay-right {
+    //edit book//
+    #edit-shortcut {
+      font-size: 0.9rem;
+      right: 0 !important;
+      text-align: center !important;
+      text-transform: uppercase;
+      
+      a {
+          &:hover {
+          background-color: #59B3A6 !important;
+          background-image: none !important;
+          border: 1px solid #59B3A6 !important;
+          color: white;
+          border-radius: 8px;
+          opacity: 1;
+            
+          &:after { content: "" !important; }
+        }
+      }  
+    }
+    
+    //add to library//
+    #stay-right, #edit-shortcut {
       height: 75px;
       padding: 1.4rem 1.25rem 0 0;
       position: absolute;
@@ -63,6 +85,7 @@
           color: white;
           border-radius: 8px;
           opacity: 1;
+          z-index: 101 !important;
           
           &:after { content: "Add to library"; margin-left: 5px; }
         }

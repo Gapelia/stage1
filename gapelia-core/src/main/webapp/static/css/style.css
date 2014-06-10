@@ -6570,7 +6570,21 @@ a.count span.dont-move {
   display: inline !important;
   margin: 5px;
   text-decoration: underline; }
-.full-book #the-book #stay-right {
+.full-book #the-book #edit-shortcut {
+  font-size: 0.9rem;
+  right: 0 !important;
+  text-align: center !important;
+  text-transform: uppercase; }
+.full-book #the-book #edit-shortcut a:hover {
+  background-color: #59B3A6 !important;
+  background-image: none !important;
+  border: 1px solid #59B3A6 !important;
+  color: white;
+  border-radius: 8px;
+  opacity: 1; }
+.full-book #the-book #edit-shortcut a:hover:after {
+  content: "" !important; }
+.full-book #the-book #stay-right, .full-book #the-book #edit-shortcut {
   height: 75px;
   padding: 1.4rem 1.25rem 0 0;
   position: absolute;
@@ -6579,7 +6593,7 @@ a.count span.dont-move {
   right: 0;
   width: 100%;
   z-index: 100; }
-.full-book #the-book #stay-right a {
+.full-book #the-book #stay-right a, .full-book #the-book #edit-shortcut a {
   background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2));
   color: white;
   border-radius: 400em;
@@ -6587,27 +6601,28 @@ a.count span.dont-move {
   font-size: 1rem;
   letter-spacing: 0.5px;
   padding: 8px 11px 8px 11px; }
-.full-book #the-book #stay-right a:hover {
+.full-book #the-book #stay-right a:hover, .full-book #the-book #edit-shortcut a:hover {
+  background-color: #59B3A6 !important;
+  background-image: none !important;
+  border: 1px solid #59B3A6 !important;
+  color: white;
+  border-radius: 8px;
+  opacity: 1;
+  z-index: 101 !important; }
+.full-book #the-book #stay-right a:hover:after, .full-book #the-book #edit-shortcut a:hover:after {
+  content: "Add to library";
+  margin-left: 5px; }
+.full-book #the-book #stay-right .clicked-list, .full-book #the-book #edit-shortcut .clicked-list {
   background-color: #59B3A6 !important;
   background-image: none !important;
   border: 1px solid #59B3A6 !important;
   color: white;
   border-radius: 8px;
   opacity: 1; }
-.full-book #the-book #stay-right a:hover:after {
+.full-book #the-book #stay-right .clicked-list:after, .full-book #the-book #edit-shortcut .clicked-list:after {
   content: "Add to library";
   margin-left: 5px; }
-.full-book #the-book #stay-right .clicked-list {
-  background-color: #59B3A6 !important;
-  background-image: none !important;
-  border: 1px solid #59B3A6 !important;
-  color: white;
-  border-radius: 8px;
-  opacity: 1; }
-.full-book #the-book #stay-right .clicked-list:after {
-  content: "Add to library";
-  margin-left: 5px; }
-.full-book #the-book #stay-right ul {
+.full-book #the-book #stay-right ul, .full-book #the-book #edit-shortcut ul {
   display: none;
   top: 3.8rem;
   right: 1.25rem !important;
@@ -6618,29 +6633,29 @@ a.count span.dont-move {
   min-width: 225px;
   position: absolute;
   width: auto; }
-.full-book #the-book #stay-right ul li {
+.full-book #the-book #stay-right ul li, .full-book #the-book #edit-shortcut ul li {
   border-bottom: 1px solid rgba(25, 25, 25, 0.1);
   color: rgba(0, 0, 0, 0.75);
   font-weight: 100;
   padding: 12px; }
-.full-book #the-book #stay-right ul li #check-icon {
+.full-book #the-book #stay-right ul li #check-icon, .full-book #the-book #edit-shortcut ul li #check-icon {
   color: #59B3A6;
   margin-right: 10px; }
-.full-book #the-book #stay-right ul li:last-child {
+.full-book #the-book #stay-right ul li:last-child, .full-book #the-book #edit-shortcut ul li:last-child {
   border: 0;
   margin-bottom: 0; }
-.full-book #the-book #stay-right ul li:first-letter {
+.full-book #the-book #stay-right ul li:first-letter, .full-book #the-book #edit-shortcut ul li:first-letter {
   text-transform: uppercase; }
-.full-book #the-book #stay-right ul li a {
+.full-book #the-book #stay-right ul li a, .full-book #the-book #edit-shortcut ul li a {
   background-image: none;
   border: none;
   color: rgba(25, 25, 25, 0.8);
   padding: 0; }
-.full-book #the-book #stay-right ul li a:hover {
+.full-book #the-book #stay-right ul li a:hover, .full-book #the-book #edit-shortcut ul li a:hover {
   background-color: transparent !important;
   border: none !important;
   color: #59B3A6 !important; }
-.full-book #the-book #stay-right ul li a:hover:after {
+.full-book #the-book #stay-right ul li a:hover:after, .full-book #the-book #edit-shortcut ul li a:hover:after {
   content: none;
   margin-left: 0; }
 .full-book .mp-pushed #g-menu-toggle {
@@ -7642,6 +7657,8 @@ a.count span.dont-move {
     left: 5.5rem;
     padding-top: 0.9rem;
     top: 0.6rem; }
+  .app #featured-nav #search-ii {
+    top: 20px !important; }
   .app #featured-nav .typeahead {
     margin-left: 58% !important; }
   .app #featured-nav .tt-dropdown-menu {

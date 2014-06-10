@@ -62,6 +62,9 @@
 				<ul></ul>
 			</li>
 		</ul>
+		<ul id="edit-shortcut">
+			    <a class=submission-dropdown href="#">Edit Work</a>
+		</ul>
 		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
         </div>
 
@@ -135,8 +138,25 @@
 		}, 2500);
 	});
 	
+	//only show edit option if owner of book//
+	$(document).ready(function (e) {
+		
+	var author = bookOwner.name;
+	var reader = user.name;
+	
+		if (author == reader) {
+			$("#the-book #edit-shortcut").show();
+		} else {
+			$("#the-book #edit-shortcut").remove();
+		}	
+	});
+	
+	// Click Edit Work
+        $("#the-book #edit-shortcut").click(function (e) {
+		window.location.href = "/editbook/" +current.bookId;
+        });
+	
 	// Hide submission dropdown when click outisde
-
 	$(document).mouseup(function (e) {
 
 	var container = $("#my-libraries ul, #collection-pop");
@@ -147,7 +167,6 @@
 		container.hide(); // ... nor a descendant of the container
 		clicked.removeClass();
 	}});
-	
 	
 	// Dropdown menu for mobile
         if ($vW < "1024") {

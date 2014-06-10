@@ -149,7 +149,7 @@
 	}
 	
 	.app {
-
+		
 		#g-menu-toggle { top: 0.35rem; left: 1.1rem; }
 		
 		//onboarding//
@@ -221,6 +221,8 @@
 			left: 5.5rem;
 			padding-top: 0.9rem;
 			top: 0.6rem;
+			
+			#search-ii { top: 20px !important; }
 			
 			.typeahead {
 				margin-left: 58% !important;
