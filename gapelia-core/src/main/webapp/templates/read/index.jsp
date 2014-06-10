@@ -169,7 +169,34 @@
 $( document ).ready(function() {
      	 loadDelete();
         
-	document.addEventListener("readrboard.reaction",function(){console.log("readrboard.reaction"); console.log( readrboard.getLastEvent() );},false);
+	document.addEventListener("readrboard.reaction",function(){
+					    //console.log("readrboard.reaction"); 
+					    
+					    $.ajax({
+					    url: "/api/notifications/createCommentNotification",
+					    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					    async: false,
+					    type: "POST",
+					    data: {
+					      sessionId: sessionId,
+					      referencedBook: current.bookId
+					    },
+					    success: function (data) {
+					    console.log("notification submitted to book: " + current.bookId);
+					    console.log("data returned: " + data);
+
+					    },
+					    error: function (q, status, err) {
+					        if (status == "timeout") {
+					    alert("Request timed out");
+					        } else {
+					    alert("Since you are not signed in, your feedback will be anonymous!");
+					        }
+					    }
+					    });
+
+					    
+					    } ,false); //end readerboard block
 
 
 	book = getFullBookFromBookId(bookId);
