@@ -1219,9 +1219,11 @@
 				margin: 0 0 2rem 0;
 			}
 			
-			#splash-user-info { top: 32.5%; }
+			#splash-user-info { top: 26.5%; }
 			
-			.user-avatar { top: 16.5%; }
+			#user-extra { bottom: -20rem; }
+			
+			.user-avatar { top: 21.5%; }
 			
 			#close-splash {
 				bottom: 0.5rem;
@@ -2212,7 +2214,7 @@
 				
 			#splash-user-info {
 				padding: 0 6rem;
-				top: 33%;
+				top: 23%;
 			}
 			
 			h1 {
@@ -2482,11 +2484,11 @@
 		}
 		
 		#user-splash {
-			.user-avatar { top: 12%; }
+			.user-avatar { top: 19%; }
 			#splash-user-bio { font-size: 1rem; }
 			#splash-user-info {
 				padding: 0 4rem;
-				top: 30%;
+				top: 24%;
 			}
 			h1 { font-size: 2rem; }
 		}
@@ -2789,7 +2791,7 @@
 			
 			#splash-user-info { padding: 0 1rem; }
 			
-			.user-avatar { top: 12%; }
+			.user-avatar { top: 17%; }
 		}
 	}
 	
@@ -3417,10 +3419,15 @@
 				}
 			}
 			
+			#user-box {
+				left: 6%;
+				width: 85%;
+			}
+			
 			#splash-user-info {
 				color: rgba($black, 0.8);
 				padding: 0;
-				top: 37%;
+				top: 17%;
 				
 				h1 {
 					font-size: 1.8rem;

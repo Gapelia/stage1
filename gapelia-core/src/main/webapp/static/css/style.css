@@ -8335,9 +8335,11 @@ a.count span.dont-move {
     font-size: 1rem;
     margin: 0 0 2rem 0; }
   .app #user-splash #splash-user-info {
-    top: 32.5%; }
+    top: 26.5%; }
+  .app #user-splash #user-extra {
+    bottom: -20rem; }
   .app #user-splash .user-avatar {
-    top: 16.5%; }
+    top: 21.5%; }
   .app #user-splash #close-splash {
     bottom: 0.5rem;
     font-size: 4rem;
@@ -9049,7 +9051,7 @@ a.count span.dont-move {
     font-size: 0.9rem; }
   .app #user-splash #splash-user-info {
     padding: 0 6rem;
-    top: 33%; }
+    top: 23%; }
   .app #user-splash h1 {
     font-size: 2.2rem;
     line-height: 42px; }
@@ -9211,12 +9213,12 @@ a.count span.dont-move {
   .app #library-splash #library-info p {
     font-size: 1rem; }
   .app #user-splash .user-avatar {
-    top: 12%; }
+    top: 19%; }
   .app #user-splash #splash-user-bio {
     font-size: 1rem; }
   .app #user-splash #splash-user-info {
     padding: 0 4rem;
-    top: 30%; }
+    top: 24%; }
   .app #user-splash h1 {
     font-size: 2rem; }
   .app .library .library-info {
@@ -9392,7 +9394,7 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     padding: 0 1rem; }
   .app #user-splash .user-avatar {
-    top: 12%; }
+    top: 17%; }
 
   .profile #user-extra {
     display: none; }
@@ -9816,10 +9818,13 @@ a.count span.dont-move {
     display: block !important;
     font-size: 0.8rem;
     margin: 8px 8px 0 0; }
+  .app #user-splash #user-box {
+    left: 6%;
+    width: 85%; }
   .app #user-splash #splash-user-info {
     color: rgba(25, 25, 25, 0.8);
     padding: 0;
-    top: 37%; }
+    top: 17%; }
   .app #user-splash #splash-user-info h1 {
     font-size: 1.8rem;
     line-height: 60px; }
