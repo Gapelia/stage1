@@ -72,6 +72,27 @@ function loadDelete() {
                 }
             });
         }
+	
+	if (type == "comment-notification") {
+		
+	    $.ajax({
+		url: "/api/notifications/removeCommentNotification",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		async: false,
+		type: "POST",
+		data: {
+			sessionId: sessionId,
+			notificationId: notificationId
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			    }
+			}
+		});
+	}
     });
     
     $(".respond-link").click(function (e) {
