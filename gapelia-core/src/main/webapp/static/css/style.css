@@ -2171,9 +2171,9 @@ ol {
   margin-bottom: 18px; }
 .mp-menu ul li .submission .respond-submission .a {
   margin-left: 1rem; }
-.mp-menu ul li .vote-notification {
+.mp-menu ul li .vote-notification, .mp-menu ul li .comment-notification {
   padding-top: 8px; }
-.mp-menu ul li .vote-notification img {
+.mp-menu ul li .vote-notification img, .mp-menu ul li .comment-notification img {
   height: 40px;
   width: 40px;
   border-radius: 300em;

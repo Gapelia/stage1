@@ -52,7 +52,7 @@
 			
 			<div id="university-affiliation">
 				<h1 id="welcome"><p></p>, welcome to Folio</h1>
-				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Currently Harvard only. Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added.</p>
+				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Affiliates to listed institutions will own publishing rights.</br> Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added.</p>
 				<select id="university-search" placeholder="Select university"></select>
 				<p id="school-intro"><b>School affiliation</b></br>We will use this information to personalize your experience.</p>
 				<select id="school-search" placeholder="Select school"></select>
@@ -241,6 +241,7 @@
 					$("#intro").css("opacity", "0");
 					$("#header-message").css("opacity", "1");
 					$("#featured-scroller").css("overflow-x", "auto");
+					$(".library-list-wrapper").css("z-index", "1");
 				});
 				
 				// Overlay — onboard photos

@@ -62,6 +62,47 @@ $.ajax({
 });
 }
 
+function getCommentNotifications() {
+$.ajax({
+	url: "/api/notifications/getCommentNotifications",
+	contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	async: false,
+	type: "POST",
+	data: {
+	    sessionId: sessionId
+	},
+	success: function (data) {
+            notifications = data;
+            userFrom = '';
+            for(i in notifications) {
+                notification = notifications[i];
+		
+		
+               	$.ajax({
+                        url: "/api/users/getUserPublic",
+                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                        type: "POST",
+			async: false,
+                        data: {
+                            userId: notification.commenterUserId
+                        },
+                        success: function (data) {
+                            userFrom = data;
+                            getBookFromBookId(notification.referencedBookId);
+			    
+                            sender = userFrom.name;
+                            bookTitle = bookFromBookId.title;
+                            toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " left a note on <b>" + bookTitle +"<b></a>";
+                            toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
+                            $("#gpl-menu-notify ul").append(toInsert);
+                        }
+                    });
+            }
+        }
+});
+}
+
+
 function getLibrarySubmissions() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -185,10 +226,12 @@ function addSubmission(notificationId,bookId,libraryId) {
                 });
 }
 
+
 function getNotifications() {
     getLibrarySubmissions();
     getSubmissionsResponse();
     getBookNotifications();
+    getCommentNotifications();
     getUserDrafts();
     
     loadDelete();
