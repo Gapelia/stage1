@@ -150,14 +150,14 @@
                 stuff += "</div></div>";
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-                stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+                stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
                 stuff += "<h5 id=\"recently-published\"></h5>";
-                stuff += "<h5 id=\"contributes-to\"></h5>";
+                stuff += "<h5 id=\"contributes-to\"></h5></div>";
 		stuff += "<ul id=\"user-extra\">";
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
 		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
-		stuff += "</ul>";
+		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
@@ -270,11 +270,13 @@
 		
 		if ($vH > "1079") {
 			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
+			$("#close-splash").css("cssText", "bottom: 94% !important");
 		}
 		
 		if ($vH > "1190") {
 			$(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
 			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+			$("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
 		}
 		
 
@@ -286,21 +288,34 @@
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 
-                if (user.avatarImage == undefined) {
+                //scenarios with empty classes//
+		if (user.avatarImage == undefined) {
                     $("#user-splash").css("background-image", "url(/static/images/users/user-avatar.jpg)");
                 }
 
                 if (user.coverImage == undefined) {
                     $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
-                }
-
+		}
 		
 		if (user.bio == "") {
-			$("#splash-user-bio").html("Check settings and add a bio!");
+		    $("#splash-user-bio").html("Check settings and add a bio!");
 		}
 		else{
-			$("#splash-user-bio").html(user.bio);
+		    $("#splash-user-bio").html(user.bio);
 		}
+		
+		if (user.location == "") {
+		    $("#splash-user-info #location").remove();
+		}
+		
+		if (user.personalWebsite == "") {
+		    $("#splash-user-info #website").remove();
+		}
+		
+		if (user.twt == "") {
+		    $("#splash-user-info #twitter").remove();
+		}
+		
 		var fourth = getPublicCreatedBooks();
                 
 		

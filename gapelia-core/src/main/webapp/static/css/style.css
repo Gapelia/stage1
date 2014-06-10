@@ -4160,7 +4160,7 @@ body.library-manager #stay-right {
   transition: background-color 0.5s ease; }
 .profile #user-splash .user-avatar {
   position: relative;
-  top: 12%; }
+  top: 16%; }
 .profile #user-splash .avatar-wrapper {
   background-size: cover;
   background-position: 50% 50%;
@@ -4219,7 +4219,7 @@ body.library-manager #stay-right {
   font-weight: 700;
   position: relative;
   text-align: center;
-  top: 33.5%;
+  top: 22.5%;
   width: 100%; }
 .profile #user-splash #splash-user-bio {
   margin: 0 0 2rem 0;
@@ -4231,8 +4231,12 @@ body.library-manager #stay-right {
   line-height: 2.1rem; }
 .profile #user-splash #splash-user-bio div {
   text-align: center !important; }
+.profile #user-splash #user-box {
+  position: absolute;
+  left: 20%;
+  width: 60%; }
 .profile #user-splash #user-extra {
-  bottom: -8rem;
+  bottom: -18rem;
   left: 1rem;
   color: white;
   font-weight: 400;
@@ -4242,10 +4246,20 @@ body.library-manager #stay-right {
 .profile #user-splash #user-extra li {
   font-size: 1rem;
   text-align: left; }
+.profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
+  opacity: 0.75;
+  margin-right: 5px; }
+.profile #user-splash #user-extra #location:before {
+  content: "lives in"; }
+.profile #user-splash #user-extra #website:before {
+  content: "found in"; }
+.profile #user-splash #user-extra #twitter:before {
+  content: "tweets at"; }
 .profile #user-splash #close-splash {
   width: auto;
   height: auto;
-  bottom: 4.5rem;
+  bottom: 92%;
+  left: 90.5%;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: rgba(252, 252, 252, 0.8);
@@ -4254,7 +4268,6 @@ body.library-manager #stay-right {
   font-size: 1rem;
   font-style: italic !important;
   font-weight: 400;
-  left: 46%;
   padding: 10px;
   position: fixed;
   text-align: center;
@@ -7532,9 +7545,9 @@ a.count span.dont-move {
   .profile #user-panel #user-splash .user-avatar {
     top: 20.5% !important; }
   .profile #user-panel #user-splash #user-extra {
-    bottom: -21rem !important; }
+    bottom: -37rem !important; }
   .profile #user-panel #user-splash #close-splash {
-    bottom: 18.5rem !important; }
+    left: 91.5% !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
@@ -7685,9 +7698,7 @@ a.count span.dont-move {
   .profile #user-splash #splash-user-bio span {
     font-size: 1.5rem !important; }
   .profile #user-splash #close-splash {
-    bottom: 12.5rem !important;
-    font-size: 1.2rem;
-    left: 46%; }
+    font-size: 1.2rem; }
   .profile #user-splash h1 {
     font-size: 3.3rem;
     line-height: 75px; }
@@ -7703,10 +7714,9 @@ a.count span.dont-move {
     padding-left: 3rem;
     padding-right: 3rem; }
   .profile #user-splash #splash-user-info {
-    top: 35.5%;
     padding-top: 1rem; }
   .profile #user-splash #user-extra {
-    bottom: -14rem !important;
+    bottom: -29rem !important;
     left: 1.75rem; }
   .profile #user-splash #user-extra li {
     font-size: 1.5rem; }
@@ -7819,9 +7829,9 @@ a.count span.dont-move {
   .profile #user-splash .user-avatar {
     top: 18.5%; }
   .profile #user-extra {
-    bottom: -19rem !important; }
+    bottom: -30rem !important; }
   .profile #close-splash {
-    bottom: 14.5rem !important; }
+    bottom: 93% !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

@@ -99,9 +99,9 @@
 		#user-splash {
 			.user-avatar { top: 20.5% !important; }
 			#user-extra {
-				bottom: -21rem !important;
+				bottom: -37rem !important;
 			}
-			#close-splash { bottom: 18.5rem !important; }
+			#close-splash { left: 91.5% !important; }
 		}	
 	}
 	
@@ -307,9 +307,7 @@
 			}
 		
 			#close-splash {
-				bottom: 12.5rem !important;
 				font-size: 1.2rem;
-				left: 46%;
 			}
 			
 			h1 {
@@ -334,10 +332,10 @@
 				padding-right: 3rem;
 			}
 			
-			#splash-user-info { top: 35.5%; padding-top: 1rem; }
+			#splash-user-info { padding-top: 1rem; }
 			
 			#user-extra {
-				bottom: -14rem !important;
+				bottom: -29rem !important;
 				left: 1.75rem;
 				
 				li { font-size: 1.5rem; }
@@ -514,10 +512,10 @@
 		#user-splash .user-avatar { top: 18.5%; }
 		
 		#user-extra {
-			bottom: -19rem !important;
+			bottom: -30rem !important;
 		}
 		
-		#close-splash { bottom: 14.5rem !important; } 
+		#close-splash { bottom: 93% !important; } 
 		
 		.notification-time #notification-count { right: 3.25rem; }
 	}

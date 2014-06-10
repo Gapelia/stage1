@@ -2363,7 +2363,42 @@ function getRecentlyPublished() {
         success: function (data) {
             lastPublished = data;
 	    if (lastPublished == null) {
-		$("#recently-published").html("This user has not published anything yet.");
+		$("#recently-published").html("No publishing activity here yet.");		
+		if ($vW < "601") {
+			$("#user-splash #user-extra").hide();
+		}
+		if ($vW < "800") {
+			$("#user-splash #user-extra").css({
+				"bottom": "-26rem",
+				"left": "20rem"
+			});
+			$("#user-splash .user-avatar").css("top", "23%");
+			$("#user-splash #splash-user-info").css("top","29%")
+		}
+		if ($vW < "1025") {
+			$("#user-splash #user-extra").css("bottom", "-20rem");
+			$("#user-splash .user-avatar").css("top", "25.5%");
+		}
+		if ($vW > "1024") {
+			$("#user-splash .user-avatar").css("top", "18%");
+			$("#user-splash #user-extra").css("bottom", "-18rem");
+		}
+		if ($vW > "1439") {
+			$("#user-splash .user-avatar").css("top: 23%");
+			$("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
+		}
+		if ($vW > "1599") {
+			$("#user-splash .user-avatar").css("cssText", "top: 25%");
+			$("#user-splash #user-extra").css("cssText", "bottom: -25rem !important");
+			$("#user-splash #splash-user-info").css("cssText", "top: 29.5%!important");
+		}
+		if ($vH > "1079") {
+			$("#user-splash #user-extra").css("cssText", "bottom: -32rem !important");
+		}
+		if ($vH > "1199") {
+			$("#user-splash .user-avatar").css("cssText", "top: 25% !important");
+			$("#user-splash #user-extra").css("cssText", "bottom: -38rem !important");
+		}
 	    }
             else if(lastPublished.title != undefined) {
             	$("#recently-published").html("Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a>");

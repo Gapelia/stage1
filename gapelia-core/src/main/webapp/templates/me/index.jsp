@@ -191,14 +191,14 @@
                 stuff += "</div></div>";
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-		stuff += "<div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Edit your profile and add a bio here..</div>";
+		stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Click the settings wheel to edit profile...</div>";
                 stuff += "<h5 id=\"recently-published\"></h5>";
-                stuff += "<h5 id=\"contributes-to\"></h5>";
+                stuff += "<h5 id=\"contributes-to\"></h5></div>";
 		stuff += "<ul id=\"user-extra\">";
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
 		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
-		stuff += "</ul>";
+		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
@@ -240,7 +240,7 @@
 		    });
 	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
                     $("#user-header").css("opacity", "1");
-
+		    
                 });
 
             } else {
@@ -332,20 +332,32 @@
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
                 $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 
-                if (user.avatarImage == undefined) {
+                //scenarios with empty classes//
+		if (user.avatarImage == undefined) {
                     $("#user-splash").css("background-image", "url(/static/images/users/user-avatar.jpg)");
                 }
 
                 if (user.coverImage == undefined) {
                     $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
                 }
-
 		
 		if (user.bio == "") {
 			$("#splash-user-bio").html("Check settings and add a bio!");
 		}
 		else{
 			$("#splash-user-bio").html(user.bio);
+		}
+		
+		if (user.location == "") {
+			$("#splash-user-info #location").remove();
+		}
+		
+		if (user.personalWebsite == "") {
+			$("#splash-user-info #website").remove();
+		}
+		
+		if (user.twt == "") {
+			$("#splash-user-info #twitter").remove();
 		}
 		
 		// description input limiter
