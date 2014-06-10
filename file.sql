@@ -145,6 +145,14 @@ CREATE TABLE IF NOT EXISTS book_notifications (
 );
 CREATE INDEX book_notif_sender_idx ON book_notifications(recipient,sender,referenced_book);
 
+
+CREATE TABLE IF NOT EXISTS comment_notifications (
+        id SERIAL PRIMARY KEY,
+        commenter INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+        referenced_book INT REFERENCES books(id) ON DELETE CASCADE NOT NULL
+);
+CREATE INDEX comment_notif_idx ON comment_notifications(referenced_book,commenter);
+
 CREATE TABLE IF NOT EXISTS library_notifications (
 	id SERIAL PRIMARY KEY,
         recipient INT REFERENCES users(id) ON DELETE CASCADE,
