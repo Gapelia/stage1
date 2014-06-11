@@ -57,7 +57,7 @@
 		}
 
 		// "Me" splash functionality
-		$(document).on("click", "#splash-edit-profile", function (e) {
+		$(document).on("click", "#splash-edit-profile, #splash-user-bio", function (e) {
 
 			$("#splash-edit-wrapper").css({
 				"opacity": "1",
@@ -75,18 +75,9 @@
 			if ($("#splash-edit-wrapper").css("opacity") == "1") {
 
 				$("#splash-edit-wrapper").css({
-					"opacity": "0",
-					"right": "0"
+					"opacity": "1",
+					"right": "-135px"
 				});
-
-				$("#splash-edit-profile").css({
-					"right": "-0.85rem",
-					"transform": "rotate(0deg)",
-					"-o-transform": "rotate(0deg)",
-					"-moz-transform": "rotate(0deg)",
-					"-webkit-transform": "rotate(0deg)"
-				});
-
 			}
 
 			e.preventDefault();
@@ -110,21 +101,24 @@
 		}
 
 		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile", function (e) {
+			$("#splash-edit-wrapper").css("opacity", "0");
+		});
+		
+		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile, #splash-user-bio", function (e) {
 
 			// if ($vW > "1280") {
 			if ($vW > "1024") {
 
-				$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
-					"background-color": "#4cd964",
-					"border-bottom-right-radius": "5px"
+				$("#splash-edit-wrapper .quick-edit-profile").text("Save Changes").css({
+					"background-color": "#0B486B",
 				}).addClass("quick-save-profile");
 
 			} else {
 
-				$("#splash-edit-wrapper .quick-edit-profile").text("Save Profile").css({
+				$("#splash-edit-wrapper .quick-edit-profile").text("Save Changes").css({
 					"background-color": "#4cd964",
 					"border-top-right-radius": "5px",
-					"border-bottom-right-radius": "5px"
+					"border-bottom-right-radius": "5px",
 				}).addClass("quick-save-profile");
 
 			}

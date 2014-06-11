@@ -2200,8 +2200,8 @@ ol {
   color: #59b3a6; }
 .mp-menu ul li ul li .remove-notification, .mp-menu ul li ul li .respond-link {
   position: absolute;
-  right: 10px;
-  top: -1px; }
+  right: 17px;
+  top: 2px; }
 .mp-menu ul li ul li a {
   margin: 0;
   padding: 0;
@@ -3365,8 +3365,8 @@ body.landing .error {
   margin: 5px;
   text-decoration: underline; }
 .app #user-splash .overlay-controls {
-  top: 2rem;
-  right: 2rem;
+  bottom: 2rem;
+  right: 43.5%;
   opacity: 0.001;
   position: fixed;
   transition: all 0.2s ease;
@@ -4173,6 +4173,7 @@ body.library-manager #stay-right {
   top: 36%;
   right: -0.85rem;
   color: #fcfcfc;
+  display: none !important;
   font-family: "Ionicons";
   font-size: 2.5rem;
   position: absolute;
