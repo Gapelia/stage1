@@ -1346,12 +1346,25 @@
 
 	#user-splash {
 		.overlay-controls {
-			bottom: 2rem; right: 43.5%;
+			bottom: 2rem; right: 44.75%;
 
-			opacity: 0.001;
+			opacity: 0.5;
 			position: fixed;
 			transition: all 0.2s ease;
 			z-index: 1 !important;
+      
+      button {
+        background-color: white;
+        color:black;
+        font-size: 10px;
+        
+        &:hover {
+          background-color: $slate;
+          color: white;
+        }
+      }
+      
+      &:hover { opacity: 1; }
 		}
 	}
 
