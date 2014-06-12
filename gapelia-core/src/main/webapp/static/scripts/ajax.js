@@ -376,7 +376,6 @@ function getBooksInLibrary() {
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
-            sessionId: sessionId,
             libraryId: libraryId
         },
         success: function (data) {
@@ -670,7 +669,6 @@ function getFeaturedBook() {
     	type: "POST",
     	async: false,
     	data: {
-    		sessionId: sessionId,
     	    libraryId: libraryId
     	},
     	success: function (data) {
@@ -708,8 +706,11 @@ function getLibrary() {
 	twitterShare = "http://twitter.com/share?text="+library.title+" edited by "+ libraryOwner.fullName;"&url=http://folio.is/library" + libraryId;
 	emailShare = 'mailto:?subject=Recommended%20Library%20on%20Folio&amp;body='+ library.title + " edited by " + libraryOwner.fullName + "   " +  "www.folio.is/read/" + libraryId;
 	    
+	    var ownThisLibrary = false;
+	    
+	    if (typeof user != 'undefined') {
 	    myLibraries = getCreatedLibrariesArray(sessionId);
-		var ownThisLibrary = false;
+		
     
 		for (i in myLibraries) {
 		    currentLibrary = myLibraries[i];
@@ -717,6 +718,7 @@ function getLibrary() {
 			ownThisLibrary = true;
 		    }
 		}
+	     }
 	    
 	    if (ownThisLibrary) {
 		$("#nav-books a").html(library.title);
@@ -726,16 +728,24 @@ function getLibrary() {
 		$("#nav-submissions").css("display", "none");
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-	    if (ownThisLibrary == true) {
+	    if (ownThisLibrary) {
                 toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + currentLibrary.libraryId + "\">Edit Library</a></button>";
             } else {
                 toInsert += "";
             }
-	    if (library.libraryId in subscribed == true) {
-                toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
-            } else {
-                toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
-            }
+	    
+	     if (typeof user != 'undefined') {
+		if (library.libraryId in subscribed) {
+		    toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
+		} else {
+		    toInsert += "<button> class=\"subscribe white-border\">Subscribe</button>";
+		}
+	    }
+	    else{
+		toInsert += "<a href=\"/\"><button class=\"new-user brand-blue\">Subscribe</button></a>";
+	    }
+	    
+	    
 	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";

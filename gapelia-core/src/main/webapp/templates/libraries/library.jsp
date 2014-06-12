@@ -172,6 +172,7 @@
 		   
 		   if (typeof user != 'undefined') {
 			
+			
 			var first = getListSubscribed();
 			getNotifications();
 			  var second = getListBookmarked();
@@ -464,9 +465,10 @@
 	    
 	    if (typeof user != 'undefined') {
 			getSubmissionsInLibrary();
+			getUserCreatedBooksForLibrary();
 	     }
 	    
-            getUserCreatedBooksForLibrary();
+            
             load();
         }, 300);
          setTimeout(function () {
