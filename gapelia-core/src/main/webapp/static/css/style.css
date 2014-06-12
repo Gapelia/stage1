@@ -1948,7 +1948,8 @@ ol {
 .white-border:hover {
   background-color: #59b3a6 !important;
   border: 1px solid #59b3a6 !important;
-  color: #fcfcfc !important; }
+  color: #fcfcfc !important;
+  opacity: 1 !important; }
 
 .fb-btn {
   background-color: #3c699b !important;
@@ -3570,6 +3571,8 @@ body.library #stay-right {
   margin: 1.4rem 0.5rem 0 0;
   position: absolute;
   z-index: 10 !important; }
+body.library #stay-right .new-user:hover {
+  color: white !important; }
 body.library #stay-right .submission-dropdown {
   background-color: transparent;
   border: 1px solid rgba(252, 252, 252, 0.5);

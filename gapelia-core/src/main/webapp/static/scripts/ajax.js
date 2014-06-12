@@ -744,11 +744,11 @@ function getLibrary() {
 		if (library.libraryId in subscribed) {
 		    toInsert += "<button class=\"unsubscribe brand-blue\">Unsubscribe</button>";
 		} else {
-		    toInsert += "<button> class=\"subscribe white-border\">Subscribe</button>";
+		    toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
 		}
 	    }
 	    else{
-		toInsert += "<a href=\"/\"><button class=\"new-user brand-blue\">Subscribe</button></a>";
+		toInsert += "<div style=\"position: absolute; z-index: 100; right: 10.5rem; top: 1.9rem; font-size: 1rem;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Subscribe</a></div>";
 	    }
 	    
 	    

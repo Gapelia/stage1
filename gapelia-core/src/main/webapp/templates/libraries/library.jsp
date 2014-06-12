@@ -51,41 +51,21 @@
         <!--/ site-menu /-->
         <nav id="site-menu" class="mp-menu">
             <div class="mp-level">
-
                 <h2><a href="/featured">Gapelia</a></h2>
-
-                <ul>
-		    <li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-                    </li>
-		    <li class="not-mobile"><a href="/librarymanager">Libraries</a>
-                    </li>
-                    <li class="not-mobile"><a href="/createbook">New Story</a>
-                    </li>
-
-                    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
-                        <ul id="draft-menu"></ul>
-                    </li>
-
-                    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
-                        <ul>
-
-                        </ul>
-                    </li>
-
-		    <li class="fq"><a href="#">Help</a>
-		    <li class="help"><a href="#">Contact</a>
-                    <li class="logout"><a href="#">Log Out</a>
+		<ul>
+                    <li><a href="/">Sign up</a> </li>
+		    <li><a href="#">Learn more</a></li>
                 </ul>
             </div>
         </nav>
 
-        			<!--/ main-panel /-->
-        			<div id="featured-panel">
-        				<button id="g-menu-toggle" class="notification-time">
-						<span id="notification-count" style="display: none;"></span>
-        					<i class="ion-drag"></i>
-        				</button>
-        			</div>
+        <!--/ main-panel /-->
+        <div id="featured-panel">
+        	<button id="g-menu-toggle" class="notification-time">
+			<span id="notification-count" style="display: none;"></span>
+        		<i class="ion-drag"></i>
+        	</button>
+        </div>
 	
 	<ul id="stay-right">
 		
@@ -178,8 +158,7 @@
 			  var second = getListBookmarked();
 		   }
 		   else{
-			// <a class=submission-dropdown href="#">Submit a story</a>
-			$(".submission-dropdown").attr("href", "/");
+			$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 1rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 		   }
 		   
                getNumSubscribers();
@@ -215,8 +194,8 @@
 			"border-width": "0",
 			"color": "#59B3A6"
 		     });
-
-                });
+		    $("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
+		});
 		
 	    } else {
 		  $(function () {
@@ -505,7 +484,8 @@
                                 keyboardNavBy: 'items',
                         });
 		}
-		//document.title = library.title;
+		addLoggedInMenu();
+		document.title = library.title;
         },2000);
     </script>
     <!--//scripts /-->

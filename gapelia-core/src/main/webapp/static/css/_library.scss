@@ -85,6 +85,10 @@ body.library {
 		position: absolute;
 		z-index: 10 !important;
 		
+		.new-user {
+			&:hover { color: white !important; }
+		}
+		
 		.submission-dropdown {
 			background-color: transparent;
 			border: 1px solid rgba($white, 0.5);
