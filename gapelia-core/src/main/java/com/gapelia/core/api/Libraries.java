@@ -33,9 +33,7 @@ public class Libraries {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getMostVotedBookInLibrary(@FormParam("sessionId") String sessionId, @FormParam("libraryId") int libraryId) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
+	public String getMostVotedBookInLibrary(@FormParam("libraryId") int libraryId) {
 		Gson gson = new GsonBuilder().create();
 		Book b = QueryDatabaseLibrary.getMostVotedBookInLibrary(libraryId);
 		return gson.toJson(b);
@@ -80,10 +78,7 @@ public class Libraries {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getBooksInLibrary(@FormParam("sessionId") String sessionId,
-                                    @FormParam("libraryId") int libraryId) {
-        if (!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
+    public String getBooksInLibrary(@FormParam("libraryId") int libraryId) {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseLibrary.getBooksInLibrary(libraryId));
     }
