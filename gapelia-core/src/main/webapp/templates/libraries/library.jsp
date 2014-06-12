@@ -1,7 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,26 +160,27 @@
                        url: "/api/users/getUser",
                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
                        type: "POST",
+		       async: false,
                        data: {
                            sessionId: sessionId
                        },
                        success: function (data) {
                            user = data;
 
-                       },
-                       error: function (q, status, err) {
-                           if (status == "timeout") {
-                               alert("Request timed out");
-                           } else {
-                               alert("Some issue happened with your request: " + err.message);
-                           }
                        }
                    });
+		   
+		   if (typeof user != 'undefined') {
+			
+			var first = getListSubscribed();
+			getNotifications();
+			  var second = getListBookmarked();
+		   }
+		   
                getNumSubscribers();
+	       
                getUserFromLibraryId(libraryId);
-            var first = getListSubscribed();
-             getNotifications();
-            var second = getListBookmarked();
+            
         });
 
 	
@@ -460,10 +457,15 @@
 		$(".book").css("height", h);
         }
         setTimeout(function () {
-
+		
+		   
             getLibrary();
             getBooksInLibrary();
-	    getSubmissionsInLibrary();
+	    
+	    if (typeof user != 'undefined') {
+			getSubmissionsInLibrary();
+	     }
+	    
             getUserCreatedBooksForLibrary();
             load();
         }, 300);
@@ -497,7 +499,7 @@
                                 keyboardNavBy: 'items',
                         });
 		}
-		document.title = library.title;
+		//document.title = library.title;
         },2000);
     </script>
     <!--//scripts /-->
