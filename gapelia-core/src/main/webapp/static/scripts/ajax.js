@@ -380,9 +380,11 @@ function getBooksInLibrary() {
         },
         success: function (data) {
             books = data;
+	    var ownThisLibrary = false;
+	    if (typeof user != 'undefined') {
 	    
-	    myLibraries = getCreatedLibrariesArray(sessionId);
-		var ownThisLibrary = false;
+		myLibraries = getCreatedLibrariesArray(sessionId);
+		
     
 		for (i in myLibraries) {
 		    currentLibrary = myLibraries[i];
@@ -390,10 +392,12 @@ function getBooksInLibrary() {
 			    ownThisLibrary = true;
 		    }
 		}
+	    }
+	    
             toInsert = '';
             for (i in books) {
                 book = books[i];
-                if (book.bookId in bookmarked == true) {
+                if (typeof user != 'undefined' && book.bookId in bookmarked) {
                     toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
                 } else {
                     toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
@@ -404,8 +408,10 @@ function getBooksInLibrary() {
 		}else {
 		toInsert += "";	
 		}
-		toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\">";
-                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"book-title\">";
+		if (typeof user != 'undefined') {
+			toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
+		}
+                toInsert += "<div class=\"book-title\">";
                 toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
                 toInsert += getUserFromBookId(book.bookId);
 		toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";

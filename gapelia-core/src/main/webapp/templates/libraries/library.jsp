@@ -177,6 +177,10 @@
 			getNotifications();
 			  var second = getListBookmarked();
 		   }
+		   else{
+			// <a class=submission-dropdown href="#">Submit a story</a>
+			$(".submission-dropdown").attr("href", "/");
+		   }
 		   
                getNumSubscribers();
 	       
