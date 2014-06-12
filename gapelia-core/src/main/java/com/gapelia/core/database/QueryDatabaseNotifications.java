@@ -1,5 +1,6 @@
 package com.gapelia.core.database;
 
+import com.gapelia.core.api.Email;
 import com.gapelia.core.model.*;
 import org.apache.log4j.Logger;
 
@@ -55,10 +56,19 @@ public class QueryDatabaseNotifications {
 		String result = "SUCCESS";
 		PreparedStatement insert = null;
 		try {
+			User u = QueryDatabaseUser.getUserById(QueryDatabaseUser.getBookByID(b.getReferencedBookId()).getUserId());
+
+			//dont notify if self
+			if(u.getUserId() == b.getCommenterUserId()) return "SUCCESS";
+
 			insert = connection.prepareStatement(INSERT_COMMENT_NOTIFICATION);
 			insert.setInt(1, b.getCommenterUserId());
 			insert.setInt(2, b.getReferencedBookId());
 			insert.executeUpdate();
+
+			//send email off
+			Email.sendCommentEmail(u,b);
+
 		} catch (SQLException ex) {
 			LOG.error("Cannot create comment notifiction:"  + ex);
 			result ="ERROR" + ex.getMessage();

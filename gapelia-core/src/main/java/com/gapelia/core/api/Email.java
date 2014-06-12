@@ -4,6 +4,7 @@ import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.database.QueryDatabaseUser;
+import com.gapelia.core.model.CommentNotification;
 import com.gapelia.core.model.LibraryNotification;
 import com.gapelia.core.model.Page;
 import com.gapelia.core.model.User;
@@ -63,7 +64,7 @@ public class Email {
 		String[] cmd = {
 				"/bin/sh",
 				"-c",
-				"/emailScripts/acceptanceEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
+				"/emailScripts/welcomeEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
 						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"' '" +n.getLibraryId() + "'"
 		};
 
@@ -76,6 +77,48 @@ public class Email {
 //			p .waitFor();
 		} catch (Exception e) {
 			LOG.error("Error sending notification acceptance:" + e.getMessage());
+		}
+	}
+
+	public static void sendWelcomeEmail(User u){
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/welcomeEmail.sh '"+u.getName()+ "' '" + u.getEmail() +"'"
+		};
+
+		LOG.info("Emailing welcome email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
+
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending welcome email:" + e.getMessage());
+		}
+	}
+
+	public static void sendCommentEmail(User u, CommentNotification n){
+		if(u.getEmailOptOut()) return;
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/commentEmail.sh '"+QueryDatabaseUser.getBookByID(n.getReferencedBookId()).getTitle()+
+						"' '"+n.getReferencedBookId()+"' '" + u.getEmail() +"'"
+		};
+
+		LOG.info("Emailing comment email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
+
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending comment email:" + e.getMessage());
 		}
 	}
 

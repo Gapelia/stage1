@@ -1,5 +1,6 @@
 package com.gapelia.core.database;
 
+import com.gapelia.core.api.Email;
 import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Library;
@@ -240,6 +241,8 @@ public class QueryDatabaseUser {
 
 
             User u = getUserByValidatedId(p.getValidatedId());
+
+			Email.sendWelcomeEmail(u);
 
 			QueryDatabaseMetric.registerUserLogin(u.getUserId());
 
