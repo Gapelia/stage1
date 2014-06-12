@@ -214,7 +214,6 @@ function getNumSubscribers() {
         async: false,
         type: "POST",
         data: {
-        	sessionId: sessionId,
             libraryId: libraryId
         },
         success: function (data) {
@@ -698,7 +697,6 @@ function getLibrary() {
         type: "POST",
 	async: false,
         data: {
-            sessionId: sessionId,
             libraryId: libraryId
         },
         success: function (data) {
