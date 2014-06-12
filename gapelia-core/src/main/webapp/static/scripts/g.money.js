@@ -57,7 +57,7 @@
 		}
 
 		// "Me" splash functionality
-		$(document).on("click", "#splash-edit-profile, #splash-user-bio", function (e) {
+		$(document).on("click", "#splash-edit-profile, #splash-user-bio, #user-splash .overlay-controls button", function (e) {
 
 			$("#splash-edit-wrapper").css({
 				"opacity": "1",
@@ -83,6 +83,36 @@
 			e.preventDefault();
 
 		});
+		
+		$(document).on("click", "#user-splash .overlay-controls button", function (e) {
+
+			$("#splash-edit-wrapper").css({
+				"opacity": "1",
+				"right": "-135px"
+			});
+
+			$("#splash-edit-profile").css({
+				"right": "-9.4rem",
+				"transform": "rotate(180deg)",
+				"-o-transform": "rotate(180deg)",
+				"-moz-transform": "rotate(180deg)",
+				"-webkit-transform": "rotate(180deg)"
+			});
+
+			if ($("#splash-edit-wrapper").css("opacity") == "1") {
+
+				$("#splash-edit-wrapper").css({
+					"opacity": "1",
+					"right": "-135px"
+				});
+			}
+
+			$("#splash-edit-wrapper .quick-edit-profile").text("Confirm New Photo").css({
+				"background-color": "#0B486B",
+			}).addClass("quick-save-profile");
+			
+			e.preventDefault();
+		});
 
 		$(".avatar-button button").addClass("white").html("+ Avatar");
 		$(".cover-button button").addClass("white").html("+ Cover photo");
@@ -100,13 +130,13 @@
 			}
 		}
 
+		
 		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile", function (e) {
 			$("#splash-edit-wrapper").css("opacity", "0");
 		});
 		
 		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile, #splash-user-bio", function (e) {
 
-			// if ($vW > "1280") {
 			if ($vW > "1024") {
 
 				$("#splash-edit-wrapper .quick-edit-profile").text("Save Changes").css({
@@ -152,11 +182,6 @@
 		$(document).on("click", "#splash-edit-wrapper .quick-save-profile", function (e) {
 
 			$("#splash-edit-wrapper .quick-edit-profile").text("Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
-
-			$(".overlay-controls").css({
-				"opacity": "0.001",
-				"z-index": "-1"
-			});
 
 			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");

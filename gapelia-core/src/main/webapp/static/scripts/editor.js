@@ -1222,6 +1222,7 @@
 	// Save page information every 10 seconds
 	window.setInterval(function () {
 
+
 		imageURL = $(".page-bg").attr("src");
 		videoURL = $(".video-player-container iframe").attr("src");
 		title = $(".page-title-elem").html();
