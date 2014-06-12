@@ -24,9 +24,7 @@ public class Libraries {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getNumSubscribers(@FormParam("sessionId") String sessionId, @FormParam("libraryId") int libraryId) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
+	public String getNumSubscribers(@FormParam("libraryId") int libraryId) {
 		Gson gson = new GsonBuilder().create();
 		return gson.toJson(QueryDatabaseLibrary.getNumSubscribers(libraryId));
 	}
@@ -94,11 +92,7 @@ public class Libraries {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getLibrary(@FormParam("sessionId") String sessionId,
-                             @FormParam("libraryId") int libraryId) {
-        if (!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
-
+    public String getLibrary(@FormParam("libraryId") int libraryId) {
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseLibrary.getLibrary(libraryId));
     }
