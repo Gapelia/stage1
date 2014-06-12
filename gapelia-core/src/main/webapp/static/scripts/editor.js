@@ -515,7 +515,10 @@
 		$(window).ready(function () {
 			$(".page-desc").focus();
 		});
-
+		
+		//forcing margin for Ps due to blockquote bug//
+		$(".page-desc p").css("cssText", "margin-bottom: 1.5rem !important");
+		
 		// Empty attribution field when user clicks in it
 		$(document).one("click", ".image-attribution", function () {
 			$(this).text("");

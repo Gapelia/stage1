@@ -681,6 +681,8 @@ function pasteHtmlAtCaret(html) {
 		},
 
 		execFormatBlock: function (el) {
+      
+      $(".page-desc p").css("cssText", "margin-bottom: 1.5rem !important"); //this fixes bug where blockquotes removes margins for Ps//
 
 			var selectionData = this.getSelectionData(this.selection.anchorNode);
 
@@ -694,6 +696,7 @@ function pasteHtmlAtCaret(html) {
 			if (selectionData.tagName === el) { el = "p"; }
 
 			return document.execCommand("formatBlock", false, el);
+    
 
 		},
 
