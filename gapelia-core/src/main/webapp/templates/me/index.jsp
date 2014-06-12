@@ -191,7 +191,7 @@
                 stuff += "</div></div>";
                 stuff += "<div id=\"splash-user-info\">";
                 stuff += "<h1 id=\"user-name\"></h1>";
-		stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Click the settings wheel to edit profile...</div>";
+		stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" placeholder=\"Add a bio here...\" contenteditable=\"false\">Click here to add a bio..</div>";
                 stuff += "<h5 id=\"recently-published\"></h5>";
                 stuff += "<h5 id=\"contributes-to\"></h5></div>";
 		stuff += "<ul id=\"user-extra\">";
@@ -342,7 +342,7 @@
                 }
 		
 		if (user.bio == "") {
-			$("#splash-user-bio").html("Check settings and add a bio!");
+			$("#splash-user-bio").html("Click here to add a bio...");
 		}
 		else{
 			$("#splash-user-bio").html(user.bio);
