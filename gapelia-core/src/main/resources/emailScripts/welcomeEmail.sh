@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo "<center><img src ='folio.is/static/images/folio-logo-email.png'><br></img> <font color='#59b3a6'><br><h2><i>Nice to meet you, $1!</i></h2></font><br>Welcome to Folio, a laboratory for your ideas.<br>Out team at Folio is excited to help you take the most from out platform to collaborate and share your ideas with your peers.<br>Read more about what Folio can do for you <a href='folio.is/read/754'>here</a>. If you have any questions or petitions, do not hesitate to reach out to us at <a href='mailto:team@folio.is'>team@folio.is</a><br><br><font color='grey'>Warm regards,<br>Folio</font></center>" | mail -a "Content-type: text/html" -s "Welcome to Folio!" -a "From: \"Folio\" <donotreply@folio.is>" $2
