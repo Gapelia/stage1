@@ -5,15 +5,24 @@
 	
     <meta charset="utf-8" />
 
+    <!-- Search tags --> 
     <title></title>
     <meta name="author" content="" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    
+        
+    <!-- for Facebook -->  
     <meta property="og:title" content=""/>
+    <meta property="og:type" content="article"/>
     <meta property="og:image" content=""/>
     <meta property="og:url" content=""/>
     <meta property="og:description" content=""/>
+    
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
     
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
@@ -185,53 +194,53 @@
 		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
 	}
 
-$( document ).ready(function() {
-     	 loadDelete();
+$(document).ready(function() {
+     	loadDelete();
         
-	document.addEventListener("readrboard.reaction",function(){
-					    //console.log("readrboard.reaction"); 
-					    
-					    $.ajax({
-					    url: "/api/notifications/createCommentNotification",
-					    contentType: "application/x-www-form-urlencoded;charset=utf-8",
-					    async: false,
-					    type: "POST",
-					    data: {
-					      sessionId: sessionId,
-					      referencedBook: current.bookId
-					    },
-					    success: function (data) {
-					    console.log("notification submitted to book: " + current.bookId);
-					    console.log("data returned: " + data);
-
-					    },
-					    error: function (q, status, err) {
-					        if (status == "timeout") {
-					    alert("Request timed out");
-					        } else {
-					    alert("Since you are not signed in, your feedback will be anonymous!");
-					        }
-					    }
-					    });
-
-					    
-					    } ,false); //end readerboard block
+	document.addEventListener("readrboard.reaction",function() {
+		$.ajax({
+			url: "/api/notifications/createCommentNotification",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			async: false,
+			type: "POST",
+				data: {
+				sessionId: sessionId,
+				referencedBook: current.bookId
+				},
+			success: function (data) {
+				console.log("notification submitted to book: " + current.bookId);
+				console.log("data returned: " + data);
+				},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Since you are not signed in, your feedback will be anonymous!");
+				}
+			}
+		});
+	} ,false); //end readerboard block
 
 
 	book = getFullBookFromBookId(bookId);
 	
-	 //Meta Tags//
+	    //Meta Tags//
 	    document.title = book.title + " by " + bookOwner.name;
 	    $('meta[property="author"]').attr('content', bookOwner.name);
 	    $('meta[property="description"]').attr('content', book.snippet);
 	    
-	//Chaging Facebook Meta Tags//
+	    //Chaging Facebook Meta Tags//
 	    $('meta[property="og:title"]').attr('content', book.title);
 	    $('meta[property="og:description"]').attr('content', book.snippet);
 	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
-	    $('meta[property="og:url"]').attr('content', window.location.href);
-
-	      $(".fluid-wrapper").imgLiquid({
+	    $('meta[property="og:url"]').attr('content', 'http://folio.is/read/' + current.bookId);
+	
+	   //Changing Twitter Meta Tags//
+	   $('<meta[name="twitter:title"]').attr('content', book.title);
+	   $('<meta[name="twitter:description"]').attr('content', book.snippet);
+	   $('<meta[name="twitter:image"]').attr('content', book.coverPhoto);
+	   
+	    $(".fluid-wrapper").imgLiquid({
                 fill: true
             });
 	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({

@@ -121,7 +121,7 @@ $(function () {
                 
                 facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + current.bookId;
                 twitterShare = "http://twitter.com/share?text=" + firstTitle + " by "+ bookOwner.fullName;"&url=http://folio.is/read/" + current.bookId;
-                emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ firstTitle + " by " + bookOwner.fullName + "   " +  "www.folio.is/read/" + current.bookId;
+                emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ firstTitle + " by " + bookOwner.fullName + "   " +  "http://folio.is/read/" + current.bookId;
                 backPage = "";
                 backPage += "<div style=\"display: none\" class=\"bb-item\" id=\"page" + (i + 1) + "\"><div class=\"content\"><section class=\"backcover-wrapper\">";
                 backPage += "<div id=\"fin\"><figure class=\"merci merciful\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
