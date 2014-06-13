@@ -730,7 +730,7 @@ function getLibrary() {
 		$("#nav-books a").html(library.title);
 	    }
 	    else{
-		$("#nav-books a").html(library.title + "<c>" + "&#124;" + "<c/>" + "   edited by" + "<a href=/"+ userName+">" + userName);
+		$("#nav-books").html("<a href=/library/"+ libraryId +">" + library.title + "<a/><a href=/"+ libraryOwner.displayName +"><c>" + "&#124;" + "<c/>" + "   edited by " + "<a href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/>");
 		$("#nav-submissions").css("display", "none");
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
@@ -2238,7 +2238,7 @@ function createBook() {
 
 function createFirstPage() {
     $.ajax({
-        url: "/api/books/createPage",
+	url: "/api/books/createPage",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
         data: {
@@ -2246,7 +2246,7 @@ function createFirstPage() {
             bookId: bookId
         },
         success: function (data) {
-            pageId = data;
+	    pageId = data;
             pages = {
                 "page": [{}],
                 "bookId": bookId

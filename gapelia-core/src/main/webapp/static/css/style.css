@@ -3249,9 +3249,10 @@ body.landing .error {
   margin-right: 5px; }
 .app #library-splash button {
   top: 1.2rem;
-  right: 11rem;
+  right: 10.5rem;
   padding: 9px !important;
   position: absolute;
+  text-transform: none !important;
   z-index: 11; }
 .app #new-library .spinner {
   top: 50% !important;
@@ -3580,7 +3581,7 @@ body.library #stay-right .submission-dropdown {
   color: #fcfcfc;
   font-weight: 400;
   letter-spacing: 0.041em;
-  padding: 0.4rem 0.75rem; }
+  padding: 0.45rem 0.75rem; }
 body.library #stay-right .submission-dropdown:hover {
   background-color: #59b3a6;
   border: 1px solid rgba(89, 179, 166, 0.5);
@@ -3604,13 +3605,16 @@ body.library #stay-right li:first-child {
   margin: 0 1rem 0 0; }
 body.library #stay-right li ul {
   top: 1.4rem;
-  right: 0rem !important;
+  right: 5rem !important;
   background-color: #fcfcfc;
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   display: none;
+  max-height: 350px;
   min-width: 225px;
   position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
   width: auto; }
 body.library #stay-right li ul li {
   border: 1px solid rgba(25, 25, 25, 0.05);

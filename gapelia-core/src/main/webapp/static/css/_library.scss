@@ -96,7 +96,7 @@ body.library {
 			color: $white;
 			font-weight: 400;
 			letter-spacing: 0.041em;
-			padding: 0.4rem 0.75rem;
+			padding: 0.45rem 0.75rem;
 			
 			&:hover {
 				background-color: $slate;
@@ -132,14 +132,17 @@ body.library {
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
-				top: 1.4rem; right: 0rem !important;
+				top: 1.4rem; right: 5rem !important;
 
 				background-color: $white;
 				border-radius: 5px;
 				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
 				display: none;
+				max-height: 350px;
 				min-width: 225px;
 				position: relative;
+				overflow: scroll;
+				overflow-x: hidden;
 				width: auto;
 
 				li {

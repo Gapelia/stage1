@@ -77,7 +77,7 @@ var Page = (function () {
             });
 
         };
-
+        
     return {
         init: init
     };
@@ -94,6 +94,7 @@ function loadBook() {
         });
         Page.init();
     }
+    
     share = "";
 
     share += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\"></i></a></li>";

@@ -1187,9 +1187,10 @@
 		}
 
 		button {
-			top: 1.2rem; right: 11rem; padding: 9px !important;
+			top: 1.2rem; right: 10.5rem; padding: 9px !important;
 
 			position: absolute;
+      text-transform: none !important;
 			z-index: 11;
 		}
 	}
