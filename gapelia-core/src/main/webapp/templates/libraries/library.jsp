@@ -4,23 +4,25 @@
 <head>
 
     <meta charset="utf-8" />
+    
+    <!-- Search tags --> 
     <title></title>
-
-    <!--/ LIBRARY VIEW
-			 ______   ______   ______  ______   __       __   ______
-			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
-			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
-			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
-
-				01000111011000010111000001100101011011000110100101100001
-
-		/-->
-
-    <meta name="author" content="Folio" />
-    <meta name="description" content="Reimagining scholarly publishing" />
-    <meta name="keywords" content="academia, publishing, blogging, scholar, ideas, storytelling, long-form, platform, collaboration" />
+    <meta name="author" content="" />
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        
+    <!-- for Facebook -->  
+    <meta property="og:title" content=""/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:description" content=""/>
+    
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:image" content=""/>
 
 
     <link href="/static/css/style.css" rel="stylesheet" />
@@ -28,11 +30,6 @@
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
     <script src="//use.typekit.net/web3vzl.js"></script>
-    <script>
-        try {
-            Typekit.load();
-        } catch (e) {}
-    </script>
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
@@ -486,6 +483,24 @@
 		}
 		addLoggedInMenu();
 		document.title = library.title;
+	    
+		//Meta Tags//
+		document.title = library.title + " edited by " + libraryOwner.name;
+		$('meta[property="author"]').attr('content', libraryOwner.name);
+		$('meta[property="description"]').attr('content', library.description);
+		
+		//Chaging Facebook Meta Tags//
+		$('meta[property="og:title"]').attr('content', library.title);
+		$('meta[property="og:description"]').attr('content', library.description);
+		$('meta[property="og:image"]').attr('content', library.coverPhoto);
+		$('meta[property="og:url"]').attr('content', 'http://folio.is/library/' + libraryId);
+	    
+	       //Changing Twitter Meta Tags//
+	       $('<meta[name="twitter:title"]').attr('content', library.title);
+	       $('<meta[name="twitter:description"]').attr('content', library.description);
+	       $('<meta[name="twitter:image"]').attr('content', library.coverPhoto);
+		
+		
         },2000);
     </script>
     <!--//scripts /-->
