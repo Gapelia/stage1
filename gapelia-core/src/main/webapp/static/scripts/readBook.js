@@ -131,7 +131,11 @@ $(function () {
                 backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
                 backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section id=\"author-section\">";
                 backPage += getUserFromBookId(bookId);
-                backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"
+                if (bookOwner.bio == "") {
+                    backPage += "<div id=\"author-bio-blurb\">" + "This user has not added a bio yet." + "</div></section>"
+                } else {
+                    backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"   
+                }
                 backPage += "<hr/><section><div id=\"library-avatar\">";
                 backPage += getLibraryFromBookBackCover(current.bookId);
                 backPage += "</div></section></div>";
