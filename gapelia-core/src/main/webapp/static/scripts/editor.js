@@ -1272,8 +1272,28 @@
 	});
 
 	$("#close-button").on("click", function (e) {
-        updateBookAndPages(false);
-		document.location.href = "/featured";
+		
+	updateBookAndPages(false);
+		
+		$("#draft-tutorial").show().css({
+			"font-size": "2rem",
+			"line-height": "1.5",
+			"margin-top": "9%",
+			"text-align": "center",
+			"width": "100%"
+		})
+		$("#draft-tutorial #leave-editor").css({
+			"padding": "7px 12px 7px 12px",
+			"background-color": "#59B3A6",
+			"border-radius": "5px",
+			"color": "white",
+			"font-size": "1.5rem",
+			"right": "1rem",
+			"top": "1rem",
+			"position": "absolute"
+		})
+		$("#create-book, #back, #finish, #notify-saving").hide();
+		
 	});
 
 	$(document).on("click", ".close-modal", function (e) {

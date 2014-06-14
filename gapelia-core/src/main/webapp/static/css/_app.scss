@@ -426,8 +426,10 @@
         background-color: #FFFFFF;
         border: none;
         border-radius: 8px 8px 8px 8px;
-        //box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        height: 450px;
         margin-top: 12px;
+        overflow: scroll;
+        overflow-x: hidden;
         padding: 8px 0;
         width: 422px;
     }
