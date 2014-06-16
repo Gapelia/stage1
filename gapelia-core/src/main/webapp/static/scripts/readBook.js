@@ -485,6 +485,8 @@ function getReadNextBook() {
 
             if (current.creativeCommons != "Add photo credit?") {
                 htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+            } else {
+                htmlToInsert += "";
             }
 
             htmlToInsert += "</section>";
@@ -533,10 +535,11 @@ function getReadNextBook() {
         htmlToInsert += "<section class=\"photo-wrapper\">";
         htmlToInsert += "<div class=\"page-bg-wrapper\">";
 
-        if (current.attribution != "Add photo credit?") {
+        if (current.creativeCommons != "Add photo credit?") {
             htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        } else {
+            htmlToInsert += "";
         }
-
         htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
         htmlToInsert += "</div>";
         htmlToInsert += "<div class=\"photo-preview\">";
@@ -571,8 +574,9 @@ function getReadNextBook() {
 
         if (current.creativeCommons != "Add photo credit?") {
             htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        } else {
+            htmlToInsert += "";
         }
-
         htmlToInsert += "</section>";
         htmlToInsert += "</div></div>";
 
@@ -584,8 +588,9 @@ function getReadNextBook() {
 
         if (current.creativeCommons != "Add photo credit?") {
             htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        } else {
+            htmlToInsert += "";
         }
-
         htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
         htmlToInsert += "<div class=\"phototext-preview\">";
         htmlToInsert += "<article>";
@@ -609,8 +614,9 @@ function getReadNextBook() {
 
         if (current.creativeCommons != "Add photo credit?") {
             htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        } else {
+            htmlToInsert += "";
         }
-
         htmlToInsert += "<div class=\"draggable-placeholder\">";
         htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
         htmlToInsert += "<div class=\"vertical-preview\">";
@@ -635,8 +641,9 @@ function getReadNextBook() {
 
         if (current.creativeCommons != "Add photo credit?") {
             htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
+        } else {
+            htmlToInsert += "";
         }
-
         htmlToInsert += "<div class=\"video-preview\">";
 
         htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";

@@ -791,7 +791,7 @@
 		if ($(".page-bg").data("adaptive-background") == 1) {
 			$(".image-attribution").css("display", "block");
 		} else {
-			$(".image-attribution").css("display", "none");
+			$(".image-attribution").css("display", "block");
 		}
 
 		// Empty attribution field when user clicks in it
@@ -891,7 +891,7 @@
 		if ($(".page-bg").data("adaptive-background") == 1) {
 			$(".image-attribution").css("display", "block");
 		} else {
-			$(".image-attribution").css("display", "none");
+			$(".image-attribution").css("display", "block");
 		}
 
 		// Empty attribution field when user clicks in it
@@ -999,7 +999,7 @@
 		if ($(".page-bg").data("adaptive-background") == 1) {
 			$(".image-attribution").css("display", "block");
 		} else {
-			$(".image-attribution").css("display", "none");
+			$(".image-attribution").css("display", "block");
 		}
 
 		// Empty attribution field when user clicks in it
@@ -1104,7 +1104,7 @@
 		if ($(".page-bg").data("adaptive-background") == 1) {
 			$(".image-attribution").css("display", "block");
 		} else {
-			$(".image-attribution").css("display", "none");
+			$(".image-attribution").css("display", "block");
 		}
 
 		// Empty attribution field when user clicks in it

@@ -159,7 +159,7 @@
 		lastPublishedBook = getLastPublishedBookId();
 		getUserFromBookId(lastPublishedBook.bookId)
 
-			$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"http://folio.is/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
+			$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
 				
 			e.preventDefault();
 				

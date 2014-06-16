@@ -53,7 +53,7 @@
 		</header>
 		
 		<div id="draft-tutorial" style="display: none;">
-			<p class="draft-tutorial-text" style="opacity: 0.7;">FYI, your work has been saved as a Draft, but is not public yet.</br>You can access your drafts later on the side menu.</br><a id="leave-editor" href="/">Ok, I get it</a><a id="close-draft-tutorial" style="font-size: 1rem; font-weight: 100; top: 1.8rem; right: 10rem; position: absolute;">Back to editor</a></p>
+			<p class="draft-tutorial-text" style="opacity: 0.7;">TIP: your work has been saved as a Draft, but is not public yet.</br>You can access your drafts later on the side menu.</br><a id="leave-editor" href="/">Ok, I get it</a><a id="close-draft-tutorial" style="font-size: 1rem; font-weight: 100; top: 1.8rem; right: 10rem; position: absolute;">Back to editor</a></p>
 			<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
 		</div>
 
@@ -183,13 +183,12 @@
 				$("#create-book, #back, #finish, #notify-saving").show();
 			});
 			
-			
 			$("#publish-this").on("click", function (e) {
 				
 			        lastPublishedBook = getLastPublishedBookId();
 				getUserFromBookId(lastPublishedBook.bookId)
 
-				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"http://folio.is/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
+				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
 				
 				e.preventDefault();
 				

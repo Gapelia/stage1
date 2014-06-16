@@ -221,8 +221,9 @@
                         htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
                         if (current.attribution != "Add photo credit?") {
                             htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                        }
-
+                        } else {
+			    htmlToInsert += "";
+			}
                         htmlToInsert += "</section>";
                         htmlToInsert += "<div class=\"fluid-preview\">";
                     }
@@ -254,8 +255,9 @@
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                    }
-
+                    } else {
+			htmlToInsert += "";
+		    }
                     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/></div>";
                     htmlToInsert += "<div class=\"photo-preview\">";
                     htmlToInsert += "<article>";
@@ -288,8 +290,9 @@
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                    }
-
+                    } else {
+			htmlToInsert += "";
+		    }
                     htmlToInsert += "</section>";
                     htmlToInsert += "</div></div>";
 
@@ -301,8 +304,9 @@
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                    }
-
+                    } else {
+			htmlToInsert += "";
+		    }
                     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
                     htmlToInsert += "<div class=\"phototext-preview\">";
                     htmlToInsert += "<article>";
@@ -325,8 +329,9 @@
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                    }
-
+                    } else {
+			htmlToInsert += "";
+		    }
                     htmlToInsert += "<div class=\"draggable-placeholder\">";
                     htmlToInsert += "<img class=\"page-bg\" src=\"" + current.image + "\"/>";
                     htmlToInsert += "<div class=\"vertical-preview\">";
@@ -349,8 +354,9 @@
 
                     if (current.attribution != "Add photo credit?") {
                         htmlToInsert += "<span class=\"image-attribution\">" + current.attribution + "</span>";
-                    }
-
+                    } else {
+			htmlToInsert += "";
+		    }
                     htmlToInsert += "<div class=\"video-preview\">";
 
                     htmlToInsert += "<div class=\"button-wrapper\"><button class=\"play-video\">Play</button></div>";
