@@ -28,6 +28,26 @@ public class User {
     private Boolean isPublic;
     private Boolean isOnboarded;
 
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	private String university;
+	private String department;
+
+
 	public Boolean getEmailOptOut() {
 		if(emailOptOut == null) return false;
 

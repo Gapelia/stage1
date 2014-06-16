@@ -100,7 +100,9 @@ public class Users {
                              @FormParam("gp") String gp,
                              @FormParam("twt") String twt,
                              @FormParam("isPublic") boolean isPublic,
-							 @FormParam("emailOptOut") boolean emailOptOut) {
+							 @FormParam("emailOptOut") boolean emailOptOut,
+							 @FormParam("university") String university,
+							 @FormParam("department") String department) {
         if (!APIUtil.isValidSession(sessionId))
             return APIUtil.INVALID_SESSION_ERROR_MSG;
         User u = SessionManager.getUserFromSessionId(sessionId);
@@ -118,6 +120,8 @@ public class Users {
         u.setTwt(twt);
         u.setIsPublic(isPublic);
 		u.setEmailOptOut(emailOptOut);
+		u.setUniversity(university);
+		u.setDepartment(department);
         return QueryDatabaseUser.updateUserProfile(u);
     }
 
