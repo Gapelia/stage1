@@ -954,8 +954,8 @@ function callUpdate() {
             gp: gp,
             twt: twt,
             isPublic: true,
-	    university: null,
-	    department: null
+	    university: university,
+	    department: department
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1110,6 +1110,8 @@ function updateUserOnboard() {
     gp = null;
     twt = null;
     isPublic = true;
+    university = user.university;
+    department = user.department;
     callUpdate();
     onboard();
 
@@ -1541,6 +1543,8 @@ function quickUpdateUser() {
     gp = user.gp;
     twt = user.twt;
     isPublic = user.isPublic;
+    university = user.university;
+    department = user.department;
     callUpdate();
 }
 

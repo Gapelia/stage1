@@ -203,6 +203,39 @@
 				
 				//clicking on uni//
 				$("#uni-next").click(function (e) {
+					
+					user.university = $(".selectize-input div")[0].textContent;
+					user.department = $(".selectize-input div")[1].textContent;
+					
+					 $.ajax({
+						url: "/api/users/updateUser",
+						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+						type: "POST",
+						data: {
+						    sessionId: sessionId,
+						    name: user.name,
+						    email: user.email,
+						    location: user.location,
+						    avatarImage: user.avatarImage,
+						    coverImage: user.coverImage,
+						    displayName: user.displayName,
+						    personalWebsite: user.personalWebsite,
+						    bio: user.bio,
+						    tags: user.tags,
+						    fb: user.fb,
+						    gp: user.gp,
+						    twt: user.twt,
+						    isPublic: true,
+						    university: user.university,
+						    department: user.department
+						},
+						error: function (q, status, err) {
+						    if (status == "timeout") {
+							alert("Request timed out");
+						    }
+						}
+					    });
+					
 					$("#intro").css("opacity", "0.75");
 					$("#university-affiliation").css("display", "none");
 				});

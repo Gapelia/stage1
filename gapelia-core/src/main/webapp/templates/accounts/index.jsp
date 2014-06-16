@@ -204,7 +204,7 @@
 
 			});
 
-			function load() {
+		 function load() {
                  getNotifications();
 				Spinner({ radius: 40, length: 10 }).spin(document.getElementById("account-splash-wrapper"));
 
