@@ -953,7 +953,9 @@ function callUpdate() {
             fb: fb,
             gp: gp,
             twt: twt,
-            isPublic: true
+            isPublic: true,
+	    university: null,
+	    department: null
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1614,6 +1616,9 @@ function updateUserAccounts() {
         isPublic = user.isPublic;
 	emailOptOut = !(document.querySelector(".js-switch").checked);
 	console.log("emailoptout : "+emailOptOut);
+	university = document.getElementById("user-university").value;
+	department = document.getElementById("user-department").value;
+	
         
         if(checkName(displayName)) {
              $.ajax({
@@ -1635,7 +1640,9 @@ function updateUserAccounts() {
                 gp: gp,
                 twt: twt,
                 isPublic: true,
-		emailOptOut: emailOptOut
+		emailOptOut: emailOptOut,
+		university: university,
+		department: department
             }
             });
         } else {

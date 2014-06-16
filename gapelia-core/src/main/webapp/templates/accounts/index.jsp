@@ -125,6 +125,9 @@
 							
 							<label for="user-university">University Affiliation</label>
 							<input id="user-university" type="text" placeholder="Academic, research or professional institution..."></input>
+							
+							<label for="user-department">Department</label>
+							<input id="user-department" type="text" placeholder="School, department or field of study.."></input>
 
 							<label for="user-personal-website">Website</label>
 							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>
