@@ -1576,6 +1576,12 @@ function getUserAccounts() {
     if (user.gp != undefined && user.gp != "") {
         document.getElementById("user-gp").value = user.gp;
     }
+    if (user.university != undefined && user.university != "") {
+        document.getElementById("user-university").value = user.university;
+    }
+    if (user.department != undefined && user.department != "") {
+        document.getElementById("user-department").value = user.department;
+    }
     if (user.emailOptOut != undefined && user.emailOptOut != "") {
 	
 	var elem = document.querySelector('.js-switch');
