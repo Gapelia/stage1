@@ -26,11 +26,12 @@ public class QueryDatabaseUser {
     private static final String SELECT_USER = "SELECT * FROM users WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
     private static final String SET_ONBOARD = "UPDATE users set is_onboarded = 't' where id = ?";
+    private static final String SET_UNIVERSITY = "UPDATE users set university = ?, department = ? where id = ?";
     protected static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ?";
     private static final String UPDATE_USER = "UPDATE users set email = ?, name = ?, " +
             "location = ?, avatar_image = ?, cover_image = ?, display_name = ?, " +
             "last_login = ?, last_updated = ?, personal_website = ?, bio = ?, tags = ?, fb = ?, " +
-            "gp = ?, twt = ?, is_public = ?, opt_out = ? WHERE id = ?";
+            "gp = ?, twt = ?, is_public = ?, opt_out = ?, university = ?, department = ? WHERE id = ?";
 //    private static final String GET_FEATURED_BOOKS = "SELECT * FROM books where is_published = 't' order by random() LIMIT 20";
     private static final String GET_FEATURED_BOOKS = "select * from books left join (select count(book_id) as num_votes, " +
 		"book_id from user_votes group by book_id order by num_votes desc limit 20) as t2 on books.id = t2.book_id where " +
@@ -466,7 +467,9 @@ public class QueryDatabaseUser {
             statement.setString(14, user.getTwt());
             statement.setBoolean(15, user.getIsPublic());
 			statement.setBoolean(16, user.getEmailOptOut());
-            statement.setInt(17, user.getUserId());
+			statement.setString(17, user.getUniversity());
+			statement.setString(18, user.getDepartment());
+            statement.setInt(19, user.getUserId());
 
             LOG.info(statement.toString());
             statement.executeUpdate();
