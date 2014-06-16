@@ -12,6 +12,7 @@
 	font-size: 15px;
 	overflow: hidden;
 	position: relative;
+  overflow-y: hidden;
 
 	.super-wrapper {
     background-color: rgba(11, 72, 107, 0.05);
@@ -484,7 +485,7 @@
   
   // regular scroll bar hidden
     div::-webkit-scrollbar {
-    	height: 0; width: 0;
+    	height: 7px; width: 7px;
     }
    ///
   

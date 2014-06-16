@@ -94,7 +94,7 @@
             </div>
         </div>
 	
-	<span id="welcoming-title">Forward Thinking</span>
+	<span id="welcoming-title">A Laboratory of Ideas</span>
         <!--//main-panel /-->
 
         <!--/ main-content /-->
@@ -307,7 +307,7 @@
             // Dropdown menu for mobile
             if ($vW < "1024") {
 		
-                $(".bookmark-list-wrapper").remove();
+                $(".bookmark-list-wrapper, .subscription-list-wrapper").remove();
 		
 		$("#featured-panel .featured-info").remove();
 		

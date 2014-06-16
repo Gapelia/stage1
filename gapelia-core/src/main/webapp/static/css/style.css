@@ -2028,7 +2028,7 @@ ol {
   -moz-transform: translate3d(-100%, 0, 0);
   -webkit-transform: translate3d(-100%, 0, 0); }
 .mp-menu a {
-  color: #fcfcfc; }
+  color: white; }
 .mp-menu .mp-level {
   width: 100%;
   height: 100%;
@@ -2374,7 +2374,8 @@ body.landing .error {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
   font-size: 15px;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  overflow-y: hidden; }
 .app .super-wrapper {
   background-color: rgba(11, 72, 107, 0.05);
   display: none; }
@@ -2730,8 +2731,8 @@ body.landing .error {
 .app #featured-nav .example-arabic .tt-dropdown-menu {
   text-align: right; }
 .app div::-webkit-scrollbar {
-  height: 0;
-  width: 0; }
+  height: 7px;
+  width: 7px; }
 .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
   position: absolute;
   top: 54.5%;
@@ -8221,7 +8222,7 @@ a.count span.dont-move {
     width: 45px;
     height: 45px; }
   .app .book .book-title a, .app .book .library-location, .app .book .book-info, .app .book .author-name a, .app .collection .book-title a, .app .collection .library-location, .app .collection .book-info, .app .collection .author-name a, .app .library .book-title a, .app .library .library-location, .app .library .book-info, .app .library .author-name a {
-    color: rgba(25, 25, 25, 0.8) !important;
+    color: #191919 !important;
     text-shadow: none !important; }
   .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes {
     bottom: 0;
@@ -8254,7 +8255,7 @@ a.count span.dont-move {
     border: none !important;
     font-weight: 100;
     left: 2rem;
-    opacity: 0.5;
+    opacity: 1;
     position: relative; }
   .app .book .wrapper, .app .collection .wrapper, .app .library .wrapper {
     bottom: 2rem;
@@ -8323,7 +8324,7 @@ a.count span.dont-move {
     display: inline-block !important;
     font-size: 0.9rem;
     margin-left: 5px;
-    opacity: 0.8; }
+    opacity: 1; }
   .app .book-info .author-name:before, .app .collection-info .author.name:before {
     opacity: 0.75; }
   .app #featured-splash, .app #library-splash, .app #user-splash, .app #new-library {
@@ -8457,8 +8458,8 @@ a.count span.dont-move {
     margin: 1rem 0 0 0; }
   .full-book #the-book {
     height: auto; }
-  .full-book #the-book #stay-right {
-    display: none; }
+  .full-book #the-book #stay-right, .full-book #the-book #edit-shortcut {
+    display: none !important; }
   .full-book #the-book #bb-bookblock {
     height: auto;
     overflow-x: initial;
@@ -8775,6 +8776,8 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash {
     z-index: 10; }
+  .profile #user-splash .overlay-controls {
+    display: none; }
   .profile .user-book-list-wrapper {
     top: initial !important; }
   .profile #featured-nav {
@@ -9613,9 +9616,9 @@ a.count span.dont-move {
   body.landing #beta {
     display: none; }
   body.landing #gapelia {
-    height: 25%;
-    left: 24%;
-    top: 4.6rem; }
+    height: 26.5%;
+    left: 23.75%;
+    top: 4.2rem; }
   body.landing h4 {
     margin-top: 2rem;
     width: 90%; }
@@ -9654,7 +9657,9 @@ a.count span.dont-move {
     font-size: 26px; }
   .app #library-splash #library-info p {
     font-size: 0.9rem;
-    text-align: center; }
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.44);
+    padding: 10px 0 12px 0 !important; }
   .app #library-splash #library-info span {
     font-size: 0.9rem !important;
     text-align: center; }
@@ -9667,7 +9672,7 @@ a.count span.dont-move {
     background-size: 600px;
     height: 0;
     font-size: 1rem;
-    padding: 10.6rem 6rem;
+    padding: 10.6rem 5rem;
     text-align: center; }
   .app #featured-panel {
     height: 70px; }
@@ -9698,7 +9703,7 @@ a.count span.dont-move {
   .app .notification-time #notification-count {
     display: none !important; }
   .app #explore-list {
-    padding: 0rem 1rem 1rem 1rem !important;
+    padding: 0rem 1rem 3rem 1rem !important;
     z-index: 10; }
   .app .book, .app .collection, .app .library {
     margin: 0;
@@ -9706,7 +9711,6 @@ a.count span.dont-move {
     background-color: white;
     border-bottom: 1px solid rgba(89, 179, 166, 0.3);
     box-shadow: none;
-    height: auto !important;
     padding: 1.3rem; }
   .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar {
     height: 35px;
@@ -9818,15 +9822,16 @@ a.count span.dont-move {
     border-bottom: none;
     border: none;
     margin: 1rem 1rem 0rem 0rem;
-    padding: 2rem; }
+    padding: 1rem; }
   .app .library .library-info {
     margin: 1rem 0;
-    top: 1rem; }
+    top: 1.5rem; }
   .app .library .library-info .title {
     font-size: 1.4rem;
     line-height: 1.6rem; }
   .app .library .wrapper {
-    margin: 0 0 1rem 0; }
+    margin: 2rem 0 1rem 0;
+    position: relative !important; }
   .app .library button {
     font-size: 0.6rem !important; }
   .app #user-splash {
@@ -9844,8 +9849,8 @@ a.count span.dont-move {
     font-size: 0.7rem;
     font-weight: 300;
     margin-left: 7px;
-    opacity: 0.6;
-    text-align: left;
+    opacity: 0.85;
+    text-align: center;
     text-transform: uppercase; }
   .app #user-splash h5 a {
     color: #191919;
@@ -9883,7 +9888,7 @@ a.count span.dont-move {
 
   .library #library-splash #library-info {
     left: 0;
-    top: 42%;
+    top: 47%;
     width: 100%; }
   .library #library-splash #library-share {
     display: none; }
@@ -9902,9 +9907,22 @@ a.count span.dont-move {
   .library #library-splash section {
     font-size: 0.8rem !important; }
   .library #library-splash #close-splash {
-    bottom: 4% !important;
+    bottom: 1% !important;
     font-size: 1.5rem !important;
+    font-weight: 500;
     left: 47%; }
+  .library h1 {
+    color: white;
+    font-size: 0.9rem !important;
+    font-weight: 200;
+    margin: 0 0 2px 0;
+    position: absolute !important;
+    top: 3.5rem;
+    left: 1rem; }
+  .library h1 c {
+    margin-left: 8px; }
+  .library h1 span {
+    margin-right: 8px; }
 
   a.mercibject div.opening div.circle {
     height: 75px;
@@ -9933,16 +9951,17 @@ a.count span.dont-move {
     width: 100%;
     height: auto;
     top: initial;
-    left: initial;
+    left: 1rem;
     border-bottom: 1px solid rgba(25, 25, 25, 0.25);
     display: inline-block;
     margin: 0;
     padding-bottom: 8px;
-    position: relative; }
+    position: relative;
+    width: 90%; }
   .full-book .fluid-wrapper .author-info .author-name {
     border-right: none !important;
     margin-bottom: 0;
-    padding-left: 1rem;
+    padding-left: 0;
     padding-top: 6px;
     position: relative;
     text-align: left; }
@@ -9952,7 +9971,7 @@ a.count span.dont-move {
     padding-left: 9%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
-    margin-left: -13%;
+    margin-left: -3.25rem;
     margin-top: -2rem; }
   .full-book .fluid-wrapper .draggable-placeholder {
     height: auto; }
@@ -9963,12 +9982,13 @@ a.count span.dont-move {
     padding-bottom: 1rem; }
   .full-book .fluid-wrapper .fluid-preview article {
     margin: 0; }
-  .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
+  .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 100%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem {
     font-size: 1.5rem;
     line-height: 2rem;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    width: 90%; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem span {
     font-size: 1.5rem !important; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
@@ -10109,6 +10129,8 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin-next .book-info {
     font-size: 0.8rem;
     padding: 0 2rem; }
+  .full-book h3 {
+    font-size: 1.5rem; }
 
   .profile #featured-nav {
     top: 0; }
@@ -10146,10 +10168,10 @@ a.count span.dont-move {
     display: none; }
 
   .accounts #account-splash-wrapper {
-    margin-bottom: -2rem;
-    top: -7rem; }
+    margin-bottom: -7rem;
+    top: -2rem; }
   .accounts #account-splash-wrapper .account-avatar-wrapper {
-    hegith: 100px;
+    height: 100px;
     width: 100px; }
   .accounts #account-splash-wrapper #account-user-splash .button-wrapper {
     display: none; }

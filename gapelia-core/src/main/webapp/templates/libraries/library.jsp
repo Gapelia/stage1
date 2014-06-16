@@ -214,8 +214,13 @@
                             $("#g-menu-toggle").css("color", "#fcfcfc");
 			    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
 			    $("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
-			    $("#featured-panel").css("background-color", "rgba(230, 231, 233, 1)");
+			    $("#featured-panel").css({
+				"background-color": "white",
+				"border-bottom": "1px solid #59B3A6"
+			    });
 			    $("#featured-panel .subscribe").remove();
+			    $("#featured-scroller").css("background-color", "white");
+			    $(".library h1").remove();
                         },
                         threshold: 0
                     });
@@ -231,8 +236,13 @@
                         $("#g-menu-toggle").css("color", "#fcfcfc");
 			$(".book-list-wrapper, #featured-nav").css("opacity", "1");
 			$("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
-			$("#featured-panel").css("background-color", "rgba(230, 231, 233, 1)");
+			$("#featured-panel").css({
+				"background-color": "white",
+				"border-bottom": "1px solid #59B3A6"
+			});
 			$("#featured-panel .subscribe").remove();
+			$("#featured-scroller").css("background-color", "white");
+			$(".library h1").remove();
                     });
 		    
 		    
@@ -429,7 +439,9 @@
             }
 	    if ($vW < "1024") {
 		$("#library-splash .subscribe").remove();
+		$(".library #library-splash h1").remove();
 		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
+		$("#featured-panel").append("<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1>");
 	    }
 	    
             if ($vW < "421") {
