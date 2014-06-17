@@ -11,7 +11,7 @@ public class DatabaseManager {
 	private static String DB_HOSTNAME = "stage1.chxnadlmqc14.us-east-1.rds.amazonaws.com";
 	private static String DB_PORT = "5432";
 	private static String DB_USER = "gapelia";
-	private static String DB_PASS = "alphalaunch";
+	private static String DB_PASS = "betalaunch";
 	private static String DB_NAME = "gapelia";
 
 	private static Logger LOG = Logger.getLogger(DatabaseManager.class);
