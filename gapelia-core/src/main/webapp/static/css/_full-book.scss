@@ -5,7 +5,9 @@
 
 .full-book {
 
-	// modal for collecting to library //
+	::-webkit-scrollbar {
+    display: block !important;
+  }
   
   #the-book {
 		width: 100%; height: 100%;

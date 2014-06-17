@@ -683,5 +683,21 @@
 		position: absolute;
 		top: 0;
 	}
+	
+	//dropdown styling//
+	.selectize-control {
+		left: 30%;
+		width: 40%;
+	}
+	
+	.selectize-control.single .selectize-input {
+		background-image: none;
+		box-shadow: none;
+		border: none;
+		font-size: 16px !important;
+		text-align: left;
+	}
+
+	.account-info-wrapper .col-0 .bl_form input { font-size: 15px; }
 
 }

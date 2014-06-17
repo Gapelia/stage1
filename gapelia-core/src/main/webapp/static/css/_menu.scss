@@ -323,9 +323,9 @@
 		}
 	}
 	
-	// scrollbar inside of side menu
+	// scrollbar inside of side menu is hidden//
 	
-	div::-webkit-scrollbar {
+	::-webkit-scrollbar {
 		height: 0px; width: 0px;
 	}
 }

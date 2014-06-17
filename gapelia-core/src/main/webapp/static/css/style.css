@@ -2256,7 +2256,7 @@ ol {
   background-color: transparent;
   box-shadow: none;
   color: transparent; }
-.mp-menu div::-webkit-scrollbar {
+.mp-menu ::-webkit-scrollbar {
   height: 0px;
   width: 0px; }
 
@@ -2376,6 +2376,8 @@ body.landing .error {
   overflow: hidden;
   position: relative;
   overflow-y: hidden; }
+.app ::-webkit-scrollbar {
+  display: none !important; }
 .app .super-wrapper {
   background-color: rgba(11, 72, 107, 0.05);
   display: none; }
@@ -2730,9 +2732,6 @@ body.landing .error {
   padding: 3px 0; }
 .app #featured-nav .example-arabic .tt-dropdown-menu {
   text-align: right; }
-.app div::-webkit-scrollbar {
-  height: 7px;
-  width: 7px; }
 .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
   position: absolute;
   top: 54.5%;
@@ -4545,6 +4544,17 @@ body.library-manager #stay-right {
   box-shadow: 1px 0px 1px rgba(89, 179, 166, 0.6);
   position: absolute;
   top: 0; }
+.accounts .selectize-control {
+  left: 30%;
+  width: 40%; }
+.accounts .selectize-control.single .selectize-input {
+  background-image: none;
+  box-shadow: none;
+  border: none;
+  font-size: 16px !important;
+  text-align: left; }
+.accounts .account-info-wrapper .col-0 .bl_form input {
+  font-size: 15px; }
 
 /************************************************************************************* SETTINGS/SCSS **/
 #settings-wrapper {
@@ -6561,6 +6571,8 @@ a.count span.dont-move {
 .g-body hr {
   margin: 4rem auto 20px auto; }
 
+.full-book ::-webkit-scrollbar {
+  display: block !important; }
 .full-book #the-book {
   width: 100%;
   height: 100%;

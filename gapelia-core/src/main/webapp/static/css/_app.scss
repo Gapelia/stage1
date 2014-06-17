@@ -13,6 +13,10 @@
 	overflow: hidden;
 	position: relative;
   overflow-y: hidden;
+  
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
 
 	.super-wrapper {
     background-color: rgba(11, 72, 107, 0.05);
@@ -482,12 +486,6 @@
     }
     
   }
-  
-  // regular scroll bar hidden
-    div::-webkit-scrollbar {
-    	height: 7px; width: 7px;
-    }
-   ///
   
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
 	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {

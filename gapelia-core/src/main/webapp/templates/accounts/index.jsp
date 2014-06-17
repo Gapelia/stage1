@@ -35,7 +35,8 @@
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
-        <script src="/static/scripts/userNotifications.js"></script>
+		<script src="/static/scripts/userNotifications.js"></script>
+		<script src="/static/scripts/selectize.js"></script>
 
 	</head>
 
@@ -124,12 +125,12 @@
 							<input id="user-location" type="text" placeholder="Location"></input>
 							
 							<label for="user-university">University Affiliation</label>
-							<input id="user-university" type="text" placeholder="Academic, research or professional institution..."></input>
+							<select id="user-university" placeholder="Academic, research or professional institution..."></select>
 							
-							<label for="user-department">Department</label>
-							<input id="user-department" type="text" placeholder="School, department or field of study.."></input>
+							<label for="user-department" style="margin: 1.75rem 0 0.5rem 0;">Department</label>
+							<select id="user-department" placeholder="School, department or field of study.."></select>
 
-							<label for="user-personal-website">Website</label>
+							<label for="user-personal-website" style="margin: 1.75rem 0 0.5rem 0;">Website</label>
 							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>
 
 							<label for="user-twt">Twitter</label>
@@ -219,6 +220,36 @@
 				// $("#user-info h2").html(_fullName);
 				$(".account-avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
 				
+				
+				//school and uni dropdowns//
+				$("#user-university").selectize({
+					options: [
+						{ name: "Harvard University", value: "harvard university" },
+					],
+					labelField: "name",
+					searchField: ["name"]
+				});
+				
+				$("#user-department").selectize({
+					options: [
+						{ name: "Harvard Business School", value: "harvardbusinessschool" },
+						{ name: "Division of Continuing Education", value: "harvardcontinuingeducation" },
+						{ name: "Harvard Graduate School of Arts and Sciences", value: "harvardschoolartsandsciences" },
+						{ name: "Graduate School of Design", value: "harvardgraduateschoolofdesign" },
+						{ name: "Harvard Graduate School of Education", value: "harvardgraduteschooleducation" },
+						{ name: "Harvard Kennedy School", value: "harvardkennedyschool" },
+						{ name: "Harvard Law School", value: "harvardlawschool" },
+						{ name: "Harvard School of Public Health", value: "harvardschoolofpublichealth" },
+						{ name: "Harvard College", value: "harvardcollege" },
+						{ name: "Harvard School of Dental Medicine", value: "harvardschoolofdentalmedicine" },
+						{ name: "Harvard Divinity School", value: "harvarddivinityschool" },
+						{ name: "Harvard School of Engineering and Applied Sciences", value: "harvard engineeringappliedsciences" },
+						{ name: "Harvard Medical School", value: "harvardmedicalschool" },
+					],
+					labelField: "name",
+					searchField: ["name"]
+				});
+				
 
 				// Slide menu for desktop
 				if ($vW > "1024") {
@@ -228,7 +259,9 @@
 					$(".mp-pushed").ready(function () {
 						$("#book-scroller").css("z-index", "0");
 					});
-
+					
+					$(".selectize-control").css("cssText", "margin-left: 0 !important");
+					
 				}
 
 				// Dropdown menu for mobile
@@ -259,7 +292,34 @@
 						e.preventDefault();
 
 					});
+					
+					$(".selectize-control").css({
+						"left": "25%",
+						"width": "50%"
+					});
 
+				}
+				
+				if ($vW < "800") {
+					$(".selectize-control").css({
+						"left": "20%",
+						"width": "60%"
+					});
+				}
+				
+				if ($vW < "601") {
+					$(".selectize-control").css({
+						"left": "10%",
+						"width": "80%"
+					});
+				}
+				
+							
+				if ($vW < "321") {
+					$(".selectize-control").css({
+						"left": "0%",
+						"width": "100%"
+					});
 				}
 				
 				if ($vH > "1190") {
