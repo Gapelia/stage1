@@ -441,12 +441,16 @@
 		$("#library-splash .subscribe").remove();
 		$(".library #library-splash h1").remove();
 		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
-		$("#featured-panel").append("<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1>");
+		//$("#featured-panel").append("<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1>");
 	    }
 	    
             if ($vW < "421") {
                 $(".book-snippet").css("display","block");
-		$("#featured-panel .subscribe").css("font-size", "0.7rem");
+		$("#featured-panel .subscribe").css({
+			"font-size": "0.6rem",
+			"right": "1.5rem",
+			"top": "1.5rem"
+		});
 	    }
 		
 		h = $(this).outerHeight() - 92;

@@ -2344,9 +2344,9 @@ body.landing footer ul li a {
 body.landing footer ul li:last-child {
   margin: 0; }
 body.landing h5 {
-  color: rgba(252, 252, 252, 0.5);
+  color: #fcfcfc;
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 4rem;
   margin: 0 auto;
   padding: 0 0 1rem 0;
@@ -2363,7 +2363,7 @@ body.landing .error {
   font-size: 2rem;
   font-weight: 100;
   margin: 0;
-  opacity: 0.6; }
+  opacity: 1; }
 
 .app {
   width: 100%;
@@ -9260,7 +9260,7 @@ a.count span.dont-move {
   .app #library-splash #library-info h2 {
     font-size: 2rem; }
   .app #library-splash #library-info p {
-    font-size: 1rem; }
+    font-size: 1rem !important; }
   .app #user-splash .user-avatar {
     top: 19%; }
   .app #user-splash #splash-user-bio {
@@ -9335,7 +9335,7 @@ a.count span.dont-move {
     margin-left: 41%; }
   .full-book .overlay-wrapper .overlay-preview .page-title-elem {
     font-size: 1.1rem;
-    line-height: 2.3rem; }
+    line-height: 1.5rem; }
   .full-book .phototext-wrapper .author-info .author-avatar, .full-book .vertical-wrapper .author-info .author-avatar, .full-book .video-wrapper .author-info .author-avatar {
     margin-left: 34%; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
@@ -9407,8 +9407,7 @@ a.count span.dont-move {
   .app .book-info .author-name, .app .collection-info .author.name {
     font-size: 0.7rem; }
   .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes {
-    bottom: 10px;
-    font-size: 0.8rem; }
+    display: none; }
   .app #book-cta {
     padding: 0rem 3rem; }
   .app #book-cta p {
@@ -9422,7 +9421,11 @@ a.count span.dont-move {
   .app .library .library-info .title {
     font-size: 1.4rem; }
   .app .library .library-info .lib-blurb {
-    display: none; }
+    font-size: 0.8rem;
+    line-height: 1.5; }
+  .app .library .library-info .lib-blurb span {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important; }
   .app .library .wrapper button {
     font-size: 0.7rem; }
   .app #library-splash {
@@ -9441,9 +9444,10 @@ a.count span.dont-move {
   .app #user-splash #splash-user-bio span {
     font-size: 0.9rem !important; }
   .app #user-splash #splash-user-info {
-    padding: 0 1rem; }
+    padding: 0 1rem;
+    top: 21% !important; }
   .app #user-splash .user-avatar {
-    top: 17%; }
+    top: 17% !important; }
 
   .profile #user-extra {
     display: none; }
@@ -9479,27 +9483,44 @@ a.count span.dont-move {
     left: 24.25%;
     top: 3rem; }
 
+  .app #featured-panel {
+    height: 70px; }
   .app #header-message {
     padding: 1.25rem 0 0.5rem 0; }
   .app #header-message button {
     font-size: 10px;
     right: -32%; }
+  .app #g-menu-toggle {
+    left: 0.9rem; }
   .app #welcoming-title {
     height: 300px;
     font-size: 1.3rem;
-    padding: 12.6rem 5.7rem;
+    padding: 12.6rem 5rem;
     text-align: left; }
   .app #featured-scroller #g-menu-toggle {
     left: 29.75%; }
-  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
-    padding: 1.5rem 0.75rem 0.25rem 0.75rem; }
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
+    padding: 1.5rem 0.5rem 0.25rem 0.5rem; }
+  .app #explore-list {
+    padding: 1rem 1rem 1.25rem 1rem !important; }
+  .app .book {
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem !important; }
+  .app .book .author-avatar {
+    height: 40px;
+    width: 40px; }
   .app .book:last-child {
     bottom: 10px;
-    margin-top: 0; }
+    margin-top: 0;
+    padding-bottom: 4rem !important; }
   .app .book-title {
     padding: 0 2rem; }
+  .app .library:last-child {
+    bottom: 2.5rem;
+    margin-top: 2.5rem !important; }
   .app #library-splash #close-splash {
-    font-size: 2rem; }
+    font-size: 2rem;
+    font-weight: 400; }
   .app #library-splash p {
     font-size: 1rem; }
   .app #library-splash span {
@@ -9520,8 +9541,13 @@ a.count span.dont-move {
 
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
+  .full-book .fluid-wrapper .draggable-placeholder {
+    height: 250px; }
+  .full-book .fluid-wrapper .draggable-placeholder .page-bg {
+    display: block !important;
+    height: 250px; }
   .full-book .fluid-wrapper .fluid-preview {
-    padding: 0 !important; }
+    padding: 0.25rem 0 0 0 !important; }
   .full-book .fluid-wrapper .fluid-preview .page-desc {
     font-size: 1rem; }
   .full-book .fluid-wrapper .fluid-preview span {
@@ -9533,6 +9559,17 @@ a.count span.dont-move {
     width: 90%; }
   .full-book .photo-wrapper .author-info {
     top: -1.5rem; }
+  .full-book .photo-wrapper .author-info .author-avatar {
+    margin-left: 42%; }
+  .full-book .overlay-wrapper {
+    margin: 0 0 5rem 0; }
+  .full-book .overlay-wrapper .author-info {
+    left: 30%;
+    top: 0.5rem; }
+  .full-book .overlay-wrapper .author-info .author-avatar {
+    margin-left: 30%; }
+  .full-book .overlay-wrapper .overlay-preview article {
+    margin-top: 6%; }
   .full-book .phototext-wrapper .phototext-preview {
     padding: 0.75rem 0 0 0; }
   .full-book .phototext-wrapper .phototext-preview .page-desc {
@@ -9541,17 +9578,25 @@ a.count span.dont-move {
     text-align: left; }
   .full-book .phototext-wrapper .phototext-preview .page-title-elem {
     font-size: 1.6rem; }
+  .full-book .phototext-wrapper .author-info .author-avatar {
+    margin-left: 25%; }
   .full-book .vertical-wrapper .vertical-preview {
     padding: 0; }
   .full-book .vertical-wrapper .vertical-preview .page-desc {
     font-size: 1rem; }
   .full-book .vertical-wrapper .vertical-preview .page-title-elem {
     font-size: 1.4rem; }
+  .full-book .vertical-wrapper .author-info {
+    margin-top: 0.5rem; }
+  .full-book .vertical-wrapper .author-info .author-avatar {
+    margin-left: 25%; }
   .full-book .backcover-wrapper #fin {
     padding: 2rem 2rem;
     text-align: center; }
   .full-book .backcover-wrapper #fin h2 {
     display: none; }
+  .full-book .backcover-wrapper #fin #library-info-blurb span {
+    font-size: 0.8rem !important; }
   .full-book .backcover-wrapper #fin .merci {
     display: inline;
     margin: 0;
@@ -10022,13 +10067,6 @@ a.count span.dont-move {
     border-right: none !important;
     padding-right: 0;
     text-align: center; }
-  .full-book .overlay-wrapper {
-    margin: 0 0 5rem 0; }
-  .full-book .overlay-wrapper .author-info {
-    left: 30%;
-    top: 0.5rem; }
-  .full-book .overlay-wrapper .author-info .author-avatar {
-    margin-left: 30%; }
   .full-book .overlay-wrapper .overlay-preview {
     height: 100%; }
   .full-book .overlay-wrapper .overlay-preview article {
