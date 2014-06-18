@@ -3369,6 +3369,11 @@ body.landing .error {
   display: inline !important;
   margin: 5px;
   text-decoration: underline; }
+.app #library-tutorial {
+  bottom: 2rem;
+  color: white;
+  position: absolute;
+  z-index: 1; }
 .app #user-splash .overlay-controls {
   bottom: 2rem;
   right: 44.75%;
@@ -4269,7 +4274,7 @@ body.library-manager #stay-right {
 .profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
   opacity: 0.75;
   margin-right: 5px; }
-.profile #user-splash #close-splash {
+.profile #user-splash #close-splash, .profile #user-splash #follow-user {
   width: auto;
   height: auto;
   bottom: 92%;
@@ -4287,6 +4292,11 @@ body.library-manager #stay-right {
   text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
+.profile #user-splash #follow-user {
+  left: 84% !important; }
+.profile #user-splash #follow-user:hover {
+  background-color: #59B3A6;
+  color: white; }
 .profile .book-buttons {
   top: 0;
   right: 0;
@@ -4967,6 +4977,39 @@ body.library-manager #stay-right {
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
   float: left; }
+.book-creation header #back #revision-toggle {
+  left: 5.5rem;
+  top: 0.55rem;
+  position: absolute; }
+.book-creation header #back #revision-toggle .revision-dropdown {
+  background-color: rgba(252, 252, 252, 0.9);
+  border: 1px solid rgba(89, 179, 166, 0.4);
+  border-radius: 5px;
+  color: #59b3a6;
+  padding: 7.5px 12px 7.5px 12px; }
+.book-creation header #back #revision-toggle .revision-dropdown:hover {
+  background-color: #59b3a6;
+  border: 1px solid #59b3a6;
+  color: #fcfcfc; }
+.book-creation header #back #revision-toggle ul {
+  background-color: white;
+  border-radius: 5px;
+  left: -3rem;
+  margin-top: 1rem;
+  padding: 7px;
+  position: absolute;
+  max-height: 300px;
+  width: 200px;
+  overflow-y: scroll; }
+.book-creation header #back #revision-toggle ul li {
+  font-weight: 100; }
+.book-creation header #back #revision-toggle ul li a {
+  background-color: transparent;
+  color: black;
+  font-weight: 100;
+  padding: 1rem; }
+.book-creation header #back #revision-toggle ul li a:first-child {
+  padding-top: 0.5rem; }
 .book-creation header #finish {
   float: right; }
 .book-creation .menu {

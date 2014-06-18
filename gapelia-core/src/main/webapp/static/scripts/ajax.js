@@ -1459,7 +1459,7 @@ function getLibraryFromBookBackCover(bookId) {
         },
         success: function (data) {
             if (data.libraryId != 0) {
-                responseText = "<img src=\""+data.coverPhoto+"\"></div><div id=\"library-name\"><a href=\"/library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a></div><div id=\"library-info-blurb\"><a>"+data.description+"</a>";
+                responseText = "<a href=\"/library/" + data.libraryId + "\" id=\"library-avatar\"><img src=\""+data.coverPhoto+"\"></a><div id=\"library-name\"><a href=\"/library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a></div><div id=\"library-info-blurb\"><a>"+data.description+"</a>";
             }
         },
         error: function (q, status, err) {

@@ -1345,6 +1345,13 @@
       }
 		}
 	}
+  
+  #library-tutorial {
+    bottom: 2rem;
+    color: white;
+    position: absolute;
+    z-index: 1;
+  }
 
 	#user-splash {
 		.overlay-controls {

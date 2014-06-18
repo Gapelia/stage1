@@ -41,6 +41,23 @@
 		<header>
 			<div id="back">
 				<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
+				<ul id="revision-toggle">
+					<li id="revisions">
+					    <a class=revision-dropdown href="#">Revisions</a>
+						<ul style="display: none;">
+							<li><a> Date Number One</a></li>
+							<li><a> Date Number Two</a></li>
+							<li><a> Date Number Three</a></li>
+							<li><a> Date Number Four</a></li>
+							<li><a> Date Number Five</a></li>
+							<li><a> Date Number Six</a></li>
+							<li><a> Date Number Seven</a></li>
+							<li><a> Date Number Eight</a></li>
+							<li><a> Date Number Nine</a></li>
+							<li><a> Date Number Ten</a></li> 
+						</ul>
+					</li>
+				</ul>	
 			</div>
 
 			<div id="finish">
@@ -181,6 +198,25 @@
 			$(document).on("click", "#close-draft-tutorial", function (e) {
 				$("#draft-tutorial").hide();
 				$("#create-book, #back, #finish, #notify-saving").show();
+			});
+			
+			//display and hide revisions//
+			$(document).on("click", "#revisions .revision-dropdown", function (e) {
+				if ($("#revisions ul li").css("display") != "block") {
+					$("#revisions ul li").css("display", "block");
+					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
+				} else {
+					$("#revisions ul li").css("display", "none");
+					$("#revision-toggle ul").css("box-shadow", "none");
+				}
+			});
+			
+			$("#revision-toggle ul").mouseleave(function () {
+				$("#revision-toggle ul").css("display", "none");
+			});
+			
+			$("#revision-toggle").click(function () {
+				$("#revision-toggle ul").css("display", "block");
 			});
 			
 			$("#publish-this").on("click", function (e) {

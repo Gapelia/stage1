@@ -1357,6 +1357,6 @@
 		_delay = setInterval(delayCheck, 500);
 
 	});
-
+	
 	// page load starts delay timer
 	_delay = setInterval(delayCheck, 500);

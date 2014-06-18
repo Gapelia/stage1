@@ -287,7 +287,7 @@
 			
 		}
 
-		#close-splash {
+		#close-splash, #follow-user {
 			width: auto; height: auto;
 			bottom: 92%; left: 90.5%;
 
@@ -304,6 +304,15 @@
 			text-align: center;
 			transition: bottom 1.3s ease, left 1.3s ease;
 			z-index: 10;
+		}
+		
+		#follow-user {
+			left: 84% !important;
+			
+			&:hover {
+				background-color: #59B3A6;
+				color: white;
+			}
 		}
 	}
 

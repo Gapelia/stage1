@@ -164,6 +164,7 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
+		stuff += "<div id=\"follow-user\">Follow</div>"
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 

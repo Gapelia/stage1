@@ -111,6 +111,8 @@
 						</script>
 					</section>
 				</div>
+				
+				<div id="library-tutorial">*Title, description and cover photo are required.</div>
 
 				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
 				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
@@ -159,9 +161,11 @@
 				 coverPhoto = bg.replace("url(", "").replace(")", "");
 				if ( !(description == "" || coverPhoto.indexOf("static/images/cover-bg.jpg") != -1 || title == "")) {
 					$("#confirm-create-library").css("display", "block");
+					$("#library-tutorial").css("display", "none");
 				 }
 				 else {
 					$("#confirm-create-library").css("display", "none");
+					$("#library-tutorial").css("display", "block");
 					
 				}
 				setTimeout(doPoll,1000);
