@@ -240,8 +240,18 @@
 		.library .wrapper { bottom: 12rem; }
 		
 		#library-splash {
-			p { font-size: 1.4rem !important; opacity: 0.8; }
-			#library-info section { font-size: 1.25rem; }
+			
+			h1  { font-size: 1.7rem; }
+			
+			h2 { font-size: 3.5rem; }
+			
+			p { font-size: 2rem !important; opacity: 0.8; }
+			
+			#library-info {
+				section { font-size: 1.8rem; }
+				
+				span { font-size: 1.7rem !important; }
+			}	
 		}
 		
 		#new-library {
@@ -308,7 +318,7 @@
 				span { font-size: 1.5rem !important; }
 			}
 		
-			#close-splash {
+			#close-splash, #follow-user {
 				font-size: 1.2rem;
 			}
 			
@@ -517,7 +527,9 @@
 			bottom: -30rem !important;
 		}
 		
-		#close-splash { bottom: 93% !important; } 
+		#close-splash, #follow-user { bottom: 93.5% !important; }
+		
+		#follow-user { left: 84.5% !important; }
 		
 		.notification-time #notification-count { right: 3.25rem; }
 	}

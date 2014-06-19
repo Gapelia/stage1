@@ -4293,9 +4293,10 @@ body.library-manager #stay-right {
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
 .profile #user-splash #follow-user {
-  left: 84% !important; }
+  left: 84%; }
 .profile #user-splash #follow-user:hover {
   background-color: #59B3A6;
+  border-color: #59B3A6;
   color: white; }
 .profile .book-buttons {
   top: 0;
@@ -7739,11 +7740,17 @@ a.count span.dont-move {
     left: 7%; }
   .app .library .wrapper {
     bottom: 12rem; }
+  .app #library-splash h1 {
+    font-size: 1.7rem; }
+  .app #library-splash h2 {
+    font-size: 3.5rem; }
   .app #library-splash p {
-    font-size: 1.4rem !important;
+    font-size: 2rem !important;
     opacity: 0.8; }
   .app #library-splash #library-info section {
-    font-size: 1.25rem; }
+    font-size: 1.8rem; }
+  .app #library-splash #library-info span {
+    font-size: 1.7rem !important; }
   .app #new-library .button-wrapper {
     top: 28%; }
   .app #new-library .library-controls {
@@ -7784,7 +7791,7 @@ a.count span.dont-move {
     margin: 0 0 2rem 0; }
   .profile #user-splash #splash-user-bio span {
     font-size: 1.5rem !important; }
-  .profile #user-splash #close-splash {
+  .profile #user-splash #close-splash, .profile #user-splash #follow-user {
     font-size: 1.2rem; }
   .profile #user-splash h1 {
     font-size: 3.3rem;
@@ -7917,8 +7924,10 @@ a.count span.dont-move {
     top: 18.5%; }
   .profile #user-extra {
     bottom: -30rem !important; }
-  .profile #close-splash {
-    bottom: 93% !important; }
+  .profile #close-splash, .profile #follow-user {
+    bottom: 93.5% !important; }
+  .profile #follow-user {
+    left: 84.5% !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

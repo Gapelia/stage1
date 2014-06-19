@@ -307,10 +307,11 @@
 		}
 		
 		#follow-user {
-			left: 84% !important;
+			left: 84%;
 			
 			&:hover {
 				background-color: #59B3A6;
+				border-color: #59B3A6;
 				color: white;
 			}
 		}

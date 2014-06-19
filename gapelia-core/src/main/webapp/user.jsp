@@ -271,7 +271,7 @@
 		
 		if ($vH > "1079") {
 			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
-			$("#close-splash").css("cssText", "bottom: 94% !important");
+			$("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
 		}
 		
 		if ($vH > "1190") {
