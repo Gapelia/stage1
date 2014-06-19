@@ -371,9 +371,9 @@ function pasteHtmlAtCaret(html) {
 
 				//"pre": '<li><button class="gapelia-editor-action gapelia-editor-action-pre" data-action="append-pre" data-element="pre">abc</button></li>',
 			
-        "indent": '<li><button class="gapelia-editor-action gapelia-editor-action-indent" data-action="indent" data-element="ul" style="padding: 0 5px 0 5px !important;"><img src="../static/images/indent.png" height="25px" width="25px" style="opacity: 0.95; padding-top: 5px;"></button></li>',
+        "indent": '<li><button class="gapelia-editor-action gapelia-editor-action-indent" data-action="indent" data-element="ul" style="padding: 0 5px 0 5px !important;"><img src="../static/images/indent.png" height="21px" width="21px" style="opacity: 0.95; padding-top: 5px;"></button></li>',
         
-        "outdent": '<li><button class="gapelia-editor-action gapelia-editor-action-outdent" data-action="outdent" data-element="ul" style="padding: 0 5px 0 5px !important"><img src="../static/images/outdent.png" height="25px" width="25px" style="opacity: 0.95; padding-top: 5px;"></button></li>'
+        "outdent": '<li><button class="gapelia-editor-action gapelia-editor-action-outdent" data-action="outdent" data-element="ul" style="padding: 0 5px 0 5px !important"><img src="../static/images/outdent.png" height="21px" width="21px" style="opacity: 0.95; padding-top: 5px;"></button></li>'
       };
 
 			return buttonTemplates[btnType] || false;
