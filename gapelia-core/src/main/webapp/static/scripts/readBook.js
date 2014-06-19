@@ -137,7 +137,7 @@ $(function () {
                 } else {
                     backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"   
                 }
-                backPage += "<hr/><section><div id=\"library-avatar\">";
+                backPage += "<hr/><section>";
                 backPage += getLibraryFromBookBackCover(current.bookId);
                 backPage += "</div></section></div>";
                 getReadNextBook();

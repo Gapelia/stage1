@@ -1516,7 +1516,7 @@ function getLibraryFromBookBackCover(bookId) {
         },
         success: function (data) {
             if (data.libraryId != 0) {
-                responseText = "<img src=\""+data.coverPhoto+"\"></div><div id=\"library-name\"><a href=\"/library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a></div><div id=\"library-info-blurb\"><a>"+data.description+"</a>";
+                responseText = "<a href=\"/library/" + data.libraryId + "\" id=\"library-avatar\"><img src=\""+data.coverPhoto+"\"></a><div id=\"library-name\"><a href=\"/library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a></div><div id=\"library-info-blurb\"><a>"+data.description+"</a>";
             }
         },
         error: function (q, status, err) {
@@ -1638,10 +1638,10 @@ function getUserAccounts() {
         document.getElementById("user-gp").value = user.gp;
     }
     if (user.university != undefined && user.university != "") {
-        document.getElementById("user-university").value = user.university;
+        $(".selectize-input input")[0].value = user.university;
     }
     if (user.department != undefined && user.department != "") {
-        document.getElementById("user-department").value = user.department;
+        $(".selectize-input input")[1].value = user.department;
     }
     if (user.emailOptOut != undefined && user.emailOptOut != "") {
 	
@@ -1683,9 +1683,22 @@ function updateUserAccounts() {
         isPublic = user.isPublic;
 	emailOptOut = !(document.querySelector(".js-switch").checked);
 	console.log("emailoptout : "+emailOptOut);
-	university = document.getElementById("user-university").value;
-	department = document.getElementById("user-department").value;
 	
+	//university = $(".selectize-input div")[0].textContent;
+	//department = $(".selectize-input div")[1].textContent;
+	university = $(".selectize-input")[0].firstChild.value;
+	
+	if (typeof $(".selectize-input")[0].firstChild.value == "undefined") {
+		university = $(".selectize-input")[0].firstChild.textContent;
+	}
+	
+	department = $(".selectize-input")[1].firstChild.value;
+	if (typeof $(".selectize-input")[1].firstChild.value == "undefined") {
+		department = $(".selectize-input")[1].firstChild.textContent;
+	}
+	
+	console.log("UNI "+university);
+	console.log(department);
         
         if(checkName(displayName)) {
              $.ajax({

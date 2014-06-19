@@ -164,6 +164,7 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
+		stuff += "<div id=\"follow-user\">Follow</div>"
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
@@ -270,7 +271,7 @@
 		
 		if ($vH > "1079") {
 			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
-			$("#close-splash").css("cssText", "bottom: 94% !important");
+			$("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
 		}
 		
 		if ($vH > "1190") {

@@ -358,9 +358,9 @@ function pasteHtmlAtCaret(html) {
 
 				"anchor": '<li><button class="gapelia-editor-action gapelia-editor-action-anchor" data-action="anchor" data-element="a">< # ></button></li>',
 
-				"header1": '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '">h1</button></li>',
+				"header1": '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '"><h3 style="padding-top: 7px;">A</h3>/button></li>',
 
-				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">h2</button></li>',
+				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '"><h5>A</h5></button></li>',
 
 				"quote": '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote" style="padding-top: 10px !important;">&ldquo;</button></li>',
 
