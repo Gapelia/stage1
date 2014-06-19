@@ -408,23 +408,6 @@ function loadMoreUserBooks(count,items) {
 		if (toInsert == "") {
                 (elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
 		}
-		$("#user-book-list").html(toInsert);
-		var w = 0,
-		    h = 0;
-    
-		$("#user-book-list li").each(function () {
-		    w += $(this).outerWidth();
-		    h += $(this).outerHeight();
-		});
-    
-		w += 500;
-    
-		if ($vW > "1024") {
-		    $("#user-book-list").css("width", w + "px");
-		}
-		if ($vW < "321") {
-		    $(".book-snippet").css("display", "block")
-		}
 		
 		return items.append(toInsert);
 }
