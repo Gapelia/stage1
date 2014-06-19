@@ -158,7 +158,7 @@ function pasteHtmlAtCaret(html) {
 		defaults: {
 			allowMultiParagraphSelection: true,
 			anchorInputPlaceholder: "Paste or type a link without www or http://",
-			buttons: ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "pre"],
+			buttons: ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "indent", "outdent"],
 			delay: 0,
 			diffLeft: 0,
 			diffTop: -10,
@@ -177,7 +177,7 @@ function pasteHtmlAtCaret(html) {
 			if (this.elements.length === 0) { return; }
 
 			this.isActive = true;
-			this.parentElements = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "orderedlist", "pre"];
+			this.parentElements = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "orderedlist", "indent", "outdent"];
 			this.id = document.querySelectorAll(".gapelia-editor-toolbar").length + 1;
 			this.options = extend(options, this.defaults);
 
@@ -358,9 +358,10 @@ function pasteHtmlAtCaret(html) {
 
 				"anchor": '<li><button class="gapelia-editor-action gapelia-editor-action-anchor" data-action="anchor" data-element="a">< # ></button></li>',
 
-				"header1": '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '"><h3 style="padding-top: 7px;">A</h3>/button></li>',
+				"header1": '<li><button class="gapelia-editor-action gapelia-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '"><h3 style="padding-top: 7px;">A <font size="3">A</font></h3></button></li>',  
 
-				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '"><h5>A</h5></button></li>',
+
+				"header2": '<li><button class="gapelia-editor-action gapelia-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '"><img src="../static/images/line-height.png" alt="line-height" height="50px" width="50px" style="opacity: 0.95;"></button></li>',
 
 				"quote": '<li><button class="gapelia-editor-action gapelia-editor-action-quote" data-action="append-blockquote" data-element="blockquote" style="padding-top: 10px !important;">&ldquo;</button></li>',
 
@@ -368,8 +369,12 @@ function pasteHtmlAtCaret(html) {
 
 				"unorderedlist": '<li><button class="gapelia-editor-action gapelia-editor-action-unorderedlist" data-action="insertunorderedlist" data-element="ul">&bull;</button></li>',
 
-				"pre": '<li><button class="gapelia-editor-action gapelia-editor-action-pre" data-action="append-pre" data-element="pre">abc</button></li>'
-			};
+				//"pre": '<li><button class="gapelia-editor-action gapelia-editor-action-pre" data-action="append-pre" data-element="pre">abc</button></li>',
+			
+        "indent": '<li><button class="gapelia-editor-action gapelia-editor-action-indent" data-action="indent" data-element="ul" style="padding: 0 5px 0 5px !important;"><img src="../static/images/indent.png" height="25px" width="25px" style="opacity: 0.95; padding-top: 5px;"></button></li>',
+        
+        "outdent": '<li><button class="gapelia-editor-action gapelia-editor-action-outdent" data-action="outdent" data-element="ul" style="padding: 0 5px 0 5px !important"><img src="../static/images/outdent.png" height="25px" width="25px" style="opacity: 0.95; padding-top: 5px;"></button></li>'
+      };
 
 			return buttonTemplates[btnType] || false;
 
