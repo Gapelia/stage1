@@ -156,7 +156,7 @@
     <script>
         $(function () {
             var fifth = getNotifications();
-            var second = getUserCreatedBooks();
+            var second = getUserBooksArray();
           var first = getUser();
         });
 
@@ -448,33 +448,63 @@
 			
 			
 			setTimeout(function () {
-			$("#book-list li").fadeIn("100");
-			$("#book-list").fadeIn("100");
-			    if ($vW > "1024") {
-				$(".user-book-list-wrapper").sly({
-				horizontal: 1,
-				itemNav: 'forceCentered',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				swingSpeed: 0.2,
-				releaseSwing: 0,
-				startAt: 0,
-				scrollBar: $(".scrollbar"),
-				scrollBy: 1,
-				speed: 0.2,
-				elasticBounds: 1,
-				easing: 'swing',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-				keyboardNavBy: 'items'
-				});
-			    }
-			    document.title = user.name;
+			$("#user-book-list li").fadeIn("100");
+			$("#user-book-list").fadeIn("100");
+			if ($vW > "1024") {
+		
+					var options = {
+						horizontal: 1,
+						itemNav: 'forceCentered',
+						smart: 1,
+						activateMiddle: 1,
+						activateOn: 'click',
+						mouseDragging: 1,
+						touchDragging: 1,
+						swingSpeed: 1,
+						releaseSwing: 0,
+						startAt: 0,
+						scrollBar: $(".scrollbar"),
+						scrollBy: 1,
+						speed: 0.0001,
+						elasticBounds: 1,
+						easing: 'swing',
+						dragHandle: 1,
+						dynamicHandle: 1,
+						clickBar: 1,
+						keyboardNavBy: 'items',
+					};
+						
+					var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
+					var items = $('#user-book-list');
+			
+					loadMoreUserBooks(5,items);
+			
+			
+					slyBookWrapper.on('load change', function () {
+						if (this.pos.dest > this.pos.end - 200) {
+						loadMoreUserBooks(5,items);
+			
+						    $(".book").css("height", h);
+						    $(".book-snippet").css("display", "block")
+						    
+						   this.reload();
+						}
+					});
+			
+				    h = $(this).outerHeight() - 92;
+				    $(".book").css("height", h);
+				    $("#user-book-list li").fadeIn("100");
+				    $("#user-book-list").fadeIn("100");
+				    if ($vW > "300") {
+					$(".book-snippet").css("display", "block")
+				    }
+			
+				       slyBookWrapper.init();
+				}
+		
+		
 			}, 1000);
+			
                     });
                 });
             });

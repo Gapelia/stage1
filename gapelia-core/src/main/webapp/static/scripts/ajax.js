@@ -158,6 +158,64 @@ function loadDelete() {
     });
 }
 
+function getBookmarksArray() {
+sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/users/getBookmarkedBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            bookmarks = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function loadMoreBookmarks(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+		for (var i = 0; i < count; i++) {
+
+		if(i == bookmarks.length-1) break;
+
+		    bookmark = bookmarks[offset + i];
+		    
+		    if (bookmark.bookId in bookmarked == true) {
+                    toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                    } else {
+                        toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+                    }
+                    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+                    toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
+                    toInsert += "<div class=\"library-location\">";
+		    toInsert += getLibraryFromBook(bookmark.bookId);
+                    toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + bookmark.bookId + "\">" + bookmark.title + "</a></div><div class=\"book-info\">";
+                    toInsert += getUserFromBookId(bookmark.bookId);
+		    toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(bookmark.bookId) + "</div>";
+                    toInsert += "</div></div></li>";
+		}
+		if (toInsert == "<ul id=\"bookmark-list\">") {
+		    $("#nav-bookmarks").click(function() {
+			$("#featured-scroller").html("<div id=\"no-bookmarks\"><h1>You have not bookmarked any stories.<br><a href=\"/featured\">Explore stories</a></h1></div>");
+		});
+		}
+		
+		$("#bookmark-list .book").css("height", $vH - 97 + "px");
+		
+	return items.append(toInsert);
+}
+
 function getBookmarkedBooks() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -207,6 +265,7 @@ function getBookmarkedBooks() {
         }
     });
 }
+
 function getNumSubscribers() {
 	$.ajax({
         url: "/api/libraries/getNumSubscribers",
@@ -254,21 +313,19 @@ sessionId = readCookie("JSESSIONID");
 }
 
 function loadMoreBooks(count,items) {
-		var output = '';
-		var offset = items.children().length;
+	var output = '';
+	var offset = items.children().length;
 		for (var i = 0; i < count; i++) {
 
-			if(i == books.length-1) break;
+		if(i == books.length-1) break;
 
-
-			//output += '<li>' + (offset + i) + '</li>';
 			book = books[offset + i];
-console.log(book.title);
+
 		        if (book.bookId in bookmarked == true) {
-                    output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
-                } else {
-                    output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-                }
+			output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			} else {
+			output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+			}
 			output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 		        output += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
 		        output += getLibraryFromBook(book.bookId);
@@ -276,12 +333,9 @@ console.log(book.title);
 		        output += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
 		        output += getUserFromBookId(book.bookId);
 			output += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
-
 		}
 
-		console.log(output);
 		return items.append(output);
-
 }
 
 
@@ -321,6 +375,73 @@ function getFeaturedBooks() {
             if ($vW > "300") {
                 $(".book-snippet").css("display", "block")
             }
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function loadMoreUserBooks(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+	
+		for (var i = 0; i < count; i++) {
+
+		if(i == books.length-1) break;
+
+		book = books[offset + i];
+		    
+		toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";	
+                toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
+                toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#9998;</a></div><div class=\"library-location\">"; 
+                toInsert += getLibraryFromBook(book.bookId);
+                toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
+                toInsert += "<div class=\"book-info\"";
+		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "</div></div></li>";
+		}
+		if (toInsert == "") {
+                (elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
+		}
+		$("#user-book-list").html(toInsert);
+		var w = 0,
+		    h = 0;
+    
+		$("#user-book-list li").each(function () {
+		    w += $(this).outerWidth();
+		    h += $(this).outerHeight();
+		});
+    
+		w += 500;
+    
+		if ($vW > "1024") {
+		    $("#user-book-list").css("width", w + "px");
+		}
+		if ($vW < "321") {
+		    $(".book-snippet").css("display", "block")
+		}
+		
+		return items.append(toInsert);
+}
+
+function getUserBooksArray() {
+sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/users/getCreatedBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            books = data;
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1529,6 +1650,64 @@ function getLibraryFromBookBackCover(bookId) {
     });
     return responseText;
 }
+
+
+function getPublicBooksArray() {
+sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/users/getCreatedBooksPublic",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            userId: profileUserId
+        },
+        success: function (data) {
+            books = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function loadMorePublicUserBooks(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+	
+		for (var i = 0; i < count; i++) {
+
+		if(i == books.length-1) break;
+
+		book = books[offset + i];
+		    
+                if (book.bookId in bookmarked == true) {
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+                } else {
+                    toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                }
+                toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+                toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
+                toInsert += getLibraryFromBook(book.bookId);
+                toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
+                toInsert += "<div class=\"book-info\"";
+		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += "</div>";
+		toInsert += "</li>";
+		}
+		
+		if (toInsert == "") {
+                (elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
+		}
+		
+		return items.append(toInsert);
+}
+
 
 function getPublicCreatedBooks() {
     $.ajax({

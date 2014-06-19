@@ -267,17 +267,17 @@
             getNotifications();
 	    getListSubscribed();
             getSubscribedLibrary();
-            var second = getBookmarkedBooks();
+            var second = getBookmarksArray();
             var fourth = getListBookmarked();
             var fifth = getLibraries();
         });
 
         function load() {
-            //getFeaturedBooks()
  	getFeaturedBookArray();
 	
             var $vW = $(window).width(),
                 $vH = $(window).height();
+		
             h = $(this).outerHeight() - 92;
             $(".book, .library").css("height", h);
             $("#book-list li").fadeIn("100");
@@ -304,8 +304,8 @@
 			dynamicHandle: 1,
 			clickBar: 1,
 			keyboardNavBy: 'items',
-			};
-
+		};
+			
 		var slyBookWrapper = new Sly('.book-list-wrapper', options);
 		var items = $('#book-list');
 
@@ -317,11 +317,8 @@
 			loadMoreBooks(5,items);
 
 			    $(".book").css("height", h);
+			    $(".book-snippet").css("display", "block")
 			    
-				$(".book-snippet").css("display", "block")
-			    
-
-
 			   this.reload();
 			}
 		});
@@ -485,6 +482,59 @@
                     $("#bookmark-list li").fadeIn("100");
                     $("#bookmark-list").fadeIn("100");
                     $(".bookmark-list-wrapper section").css("width", $vW + "px");
+		    
+		if ($vW > "1024") {
+
+			var options = {
+				horizontal: 1,
+				itemNav: 'forceCentered',
+				smart: 1,
+				activateMiddle: 1,
+				activateOn: 'click',
+				mouseDragging: 1,
+				touchDragging: 1,
+				swingSpeed: 1,
+				releaseSwing: 0,
+				startAt: 0,
+				scrollBar: $(".scrollbar"),
+				scrollBy: 1,
+				speed: 0.0001,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+				keyboardNavBy: 'items',
+			};
+				
+			var slyBookWrapper = new Sly('.bookmark-list-wrapper', options);
+			var items = $('#bookmark-list');
+	
+			loadMoreBookmarks(5,items);
+	
+	
+			slyBookWrapper.on('load change', function () {
+				if (this.pos.dest > this.pos.end - 200) {
+				loadMoreBookmarks(5,items);
+	
+				    $(".book").css("height", h);
+				    $(".book-snippet").css("display", "block")
+				    
+				   this.reload();
+				}
+			});
+	
+		    h = $(this).outerHeight() - 92;
+		    $(".book").css("height", h);
+		    $("#bookmark-list li").fadeIn("100");
+		    $("#bookmark-list").fadeIn("100");
+		    if ($vW > "300") {
+			$(".book-snippet").css("display", "block")
+		    }
+	
+		       slyBookWrapper.init();
+		}
+
 
                 }, 1000);
 
@@ -529,9 +579,7 @@
 
         if ($vW > "1024") {
             $("#subscription-list").css("width", w + "px");
-        } else {
-        // $("#submission-list").css("height", h + 379 + "px");
-        }
+        } 
 
         // fades in the all the books after section width is added
         $("#subscription-list li").fadeIn("100");
