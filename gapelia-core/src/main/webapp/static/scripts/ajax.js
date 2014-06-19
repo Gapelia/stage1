@@ -1073,6 +1073,73 @@ function getLibrariesSuggestion() {
              }
             getUser();
         },
+	
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
+}
+
+function getLibrariesSuggestionTwo() {
+    sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/libraries/getCreatedLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+            for (i in libraries) {
+                library = libraries[i];	
+		
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+
+                $("#suggested-lib-list").append(libs);
+             }
+            getUser();
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
+}
+
+function getLibrariesSuggestionThree() {
+    sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/users/getSubscribedLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            libraries = data;
+            for (i in libraries) {
+                library = libraries[i];	
+		
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+
+                $("#suggested-lib-list").append(libs);
+             }
+            getUser();
+        },
         error: function (q, status, err) {
             if (status == "timeout") {
                 alert("Request timed out");
@@ -1892,26 +1959,7 @@ function updateUserAccounts() {
         }
 
 }
-$(document).on("click", ".yay-delete-library", function () {
-    sessionId = readCookie("JSESSIONID");
-    e = $(this).closest(".yay-delete-library");
-    libraryId = e.parent().parent().parent().attr("id");
-    $(this).closest("li").remove();
-    $.ajax({
-        url: "/api/libraries/deleteLibrary",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            libraryId: libraryId
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            }
-        }
-    });
-});
+
 $(document).on("click", ".quick-edit-profile", function () {
     quickUpdateUser();
 });

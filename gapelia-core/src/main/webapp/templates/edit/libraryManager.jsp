@@ -86,9 +86,9 @@
 	<div id="featured-scroller">
             <div id="nav-wrapper">
                 <ul id="featured-nav">
-                    <li id="nav-explore" class="current"><a href="#">Search</a></li>
-                    <li id="nav-subscriptions"><a href="#">Subscriptions</a></li>
-                    <li id="nav-libraries"><a href="#">My Libraries</a></li>
+                    <li id="nav-explore" class="current"><a href="#">Search and explore libraries in Folio</a></li>
+                    <!--/ <li id="nav-subscriptions"><a href="#">Subscriptions</a></li>
+                    <li id="nav-libraries"><a href="#">My Libraries</a></li> /-->
                     <div id="nav-search" style="display: none; margin-left: 22%; opacity: 0.15;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"></a></div>		    
 		    <input class="typeahead" placeholder="Search libraries..." style="display: block;"></input>
                     <img class="glass" href="#" src="../static/images/search.png" style="height: 18px; width: 18px;">
@@ -182,13 +182,13 @@
 	<!--//Explore List /-->
         
         <!--/ Subscription List /-->
-	<div class="subscription-list-wrapper">
+	<!--/ <div class="subscription-list-wrapper">
 	    <ul id="subscription-list"></ul>
 	</div>
 	<!--//Subscription List /-->
 
 	<!--/ Personal Library List /-->
-	<div class="library-list-wrapper">
+	<!--/ <div class="library-list-wrapper">
             <ul id="library-list"></ul>
 	</div>
 	<!--//Personal Library List /-->
@@ -293,6 +293,10 @@
 
         }
         
+        if ($vW > "1599") {
+            $(".suggested-libs").css("cssText", "margin-left: 30% !important");
+        }     
+        
         if ($vH > "1079") {
 	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 52% !important");
             $(".library").css("cssText", "height: 900px !important");
@@ -310,11 +314,13 @@
 	<script>
 	$(function () {
             getNotifications();
-            getListSubscribed();
-            getSubscribedLibrary();
-            getCreatedLibraries();
+            //getListSubscribed();
+            //getSubscribedLibrary();
+            //getCreatedLibraries();
             var fifth = getLibraries();
             getLibrariesSuggestion();
+            getLibrariesSuggestionTwo();
+            getLibrariesSuggestionThree();
         });
                         
                         

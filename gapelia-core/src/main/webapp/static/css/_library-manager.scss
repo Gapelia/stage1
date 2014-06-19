@@ -33,15 +33,20 @@ body.library-manager {
 		}
 		
 		.suggested-libs {
-			margin-left: 20%;
+			margin-left: 24%;
+			max-height: 400px;
+			overflow: hidden;
+			overflow-y: scroll;
 			position: absolute;
 			top: 14rem;
 			width: 45%;
+			
 			
 			#suggested-lib-list {
 				font-size: 1rem !important;
 				line-height: 1.25 !important;
 				opacity: 0.9 !important;
+				padding-right: 60px;
 				
 				a {
 					color: black;
@@ -51,8 +56,11 @@ body.library-manager {
 				}
 				
 				li {
+					display: block;
 					height: 110px;
 					margin-top: -1rem !important;
+					
+					&:first-child { margin-top: 1px !important; }
 				}
 				
 				.lib-blurb {
@@ -133,6 +141,11 @@ body.library-manager {
 		display: inline-flex;
 		margin: 1.2rem 1rem 0 0;
 		position: absolute;
+	}
+	
+	::-webkit-scrollbar {
+		display: block !important;
+		width: 3px !important;
 	}
 
 }

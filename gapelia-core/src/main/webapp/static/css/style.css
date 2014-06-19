@@ -3759,22 +3759,29 @@ body.library-manager #featured-nav .tt-dropdown-menu {
   left: 1.25rem !important;
   top: 9rem !important; }
 body.library-manager #featured-nav .suggested-libs {
-  margin-left: 20%;
+  margin-left: 24%;
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
   position: absolute;
   top: 14rem;
   width: 45%; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list {
   font-size: 1rem !important;
   line-height: 1.25 !important;
-  opacity: 0.9 !important; }
+  opacity: 0.9 !important;
+  padding-right: 60px; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list a {
   color: black;
   font-weight: 700;
   margin-right: 1rem;
   opacity: 0.9; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list li {
+  display: block;
   height: 110px;
   margin-top: -1rem !important; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list li:first-child {
+  margin-top: 1px !important; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list .lib-blurb {
   position: relative;
   top: -3.5rem;
@@ -3833,6 +3840,9 @@ body.library-manager #stay-right {
   display: inline-flex;
   margin: 1.2rem 1rem 0 0;
   position: absolute; }
+body.library-manager ::-webkit-scrollbar {
+  display: block !important;
+  width: 3px !important; }
 
 .modal-login {
   width: 600px;
@@ -7734,6 +7744,8 @@ a.count span.dont-move {
     margin-left: 58% !important; }
   .app #featured-nav .tt-dropdown-menu {
     margin-left: 54.5% !important; }
+  .app #featured-nav .suggested-libs {
+    margin-left: 29.5% !important; }
   .app #featured-panel {
     margin: 0.8rem 0 0 0; }
   .app .library-location {
@@ -7911,7 +7923,7 @@ a.count span.dont-move {
   body.library-manager #featured-nav .glass {
     margin-left: 12.5rem; }
   body.library-manager #featured-nav .suggested-libs {
-    margin-left: 28.5% !important;
+    margin-left: 31.5% !important;
     width: 39% !important; }
 
   body.library #submission-pop {

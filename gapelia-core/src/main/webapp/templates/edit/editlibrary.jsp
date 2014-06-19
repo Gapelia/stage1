@@ -81,6 +81,10 @@
             <div class="library-controls">
                 <button id="confirm-create-library" class="outline">Save</button>
             </div>
+	    
+	    <button id="delete-this-library" style="background-color: red !important; opacity: 0.6; position: absolute; top: 1rem; right: 1rem; z-index: 1000;"><a>Delete Library</a></button>
+	    
+	    <div id="delete-library-confirm" style="display: none; background-color: white; left: 0; top: 0; height: 100%; opacity: 0.85; padding-top: 12rem; position: absolute; text-align: center; width: 100%; z-index: 1000;"><h3>Hold on there, are you *sure* you want to delete your library?</h3><div class="wrapper" style="margin-top: 3rem;"><a href="#" class="button a red yay-delete-library">Yes, delete</a><a href="#" class="button b green nay-delete-library">No, cancel</a></div></div>
 
             <div class="button-wrapper">
  <input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('#new-library').css('background-image', 'url('+url+')'); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
@@ -169,6 +173,45 @@
 	
 	//description limiter//
 	$("#new-library-info p").limit({ maxlength: 300 });
+	
+	
+	// Delete library
+	    $("#delete-this-library").click(function () {
+		    $("#delete-library-confirm").show();
+
+		    e.preventDefault();
+            });
+
+
+	// Confirm library deletion
+	    $(".yay-delete-library").click(function () {
+		    
+		    window.location.href=("/librarymanager");
+		    
+		    sessionId = readCookie("JSESSIONID");
+		    libraryId = libraryId;
+		    
+		    $.ajax({
+			url: "/api/libraries/deleteLibrary",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    libraryId: libraryId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+	    });
+	    
+	    $(".nay-delete-library").click(function () {
+		
+		$("#delete-library-confirm").hide();
+	    });
+	
     </script>
     <!--//scripts /-->
 
