@@ -228,6 +228,63 @@ function getNumSubscribers() {
         }
     });
 }
+
+function getFeaturedBookArray() {
+sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/users/getFeaturedBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            books = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function loadMoreBooks(count,items) {
+		var output = '';
+		var offset = items.children().length;
+		for (var i = 0; i < count; i++) {
+
+			if(i == books.length-1) break;
+
+
+			//output += '<li>' + (offset + i) + '</li>';
+			book = books[offset + i];
+console.log(book.title);
+		        if (book.bookId in bookmarked == true) {
+                    output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+                } else {
+                    output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+                }
+			output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+		        output += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
+		        output += getLibraryFromBook(book.bookId);
+		        output += "</div><div class=\"book-title\">";
+		        output += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
+		        output += getUserFromBookId(book.bookId);
+			output += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
+
+		}
+
+		console.log(output);
+		return items.append(output);
+
+}
+
+
 function getFeaturedBooks() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({

@@ -273,7 +273,9 @@
         });
 
         function load() {
-            getFeaturedBooks()
+            //getFeaturedBooks()
+ 	getFeaturedBookArray();
+	
             var $vW = $(window).width(),
                 $vH = $(window).height();
             h = $(this).outerHeight() - 92;
@@ -281,7 +283,8 @@
             $("#book-list li").fadeIn("100");
             $("#book-list").fadeIn("100");
             if ($vW > "1024") {
-               $(".book-list-wrapper, .bookmark-list-wrapper, .subscription-list-wrapper").sly({
+
+		var options = {
 			horizontal: 1,
 			itemNav: 'forceCentered',
 			smart: 1,
@@ -301,8 +304,38 @@
 			dynamicHandle: 1,
 			clickBar: 1,
 			keyboardNavBy: 'items',
+			};
+
+		var slyBookWrapper = new Sly('.book-list-wrapper', options);
+		var items = $('#book-list');
+
+		loadMoreBooks(5,items);
+
+
+		slyBookWrapper.on('load change', function () {
+			if (this.pos.dest > this.pos.end - 200) {
+			loadMoreBooks(5,items);
+
+			    $(".book").css("height", h);
+			    
+				$(".book-snippet").css("display", "block")
+			    
+
+
+			   this.reload();
+			}
 		});
+
+	    h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
+            $("#book-list li").fadeIn("100");
+            $("#book-list").fadeIn("100");
+            if ($vW > "300") {
+                $(".book-snippet").css("display", "block")
             }
+
+               slyBookWrapper.init();
+          }
 
             // Dropdown menu for mobile
             if ($vW < "1024") {
