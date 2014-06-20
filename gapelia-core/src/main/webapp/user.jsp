@@ -448,15 +448,14 @@
 		    $(this).removeClass("follow white-border").addClass("unfollow brand-blue").text("Unfollow");
 		    
 		    sessionId = readCookie("JSESSIONID");
-		    libraryId = libraryId;
 		    
 		    $.ajax({
-			url: "/api/libraries/deleteLibrary",
+			url: "/api/users/followUser",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 			    sessionId: sessionId,
-			    libraryId: libraryId
+			    followerId: profileUserId
 			},
 			error: function (q, status, err) {
 			    if (status == "timeout") {
@@ -472,15 +471,14 @@
 		    $(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
 		    
 		    sessionId = readCookie("JSESSIONID");
-		    libraryId = libraryId;
 		    
 		    $.ajax({
-			url: "/api/libraries/deleteLibrary",
+			url: "/api/users/unFollowUser",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
 			type: "POST",
 			data: {
 			    sessionId: sessionId,
-			    libraryId: libraryId
+			    followerId: profileUserId
 			},
 			error: function (q, status, err) {
 			    if (status == "timeout") {
