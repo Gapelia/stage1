@@ -488,7 +488,7 @@
   }
   
 	.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper,
-	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper {
+	.bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper {
   
     position: absolute;
 		top: 54.5%;
@@ -503,7 +503,13 @@
   
   .library-list-wrapper { padding-bottom: 0.5rem; }
   
-	.bookmark-list-wrapper, .book-list-wrapper {
+  .following-list-wrapper {
+    margin-top: 0;
+    
+    .book { background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%) } 
+  }
+  
+	.bookmark-list-wrapper, .book-list-wrapper, .following-list-wrapper {
 		section {
 			width: 100%; height: 100%;
       margin-top: -3px;
@@ -528,7 +534,7 @@
 	}
 
 	#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
-	#book-list, #library-list, #bookmark-list, #submission-list, #subscription-list {
+	#book-list, #library-list, #bookmark-list, #submission-list, #subscription-list, #following-list {
 		display: none;
 		position: relative; // absolute
 		top: 50%;

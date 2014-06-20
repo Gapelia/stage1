@@ -164,7 +164,7 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
-		stuff += "<div id=\"follow-user\">Follow</div>"
+		stuff += "<button class=\"follow white-border\">Follow</button>"
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
@@ -442,6 +442,53 @@
 			}, 1000);
                     });
                 });
+		
+		// Follow User
+		$(document).on("click", "button.follow", function () {
+		    $(this).removeClass("follow white-border").addClass("unfollow brand-blue").text("Unfollow");
+		    
+		    sessionId = readCookie("JSESSIONID");
+		    libraryId = libraryId;
+		    
+		    $.ajax({
+			url: "/api/libraries/deleteLibrary",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    libraryId: libraryId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+		});
+		
+		// Un-Follow User
+		$(document).on("click", "button.unfollow", function () {
+    
+		    $(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+		    
+		    sessionId = readCookie("JSESSIONID");
+		    libraryId = libraryId;
+		    
+		    $.ajax({
+			url: "/api/libraries/deleteLibrary",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    libraryId: libraryId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+		});
             });
         }
     </script>

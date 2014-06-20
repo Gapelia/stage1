@@ -306,8 +306,16 @@
 			z-index: 10;
 		}
 		
-		#follow-user {
-			left: 84%;
+		.follow, .unfollow {
+			font-style: italic;
+			left: 83%;
+			padding: 10px 14px 9px 14px !important;
+			position: absolute;
+			text-transform: lowercase;
+			top: 0.75rem;
+			z-index: 10;
+			
+			&:first-letter { text-transform: uppercase; }
 			
 			&:hover {
 				background-color: #59B3A6;
@@ -315,6 +323,8 @@
 				color: white;
 			}
 		}
+		
+		.unfollow { left: 82%; }
 	}
 
 	//

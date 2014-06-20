@@ -2732,7 +2732,7 @@ body.landing .error {
   padding: 3px 0; }
 .app #featured-nav .example-arabic .tt-dropdown-menu {
   text-align: right; }
-.app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+.app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
   position: absolute;
   top: 54.5%;
   transform: translateY(-50%);
@@ -2743,7 +2743,11 @@ body.landing .error {
   -webkit-transform: translateY(-50%); }
 .app .library-list-wrapper {
   padding-bottom: 0.5rem; }
-.app .bookmark-list-wrapper section, .app .book-list-wrapper section {
+.app .following-list-wrapper {
+  margin-top: 0; }
+.app .following-list-wrapper .book {
+  background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%); }
+.app .bookmark-list-wrapper section, .app .book-list-wrapper section, .app .following-list-wrapper section {
   width: 100%;
   height: 100%;
   margin-top: -3px;
@@ -2760,7 +2764,7 @@ body.landing .error {
   width: 100%;
   height: 100%;
   position: fixed; }
-.app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #submission-list, .app #subscription-list {
+.app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #submission-list, .app #subscription-list, .app #following-list {
   display: none;
   position: relative;
   top: 50%;
@@ -4302,12 +4306,22 @@ body.library-manager ::-webkit-scrollbar {
   text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
-.profile #user-splash #follow-user {
-  left: 84%; }
-.profile #user-splash #follow-user:hover {
+.profile #user-splash .follow, .profile #user-splash .unfollow {
+  font-style: italic;
+  left: 83%;
+  padding: 10px 14px 9px 14px !important;
+  position: absolute;
+  text-transform: lowercase;
+  top: 0.75rem;
+  z-index: 10; }
+.profile #user-splash .follow:first-letter, .profile #user-splash .unfollow:first-letter {
+  text-transform: uppercase; }
+.profile #user-splash .follow:hover, .profile #user-splash .unfollow:hover {
   background-color: #59B3A6;
   border-color: #59B3A6;
   color: white; }
+.profile #user-splash .unfollow {
+  left: 82%; }
 .profile .book-buttons {
   top: 0;
   right: 0;
@@ -7593,7 +7607,7 @@ a.count span.dont-move {
 
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 500px !important; }
-  .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 53% !important; }
   .app #featured-nav {
     top: 0.6rem !important; }
@@ -7709,9 +7723,12 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
-  .app .book-list-wrapper, .app .user-book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+  .app .book-list-wrapper, .app .user-book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 53% !important;
     width: 100%; }
+  .app .following-list-wrapper img {
+    left: 35% !important;
+    top: 25% !important; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
     width: 450px; }
@@ -7894,7 +7911,7 @@ a.count span.dont-move {
   .mp-menu ul .fq {
     margin-top: 160%; }
 
-  .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper {
+  .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 52.5%; }
   .app .book, .app .collection, .app .library {
     width: 450px; }
@@ -8018,7 +8035,7 @@ a.count span.dont-move {
   body.landing .wrapper {
     margin: 2rem 0 0 0 !important; }
 
-  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper {
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -8029,7 +8046,7 @@ a.count span.dont-move {
     diplay: none; }
   .app .scrollbar .handle .mousearea {
     display: none; }
-  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper {
+  .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     -webkit-perspective: 0px;
     -ms-perspective: 0px;
     perspective: 0px;
@@ -8037,26 +8054,26 @@ a.count span.dont-move {
     -ms-perspective-origin: none;
     perspective-origin: none;
     overflow-y: hidden; }
-  .app .book-list-wrapper ul, .app .library-list-wrapper ul, .app .user-book-list-wrapper ul {
+  .app .book-list-wrapper ul, .app .library-list-wrapper ul, .app .user-book-list-wrapper ul, .app .following-ist-wrapper ul {
     -webkit-transform-style: none;
     -ms-transform-style: none;
     transform-style: none; }
-  .app .book-list-wrapper ul li, .app .library-list-wrapper ul li, .app .user-book-list-wrapper ul li {
+  .app .book-list-wrapper ul li, .app .library-list-wrapper ul li, .app .user-book-list-wrapper ul li, .app .following-ist-wrapper ul li {
     -webkit-transform: none;
     -ms-transform: none;
     transform: none;
     -webkit-transition: none;
     transition: transform none; }
-  .app .book-list-wrapper ul li.active, .app .library-list-wrapper ul li.active, .app .user-book-list-wrapper ul li.active {
+  .app .book-list-wrapper ul li.active, .app .library-list-wrapper ul li.active, .app .user-book-list-wrapper ul li.active, .app .following-ist-wrapper ul li.active {
     z-index: none;
     -webkit-transform: none;
     -ms-transform: none;
     transform: none; }
-  .app .book-list-wrapper ul li.active ~ li, .app .library-list-wrapper ul li.active ~ li, .app .user-book-list-wrapper ul li.active ~ li {
+  .app .book-list-wrapper ul li.active ~ li, .app .library-list-wrapper ul li.active ~ li, .app .user-book-list-wrapper ul li.active ~ li, .app .following-ist-wrapper ul li.active ~ li {
     -webkit-transform: none;
     -ms-transform: none;
     transform: none; }
-  .app #book-list, .app #library-list, .app #user-book-list {
+  .app #book-list, .app #library-list, .app #user-book-list, .app #following-list {
     -webkit-transform: none !important; }
   .app .book {
     width: 700px; }
@@ -8086,7 +8103,7 @@ a.count span.dont-move {
     top: 0.8rem; }
   .app #next-book-toggle {
     right: 1rem; }
-  .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .subscription-list-wrapper {
+  .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     position: relative;
     top: initial;
     transform: translateY(0);
@@ -8102,7 +8119,7 @@ a.count span.dont-move {
     left: 43.5%;
     top: 7rem;
     width: 300px; }
-  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list, .app #following-list {
     width: 100% !important;
     height: 100% !important;
     top: initial;
@@ -8357,7 +8374,7 @@ a.count span.dont-move {
     right: 18px; }
   .app .book .bookmark-this:hover .right-bm, .app .collection .bookmark-this:hover .right-bm, .app .library .bookmark-this:hover .right-bm {
     width: 50px; }
-  .app #book-list, .app #library-list, .app #bookmark-list, .app #user-book-list, .app #subscription-list {
+  .app #book-list, .app #library-list, .app #bookmark-list, .app #user-book-list, .app #subscription-list, .app #following-list {
     width: 100% !important; }
   .app .bookmarked .bookmark-this {
     z-index: 5; }
@@ -9308,7 +9325,7 @@ a.count span.dont-move {
     right: -38%; }
   .app #featured-scroller #g-menu-toggle {
     left: 39.75%; }
-  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list, .app #following-list {
     padding: 3.3rem 4rem 0.25rem 4rem; }
   .app #featured-splash #featured-info, .app #featured-splash #library-info, .app #library-splash #user-splash #featured-info, .app #library-splash #user-splash #library-info {
     top: 55%;

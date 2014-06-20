@@ -2469,6 +2469,53 @@ function getSubscribedLibrary() {
         }
     });
 }
+
+function loadMoreUsers(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+		for (var i = 0; i < count; i++) {
+
+		if(i == bookmarks.length-1) break;
+
+		    bookmark = bookmarks[offset + i];
+		    
+                    toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book\" style=\"list-style: none;\">";
+		    toInsert += "<img style=\"border-radius: 300em; height: 125px; width: 125px; position: absolute; left: 34%; top: 16%; z-index: 10;\"src=\"" + bookmark.coverPhoto + "\">";
+                    toInsert += "<div class=\"library-info\" style=\"top: 44%;\"><div class=\"title\"><a href=\"library/" + bookmark.bookId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+		    toInsert += "<div class=\"lib-blurb\" style=\"opacity: 0.7;\">" + bookmark.snippet + "</div><div =\"last-published\" style=\"font-style: italic; margin-top: 15px;\"><p>Recently published <a style=\"font-weight: 700;\" href=\"/read" + "\">Title of Book</a></p</div></div></div>";
+		    toInsert += "<div class=\"wrapper\" style=\"bottom: 1rem;\"><button class=\"unsubscribe brand-blue\" style=\"font-size: 10px;\">Unfollow</button></div>";
+                    toInsert += "</li>";
+		}
+		
+		$("#following-list .book").css("height", $vH - 97 + "px");
+		
+	return items.append(toInsert);
+}
+
+
+function getFollowingUsers() {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/users/getBookmarkedBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            bookmarks = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
 $(document).on("click", ".bookmark-this", function (ev) {
     e = $(this).closest(".bookmark-this");
     bookId = e.parent().attr("id");
