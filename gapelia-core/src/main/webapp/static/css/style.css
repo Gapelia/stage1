@@ -4288,7 +4288,7 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
   opacity: 0.75;
   margin-right: 5px; }
-.profile #user-splash #close-splash, .profile #user-splash #follow-user {
+.profile #user-splash #close-splash, .profile #user-splash .follow {
   width: auto;
   height: auto;
   bottom: 92%;
@@ -4309,10 +4309,9 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash .follow, .profile #user-splash .unfollow {
   font-style: italic;
   left: 83%;
-  padding: 10px 14px 9px 14px !important;
+  padding: 7px 12px 9px 12px !important;
   position: absolute;
   text-transform: lowercase;
-  top: 0.75rem;
   z-index: 10; }
 .profile #user-splash .follow:first-letter, .profile #user-splash .unfollow:first-letter {
   text-transform: uppercase; }
@@ -7820,8 +7819,10 @@ a.count span.dont-move {
     margin: 0 0 2rem 0; }
   .profile #user-splash #splash-user-bio span {
     font-size: 1.5rem !important; }
-  .profile #user-splash #close-splash, .profile #user-splash #follow-user {
+  .profile #user-splash #close-splash, .profile #user-splash .follow {
     font-size: 1.2rem; }
+  .profile #user-splash .follow {
+    padding: 8px 13px 9px 13px !important; }
   .profile #user-splash h1 {
     font-size: 3.3rem;
     line-height: 75px; }
@@ -7953,10 +7954,10 @@ a.count span.dont-move {
     top: 18.5%; }
   .profile #user-extra {
     bottom: -30rem !important; }
-  .profile #close-splash, .profile #follow-user {
+  .profile #close-splash, .profile .follow {
     bottom: 93.5% !important; }
-  .profile #follow-user {
-    left: 84.5% !important; }
+  .profile .follow {
+    left: 83.5% !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

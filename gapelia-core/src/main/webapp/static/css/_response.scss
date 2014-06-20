@@ -329,9 +329,11 @@
 				span { font-size: 1.5rem !important; }
 			}
 		
-			#close-splash, #follow-user {
+			#close-splash, .follow {
 				font-size: 1.2rem;
 			}
+			
+			.follow { padding: 8px 13px 9px 13px !important }
 			
 			h1 {
 				font-size: 3.3rem;
@@ -538,9 +540,9 @@
 			bottom: -30rem !important;
 		}
 		
-		#close-splash, #follow-user { bottom: 93.5% !important; }
+		#close-splash, .follow { bottom: 93.5% !important; }
 		
-		#follow-user { left: 84.5% !important; }
+		.follow { left: 83.5% !important; }
 		
 		.notification-time #notification-count { right: 3.25rem; }
 	}

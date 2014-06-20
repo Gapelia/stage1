@@ -314,7 +314,7 @@
 	<script>
 	$(function () {
             getNotifications();
-            //getListSubscribed();
+            getListSubscribed();
             //getSubscribedLibrary();
             //getCreatedLibraries();
             var fifth = getLibraries();
