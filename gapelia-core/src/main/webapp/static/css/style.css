@@ -4288,7 +4288,7 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
   opacity: 0.75;
   margin-right: 5px; }
-.profile #user-splash #close-splash, .profile #user-splash .follow {
+.profile #user-splash #close-splash, .profile #user-splash .follow, .profile #user-splash .unfollow {
   width: auto;
   height: auto;
   bottom: 92%;
@@ -4308,8 +4308,8 @@ body.library-manager ::-webkit-scrollbar {
   z-index: 10; }
 .profile #user-splash .follow, .profile #user-splash .unfollow {
   font-style: italic;
-  left: 83%;
-  padding: 7px 12px 9px 12px !important;
+  left: 82%;
+  padding: 7px 20px 9px 20px !important;
   position: absolute;
   text-transform: lowercase;
   z-index: 10; }
@@ -4320,7 +4320,8 @@ body.library-manager ::-webkit-scrollbar {
   border-color: #59B3A6;
   color: white; }
 .profile #user-splash .unfollow {
-  left: 82%; }
+  left: 82%;
+  padding: 7px 10px 9px 10px !important; }
 .profile .book-buttons {
   top: 0;
   right: 0;
@@ -7819,10 +7820,8 @@ a.count span.dont-move {
     margin: 0 0 2rem 0; }
   .profile #user-splash #splash-user-bio span {
     font-size: 1.5rem !important; }
-  .profile #user-splash #close-splash, .profile #user-splash .follow {
+  .profile #user-splash #close-splash, .profile #user-splash .follow, .profile #user-splash .unfollow {
     font-size: 1.2rem; }
-  .profile #user-splash .follow {
-    padding: 8px 13px 9px 13px !important; }
   .profile #user-splash h1 {
     font-size: 3.3rem;
     line-height: 75px; }
@@ -7954,10 +7953,10 @@ a.count span.dont-move {
     top: 18.5%; }
   .profile #user-extra {
     bottom: -30rem !important; }
-  .profile #close-splash, .profile .follow {
+  .profile #close-splash, .profile .follow, .profile .unfollow {
     bottom: 93.5% !important; }
-  .profile .follow {
-    left: 83.5% !important; }
+  .profile .follow, .profile .unfollow {
+    left: 82.5% !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

@@ -287,7 +287,7 @@
 			
 		}
 
-		#close-splash, .follow {
+		#close-splash, .follow, .unfollow {
 			width: auto; height: auto;
 			bottom: 92%; left: 90.5%;
 
@@ -308,8 +308,8 @@
 		
 		.follow, .unfollow {
 			font-style: italic;
-			left: 83%;
-			padding: 7px 12px 9px 12px !important;
+			left: 82%;
+			padding: 7px 20px 9px 20px !important;
 			position: absolute;
 			text-transform: lowercase;
 			z-index: 10;
@@ -323,7 +323,10 @@
 			}
 		}
 		
-		.unfollow { left: 82%; }
+		.unfollow {
+			left: 82%;
+			padding: 7px 10px 9px 10px !important;
+		}
 	}
 
 	//
