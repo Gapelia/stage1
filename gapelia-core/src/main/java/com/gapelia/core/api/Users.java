@@ -179,6 +179,43 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getCreatedBooks(userId));
     }
 
+	@Path("getFollowedUsers")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getFollowedUsers(@FormParam("userId") int userId) {
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.getFollowedUsers(userId));
+	}
+
+	@Path("unFollowUser")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String unFollowUser(@FormParam("sessionId") String sessionId,
+							 @FormParam("followerId") int followerId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+		User u = SessionManager.getUserFromSessionId(sessionId);
+
+		return QueryDatabaseUser.unFollowUser(u.getUserId(),followerId);
+	}
+
+	@Path("followUser")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String followUser(@FormParam("sessionId") String sessionId,
+							   @FormParam("followerId") int followerId) {
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+		User u = SessionManager.getUserFromSessionId(sessionId);
+
+		return QueryDatabaseUser.followUser(u.getUserId(),followerId);
+	}
+
     @Path("getFeaturedBooks")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

@@ -38,6 +38,9 @@ public class QueryDatabaseUser {
 			"books.is_published = 't' order by num_votes desc NULLS LAST limit 20";
 	private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
 	private static final String GET_BOOK = "SELECT * FROM books where id = ?";
+	private static final String GET_USER_FRIENDS = "SELECT * FROM user_friends where user_id = ?";
+	private static final String ADD_USER_FOLLOW = "INSERT INTO user_friends (user_id, is_following_id) VALUES (?,?)";
+	private static final String REMOVE_USER_FOLLOW = "DELETE FROM user_friends where user_id = ? and is_following_id = ?";
 	private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't' order by last_updated desc";
 	private static final String GET_DRAFT_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 'f' order by last_updated desc";
 	private static final String GET_SUBSCRIBED_LIBRARIES = "SELECT * FROM user_subscriptions where user_id = ? ";
@@ -118,6 +121,37 @@ public class QueryDatabaseUser {
 		}
 
 		return bookList;
+	}
+
+	public static ArrayList<User> getFollowedUsers(int userId) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		ArrayList<User> userList = new ArrayList<User>();
+		try {
+			statement = connection.prepareStatement(GET_USER_FRIENDS);
+			statement.setInt(1, userId);
+			rs = statement.executeQuery();
+			while (rs.next()) {
+				User u = QueryDatabaseUser.getUserById(rs.getInt("is_following_id"));
+				userList.add(u);
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR: : " + userId, ex);
+			userList = null;
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection" + userId + " " + ex.getMessage());
+			}
+		}
+
+		return userList;
 	}
 
 	public static boolean isBookInLibrary(int bookId) {
@@ -371,6 +405,54 @@ public class QueryDatabaseUser {
 		}
 		return user;
 	}
+
+
+	public static String followUser(int userId, int idToFollow) {
+		PreparedStatement statement = null;
+		try {
+			statement = connection.prepareStatement(ADD_USER_FOLLOW);
+			statement.setInt(1, userId);
+			statement.setInt(2, idToFollow);
+			statement.executeUpdate();
+			return "SUCCESS";
+
+		} catch (Exception ex) {
+			LOG.error("Cannot get user u:" + userId, ex);
+		} finally {
+			try {
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + userId + " " + ex.getMessage());
+			}
+		}
+		return "ERROR";
+	}
+
+	public static String unFollowUser(int userId, int idToFollow) {
+		PreparedStatement statement = null;
+		try {
+			statement = connection.prepareStatement(REMOVE_USER_FOLLOW);
+			statement.setInt(1, userId);
+			statement.setInt(2, idToFollow);
+			statement.executeUpdate();
+			return "SUCCESS";
+
+		} catch (Exception ex) {
+			LOG.error("Cannot get user u:" + userId, ex);
+		} finally {
+			try {
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection " + userId + " " + ex.getMessage());
+			}
+		}
+		return "ERROR";
+	}
+
 
 	public static User getUserById(int userId) {
 		PreparedStatement statement = null;
