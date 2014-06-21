@@ -239,7 +239,7 @@
 		$("#nav-search").hide();
             });
 	    
-	    $(".book-list-wrapper, .following-list-wrapper").mouseenter(function () {
+	    $(".book-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper").mouseenter(function () {
                 $(".typeahead").css("display", "none");
 		$("#nav-search").fadeIn("slow");
             });
