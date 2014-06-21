@@ -1065,10 +1065,9 @@ function getLibrariesSuggestion() {
         success: function (data) {
             libraries = data;
             for (i in libraries) {
-                library = libraries[i];	
-		
+                library = libraries[i];
+	
 		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
-
                 $("#suggested-lib-list").append(libs);
              }
             getUser();

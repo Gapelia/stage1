@@ -262,6 +262,9 @@
 					
 					$(".selectize-control").css("cssText", "margin-left: 0 !important");
 					
+					$("#g-menu-toggle").click(function () {
+						$(".selectize-control").css("z-index", "0");
+					});
 				}
 
 				// Dropdown menu for mobile

@@ -155,6 +155,8 @@
                 stuff += "<h5 id=\"contributes-to\"></h5></div>";
 		stuff += "<ul id=\"user-extra\">";
 		stuff += "<li id=\"location\"></li>"
+		stuff += "<li id=\"university\"></li>"
+		stuff += "<li id=\"department\"></li>"
 		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
 		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
 		stuff += "</ul></div>";
@@ -284,6 +286,8 @@
                 // User details
                 $("#splash-user-info h1, #user-header").text(user.name);
 		$("#splash-user-info #location").text(user.location);
+		$("#splash-user-info #university").text(user.university);
+		$("#splash-user-info #department").text(user.department);
 		$("#splash-user-info #website").text(user.personalWebsite);
 		$("#splash-user-info #twitter").text(user.twt);
                 $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
