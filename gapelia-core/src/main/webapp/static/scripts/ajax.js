@@ -1590,8 +1590,48 @@ function addLoggedInMenu(){
 			
 		}
 	});
+	 
+	// Open drafts drawer
+	$("#gpl-menu-drafts a").click(function (e) {
+		$("#gpl-menu-drafts ul").toggle();
+		e.preventDefault();
+	});
+
+	// Open notifications drawer
+	$("#gpl-menu-notify a").click(function (e) {
+		$("#gpl-menu-notify ul").toggle();
+		e.preventDefault();
+	});
 	}
 }
+
+function addLoggedInMenuForBook(){
+	sessionId = readCookie("JSESSIONID");
+	if(sessionId != null) {
+	 $.ajax({
+        url: "/api/users/getUser",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            user = data;
+            menu = "<div class=\"mp-level\"><h2><a href=\"/featured\">Gapelia</a></h2>";
+			menu +="<ul><li><a href=\"/me\">Me</a><a class=\"icon not-mobile\" href=\"/accounts\">&#xf13d;</a></li>";
+			menu +="<li class=\"not-mobile\"><a href=\"/librarymanager\">Libraries</a><li/><li class=\"not-mobile\"><a href=\"/createbook\">New Story</a></li>";
+			menu +="<li id=\"gpl-menu-drafts\" class=\"not-mobile\"><a>Drafts</a><ul id=\"draft-menu\"></ul></li>";
+			menu +="<li id=\"gpl-menu-notify\"><a>Notifications</a><a class=\"icon\" href=\"#\"></a><ul></ul></li>";
+			menu +="<li class=\"fq\"><a href=\"#\">Help</a><li class=\"help\"><a href=\"#\">Contact</a><li class=\"logout\"><a href=\"#\">Log Out</a></ul></div>";
+			$("#site-menu").html(menu);
+			var fifth = getNotifications();
+			
+		}
+	});
+	}
+}
+
 function getNumberVotes(incomingBookId) {
     numVotes=0;
     $.ajax({

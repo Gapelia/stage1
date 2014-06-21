@@ -1022,7 +1022,7 @@
 			top: 0; right: 0;
 			bottom: 0; left: 0;
 
-			background-image: linear-gradient(to bottom, rgba($black, 0.25), $black);
+			background-image: linear-gradient(to top, rgba(25, 25, 25, 0.6), rgba(25, 25, 25, 0.73));
 			content: "";
 			opacity: 1;
 			position: absolute;
@@ -1100,7 +1100,7 @@
 	}
 
 	#library-splash:after {
-    background-image: linear-gradient(to top, rgba(25, 25, 25, 0.4), rgba(25, 25, 25, 0.73));
+    background-image: linear-gradient(to top, rgba(25, 25, 25, 0.6), rgba(25, 25, 25, 0.73));
   }
   
   #library-splash {
@@ -1132,9 +1132,9 @@
     
     #library-share {
       font-size: 1.8rem !important;
-      opacity: 0.7;
+      opacity: 1;
       position: absolute;
-      right: 48%; bottom: 1.5rem;
+      right: 46%; bottom: 1.5rem;
       z-index: 100 !important;
       
       ul li {
@@ -1145,7 +1145,8 @@
       
       .ion-facebook, .ion-twitter, .ion-mail {
         color: $white !important;
-      }  
+      }
+      
     }
 
 		h1 {
@@ -1167,7 +1168,7 @@
 
 		p, span {
 			font-size: 1.25rem !important;
-			font-weight: 200 !important;
+			font-weight: 400 !important;
 			padding: 12px 0 0 0 !important;
 		}
 

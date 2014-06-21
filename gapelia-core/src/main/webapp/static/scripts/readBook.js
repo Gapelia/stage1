@@ -157,7 +157,7 @@ $(function () {
 	// needs to be a string for jquery.cookie
 	    var postId = "1";
             //console.log("merci'ing initializing outside");
-	    $(function () {
+	    //$(function () {
             //console.log("merci'ing initializing");
 
 	    // initialize merci
@@ -200,7 +200,6 @@ $(function () {
 		var element = $(this);
                 removeVoteBook(bookId);
             });
-	});
     }
     
     function hasAlreadyVoted(bookId) {

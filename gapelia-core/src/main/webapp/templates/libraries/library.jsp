@@ -121,7 +121,6 @@
                 fill: true
             });
         });
-
 	
 	if ($vH > "1190") {
 		$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
@@ -172,6 +171,7 @@
             $("#g-menu-toggle").css("color", "#fcfcfc");
 
             if ($vW > "1024") {
+		
 
                 // Close splash on desktops
                 $(document).on("click", "#close-splash", function () {

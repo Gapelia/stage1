@@ -114,6 +114,7 @@
 	else
 		$(".submission-dropdown").remove();
 	});
+	
     </script>
     
     <script>
@@ -293,7 +294,7 @@ $(document).ready(function() {
 	    
         }, 2000);
       
-        addLoggedInMenu();
+        addLoggedInMenuForBook();
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>
