@@ -814,7 +814,11 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#explore-list { padding: 1rem 1.25rem 1.25rem 1.25rem !important; }
+		#explore-list {
+			padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
+			margin-bottom: 1rem;
+		}
+		
 		#user-book-list { padding: 4.3rem 11.25rem 5.25rem 11.25rem; }
 
 		#book-cta {
@@ -1044,6 +1048,8 @@
 				font-size: 1rem;
 			}
 			
+			.book-snippet { opacity: 0.85; }
+			
 			.bookmark-this { display: none; }
 			
 			/// removing cover photos and giving it a list format for mobile //
@@ -1250,7 +1256,7 @@
 			
 			#splash-user-info { top: 26.5%; }
 			
-			#user-extra { bottom: -20rem; }
+			#user-extra { bottom: -24rem; }
 			
 			.user-avatar { top: 21.5%; }
 			
@@ -1809,6 +1815,8 @@
 		#user-splash {
 			z-index: 10;
 			
+			.follow { display: none; }
+			
 			.overlay-controls { display: none; }
 		}
 		
@@ -2185,12 +2193,16 @@
 		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
-			padding: 	3.3rem 6.25rem 0.25rem 6.25rem;
-		}	
+			padding: 	3.3rem 5.25rem 0.25rem 5.25rem;
+		}
+		
+		#explore-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
 		
 		#featured-scroller #g-menu-toggle {
-			left: 41.75%; top: 7rem;
+			left: 41.75%; top: 10rem;
 		}
+		
+		#welcoming-title { padding: 15.6rem 6rem; }
 		
 		
 		#book-cta {

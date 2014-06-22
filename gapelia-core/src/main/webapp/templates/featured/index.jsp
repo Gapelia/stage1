@@ -333,6 +333,58 @@
 
                slyBookWrapper.init();
           }
+	  
+	  if ($vW < "1025") {
+
+		var options = {
+			horizontal: 1,
+			itemNav: 'forceCentered',
+			smart: 1,
+			activateMiddle: 1,
+			activateOn: 'click',
+			mouseDragging: 1,
+			touchDragging: 1,
+			swingSpeed: 1,
+			releaseSwing: 0,
+			startAt: 0,
+			scrollBar: $(".scrollbar"),
+			scrollBy: 1,
+			speed: 0.0001,
+			elasticBounds: 1,
+			easing: 'swing',
+			dragHandle: 1,
+			dynamicHandle: 1,
+			clickBar: 1,
+			keyboardNavBy: 'items',
+		};
+			
+		var slyBookWrapper = new Sly('.book-list-wrapper', options);
+		var items = $('#book-list');
+
+		loadMoreBooks(20,items);
+
+
+		slyBookWrapper.on('load change', function () {
+			if (this.pos.dest > this.pos.end - 200) {
+			loadMoreBooks(20,items);
+
+			    $(".book").css("height", h);
+			    $(".book-snippet").css("display", "block")
+			    
+			   this.reload();
+			}
+		});
+
+	    h = $(this).outerHeight() - 92;
+            $(".book").css("height", h);
+            $("#book-list li").fadeIn("100");
+            $("#book-list").fadeIn("100");
+            if ($vW > "300") {
+                $(".book-snippet").css("display", "block")
+            }
+
+               slyBookWrapper.init();
+          }
 
             // Dropdown menu for mobile
             if ($vW < "1024") {

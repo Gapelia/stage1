@@ -8132,7 +8132,8 @@ a.count span.dont-move {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
   .app #explore-list {
-    padding: 1rem 1.25rem 1.25rem 1.25rem !important; }
+    padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
+    margin-bottom: 1rem; }
   .app #user-book-list {
     padding: 4.3rem 11.25rem 5.25rem 11.25rem; }
   .app #book-cta {
@@ -8321,6 +8322,8 @@ a.count span.dont-move {
     bottom: 0;
     right: 2rem;
     font-size: 1rem; }
+  .app .book .book-snippet, .app .collection .book-snippet, .app .library .book-snippet {
+    opacity: 0.85; }
   .app .book .bookmark-this, .app .collection .bookmark-this, .app .library .bookmark-this {
     display: none; }
   .app .book:last-child, .app .collection:last-child, .app .library:last-child {
@@ -8465,7 +8468,7 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info {
     top: 26.5%; }
   .app #user-splash #user-extra {
-    bottom: -20rem; }
+    bottom: -24rem; }
   .app #user-splash .user-avatar {
     top: 21.5%; }
   .app #user-splash #close-splash {
@@ -8869,6 +8872,8 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash {
     z-index: 10; }
+  .profile #user-splash .follow {
+    display: none; }
   .profile #user-splash .overlay-controls {
     display: none; }
   .profile .user-book-list-wrapper {
@@ -9143,10 +9148,14 @@ a.count span.dont-move {
   .app #header-message button {
     top: 1.6rem; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
-    padding: 3.3rem 6.25rem 0.25rem 6.25rem; }
+    padding: 3.3rem 5.25rem 0.25rem 5.25rem; }
+  .app #explore-list {
+    padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
   .app #featured-scroller #g-menu-toggle {
     left: 41.75%;
-    top: 7rem; }
+    top: 10rem; }
+  .app #welcoming-title {
+    padding: 15.6rem 6rem; }
   .app #book-cta {
     background-image: none !important;
     box-shadow: none !important;

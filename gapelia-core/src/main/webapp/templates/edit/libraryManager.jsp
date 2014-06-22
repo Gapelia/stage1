@@ -261,7 +261,7 @@
         });
                         
         // Dropdown menu for mobile
-        if ($vW < "1024") {
+        if ($vW < "1025") {
         
         $(".bookmark-list-wrapper").remove();
                         
