@@ -1498,7 +1498,7 @@
 			}
 			
 			.page-bg-wrapper {
-				width: 100%; height: 600px;
+				width: 100%; height: auto;
 				top: initial !important; left: initial;
 
 				box-shadow: none;
@@ -1522,7 +1522,10 @@
 				}
 			}
 			
-			.page-bg { display: initial !important; }
+			.page-bg {
+				display: initial !important;
+				height: 600px;
+			}
 		}
 
 		.overlay-wrapper {
@@ -2904,6 +2907,10 @@
 	
 	body.landing {
 		#gapelia { left: 28.25%; }
+	}
+	
+	.full-book {
+		.photo-wrapper .page-bg { height: auto; }
 	}
 }
 
