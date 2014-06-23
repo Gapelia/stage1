@@ -48,6 +48,11 @@
 				<a class="button b brand-iii" id="close-button" title="Save changes and quit">Save + Close</a>
 			</div>
 		</header>
+		
+		<div id="draft-tutorial" style="display: none;">
+			<p class="draft-tutorial-text" style="opacity: 0.7;">TIP: your work has been saved as a Draft, but is not public yet.</br>You can access your drafts later on the side menu.</br><a id="leave-editor" href="/">Ok, I get it</a><a id="close-draft-tutorial" style="font-size: 1rem; font-weight: 100; top: 1.8rem; right: 10rem; position: absolute;">Back to editor</a></p>
+			<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
+		</div>
 
 		<!--/ scrollers /-->
 
