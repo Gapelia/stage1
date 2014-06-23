@@ -266,7 +266,7 @@
         $(function () {
             getNotifications();
 	    getListSubscribed();
-            getFollowingUsers();
+            //getFollowingUsers();
             var second = getBookmarksArray();
             var fourth = getListBookmarked();
             var fifth = getLibraries();
@@ -274,6 +274,7 @@
 
         function load() {
  	getFeaturedBookArray();
+	getFollowingUsers();
 	
             var $vW = $(window).width(),
                 $vH = $(window).height();
