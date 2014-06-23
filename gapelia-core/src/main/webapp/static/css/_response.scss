@@ -1167,7 +1167,7 @@
 		.book-title {
 			margin: 0rem 0 1.5rem 0; padding: 0 5rem 0 2rem;
 
-			font-size: 2rem;
+			font-size: 1.5rem;
 			top: initial;
 		}
 
@@ -1221,10 +1221,11 @@
 		#library-splash {
 			#library-info {
 				left: 10%;
+				text-align: center;
 				top: 39%;
 				width: 75%;
 				
-				h2 { font-size: 2rem; }
+				h2 { font-size: 3rem; }
 			}
 			
 			button { right: 1rem; }
@@ -1235,7 +1236,8 @@
 			
 			#close-splash {
 				background-image: none !important;
-				bottom: 1rem;
+				bottom: 0;
+				font-weight: 400;
 				height: 50px !important;
 				left: 48% !important;
 			}
@@ -1298,6 +1300,7 @@
 		
 		#featured-panel {
 			background-color: transparent;
+			height: 71px;
 			z-index: 10;
 			
 			#g-menu-toggle {
@@ -1441,7 +1444,7 @@
 				height: 500px;
 				position: relative;
 				
-				.page-bg { display: none !important; }
+				.page-bg { display: block !important; }
 			}
 
 			.fluid-preview {
@@ -1495,7 +1498,7 @@
 			}
 			
 			.page-bg-wrapper {
-				width: 100%; height: auto;
+				width: 100%; height: 600px;
 				top: initial !important; left: initial;
 
 				box-shadow: none;
@@ -1524,6 +1527,7 @@
 
 		.overlay-wrapper {
 			margin: 0 0 3rem 0;
+			height: 100%;
 
 			.author-info .author-avatar { margin-left: 45%; }
 			.overlay-preview {
@@ -1542,7 +1546,10 @@
 				}
 			}
 			
-			.page-bg { display: initial !important; }
+			.page-bg {
+				display: initial !important;
+				height: 100%; width: auto;
+			}
 		}
 
 		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
@@ -1699,7 +1706,8 @@
 		}
 
 		.backcover-wrapper {
-			//border-top: 3px solid rgba($black, 0.1);
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			left: 5px;
 
 			#fin, #fin-next {
 				display: block;
@@ -1773,6 +1781,7 @@
 				#library-name { margin-left: 2.7rem; }
 				
 				#library-info-blurb {
+					color: rgba(25, 25, 25, 0.8);
 					margin: -3rem 7.4rem 0 7.5rem;
 				}
 			}
@@ -2210,6 +2219,7 @@
 			box-shadow: none !important;
 			background: transparent !important;
 			height: 100px;
+			padding: 0 3rem;
 			
 			&:after { background: none !important; }
 			
@@ -2311,7 +2321,7 @@
 				}
 
 				.author-avatar {
-					margin-left: -8%;
+					margin-left: -10%;
 					margin-top: -2rem;
 				}
 			}
@@ -2333,7 +2343,10 @@
 					width: 100%;
 				}
 				
-				.page-title-elem { font-size: 1.5rem; }
+				.page-title-elem {
+					font-size: 1.5rem;
+					margin-top: 30% !important;
+				}
 			}
 		}
 
@@ -2373,7 +2386,9 @@
 					padding-top: 0.3rem;
 				}
 				
-				#author-bio-blurb { font-size: 1rem; }
+				#author-bio-blurb, #library-info-blurb, #library-info-blurb span { font-size: 1rem; }
+				
+				#library-info-blurb span { font-size: 1rem !important; }
 				
 				section { padding-right: 2rem; }
 			}

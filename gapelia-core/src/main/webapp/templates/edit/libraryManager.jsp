@@ -250,15 +250,16 @@
                 $(".tt-dropdown-menu").css("opacity", "0");
             });
             
+            //text limit for library suggestions//
             $(function(){
-  $("#suggested-lib-list .lib-blurb").each(function(i){
-    len=$(this).text().length;
-    if(len>50)
-    {
-      $(this).text($(this).text().substr(0,80)+'...');
-    }
-  });
-});
+            $("#suggested-lib-list .lib-blurb").each(function(i){
+              len=$(this).text().length;
+              if(len>50)
+              {
+                $(this).text($(this).text().substr(0,80)+'...');
+              }
+            });
+          });
 	}
 
 	$(document).on("ready", function () {

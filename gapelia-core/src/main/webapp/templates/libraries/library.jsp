@@ -216,7 +216,7 @@
 			    $("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
 			    $("#featured-panel").css({
 				"background-color": "white",
-				"border-bottom": "1px solid #59B3A6"
+				"border-bottom": "1px solid rgba(89, 179, 166, 0.5)"
 			    });
 			    $("#featured-panel .subscribe").remove();
 			    $("#featured-scroller").css("background-color", "white");
@@ -238,7 +238,7 @@
 			$("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
 			$("#featured-panel").css({
 				"background-color": "white",
-				"border-bottom": "1px solid #59B3A6"
+				"border-bottom": "1px solid rgba(89, 179, 166, 0.5)"
 			});
 			$("#featured-panel .subscribe").remove();
 			$("#featured-scroller").css("background-color", "white");
@@ -437,15 +437,14 @@
                 });
 
             }
-	    if ($vW < "1024") {
+	    if ($vW < "1025") {
 		$("#library-splash .subscribe").remove();
-		$(".library #library-splash h1").remove();
 		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
-		//$("#featured-panel").append("<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1>");
 	    }
 	    
             if ($vW < "421") {
                 $(".book-snippet").css("display","block");
+		$(".library #library-splash h1").remove();
 		$("#featured-panel .subscribe").css({
 			"font-size": "0.6rem",
 			"right": "1.5rem",
