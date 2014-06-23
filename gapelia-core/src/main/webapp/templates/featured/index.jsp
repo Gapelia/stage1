@@ -603,13 +603,13 @@
 
             });
 	
-	// Click "My Subscriptions"
+	// Click "Following"
         $("#nav-following").click(function (e) {
 
         NProgress.start();
 
                      var
-                allBooks = $("#bookmark-list li"), // gets all books in a section
+                allBooks = $("#following li"), // gets all books in a section
                     firstBook = $(allBooks).first(); // gets first book in list
 
                 $(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
