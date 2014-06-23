@@ -662,11 +662,15 @@
 			var slyBookWrapper = new Sly('.following-list-wrapper', options);
 			var items = $('#following-list');
 	
+
 			loadMoreUsers(5,items);
 	
 	
+
+		if(friends.length > 4){
 			slyBookWrapper.on('load change', function () {
 				if (this.pos.dest > this.pos.end - 200) {
+
 				loadMoreUsers(5,items);
 	
 				    $(".book").css("height", h);
@@ -675,6 +679,7 @@
 				   this.reload();
 				}
 			});
+}
 	
 		    h = $(this).outerHeight() - 92;
 		    $(".book").css("height", h);

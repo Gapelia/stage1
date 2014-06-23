@@ -2538,6 +2538,7 @@ function loadMoreUsers(count,items) {
 		if(i == friends.length-1) break;
 
 		    friend = friends[offset + i];
+console.log(friend);
 		    
                     toInsert += "<li id=\'" + friend.userId + "\' class=\"book\" style=\"list-style: none;\">";
 		    toInsert += "<img style=\"border-radius: 300em; height: 125px; width: 125px; position: absolute; left: 34%; top: 16%; z-index: 10;\"src=\"" + friend.coverImage + "\">";
