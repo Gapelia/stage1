@@ -2798,6 +2798,8 @@ function getLastPublishedBookIdByFollower() {
             }
         }
     });
+	
+	return responseText;
 }
 
 function getRecentlyPublished() {
