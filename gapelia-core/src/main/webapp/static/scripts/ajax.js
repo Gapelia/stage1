@@ -1067,10 +1067,17 @@ function getLibrariesSuggestion() {
             for (i in libraries) {
                 library = libraries[i];
 	
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
                 $("#suggested-lib-list").append(libs);
              }
             getUser();
+	    $(".lib-blurb c").each(function(i){
+		len=$(this).text().length;
+			if(len>200)
+		{
+			$(this).text($(this).text().substr(0,125)+'...');
+		}
+	    });
         },
 	
         error: function (q, status, err) {
@@ -1100,11 +1107,18 @@ function getLibrariesSuggestionTwo() {
             for (i in libraries) {
                 library = libraries[i];	
 		
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
 
                 $("#suggested-lib-list").append(libs);
              }
             getUser();
+	    $(".lib-blurb c").each(function(i){
+		len=$(this).text().length;
+			if(len>200)
+		{
+			$(this).text($(this).text().substr(0,125)+'...');
+		}
+	    });
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1133,11 +1147,18 @@ function getLibrariesSuggestionThree() {
             for (i in libraries) {
                 library = libraries[i];	
 		
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br>" + library.description + "</div></li>";	
+		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
 
                 $("#suggested-lib-list").append(libs);
              }
             getUser();
+	    $(".lib-blurb c").each(function(i){
+		len=$(this).text().length;
+			if(len>200)
+		{
+			$(this).text($(this).text().substr(0,125)+'...');
+		}
+	    });
         },
         error: function (q, status, err) {
             if (status == "timeout") {

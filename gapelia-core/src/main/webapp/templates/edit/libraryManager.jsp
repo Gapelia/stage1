@@ -249,6 +249,16 @@
                 $(".suggested-libs").css("opacity", "1");
                 $(".tt-dropdown-menu").css("opacity", "0");
             });
+            
+            $(function(){
+  $("#suggested-lib-list .lib-blurb").each(function(i){
+    len=$(this).text().length;
+    if(len>50)
+    {
+      $(this).text($(this).text().substr(0,80)+'...');
+    }
+  });
+});
 	}
 
 	$(document).on("ready", function () {
