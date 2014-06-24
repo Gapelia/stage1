@@ -690,8 +690,9 @@
 		}
 		
 		//unfollow user//
-		$("#following-list button").click(function () {
-			$("#following-list button").removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+		$("#following-list .unfollow").click(function () {
+			$("#following-list .unfollow").removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+			$("#following-list li").closest("li").remove();
 			
 			sessionId = readCookie("JSESSIONID");
 		    
