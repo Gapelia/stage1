@@ -537,6 +537,7 @@
 	#book-list, #library-list, #bookmark-list, #submission-list, #subscription-list, #following-list {
 		display: none;
 		position: relative; // absolute
+    right: 10%;  //this prevents last item from getting stuck half way
 		top: 50%;
 		transform: translateY(-50%);
 		transition: all 0.5s ease;

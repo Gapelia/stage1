@@ -692,9 +692,10 @@
 		//unfollow user//
 		$("#following-list .unfollow").click(function () {
 			$("#following-list .unfollow").removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
-			$("#following-list li").closest("li").remove();
+			//$("#following-list li").closest("li").remove();
 			
 			sessionId = readCookie("JSESSIONID");
+			profileUserId = friend.userId;
 		    
 			$.ajax({
 			url: "/api/users/unFollowUser",
