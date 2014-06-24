@@ -636,7 +636,7 @@
                     $(".following-list-wrapper section").css("width", $vW + "px");
 		    
 		if ($vW > "1024") {
-
+			
 			var options = {
 				horizontal: 1,
 				itemNav: 'forceCentered',
@@ -679,7 +679,7 @@
 				   this.reload();
 				}
 			});
-}
+		}
 	
 		    h = $(this).outerHeight() - 92;
 		    $(".book").css("height", h);
@@ -688,12 +688,33 @@
 	
 		       slyBookWrapper.init();
 		}
-
-
+		
+		//unfollow user//
+		$("#following-list button").click(function () {
+			$("#following-list button").removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+			
+			sessionId = readCookie("JSESSIONID");
+		    
+			$.ajax({
+			url: "/api/users/unFollowUser",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    followerId: profileUserId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+		});
+		
                 }, 1000);
-
+		
                 e.preventDefault();
-
+		
                 $("#nav-books").removeClass("current");
                 $("#nav-following").addClass("current");
                 $("#nav-bookmarks").removeClass("current");
