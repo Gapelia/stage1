@@ -143,7 +143,7 @@
             $(".book").css("height", h);
             // Splash page
             $(function () {
-
+		
                 stuff = "";
                 stuff += "<section id=\"user-splash\">";
                 stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
@@ -370,6 +370,7 @@
 			
                         getContributedTo();
                         getRecentlyPublished();
+			getFollowingUsers();
 			addLoggedInMenu();
                         loadDelete();
 

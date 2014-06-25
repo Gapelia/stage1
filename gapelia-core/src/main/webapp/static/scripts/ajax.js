@@ -2024,59 +2024,6 @@ $(document).on("click", ".quick-edit-profile", function () {
     quickUpdateUser();
 });
 
-$(document).on("click", ".subscribe", function (ev) {
-    e = $(this).closest("button");
-    library = e.parent().parent();
-    libraryId = library.attr("id");
-    if (libraryId == "library-splash") {
-        libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
-    }
-    a = parseInt(libraryId);
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/actions/subscribeLibrary",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            libraryId: a
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            }
-        }
-    });
-
-});
-
-$(document).on("click", ".unsubscribe", function (ev) {
-    e = $(this).closest("button");
-    library = e.parent().parent();
-    libraryId = library.attr("id");
-    $(this).closest("li").show();
-    if (libraryId == "library-splash") {
-        libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
-    }
-    a = parseInt(libraryId);
-    sessionId = readCookie("JSESSIONID");
-    $.ajax({
-        url: "/api/actions/removeSubscriptionLibrary",
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        type: "POST",
-        data: {
-            sessionId: sessionId,
-            libraryId: a
-        },
-        error: function (q, status, err) {
-            if (status == "timeout") {
-                alert("Request timed out");
-            }
-        }
-    });
-});
-
-
 function contains(a, obj) {
     var i = a.length;
     while (i--) {
@@ -2542,7 +2489,8 @@ function loadMoreUsers(count,items) {
                     toInsert += "<li id=\'" + friend.userId + "\' class=\"book\" style=\"list-style: none;\">";
 		    toInsert += "<img style=\"border-radius: 300em; height: 125px; width: 125px; position: absolute; left: 34%; top: 16%; z-index: 10;\"src=\"" + friend.avatarImage + "\">";
                     toInsert += "<div class=\"library-info\" style=\"top: 44%;\"><div class=\"title\"><a href=\"/" + friend.displayName + "\" style=\"display: block; width: 100%; height: 100%;\">" + friend.name + "</a></div>";
-		    toInsert += "<div class=\"lib-blurb\" style=\"opacity: 0.7;\">" + friend.bio + "</div><div =\"last-published\" style=\"font-style: italic; line-height: 2; margin-top: 15px;\">Recently published </br>" + getLastPublishedBookIdByFollower(friend.userId) + "</div></div></div>";
+		    toInsert += "<div class=\"lib-blurb\" style=\"opacity: 0.7;\">" + friend.bio + "</div>";
+		    toInsert += "<div =\"last-published\" style=\"font-style: italic; line-height: 2; margin-top: 15px;\">Recently published </br>" + getLastPublishedBookIdByFollower(friend.userId) + "</div></div></div>";
 		    toInsert += "<div class=\"wrapper\" style=\"bottom: 1rem;\"><button class=\"unfollow brand-blue\" style=\"font-size: 10px;\">Unfollow</button></div>";
                     toInsert += "</li>";
 		}

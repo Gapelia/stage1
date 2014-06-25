@@ -203,7 +203,7 @@
 		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
-			stuff += "<div id=\"close-splash\">See all posts</div>";
+			stuff += "<div id=\"close-splash\" style=\"left: 90%;\">See all posts</div>";
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
@@ -484,7 +484,7 @@
 					slyBookWrapper.on('load change', function () {
 						if (this.pos.dest > this.pos.end - 200) {
 						loadMoreUserBooks(5,items);
-			
+							
 						    $(".book").css("height", h);
 						    $(".book-snippet").css("display", "block")
 						    

@@ -520,6 +520,49 @@
 		
 		
         },2000);
+	 
+	//subscribing + unsubscribing calls//
+	
+	$(document).on("click", ".subscribe", function (ev) {
+		
+		sessionId = readCookie("JSESSIONID");
+		
+		$.ajax({
+		    url: "/api/actions/subscribeLibrary",
+		    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		    type: "POST",
+		    data: {
+			sessionId: sessionId,
+			libraryId: libraryId
+		    },
+		    error: function (q, status, err) {
+			if (status == "timeout") {
+			    alert("Request timed out");
+			}
+		    }
+		});
+	    
+	  });
+	 
+	$(document).on("click", ".unsubscribe", function (ev) {
+
+		sessionId = readCookie("JSESSIONID");
+		
+		$.ajax({
+		    url: "/api/actions/removeSubscriptionLibrary",
+		    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		    type: "POST",
+		    data: {
+			sessionId: sessionId,
+			libraryId: libraryId
+		    },
+		    error: function (q, status, err) {
+			if (status == "timeout") {
+			    alert("Request timed out");
+			}
+		    }
+		});
+	});
     </script>
     <!--//scripts /-->
 
