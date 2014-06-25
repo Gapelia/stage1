@@ -691,8 +691,12 @@
 		
 		//unfollow user//
 		$("#following-list .unfollow").click(function () {
-			$("#following-list .unfollow").removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
-			//$("#following-list li").closest("li").remove();
+			$(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+			
+			e = $(this).closest("button");
+			profileUserId = e.parent().parent();
+			profileUserId = profileUserId.attr("id");
+			a = parseInt(profileUserId);
 			
 			sessionId = readCookie("JSESSIONID");
 			profileUserId = friend.userId;
@@ -703,7 +707,7 @@
 			type: "POST",
 			data: {
 			    sessionId: sessionId,
-			    followerId: profileUserId
+			    followerId: a
 			},
 			error: function (q, status, err) {
 			    if (status == "timeout") {
