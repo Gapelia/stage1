@@ -3768,7 +3768,7 @@ body.library-manager #featured-nav .suggested-libs {
   overflow: hidden;
   overflow-y: scroll;
   position: absolute;
-  top: 14rem;
+  top: 13rem;
   width: 45%; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list {
   font-size: 1rem !important;
@@ -3782,7 +3782,7 @@ body.library-manager #featured-nav .suggested-libs #suggested-lib-list a {
   opacity: 0.9; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list li {
   display: block;
-  height: 110px;
+  height: 80px;
   margin-top: -1rem !important; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list li:first-child {
   margin-top: 1px !important; }
@@ -3790,6 +3790,11 @@ body.library-manager #featured-nav .suggested-libs #suggested-lib-list .lib-blur
   position: relative;
   top: -3.5rem;
   left: 5rem; }
+body.library-manager #featured-nav .suggested-libs #suggested-lib-list h3 {
+  color: #59B3A6;
+  font-size: 1.25rem;
+  line-height: 34px;
+  margin: 0 0 20px 0; }
 body.library-manager #featured-nav .suggested-libs span {
   font-size: 1rem !important;
   line-height: 1.25 !important;

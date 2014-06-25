@@ -1067,7 +1067,7 @@ function getLibrariesSuggestion() {
             for (i in libraries) {
                 library = libraries[i];
 	
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
+		libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
                 $("#suggested-lib-list").append(libs);
              }
             getUser();
@@ -1078,6 +1078,9 @@ function getLibrariesSuggestion() {
 			$(this).text($(this).text().substr(0,125)+'...');
 		}
 	    });
+	    
+	    $("#recommended-libraries").prepend("<h3>Featured Libraries</h3>")
+		e.preventDefault();
         },
 	
         error: function (q, status, err) {
@@ -1107,9 +1110,10 @@ function getLibrariesSuggestionTwo() {
             for (i in libraries) {
                 library = libraries[i];	
 		
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
+		libs = "<ul id=\"created-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li></ul>";	
 
                 $("#suggested-lib-list").append(libs);
+		
              }
             getUser();
 	    $(".lib-blurb c").each(function(i){
@@ -1119,6 +1123,9 @@ function getLibrariesSuggestionTwo() {
 			$(this).text($(this).text().substr(0,125)+'...');
 		}
 	    });
+	    
+	    	$("#created-libraries").prepend("<h3>My Libraries</h3>")
+		e.preventDefault();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
@@ -1147,7 +1154,7 @@ function getLibrariesSuggestionThree() {
             for (i in libraries) {
                 library = libraries[i];	
 		
-		libs = "<li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
+		libs = "<ul id=\"subscribed-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
 
                 $("#suggested-lib-list").append(libs);
              }
@@ -1159,6 +1166,9 @@ function getLibrariesSuggestionThree() {
 			$(this).text($(this).text().substr(0,125)+'...');
 		}
 	    });
+	    
+	    $("#subscribed-libraries").prepend("<h3>Subscribed Libraries</h3>")
+		e.preventDefault();
         },
         error: function (q, status, err) {
             if (status == "timeout") {
