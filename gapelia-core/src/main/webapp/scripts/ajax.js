@@ -2543,7 +2543,7 @@ function loadMoreUsers(count,items) {
 		    toInsert += "<img style=\"border-radius: 300em; height: 125px; width: 125px; position: absolute; left: 34%; top: 16%; z-index: 10;\"src=\"" + friend.coverImage + "\">";
                     toInsert += "<div class=\"library-info\" style=\"top: 44%;\"><div class=\"title\"><a href=\"/" + friend.displayName + "\" style=\"display: block; width: 100%; height: 100%;\">" + friend.name + "</a></div>";
 		    toInsert += "<div class=\"lib-blurb\" style=\"opacity: 0.7;\">" + friend.bio + "</div><div =\"last-published\" style=\"font-style: italic; line-height: 2; margin-top: 15px;\">Recently published </br>" + getLastPublishedBookIdByFollower(friend.userId) + "</div></div></div>";
-		    toInsert += "<div class=\"wrapper\" style=\"bottom: 1rem;\"><button class=\"unsubscribe brand-blue\" style=\"font-size: 10px;\">Unfollow</button></div>";
+		    toInsert += "<div class=\"wrapper\" style=\"bottom: 1rem;\"><button class=\"unfollow brand-blue\" style=\"font-size: 10px;\">Unfollow</button></div>";
                     toInsert += "</li>";
 		}
 		

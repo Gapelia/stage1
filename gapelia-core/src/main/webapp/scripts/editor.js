@@ -1213,11 +1213,15 @@
 
 	// Save book information every 10 seconds
 	window.setInterval(function () {
+		
+		if(!hasClickedPublish){
+			console.log("autosaving");
+			updateBookAndPages(false);
+			$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
+		}
+		else{console.log("not autosaving");}
 
-		updateBookAndPages(false);
-		$("#notify-saving").finish().fadeIn("fast").delay(1000).fadeOut("slow");
-
-	}, 10000);
+	}, 2000);
 
 	// Save page information every 10 seconds
 	window.setInterval(function () {
@@ -1267,7 +1271,10 @@
 
 	});
 
+	var hasClickedPublish = false;
+
 	$("#publish-this").on("click", function (e) {
+		hasClickedPublish = true;
 		updateBookAndPages(true);
 	});
 
