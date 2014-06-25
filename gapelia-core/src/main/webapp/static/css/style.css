@@ -2609,7 +2609,6 @@ body.landing .error {
 .app #book-nav .current a, .app #featured-nav .current a {
   color: #59b3a6;
   font-weight: 700;
-  letter-spacing: 0.05rem;
   padding: 0 0 0.74rem 0; }
 .app #featured-nav {
   top: 0;
@@ -7728,8 +7727,16 @@ a.count span.dont-move {
     top: 53% !important;
     width: 100%; }
   .app .following-list-wrapper img {
-    left: 35% !important;
-    top: 25% !important; }
+    height: 150px !important;
+    width: 150px !important;
+    left: 34% !important;
+    top: 20% !important; }
+  .app .following-list-wrapper .library-info {
+    top: 40% !important; }
+  .app .following-list-wrapper .library-info .title {
+    font-size: 2.5rem; }
+  .app .following-list-wrapper #last-published a {
+    font-size: 1.5rem; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     margin: 0 0 0 1.5rem;
     width: 450px; }
@@ -7755,13 +7762,14 @@ a.count span.dont-move {
     font-size: 1.25rem;
     left: 5.5rem;
     padding-top: 0.9rem;
-    top: 0.6rem; }
+    top: 0.4rem; }
   .app #featured-nav #search-ii {
     top: 20px !important; }
   .app #featured-nav .typeahead {
-    margin-left: 58% !important; }
+    font-size: 1.5rem !important;
+    margin-left: 70% !important; }
   .app #featured-nav .tt-dropdown-menu {
-    margin-left: 54.5% !important; }
+    margin-left: 67.5% !important; }
   .app #featured-nav .suggested-libs {
     margin-left: 29.5% !important; }
   .app #featured-panel {
@@ -7771,7 +7779,7 @@ a.count span.dont-move {
   .app .library .wrapper {
     bottom: 12rem; }
   .app #library-splash h1 {
-    font-size: 1.7rem; }
+    font-size: 1.5rem; }
   .app #library-splash h2 {
     font-size: 3.5rem; }
   .app #library-splash p {
@@ -7843,7 +7851,7 @@ a.count span.dont-move {
     bottom: -29rem !important;
     left: 1.75rem; }
   .profile #user-splash #user-extra li {
-    font-size: 1.5rem; }
+    font-size: 1.25rem; }
   .profile #user-splash .user-avatar {
     top: 16%; }
   .profile .notification-time #notification-count {
@@ -7915,7 +7923,7 @@ a.count span.dont-move {
   .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 52.5%; }
   .app .book, .app .collection, .app .library {
-    width: 450px; }
+    width: 500px; }
   .app #book-list {
     width: 9300px !important; }
   .app #featured-nav #nav-search {
