@@ -199,7 +199,7 @@
                     $("#user-header").css("opacity", "1");
 
                 });
-
+		
             } else {
 
                 $(function () {

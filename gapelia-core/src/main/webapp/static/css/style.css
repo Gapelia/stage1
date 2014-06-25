@@ -4292,7 +4292,7 @@ body.library-manager ::-webkit-scrollbar {
   width: auto;
   height: auto;
   bottom: 92%;
-  left: 90.5%;
+  left: 81.5%;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: rgba(252, 252, 252, 0.8);
@@ -4301,14 +4301,14 @@ body.library-manager ::-webkit-scrollbar {
   font-size: 1rem;
   font-style: italic !important;
   font-weight: 400;
-  padding: 10px;
+  padding: 9.5px;
   position: fixed;
   text-align: center;
   transition: bottom 1.3s ease, left 1.3s ease;
   z-index: 10; }
 .profile #user-splash .follow, .profile #user-splash .unfollow {
   font-style: italic;
-  left: 82%;
+  left: 91%;
   padding: 7px 20px 9px 20px !important;
   position: absolute;
   text-transform: lowercase;
@@ -7965,7 +7965,7 @@ a.count span.dont-move {
   .profile #close-splash, .profile .follow, .profile .unfollow {
     bottom: 93.5% !important; }
   .profile .follow, .profile .unfollow {
-    left: 82.5% !important; }
+    left: 90.5% !important; }
   .profile .notification-time #notification-count {
     right: 3.25rem; }
 

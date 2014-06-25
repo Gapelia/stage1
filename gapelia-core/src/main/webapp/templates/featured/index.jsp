@@ -722,10 +722,7 @@
                 $("#nav-bookmarks").removeClass("current");
 
                 NProgress.done();
-
 		
-
-
             });
 	}
     </script>
