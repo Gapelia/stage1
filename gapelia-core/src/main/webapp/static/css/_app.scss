@@ -1551,3 +1551,14 @@
   
   .well { background-color: transparent; }
 }
+
+//feedback styling
+
+#thanks-feedback {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

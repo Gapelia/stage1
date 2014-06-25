@@ -3525,6 +3525,14 @@ body.landing .error {
 #servicePane .well {
   background-color: transparent; }
 
+#thanks-feedback {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
 body.library #nav-wrapper {
   z-index: 1; }
 body.library .book .wrapper, body.library .library .wrapper {

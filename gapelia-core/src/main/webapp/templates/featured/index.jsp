@@ -249,6 +249,11 @@
 		subject: 'A Feeback Message'
 	    });
 	    
+	    $("#contactable .contactable-submit").click(function (){
+		$("#featured-scroller").append("<div id=\"thanks-feedback\">Thank you for your feedback!</div>");
+		$("#contactable").remove();
+	    });
+	    
 	    //hide search box after clicking on item//
 	    $(".tt-dropdown-menu").click(function () {
                 $(".typeahead").css("display", "none");
