@@ -157,7 +157,7 @@ function pasteHtmlAtCaret(html) {
 	GapeliaEditor.prototype = {
 		defaults: {
 			allowMultiParagraphSelection: true,
-			anchorInputPlaceholder: "Paste or type a link without www or http://",
+			anchorInputPlaceholder: "Paste or type a hyperlink...",
 			buttons: ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "indent", "outdent"],
 			delay: 0,
 			diffLeft: 0,
