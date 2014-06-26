@@ -286,7 +286,7 @@ $(document).ready(function() {
 	    $(function() {
 		$(".full-book .page-desc a").each(function() {
 		var href = $(this).attr("href");
-		   $(this).attr("href", "http://" + href);
+		   $(this).attr("href", + href);
 		   $(this).attr("target", "_blank");
 		});
 		$(".full-book .page-desc a").css("text-decoration", "underline");
