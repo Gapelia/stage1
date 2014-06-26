@@ -44,6 +44,18 @@ CREATE TABLE IF NOT EXISTS books (
 );
 CREATE INDEX book_owned_by_idx ON books(owned_by);
 
+
+CREATE TABLE IF NOT EXISTS revisions (
+        id serial PRIMARY KEY,
+        book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	revision_book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	created DATE
+);
+
+CREATE INDEX revisions_created_idx ON revisions(created);
+CREATE INDEX revisions_book_id_idx ON revisions(book_id);
+
+
 CREATE TABLE IF NOT EXISTS pages (
         id serial PRIMARY KEY,
         book_id INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,

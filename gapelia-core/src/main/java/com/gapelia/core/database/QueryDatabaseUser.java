@@ -39,6 +39,7 @@ public class QueryDatabaseUser {
 	private static final String GET_BOOKMARKED_BOOKS = "SELECT * FROM user_bookmarks where user_id = ?";
 	private static final String GET_BOOK = "SELECT * FROM books where id = ?";
 	private static final String GET_USER_FRIENDS = "SELECT * FROM user_friends where user_id = ?";
+	private static final String IS_FOLLOWING_USER = "select * from user_friends where user_id = ? and is_following_id = ?";
 	private static final String ADD_USER_FOLLOW = "INSERT INTO user_friends (user_id, is_following_id) VALUES (?,?)";
 	private static final String REMOVE_USER_FOLLOW = "DELETE FROM user_friends where user_id = ? and is_following_id = ?";
 	private static final String GET_OWNED_BOOKS = "SELECT * FROM books where owned_by = ? and is_published = 't' order by last_updated desc";
@@ -173,6 +174,25 @@ public class QueryDatabaseUser {
 		}
 	}
 
+	public static boolean isFollowingUser(int userId, int checkIsFollowingId) {
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(IS_FOLLOWING_USER);
+			insert.setInt(1, userId);
+			insert.setInt(2, checkIsFollowingId);
+			ResultSet rs = insert.executeQuery();
+
+			boolean result = rs.isBeforeFirst();
+
+			rs.close();
+			insert.close();
+			return result;
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot check if user " + userId + " is following user " + checkIsFollowingId + "\n" + ex.getMessage());
+			return false;
+		}
+	}
 
 
 

@@ -137,6 +137,8 @@ public class Users {
         return gson.toJson(QueryDatabaseUser.getBookByID(bookId));
     }
 
+
+
     @Path("getPages")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -169,6 +171,16 @@ public class Users {
         User u = SessionManager.getUserFromSessionId(sessionId);
         return gson.toJson(QueryDatabaseUser.getCreatedBooks(u.getUserId()));
     }
+
+	@Path("isFollowingUser")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String isFollowingUser(@FormParam("userId") int userId,
+								  @FormParam("isFollowingId") int isFollowingId) {
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseUser.isFollowingUser(userId,isFollowingId));
+	}
 
     @Path("getCreatedBooksPublic")
     @POST
@@ -213,7 +225,7 @@ public class Users {
 
 		User u = SessionManager.getUserFromSessionId(sessionId);
 
-		return QueryDatabaseUser.followUser(u.getUserId(),followerId);
+		return QueryDatabaseUser.followUser(u.getUserId(), followerId);
 	}
 
     @Path("getFeaturedBooks")
