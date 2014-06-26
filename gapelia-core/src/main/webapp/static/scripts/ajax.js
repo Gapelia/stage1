@@ -2535,6 +2535,38 @@ function getFollowingUsers() {
     });
 }
 
+function isFollowing() {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/users/isFollowingUser",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+	    userId : user.userId,
+	    isFollowingId : profileUserId
+        },
+        success: function (data) {
+            responseText = data;
+		
+		if (responseText == true) {
+			stuff += "<button class=\"unfollow brand-blue\">Unfollow</button>";
+		} else {
+			stuff += "<button class=\"follow white-border\">Follow</button>";
+		}
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    
+    return responseText;
+}
+
 $(document).on("click", ".bookmark-this", function (ev) {
     e = $(this).closest(".bookmark-this");
     bookId = e.parent().attr("id");

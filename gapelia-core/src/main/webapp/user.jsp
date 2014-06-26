@@ -166,7 +166,7 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
-		stuff += "<button class=\"follow white-border\">Follow</button>"
+		isFollowing();
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
