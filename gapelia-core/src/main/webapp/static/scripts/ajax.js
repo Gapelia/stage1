@@ -2547,12 +2547,13 @@ function isFollowing() {
 	    isFollowingId : profileUserId
         },
         success: function (data) {
-            responseText = data;
-		
-		if (responseText == true) {
-			stuff += "<button class=\"unfollow brand-blue\">Unfollow</button>";
+            
+	    alreadyFollowing = data;
+	    
+		if (alreadyFollowing == "true") {
+		    stuff += "<button class=\"unfollow brand-blue\">Unfollow</button>";
 		} else {
-			stuff += "<button class=\"follow white-border\">Follow</button>";
+		    stuff += "<button class=\"follow white-border\">Follow</button>";
 		}
         },
         error: function (q, status, err) {
@@ -2563,8 +2564,6 @@ function isFollowing() {
             }
         }
     });
-    
-    return responseText;
 }
 
 $(document).on("click", ".bookmark-this", function (ev) {
