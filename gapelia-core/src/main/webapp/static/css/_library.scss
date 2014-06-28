@@ -132,7 +132,7 @@ body.library {
 			&:first-child { margin: 0 1rem 0 0; }
 
 			ul {
-				top: 1.4rem; right: 5rem !important;
+				top: 3.4rem; right: 1rem !important;
 
 				background-color: $white;
 				border-radius: 5px;
@@ -140,10 +140,10 @@ body.library {
 				display: none;
 				max-height: 350px;
 				min-width: 225px;
-				position: relative;
+				position: absolute;
 				overflow: scroll;
 				overflow-x: hidden;
-				width: auto;
+				min-width: 300px;
 
 				li {
 					border: 1px solid rgba($black, 0.05);

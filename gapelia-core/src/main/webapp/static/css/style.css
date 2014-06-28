@@ -3624,18 +3624,18 @@ body.library #stay-right li {
 body.library #stay-right li:first-child {
   margin: 0 1rem 0 0; }
 body.library #stay-right li ul {
-  top: 1.4rem;
-  right: 5rem !important;
+  top: 3.4rem;
+  right: 1rem !important;
   background-color: #fcfcfc;
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
   display: none;
   max-height: 350px;
   min-width: 225px;
-  position: relative;
+  position: absolute;
   overflow: scroll;
   overflow-x: hidden;
-  width: auto; }
+  min-width: 300px; }
 body.library #stay-right li ul li {
   border: 1px solid rgba(25, 25, 25, 0.05);
   color: rgba(25, 25, 25, 0.7) !important;
@@ -7648,7 +7648,6 @@ a.count span.dont-move {
     left: 1.8rem;
     top: 0; }
   body.library #stay-right {
-    top: 0.5rem;
     right: 0.253rem; }
   body.library #submission-pop {
     height: 5% !important;
@@ -7792,7 +7791,8 @@ a.count span.dont-move {
   .app .library .wrapper {
     bottom: 12rem; }
   .app #library-splash h1 {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    padding-bottom: 1rem; }
   .app #library-splash h2 {
     font-size: 3.5rem; }
   .app #library-splash p {
@@ -7966,8 +7966,7 @@ a.count span.dont-move {
     width: 39% !important; }
 
   body.library #submission-pop {
-    height: 6%;
-    left: 25% !important; }
+    height: 6%; }
   body.library #submission-pop p {
     padding: 1rem 1rem 0rem 1rem; }
 

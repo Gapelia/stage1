@@ -72,7 +72,7 @@
 		#featured-panel #g-menu-toggle { left: 1.8rem; top: 0; }
 		
 		#stay-right {
-			top: 0.5rem;
+			//top: 0.5rem;
 			right: 0.253rem;
 		}
 		
@@ -262,7 +262,10 @@
 		
 		#library-splash {
 			
-			h1  { font-size: 1.5rem; }
+			h1  {
+				font-size: 1.5rem;
+				padding-bottom: 1rem;
+			}
 			
 			h2 { font-size: 3.5rem; }
 			
@@ -533,7 +536,6 @@
 	body.library {
 		#submission-pop {
 			height: 6%;
-			left: 25% !important;
 			
 			p { padding: 1rem 1rem 0rem 1rem; } 
 		}

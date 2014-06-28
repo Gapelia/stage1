@@ -931,7 +931,7 @@ function getLibrary() {
 		}
 	    }
 	    if (ownThisLibrary) {
-			    toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem;\"><p>" + "Added to your library." + "<p/></ul>";
+			    toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
 
 	    }
 	    else{
