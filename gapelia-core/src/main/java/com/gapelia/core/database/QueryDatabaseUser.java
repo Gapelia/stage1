@@ -1058,7 +1058,7 @@ public class QueryDatabaseUser {
 		}
 		return libraryList;
 	}
-	//public static Library [] getLibraries
+
 	public static ArrayList<Library> getCreatedLibraries(int userId) {
 		PreparedStatement statement = null;
 		ResultSet rs = null;

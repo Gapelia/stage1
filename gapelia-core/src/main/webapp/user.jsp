@@ -133,12 +133,18 @@
         $(function () {
 	    getNotifications();
             var first = getUserPublic();
+	    
+
             var second = getListBookmarked();
             var third = getUserDrafts();
-        });
+ 
+
+		       
+		});
 
          // Splash page
         function load() {
+
             h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
             // Splash page
@@ -167,11 +173,16 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
-		isFollowing();
+		
                 stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
                 stuff += "</section>";
 
                 $("#mp-pusher").prepend(stuff);
+
+
+getUserMe();
+isFollowing();
+
 
                 $("#user-splash").imgLiquid({
                     fill: true
@@ -395,8 +406,12 @@
 			setTimeout(function () {
 			$("#user-book-list li").fadeIn("100");
 			$("#user-book-list").fadeIn("100");
+
+			
+
+
 			   if ($vW > "1024") {
-		
+				
 					var options = {
 						horizontal: 1,
 						itemNav: 'forceCentered',

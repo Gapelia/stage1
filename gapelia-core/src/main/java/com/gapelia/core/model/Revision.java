@@ -1,24 +1,37 @@
 package com.gapelia.core.model;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
 
 public class Revision {
-	private int revisionId;
+	private int id;
+	private int revisionBookId;
 	private int bookId;
 
-	private Timestamp created;
-
-	private ArrayList<Page> pages;
-
-
-	public int getRevisionId() {
-		return revisionId;
+	public int getId() {
+		return id;
 	}
 
-	public void setRevisionId(int revisionId) {
-		this.revisionId = revisionId;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	private Date created;
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+
+	public int getRevisionBookId() {
+		return revisionBookId;
+	}
+
+	public void setRevisionBookId(int revisionBookId) {
+		this.revisionBookId = revisionBookId;
 	}
 
 	public int getBookId() {
@@ -29,22 +42,5 @@ public class Revision {
 		this.bookId = bookId;
 	}
 
-	public Timestamp getCreated() {
-		return created;
-	}
-
-	public void setCreated(Timestamp created) {
-		this.created = created;
-	}
-
-	public ArrayList<Page> getPages() {
-		return pages;
-	}
-
-	public void setPages(ArrayList<Page> pages) {
-		this.pages = pages;
-	}
-	public Revision(){
-		pages = new ArrayList<Page>();
-	}
+	public Revision(){}
 }

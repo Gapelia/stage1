@@ -12,6 +12,31 @@ function readCookie(name) {
     return null;
 }
 
+function getRevisions(){
+         $.ajax({
+            url: "/api/books/getRevisions",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            async: false,
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                bookId: bookId
+            },
+	success: function (data) {
+		revisionsList = data;
+        },
+            error: function (q, status, err) {
+		console.log("ERROR" + err);
+                if (status == "timeout") {
+                    alert("Request timed out trying again");
+                }
+            }
+
+        });
+
+}
+
+
 function getFullBookFromBookId(bookId) {
     $.ajax({
         url: "/api/utils/getBookFromBookId",
@@ -1415,6 +1440,32 @@ function deleteAccount() {
 
 }
 
+
+function getUserMe() {
+    sessionId = readCookie("JSESSIONID");
+    $.ajax({
+        url: "/api/users/getUser",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId
+        },
+        success: function (data) {
+            userMe = data;
+            
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+    return null;
+}
+
 function getUser() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -1441,6 +1492,7 @@ function getUser() {
 
 function getUserPublic() {
     profileUserId = document.URL.split('?id=')[1]
+
     $.ajax({
         url: "/api/users/getUserPublic",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -2543,18 +2595,23 @@ function isFollowing() {
         type: "POST",
         async: false,
         data: {
-	    userId : user.userId,
+	    userId : userMe.userId,
 	    isFollowingId : profileUserId
         },
         success: function (data) {
             
 	    alreadyFollowing = data;
 	    
-		if (alreadyFollowing == "true") {
-		    stuff += "<button class=\"unfollow brand-blue\">Unfollow</button>";
+		if (alreadyFollowing) {
+console.log("ALREADY FOLLOWING, CHANGINGBUTTON");
+		    stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
+
+			
 		} else {
-		    stuff += "<button class=\"follow white-border\">Follow</button>";
+		    stuff = "<button class=\"follow white-border\">Follow</button>";
 		}
+
+		$("#user-splash").append(stuff);
         },
         error: function (q, status, err) {
             if (status == "timeout") {

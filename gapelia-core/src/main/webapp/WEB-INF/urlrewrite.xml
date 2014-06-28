@@ -11,6 +11,14 @@
         <to type="permanent-redirect">$1</to>
     </rule>
     <rule>
+        <from>^/revision/([0-9]+)$</from>
+        <to>/templates/revision/index.jsp</to>
+    </rule>
+    <outbound-rule>
+        <from>^/templates/read/index.jsp</from>
+        <to>/read/([0-9]+)$</to>
+    </outbound-rule>
+    <rule>
     	<from>^/read/([0-9]+)$</from>
     	<to>/templates/read/index.jsp</to>
     </rule>
