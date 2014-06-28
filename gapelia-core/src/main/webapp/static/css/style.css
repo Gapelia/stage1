@@ -8139,7 +8139,7 @@ a.count span.dont-move {
     background-image: url("../images/folio-logo.png");
     background-size: 130px;
     left: 43.5%;
-    top: 7rem;
+    top: 11rem;
     width: 300px; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list, .app #following-list {
     width: 100% !important;
@@ -8210,7 +8210,7 @@ a.count span.dont-move {
     width: 100%;
     height: 450px;
     margin: 0;
-    padding: 12.6rem 6rem;
+    padding: 16.6rem 6rem;
     background-image: url("../images/cover.jpg");
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -8401,6 +8401,8 @@ a.count span.dont-move {
     width: 50px; }
   .app #book-list, .app #library-list, .app #bookmark-list, .app #user-book-list, .app #subscription-list, .app #following-list {
     width: 100% !important; }
+  .app #book-list {
+    right: 0; }
   .app .bookmarked .bookmark-this {
     z-index: 5; }
   .app .bookmarked .bookmark-this .right-bm {

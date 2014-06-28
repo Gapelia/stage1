@@ -393,7 +393,7 @@
           }
 
             // Dropdown menu for mobile
-            if ($vW < "1024") {
+            if ($vW < "1025") {
 		
                 $(".bookmark-list-wrapper, .following-list-wrapper").remove();
 		
@@ -408,7 +408,7 @@
                 });
             }
 	    
-	    if ($vW < "1024") {
+	    if ($vW < "1025") {
                 $(".book-list-wrapper").css({
 			"top": "450px",
 			"background-color": "white"
