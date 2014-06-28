@@ -896,7 +896,7 @@ function getLibrary() {
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 	    if (ownThisLibrary) {
-                toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + currentLibrary.libraryId + "\">Edit Library</a></button>";
+                toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + library.libraryId + "\">Edit Library</a></button>";
             } else {
                 toInsert += "";
             }
