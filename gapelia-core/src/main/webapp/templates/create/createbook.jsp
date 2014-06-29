@@ -45,16 +45,7 @@
 					<li id="revisions">
 					    <a class=revision-dropdown href="#">Revisions</a>
 						<ul style="display: none;">
-							<li><a> Date Number One</a></li>
-							<li><a> Date Number Two</a></li>
-							<li><a> Date Number Three</a></li>
-							<li><a> Date Number Four</a></li>
-							<li><a> Date Number Five</a></li>
-							<li><a> Date Number Six</a></li>
-							<li><a> Date Number Seven</a></li>
-							<li><a> Date Number Eight</a></li>
-							<li><a> Date Number Nine</a></li>
-							<li><a> Date Number Ten</a></li> 
+							<li><a></a></li>
 						</ul>
 					</li>
 				</ul>	
@@ -190,7 +181,7 @@
 		<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); }
+			function load() { createBook(); getRevisions(); }
 		
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 			

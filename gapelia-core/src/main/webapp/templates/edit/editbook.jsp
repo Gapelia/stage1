@@ -37,9 +37,18 @@
 
 	<body class="book-creation g-body">
 
+
 		<header>
 			<div id="back">
 				<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
+				<ul id="revision-toggle">
+					<li id="revisions">
+					    <a class=revision-dropdown href="#">Revisions</a>
+						<ul style="display: none;">
+						</ul>
+					</li>
+				</ul>	
+			</div>
 			</div>
 
 			<div id="finish">
@@ -154,10 +163,33 @@
 
 		<script>
 		// $("img").VimeoThumb();
-		$(function () { getUser(); });
-            	function load() { loadBookEditor(); }
+		$(function () {
+			getUser();
+		});
+            	function load() { loadBookEditor(); getRevisions(); }
 		 
 		Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
+		
+		//display and hide revisions//
+		$(document).on("click", "#revisions .revision-dropdown", function (e) {
+				if ($("#revisions ul li").css("display") != "block") {
+					$("#revisions ul li").css("display", "block");
+					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
+				} else {
+					$("#revisions ul li").css("display", "none");
+					$("#revision-toggle ul").css("box-shadow", "none");
+				}
+			});
+			
+		$("#revision-toggle ul").mouseleave(function () {
+				$("#revision-toggle ul").css("display", "none");
+			});
+			
+		$("#revision-toggle").click(function () {
+				$("#revision-toggle ul").css("display", "block");
+		});
+
+		
 
 		$("#publish-this").on("click", function (e) {
 				

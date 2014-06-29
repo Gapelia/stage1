@@ -72,7 +72,8 @@
 			</li>
 		</ul>
 		<ul id="edit-shortcut">
-			    <a class=submission-dropdown href="#">Edit Work</a>
+			    <a class=submission-dropdown href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
+			    <a class=submission-dropdown href="#" style="background-color: #59B3A6;">Close</a>
 		</ul>
 		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
         </div>
@@ -177,6 +178,7 @@
 		container.hide(); // ... nor a descendant of the container
 		clicked.removeClass();
 	}});
+	
 	
 	// Dropdown menu for mobile
         if ($vW < "1025") {
