@@ -65,7 +65,7 @@
 			<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
 		</div>
 		
-		<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="blank" href="#"></a></div>
+		<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="blank" href="#">Go to Link</a></div>
 
 		<!--/ scrollers /-->
 
@@ -175,7 +175,7 @@
 		
 			//share draft code//
 			if ($vW > "1024") {
-				$("#share-draft-overlay a").html("<p>folio.is/revision/" + bookId + "</p>");
+				$("#share-draft-overlay").append("<p>folio.is/revision/" + bookId + "</p>");
 				$("#share-draft-overlay a").attr("href", "http://folio.is/revision/" + bookId);
 				
 				$("#share-draft-overlay button").click(function(){
