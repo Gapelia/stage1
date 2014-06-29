@@ -196,10 +196,7 @@
 					if ($("#revisions ul li").css("display") != "block") {
 						$("#revisions ul li").css("display", "block");
 						$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-					} /*else {
-						$("#revisions ul li").css("display", "none");
-						$("#revision-toggle ul").css("box-shadow", "none");
-					}*/
+					} 
 				});
 				
 			$("#revision-toggle ul").mouseleave(function () {
@@ -209,6 +206,7 @@
 			$("#revision-toggle").click(function () {
 					$("#revision-toggle ul").css("display", "block");
 			});
+			
 			
 			$("#publish-this").on("click", function (e) {
 				
