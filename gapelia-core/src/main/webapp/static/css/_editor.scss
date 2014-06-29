@@ -101,6 +101,7 @@
 
 		#back {
       float: left;
+      height: 7rem;
       
       #revision-toggle {
         left: 5.5rem; top: 0.55rem;
@@ -1324,15 +1325,18 @@
     
     background-color: #59B3A6;
     color: black;
-    opacity: 0.9;
+    opacity: 0.95;
     position: absolute;
     z-index: 1;
     
     a {
       color: white;
+      font-size: 1.5rem;
       font-style: cursive;
-      margin: 27% 47%;
+      font-weight: 700;
+      margin: 27% 45%;
       position: absolute;
+      text-decoration: underline;
     }
     
     button {
@@ -1346,8 +1350,8 @@
     
     h3 {
       color: white;
-      font-weight: 500;
-      margin: 15% 24%;
+      font-weight: 700;
+      margin: 15% 22%;
       position: absolute;
       width: 80%;
     }

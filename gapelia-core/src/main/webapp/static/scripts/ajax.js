@@ -31,7 +31,7 @@ function getRevisions(){
 			toInsert = "<li><a target=\"blank\" href=\"/revision/" + revisionsResult.revisionBookId + "\">" + revisionsResult.created + "</a></li>";
 		
 			$("#revision-toggle ul").append(toInsert);
-		
+			
 		}
         },
             error: function (q, status, err) {

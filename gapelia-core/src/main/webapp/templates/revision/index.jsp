@@ -65,17 +65,10 @@
         <div id="the-book" class="bb-custom-wrapper">
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
-	    	<ul id="stay-right">
-			<li id="my-libraries">
-			    <a class=submission-dropdown href="#">&#9733;</a>
-				<ul></ul>
-			</li>
-		</ul>
-		<ul id="edit-shortcut">
+		<ul id="edit-shortcut" style="text-align: right !important;">
 			    <a class=submission-dropdown href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
-			    <a class=submission-dropdown href="#" style="background-color: #59B3A6;">Close</a>
+			    <a class=submission-dropdown href="#" onclick="window.close();" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
 		</ul>
-		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
         </div>
 
     </div>
@@ -109,16 +102,6 @@
     <script src="/static/scripts/merci.js"></script>
     
     <script>
-	$(function () {
-	if (typeof user != "undefined")
-		getCreatedLibrariesForBook();
-	else
-		$(".submission-dropdown").remove();
-	});
-	
-    </script>
-    
-    <script>
 	
         // Hide logo after 100px when scrolling book on mobile
 	$(window).scroll(function() {
@@ -128,25 +111,6 @@
 		else {
 		    $("#g-menu-toggle").hide();
 		}
-	});
-	
-	// Click "Collect to Libraries"
-        $("#the-book #my-libraries a").click(function (e) {
-
-		$("#my-libraries ul").toggle();
-		e.preventDefault();
-		
-		$("#stay-right .submission-dropdown").addClass("clicked-list");
-        });
-	
-	// submissions confirm popup
-		
-	$(document).on("click", "#my-libraries ul a", function () {
-		$("#collection-pop").css({"display": "block"});
-		
-		setTimeout(function() {
-		$("#collection-pop").fadeOut("slow");
-		}, 2500);
 	});
 	
 	//only show edit option if owner of book//
@@ -163,22 +127,9 @@
 	});
 	
 	// Click Edit Work
-        $("#the-book #edit-shortcut").click(function (e) {
-		window.location.href = "/editbook/" +current.bookId;
-        });
-	
-	// Hide submission dropdown when click outisde
-	$(document).mouseup(function (e) {
-
-	var container = $("#my-libraries ul, #collection-pop");
-	var clicked = $("#stay-right .clicked-list");
-
-	// if the target of the click isn't the container...
-	if (!container.is(e.target) && container.has(e.target).length === 0) {
-		container.hide(); // ... nor a descendant of the container
-		clicked.removeClass();
-	}});
-	
+        //*$("#the-book #edit-shortcut").click(function (e) {
+	//	window.location.href = "/editbook/" +current.bookId;
+        //})
 	
 	// Dropdown menu for mobile
         if ($vW < "1025") {
@@ -196,7 +147,7 @@
 	if ($vW > "1919") {
 		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
 	}
-
+	
 $(document).ready(function() {
      	loadDelete();
         
@@ -226,22 +177,6 @@ $(document).ready(function() {
 
 
 	book = getFullBookFromBookId(bookId);
-	
-	    //Meta Tags//
-	    document.title = book.title + " by " + bookOwner.name;
-	    $('meta[property="author"]').attr('content', bookOwner.name);
-	    $('meta[property="description"]').attr('content', book.snippet);
-	    
-	    //Chaging Facebook Meta Tags//
-	    $('meta[property="og:title"]').attr('content', book.title);
-	    $('meta[property="og:description"]').attr('content', book.snippet);
-	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
-	    $('meta[property="og:url"]').attr('content', 'http://folio.is/read/' + current.bookId);
-	
-	   //Changing Twitter Meta Tags//
-	   $('<meta[name="twitter:title"]').attr('content', book.title);
-	   $('<meta[name="twitter:description"]').attr('content', book.snippet);
-	   $('<meta[name="twitter:image"]').attr('content', book.coverPhoto);
 	   
 	    $(".fluid-wrapper").imgLiquid({
                 fill: true
@@ -260,9 +195,13 @@ $(document).ready(function() {
             });
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+	    
 });
 
-
+ //votes and recommendation get removed for revisions//
+ setTimeout(function () {
+	    $("#fin, #fin-next, .g-body hr, .backcover-wrapper").remove();
+    }, 1000);
 
  setTimeout(function () {
 
@@ -293,8 +232,7 @@ $(document).ready(function() {
 		});
 		$(".full-book .page-desc a").css("text-decoration", "underline");
 	    });
-	    
-        }, 2000);
+    }, 2000);
       
         addLoggedInMenuForBook();
 	window.READRBOARDCOM.actions.reInit();

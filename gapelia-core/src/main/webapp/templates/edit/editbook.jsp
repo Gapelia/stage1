@@ -45,6 +45,7 @@
 					<li id="revisions">
 					    <a class=revision-dropdown href="#">Revisions</a>
 						<ul style="display: none;">
+							<li style="font-weight: 500; margin-bottom: 10px;">Past versions sorted by day</li>
 						</ul>
 					</li>
 				</ul>
@@ -193,13 +194,13 @@
 				if ($("#revisions ul li").css("display") != "block") {
 					$("#revisions ul li").css("display", "block");
 					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-				} else {
+				} /*else {
 					$("#revisions ul li").css("display", "none");
 					$("#revision-toggle ul").css("box-shadow", "none");
-				}
+				}*/
 			});
 			
-		$("#revision-toggle ul").mouseleave(function () {
+		$("#back").mouseleave(function () {
 				$("#revision-toggle ul").css("display", "none");
 			});
 			
@@ -207,9 +208,18 @@
 				$("#revision-toggle ul").css("display", "block");
 		});
 		
-		
+		//drafts//
 		$("#save-drafts").click(function() {
 			$("#share-draft-overlay").css("display", "block");
+		})
+		
+		//show,hide draft share button when pages open//
+		$("#pages-toggle").click(function(){
+			$("#save-drafts").hide();
+		})
+		
+		$("#pages-scroller").mouseleave(function(){
+			$("#save-drafts").show();
 		})
 		
 

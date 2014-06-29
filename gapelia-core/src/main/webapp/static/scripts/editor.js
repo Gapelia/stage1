@@ -1342,9 +1342,6 @@
 
 			$(".add-inline-content, .fluid-preview-wrapper button.photo-picker, .photo-preview-wrapper button.photo-picker, .text-preview-wrapper button.photo-picker, .horizontal-preview-wrapper button.photo-picker, .overlay-preview-wrapper button.photo-picker, .phototext-preview-wrapper button.photo-picker, .vertical-preview-wrapper button.photo-picker").css("opacity", "0");
 
-			// Video layout doesn't really need this, and the button doesn't appear when moving mouse over iframe
-			// $(".video-preview-wrapper button.photo-picker").css("opacity", "0");
-
 			timedelay = 1;
 		}
 
@@ -1362,7 +1359,7 @@
 
 		timedelay = 1;
 		clearInterval(_delay);
-		_delay = setInterval(delayCheck, 500);
+		_delay = setInterval(delayCheck, 1000);
 
 	});
 	

@@ -5013,7 +5013,8 @@ body.library-manager ::-webkit-scrollbar {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
-  float: left; }
+  float: left;
+  height: 7rem; }
 .book-creation header #back #revision-toggle {
   left: 5.5rem;
   top: 0.55rem;
@@ -5945,14 +5946,17 @@ body.library-manager ::-webkit-scrollbar {
   width: 100%;
   background-color: #59B3A6;
   color: black;
-  opacity: 0.9;
+  opacity: 0.95;
   position: absolute;
   z-index: 1; }
 .g-body #share-draft-overlay a {
   color: white;
+  font-size: 1.5rem;
   font-style: cursive;
-  margin: 27% 47%;
-  position: absolute; }
+  font-weight: 700;
+  margin: 27% 45%;
+  position: absolute;
+  text-decoration: underline; }
 .g-body #share-draft-overlay button {
   color: white;
   background-color: transparent;
@@ -5963,8 +5967,8 @@ body.library-manager ::-webkit-scrollbar {
   top: 0.75rem; }
 .g-body #share-draft-overlay h3 {
   color: white;
-  font-weight: 500;
-  margin: 15% 24%;
+  font-weight: 700;
+  margin: 15% 22%;
   position: absolute;
   width: 80%; }
 .g-body #share-draft-overlay p {

@@ -41,11 +41,11 @@
 		<header>
 			<div id="back">
 				<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
-				<ul id="revision-toggle">
+				<ul id="revision-toggle" style="display: none;">
 					<li id="revisions">
 					    <a class=revision-dropdown href="#">Revisions</a>
 						<ul style="display: none;">
-							<li><a></a></li>
+							<li style="font-weight: 500; margin-bottom: 10px;">Past versions sorted by day</li>
 						</ul>
 					</li>
 				</ul>	
@@ -193,21 +193,21 @@
 			
 			//display and hide revisions//
 			$(document).on("click", "#revisions .revision-dropdown", function (e) {
-				if ($("#revisions ul li").css("display") != "block") {
-					$("#revisions ul li").css("display", "block");
-					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-				} else {
-					$("#revisions ul li").css("display", "none");
-					$("#revision-toggle ul").css("box-shadow", "none");
-				}
-			});
-			
+					if ($("#revisions ul li").css("display") != "block") {
+						$("#revisions ul li").css("display", "block");
+						$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
+					} /*else {
+						$("#revisions ul li").css("display", "none");
+						$("#revision-toggle ul").css("box-shadow", "none");
+					}*/
+				});
+				
 			$("#revision-toggle ul").mouseleave(function () {
-				$("#revision-toggle ul").css("display", "none");
-			});
-			
+					$("#revision-toggle ul").css("display", "none");
+				});
+				
 			$("#revision-toggle").click(function () {
-				$("#revision-toggle ul").css("display", "block");
+					$("#revision-toggle ul").css("display", "block");
 			});
 			
 			$("#publish-this").on("click", function (e) {
