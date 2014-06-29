@@ -5014,7 +5014,7 @@ body.library-manager ::-webkit-scrollbar {
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
   float: left;
-  height: 7rem; }
+  height: 5rem; }
 .book-creation header #back #revision-toggle {
   left: 5.5rem;
   top: 0.55rem;
