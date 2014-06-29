@@ -5940,6 +5940,36 @@ body.library-manager ::-webkit-scrollbar {
   display: block;
   margin: 30px auto 20px auto;
   width: 20%; }
+.g-body #share-draft-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #59B3A6;
+  color: black;
+  opacity: 0.9;
+  position: absolute;
+  z-index: 1; }
+.g-body #share-draft-overlay button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 4rem;
+  position: absolute;
+  right: 1rem;
+  top: 0.75rem; }
+.g-body #share-draft-overlay h3 {
+  color: white;
+  font-weight: 500;
+  margin: 15% 24%;
+  position: absolute;
+  width: 80%; }
+.g-body #share-draft-overlay p {
+  background-color: white;
+  border-radius: 5px;
+  font-size: 2rem;
+  margin: 20% 25%;
+  padding: 8px;
+  text-align: center;
+  width: 50%; }
 
 /**************************************************************************************** MODAL/SCSS **/
 .modal {
@@ -6066,6 +6096,13 @@ body.library-manager ::-webkit-scrollbar {
   font-weight: 100;
   text-align: center;
   text-transform: uppercase; }
+
+#share-draft-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #59B3A6;
+  opacity: 0.75;
+  position: absolute; }
 
 .clearfix:after {
   clear: both;
