@@ -45,7 +45,7 @@
 					<li id="revisions">
 					    <a class=revision-dropdown href="#">Revisions</a>
 						<ul style="display: none;">
-							<li style="font-weight: 500; margin-bottom: 10px;">Past versions sorted by day</li>
+							<li style="font-weight: 500; margin-bottom: 10px; text-align: center;">Past versions sorted by day</li>
 						</ul>
 					</li>
 				</ul>
