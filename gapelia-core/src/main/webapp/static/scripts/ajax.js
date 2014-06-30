@@ -239,10 +239,11 @@ function loadMoreBookmarks(count,items) {
 		    toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(bookmark.bookId) + "</div>";
                     toInsert += "</div></div></li>";
 		}
-		if (toInsert == "<ul id=\"bookmark-list\">") {
-		    $("#nav-bookmarks").click(function() {
-			$("#featured-scroller").html("<div id=\"no-bookmarks\"><h1>You have not bookmarked any stories.<br><a href=\"/featured\">Explore stories</a></h1></div>");
-		});
+		
+		if (bookmarks.length < 2) {
+			toInsert += "<p style=\"font-size: 2rem; margin-top: -3rem; opacity: 0.75; text-align: center; width: 100%;\">You have not bookmarked anything, yet.</p>"
+		    
+		    $(".bookmark-list-wrapper").css("height", "100%");
 		}
 		
 		$("#bookmark-list .book").css("height", $vH - 97 + "px");
@@ -2705,6 +2706,12 @@ function loadMoreUsers(count,items) {
 		
 		$("#following-list .book").css("height", $vH - 97 + "px");
 		
+		if (friends.length < 2) {
+		    toInsert += "<p style=\"font-size: 2rem; margin-top: -5rem; opacity: 0.75; text-align: center; width: 100%;\">You are not following any users, yet.</br><span style=\"font-size: 1rem;\">TIP: follow your favorite users and Folio will keep you posted on their latest pieces.</span></p>"
+		    
+		    $(".following-list-wrapper").css("height", "100%");
+		}
+		
 	return items.append(toInsert);
 }
 
@@ -2717,7 +2724,6 @@ function getFollowingUsers() {
         type: "POST",
         async: false,
         data: {
-            //sessionId: sessionId
 	    userId : user.userId
         },
         success: function (data) {
@@ -2749,10 +2755,7 @@ function isFollowing() {
 	    alreadyFollowing = data;
 	    
 		if (alreadyFollowing) {
-console.log("ALREADY FOLLOWING, CHANGINGBUTTON");
 		    stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
-
-			
 		} else {
 		    stuff = "<button class=\"follow white-border\">Follow</button>";
 		}

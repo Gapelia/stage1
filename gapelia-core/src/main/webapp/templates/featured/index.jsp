@@ -370,16 +370,19 @@
 		loadMoreBooks(20,items);
 
 
-		slyBookWrapper.on('load change', function () {
-			if (this.pos.dest > this.pos.end - 200) {
-			loadMoreBooks(20,items);
-
-			    $(".book").css("height", h);
-			    $(".book-snippet").css("display", "block")
-			    
-			   this.reload();
-			}
-		});
+		if(books.length > 4){
+		
+			slyBookWrapper.on('load change', function () {
+				if (this.pos.dest > this.pos.end - 200) {
+				loadMoreBooks(20,items);
+	
+				    $(".book").css("height", h);
+				    $(".book-snippet").css("display", "block")
+				    
+				   this.reload();
+				}
+			});
+		}	
 
 	    h = $(this).outerHeight() - 92;
             $(".book").css("height", h);
@@ -473,7 +476,7 @@
 
                     $("#following-list").hide();
                     $("#bookmark-list").hide();
-                    $(".bookmark-list-wrapper section").remove();
+                    $(".bookmark-list-wrapper section, .bookmark-list-wrapper p, .following-list-wrapper p").remove();
 
                     var w = 0,
                         h = 0;
@@ -525,6 +528,7 @@
 
                     $("#book-list").hide();
                     $("#following-list").hide();
+		    $(".following-list-wrapper p").remove();
 
                     var w = 0,
                         h = 0;
@@ -571,17 +575,20 @@
 			loadMoreBookmarks(5,items);
 	
 	
-			slyBookWrapper.on('load change', function () {
-				if (this.pos.dest > this.pos.end - 200) {
-				loadMoreBookmarks(5,items);
-	
-				    $(".book").css("height", h);
-				    $(".book-snippet").css("display", "block")
-				    
-				   this.reload();
-				}
-			});
-	
+			if(bookmarks.length > 4){
+				
+				slyBookWrapper.on('load change', function () {
+					if (this.pos.dest > this.pos.end - 200) {
+					loadMoreBookmarks(5,items);
+		
+					    $(".book").css("height", h);
+					    $(".book-snippet").css("display", "block")
+					    
+					   this.reload();
+					}
+				});
+			}
+			
 		    h = $(this).outerHeight() - 92;
 		    $(".book").css("height", h);
 		    $("#bookmark-list li").fadeIn("100");
@@ -592,7 +599,6 @@
 	
 		       slyBookWrapper.init();
 		}
-
 
                 }, 1000);
 
@@ -624,6 +630,7 @@
 
                     $("#book-list").hide();
                     $("#bookmark-list").hide();
+		    $(".bookmark-list-wrapper p").remove();
 
                     var w = 0,
                         h = 0;
