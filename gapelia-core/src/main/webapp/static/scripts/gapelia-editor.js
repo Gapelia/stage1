@@ -818,6 +818,7 @@ function pasteHtmlAtCaret(html) {
 						urlRe: regex,
 						method: "after"
 					});
+          
 				}
 
 			});

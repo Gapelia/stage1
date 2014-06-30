@@ -5418,7 +5418,8 @@ body.library-manager ::-webkit-scrollbar {
   right: 0; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .embed, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .embed {
   width: 100%;
-  height: auto; }
+  height: auto;
+  margin-top: -2rem; }
 .book-creation #book-creation-wrapper #create-book #create-content .blank-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .embed iframe, .book-creation #book-creation-wrapper #create-book #create-content .video-preview-wrapper .embed iframe {
   width: 100%;
   height: auto;

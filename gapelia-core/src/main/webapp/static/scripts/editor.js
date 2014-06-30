@@ -359,15 +359,19 @@
 	
 
 	// Image insertion
-	// var file = '<p><div class="inserted-img"><img src=' + file + '></div></p>';
 	var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
 
 	function handleFile(file) {
 
-		// pasteHtmlAtCaret('<p><div class="inserted-img"><img src=' + file + '></div></p>');
 		pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
 		console.log(file);
-
+		
+		//this fixes margin for photos//
+		$(".page-desc p").each(function() {
+			if ($(this).find('img').length) {
+				$(this).css("cssText", "margin-bottom: 0 !important");
+			}
+		});
 	}
 	
 	// Base Layout
@@ -519,6 +523,13 @@
 		//forcing margin for Ps due to blockquote bug//
 		$(".page-desc p").css("cssText", "margin-bottom: 1.5rem !important");
 		
+		
+		$(".fluid-preview .page-desc p").each(function() {
+			if ($(this).find('img').length) {
+				$(this).css("cssText", "margin-bottom: 0 !important");
+			}
+		});	
+		
 		// Empty attribution field when user clicks in it
 		$(document).one("click", ".image-attribution", function () {
 			$(this).text("");
@@ -549,14 +560,18 @@
 		$(".inline-embed-insert").click(function () {
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
 		});
-
-		// https://soundcloud.com/iknowbitfunk/just-kiddin-paloma-bit-funk-remix
+		
+		
 		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").on("keyup", function (ev) {
+			
 
 			if (ev.which === 13) {
 				$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
-				$(".fluid-preview-wrapper .page-desc").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
-
+				
+				
+				$(".fluid-preview .page-desc p:last").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
+				
+				
 				// Embedly
 				var regex;
 
@@ -566,6 +581,7 @@
 					urlRe: regex,
 					method: "after"
 				});
+			
 
 				// Avoid form submit
 				return false;
