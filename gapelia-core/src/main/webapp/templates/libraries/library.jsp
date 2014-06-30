@@ -323,7 +323,7 @@
 
             NProgress.done();
 
-            // Click "Books"
+            // Click "Title of Library"
             $("#nav-books").click(function (e) {
 
                 NProgress.start();
@@ -397,12 +397,61 @@
                     });
 
                     w += 500;
+		    
+		    if ($vW > "1024") {
+			
+			$("#submission-list").css("width", w - 155 + "px");
 
-                    if ($vW > "1024") {
-                        $("#submission-list").css("width", w - 155 + "px");
-                    } else {
-                        // $("#submission-list").css("height", h + 379 + "px");
-                    }
+			var options = {
+				horizontal: 1,
+				itemNav: 'forceCentered',
+				smart: 1,
+				activateMiddle: 1,
+				activateOn: 'click',
+				mouseDragging: 1,
+				touchDragging: 1,
+				swingSpeed: 1,
+				releaseSwing: 0,
+				startAt: 0,
+				scrollBar: $(".scrollbar"),
+				scrollBy: 1,
+				speed: 0.0001,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+				keyboardNavBy: 'items',
+			};
+				
+			var slyBookWrapper = new Sly('.submission-list-wrapper', options);
+			var items = $('#submission-list');
+	
+			/*loadMoreSubmissions(5,items);
+	
+	
+			slyBookWrapper.on('load change', function () {
+				if (this.pos.dest > this.pos.end - 200) {
+				loadMoreSubmissions(5,items);
+	
+				    $(".book").css("height", h);
+				    $(".book-snippet").css("display", "block")
+				    
+				   this.reload();
+				}
+			});*/
+	
+		    h = $(this).outerHeight() - 92;
+		    $(".book").css("height", h);
+		    $("#submission-list li").fadeIn("100");
+		    $("#submission-list").fadeIn("100");
+		    if ($vW > "300") {
+			$(".book-snippet").css("display", "block")
+		    }
+	
+		       slyBookWrapper.init();
+		}
+
 
                     // fades in the all the books after section width is added
                     $("#submission-list li").fadeIn("100");
@@ -476,28 +525,57 @@
 	$(".book").css("height", h);
 		$("#book-list li").fadeIn("100");
 		$("#book-list").fadeIn("100");
-                if ($vW > "1024") {
-			$(".book-list-wrapper").sly({
-                                horizontal: 1,
-                                itemNav: 'forceCentered',
-                                smart: 1,
-                                activateMiddle: 1,
-                                activateOn: 'click',
-                                mouseDragging: 1,
-                                touchDragging: 1,
-                                swingSpeed: 0.2,
-                                releaseSwing: 0,
-                                startAt: 0,
-                                scrollBar: $(".scrollbar"),
-                                scrollBy: 1,
-                                speed: 0.2,
-                                elasticBounds: 1,
-                                easing: 'swing',
-                                dragHandle: 1,
-                                dynamicHandle: 1,
-                                clickBar: 1,
-                                keyboardNavBy: 'items',
-                        });
+			
+
+		if ($vW > "1024") {
+			var options = {
+				horizontal: 1,
+				itemNav: 'forceCentered',
+				smart: 1,
+				activateMiddle: 1,
+				activateOn: 'click',
+				mouseDragging: 1,
+				touchDragging: 1,
+				swingSpeed: 1,
+				releaseSwing: 0,
+				startAt: 0,
+				scrollBar: $(".scrollbar"),
+				scrollBy: 1,
+				speed: 0.0001,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+				keyboardNavBy: 'items',
+			};
+				
+			var slyBookWrapper = new Sly('.book-list-wrapper', options);
+			var items = $('#book-list');
+	
+			/*loadMoreBooksInLibrary(5,items);
+	
+	
+			slyBookWrapper.on('load change', function () {
+				if (this.pos.dest > this.pos.end - 200) {
+				loadMoreBooksInLibrary(5,items);
+	
+				    $(".book").css("height", h);
+				    $(".book-snippet").css("display", "block")
+				    
+				   this.reload();
+				}
+			});*/
+	
+		    h = $(this).outerHeight() - 92;
+		    $(".book").css("height", h);
+		    $("#book-list li").fadeIn("100");
+		    $("#book-list").fadeIn("100");
+		    if ($vW > "300") {
+			$(".book-snippet").css("display", "block")
+		    }
+	
+		       slyBookWrapper.init();
 		}
 		addLoggedInMenu();
 		document.title = library.title;

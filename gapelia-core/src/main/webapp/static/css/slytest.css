@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .subscription-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper {
+.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .subscription-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper, .submission-list-wrapper {
 	
     margin: 0;
     padding: 0 100px;
@@ -127,7 +127,7 @@ body { background: #e8e8e8; }
 /* Effects */
 
 
-.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .subscription-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper {
+.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .subscription-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper, .submission-list-wrapper {
 	-webkit-perspective: 800px;
 	-ms-perspective: 800px;
 	perspective: 800px;
@@ -136,12 +136,12 @@ body { background: #e8e8e8; }
 	perspective-origin: 50% 50%;
 	overflow-y: show;
 }
-.book-list-wrapper ul, .library-list-wrapper ul, .user-book-list-wrapper ul, .subscription-list-wrapper ul, .bookmark-list-wrapper ul, .following-list-wrapper ul {
+.book-list-wrapper ul, .library-list-wrapper ul, .user-book-list-wrapper ul, .subscription-list-wrapper ul, .bookmark-list-wrapper ul, .following-list-wrapper ul, .submission-list-wrapper ul {
 	-webkit-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
-.book-list-wrapper ul li, .library-list-wrapper ul li, .user-book-list-wrapper ul li, .subscription-list-wrapper ul li, .bookmark-list-wrapper ul li, .following-list-wrapper ul li {
+.book-list-wrapper ul li, .library-list-wrapper ul li, .user-book-list-wrapper ul li, .subscription-list-wrapper ul li, .bookmark-list-wrapper ul li, .following-list-wrapper ul li, .submission-list-wrapper ul li {
 	-webkit-transform: rotateY(10deg) scale(0.95);
 	-ms-transform: rotateY(10deg) scale(0.95);
 	transform: rotateY(10deg) scale(0.95);
@@ -149,13 +149,13 @@ body { background: #e8e8e8; }
 	transition: transform 300ms ease-out;
 }
 
-.book-list-wrapper ul li.active, .library-list-wrapper ul li.active, .user-book-list-wrapper ul li.active, .subscription-list-wrapper ul li.active, .bookmark-list-wrapper ul li.active, .following-list-wrapper ul li.active {
+.book-list-wrapper ul li.active, .library-list-wrapper ul li.active, .user-book-list-wrapper ul li.active, .subscription-list-wrapper ul li.active, .bookmark-list-wrapper ul li.active, .following-list-wrapper ul li.active, .submission-list-wrapper ul li.active {
 	z-index: 10;
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
 }
-.book-list-wrapper ul li.active ~ li, .library-list-wrapper ul li.active ~ li, .user-book-list-wrapper ul li.active ~ li, .subscription-list-wrapper ul li.active ~ li, .bookmark-list-wrapper ul li.active ~ li, .following-list-wrapper ul li.active ~ li {
+.book-list-wrapper ul li.active ~ li, .library-list-wrapper ul li.active ~ li, .user-book-list-wrapper ul li.active ~ li, .subscription-list-wrapper ul li.active ~ li, .bookmark-list-wrapper ul li.active ~ li, .following-list-wrapper ul li.active ~ li, .submission-list-wrapper ul li.active ~ li {
 	-webkit-transform: rotateY(-10deg) scale(0.95);
 	-ms-transform: rotateY(-10deg) scale(0.95);
 	transform: rotateY(-10deg) scale(0.95);

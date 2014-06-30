@@ -629,6 +629,84 @@ function getBooksInLibrary() {
     });
 }
 
+function getBooksInLibraryArray() {
+    $.ajax({
+        url: "/api/libraries/getBooksInLibrary",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            libraryId: libraryId
+        },
+        success: function (data) {
+            books = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
+
+function loadMoreBooksInLibrary(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+		for (var i = 0; i < count; i++) {
+
+		if(i == books.length-1) break;
+
+		    book = books[offset + i];
+		    
+		    var ownThisLibrary = false;
+			if (typeof user != 'undefined') {
+			
+			    myLibraries = getCreatedLibrariesArray(sessionId);
+			    
+		
+			    for (i in myLibraries) {
+				currentLibrary = myLibraries[i];
+				if (currentLibrary.libraryId == library.libraryId) {
+					ownThisLibrary = true;
+				}
+			    }
+			}
+			
+			toInsert = '';
+			for (i in books) {
+			    book = books[i];
+			    if (typeof user != 'undefined' && book.bookId in bookmarked) {
+				toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			    } else {
+				toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+			    }
+			    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+			    if (ownThisLibrary) {
+			    toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
+			    }else {
+			    toInsert += "";	
+			    }
+			    if (typeof user != 'undefined') {
+				    toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
+			    }
+			    toInsert += "<div class=\"book-title\">";
+			    toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
+			    toInsert += getUserFromBookId(book.bookId);
+			    toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
+			}
+			if (toInsert == "") {
+			    toInsert = "<section><p/>No stories have been publised here yet.</p></section>";
+			}
+			$("#book-list").html(toInsert);
+			if ($vW < "321") {
+			    $(".book-snippet").css("display", "block")
+			}
+		}
+	return items.append(toInsert);
+}
+
+
 function getBooksInLibraryOwner() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     $.ajax({
@@ -861,6 +939,65 @@ function getSubmissionsInLibrary() {
         }
     });
 }
+
+function getSubmissionsInLibraryArray() {
+    $.ajax({
+        url: "/api/notifications/getNotificationsLibraries",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+            sessionId: sessionId,
+            libraryId: libraryId
+        },
+        success: function (data) {
+            notificationLibraries = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            }
+        }
+    });
+}
+
+function loadMoreSubmissions(count,items) {
+	var toInsert = '';
+	var offset = items.children().length;
+		for (var i = 0; i < count; i++) {
+
+		if(i == books.length-1) break;
+
+		    book = books[offset + i];
+		    
+		for (i in notificationLibraries) {
+			currBook = getFullBookFromBookId(notificationLibraries[i].bookId);
+			toInsert += "<li notificationId=\"" + notificationLibraries[i].notificationId + "\"id=\"" + currBook.bookId + "\" booksUser=\"" + notificationLibraries[0].senderUserId + "\" class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + currBook.coverPhoto + "); background-size: cover;";
+			toInsert += " background-position: 50% 50%; background-repeat:no-repeat no-repeat;\"><div class=\"book-buttons\" style=\"top: 0; left: 75%;\"><a class=\"approve-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf120;</a>";
+			toInsert += "<a class=\"deny-this-book\">&#xf128;</a></div><div class=\"book-title\">";
+			toInsert += "<a href=\"/read/" + currBook.bookId + "\">" + currBook.title + "</a></div><div class=\"book-info\">";
+			toInsert += getUserFromBookId(currBook.bookId);
+			toInsert += "</div></div></li>";
+		    }
+		}
+		if (toInsert == "") {
+		    toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Nobody submitted stories to your libary yet.</a></div>";
+		}
+		$("#submission-list").html(toInsert);
+		var w = 0,
+		    h = 0;
+    
+		$("#submission-list li").each(function () {
+		    w += $(this).outerWidth();
+		    h += $(this).outerHeight();
+		});
+		w += 500;
+		if ($vW > "1024") {
+		    $("#submission-list").css("width", w + "px");
+		}
+		
+	return items.append(toInsert);
+}
+
 function getFeaturedBook() {
     featuredBookTitle = '';
     featuredBookId= '';
