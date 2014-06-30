@@ -226,9 +226,10 @@
 		$("#publish-this").on("click", function (e) {
 				
 		lastPublishedBook = getLastPublishedBookId();
-		getUserFromBookId(lastPublishedBook.bookId)
+		getUserFromBookId(lastPublishedBook.bookId);
+		firstTitle=pages.page[0].title;
 
-			$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + lastPublishedBook.title + "</a></p></div>");
+			$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
 				
 			e.preventDefault();
 				
