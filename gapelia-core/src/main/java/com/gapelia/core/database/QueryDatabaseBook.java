@@ -11,7 +11,7 @@ public class QueryDatabaseBook {
 	private static Logger LOG = Logger.getLogger(QueryDatabaseBook.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
 	//Page Relate Queries
-	private static final String DELETE_PAGES_FROM_BOOK = "DELETE FROM pages user_votes where book_id = ?";
+	private static final String DELETE_PAGES_FROM_BOOK = "DELETE FROM pages where book_id = ?";
 	private static final String DELETE_FROM_BOOKS = "DELETE FROM books where id = ?";
 	private static final String DELETE_FROM_LIBRARYBOOKS = "DELETE FROM library_books user_bookmarks where book_id = ?";
 	private static final String CREATE_PAGE = "INSERT INTO pages (book_id, user_id, created, last_updated) VALUES(?,?,?,?)";
@@ -377,4 +377,29 @@ public class QueryDatabaseBook {
 			}
 		}
 	}
+
+
+	public static String deletePagesFromBook(int bookId){
+		PreparedStatement insert = null;
+		try {
+			insert = connection.prepareStatement(DELETE_PAGES_FROM_BOOK);
+			insert.setInt(1, bookId);
+			insert.executeUpdate();
+
+			return "Success";
+		} catch (SQLException ex) {
+			LOG.error("ERROR deleting pages from book: : " + bookId + " " + ex.getMessage());
+			return "ERROR deleting pages";
+		} finally {
+			try {
+				if (insert != null) {
+					insert.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("error closing connection: " + bookId + " " + ex.getMessage());
+				return "Error closing connection";
+			}
+		}
+	}
+
 }
