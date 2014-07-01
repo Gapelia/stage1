@@ -290,6 +290,16 @@ $(document).ready(function() {
 		$(this).attr("target", "_blank");
 	    });
 	    
+	    //this fixes situation when a book is not yet part of a library//
+	    if (getLibraryFromBookBackCover(current.bookId) == "") {
+		
+		$("#fin-next").css({
+			"height" : "100%",
+			"width" : "35%",
+			"float" : "right"
+		})
+	    }
+	    
         }, 2000);
       
         addLoggedInMenuForBook();
