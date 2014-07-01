@@ -66,8 +66,8 @@
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
 		<ul id="edit-shortcut" style="text-align: right !important;">
-			    <a id="back-to-revision" href="#" onclick="window.close();" style="background-color: #59B3A6;">Go Back to this Revision</a>
-			    <a id="close-revision" href="#" onclick="window.close();" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
+			    <a id="back-to-revision" href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
+			    <a id="close-revision" href="#" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
 		</ul>
         </div>
 
@@ -176,9 +176,36 @@ $(document).ready(function() {
 	} ,false); //end readerboard block
 	
 	
+	//retireving original bookId//
+	originalBookId = $.ajax({
+		    url: "/api/books/getOriginalBookIdFromRevisionId",
+		    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		    type: "POST",
+		    async: false,
+		    data: {
+			sessionId: sessionId,
+			revisionBookId: bookId
+		    },
+		    error: function (q, status, err) {
+			if (status == "timeout") {
+			    alert("Request timed out");
+			}
+		    }
+		}).responseText;
+	
+	
+	//close revision and back to draft//
+	$("#close-revision").click(function (e) {
+	    $("#close-revision").attr("href", "/editbook/" + originalBookId  + "");
+	})
+	
+	
 	//transplanting revision//
 	$(document).on("click", "#back-to-revision", function (ev) {
+	    
 		
+	    $("#back-to-revision").attr("href", "/editbook/" + originalBookId  + "");
+	    
 	    sessionId = readCookie("JSESSIONID");
 		
 	    $.ajax({
@@ -225,6 +252,7 @@ $(document).ready(function() {
  //votes and recommendation get removed for revisions//
  setTimeout(function () {
 	    $("#fin, #fin-next, .g-body hr, .backcover-wrapper").remove();
+	    
     }, 1000);
 
  setTimeout(function () {

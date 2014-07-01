@@ -28,7 +28,7 @@ function getRevisions(){
 		for (i in revisionsList) {
 			revisionsResult = revisionsList[i];
 			
-			toInsert = "<li><a target=\"blank\" href=\"/revision/" + revisionsResult.revisionBookId + "\">" + revisionsResult.created + "</a></li>";
+			toInsert = "<li><a href=\"/revision/" + revisionsResult.revisionBookId + "\">" + revisionsResult.created + "</a></li>";
 		
 			$("#revision-toggle ul").append(toInsert);
 			

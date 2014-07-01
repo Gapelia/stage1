@@ -66,7 +66,7 @@
 			<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
 		</div>
 		
-		<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="blank" href="#">Go to Link</a></div>
+		<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="_blank" href="#">Go to Link</a></div>
 
 		<!--/ scrollers /-->
 
