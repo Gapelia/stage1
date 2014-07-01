@@ -8104,7 +8104,10 @@ a.count span.dont-move {
     height: 100%;
     width: auto; }
   body.landing footer {
-    bottom: 2rem; }
+    bottom: 2rem;
+    left: 2rem; }
+  body.landing footer #how-it-works, body.landing footer #team {
+    display: none; }
   body.landing .wrapper {
     margin: 2rem 0 0 0 !important; }
 

@@ -682,7 +682,11 @@
 		
 		img { height: 100%; width: auto; }
 		
-		footer { bottom: 2rem; }
+		footer {
+			bottom: 2rem; left: 2rem;
+			
+			#how-it-works, #team { display: none; }
+		}
 		
 		.wrapper { margin: 2rem 0 0 0 !important; }
 	}
