@@ -66,8 +66,8 @@
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
 		<ul id="edit-shortcut" style="text-align: right !important;">
-			    <a class=submission-dropdown href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
-			    <a class=submission-dropdown href="#" onclick="window.close();" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
+			    <a id="back-to-revision" href="#" onclick="window.close();" style="background-color: #59B3A6;">Go Back to this Revision</a>
+			    <a id="close-revision" href="#" onclick="window.close();" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
 		</ul>
         </div>
 
@@ -174,6 +174,29 @@ $(document).ready(function() {
 			}
 		});
 	} ,false); //end readerboard block
+	
+	
+	//transplanting revision//
+	$(document).on("click", "#back-to-revision", function (ev) {
+		
+	    sessionId = readCookie("JSESSIONID");
+		
+	    $.ajax({
+		url: "/api/actions/revertToRevision",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+		    sessionId: sessionId,
+		    
+		},
+		error: function (q, status, err) {
+		    if (status == "timeout") {
+			alert("Request timed out");
+		    }
+		}
+	    });
+	    
+	});
 
 
 	book = getFullBookFromBookId(bookId);
