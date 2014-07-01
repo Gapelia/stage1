@@ -22,6 +22,25 @@ public class Books {
 
 	private static Logger LOG = Logger.getLogger(Books.class);
 
+
+	@Path("getOriginalBookIdFromRevisionId")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getOriginalBookIdFromRevisionId(@FormParam("sessionId") String sessionId,
+							 @FormParam("revisionBookId") int revisionBookId) {
+
+		if (!APIUtil.isValidSession(sessionId))
+			return APIUtil.INVALID_SESSION_ERROR_MSG;
+
+		User u = SessionManager.getUserFromSessionId(sessionId);
+		Book revisionBook = QueryDatabaseUser.getBookByID(revisionBookId);
+		if(revisionBook.getUserId() != u.getUserId()) return "permission denied";
+
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseRevisions.getOriginalBookIdFromRevisionId(revisionBookId));
+	}
+
 	@Path("createPage")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)

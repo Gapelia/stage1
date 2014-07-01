@@ -14,6 +14,31 @@ public class QueryDatabaseRevisions {
 	private static final String GET_REVISIONS_FOR_BOOKID= "select * from revisions where book_id = ? order by created desc";
 	private static final String ADD_REVISION_FOR_BOOKID= "insert into revisions (book_id,revision_book_id,created) values (?,?,now())";
 	private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ?, snippet = ?  WHERE id = ?";
+	private static final String GET_ORIGINAL_BOOKID_FROM_REVISION = "select * from revisions where revision_book_id = ?";
+	public static final String UPDATE_PAGE = "UPDATE pages set title = ?, content = ?,template_id = ?,video_url = ?,page_number = ?,photo_url = ?,photo_id = ?,creative_commons = ?,last_updated = ?,book_id = ? WHERE id = ?";
+
+
+	public static int getOriginalBookIdFromRevisionId(int revisionId) {
+		PreparedStatement insert = null;
+		int result = -1;
+		try {
+			insert = connection.prepareStatement(GET_ORIGINAL_BOOKID_FROM_REVISION);
+			insert.setInt(1, revisionId);
+			ResultSet rs = insert.executeQuery();
+
+			if(rs.next()){
+				result = rs.getInt("book_id");
+			}
+
+			rs.close();
+			insert.close();
+
+		} catch (SQLException ex) {
+			LOG.error("Cannot get original book id from revisionid:" + revisionId + " " + ex.getMessage());
+		}
+
+		return result;
+	}
 
 
 	public static String revertToRevision(Book originalBook, Book revisionBook){
@@ -48,9 +73,26 @@ public class QueryDatabaseRevisions {
 
 			for(Page p : revisionPageList){
 
+				LOG.info(p.getTitle());
+				LOG.info("pageid: " + p.getPageId());
+				LOG.info("bookid: " + p.getBookId());
+
 				p.setBookId(originalBookId);
-				QueryDatabaseBook.createPage(p);
-				QueryDatabaseBook.updatePage(p);
+				int newPageId = QueryDatabaseBook.createPage(p);
+
+				insert = connection.prepareStatement(UPDATE_PAGE);
+				insert.setString(1, p.getTitle());
+				insert.setString(2, p.getContent());
+				insert.setInt(3, p.getTemplateId());
+				insert.setString(4, p.getVideoUrl());
+				insert.setInt(5, p.getPageNumber());
+				insert.setString(6, p.getPhotoUrl());
+				insert.setString(7, p.getPhotoId());
+				insert.setString(8, p.getCreativeCommons());
+				insert.setTimestamp(9, p.getLastUpdated());
+				insert.setInt(10, p.getBookId());
+				insert.setInt(11, newPageId);
+				insert.executeUpdate();
 			}
 
 

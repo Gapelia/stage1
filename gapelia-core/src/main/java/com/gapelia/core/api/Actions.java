@@ -20,12 +20,11 @@ public class Actions {
 
 
 
-	@Path("revertToBook")
+	@Path("revertToRevision")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String bookmarkBook(@FormParam("sessionId") String sessionId,
-							   @FormParam("originalBookId") int bookId,
+	public String revertToBook(@FormParam("sessionId") String sessionId,
 							   @FormParam("revisionBookId") int revisionBookId) {
 
 		if (!APIUtil.isValidSession(sessionId))
@@ -33,8 +32,7 @@ public class Actions {
 
 		User u = SessionManager.getUserFromSessionId(sessionId);
 
-
-		Book originalBook = QueryDatabaseUser.getBookByID(bookId);
+		Book originalBook = QueryDatabaseUser.getBookByID(QueryDatabaseRevisions.getOriginalBookIdFromRevisionId(revisionBookId));
 		Book revisionBook = QueryDatabaseUser.getBookByID(revisionBookId);
 
 		if(originalBook.getUserId() != u.getUserId() ||

@@ -185,9 +185,10 @@ $(document).ready(function() {
 		url: "/api/actions/revertToRevision",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
+		async: false,
 		data: {
 		    sessionId: sessionId,
-		    
+		    revisionBookId: bookId
 		},
 		error: function (q, status, err) {
 		    if (status == "timeout") {
