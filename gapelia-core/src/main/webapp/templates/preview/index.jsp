@@ -98,7 +98,7 @@
                         },
                         success: function (data) {
                             bookOwner = data
-                            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"/" + data.displayName + "\">" + data.displayName + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
+                            responseText = "<div class=\"author-info\"><div class=\"author-name\"><a href=\"/" + data.displayName + "\">" + data.name + "</a><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"></div></div>";
                         },
                         error: function (q, status, err) {
                             if (status == "timeout") {

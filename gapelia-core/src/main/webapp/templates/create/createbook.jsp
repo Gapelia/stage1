@@ -212,9 +212,9 @@
 				
 			lastPublishedBook = getLastPublishedBookId();
 			getUserFromBookId(lastPublishedBook.bookId);
-			firstTitle=pages.page[0].title;
+			firstTitle = pages.page[0].title;
 
-				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
+				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + book.bookId + "\">" + firstTitle + "</a></p></div>");
 					
 				e.preventDefault();
 					
