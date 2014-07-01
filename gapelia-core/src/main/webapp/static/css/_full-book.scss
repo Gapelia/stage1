@@ -313,6 +313,13 @@
 			line-height: 2.3rem;
 			margin: 1.5rem 0 0 0;
       margin-top: 2rem !important;
+      
+      a {
+        font-style: italic;
+        text-decoration: underline;
+      }
+      
+      h3 { margin: 0 0 8px 0 !important; }
 		}
 
 		p {

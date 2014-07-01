@@ -178,6 +178,7 @@
 		clicked.removeClass();
 	}});
 	
+	
 	// Dropdown menu for mobile
         if ($vW < "1025") {
 		
@@ -282,14 +283,11 @@ $(document).ready(function() {
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 	    
-	    //adding http://, underline styling and new-tab-location to all hyperlinks//
-	    $(function() {
-		$(".full-book .page-desc a").each(function() {
-		var href = $(this).attr("href");
-		   $(this).attr("href", + href);
-		   $(this).attr("target", "_blank");
-		});
-		$(".full-book .page-desc a").css("text-decoration", "underline");
+	    //adding http://  and new-tab-location to all hyperlinks//
+	    $(".full-book .page-desc a").each(function() {
+	    var href = $(this).attr("href");
+		$(this).attr("href", "http://" + href);
+		$(this).attr("target", "_blank");
 	    });
 	    
         }, 2000);

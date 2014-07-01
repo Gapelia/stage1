@@ -6938,6 +6938,11 @@ a.count span.dont-move {
   line-height: 2.3rem;
   margin: 1.5rem 0 0 0;
   margin-top: 2rem !important; }
+.full-book .fluid-wrapper .page-desc a, .full-book .photo-wrapper .page-desc a, .full-book .overlay-wrapper .page-desc a, .full-book .phototext-wrapper .page-desc a, .full-book .vertical-wrapper .page-desc a, .full-book .video-wrapper .page-desc a, .full-book .backcover-wrapper .page-desc a {
+  font-style: italic;
+  text-decoration: underline; }
+.full-book .fluid-wrapper .page-desc h3, .full-book .photo-wrapper .page-desc h3, .full-book .overlay-wrapper .page-desc h3, .full-book .phototext-wrapper .page-desc h3, .full-book .vertical-wrapper .page-desc h3, .full-book .video-wrapper .page-desc h3, .full-book .backcover-wrapper .page-desc h3 {
+  margin: 0 0 8px 0 !important; }
 .full-book .fluid-wrapper p, .full-book .photo-wrapper p, .full-book .overlay-wrapper p, .full-book .phototext-wrapper p, .full-book .vertical-wrapper p, .full-book .video-wrapper p, .full-book .backcover-wrapper p {
   color: inherit;
   font-size: inherit;
