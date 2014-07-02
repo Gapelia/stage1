@@ -142,6 +142,10 @@
 				});
 			}
 			
+			if ($sW > "1599") {
+				$(".selectize-control").css("cssText", "margin-left: 0 !important");
+			}
+			
 			if ($vH > "1190") {
 				$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 			}

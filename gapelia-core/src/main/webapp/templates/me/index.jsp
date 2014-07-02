@@ -316,6 +316,13 @@
 
                 }
 		
+		
+		if ($vW > "1919") {
+			$("#user-splash #user-extra").css("cssText", "bottom: -28rem !important");
+			$(".profile .follow").css("cssText", "left: 92.5% !important");
+			$("#user-splash #close-splash").css("left", "85%");
+		}
+		
 		if ($vH > "1079") {
 			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
 		}

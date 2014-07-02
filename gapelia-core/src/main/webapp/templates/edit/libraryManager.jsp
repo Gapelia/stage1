@@ -298,6 +298,11 @@
             })
         }
         
+        if ($sW > "1919") {
+            
+            $("#featured-nav .typeahead").css("cssText", "14rem !important");
+        }
+        
         // Log Out
         $("#logout").click(function (e) {
             document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
@@ -307,7 +312,7 @@
         }
         
         if ($vW > "1599") {
-            $(".suggested-libs").css("cssText", "margin-left: 30% !important");
+            $(".suggested-libs").css("cssText", "margin-left: 28% !important");
         }     
         
         if ($vH > "1079") {

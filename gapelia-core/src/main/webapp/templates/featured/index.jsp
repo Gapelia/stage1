@@ -437,6 +437,7 @@
 	   if ($vW > "1919") {
 		$("#book-list").css("cssText", "width: 10300px !important");
 		$("#book-list").css("cssText", "display: block !important");
+		$("#featured-nav .tt-dropdown-menu").css("cssText", "margin-left: 90% !important");
 	    }
 	    
 	    //imacs specs//

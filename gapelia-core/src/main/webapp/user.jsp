@@ -284,6 +284,10 @@ isFollowing();
 
                 }
 		
+		if ($vW > "1919") {
+		    $("#user-splash #user-extra").css("cssText", "bottom: -28rem !important");
+		}
+		
 		if ($vH > "1079") {
 			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
 			$("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");

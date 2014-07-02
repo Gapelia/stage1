@@ -3380,11 +3380,12 @@ body.landing .error {
   z-index: 1; }
 .app #user-splash .overlay-controls {
   bottom: 2rem;
-  right: 44.75%;
   opacity: 0.5;
   position: fixed;
+  text-align: center;
   transition: all 0.2s ease;
-  z-index: 1 !important; }
+  z-index: 1 !important;
+  width: 100%; }
 .app #user-splash .overlay-controls button {
   background-color: white;
   color: black;
@@ -5535,7 +5536,8 @@ body.library-manager ::-webkit-scrollbar {
   text-align: center;
   top: 15% !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .page-bg {
-  vertical-align: middle; }
+  vertical-align: middle;
+  height: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .photo-preview-wrapper .photo-preview {
   width: 100%;
   height: 100%;
@@ -7253,6 +7255,8 @@ a.count span.dont-move {
 .full-book .phototext-wrapper .phototext-preview .page-desc {
   font-size: 1.2rem;
   line-height: 1.7rem; }
+.full-book .phototext-wrapper .author-info .author-avatar {
+  margin-left: -3rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
   height: 100%; }
@@ -7671,7 +7675,7 @@ a.count span.dont-move {
     top: 92% !important; }
 
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
-    width: 500px !important; }
+    width: 600px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 53% !important; }
   .app #featured-nav {
@@ -7687,17 +7691,20 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #featured-nav .typeahead {
     font-size: 1rem !important;
-    left: 13rem !important; }
+    left: 6rem !important;
+    width: 700px; }
   .app #featured-nav .tt-dropdown-menu {
     font-size: 1.25rem !important; }
   .app #featured-nav .glass {
     margin-left: 20.5rem !important; }
   .app #new-library #close-splash {
-    margin-left: 32% !important;
+    margin-left: 4% !important;
     height: 6% !important; }
+  .app #new-library #new-library-info {
+    top: 48.5%; }
 
   body.library #featured-panel #g-menu-toggle {
-    left: 1.8rem;
+    left: 1.2rem;
     top: 0; }
   body.library #stay-right {
     right: 0.253rem; }
@@ -7727,7 +7734,7 @@ a.count span.dont-move {
     padding-bottom: 7rem; }
 
   .mp-menu ul .fq {
-    margin-top: 220% !important; }
+    margin-top: 200% !important; }
 
   .full-book .notification-time #notification-count {
     right: 5.5rem !important; }
@@ -7753,8 +7760,11 @@ a.count span.dont-move {
     padding: 22rem 4rem !important; }
 
   body.landing #gapelia {
-    left: 44.75% !important;
-    height: 27% !important; } }
+    margin-left: 1%;
+    height: 27% !important; }
+
+  .g-body #share-draft-overlay h3 {
+    margin: 15% 31%; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
     height: 34%;
@@ -7826,7 +7836,7 @@ a.count span.dont-move {
     font-size: 1.25rem;
     left: 5.5rem;
     padding-top: 0.9rem;
-    top: 0.4rem; }
+    top: 0rem; }
   .app #featured-nav #search-ii {
     top: 20px !important; }
   .app #featured-nav .typeahead {
@@ -7877,6 +7887,8 @@ a.count span.dont-move {
     padding: 17rem 10rem 10rem 28rem; }
   body.library-manager .glass {
     margin-top: 8.2rem !important; }
+  body.library-manager #featured-nav .suggested-libs {
+    max-height: 500px; }
 
   body.library #submission-pop {
     height: 7%;
@@ -7974,7 +7986,10 @@ a.count span.dont-move {
     right: 4rem !important; }
 
   .accounts .notification-time #notification-count {
-    right: 2.5rem !important; } }
+    right: 2.5rem !important; }
+
+  .g-body #share-draft-overlay h3 {
+    margin: 15% 27%; } }
 @media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
   #contactable-inner {
     top: 90% !important; }

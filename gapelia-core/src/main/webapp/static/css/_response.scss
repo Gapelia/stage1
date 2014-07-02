@@ -35,7 +35,7 @@
 	
 	.app{
 		.book, .collection, .library, .new, .draft {
-			width: 500px !important;
+			width: 600px !important;
 		}
 		
 		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { top: 53% !important; }
@@ -55,7 +55,8 @@
 			}
 			.typeahead {
 				font-size: 1rem !important;
-				left: 13rem !important;
+				left: 6rem !important;
+				width: 700px;
 			}
 			.tt-dropdown-menu {
 				font-size: 1.25rem !important;
@@ -65,11 +66,13 @@
 			
 		}
 		
-		#new-library #close-splash { margin-left: 32% !important; height: 6% !important; }
+		#new-library #close-splash { margin-left: 4% !important; height: 6% !important; }
+		
+		#new-library #new-library-info { top: 48.5%; }
 	}
 	
 	body.library {
-		#featured-panel #g-menu-toggle { left: 1.8rem; top: 0; }
+		#featured-panel #g-menu-toggle { left: 1.2rem; top: 0; }
 		
 		#stay-right {
 			//top: 0.5rem;
@@ -107,7 +110,7 @@
 	
 	.accounts .account-delete-wrapper { padding-bottom: 7rem; }
 	
-	.mp-menu ul .fq { margin-top: 220% !important; }
+	.mp-menu ul .fq { margin-top: 200% !important; }
 	
 	.full-book {
 		.notification-time #notification-count {	right: 5.5rem !important; }
@@ -130,7 +133,9 @@
 	
 	#publish-modal { padding: 22rem 4rem !important; }
 	
-	body.landing #gapelia { left: 44.75% !important; height: 27% !important; }
+	body.landing #gapelia { margin-left: 1%; height: 27% !important; }
+	
+	.g-body #share-draft-overlay h3 { margin: 15% 31%; }
 }	
 
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -236,7 +241,7 @@
 			font-size: 1.25rem;
 			left: 5.5rem;
 			padding-top: 0.9rem;
-			top: 0.4rem;
+			top: 0rem;
 			
 			#search-ii { top: 20px !important; }
 			
@@ -313,6 +318,8 @@
 		}
 		
 		.glass { margin-top: 8.2rem !important }
+		
+		#featured-nav .suggested-libs { max-height: 500px; }
 		
 	}
 	
@@ -465,6 +472,8 @@
 	}
 	
 	.accounts .notification-time #notification-count { right: 2.5rem !important; }
+	
+	.g-body #share-draft-overlay h3 { margin: 15% 27%; }
 
 }
 

@@ -1363,12 +1363,14 @@
 
 	#user-splash {
 		.overlay-controls {
-			bottom: 2rem; right: 44.75%;
+			bottom: 2rem; 
 
 			opacity: 0.5;
 			position: fixed;
+      text-align: center;
 			transition: all 0.2s ease;
 			z-index: 1 !important;
+      width: 100%;
       
       button {
         background-color: white;
