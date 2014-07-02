@@ -61,7 +61,7 @@
 					<ul>
 						<li><a href="/read/754">LEARN MORE</a></li>
 						<li><a id="how-it-works" href="/read/755">HOW IT WORKS</a></li>
-						<li><a id="team" href="#">TEAM</a></li>
+						<li><a id="team" href="/read/2939">TEAM</a></li>
 					</ul>
 				</nav>
 			</footer>
