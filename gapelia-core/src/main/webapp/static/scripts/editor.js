@@ -659,8 +659,12 @@
 		} else {
 			insert += "<div class=\"photo-preview\"><article><h1 class=\"page-title-elem\" contenteditable=\"true\">" + title + "</h1>";
 		}
-
-		insert += "</article></div></section>";
+		
+		if (text == null) { //display none for this layout, but need it to avoid data loss when switching layouts
+			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div></article></div></section>";
+		} else {
+			insert += "<div class=\"page-desc\" style=\"display: none;\" contenteditable=\"true\">" + text + "</div></article></div></section>";
+		}
 
 		$("#create-content").html(insert);
 		templateId = 1;
