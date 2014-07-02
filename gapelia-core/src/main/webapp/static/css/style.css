@@ -6993,7 +6993,8 @@ a.count span.dont-move {
   display: block !important; }
 .full-book .fluid-wrapper .embed, .full-book .photo-wrapper .embed, .full-book .overlay-wrapper .embed, .full-book .phototext-wrapper .embed, .full-book .vertical-wrapper .embed, .full-book .video-wrapper .embed, .full-book .backcover-wrapper .embed {
   width: 100%;
-  height: auto; }
+  height: auto;
+  margin: -2rem 0 -2rem 0; }
 .full-book .fluid-wrapper .embed iframe, .full-book .photo-wrapper .embed iframe, .full-book .overlay-wrapper .embed iframe, .full-book .phototext-wrapper .embed iframe, .full-book .vertical-wrapper .embed iframe, .full-book .video-wrapper .embed iframe, .full-book .backcover-wrapper .embed iframe {
   width: 100%;
   height: auto;
