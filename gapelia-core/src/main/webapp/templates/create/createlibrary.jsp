@@ -142,7 +142,7 @@
 				});
 			}
 			
-			if ($sW > "1599") {
+			if ($vW > "1599") {
 				$(".selectize-control").css("cssText", "margin-left: 0 !important");
 			}
 			

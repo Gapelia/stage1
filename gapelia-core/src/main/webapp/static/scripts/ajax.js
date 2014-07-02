@@ -952,6 +952,7 @@ function getSubmissionsInLibraryArray() {
         },
         success: function (data) {
             notificationLibraries = data;
+	    
         },
         error: function (q, status, err) {
             if (status == "timeout") {

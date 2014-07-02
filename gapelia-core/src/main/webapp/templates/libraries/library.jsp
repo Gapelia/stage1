@@ -376,6 +376,7 @@
             $("#nav-submissions").click(function (e) {
 
                 NProgress.start();
+		
 
                 var
                 allBooks = $("#submission-list li"), // gets all books in a section
@@ -506,7 +507,6 @@
         }
         setTimeout(function () {
 		
-		   
             getLibrary();
             getBooksInLibrary();
 	    
@@ -515,8 +515,7 @@
 			getUserCreatedBooksForLibrary();
 	     }
 	    
-            
-            load();
+            load(); 				    	 	
         }, 300);
          setTimeout(function () {
                     h = $(this).outerHeight() - 92;
@@ -595,9 +594,10 @@
 	       $('<meta[name="twitter:title"]').attr('content', library.title);
 	       $('<meta[name="twitter:description"]').attr('content', library.description);
 	       $('<meta[name="twitter:image"]').attr('content', library.coverPhoto);
-		
+	       
 		
         },2000);
+	 
 	 
 	//subscribing + unsubscribing calls//
 	
@@ -641,6 +641,21 @@
 		    }
 		});
 	});
+	
+	/*
+	$(".approve-book-confirm .white").click(function (ev) {
+		
+		$(this).closest("li").remove();
+		
+		e = $(this).closest(".approve-book-confirm");
+		bookId = e.parent().attr("id")	
+		notificationId = e.parent().attr("notificationId")
+		sessionId = readCookie("JSESSIONID");
+		senderId = e.parent().attr("booksuser");
+		addBookToLibrary(bookId);
+		acceptBook(notificationId);
+	});*/
+	
     </script>
     <!--//scripts /-->
 
