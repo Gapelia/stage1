@@ -51,7 +51,7 @@
                 <h2><a href="/featured">Gapelia</a></h2>
 		<ul>
                     <li><a href="/">Sign up</a> </li>
-		    <li><a href="#">Learn more</a></li>
+		    <li><a href="/read/755">Learn more</a></li>
                 </ul>
             </div>
         </nav>

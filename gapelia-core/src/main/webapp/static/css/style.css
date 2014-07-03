@@ -6741,6 +6741,9 @@ a.count span.dont-move {
   opacity: 1; }
 .full-book #the-book #edit-shortcut a:hover:after {
   content: "" !important; }
+.full-book #the-book #stay-right {
+  width: auto;
+  z-index: 101; }
 .full-book #the-book #stay-right, .full-book #the-book #edit-shortcut {
   height: 75px;
   padding: 1.4rem 1.25rem 0 0;

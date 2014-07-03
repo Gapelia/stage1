@@ -61,6 +61,11 @@
     }
     
     //add to library//
+    #stay-right {
+      width: auto;
+      z-index: 101;
+    }
+    
     #stay-right, #edit-shortcut {
       height: 75px;
       padding: 1.4rem 1.25rem 0 0;
