@@ -62,8 +62,8 @@
     
     //add to library//
     #stay-right {
-      width: auto;
-      z-index: 101;
+      width: auto !important;
+      z-index: 101 !important;
     }
     
     #stay-right, #edit-shortcut {
