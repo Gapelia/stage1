@@ -1064,7 +1064,8 @@ function getLibrary() {
 		$("#nav-books a").html(library.title);
 	    }
 	    else{
-		$("#nav-books").html("<a href=/library/"+ libraryId +">" + library.title + "<a/><a href=/"+ libraryOwner.displayName +"><c>" + "&#124;" + "<c/>" + "   edited by " + "<a href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/>");
+		$("#nav-books").html("<a href=/library/"+ libraryId +">" + library.title + "</a><c style=\"opacity: 0.8;\">" + "&#124;   edited by " + "</c>");
+		$("#featured-nav").append("<div id=\"library-editor\" style=\"display: inline-block; margin-left:-15px;\"><a style=\"color: #59b3a6; font-weight: 700;\" href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/></div>");
 		$("#nav-submissions").css("display", "none");
 	    }	    
 	    toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
