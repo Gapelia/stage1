@@ -14,12 +14,12 @@
 		};*/
 
 		// Reload Gapelia when browser window resizing occurs
-		$(window).resize(function () {
+		/*$(window).resize(function () {
 			if($vW != $(window).width()) {
 				location.reload();
 				return;
 			}
-		});
+		});*/
 		
 
 		$(".super-wrapper").css("height", $vH + "px");
@@ -217,7 +217,7 @@
 				});
 				
 				$(this).closest("li").remove();
-				
+
 				// gets all books in a section
 				var allBooks = $("#user-book-list li");
 				
