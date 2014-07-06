@@ -9229,7 +9229,30 @@ a.count span.dont-move {
   .notification-time #notification-count {
     display: none !important;
     top: 0;
-    right: 5px; } }
+    right: 5px; }
+
+  #gpl-menu-notify li:first-child {
+    background-color: transparent !important;
+    padding: 1rem !important; }
+  #gpl-menu-notify li:first-child a {
+    color: rgba(11, 72, 107, 0.25) !important; }
+  #gpl-menu-notify img {
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 300em;
+    display: inline;
+    margin-right: 10px;
+    position: relative !important;
+    top: 10px !important; }
+  #gpl-menu-notify .remove-notification {
+    margin-left: 10px; }
+  #gpl-menu-notify .respond-submission {
+    color: black;
+    display: inline-block;
+    margin-top: 10px;
+    opacity: 0.8; }
+  #gpl-menu-notify .vote-notification, #gpl-menu-notify .comment-notification {
+    padding-top: 0 !important; } }
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing #gapelia {
     left: 37.25%;
@@ -9741,8 +9764,16 @@ a.count span.dont-move {
 
   .profile #user-panel #g-menu-toggle {
     width: 13.5%; }
+  .profile .user-avatar .avatar-wrapper {
+    height: 110px;
+    width: 110px; }
+  .profile #user-splash .avatar-wrapper:after {
+    display: none; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
+  .profile #user-splash #user-box {
+    left: 10%;
+    width: 80%; }
 
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
@@ -9867,7 +9898,12 @@ a.count span.dont-move {
     font-size: 0.9rem;
     padding: 0.5rem 0rem 1rem 0; }
   .accounts #notifications-toggle .switchery {
-    left: 0; } }
+    left: 0; }
+
+  #gpl-menu-notify ul a, #gpl-menu-notify .respond-submission {
+    font-size: 1rem !important; }
+  #gpl-menu-notify ul li {
+    padding: 0.5rem !important; } }
 @media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     width: 2px;
