@@ -642,8 +642,7 @@
 		});
 	});
 	
-	/*
-	$(".approve-book-confirm .white").click(function (ev) {
+	/*$("#confirm-submission").click(function (ev) {
 		
 		$(this).closest("li").remove();
 		
@@ -655,6 +654,7 @@
 		addBookToLibrary(bookId);
 		acceptBook(notificationId);
 	});*/
+	
 	
     </script>
     <!--//scripts /-->
