@@ -2673,7 +2673,7 @@
 				}
 			}
 			
-			.draggable-placeholder { height: 380px; }
+			.draggable-placeholder { height: 300px; }
 			
 			.author-info {
 				width: 100%; height: auto;
@@ -2700,7 +2700,7 @@
 				}
 
 				.author-avatar {
-					margin-left: -6%;
+					margin-left: -15%;
 					margin-top: -2rem;
 				}
 			}
@@ -2731,11 +2731,13 @@
 		}
 
 		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
-			.author-info .author-avatar { margin-left: 34%; }
+			.author-info .author-avatar { margin-left: 32%; }
 		}
 		
 		.phototext-wrapper {
 			.phototext-preview {
+				padding: 1rem 1rem 0rem 1rem;
+				
 				.page-title-elem, .page-desc { width: 90%; }
 
 				.page-title-elem {
@@ -2752,6 +2754,8 @@
 
 		.vertical-wrapper {
 			.vertical-preview {
+				padding: 1rem 1rem 0rem 1rem;
+				
 				.page-title-elem, .page-desc { width: 90%; }
 
 				.page-title-elem {
