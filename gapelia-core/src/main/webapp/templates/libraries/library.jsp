@@ -642,20 +642,6 @@
 		});
 	});
 	
-	/*$("#confirm-submission").click(function (ev) {
-		
-		$(this).closest("li").remove();
-		
-		e = $(this).closest(".approve-book-confirm");
-		bookId = e.parent().attr("id")	
-		notificationId = e.parent().attr("notificationId")
-		sessionId = readCookie("JSESSIONID");
-		senderId = e.parent().attr("booksuser");
-		addBookToLibrary(bookId);
-		acceptBook(notificationId);
-	});*/
-	
-	
     </script>
     <!--//scripts /-->
 

@@ -497,6 +497,21 @@
 
 			$(this).closest("li").prepend("<div class=\"approve-book-confirm\"><h3>Accept Submission</h3><textarea placeholder='Add optional message'></textarea><button id='confirm-submission' class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
+			//confirming submission from overlay button//
+			$("#confirm-submission").click(function (ev) {
+				
+				$(this).closest("li").remove();
+				
+				e = $(this).closest(".approve-book-confirm");
+				bookId = e.parent().attr("id")	
+				notificationId = e.parent().attr("notificationId")
+				sessionId = readCookie("JSESSIONID");
+				senderId = e.parent().attr("booksuser");
+				addBookToLibrary(bookId);
+				acceptBook(notificationId);
+			});
+			
+			
 			e.preventDefault();
 
 		});
