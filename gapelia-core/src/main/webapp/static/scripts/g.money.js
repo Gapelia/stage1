@@ -521,6 +521,19 @@
 
 			$(this).closest("li").prepend("<div class=\"deny-book-confirm\"><h3>Deny Submission</h3><textarea placeholder='Add optional message'></textarea><button id='deny-submission' class='white'>Confirm</button><a href='#' class='cancel'>Cancel</a></div>");
 
+			//denying submission from overlay button//
+			$("#deny-submission").click(function (ev) {
+				
+				$(this).closest("li").remove();
+				
+				e = $(this).closest(".deny-book-confirm");
+				bookId = e.parent().attr("id")	
+				notificationId = e.parent().attr("notificationId")
+				sessionId = readCookie("JSESSIONID");
+				senderId = e.parent().attr("booksuser");
+				rejectBook(notificationId);
+			});
+			
 			e.preventDefault();
 
 		});
