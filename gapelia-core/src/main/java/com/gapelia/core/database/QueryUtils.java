@@ -21,6 +21,7 @@ public class QueryUtils {
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
 	private static final String CHECK_USER = "SELECT * FROM users WHERE display_name = ?";
 	private static final String BOOK_FROM_BOOKID = "SELECT * FROM books where id = ?";
+    private static final String LIBRARY_FROM_LIBRARYID = "SELECT * FROM libraries where id = ?";
 	private static final String LIBRARY_FROM_BOOKID = "SELECT * FROM library_books  where book_id = ?";
 	private static final String GET_LIBRARY = "SELECT * FROM libraries where id = ?";
 	private static final String USER_FROM_USERID = "SELECT * from users where id = ?";
@@ -228,6 +229,42 @@ public class QueryUtils {
 		}
 		return null;
 	}
+
+    public static Library getLibraryFromLibraryId(int libraryId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        Library library = new Library();
+        try {
+            statement = connection.prepareStatement(LIBRARY_FROM_LIBRARYID);
+            statement.setInt(1, libraryId);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                library.setLibraryId(rs.getInt("id"));
+                library.setUserId(rs.getInt("created_by"));
+                library.setTitle(rs.getString("title"));
+                library.setTags(rs.getString("tags"));
+                library.setCoverPhoto(rs.getString("cover_photo"));
+                library.setDescription(rs.getString("description"));
+                library.setFeaturedBook(rs.getInt("featured_book"));
+                library.setCreated(rs.getTimestamp("created"));
+            }
+            return library;
+        } catch (Exception ex) {
+            LOG.error("ERROR: :" + libraryId, ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + libraryId + " " + ex.getMessage());
+            }
+        }
+        return null;
+    }
 
 	public static Library getLibraryFromBookId(int bookId) {
 		PreparedStatement statement = null;
