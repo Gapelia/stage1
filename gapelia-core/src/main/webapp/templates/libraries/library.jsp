@@ -510,6 +510,7 @@
         setTimeout(function () {
 		
             getLibrary();
+            //getBooksInLibrary();
 	    getBooksInLibraryArray();
 	    
 	    if (typeof user != 'undefined') {
