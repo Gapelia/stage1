@@ -303,7 +303,7 @@ $(document).ready(function() {
 		})
 	    }
 	    
-	    document.title = current.title;
+	    document.title = pages[0].title;
 	    
         }, 2000);
       
