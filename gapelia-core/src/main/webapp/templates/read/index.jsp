@@ -303,6 +303,8 @@ $(document).ready(function() {
 		})
 	    }
 	    
+	    document.title = current.title;
+	    
         }, 2000);
       
         addLoggedInMenuForBook();
