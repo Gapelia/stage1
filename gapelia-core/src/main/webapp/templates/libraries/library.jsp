@@ -160,6 +160,8 @@
                getNumSubscribers();
 	       
                getUserFromLibraryId(libraryId);
+	       
+	       getBooksInLibraryArray();
             
         });
 
@@ -508,7 +510,7 @@
         setTimeout(function () {
 		
             getLibrary();
-            getBooksInLibrary();
+	    getBooksInLibraryArray();
 	    
 	    if (typeof user != 'undefined') {
 			getSubmissionsInLibrary();
@@ -552,7 +554,7 @@
 			var slyBookWrapper = new Sly('.book-list-wrapper', options);
 			var items = $('#book-list');
 	
-			/*loadMoreBooksInLibrary(5,items);
+			loadMoreBooksInLibrary(5,items);
 	
 	
 			slyBookWrapper.on('load change', function () {
@@ -564,7 +566,7 @@
 				    
 				   this.reload();
 				}
-			});*/
+			});
 	
 		    h = $(this).outerHeight() - 92;
 		    $(".book").css("height", h);
