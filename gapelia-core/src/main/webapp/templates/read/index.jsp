@@ -1,3 +1,24 @@
+<%@ page import="com.gapelia.core.api.Books" %>
+<%@ page import="com.gapelia.core.model.Book" %>
+<%@ page import="com.gapelia.core.model.User" %>
+<%@ page import="com.gapelia.core.database.QueryUtils" %>
+<%
+    Book book = QueryUtils.getBookFromBookId(755);
+    User user = QueryUtils.getUserFromBookId(755);
+
+    String author = user.getName();
+    String title = book.getTitle();
+    String snippet = book.getSnippet();
+    String coverPhoto = book.getCoverPhoto();
+    String currentURL = null;
+    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
+        currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+    }
+    if( currentURL != null && request.getAttribute("javax.servlet.include.query_string") != null ){
+        currentURL += "?" + request.getQueryString();
+    }
+    currentURL = "http://folio.is"+currentURL;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,22 +28,22 @@
 
     <!-- Search tags --> 
     <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="">
+    <meta name="author" content="<%= author %>" />
+    <meta name="description" content="<%= snippet %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
     <!-- for Facebook -->  
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="<%= title %>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:description" content=""/>
+    <meta property="og:image" content="<%= coverPhoto %>"/>
+    <meta property="og:url" content="<%= currentURL %>"/>
+    <meta property="og:description" content="<%= snippet %>"/>
     
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= snippet %>" />
+    <meta name="twitter:image" content="<%= coverPhoto %>" />
     
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
@@ -223,42 +244,24 @@ $(document).ready(function() {
 		});
 	} ,false); //end readerboard block
 
-
-	book = getFullBookFromBookId(bookId);
-	
-	    //Meta Tags//
-	    document.title = book.title + " by " + bookOwner.name;
-	    $('meta[property="author"]').attr('content', bookOwner.name);
-	    $('meta[property="description"]').attr('content', book.snippet);
-	    
-	    //Chaging Facebook Meta Tags//
-	    $('meta[property="og:title"]').attr('content', book.title);
-	    $('meta[property="og:description"]').attr('content', book.snippet);
-	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
-	    $('meta[property="og:url"]').attr('content', 'http://folio.is/read/' + current.bookId);
-	
-	   //Changing Twitter Meta Tags//
-	   $('<meta[name="twitter:title"]').attr('content', book.title);
-	   $('<meta[name="twitter:description"]').attr('content', book.snippet);
-	   $('<meta[name="twitter:image"]').attr('content', book.coverPhoto);
 	   
-	    $(".fluid-wrapper").imgLiquid({
-                fill: true
-            });
-	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".overlay-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".phototext-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                fill: true
-            });
+    $(".fluid-wrapper").imgLiquid({
+            fill: true
+        });
+    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".overlay-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".phototext-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+            fill: true
+        });
 
-            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 });
 
 
