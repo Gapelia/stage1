@@ -3,21 +3,21 @@
 <%@ page import="com.gapelia.core.model.User" %>
 <%@ page import="com.gapelia.core.database.QueryUtils" %>
 <%
-    Book book = QueryUtils.getBookFromBookId(755);
-    User user = QueryUtils.getUserFromBookId(755);
+  String currentURL = null;
+    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
+        currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+    }
+    currentURL = "http://folio.is"+currentURL;
+
+    Integer bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
+    Book book = QueryUtils.getBookFromBookId(bookId);
+    User user = QueryUtils.getUserFromBookId(bookId);
 
     String author = user.getName();
     String title = book.getTitle();
     String snippet = book.getSnippet();
     String coverPhoto = book.getCoverPhoto();
-    String currentURL = null;
-    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
-        currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
-    }
-    if( currentURL != null && request.getAttribute("javax.servlet.include.query_string") != null ){
-        currentURL += "?" + request.getQueryString();
-    }
-    currentURL = "http://folio.is"+currentURL;
+
 %>
 <!DOCTYPE html>
 <html lang="en">
