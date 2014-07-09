@@ -187,6 +187,11 @@
 		 
 		Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 		
+		//hide tutorial//
+		$(document).on("click", "#close-draft-tutorial", function (e) {
+			$("#draft-tutorial").hide();
+			$("#create-book, #back, #finish, #notify-saving").show();
+		});
 		
 		
 		//display and hide revisions//
