@@ -1,28 +1,50 @@
+<%@ page import="com.gapelia.core.api.Libraries" %>
+<%@ page import="com.gapelia.core.model.Library" %>
+<%@ page import="com.gapelia.core.model.Book" %>
+<%@ page import="com.gapelia.core.model.User" %>
+<%@ page import="com.gapelia.core.database.QueryUtils" %>
+<%
+  String currentURL = null;
+    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
+        currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+    }
+    currentURL = "http://folio.is"+currentURL;
+
+    Integer libraryId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
+    Library library = QueryUtils.getLibraryFromLibraryId(libraryId);
+    User user = QueryUtils.getUserFromLibraryId(libraryId);
+
+    String author = user.getName();
+    String title = library.getTitle();
+    String description = library.getDescription();
+    String coverPhoto = library.getCoverPhoto();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="utf-8" />
-    
-    <!-- Search tags --> 
-    <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="">
+
+    <!-- Search tags -->
+    <title><%= title %></title>
+    <meta name="author" content="<%= author %>" />
+    <meta name="description" content="<%= description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-    <!-- for Facebook -->  
-    <meta property="og:title" content=""/>
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="<%= title %>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:description" content=""/>
-    
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=""/>
-    <meta name="twitter:description" content=""/>
-    <meta name="twitter:image" content=""/>
+    <meta property="og:image" content="<%= coverPhoto %>"/>
+    <meta property="og:url" content="<%= currentURL %>"/>
+    <meta property="og:description" content="<%= description %>"/>
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= description %>" />
+    <meta name="twitter:image" content="<%= coverPhoto %>" />
 
 
     <link href="/static/css/style.css" rel="stylesheet" />
@@ -580,25 +602,6 @@
 		       slyBookWrapper.init();
 		}
 		addLoggedInMenu();
-		document.title = library.title;
-	    
-		//Meta Tags//
-		document.title = library.title + " edited by " + libraryOwner.name;
-		$('meta[property="author"]').attr('content', libraryOwner.name);
-		$('meta[property="description"]').attr('content', library.description);
-		
-		//Chaging Facebook Meta Tags//
-		$('meta[property="og:title"]').attr('content', library.title);
-		$('meta[property="og:description"]').attr('content', library.description);
-		$('meta[property="og:image"]').attr('content', library.coverPhoto);
-		$('meta[property="og:url"]').attr('content', 'http://folio.is/library/' + libraryId);
-	    
-	       //Changing Twitter Meta Tags//
-	       $('<meta[name="twitter:title"]').attr('content', library.title);
-	       $('<meta[name="twitter:description"]').attr('content', library.description);
-	       $('<meta[name="twitter:image"]').attr('content', library.coverPhoto);
-	       
-		
         },2000);
 	 
 	 
