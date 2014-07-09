@@ -32,6 +32,14 @@
 
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
+		
+		<script>
+		//check if user is owner of book for security access//
+		getUser();
+		if (user.userId != book.userId) {
+			window.location.href = "/404";
+		}
+		</script>	
 
 	</head>
 
@@ -250,6 +258,7 @@
 			$("#publish-modal").append("<div id=\"lib-submission\">Submit to a <a class='published' href='/libraryManager'>curated library</a> or start editing <a class='published-i' href='/createlibrary'>your own.</a></div>");
 			$("#publish-modal").append("<div id=\"lib-tutorial\" style=\"bottom: 1rem; right: 1rem; position: absolute\">Want to learn more about libraries? <a class='published' href='http://folio.is/read/756'>Read this</a></div>");
 		});
+		
 		</script>
 		<!--//scripts /-->
 
