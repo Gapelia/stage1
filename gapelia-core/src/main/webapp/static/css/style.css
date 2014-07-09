@@ -4264,7 +4264,7 @@ body.library-manager ::-webkit-scrollbar {
   font-style: italic;
   font-weight: 600 !important;
   margin-left: 8px;
-  text-transform: lowercase; }
+  text-transform: capitalize; }
 .profile #user-splash h5 a:first-letter {
   text-transform: uppercase; }
 .profile #user-splash #splash-user-info {
@@ -6926,7 +6926,9 @@ a.count span.dont-move {
 .full-book .fluid-wrapper iframe, .full-book .photo-wrapper iframe, .full-book .overlay-wrapper iframe, .full-book .phototext-wrapper iframe, .full-book .vertical-wrapper iframe, .full-book .video-wrapper iframe, .full-book .backcover-wrapper iframe {
   height: 100%; }
 .full-book .fluid-wrapper .page-bg, .full-book .photo-wrapper .page-bg, .full-book .overlay-wrapper .page-bg, .full-book .phototext-wrapper .page-bg, .full-book .vertical-wrapper .page-bg, .full-book .video-wrapper .page-bg, .full-book .backcover-wrapper .page-bg {
-  height: auto; }
+  height: auto;
+  display: block !important;
+  top: 0 !important; }
 .full-book .fluid-wrapper .page-title-elem, .full-book .photo-wrapper .page-title-elem, .full-book .overlay-wrapper .page-title-elem, .full-book .phototext-wrapper .page-title-elem, .full-book .vertical-wrapper .page-title-elem, .full-book .video-wrapper .page-title-elem, .full-book .backcover-wrapper .page-title-elem {
   color: rgba(25, 25, 25, 0.8);
   font-size: 3rem;
@@ -7023,6 +7025,8 @@ a.count span.dont-move {
 .full-book .fluid-wrapper {
   background-color: #fcfcfc;
   height: 100%; }
+.full-book .fluid-wrapper .page-bg {
+  top: -25% !important; }
 .full-book .fluid-wrapper section, .full-book .fluid-wrapper .fluid-preview {
   transition: all 0.2s ease; }
 .full-book .fluid-wrapper section {
@@ -7159,7 +7163,8 @@ a.count span.dont-move {
   text-align: center;
   top: 15% !important; }
 .full-book .photo-wrapper .page-bg {
-  vertical-align: middle; }
+  vertical-align: middle;
+  height: 100% !important; }
 .full-book .photo-wrapper .photo-preview {
   width: 100%;
   height: 100%;

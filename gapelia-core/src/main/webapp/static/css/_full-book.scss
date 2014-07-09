@@ -298,7 +298,7 @@
 		}
 
 		iframe { height: 100%; }
-		.page-bg { height: auto; }
+		.page-bg { height: auto; display: block !important; top: 0 !important; }
 
 		.page-title-elem {
 			color: rgba($black, 0.8);
@@ -432,6 +432,8 @@
 	.fluid-wrapper {
 		background-color: $white;
 		height: 100%;
+    
+    .page-bg { top: -25% !important; }
 
 		section, .fluid-preview { transition: all 0.2s ease; }
 
@@ -623,7 +625,7 @@
       top: 15% !important;
 		}
 
-		.page-bg { vertical-align: middle; }
+		.page-bg { vertical-align: middle; height: 100% !important; }
 
 		.photo-preview {
 			width: 100%; height: 100%; // height: auto
