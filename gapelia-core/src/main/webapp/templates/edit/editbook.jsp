@@ -33,14 +33,6 @@
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 		<script src="/static/scripts/ajax.js"></script>
 		
-		<script>
-		//check if user is owner of book for security access//
-		getUser();
-		if (user.userId != book.userId) {
-			window.location.href = "/404";
-		}
-		</script>	
-
 	</head>
 
 	<body class="book-creation g-body">
@@ -150,6 +142,8 @@
 				<div class="close-modal">&times;</div>
 			</div>
 		</section>
+		
+
 
 		<!--/ scripts /-->
 		<script src="/static/scripts/filepicker2.js"></script>
@@ -179,9 +173,15 @@
 		
 		$(function () {
 			getUser();
+			
 		});
             	function load() { loadBookEditor(); getRevisions();
 		
+			//check that book owner is the user//
+			if (user.userId != book.userId) {
+				window.location.href = "/404";
+			}
+			
 			//share draft code//
 			if ($vW > "1024") {
 				$("#share-draft-overlay").append("<p>folio.is/revision/" + bookId + "</p>");
