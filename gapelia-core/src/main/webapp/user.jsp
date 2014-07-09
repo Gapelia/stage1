@@ -164,8 +164,8 @@
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li id=\"university\"></li>"
 		stuff += "<li id=\"department\"></li>"
-		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
-		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
+		stuff += "<li><a id=\"website\"  target=\"blank\"  href=\"" +user.personalWebsite+ "\"></a></li>"
+		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
 		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
