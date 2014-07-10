@@ -5014,8 +5014,7 @@ body.library-manager ::-webkit-scrollbar {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
-  float: left;
-  height: 5rem; }
+  float: left; }
 .book-creation header #back #revision-toggle {
   left: 5.5rem;
   top: 0.55rem;
@@ -7214,6 +7213,8 @@ a.count span.dont-move {
   font-style: italic;
   line-height: 2.8rem;
   text-align: center; }
+.full-book .overlay-wrapper .page-bg {
+  height: 100%; }
 .full-book .overlay-wrapper .author-info {
   position: relative;
   top: 1rem;
@@ -7247,6 +7248,8 @@ a.count span.dont-move {
   margin: 0 1rem 0 0;
   margin-top: -2rem;
   vertical-align: middle; }
+.full-book .phototext-wrapper .page-bg {
+  height: 100%; }
 .full-book .phototext-wrapper .phototext-preview {
   width: 40%;
   height: 100%;
@@ -7264,8 +7267,6 @@ a.count span.dont-move {
 .full-book .phototext-wrapper .phototext-preview .page-desc {
   font-size: 1.2rem;
   line-height: 1.7rem; }
-.full-book .phototext-wrapper .author-info .author-avatar {
-  margin-left: -3rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
   height: 100%; }
