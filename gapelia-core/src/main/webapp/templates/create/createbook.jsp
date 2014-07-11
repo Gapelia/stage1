@@ -181,7 +181,7 @@
 		<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); getRevisions(); }
+			function load() { createBook(); }
 		
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 			
