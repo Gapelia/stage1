@@ -7684,6 +7684,8 @@ a.count span.dont-move {
   #contactable-inner {
     top: 92% !important; }
 
+  .app {
+    .library-location-left: 6%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 600px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
@@ -7701,8 +7703,7 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #featured-nav .typeahead {
     font-size: 1rem !important;
-    left: 6rem !important;
-    width: 700px; }
+    left: 6rem !important; }
   .app #featured-nav .tt-dropdown-menu {
     font-size: 1.25rem !important; }
   .app #featured-nav .glass {
@@ -7738,7 +7739,7 @@ a.count span.dont-move {
   .profile #user-panel #user-splash #user-extra {
     bottom: -37rem !important; }
   .profile #user-panel #user-splash #close-splash {
-    left: 91.5% !important; }
+    left: 92% !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
