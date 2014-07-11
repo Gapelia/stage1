@@ -1317,7 +1317,22 @@
 				padding-bottom: 1rem !important;
 			}
 		}
-
+		
+		//onboarding process//
+		
+		#intro {
+			#intro-hello {
+				width: 80%;
+			}
+			
+			#next-intro {
+				margin-left: 0 !important;
+			}
+		}
+	}
+	
+	.onboard #onboard-photos-overlay #user-info {
+		padding: 0 6rem;
 	}
 	
 	// optimizations for library and profile splash so icons are visible //
@@ -2342,6 +2357,16 @@
 				line-height: 42px;
 			}
 		}
+		
+		//onboarding process//
+		
+		#university-affiliation {
+			padding: 12rem 4rem;
+		}
+	}
+	
+	.onboard #onboard-photos-overlay #user-info {
+		padding: 0 4rem;
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -2633,6 +2658,10 @@
 				}
 			}
 		}
+		
+		#intro #intro-hello {
+			width: 95%;
+		}
 
 	}
 
@@ -2647,6 +2676,7 @@
 				margin: 0 0 1rem 0;
 			}
 		}
+		
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -2881,7 +2911,7 @@
 			height: 200px !important;
 			
 			.library-info {
-				top: 4.5rem;
+				top: 2.5rem;
 				
 				.title { font-size: 1.4rem; }
 				
@@ -2932,6 +2962,54 @@
 			
 			.user-avatar { top: 17% !important;; }
 		}
+		
+		//onboarding process//
+		#intro { font-size: 1.3rem; }
+		
+		#header-message {
+			padding: 1.4rem 0 0.5rem 0;
+			
+			button { font-size: 12px; }
+		}	
+		
+		#university-affiliation {
+			padding: 8rem 3rem;
+			
+			.selectize-control {
+				margin-left: 13%;
+				width: 75%;
+			}
+			
+			#uni-intro, #school-intro, #welcome {
+				font-size: 1rem;
+			}
+			
+			button { font-size: 12px; }
+		}
+	}
+	
+	.onboard {
+		#featured-scroller {
+			overflow-y: hidden;
+		}
+		
+		#onboard-photos-overlay {
+			.account-avatar-wrapper {
+				height: 120px;
+				width: 120px;
+			}
+			
+			#user-info {
+				padding: 0;
+			
+				h2 { font-size: 2rem; }
+				
+				#user-bio {
+					font-size: 0.9rem;
+					line-height: 1.5;
+				}
+			}
+		}	
 	}
 	
 	.profile {
@@ -3055,6 +3133,13 @@
 			
 			#library-info { top: 40%; }
 		}
+		
+		//onboarding process//
+		#university-affiliation {
+			padding: 8rem 2rem;
+		}
+		
+		#intro { padding: 3rem 2rem; }
 	}
 	
 	body.library-manager {
@@ -3686,7 +3771,19 @@
 				display: none; // hidden unti book repo is optimized
 			}
 		}
+		
+		//onboarding process//
+		#university-affiliation {
+			padding: 7rem 0.5rem;
+			
+			button {
+				top: 92%;
+				right: 6.5rem;
+			}
+		}
 	}
+	
+	.onboard #onboard-photos-overlay #user-info #user-bio { padding: 0; }
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
