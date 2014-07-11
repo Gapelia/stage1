@@ -211,6 +211,9 @@
                 stuff += "</section>";
 
                 $("#mp-pusher").prepend(stuff);
+		
+		//hide archive buttons if less than two published books//
+		if (books.length < 2) { $("#close-splash").remove() }
 
                 $("#user-splash").imgLiquid({
                     fill: true
@@ -319,9 +322,9 @@
 		
 		
 		if ($vW > "1919") {
-			$("#user-splash #user-extra").css("cssText", "bottom: -28rem !important");
+			$("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
 			$(".profile .follow").css("cssText", "left: 92.5% !important");
-			$("#user-splash #close-splash").css("left", "85%");
+			$("#user-splash #close-splash").css("left", "92%");
 		}
 		
 		if ($vH > "1079") {

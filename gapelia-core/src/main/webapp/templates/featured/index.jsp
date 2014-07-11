@@ -438,6 +438,7 @@
 		$("#book-list, #bookmark-list, #following-list").css("cssText", "width: 12000px !important");
 		$("#book-list").css("cssText", "display: block !important");
 		$("#featured-nav .tt-dropdown-menu").css("cssText", "margin-left: 90% !important");
+		$(".app .following-list-wrapper img").css("cssText", "left: 37% !important");
 	    }
 	    
 	    //imacs specs//

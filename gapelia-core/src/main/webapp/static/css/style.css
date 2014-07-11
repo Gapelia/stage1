@@ -5014,8 +5014,7 @@ body.library-manager ::-webkit-scrollbar {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
-  float: left;
-  height: 5rem; }
+  float: left; }
 .book-creation header #back #revision-toggle {
   left: 5.5rem;
   top: 0.55rem;
@@ -7214,6 +7213,8 @@ a.count span.dont-move {
   font-style: italic;
   line-height: 2.8rem;
   text-align: center; }
+.full-book .overlay-wrapper .page-bg {
+  height: 100%; }
 .full-book .overlay-wrapper .author-info {
   position: relative;
   top: 1rem;
@@ -7247,6 +7248,8 @@ a.count span.dont-move {
   margin: 0 1rem 0 0;
   margin-top: -2rem;
   vertical-align: middle; }
+.full-book .phototext-wrapper .page-bg {
+  height: 100%; }
 .full-book .phototext-wrapper .phototext-preview {
   width: 40%;
   height: 100%;
@@ -7264,8 +7267,6 @@ a.count span.dont-move {
 .full-book .phototext-wrapper .phototext-preview .page-desc {
   font-size: 1.2rem;
   line-height: 1.7rem; }
-.full-book .phototext-wrapper .author-info .author-avatar {
-  margin-left: -3rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
   height: 100%; }
@@ -7683,10 +7684,12 @@ a.count span.dont-move {
   #contactable-inner {
     top: 92% !important; }
 
+  .app {
+    .library-location-left: 6%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 600px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
-    top: 53% !important; }
+    padding: 0rem 1rem 1rem 1rem; }
   .app #featured-nav {
     top: 0.6rem !important; }
   .app #featured-panel {
@@ -7700,8 +7703,7 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #featured-nav .typeahead {
     font-size: 1rem !important;
-    left: 6rem !important;
-    width: 700px; }
+    left: 6rem !important; }
   .app #featured-nav .tt-dropdown-menu {
     font-size: 1.25rem !important; }
   .app #featured-nav .glass {
@@ -7710,7 +7712,7 @@ a.count span.dont-move {
     margin-left: 4% !important;
     height: 6% !important; }
   .app #new-library #new-library-info {
-    top: 48.5%; }
+    top: 51.5%; }
 
   body.library #featured-panel #g-menu-toggle {
     left: 1.2rem;
@@ -7737,7 +7739,7 @@ a.count span.dont-move {
   .profile #user-panel #user-splash #user-extra {
     bottom: -37rem !important; }
   .profile #user-panel #user-splash #close-splash {
-    left: 91.5% !important; }
+    left: 92% !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
@@ -7874,13 +7876,17 @@ a.count span.dont-move {
   .app #library-splash #library-info span {
     font-size: 1.7rem !important; }
   .app #new-library .button-wrapper {
-    top: 28%; }
+    top: 24%; }
   .app #new-library .library-controls {
     bottom: 4.5rem; }
   .app #new-library #close-splash {
     height: 7%;
     left: 29% !important;
     padding: 1.5rem 1rem 1rem 1rem; }
+  .app #new-library p {
+    font-size: 2rem !important;
+    line-height: 2;
+    opacity: 0.8; }
   .app .book-list-wrapper .library-empty {
     left: 260%; }
   .app .library-list-wrapper .library-empty {
@@ -7980,8 +7986,7 @@ a.count span.dont-move {
     padding: 10rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
-    font-size: 2rem;
-    margin: 0 0 0.5rem 2rem; }
+    font-size: 2rem; }
   .full-book .backcover-wrapper #fin .author-name :first-letter {
     text-transform: uppercase; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
@@ -8017,8 +8022,6 @@ a.count span.dont-move {
     width: 9300px !important; }
   .app #featured-nav #nav-search {
     margin-left: 26.5% !important; }
-  .app .selectize-control {
-    margin-left: 24.5% !important; }
   .app #featured-nav .typeahead {
     margin-left: 50%; }
   .app #featured-nav .tt-dropdown-menu {
