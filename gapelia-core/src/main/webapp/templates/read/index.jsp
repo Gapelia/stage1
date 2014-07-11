@@ -250,7 +250,7 @@
 	})}
 	
 	if ($vW > "1919") {
-		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
+		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
 	}
 
 $(document).ready(function() {

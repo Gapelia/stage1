@@ -38,7 +38,7 @@
 			width: 600px !important;
 		}
 		
-		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { top: 53% !important; }
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { padding: 0rem 1rem 1rem 1rem; }
 		
 		#featured-nav { top: 0.6rem !important; }
 		#featured-panel { height: 100px; }
@@ -69,7 +69,7 @@
 		
 		#new-library #close-splash { margin-left: 4% !important; height: 6% !important; }
 		
-		#new-library #new-library-info { top: 48.5%; }
+		#new-library #new-library-info { top: 51.5%; }
 	}
 	
 	body.library {
@@ -286,7 +286,7 @@
 		
 		#new-library {
 			
-			.button-wrapper { top: 28%; }
+			.button-wrapper { top: 24%; }
 			
 			.library-controls { bottom: 4.5rem;}
 			
@@ -295,6 +295,8 @@
 				left: 29% !important;
 				padding: 1.5rem 1rem 1rem 1rem;
 			}
+			
+			p { font-size: 2rem !important; line-height: 2; opacity: 0.8; }
 		}	
 		
 		//empty lists //
@@ -455,7 +457,7 @@
 				.author-name {
 					display: inline !important; 
 					font-size: 2rem;
-					margin: 0 0 0.5rem 2rem;
+
 					:first-letter { text-transform: uppercase; }
 				}
 				
@@ -501,8 +503,6 @@
 		#book-list { width: 9300px !important; } // temporary fix so 20 books fit in featured for book width = 450px
 		
 		#featured-nav #nav-search { margin-left: 26.5% !important }
-		
-		.selectize-control { margin-left: 24.5% !important; }
 		
 		#featured-nav {
 			.typeahead { margin-left: 50%; }

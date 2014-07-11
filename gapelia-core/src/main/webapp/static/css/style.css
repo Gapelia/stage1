@@ -7689,7 +7689,7 @@ a.count span.dont-move {
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 600px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
-    top: 53% !important; }
+    padding: 0rem 1rem 1rem 1rem; }
   .app #featured-nav {
     top: 0.6rem !important; }
   .app #featured-panel {
@@ -7712,7 +7712,7 @@ a.count span.dont-move {
     margin-left: 4% !important;
     height: 6% !important; }
   .app #new-library #new-library-info {
-    top: 48.5%; }
+    top: 51.5%; }
 
   body.library #featured-panel #g-menu-toggle {
     left: 1.2rem;
@@ -7876,13 +7876,17 @@ a.count span.dont-move {
   .app #library-splash #library-info span {
     font-size: 1.7rem !important; }
   .app #new-library .button-wrapper {
-    top: 28%; }
+    top: 24%; }
   .app #new-library .library-controls {
     bottom: 4.5rem; }
   .app #new-library #close-splash {
     height: 7%;
     left: 29% !important;
     padding: 1.5rem 1rem 1rem 1rem; }
+  .app #new-library p {
+    font-size: 2rem !important;
+    line-height: 2;
+    opacity: 0.8; }
   .app .book-list-wrapper .library-empty {
     left: 260%; }
   .app .library-list-wrapper .library-empty {
@@ -7982,8 +7986,7 @@ a.count span.dont-move {
     padding: 10rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
-    font-size: 2rem;
-    margin: 0 0 0.5rem 2rem; }
+    font-size: 2rem; }
   .full-book .backcover-wrapper #fin .author-name :first-letter {
     text-transform: uppercase; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
@@ -8019,8 +8022,6 @@ a.count span.dont-move {
     width: 9300px !important; }
   .app #featured-nav #nav-search {
     margin-left: 26.5% !important; }
-  .app .selectize-control {
-    margin-left: 24.5% !important; }
   .app #featured-nav .typeahead {
     margin-left: 50%; }
   .app #featured-nav .tt-dropdown-menu {
