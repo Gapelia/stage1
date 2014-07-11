@@ -65,7 +65,7 @@
 			</div>
 
 			<!--/ Featured Libraries /-->
-			<div class="library-list-wrapper" style="z-index: -1">
+			<div class="library-list-wrapper" style="display: none; z-index: -1">
 				<ul id="explore-list"></ul>
 			</div>	
 		</div>
@@ -145,6 +145,7 @@
 				
 				if ($vW < "1025") {
 					$("#explore-list").css("cssText", "padding: 6rem 1.25rem 1.25rem 1.25rem !important");
+					$(".library-list-wrapper").css("top", "-100%");
 				}
 				
 				if ($vW < "800") {
@@ -152,7 +153,7 @@
 				}
 				
 				if ($vW < "321") {
-					$("#explore-list").css("cssText", "padding: 2rem 1.25rem 1.25rem !important");
+					$("#explore-list").css("cssText", "padding: 5rem 1.25rem 1.25rem !important");
 				}
 				
 				}, 1000);
@@ -274,7 +275,14 @@
 					$("#intro").css("opacity", "0");
 					$("#header-message").css("opacity", "1");
 					$("#featured-scroller").css("overflow-x", "auto");
-					$(".library-list-wrapper").css("z-index", "1");
+					$(".library-list-wrapper").css({
+						"z-index": "1",
+						"display": "block"
+					});
+					
+					if ($vW < "421") {
+						$(".onboard #featured-scroller").css("cssText", "overflow-y: scroll !important");
+					}
 				});
 				
 				// Overlay — onboard photos

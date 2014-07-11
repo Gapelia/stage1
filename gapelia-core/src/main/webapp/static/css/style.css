@@ -8598,6 +8598,13 @@ a.count span.dont-move {
     bottom: 1rem;
     margin-top: 1rem !important;
     padding-bottom: 1rem !important; }
+  .app #intro #intro-hello {
+    width: 80%; }
+  .app #intro #next-intro {
+    margin-left: 0 !important; }
+
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0 6rem; }
 
   .notification-time #notification-count {
     display: none; }
@@ -9334,6 +9341,11 @@ a.count span.dont-move {
   .app #user-splash h1 {
     font-size: 2.2rem;
     line-height: 42px; }
+  .app #university-affiliation {
+    padding: 12rem 4rem; }
+
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0 4rem; }
 
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
@@ -9511,6 +9523,8 @@ a.count span.dont-move {
   .app .library .library-info .lib-blurb {
     font-size: 1.2rem;
     line-height: 1.5rem; }
+  .app #intro #intro-hello {
+    width: 95%; }
 
   .modal-login {
     margin: -150px 0 0 -200px;
@@ -9654,7 +9668,7 @@ a.count span.dont-move {
   .app .library {
     height: 200px !important; }
   .app .library .library-info {
-    top: 4.5rem; }
+    top: 2.5rem; }
   .app .library .library-info .title {
     font-size: 1.4rem; }
   .app .library .library-info .lib-blurb {
@@ -9685,6 +9699,34 @@ a.count span.dont-move {
     top: 21% !important; }
   .app #user-splash .user-avatar {
     top: 17% !important; }
+  .app #intro {
+    font-size: 1.3rem; }
+  .app #header-message {
+    padding: 1.4rem 0 0.5rem 0; }
+  .app #header-message button {
+    font-size: 12px; }
+  .app #university-affiliation {
+    padding: 8rem 3rem; }
+  .app #university-affiliation .selectize-control {
+    margin-left: 13%;
+    width: 75%; }
+  .app #university-affiliation #uni-intro, .app #university-affiliation #school-intro, .app #university-affiliation #welcome {
+    font-size: 1rem; }
+  .app #university-affiliation button {
+    font-size: 12px; }
+
+  .onboard #featured-scroller {
+    overflow-y: hidden; }
+  .onboard #onboard-photos-overlay .account-avatar-wrapper {
+    height: 120px;
+    width: 120px; }
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0; }
+  .onboard #onboard-photos-overlay #user-info h2 {
+    font-size: 2rem; }
+  .onboard #onboard-photos-overlay #user-info #user-bio {
+    font-size: 0.9rem;
+    line-height: 1.5; }
 
   .profile #user-extra {
     display: none; }
@@ -9767,6 +9809,10 @@ a.count span.dont-move {
     font-size: 1rem !important; }
   .app #library-splash #library-info {
     top: 40%; }
+  .app #university-affiliation {
+    padding: 8rem 2rem; }
+  .app #intro {
+    padding: 3rem 2rem; }
 
   body.library-manager #nav-wrapper {
     display: none !important; }
@@ -10186,6 +10232,14 @@ a.count span.dont-move {
     font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
     display: none; }
+  .app #university-affiliation {
+    padding: 7rem 0.5rem; }
+  .app #university-affiliation button {
+    top: 92%;
+    right: 6.5rem; }
+
+  .onboard #onboard-photos-overlay #user-info #user-bio {
+    padding: 0; }
 
   body.library-manager .library .wrapper {
     text-align: center !important; }
