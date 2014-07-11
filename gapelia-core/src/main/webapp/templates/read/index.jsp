@@ -93,9 +93,12 @@
 			</li>
 		</ul>
 		<ul id="edit-shortcut">
-			    <a class=submission-dropdown href="#">Edit Work</a>
+			    <a class=edit-book href="#">Edit Work</a>
+			    <a class=delete-book href="#">Delete</a>
 		</ul>
 		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
+		
+		<div id="delete-book-overlay" style="display: none; background-color: white; left: 0; top: 0; height: 100%; opacity: 0.85; padding-top: 12rem; position: absolute; text-align: center; width: 100%; z-index: 1000;"><h3>Hold on there, are you *sure* you want to delete your story?</h3><div class="wrapper" style="margin-top: 3rem;"><a href="#" id="confirm-delete-book" class="button a red">Yes, delete</a><a href="#" id="close-overlay" class="button b green">No, cancel</a></div></div>
         </div>
 
     </div>
@@ -183,8 +186,41 @@
 	});
 	
 	// Click Edit Work
-        $("#the-book #edit-shortcut").click(function (e) {
+        $("#the-book #edit-shortcut #edit-book").click(function (e) {
 		window.location.href = "/editbook/" +current.bookId;
+        });
+	
+	//Click delete book and open overlay
+	$("#edit-shortcut .delete-book").click(function (e) {
+		$("#delete-book-overlay").show();
+        });
+	
+	//Close overlay
+	$("#close-overlay").click(function (e) {
+		$("#delete-book-overlay").hide();
+        });
+	
+	// Confirm Delete Book
+	$("#confirm-delete-book").click(function (e) {
+		window.location.href = "/featured/";
+		
+		bookId = current.bookId;
+		sessionId = readCookie("JSESSIONID");
+		
+		$.ajax({
+			url: "/api/books/deleteBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    bookId: bookId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		});
         });
 	
 	// Hide submission dropdown when click outisde

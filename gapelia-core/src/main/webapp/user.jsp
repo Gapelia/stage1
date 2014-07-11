@@ -178,11 +178,13 @@
                 stuff += "</section>";
 
                 $("#mp-pusher").prepend(stuff);
+		
+		getUserMe();
+		isFollowing();
+		getPublicBooksArray();
 
-
-getUserMe();
-isFollowing();
-
+		//hide archive buttons if less than two published books//
+		if (books.length < 2) { $("#close-splash").remove() }
 
                 $("#user-splash").imgLiquid({
                     fill: true
