@@ -1,3 +1,28 @@
+<% /* *********************************************** */ %>
+<% /* Include this line below to make page login-safe */ %>
+<%@include file="../../auth.jsp" %>
+<% /* *********************************************** */ %>
+
+<%@include file="../../tools.jsp" %>
+<%
+    Integer userId = getUserIdFromCookie(request);
+    Integer libraryId = getIdFromUrl(request);
+
+    Integer authorId = null;
+
+    if(!isValidLibraryId(libraryId)) {
+        //out.println("This library doesn't exist in the database!");
+        response.sendRedirect("/");
+        return;
+    }
+    authorId = QueryUtils.getUserFromLibraryId(libraryId).getUserId();
+
+    if(userId != authorId) {
+       //out.println("you are not the author!");
+       response.sendRedirect("/");
+       return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 

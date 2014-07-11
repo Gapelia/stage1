@@ -20,6 +20,7 @@ public class QueryDatabaseBook {
 	private static final String IS_BOOK_IN_LIBRARY = "select * from library_books where book_id = ? and library_id = ?";
 
 	// Book Related Queries
+    private static final String IS_VALID_BOOKID = "SELECT 1 FROM books WHERE id = ?";
 	public static final String CREATE_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,?,?,?)";
 	public static final String CREATE_REVISION_BOOK = "INSERT INTO books (owned_by, created, last_updated, is_published) VALUES (?,now(),?,null)";
 	private static final String UPDATE_BOOK = "UPDATE books set cover_photo = ?, title = ?, language = ?, tags = ?, last_updated = ?, is_published = ?, snippet = ?  WHERE id = ?";
@@ -48,6 +49,25 @@ public class QueryDatabaseBook {
 			return false;
 		}
 	}
+
+    public static boolean isValidBookId(int bookId) {
+        PreparedStatement insert = null;
+        try {
+            insert = connection.prepareStatement(IS_VALID_BOOKID);
+            insert.setInt(1, bookId);
+            ResultSet rs = insert.executeQuery();
+
+            boolean result = rs.next();
+
+            rs.close();
+            insert.close();
+            return result;
+
+        } catch (SQLException ex) {
+            LOG.error("Cannot get if bookId is valid:" + bookId + ex.getMessage());
+            return false;
+        }
+    }
 
 	public static String getNumVotes(int bookId) {
 		PreparedStatement statement = null;
