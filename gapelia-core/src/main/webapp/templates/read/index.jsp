@@ -1,15 +1,15 @@
+<%@include file="../../tools.jsp" %>
 <%@ page import="com.gapelia.core.api.Books" %>
 <%@ page import="com.gapelia.core.model.Book" %>
-<%@ page import="com.gapelia.core.model.User" %>
 <%@ page import="com.gapelia.core.database.QueryUtils" %>
 <%
-  String currentURL = null;
-    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
-        currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+    String currentURL = "http://folio.is"+getUrl(request);
+    Integer bookId = getBookIdFromUrl(request);
+    if(!isValidBookId(bookId)) {
+        //out.println("This book doesn't exist in the database!");
+        response.sendRedirect("/");
+        return;
     }
-    currentURL = "http://folio.is"+currentURL;
-
-    Integer bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
     Book book = QueryUtils.getBookFromBookId(bookId);
     User user = QueryUtils.getUserFromBookId(bookId);
 

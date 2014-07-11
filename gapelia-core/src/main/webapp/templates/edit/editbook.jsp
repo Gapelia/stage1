@@ -3,6 +3,27 @@
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
 
+<%@include file="../../tools.jsp" %>
+<%
+    Integer userId = getUserIdFromCookie(request);
+    Integer bookId = getBookIdFromUrl(request);
+
+    Integer authorId = null;
+
+    if(!isValidBookId(bookId)) {
+        //out.println("This book doesn't exist in the database!");
+        response.sendRedirect("/");
+        return;
+    }
+    authorId = QueryUtils.getUserFromBookId(bookId).getUserId();
+
+    if(userId != authorId) {
+       //out.println("you are not the author!");
+       response.sendRedirect("/");
+       return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 

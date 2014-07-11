@@ -45,7 +45,6 @@ function getRevisions(){
 
 }
 
-
 function getFullBookFromBookId(bookId) {
     $.ajax({
         url: "/api/utils/getBookFromBookId",
@@ -372,7 +371,6 @@ function loadMoreBooks(count,items) {
 
 		return items.append(output);
 }
-
 
 function getFeaturedBooks() {
     sessionId = readCookie("JSESSIONID");
@@ -703,7 +701,6 @@ function loadMoreBooksInLibrary(count,items) {
 	return items.append(toInsert);
 }
 
-
 function getBooksInLibraryOwner() {
     libraryId = document.URL.split("/")[document.URL.split("/").length - 1]
     $.ajax({
@@ -744,7 +741,6 @@ function getBooksInLibraryOwner() {
     });
 }
 
-
 function getCreatedLibrariesArray() {
     sessionId = readCookie("JSESSIONID");
     libraries = [];
@@ -771,7 +767,6 @@ function getCreatedLibrariesArray() {
     });
     return libraries;
 }
-
 
 function getCreatedLibraries() {
     sessionId = readCookie("JSESSIONID");
@@ -864,7 +859,6 @@ function getCreatedLibrariesForBook() {
     });
 }
 
-
 function getAlreadyAddedBookIdsInLibrary(libraryId) {
 	books = [];
 	$.ajax({
@@ -890,7 +884,6 @@ function getAlreadyAddedBookIdsInLibrary(libraryId) {
 	
 	return books;
 }
-
 
 function getSubmissionsInLibrary() {
     $.ajax({
@@ -1134,6 +1127,7 @@ function getLibrary() {
         }
     });
 }
+
 function getLibraryFromLibraryId(libraryId) {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -1585,7 +1579,6 @@ function deleteAccount() {
 
 }
 
-
 function getUserMe() {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -1687,6 +1680,7 @@ function getUserFromUserId(userId) {
     });
     return userFrom;
 }
+
 function getUserFromLibraryId(libraryId) {
     $.ajax({
         url: "/api/utils/getUserFromLibraryId",
@@ -1708,6 +1702,7 @@ function getUserFromLibraryId(libraryId) {
         }
     });
 }
+
 function checkName(displayName) {
 	console.log("new name: " + displayName);
     if (displayName=="") {//add check for all our pages
@@ -1886,7 +1881,6 @@ function getNumberVotes(incomingBookId) {
     return numVotes;
 }
 
-
 function getBookFromBookId(bookId) {
     responseText = '';
     $.ajax({
@@ -1940,8 +1934,6 @@ function getLibraryFromBook(bookId) {
     return responseText;
 }
 
-
-
 function getLibraryFromBookBackCover(bookId) {
     responseText = '';
     $.ajax({
@@ -1967,7 +1959,6 @@ function getLibraryFromBookBackCover(bookId) {
     });
     return responseText;
 }
-
 
 function getPublicBooksArray() {
 sessionId = readCookie("JSESSIONID");
@@ -2025,7 +2016,6 @@ function loadMorePublicUserBooks(count,items) {
 		return items.append(toInsert);
 }
 
-
 function getPublicCreatedBooks() {
     $.ajax({
         url: "/api/users/getCreatedBooksPublic",
@@ -2078,7 +2068,6 @@ function getPublicCreatedBooks() {
     });
 
 }
-
 
 function quickUpdateUser() {
     name = user.name;
@@ -2345,8 +2334,6 @@ $(document).on("click", "#my-libraries ul a", function (ev) {
     $("#my-libraries ul").hide();
 });
 
-
-
 $(document).on("click", ".approve-book-confirm button", function (ev) {
     e = $(this).closest(".approve-book-confirm");
     bookId = e.parent().attr("id")
@@ -2425,8 +2412,6 @@ function rejectBook(notificationId) {
     refreshLibraryNotifications();
 }
 
-
-
 function refreshLibraryNotifications() {
     $.ajax({
         url: "/api/notifications/getNotificationsLibraries",
@@ -2454,8 +2439,6 @@ function refreshLibraryNotifications() {
         }
     });
 }
-
-
 
 function addBookToLibrary2(bookId, libraryId) {
     $.ajax({
@@ -2495,7 +2478,6 @@ function addBookToLibrary(bookId) {
     });
 }
 
-
 function addBookToSpecificLibrary(bookId,libraryId) {
     sessionId = readCookie("JSESSIONID");
     $.ajax({
@@ -2514,9 +2496,6 @@ function addBookToSpecificLibrary(bookId,libraryId) {
         }
     });
 }
-
-
-
 
 $(document).on("click", ".deny-book-confirm button", function (ev) {
 	console.log("DENYING");
@@ -2712,7 +2691,6 @@ function loadMoreUsers(count,items) {
 		
 	return items.append(toInsert);
 }
-
 
 function getFollowingUsers() {
     sessionId = readCookie("JSESSIONID");
@@ -3088,6 +3066,7 @@ function getContributedTo() {
         }
     });
 }
+
 function updateBookAndPages(isPublished) {
     tags = '';
     if (isPublished == true) {
