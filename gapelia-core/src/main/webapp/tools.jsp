@@ -2,6 +2,7 @@
 <%@ page import="com.gapelia.core.model.User" %>
 <%@ page import="com.gapelia.core.database.QueryUtils" %>
 <%@ page import="com.gapelia.core.database.QueryDatabaseBook" %>
+<%@ page import="com.gapelia.core.database.QueryDatabaseLibrary" %>
 
 <%!
 public Integer getUserIdFromCookie(HttpServletRequest request) {
@@ -32,7 +33,7 @@ public String getUrl(HttpServletRequest request) {
     return currentURL;
 }
 
-public Integer getBookIdFromUrl(HttpServletRequest request) {
+public Integer getIdFromUrl(HttpServletRequest request) {
 
     String currentURL = getUrl(request);
     Integer bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
@@ -41,6 +42,10 @@ public Integer getBookIdFromUrl(HttpServletRequest request) {
 
 public Boolean isValidBookId(Integer bookId) {
    return QueryDatabaseBook.isValidBookId(bookId);
+}
+
+public Boolean isValidLibraryId(Integer libraryId) {
+   return QueryDatabaseLibrary.isValidLibraryId(libraryId);
 }
 
 %>

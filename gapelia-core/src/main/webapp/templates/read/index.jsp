@@ -4,7 +4,7 @@
 <%@ page import="com.gapelia.core.database.QueryUtils" %>
 <%
     String currentURL = "http://folio.is"+getUrl(request);
-    Integer bookId = getBookIdFromUrl(request);
+    Integer bookId = getIdFromUrl(request);
     if(!isValidBookId(bookId)) {
         //out.println("This book doesn't exist in the database!");
         response.sendRedirect("/");

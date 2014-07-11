@@ -26,11 +26,31 @@ public class QueryDatabaseLibrary {
 	private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
 	private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
 	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
+    private static final String IS_VALID_LIBRARYID = "SELECT 1 FROM libraries WHERE id = ?";
 
 	private static final String MOST_VOTED_BOOK = "select library_books.book_id from library_books left join (select count(book_id) " +
 			"as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id " +
 			"where library_id = ? limit 1";
 
+
+    public static boolean isValidLibraryId(int libraryId) {
+        PreparedStatement insert = null;
+        try {
+            insert = connection.prepareStatement(IS_VALID_LIBRARYID);
+            insert.setInt(1, libraryId);
+            ResultSet rs = insert.executeQuery();
+
+            boolean result = rs.next();
+
+            rs.close();
+            insert.close();
+            return result;
+
+        } catch (SQLException ex) {
+            LOG.error("Cannot get if libraryId is valid:" + libraryId + ex.getMessage());
+            return false;
+        }
+    }
 
 	public static String getNumSubscribers(int library_id) {
 		PreparedStatement statement = null;

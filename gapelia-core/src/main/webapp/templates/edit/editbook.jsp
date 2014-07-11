@@ -6,7 +6,7 @@
 <%@include file="../../tools.jsp" %>
 <%
     Integer userId = getUserIdFromCookie(request);
-    Integer bookId = getBookIdFromUrl(request);
+    Integer bookId = getIdFromUrl(request);
 
     Integer authorId = null;
 
