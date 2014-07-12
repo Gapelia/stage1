@@ -1,8 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
-
 <%@include file="../../tools.jsp" %>
 <%
     Integer userId = getUserIdFromCookie(request);

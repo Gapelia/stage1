@@ -1,8 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
-
 <%@include file="../../tools.jsp" %>
 <%
     Integer userId = getUserIdFromCookie(request);
@@ -37,7 +32,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
 
 				01000111011000010111000001100101011011000110100101100001
 
@@ -199,9 +194,11 @@
             	function load() { loadBookEditor(); getRevisions();
 		
 			//check that book owner is the user//
+			/*
 			if (user.userId != book.userId) {
 				window.location.href = "/404";
 			}
+			*/
 			
 			//share draft code//
 			if ($vW > "1024") {
