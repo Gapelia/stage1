@@ -113,9 +113,21 @@ CREATE INDEX book_notif_sender_idx ON book_notifications(recipient,sender,refere
 CREATE TABLE IF NOT EXISTS comment_notifications (
         id SERIAL PRIMARY KEY,
         commenter INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
-        referenced_book INT REFERENCES books(id) ON DELETE CASCADE NOT NULL
+        referenced_book INT REFERENCES books(id) ON DELETE CASCADE NOT NULL,
+	hash text NOT NULL,
+	type text NOT NULL,
+	comment text,
+	time TIMESTAMP WITH TIME ZONE NOT NULL
 );
-CREATE INDEX comment_notif_idx ON comment_notifications(referenced_book,commenter);
+CREATE INDEX comment_notif_idx ON comment_notifications(referenced_book,commenter,hash);
+
+
+CREATE TABLE IF NOT EXISTS pending_comment_notifications (
+        id SERIAL PRIMARY KEY,
+        recipient INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+        comment_id INT REFERENCES comment_notifications(id) ON DELETE CASCADE NOT NULL
+);
+CREATE INDEX pend_comment_notif_idx ON pending_comment_notifications(recipient);
 
 CREATE TABLE IF NOT EXISTS library_notifications (
 	id SERIAL PRIMARY KEY,

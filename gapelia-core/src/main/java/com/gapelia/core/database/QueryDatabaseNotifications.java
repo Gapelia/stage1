@@ -4,10 +4,7 @@ import com.gapelia.core.api.Email;
 import com.gapelia.core.model.*;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,51 +28,153 @@ public class QueryDatabaseNotifications {
 	private static final String INSERT_BOOK_NOTIFICATION = "INSERT into book_notifications(recipient,referenced_book,sender,date_sent) VALUES(?,?,?,?)";
 	private static final String DELETE_BOOK_NOTIFICATIONS = "DELETE FROM book_notifications where id = ?";
 
-	private static final String INSERT_COMMENT_NOTIFICATION = "INSERT into comment_notifications(commenter,referenced_book) VALUES (?,?)";
 	private static final String GET_COMMENT_NOTIFICATION = "SELECT * FROM comment_notifications WHERE referenced_book = ?";
-	private static final String DELETE_COMMENT_NOTIFICATIONS = "DELETE FROM comment_notifications where id = ?";
+	private static final String GET_PENDING_NOTIFICATIONS = "select pending_comment_notifications.id as pending_id,comment_id,commenter,referenced_book,hash,type,comment," +
+			"time from pending_comment_notifications join comment_notifications on comment_id = comment_notifications.id where recipient = ? and commenter != ? order by time desc";
 
+	private static final String GET_OTHER_COMMENT_HASHES = "select * from comment_notifications where hash = ?";
+
+	private static final String DELETE_PENDING_COMMENT_NOTIF = "DELETE FROM pending_comment_notifications where id = ?";
+	private static final String INSERT_PENDING_NOTIFICATION = "insert into pending_comment_notifications (recipient,comment_id) values (?,?)";
+	private static final String INSERT_COMMENT_NOTIFICATION = "insert into comment_notifications (commenter,referenced_book,hash,type,comment,time) values (?,?,?,?,?,now())";
 
 	public static ArrayList<CommentNotification> getCommentNotifications(User u) {
 
 		ArrayList<Book> ownedBooks = QueryDatabaseUser.getCreatedBooks(u.getUserId());
-		ArrayList<CommentNotification> commentNotifications = new ArrayList<CommentNotification>();
 
-		for(Book b : ownedBooks){
-				ArrayList<CommentNotification> c = getCommentNotificationsByBookId(b.getBookId());
-				if(c.size() > 0){
-					commentNotifications.addAll(c);
+
+		PreparedStatement selectStatement = null;
+		ResultSet rs = null;
+		ArrayList<CommentNotification> commentNotifications = new ArrayList<CommentNotification>();
+		try {
+			selectStatement = connection.prepareStatement(GET_PENDING_NOTIFICATIONS);
+			selectStatement.setInt(1, u.getUserId());
+			selectStatement.setInt(2, u.getUserId());
+			rs = selectStatement.executeQuery();
+
+			while(rs.next()) {
+				CommentNotification commentNotification = new CommentNotification();
+				commentNotification.setPendingId(rs.getInt("pending_id"));
+				commentNotification.setCommenterUserId(rs.getInt("commenter"));
+				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
+				commentNotification.setHash(rs.getString("hash"));
+				commentNotification.setType(rs.getString("type"));
+				commentNotification.setComment(rs.getString("comment"));
+				commentNotification.setTime(rs.getTimestamp("time"));
+
+				boolean ownedByMe = false;
+				for(Book b : ownedBooks){
+					if(b.getBookId() == commentNotification.getReferencedBookId())
+						ownedByMe = true;
 				}
+				commentNotification.setBookOwnedByMe(ownedByMe);
+
+				commentNotifications.add(commentNotification);
+
+			}
+		} catch (SQLException ex) {
+			LOG.error("Cannot get comment notifications for user:" + u.getUserId() + " " + ex.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (selectStatement != null) {
+					selectStatement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection while getting comment notifs for user:" +  u.getUserId() + " " + ex.getMessage());
+			}
 		}
+
 
 		return commentNotifications;
 	}
 
 
-	public static String createCommentNotification(CommentNotification b) {
+	public static String createCommentNotification(CommentNotification incomingNotification) {
+
+		// this method will create notifications for all parties involved.
+		//  you are a recipient of the notification in two cases:
+		//   1.  You own the book
+		//   2.  You have also commented on that hash id
+
 		String result = "SUCCESS";
-		PreparedStatement insert = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
 		try {
-			User u = QueryDatabaseUser.getUserById(QueryDatabaseUser.getBookByID(b.getReferencedBookId()).getUserId());
+			User referencedBookOwner = QueryDatabaseUser.getUserById(QueryDatabaseUser.getBookByID(incomingNotification.getReferencedBookId()).getUserId());
 
-			//dont notify if self
-			if(u.getUserId() == b.getCommenterUserId()) return "SUCCESS";
 
-			insert = connection.prepareStatement(INSERT_COMMENT_NOTIFICATION);
-			insert.setInt(1, b.getCommenterUserId());
-			insert.setInt(2, b.getReferencedBookId());
-			insert.executeUpdate();
 
-			//send email off
-			Email.sendCommentEmail(u,b);
+			//insert comment 'archive'
+			statement = connection.prepareStatement(INSERT_COMMENT_NOTIFICATION, Statement.RETURN_GENERATED_KEYS);
+			statement.setInt(1, incomingNotification.getCommenterUserId());
+			statement.setInt(2, incomingNotification.getReferencedBookId());
+			statement.setString(3, incomingNotification.getHash());
+			statement.setString(4, incomingNotification.getType());
+			statement.setString(5, incomingNotification.getComment());
+			statement.executeUpdate();
+
+			rs = statement.getGeneratedKeys();
+
+			int generatedCommentId = 0;
+
+			if ( rs.next() ) {
+				generatedCommentId = rs.getInt(1);
+			}
+
+			//begin inserting pending comments
+			statement = connection.prepareStatement(GET_OTHER_COMMENT_HASHES);
+			statement.setString(1, incomingNotification.getHash());
+			rs = statement.executeQuery();
+
+			while(rs.next()){    //for everybody that has commented on the same hash
+				CommentNotification commentNotification = new CommentNotification();
+				commentNotification.setCommentId(rs.getInt("id"));
+				commentNotification.setCommenterUserId(rs.getInt("commenter"));
+				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
+				commentNotification.setHash(rs.getString("hash"));
+				commentNotification.setType(rs.getString("type"));
+				commentNotification.setComment(rs.getString("comment"));
+				commentNotification.setTime(rs.getTimestamp("time"));
+
+
+
+				if(commentNotification.getCommenterUserId() != incomingNotification.getCommenterUserId()){
+
+					statement = connection.prepareStatement(INSERT_PENDING_NOTIFICATION);
+					statement.setInt(1, commentNotification.getCommenterUserId());
+					statement.setInt(2, generatedCommentId);
+
+					statement.executeUpdate();
+
+					Email.sendCommentEmail(QueryDatabaseUser.getUserById(commentNotification.getCommenterUserId()), incomingNotification);
+				}
+			}
+
+			//insert comment notification to owner
+			if(incomingNotification.getCommenterUserId() != referencedBookOwner.getUserId()){
+				statement = connection.prepareStatement(INSERT_PENDING_NOTIFICATION);
+				statement.setInt(1, referencedBookOwner.getUserId());
+				statement.setInt(2,generatedCommentId);
+
+				statement.executeUpdate();
+
+
+				Email.sendCommentEmail(referencedBookOwner, incomingNotification);
+			}
+
+
+
 
 		} catch (SQLException ex) {
 			LOG.error("Cannot create comment notifiction:"  + ex);
 			result ="ERROR" + ex.getMessage();
 		} finally {
 			try {
-				if (insert != null) {
-					insert.close();
+				if (statement != null) {
+					statement.close();
 				}
 			} catch (SQLException ex) {
 				LOG.error("Error closing connection " + ex.getMessage());
@@ -94,7 +193,7 @@ public class QueryDatabaseNotifications {
 			rs = selectStatement.executeQuery();
 			while(rs.next()) {
 				CommentNotification commentNotification = new CommentNotification();
-				commentNotification.setNotificationId(rs.getInt("id"));
+				commentNotification.setPendingId(rs.getInt("id"));
 				commentNotification.setCommenterUserId(rs.getInt("commenter"));
 				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
 				commentNotifications.add(commentNotification);
@@ -120,7 +219,7 @@ public class QueryDatabaseNotifications {
 		PreparedStatement insert = null;
 		String result = "SUCCESS";
 		try {
-			insert = connection.prepareStatement(DELETE_COMMENT_NOTIFICATIONS);
+			insert = connection.prepareStatement(DELETE_PENDING_COMMENT_NOTIF);
 			insert.setInt(1, notificationId);
 			insert.executeUpdate();
 		} catch (SQLException ex) {

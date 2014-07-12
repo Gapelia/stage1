@@ -23,6 +23,7 @@ public class Books {
 	private static Logger LOG = Logger.getLogger(Books.class);
 
 
+
 	@Path("getOriginalBookIdFromRevisionId")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -165,6 +166,8 @@ public class Books {
 
 		Gson gson = new GsonBuilder().create();
 		User u = SessionManager.getUserFromSessionId(sessionId);
+
+
 		return gson.toJson(QueryDatabaseBook.deletePage(pageId));
 	}
 
@@ -204,6 +207,11 @@ public class Books {
 
 		Gson gson = new GsonBuilder().create();
 		User u = SessionManager.getUserFromSessionId(sessionId);
+
+		if(!APIUtil.userOwnsBook(u,bookId))
+			return "permission denied";
+
+
 		Book book = new Book();
 		book.setBookId(bookId);
 		book.setCoverPhoto(coverPhoto);
@@ -229,6 +237,13 @@ public class Books {
 
 		Gson gson = new GsonBuilder().create();
 		User u = SessionManager.getUserFromSessionId(sessionId);
+
+
+		if(!APIUtil.userOwnsBook(u, bookId))
+			return "permission denied";
+
+
 		return gson.toJson(QueryDatabaseBook.deleteBook(bookId));
 	}
+
 }

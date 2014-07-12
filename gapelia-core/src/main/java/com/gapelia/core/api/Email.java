@@ -106,8 +106,10 @@ public class Email {
 		String[] cmd = {
 				"/bin/sh",
 				"-c",
-				"/emailScripts/commentEmail.sh '"+QueryDatabaseUser.getBookByID(n.getReferencedBookId()).getTitle()+
-						"' '"+n.getReferencedBookId()+"' '" + u.getEmail() +"'"
+				"/emailScripts/commentEmail.sh '"+n.getType() + "' '" + n.getReferencedBookId() +
+						"' '"+ QueryDatabaseUser.getBookByID(n.getReferencedBookId()).getTitle() +"' '" +
+						QueryDatabaseUser.getUserById(n.getCommenterUserId()).getName() + "' '" +
+						n.getComment() + "' '" + u.getEmail() +"'"
 		};
 
 		LOG.info("Emailing comment email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);

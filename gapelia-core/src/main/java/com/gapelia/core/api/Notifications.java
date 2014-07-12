@@ -225,7 +225,10 @@ public class Notifications {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String createCommentNotification(@FormParam("sessionId") String sessionId,
-											@FormParam("referencedBook") int referencedBook) {
+											@FormParam("referencedBook") int referencedBook,
+											@FormParam("hash") String hash,
+											@FormParam("type") String type,
+											@FormParam("comment") String comment) {
 
 		if (!APIUtil.isValidSession(sessionId))
 			return APIUtil.INVALID_SESSION_ERROR_MSG;
@@ -237,6 +240,9 @@ public class Notifications {
 		CommentNotification commentNotification = new CommentNotification();
 		commentNotification.setReferencedBookId(referencedBook);
 		commentNotification.setCommenterUserId(u.getUserId());
+		commentNotification.setHash(hash);
+		commentNotification.setType(type);
+		commentNotification.setComment(comment);
 		return gson.toJson(QueryDatabaseNotifications.createCommentNotification(commentNotification));
 	}
 

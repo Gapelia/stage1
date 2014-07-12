@@ -2,8 +2,11 @@ package com.gapelia.core.api;
 
 import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseSearch;
+import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.database.QueryUtils;
+import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Search;
+import com.gapelia.core.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -42,6 +45,12 @@ public class APIUtil {
 	public static boolean checkIfOwnPage() {
 		return false;
 	}
+
+	public static boolean userOwnsBook(User u, int bookId){
+		Book b = QueryDatabaseUser.getBookByID(bookId);
+		return b.getUserId() == u.getUserId();
+	}
+
 	@Path("getUserFromLibraryId")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
