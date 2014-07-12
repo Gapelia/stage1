@@ -7506,6 +7506,17 @@ a.count span.dont-move {
   opacity: 0.8;
   position: absolute;
   z-index: 0; }
+.full-book #next-book {
+  float: right;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin-right: 6rem;
+  margin-top: -5rem;
+  max-width: 30%;
+  opacity: 0.8;
+  text-align: right; }
+.full-book #next-book a {
+  color: #59B3A6; }
 .full-book .resize-smaller, .full-book .resize-bigger {
   top: 0;
   right: 0;

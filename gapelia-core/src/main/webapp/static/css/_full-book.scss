@@ -1085,6 +1085,20 @@
 			}
 		}
 	}
+  
+  //applies when book is not part of library in fluid layout footer//
+  #next-book {
+    float: right;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-right: 6rem;
+    margin-top: -5rem;
+    max-width: 30%;
+    opacity: 0.8;
+    text-align: right;
+    
+    a { color: #59B3A6; }
+  }
 
 	.resize-smaller, .resize-bigger {
 		top: 0; right: 0;

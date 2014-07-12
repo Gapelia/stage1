@@ -516,7 +516,11 @@ function getReadNextBook() {
         htmlToInsert += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul>";
         htmlToInsert += "</div></div>";
         htmlToInsert += "</div>";
-        getReadNextBook();
+        if (getLibraryFromBook() == "") {
+            htmlToInsert += "<div id=\"next-book\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.userId+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";
+        } else {
+            getReadNextBook();
+        }
         
         }
 

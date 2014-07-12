@@ -337,6 +337,8 @@ $(document).ready(function() {
 			"width" : "35%",
 			"float" : "right"
 		})
+		
+		//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 	    }
 	    
 	    document.title = pages[0].title;
