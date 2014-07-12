@@ -198,8 +198,8 @@
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li id=\"university\"></li>"
 		stuff += "<li id=\"department\"></li>"
-		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
-		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
+		stuff += "<li><a id=\"website\"  target=\"blank\" href=\"" +user.personalWebsite+ "\"></a></li>"
+		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
 		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
@@ -211,6 +211,9 @@
                 stuff += "</section>";
 
                 $("#mp-pusher").prepend(stuff);
+		
+		//hide archive buttons if less than two published books//
+		if (books.length < 2) { $("#close-splash").remove() }
 
                 $("#user-splash").imgLiquid({
                     fill: true
@@ -319,9 +322,9 @@
 		
 		
 		if ($vW > "1919") {
-			$("#user-splash #user-extra").css("cssText", "bottom: -28rem !important");
+			$("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
 			$(".profile .follow").css("cssText", "left: 92.5% !important");
-			$("#user-splash #close-splash").css("left", "85%");
+			$("#user-splash #close-splash").css("left", "92%");
 		}
 		
 		if ($vH > "1079") {

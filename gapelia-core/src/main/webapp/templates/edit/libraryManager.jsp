@@ -298,9 +298,8 @@
             })
         }
         
-        if ($sW > "1919") {
-            
-            $("#featured-nav .typeahead").css("cssText", "14rem !important");
+        if ($vW > "1919") {
+            $("#featured-nav .typeahead").css("cssText", "left: 14rem !important");
         }
         
         // Log Out

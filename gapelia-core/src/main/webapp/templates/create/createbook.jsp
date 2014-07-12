@@ -2,7 +2,18 @@
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
-
+<%
+    Integer bookId;
+    Boolean isResponse = false;
+    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
+        String currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+        if(currentURL.toLowerCase().contains("respondTo".toLowerCase())) {
+            isResponse = true;
+            bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
+            out.println("response!");
+        }
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -181,7 +192,7 @@
 		<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); getRevisions(); }
+			function load() { createBook(); }
 		
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 			

@@ -39,6 +39,7 @@ Thumbs.db
 
 # ignore folders
 /gapelia-core/*
+/.idea/*
 
 # don't ignore this folder
 !/gapelia-core/src

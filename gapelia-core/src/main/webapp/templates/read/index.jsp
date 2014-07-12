@@ -1,3 +1,24 @@
+<%@include file="../../tools.jsp" %>
+<%@ page import="com.gapelia.core.api.Books" %>
+<%@ page import="com.gapelia.core.model.Book" %>
+<%@ page import="com.gapelia.core.database.QueryUtils" %>
+<%
+    String currentURL = "http://folio.is"+getUrl(request);
+    Integer bookId = getIdFromUrl(request);
+    if(!isValidBookId(bookId)) {
+        //out.println("This book doesn't exist in the database!");
+        response.sendRedirect("/");
+        return;
+    }
+    Book book = QueryUtils.getBookFromBookId(bookId);
+    User user = QueryUtils.getUserFromBookId(bookId);
+
+    String author = user.getName();
+    String title = book.getTitle();
+    String snippet = book.getSnippet();
+    String coverPhoto = book.getCoverPhoto();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,22 +28,22 @@
 
     <!-- Search tags --> 
     <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="">
+    <meta name="author" content="<%= author %>" />
+    <meta name="description" content="<%= snippet %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
     <!-- for Facebook -->  
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="<%= title %>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:description" content=""/>
+    <meta property="og:image" content="<%= coverPhoto %>"/>
+    <meta property="og:url" content="<%= currentURL %>"/>
+    <meta property="og:description" content="<%= snippet %>"/>
     
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= snippet %>" />
+    <meta name="twitter:image" content="<%= coverPhoto %>" />
     
     <link href="/static/images/favicon.png" rel="shortcut icon" />
 
@@ -72,9 +93,12 @@
 			</li>
 		</ul>
 		<ul id="edit-shortcut">
-			    <a class=submission-dropdown href="#">Edit Work</a>
+			    <a class=edit-book href="#">Edit Work</a>
+			    <a class=delete-book href="#">Delete</a>
 		</ul>
 		<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
+		
+		<div id="delete-book-overlay" style="display: none; background-color: white; left: 0; top: 0; height: 100%; opacity: 0.85; padding-top: 12rem; position: absolute; text-align: center; width: 100%; z-index: 1000;"><h3>Hold on there, are you *sure* you want to delete your story?</h3><div class="wrapper" style="margin-top: 3rem;"><a href="#" id="confirm-delete-book" class="button a red">Yes, delete</a><a href="#" id="close-overlay" class="button b green">No, cancel</a></div></div>
         </div>
 
     </div>
@@ -162,8 +186,41 @@
 	});
 	
 	// Click Edit Work
-        $("#the-book #edit-shortcut").click(function (e) {
+        $("#the-book #edit-shortcut #edit-book").click(function (e) {
 		window.location.href = "/editbook/" +current.bookId;
+        });
+	
+	//Click delete book and open overlay
+	$("#edit-shortcut .delete-book").click(function (e) {
+		$("#delete-book-overlay").show();
+        });
+	
+	//Close overlay
+	$("#close-overlay").click(function (e) {
+		$("#delete-book-overlay").hide();
+        });
+	
+	// Confirm Delete Book
+	$("#confirm-delete-book").click(function (e) {
+		window.location.href = "/featured/";
+		
+		bookId = current.bookId;
+		sessionId = readCookie("JSESSIONID");
+		
+		$.ajax({
+			url: "/api/books/deleteBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    bookId: bookId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		});
         });
 	
 	// Hide submission dropdown when click outisde
@@ -193,7 +250,7 @@
 	})}
 	
 	if ($vW > "1919") {
-		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
+		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
 	}
 
 $(document).ready(function() {
@@ -223,51 +280,33 @@ $(document).ready(function() {
 		});
 	} ,false); //end readerboard block
 
-
-	book = getFullBookFromBookId(bookId);
-	
-	    //Meta Tags//
-	    document.title = book.title + " by " + bookOwner.name;
-	    $('meta[property="author"]').attr('content', bookOwner.name);
-	    $('meta[property="description"]').attr('content', book.snippet);
-	    
-	    //Chaging Facebook Meta Tags//
-	    $('meta[property="og:title"]').attr('content', book.title);
-	    $('meta[property="og:description"]').attr('content', book.snippet);
-	    $('meta[property="og:image"]').attr('content', book.coverPhoto);
-	    $('meta[property="og:url"]').attr('content', 'http://folio.is/read/' + current.bookId);
-	
-	   //Changing Twitter Meta Tags//
-	   $('<meta[name="twitter:title"]').attr('content', book.title);
-	   $('<meta[name="twitter:description"]').attr('content', book.snippet);
-	   $('<meta[name="twitter:image"]').attr('content', book.coverPhoto);
 	   
-	    $(".fluid-wrapper").imgLiquid({
-                fill: true
-            });
-	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".overlay-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".phototext-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                fill: true
-            });
+    $(".fluid-wrapper").imgLiquid({
+            fill: true
+        });
+    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".overlay-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".phototext-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+            fill: true
+        });
 
-            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 });
 
 
 
  setTimeout(function () {
 
-            $(".fluid-wrapper").imgLiquid({
+            /*$(".fluid-wrapper").imgLiquid({
                 fill: true
-            });
+            });*/
 	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
                 fill: true
             });
@@ -298,7 +337,11 @@ $(document).ready(function() {
 			"width" : "35%",
 			"float" : "right"
 		})
+		
+		//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 	    }
+	    
+	    document.title = pages[0].title;
 	    
         }, 2000);
       

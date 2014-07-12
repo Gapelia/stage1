@@ -4264,7 +4264,7 @@ body.library-manager ::-webkit-scrollbar {
   font-style: italic;
   font-weight: 600 !important;
   margin-left: 8px;
-  text-transform: lowercase; }
+  text-transform: capitalize; }
 .profile #user-splash h5 a:first-letter {
   text-transform: uppercase; }
 .profile #user-splash #splash-user-info {
@@ -5014,8 +5014,7 @@ body.library-manager ::-webkit-scrollbar {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
-  float: left;
-  height: 5rem; }
+  float: left; }
 .book-creation header #back #revision-toggle {
   left: 5.5rem;
   top: 0.55rem;
@@ -6926,7 +6925,9 @@ a.count span.dont-move {
 .full-book .fluid-wrapper iframe, .full-book .photo-wrapper iframe, .full-book .overlay-wrapper iframe, .full-book .phototext-wrapper iframe, .full-book .vertical-wrapper iframe, .full-book .video-wrapper iframe, .full-book .backcover-wrapper iframe {
   height: 100%; }
 .full-book .fluid-wrapper .page-bg, .full-book .photo-wrapper .page-bg, .full-book .overlay-wrapper .page-bg, .full-book .phototext-wrapper .page-bg, .full-book .vertical-wrapper .page-bg, .full-book .video-wrapper .page-bg, .full-book .backcover-wrapper .page-bg {
-  height: auto; }
+  height: auto;
+  display: block !important;
+  top: 0 !important; }
 .full-book .fluid-wrapper .page-title-elem, .full-book .photo-wrapper .page-title-elem, .full-book .overlay-wrapper .page-title-elem, .full-book .phototext-wrapper .page-title-elem, .full-book .vertical-wrapper .page-title-elem, .full-book .video-wrapper .page-title-elem, .full-book .backcover-wrapper .page-title-elem {
   color: rgba(25, 25, 25, 0.8);
   font-size: 3rem;
@@ -7023,6 +7024,8 @@ a.count span.dont-move {
 .full-book .fluid-wrapper {
   background-color: #fcfcfc;
   height: 100%; }
+.full-book .fluid-wrapper .page-bg {
+  top: -25% !important; }
 .full-book .fluid-wrapper section, .full-book .fluid-wrapper .fluid-preview {
   transition: all 0.2s ease; }
 .full-book .fluid-wrapper section {
@@ -7159,7 +7162,8 @@ a.count span.dont-move {
   text-align: center;
   top: 15% !important; }
 .full-book .photo-wrapper .page-bg {
-  vertical-align: middle; }
+  vertical-align: middle;
+  height: 100% !important; }
 .full-book .photo-wrapper .photo-preview {
   width: 100%;
   height: 100%;
@@ -7209,6 +7213,8 @@ a.count span.dont-move {
   font-style: italic;
   line-height: 2.8rem;
   text-align: center; }
+.full-book .overlay-wrapper .page-bg {
+  height: 100%; }
 .full-book .overlay-wrapper .author-info {
   position: relative;
   top: 1rem;
@@ -7242,6 +7248,8 @@ a.count span.dont-move {
   margin: 0 1rem 0 0;
   margin-top: -2rem;
   vertical-align: middle; }
+.full-book .phototext-wrapper .page-bg {
+  height: 100%; }
 .full-book .phototext-wrapper .phototext-preview {
   width: 40%;
   height: 100%;
@@ -7259,8 +7267,6 @@ a.count span.dont-move {
 .full-book .phototext-wrapper .phototext-preview .page-desc {
   font-size: 1.2rem;
   line-height: 1.7rem; }
-.full-book .phototext-wrapper .author-info .author-avatar {
-  margin-left: -3rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
   height: 100%; }
@@ -7500,6 +7506,17 @@ a.count span.dont-move {
   opacity: 0.8;
   position: absolute;
   z-index: 0; }
+.full-book #next-book {
+  float: right;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin-right: 6rem;
+  margin-top: -5rem;
+  max-width: 30%;
+  opacity: 0.8;
+  text-align: right; }
+.full-book #next-book a {
+  color: #59B3A6; }
 .full-book .resize-smaller, .full-book .resize-bigger {
   top: 0;
   right: 0;
@@ -7678,10 +7695,12 @@ a.count span.dont-move {
   #contactable-inner {
     top: 92% !important; }
 
+  .app {
+    .library-location-left: 6%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
     width: 600px !important; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
-    top: 53% !important; }
+    padding: 0rem 1rem 1rem 1rem; }
   .app #featured-nav {
     top: 0.6rem !important; }
   .app #featured-panel {
@@ -7695,8 +7714,7 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #featured-nav .typeahead {
     font-size: 1rem !important;
-    left: 6rem !important;
-    width: 700px; }
+    left: 6rem !important; }
   .app #featured-nav .tt-dropdown-menu {
     font-size: 1.25rem !important; }
   .app #featured-nav .glass {
@@ -7705,7 +7723,7 @@ a.count span.dont-move {
     margin-left: 4% !important;
     height: 6% !important; }
   .app #new-library #new-library-info {
-    top: 48.5%; }
+    top: 51.5%; }
 
   body.library #featured-panel #g-menu-toggle {
     left: 1.2rem;
@@ -7732,7 +7750,7 @@ a.count span.dont-move {
   .profile #user-panel #user-splash #user-extra {
     bottom: -37rem !important; }
   .profile #user-panel #user-splash #close-splash {
-    left: 91.5% !important; }
+    left: 92% !important; }
 
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
@@ -7869,13 +7887,17 @@ a.count span.dont-move {
   .app #library-splash #library-info span {
     font-size: 1.7rem !important; }
   .app #new-library .button-wrapper {
-    top: 28%; }
+    top: 24%; }
   .app #new-library .library-controls {
     bottom: 4.5rem; }
   .app #new-library #close-splash {
     height: 7%;
     left: 29% !important;
     padding: 1.5rem 1rem 1rem 1rem; }
+  .app #new-library p {
+    font-size: 2rem !important;
+    line-height: 2;
+    opacity: 0.8; }
   .app .book-list-wrapper .library-empty {
     left: 260%; }
   .app .library-list-wrapper .library-empty {
@@ -7975,8 +7997,7 @@ a.count span.dont-move {
     padding: 10rem 10rem 0 10rem; }
   .full-book .backcover-wrapper #fin .author-name {
     display: inline !important;
-    font-size: 2rem;
-    margin: 0 0 0.5rem 2rem; }
+    font-size: 2rem; }
   .full-book .backcover-wrapper #fin .author-name :first-letter {
     text-transform: uppercase; }
   .full-book .backcover-wrapper #fin #author-bio-blurb {
@@ -8012,8 +8033,6 @@ a.count span.dont-move {
     width: 9300px !important; }
   .app #featured-nav #nav-search {
     margin-left: 26.5% !important; }
-  .app .selectize-control {
-    margin-left: 24.5% !important; }
   .app #featured-nav .typeahead {
     margin-left: 50%; }
   .app #featured-nav .tt-dropdown-menu {
@@ -8590,6 +8609,13 @@ a.count span.dont-move {
     bottom: 1rem;
     margin-top: 1rem !important;
     padding-bottom: 1rem !important; }
+  .app #intro #intro-hello {
+    width: 80%; }
+  .app #intro #next-intro {
+    margin-left: 0 !important; }
+
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0 6rem; }
 
   .notification-time #notification-count {
     display: none; }
@@ -9326,6 +9352,11 @@ a.count span.dont-move {
   .app #user-splash h1 {
     font-size: 2.2rem;
     line-height: 42px; }
+  .app #university-affiliation {
+    padding: 12rem 4rem; }
+
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0 4rem; }
 
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
@@ -9503,6 +9534,8 @@ a.count span.dont-move {
   .app .library .library-info .lib-blurb {
     font-size: 1.2rem;
     line-height: 1.5rem; }
+  .app #intro #intro-hello {
+    width: 95%; }
 
   .modal-login {
     margin: -150px 0 0 -200px;
@@ -9646,7 +9679,7 @@ a.count span.dont-move {
   .app .library {
     height: 200px !important; }
   .app .library .library-info {
-    top: 4.5rem; }
+    top: 2.5rem; }
   .app .library .library-info .title {
     font-size: 1.4rem; }
   .app .library .library-info .lib-blurb {
@@ -9677,6 +9710,34 @@ a.count span.dont-move {
     top: 21% !important; }
   .app #user-splash .user-avatar {
     top: 17% !important; }
+  .app #intro {
+    font-size: 1.3rem; }
+  .app #header-message {
+    padding: 1.4rem 0 0.5rem 0; }
+  .app #header-message button {
+    font-size: 12px; }
+  .app #university-affiliation {
+    padding: 8rem 3rem; }
+  .app #university-affiliation .selectize-control {
+    margin-left: 13%;
+    width: 75%; }
+  .app #university-affiliation #uni-intro, .app #university-affiliation #school-intro, .app #university-affiliation #welcome {
+    font-size: 1rem; }
+  .app #university-affiliation button {
+    font-size: 12px; }
+
+  .onboard #featured-scroller {
+    overflow-y: hidden; }
+  .onboard #onboard-photos-overlay .account-avatar-wrapper {
+    height: 120px;
+    width: 120px; }
+  .onboard #onboard-photos-overlay #user-info {
+    padding: 0; }
+  .onboard #onboard-photos-overlay #user-info h2 {
+    font-size: 2rem; }
+  .onboard #onboard-photos-overlay #user-info #user-bio {
+    font-size: 0.9rem;
+    line-height: 1.5; }
 
   .profile #user-extra {
     display: none; }
@@ -9759,6 +9820,10 @@ a.count span.dont-move {
     font-size: 1rem !important; }
   .app #library-splash #library-info {
     top: 40%; }
+  .app #university-affiliation {
+    padding: 8rem 2rem; }
+  .app #intro {
+    padding: 3rem 2rem; }
 
   body.library-manager #nav-wrapper {
     display: none !important; }
@@ -10178,6 +10243,14 @@ a.count span.dont-move {
     font-size: 0.9rem !important; }
   .app #user-splash #close-splash {
     display: none; }
+  .app #university-affiliation {
+    padding: 7rem 0.5rem; }
+  .app #university-affiliation button {
+    top: 92%;
+    right: 6.5rem; }
+
+  .onboard #onboard-photos-overlay #user-info #user-bio {
+    padding: 0; }
 
   body.library-manager .library .wrapper {
     text-align: center !important; }

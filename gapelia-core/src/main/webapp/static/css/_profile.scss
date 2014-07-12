@@ -234,7 +234,7 @@
 				font-style: italic;
 				font-weight: 600 !important;
 				margin-left: 8px;
-				text-transform: lowercase;
+				text-transform: capitalize;
 				&:first-letter { text-transform: uppercase; }
 			}
 		}

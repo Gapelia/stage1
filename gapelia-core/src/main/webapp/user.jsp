@@ -164,8 +164,8 @@
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li id=\"university\"></li>"
 		stuff += "<li id=\"department\"></li>"
-		stuff += "<li><a id=\"website\"  href=\"http://" +user.personalWebsite+ "\"></a></li>"
-		stuff += "<li><a id=\"twitter\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
+		stuff += "<li><a id=\"website\"  target=\"blank\"  href=\"" +user.personalWebsite+ "\"></a></li>"
+		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
 		stuff += "</ul></div>";
                 stuff += "</div>";
 		if ($vW > "1024") {
@@ -178,11 +178,13 @@
                 stuff += "</section>";
 
                 $("#mp-pusher").prepend(stuff);
+		
+		getUserMe();
+		isFollowing();
+		getPublicBooksArray();
 
-
-getUserMe();
-isFollowing();
-
+		//hide archive buttons if less than two published books//
+		if (books.length < 2) { $("#close-splash").remove() }
 
                 $("#user-splash").imgLiquid({
                     fill: true
@@ -293,18 +295,20 @@ isFollowing();
                 }
 		
 		if ($vW > "1919") {
-		    $("#user-splash #user-extra").css("cssText", "bottom: -28rem !important");
+		    $("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
+		    $("#user-splash .unfollow").css("cssText", "left: 92.5% !important");
+		    $("#user-splash #close-splash").css("cssText", "left: 85%");
 		}
 		
 		if ($vH > "1079") {
-			$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
-			$("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
+		    $(".user-book-list-wrapper").css("cssText", "top: 51% !important");
+		    $("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
 		}
 		
 		if ($vH > "1190") {
-			$(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
-			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
-			$("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
+		    $(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
+		    $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
+		    $("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
 		}
 		
 
