@@ -23,43 +23,43 @@ function getSubmissionsResponse() {
 }
 
 function getBookNotifications() {
-$.ajax({
-	url: "/api/notifications/getNotificationsBooks",
-	contentType: "application/x-www-form-urlencoded;charset=utf-8",
-	type: "POST",
-	async: false,
-	data: {
-		sessionId: sessionId,
-	},
-	success: function (data) {
+    $.ajax({
+        url: "/api/notifications/getNotificationsBooks",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        async: false,
+        data: {
+            sessionId: sessionId,
+        },
+        success: function (data) {
             notifications = data;
             userFrom = '';
             for(i in notifications) {
                 notification = notifications[i];
-		
-		
-               	$.ajax({
-                        url: "/api/users/getUserPublic",
-                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                        type: "POST",
-			async: false,
-                        data: {
-                            userId: notification.senderUserId
-                        },
-                        success: function (data) {
-                            userFrom = data;
-                            getBookFromBookId(notification.bookId);
-			    
-                            sender = userFrom.name;
-                            bookTitle = bookFromBookId.title;
-                            toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.name+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
-                            toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
-                            $("#gpl-menu-notify ul").append(toInsert);
-                        }
-                    });
+                console.log(notification);
+
+                $.ajax({
+                    url: "/api/users/getUserPublic",
+                    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                    type: "POST",
+                    async: false,
+                    data: {
+                        userId: notification.senderUserId
+                    },
+                    success: function (data) {
+                        userFrom = data;
+                        getBookFromBookId(notification.bookId);
+
+                        sender = userFrom.name;
+                        bookTitle = bookFromBookId.title;
+                        toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.name+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
+                        toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
+                        $("#gpl-menu-notify ul").append(toInsert);
+                    }
+                });
             }
         }
-});
+    });
 }
 
 function getCommentNotifications() {
@@ -72,33 +72,58 @@ $.ajax({
 	    sessionId: sessionId
 	},
 	success: function (data) {
-            notifications = data;
-            userFrom = '';
-            for(i in notifications) {
-                notification = notifications[i];
-		
-		
-               	$.ajax({
-                        url: "/api/users/getUserPublic",
-                        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                        type: "POST",
-			async: false,
-                        data: {
-                            userId: notification.commenterUserId
-                        },
-                        success: function (data) {
-                            userFrom = data;
-                            getBookFromBookId(notification.referencedBookId);
-			    
-                            sender = userFrom.name;
-                            bookTitle = bookFromBookId.title;
-                            toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " left a note on <b>" + bookTitle +"<b></a>";
-                            toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
-                            $("#gpl-menu-notify ul").append(toInsert);
-                        }
-                    });
-            }
+        notifications = data;
+        userFrom = '';
+        for(i in notifications) {
+            notification = notifications[i];
+            console.log(notification);
+
+            $.ajax({
+                url: "/api/users/getUserPublic",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                type: "POST",
+                async: false,
+                data: {
+                    userId: notification.commenterUserId
+                },
+                success: function (data) {
+                    userFrom = data;
+                    getBookFromBookId(notification.referencedBookId);
+
+                    sender = userFrom.name;
+                    bookTitle = bookFromBookId.title;
+                    switch (notification.type) {
+                        case "Inspiring":
+                            var typeString = "inspiring note"
+                            break;
+                        case "Idea":
+                            var typeString = "idea"
+                            break;
+                        case "Question":
+                            var typeString = "question"
+                            break;
+                        case "Review":
+                            var typeString = "review"
+                            break;
+                        default:
+                            var typeString = "comment"
+                            break;
+                    }
+
+                    //var time = Date.parse(notification.time);
+                    var time =  notification.time.split(",")[0];
+
+
+                    var text = notification.comment;
+                    if(text.length > 30) text = text.substr(0, 30) + "\u2026";
+
+                    toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " left a "+typeString+" on <b>" + bookTitle +"</b> at "+time+":<br/>"+text+"</a>";
+                    toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
+                    $("#gpl-menu-notify ul").append(toInsert);
+                }
+            });
         }
+    }
 });
 }
 

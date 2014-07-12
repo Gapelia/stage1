@@ -383,6 +383,8 @@
 		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"></i> menu</p></article></div></section>";
 		$("#create-content").html(insert);
 
+		showResponseInfo();
+
 	}
 
 	// Fluid Layout
@@ -560,8 +562,7 @@
 		$(".inline-embed-insert").click(function () {
 			$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
 		});
-		
-		
+
 		$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor input").on("keyup", function (ev) {
 			
 
@@ -631,6 +632,8 @@
 				e.preventDefault();
 			}
 		}
+
+        showResponseInfo();
 
 	}
 
@@ -746,6 +749,8 @@
 			}
 		}
 
+		showResponseInfo();
+
 	}
 
 	// Overlay Layout
@@ -851,7 +856,7 @@
 				e.preventDefault();
 			}
 		}
-
+		showResponseInfo();
 	}
 
 	// Photo/Text Layout
@@ -965,6 +970,8 @@
 			}
 		}
 
+		showResponseInfo();
+
 	}
 
 	// Vertical Layout
@@ -1077,6 +1084,8 @@
 				e.preventDefault();
 			}
 		}
+
+		showResponseInfo();
 
 	}
 
@@ -1217,6 +1226,8 @@
 			}
 
 		});
+
+		showResponseInfo();
 
 	}
 
@@ -1387,6 +1398,15 @@
 		timedelay = timedelay + 1;
 
 	}
+
+	function showResponseInfo() {
+	    var urlArray = location.pathname.split("/");
+	    if ( urlArray[1] == "respondTo" ) {
+	        var bookId = urlArray[urlArray.length-1];
+	        getBookFromBookId(bookId);
+            $(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
+        }
+    }
 
 	$(document).mousemove(function () {
 

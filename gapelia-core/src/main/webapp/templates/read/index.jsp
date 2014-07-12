@@ -254,11 +254,15 @@
 	}
 
 $(document).ready(function() {
-     	loadDelete();
+    loadDelete();
+
+    //comment location
+    var hash = location.pathname.split("commentLocation")[1];
+    $("html, body").animate({ scrollTop: $('#'+hash).offset().top }, 1000);
         
 	document.addEventListener("readrboard.comment",function() {
 
-	$.ajax({
+	    $.ajax({
             url: "/api/notifications/createCommentNotification",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
             async: false,
@@ -270,11 +274,11 @@ $(document).ready(function() {
                 type: 'Comment',
                 comment: readrboard.getLastEvent().value
             },
-	success: function (data) {
+	        success: function (data) {
 		      console.log("data returned: " + data);
-        },
+             },
             error: function (q, status, err) {
-		console.log("ERROR" + err);
+		    console.log("ERROR" + err);
                 if (status == "timeout") {
                     alert("Request timed out trying again");
                 }
@@ -303,7 +307,7 @@ $(document).ready(function() {
         });
 
         $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-});
+    });
 
 
 

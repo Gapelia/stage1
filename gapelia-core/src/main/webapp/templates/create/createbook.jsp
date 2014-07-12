@@ -2,17 +2,15 @@
 <% /* Include this line below to make page login-safe */ %>
 <%@include file="../../auth.jsp" %>
 <% /* *********************************************** */ %>
+
+<%@include file="../../tools.jsp" %>
 <%
-    Integer bookId;
+    // server-side check if this is a response to a book (not in use right now)
     Boolean isResponse = false;
-    if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
-        String currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
-        if(currentURL.toLowerCase().contains("respondTo".toLowerCase())) {
-            isResponse = true;
-            bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
-            out.println("response!");
-        }
-    }
+    Integer bookId = getIdFromUrl(request);
+
+    String currentURL = getUrl(request);
+    if(currentURL.toLowerCase().contains("respondTo".toLowerCase())) isResponse = true;
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +25,7 @@
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \
 			 \ \_____\\ \_\ \_\\ \_\   \ \_____\\ \_____\\ \_\\ \_\ \_\
-				\/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
+			  \/_____/ \/_/\/_/ \/_/    \/_____/ \/_____/ \/_/ \/_/\/_/
 
 				01000111011000010111000001100101011011000110100101100001
 

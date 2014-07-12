@@ -36,7 +36,9 @@ public String getUrl(HttpServletRequest request) {
 public Integer getIdFromUrl(HttpServletRequest request) {
 
     String currentURL = getUrl(request);
-    Integer bookId = Integer.parseInt(currentURL.substring(currentURL.lastIndexOf('/')+1));
+    String urlBookId = currentURL.substring(currentURL.lastIndexOf('/')+1);
+    Integer bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
+
     return bookId;
 }
 
