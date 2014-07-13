@@ -186,7 +186,7 @@
 	});
 	
 	// Click Edit Work
-        $("#the-book #edit-shortcut #edit-book").click(function (e) {
+        $("#the-book #edit-shortcut .edit-book").click(function (e) {
 		window.location.href = "/editbook/" +current.bookId;
         });
 	

@@ -6753,10 +6753,9 @@ a.count span.dont-move {
   width: 100%;
   z-index: 100; }
 .full-book #the-book #stay-right a, .full-book #the-book #edit-shortcut a {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2));
+  background-color: #59B3A6;
   color: white;
   border-radius: 400em;
-  border: 1px solid rgba(252, 252, 252, 0.35);
   font-size: 1rem;
   letter-spacing: 0.5px;
   padding: 8px 11px 8px 11px; }
@@ -6764,9 +6763,11 @@ a.count span.dont-move {
   background-color: #59B3A6 !important;
   background-image: none !important;
   border: 1px solid #59B3A6 !important;
+  box-shadow: none !important;
   color: white;
   border-radius: 8px;
   opacity: 1;
+  text-shadow: none !important;
   z-index: 101 !important; }
 .full-book #the-book #stay-right a:hover:after, .full-book #the-book #edit-shortcut a:hover:after {
   content: "Add to library";
@@ -8992,6 +8993,8 @@ a.count span.dont-move {
     left: 0.7rem; }
   .full-book .text-fade {
     display: none !important; }
+  .full-book #edit-shortcut {
+    display: none; }
 
   a.mercibject div.opening div.circle {
     width: 75px;
