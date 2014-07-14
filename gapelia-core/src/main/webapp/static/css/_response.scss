@@ -1518,6 +1518,7 @@
 			}
 
 			.image-attribution { right: 0; }
+			
 		}
 
 		.no-img {
@@ -1753,7 +1754,7 @@
 
 		.backcover-wrapper {
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
-			left: 5px;
+			//left: 5px;
 
 			#fin, #fin-next {
 				display: block;
@@ -1844,6 +1845,7 @@
 
 				&:after { background-image: linear-gradient(to top, $black, transparent); }
 			}
+			
 		}
 		
 		#g-menu-toggle {
@@ -3605,11 +3607,11 @@
 			}
 
 			.library-info {
+				top: 0 !important;
 				
 				a {color: $white !important;}
 				
 				.lib-blurb {
-					display: none;
 					font-size: 0.9rem;
 					line-height: 1.3rem;
 				}
@@ -3624,6 +3626,8 @@
 			.bookmark-this, &:after { display: none; }
 			
 			.library .image-overlay { background: rgba($black, 0.3); }
+			
+			.library wrapper { margin: 0; }
 
 			&:hover { box-shadow: none; }
 		}
@@ -3789,7 +3793,11 @@
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
-	body.library-manager .library .wrapper { text-align: center !important; }
+	body.library-manager .library .wrapper {
+		margin: 0;
+		text-align: center !important;
+		top: 0rem !important;
+	}
 	
 	body.library {
 		#book-list { top: 75px; }
@@ -3923,7 +3931,7 @@
 				}
 
 				.author-avatar {
-					margin-left: -3.25rem;
+					margin-left: -2rem;
 					margin-top: -2rem;
 				}
 			}
@@ -3955,6 +3963,8 @@
 					padding: 0.75rem;
 				}
 			}
+			
+			.embed iframe.embedly-embed { height: 250px; }
 		}
 
 		.photo-wrapper {

@@ -8927,8 +8927,7 @@ a.count span.dont-move {
   .full-book .video-wrapper .video-player-container iframe {
     height: 500px; }
   .full-book .backcover-wrapper {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    left: 5px; }
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
   .full-book .backcover-wrapper #fin, .full-book .backcover-wrapper #fin-next {
     display: block;
     float: none;
@@ -10131,10 +10130,11 @@ a.count span.dont-move {
     color: rgba(25, 25, 25, 0.9);
     line-height: 1.2rem;
     margin: 0; }
+  .app .book .library-info, .app .collection .library-info, .app .library .library-info {
+    top: 0 !important; }
   .app .book .library-info a, .app .collection .library-info a, .app .library .library-info a {
     color: #fcfcfc !important; }
   .app .book .library-info .lib-blurb, .app .collection .library-info .lib-blurb, .app .library .library-info .lib-blurb {
-    display: none;
     font-size: 0.9rem;
     line-height: 1.3rem; }
   .app .book .wrapper, .app .collection .wrapper, .app .library .wrapper {
@@ -10145,6 +10145,8 @@ a.count span.dont-move {
     display: none; }
   .app .book .library .image-overlay, .app .collection .library .image-overlay, .app .library .library .image-overlay {
     background: rgba(25, 25, 25, 0.3); }
+  .app .book .library wrapper, .app .collection .library wrapper, .app .library .library wrapper {
+    margin: 0; }
   .app .book:hover, .app .collection:hover, .app .library:hover {
     box-shadow: none; }
   .app .book, .app .collection {
@@ -10256,7 +10258,9 @@ a.count span.dont-move {
     padding: 0; }
 
   body.library-manager .library .wrapper {
-    text-align: center !important; }
+    margin: 0;
+    text-align: center !important;
+    top: 0rem !important; }
 
   body.library #book-list {
     top: 75px; }
@@ -10349,7 +10353,7 @@ a.count span.dont-move {
     padding-left: 9%;
     text-align: left; }
   .full-book .fluid-wrapper .author-info .author-avatar {
-    margin-left: -3.25rem;
+    margin-left: -2rem;
     margin-top: -2rem; }
   .full-book .fluid-wrapper .draggable-placeholder {
     height: auto; }
@@ -10373,6 +10377,8 @@ a.count span.dont-move {
     font-size: 1rem;
     line-height: 2rem;
     padding: 0.75rem; }
+  .full-book .fluid-wrapper .embed iframe.embedly-embed {
+    height: 250px; }
   .full-book .photo-wrapper .photo-preview .page-title-elem {
     font-size: 1.5rem;
     line-height: 2rem;

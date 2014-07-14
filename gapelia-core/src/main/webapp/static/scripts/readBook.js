@@ -517,7 +517,9 @@ function getReadNextBook() {
         htmlToInsert += "</div></div>";
         htmlToInsert += "</div>";
         if (getLibraryFromBook() == "") {
-            htmlToInsert += "<div id=\"next-book\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.displayName+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";
+            if ($vW > 1024) {
+                htmlToInsert += "<div id=\"next-book\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.displayName+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";    
+            }
         } else {
             getReadNextBook();
         }
