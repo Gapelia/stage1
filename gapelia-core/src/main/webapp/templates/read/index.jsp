@@ -257,7 +257,13 @@ $(document).ready(function() {
     loadDelete();
 
     //comment location
-    var hash = location.pathname.split("commentLocation")[1];
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
+
+
+    var hash = $.urlParam('commentLocation');
     $("html, body").animate({ scrollTop: $('#'+hash).offset().top }, 1000);
         
 	document.addEventListener("readrboard.comment",function() {

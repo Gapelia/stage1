@@ -14,12 +14,9 @@ public Integer getUserIdFromCookie(HttpServletRequest request) {
     if( cookies != null ){
       for (int i = 0; i < cookies.length; i++){
         cookie = cookies[i];
-
-        //FIXME: probably ugly Javacode ... ?
-        try {
+        if(cookie.getName().equals("JSESSIONID")) {
             userId = SessionManager.getUserFromSessionId(cookie.getValue()).getUserId();
-            throw new RuntimeException(cookie.getName());
-        } catch(RuntimeException e) {}
+        }
       }
     }
     return userId;
