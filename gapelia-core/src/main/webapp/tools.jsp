@@ -34,7 +34,8 @@ public Integer getIdFromUrl(HttpServletRequest request) {
 
     String currentURL = getUrl(request);
     String urlBookId = currentURL.substring(currentURL.lastIndexOf('/')+1);
-    Integer bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
+    Integer bookId = 0;
+    if(!urlBookId.equals("createbook")) bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
 
     return bookId;
 }
