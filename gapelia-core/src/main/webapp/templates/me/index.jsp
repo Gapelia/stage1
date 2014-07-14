@@ -108,14 +108,14 @@
         <!--//main-panel /-->
 
         <!--/ main-scroller /-->
-        <div id="book-scroller">
+        <div id="book-scroller" style="z-index: 10;">
             <!--/ your-books /-->
 	    	<div class="scrollbar">
 			<div class="handle">
 				<div class="mousearea"></div>
 			</div>
 		</div>
-            <div class="user-book-list-wrapper" style="opacity: 0;">
+            <div class="user-book-list-wrapper">
                 <ul id="user-book-list"></ul>
             </div>
             <!--//your-books /-->
@@ -226,65 +226,7 @@
                 filepicker.constructWidget(element);
 
             });
-
-            if ($vW > "1024") {
-
-                $(document).on("click", "#close-splash", function () {
-
-                    $("#close-splash").css({
-                        "left": "-200%",
-                        "right": "initial"
-                    });
-
-                    $("#user-splash").css("left", "-200%");
-                    $("#user-panel").css("width", "100%");
-                    $("#user-splash .overlay-controls").css("left", "-200%");
-                    $("#g-menu-toggle").css({
-			"color": "#70a1b1",
-			"width": "7.5%"
-		    });
-	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
-                    $("#user-header").css("opacity", "1");
-		    
-                });
-
-            } else {
-
-                $(function () {
-
-                    $("#user-splash").swipe({
-                        swipeUp: function (event, direction, distance, duration, fingerCount) {
-
-                            $("#close-splash").css({
-                                "height": "0",
-                                "top": "0" // -200%
-                            });
-
-                            $("#user-splash").css("top", "0"); // -200%
-                            $("#user-splash .overlay-controls").css("top", "0"); // -200%
-                            $("#g-menu-toggle").css("color", "#70a1b1");
-                        },
-                        threshold: 0
-                    });
-
-                    $(document).on("click", "#close-splash", function () {
-
-                        $("#close-splash").css({
-                            "height": "0",
-                            "top": "0" // -200%
-                        });
-
-                        $("#user-splash").css("top", "0"); // -200%
-                        $("#user-splash .overlay-controls").css("top", "0"); -200%
-                        $("#g-menu-toggle").css("color", "#70a1b1");
-			$(".user-book-list-wrapper, #user-header").css("opacity", "1");
-
-                    });
-
-                });
-
-            }
-
+	    
             $(function () {
 
                 var $vW = $(window).width(),
@@ -292,7 +234,6 @@
 
                 // Dropdown menu for mobile
                 if ($vW < "1025") {
-		$("#book-scroller").remove(); // removed until book list is optimized
                 $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 		    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
 		    
@@ -513,8 +454,62 @@
 			
 				       slyBookWrapper.init();
 				}
+			
+			if ($vW < "1025") {
+				
+				getUserCreatedBooks();
+
+				var options = {
+					horizontal: 1,
+					itemNav: 'forceCentered',
+					smart: 1,
+					activateMiddle: 1,
+					activateOn: 'click',
+					mouseDragging: 1,
+					touchDragging: 1,
+					swingSpeed: 1,
+					releaseSwing: 0,
+					startAt: 0,
+					scrollBar: $(".scrollbar"),
+					scrollBy: 1,
+					speed: 0.0001,
+					elasticBounds: 1,
+					easing: 'swing',
+					dragHandle: 1,
+					dynamicHandle: 1,
+					clickBar: 1,
+					keyboardNavBy: 'items',
+				};
+					
+				var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
+				var items = $('#user-book-list');
+		
+				loadMoreBooks(20,items);
 		
 		
+				if(books.length > 4){
+				
+					slyBookWrapper.on('load change', function () {
+						if (this.pos.dest > this.pos.end - 200) {
+						loadMoreBooks(20,items);
+			
+						    $(".book").css("height", h);
+						    $(".book-snippet").css("display", "block")
+						    
+						   this.reload();
+						}
+					});
+				}	
+		
+			    h = $(this).outerHeight() - 92;
+			    $(".book").css("height", h);
+			    $("#user-book-list li").fadeIn("100");
+			    $("#user-book-list").fadeIn("100");
+			    if ($vW > "300") {
+				$(".book-snippet").css("display", "block")
+			    }
+			       slyBookWrapper.init();
+			    }	
 			}, 1000);
 			
                     });

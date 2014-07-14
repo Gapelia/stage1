@@ -840,13 +840,11 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#explore-list {
+		#explore-list, #user-book-list {
 			padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
 			margin-bottom: 1rem;
 		}
 		
-		#user-book-list { padding: 4.3rem 11.25rem 5.25rem 11.25rem; }
-
 		#book-cta {
 			background-color: white !important;
 			background-image: none !important;
@@ -1153,7 +1151,7 @@
 
 		#book-list, #library-list, #bookmark-list, #user-book-list, #subscription-list, #following-list { width: 100% !important; }
 		
-		#book-list { right: 0; }
+		#book-list, #user-book-list { right: 0; }
 		
 		.bookmarked {
 			.bookmark-this {
@@ -1879,7 +1877,10 @@
 			.overlay-controls { display: none; }
 		}
 		
-		.user-book-list-wrapper { top: initial !important; }
+		.user-book-list-wrapper {
+			background-color: white;
+			top: 98%;
+		}
 
 		#featured-nav {
 			width: 100%; height: auto;
@@ -2283,12 +2284,12 @@
 			
 		}
 		
-		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#bookmarks-list, #user-library-list, #user-draft-list,
 		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
 			padding: 	3.3rem 5.25rem 0.25rem 5.25rem;
 		}
 		
-		#explore-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
+		#explore-list, #user-book-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
 		
 		#featured-scroller #g-menu-toggle {
 			left: 41.75%; top: 10rem;
@@ -2513,11 +2514,6 @@
 		#featured-nav {
 			font-size: 1.3rem;
 			top: 0px;
-		}
-
-		#user-book-list {
-			background-color: rgba(gray, 0.05);
-			padding: 4.3rem 7.25rem 5.25rem 7.25rem;
 		}
 		
 		#user-panel {
@@ -3102,7 +3098,7 @@
 			padding: 1.5rem 0.5rem 0.25rem 0.5rem;
 		}
 		
-		#explore-list { padding: 1rem 1rem 1.25rem 1rem !important; }
+		#explore-list, #user-book-list { padding: 1rem 1rem 1.25rem 1rem !important; }
 		
 		.book {
 			margin: 0 0 2rem 0;
@@ -3525,7 +3521,7 @@
 		
 		.notification-time #notification-count { display: none !important; }
 		
-		#explore-list {
+		#explore-list, #user-book-list {
 			padding: 0rem 1rem 3rem 1rem !important;
 			z-index: 10;
 		}
@@ -4184,8 +4180,6 @@
 	.profile {
 		
 		#featured-nav { top: 0; }
-		
-		.user-book-list-wrapper { display: none; }
 		
 		#user-splash {
 			padding: 0.6rem !important;

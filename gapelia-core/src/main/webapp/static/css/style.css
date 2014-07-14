@@ -8246,11 +8246,9 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
-  .app #explore-list {
+  .app #explore-list, .app #user-book-list {
     padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
     margin-bottom: 1rem; }
-  .app #user-book-list {
-    padding: 4.3rem 11.25rem 5.25rem 11.25rem; }
   .app #book-cta {
     background-color: white !important;
     background-image: none !important;
@@ -8494,7 +8492,7 @@ a.count span.dont-move {
     width: 50px; }
   .app #book-list, .app #library-list, .app #bookmark-list, .app #user-book-list, .app #subscription-list, .app #following-list {
     width: 100% !important; }
-  .app #book-list {
+  .app #book-list, .app #user-book-list {
     right: 0; }
   .app .bookmarked .bookmark-this {
     z-index: 5; }
@@ -9013,7 +9011,8 @@ a.count span.dont-move {
   .profile #user-splash .overlay-controls {
     display: none; }
   .profile .user-book-list-wrapper {
-    top: initial !important; }
+    background-color: white;
+    top: 98%; }
   .profile #featured-nav {
     width: 100%;
     height: auto;
@@ -9306,9 +9305,9 @@ a.count span.dont-move {
     text-align: left; }
   .app #header-message button {
     top: 1.6rem; }
-  .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+  .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
     padding: 3.3rem 5.25rem 0.25rem 5.25rem; }
-  .app #explore-list {
+  .app #explore-list, .app #user-book-list {
     padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
   .app #featured-scroller #g-menu-toggle {
     left: 41.75%;
@@ -9441,9 +9440,6 @@ a.count span.dont-move {
   .profile #featured-nav {
     font-size: 1.3rem;
     top: 0px; }
-  .profile #user-book-list {
-    background-color: rgba(128, 128, 128, 0.05);
-    padding: 4.3rem 7.25rem 5.25rem 7.25rem; }
   .profile #user-panel {
     height: 65px; }
   .profile #user-panel #user-wrapper h2 {
@@ -9796,7 +9792,7 @@ a.count span.dont-move {
     left: 29.75%; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
     padding: 1.5rem 0.5rem 0.25rem 0.5rem; }
-  .app #explore-list {
+  .app #explore-list, .app #user-book-list {
     padding: 1rem 1rem 1.25rem 1rem !important; }
   .app .book {
     margin: 0 0 2rem 0;
@@ -10071,7 +10067,7 @@ a.count span.dont-move {
     top: 3.5rem; }
   .app .notification-time #notification-count {
     display: none !important; }
-  .app #explore-list {
+  .app #explore-list, .app #user-book-list {
     padding: 0rem 1rem 3rem 1rem !important;
     z-index: 10; }
   .app .book, .app .collection, .app .library {
@@ -10511,8 +10507,6 @@ a.count span.dont-move {
 
   .profile #featured-nav {
     top: 0; }
-  .profile .user-book-list-wrapper {
-    display: none; }
   .profile #user-splash {
     padding: 0.6rem !important; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
