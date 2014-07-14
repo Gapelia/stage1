@@ -9837,13 +9837,23 @@ a.count span.dont-move {
   .profile .user-avatar .avatar-wrapper {
     height: 110px;
     width: 110px; }
+  .profile #user-splash {
+    height: 40%; }
   .profile #user-splash .avatar-wrapper:after {
     display: none; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
+  .profile #user-splash #splash-user-bio {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+  .profile #user-splash #splash-user-info {
+    color: black;
+    opacity: 0.9;
+    top: 82% !important; }
   .profile #user-splash #user-box {
     left: 10%;
     width: 80%; }
+  .profile #user-splash .user-avatar {
+    top: 75% !important; }
 
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
@@ -10206,8 +10216,14 @@ a.count span.dont-move {
   .app .library button {
     font-size: 0.6rem !important; }
   .app #user-splash {
-    background-color: #fcfcfc;
     background-image: none !important; }
+  .app #user-splash img {
+    display: block !important;
+    height: 240px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
   .app #user-splash:after {
     background-image: none !important; }
   .app #user-splash .user-avatar {
@@ -10518,8 +10534,6 @@ a.count span.dont-move {
     border-bottom: 1px solid rgba(25, 25, 25, 0.2);
     opacity: 0.8;
     padding-bottom: 17px; }
-  .profile #user-book-list {
-    padding: 55px 0 0 0; }
   .profile #user-header {
     font-size: 0.9rem !important;
     margin-top: 0.8rem;

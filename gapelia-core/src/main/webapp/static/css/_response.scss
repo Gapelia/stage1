@@ -3160,14 +3160,28 @@
 		
 		.user-avatar .avatar-wrapper { height: 110px; width: 110px; }
 		
-		#user-splash .avatar-wrapper:after { display: none; }
+		#user-splash {
+			height: 40%;
+			
+			.avatar-wrapper:after { display: none; }
 		
-		#user-splash .avatar-wrapper #splash-edit-profile { display: none !important; }
-		
-		#user-splash #user-box {
-			left: 10%;
-			width: 80%;
-		}
+			.avatar-wrapper #splash-edit-profile { display: none !important; }
+			
+			#splash-user-bio { border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+			
+			#splash-user-info {
+				color: black;
+				opacity: 0.9;
+				top: 82% !important;
+			}
+			
+			#user-box {
+				left: 10%;
+				width: 80%;
+			}
+			
+			.user-avatar { top: 75% !important; }
+		}	
 	}
 	
 	.full-book {
@@ -3714,8 +3728,16 @@
 		// User-splash
 		#user-splash {
 			
-			background-color: $white;
 			background-image: none !important;
+			
+			img {
+				display: block !important;
+				height: 240px;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
 			
 			&:after { background-image: none !important; }
 			
@@ -4199,9 +4221,7 @@
 				padding-bottom: 17px;
 			}
 		}
-
-		#user-book-list { padding: 55px 0 0 0; }
-
+		
 		#user-header {
 			font-size: 0.9rem !important;
 			margin-top: 0.8rem;
