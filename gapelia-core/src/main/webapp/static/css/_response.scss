@@ -840,7 +840,7 @@
 			-webkit-transform: translateY(0);
 		}
 		
-		#explore-list, #user-book-list {
+		#explore-list {
 			padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
 			margin-bottom: 1rem;
 		}
@@ -1869,6 +1869,13 @@
 
 		.book-buttons { display: none; }
 		
+		.book-info .author-name, {
+			bottom: 0.5rem;
+			display: inline-block !important;
+			margin-left: 3rem;
+			position: absolute;
+		}
+		
 		#user-splash {
 			z-index: 10;
 			
@@ -2285,11 +2292,11 @@
 		}
 		
 		#bookmarks-list, #user-library-list, #user-draft-list,
-		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
+		#book-list, #library-list, #bookmark-list, #subscription-list, #user-book-list {
 			padding: 	3.3rem 5.25rem 0.25rem 5.25rem;
 		}
 		
-		#explore-list, #user-book-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
+		#explore-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
 		
 		#featured-scroller #g-menu-toggle {
 			left: 41.75%; top: 10rem;
@@ -2851,10 +2858,6 @@
 	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	.profile {
-
-		.book-title {
-			margin: 1.5rem 0 0.5rem 0;
-		}
 		
 		#user-header {
 			font-size: 1.1rem;
@@ -3098,7 +3101,7 @@
 			padding: 1.5rem 0.5rem 0.25rem 0.5rem;
 		}
 		
-		#explore-list, #user-book-list { padding: 1rem 1rem 1.25rem 1rem !important; }
+		#explore-list { padding: 1rem 1rem 1.25rem 1rem !important; }
 		
 		.book {
 			margin: 0 0 2rem 0;
@@ -3521,7 +3524,7 @@
 		
 		.notification-time #notification-count { display: none !important; }
 		
-		#explore-list, #user-book-list {
+		#explore-list {
 			padding: 0rem 1rem 3rem 1rem !important;
 			z-index: 10;
 		}

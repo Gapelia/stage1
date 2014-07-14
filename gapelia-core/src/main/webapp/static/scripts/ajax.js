@@ -435,7 +435,8 @@ function loadMoreUserBooks(count,items) {
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
                 toInsert += "<div class=\"book-info\"";
-		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += getUserFromBookId(book.bookId);
+		toInsert += "</div><div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 		toInsert += "</div></div></li>";
 		}
 		if (toInsert == "") {
@@ -489,7 +490,8 @@ function getUserCreatedBooks() {
                 toInsert += getLibraryFromBook(book.bookId);
                 toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
                 toInsert += "<div class=\"book-info\"";
-		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += getUserFromBookId(book.bookId);
+		toInsert += "</div><div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 		toInsert += "</div></div></li>";
 
             }

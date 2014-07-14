@@ -8246,7 +8246,7 @@ a.count span.dont-move {
     -ms-transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0); }
-  .app #explore-list, .app #user-book-list {
+  .app #explore-list {
     padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
     margin-bottom: 1rem; }
   .app #book-cta {
@@ -9004,6 +9004,11 @@ a.count span.dont-move {
 
   .profile .book-buttons {
     display: none; }
+  .profile .book-info .author-name {
+    bottom: 0.5rem;
+    display: inline-block !important;
+    margin-left: 3rem;
+    position: absolute; }
   .profile #user-splash {
     z-index: 10; }
   .profile #user-splash .follow {
@@ -9305,9 +9310,9 @@ a.count span.dont-move {
     text-align: left; }
   .app #header-message button {
     top: 1.6rem; }
-  .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
+  .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #user-book-list {
     padding: 3.3rem 5.25rem 0.25rem 5.25rem; }
-  .app #explore-list, .app #user-book-list {
+  .app #explore-list {
     padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
   .app #featured-scroller #g-menu-toggle {
     left: 41.75%;
@@ -9643,8 +9648,6 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin-next .book-title .book-title:before {
     margin: 0 0 -0.5rem 0; }
 
-  .profile .book-title {
-    margin: 1.5rem 0 0.5rem 0; }
   .profile #user-header {
     font-size: 1.1rem;
     padding: 0; }
@@ -9792,7 +9795,7 @@ a.count span.dont-move {
     left: 29.75%; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list {
     padding: 1.5rem 0.5rem 0.25rem 0.5rem; }
-  .app #explore-list, .app #user-book-list {
+  .app #explore-list {
     padding: 1rem 1rem 1.25rem 1rem !important; }
   .app .book {
     margin: 0 0 2rem 0;
@@ -10067,7 +10070,7 @@ a.count span.dont-move {
     top: 3.5rem; }
   .app .notification-time #notification-count {
     display: none !important; }
-  .app #explore-list, .app #user-book-list {
+  .app #explore-list {
     padding: 0rem 1rem 3rem 1rem !important;
     z-index: 10; }
   .app .book, .app .collection, .app .library {
