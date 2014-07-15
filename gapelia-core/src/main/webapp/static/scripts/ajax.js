@@ -635,8 +635,10 @@ function getBooksInLibraryArray() {
         url: "/api/libraries/getBooksInLibrary",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         type: "POST",
+	async: "false",
         data: {
-            libraryId: libraryId
+             sessionId: sessionId,
+             libraryId: libraryId
         },
         success: function (data) {
             books = data;
@@ -660,34 +662,17 @@ function loadMoreBooksInLibrary(count,items) {
 
 		    book = books[offset + i];
 		    
-		    /*var ownThisLibrary = false;
-			if (typeof user != 'undefined') {
-			
-			    myLibraries = getCreatedLibrariesArray(sessionId);
-			    
-		
-			    for (i in myLibraries) {
-				currentLibrary = myLibraries[i];
-				if (currentLibrary.libraryId == library.libraryId) {
-					ownThisLibrary = true;
-				}
-			    }
-			}
-			
-			toInsert = '';
-			for (i in books) {
-			    book = books[i];*/
 			    if (typeof user != 'undefined' && book.bookId in bookmarked) {
 				toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
 			    } else {
 				toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
 			    }
 			    toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-			    /*if (ownThisLibrary) {
-			    toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
+			    if (libraryOwner.userId == user.userId) {
+				toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
 			    }else {
-			    toInsert += "";	
-			    }*/
+				toInsert += "";	
+			    }
 			    if (typeof user != 'undefined') {
 				    toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
 			    }
@@ -695,12 +680,13 @@ function loadMoreBooksInLibrary(count,items) {
 			    toInsert += "<a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info\">";
 			    toInsert += getUserFromBookId(book.bookId);
 			    toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
-			//}
+			    
 			if ($vW < "321") {
 			    $(".book-snippet").css("display", "block")
 			}
-		}
+		}	
 	return items.append(toInsert);
+	
 }
 
 function getBooksInLibraryOwner() {
