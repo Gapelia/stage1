@@ -2719,12 +2719,13 @@ function isFollowing() {
 	    alreadyFollowing = data;
 	    
 		if (alreadyFollowing) {
-		    stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
+			stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
 		} else {
-		    stuff = "<button class=\"follow white-border\">Follow</button>";
+			stuff = "<button class=\"follow white-border\">Follow</button>";
 		}
 
 		$("#user-splash").append(stuff);
+		
         },
         error: function (q, status, err) {
             if (status == "timeout") {
