@@ -14,12 +14,9 @@ public Integer getUserIdFromCookie(HttpServletRequest request) {
     if( cookies != null ){
       for (int i = 0; i < cookies.length; i++){
         cookie = cookies[i];
-
-        //FIXME: probably ugly Javacode ... ?
-        try {
+        if(cookie.getName().equals("JSESSIONID")) {
             userId = SessionManager.getUserFromSessionId(cookie.getValue()).getUserId();
-            throw new RuntimeException(cookie.getName());
-        } catch(RuntimeException e) {}
+        }
       }
     }
     return userId;
@@ -37,7 +34,8 @@ public Integer getIdFromUrl(HttpServletRequest request) {
 
     String currentURL = getUrl(request);
     String urlBookId = currentURL.substring(currentURL.lastIndexOf('/')+1);
-    Integer bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
+    Integer bookId = 0;
+    if(!urlBookId.equals("createbook")) bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
 
     return bookId;
 }

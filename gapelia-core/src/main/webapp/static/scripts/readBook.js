@@ -394,7 +394,9 @@ function getReadNextBook() {
     NProgress.start();
 
     // Get book info and its pages
-    bookId = document.URL.split("/")[document.URL.split("/").length - 1];
+    var urlBookId = document.URL.substring(document.URL.lastIndexOf('/')+1);
+    bookId = urlBookId.split("?")[0];
+    //bookId = document.URL.split("/")[document.URL.split("/").length - 1];
     getUserFromBook(bookId);
 
     $.ajax({

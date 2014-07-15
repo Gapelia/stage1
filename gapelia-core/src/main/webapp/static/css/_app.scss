@@ -10,9 +10,9 @@
 	color: rgba($black, 0.95);
 	@include sans;
 	font-size: 15px;
-	overflow: hidden;
+	//overflow: hidden;
 	position: relative;
-  overflow-y: hidden;
+    overflow-x: hidden;
   
   ::-webkit-scrollbar {
     display: none !important;

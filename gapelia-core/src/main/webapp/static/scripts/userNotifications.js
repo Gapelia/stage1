@@ -36,7 +36,6 @@ function getBookNotifications() {
             userFrom = '';
             for(i in notifications) {
                 notification = notifications[i];
-                console.log(notification);
 
                 $.ajax({
                     url: "/api/users/getUserPublic",
@@ -117,7 +116,7 @@ $.ajax({
                     var text = notification.comment;
                     if(text.length > 30) text = text.substr(0, 30) + "\u2026";
 
-                    toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
+                    toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+notification.hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
                     toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                     $("#gpl-menu-notify ul").append(toInsert);
                 }
