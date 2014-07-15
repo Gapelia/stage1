@@ -816,7 +816,6 @@ function getCreatedLibrariesForBook() {
 		var doesContain = false;
 		for(b in containedBooks){
 			book = containedBooks[b];
-			console.log(book);
 			if(current.title == book.title){
 				console.log("yes");
 				 doesContain = true;

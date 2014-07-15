@@ -127,7 +127,7 @@
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/userNotifications.js"></script>
     <script src="/static/scripts/readBook.js"></script>
-    
+
     <script src="/static/scripts/cookie.js"></script>
     <script src="/static/scripts/merci.js"></script>
     
@@ -142,7 +142,7 @@
     </script>
     
     <script>
-	
+
         // Hide logo after 100px when scrolling book on mobile
 	$(window).scroll(function() {
 		if ($(window).scrollTop() < 100) {
@@ -152,61 +152,61 @@
 		    $("#g-menu-toggle").hide();
 		}
 	});
-	
+
 	// Click "Collect to Libraries"
         $("#the-book #my-libraries a").click(function (e) {
 
 		$("#my-libraries ul").toggle();
 		e.preventDefault();
-		
+
 		$("#stay-right .submission-dropdown").addClass("clicked-list");
         });
-	
+
 	// submissions confirm popup
-		
+
 	$(document).on("click", "#my-libraries ul a", function () {
 		$("#collection-pop").css({"display": "block"});
-		
+
 		setTimeout(function() {
 		$("#collection-pop").fadeOut("slow");
 		}, 2500);
 	});
-	
+
 	//only show edit option if owner of book//
 	$(document).ready(function (e) {
-		
+
 	var author = bookOwner.name;
 	var reader = user.name;
-	
+
 		if (author == reader) {
 			$("#the-book #edit-shortcut").show();
 		} else {
 			$("#the-book #edit-shortcut").remove();
-		}	
+		}
 	});
-	
+
 	// Click Edit Work
         $("#the-book #edit-shortcut .edit-book").click(function (e) {
 		window.location.href = "/editbook/" +current.bookId;
         });
-	
+
 	//Click delete book and open overlay
 	$("#edit-shortcut .delete-book").click(function (e) {
 		$("#delete-book-overlay").show();
         });
-	
+
 	//Close overlay
 	$("#close-overlay").click(function (e) {
 		$("#delete-book-overlay").hide();
         });
-	
+
 	// Confirm Delete Book
 	$("#confirm-delete-book").click(function (e) {
 		window.location.href = "/featured/";
-		
+
 		bookId = current.bookId;
 		sessionId = readCookie("JSESSIONID");
-		
+
 		$.ajax({
 			url: "/api/books/deleteBook",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -221,8 +221,8 @@
 			    }
 			}
 		});
-        });
-	
+    });
+
 	// Hide submission dropdown when click outisde
 	$(document).mouseup(function (e) {
 
@@ -243,20 +243,20 @@
 	$("#mp-pusher").click(function() {
 		$(".full-book").css("overflow-y", "scroll");
 	});
-	
+
 	// Dropdown menu for mobile
         if ($vW < "1025") {
-		
+
         $(".bookmark-list-wrapper").remove();
-                
-        $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
-	
+
+        $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+
 	$("#g-menu-toggle").click(function (e) {
 		$("#featured-nav").toggle();
 		$("#featured-panel").css("cssText", "z-index: 1000 !important;");
 		$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
 	})}
-	
+
 	if ($vW > "1919") {
 		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
 	}
@@ -267,13 +267,13 @@ $(document).ready(function() {
     //comment location
     $.urlParam = function(name){
         var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-        return results[1] || 0;
+        if(results )return results[1] || 0;
     }
 
 
     var hash = $.urlParam('commentLocation');
-    $("html, body").animate({ scrollTop: $('#'+hash).offset().top }, 1000);
-        
+    $("html, body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
+
 	document.addEventListener("readrboard.comment",function() {
 
 	    $.ajax({
@@ -303,7 +303,7 @@ $(document).ready(function() {
 
 	} ,false); //end readerboard block
 
-	   
+
     $(".fluid-wrapper").imgLiquid({
             fill: true
         });
@@ -344,33 +344,33 @@ $(document).ready(function() {
             });
 
             $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-	    
+
 	    //adding http://  and new-tab-location to all hyperlinks//
 	    $(".full-book .page-desc a").each(function() {
 	    var href = $(this).attr("href");
 		$(this).attr("href", "http://" + href);
 		$(this).attr("target", "_blank");
 	    });
-	    
+
 	    //this fixes situation when a book is not yet part of a library//
 	    if (getLibraryFromBookBackCover(current.bookId) == "") {
-		
+
 		$("#fin-next").css({
 			"height" : "100%",
 			"width" : "35%",
 			"float" : "right"
 		})
-		
+
 		//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 	    }
-	    
+
 	    document.title = pages[0].title;
-	    
+
         }, 2000);
-      
+
         addLoggedInMenuForBook();
 	window.READRBOARDCOM.actions.reInit();
-	
+
     </script>
 
 </body>
