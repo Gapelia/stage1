@@ -509,7 +509,12 @@ function getReadNextBook() {
         facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + current.bookId;
         twitterShare = "http://twitter.com/share?text="+current.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + current.bookId;
         emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ current.title + " by " + bookOwner.fullName + "   " +  "www.folio.is/read/" + current.bookId;
-        htmlToInsert += "<hr/><div id=\"fin\"><figure class=\"merci merciful\" style=\"z-index: 10;\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
+        if (getLibraryFromBook(bookId) == "") {
+            htmlToInsert += "<hr/><div id=\"fin\" style=\"padding: 2rem 0 3rem 0\">";
+        } else {
+            htmlToInsert += "<hr/><div id=\"fin\">";
+        }    
+        htmlToInsert += "<figure class=\"merci merciful\" style=\"z-index: 10;\" data-id=\"0\"><a class=\"mercibject\"><div class=\"opening\">";
         htmlToInsert += "<div class=\"circle\"><i class=\"ion-lightbulb\"></i></div></div></a><a href=\"#merci\" class=\"count\"><span class=\"num\">" + getNumberVotes(bookId) + "</span>";
         htmlToInsert += "<span class=\"txt\">Vote</span><span class=\"dont-move\">Don't move</span></a></figure><div/>";
         htmlToInsert += "<h2>" + pages[0].title + "</h2><div id=\"credits\">" + current.title + getUserFromBookId(bookId);
@@ -518,9 +523,9 @@ function getReadNextBook() {
         htmlToInsert += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul>";
         htmlToInsert += "</div></div>";
         htmlToInsert += "</div>";
-        if (getLibraryFromBook() == "") {
+        if (getLibraryFromBook(bookId) == "") {
             if ($vW > 1024) {
-                htmlToInsert += "<div id=\"next-book\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.displayName+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";    
+                htmlToInsert += "<div id=\"next-book\" style=\"margin-top: -8rem;\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.displayName+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";    
             }
         } else {
             getReadNextBook();
@@ -531,7 +536,6 @@ function getReadNextBook() {
         htmlToInsert += "</article></div>";
         htmlToInsert += "</section>";
         htmlToInsert += "</div></div>";
-
     }
 
     function photoLayout(isFirst) {
