@@ -235,6 +235,14 @@
 		clicked.removeClass();
 	}});
 	
+	//menu css overflow fix//	
+	$("#g-menu-toggle").click(function() {
+		$(".full-book").css("overflow-y", "hidden");
+	});
+	
+	$("#mp-pusher").click(function() {
+		$(".full-book").css("overflow-y", "scroll");
+	});
 	
 	// Dropdown menu for mobile
         if ($vW < "1025") {
