@@ -221,7 +221,7 @@
 			    }
 			}
 		});
-        });
+    });
 
 	// Hide submission dropdown when click outisde
 	$(document).mouseup(function (e) {
@@ -234,7 +234,15 @@
 		container.hide(); // ... nor a descendant of the container
 		clicked.removeClass();
 	}});
-
+	
+	//menu css overflow fix//	
+	$("#g-menu-toggle").click(function() {
+		$(".full-book").css("overflow-y", "hidden");
+	});
+	
+	$("#mp-pusher").click(function() {
+		$(".full-book").css("overflow-y", "scroll");
+	});
 
 	// Dropdown menu for mobile
         if ($vW < "1025") {

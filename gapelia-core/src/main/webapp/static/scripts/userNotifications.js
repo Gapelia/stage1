@@ -51,9 +51,13 @@ function getBookNotifications() {
 
                         sender = userFrom.name;
                         bookTitle = bookFromBookId.title;
-                        toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.name+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
+                        toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
                         toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                         $("#gpl-menu-notify ul").append(toInsert);
+			$("#gpl-menu-notify ul").append(toInsert);
+		        $(".vote-notification a").click(function(){
+			    window.location="/"+userFrom.displayName;
+			});    
                     }
                 });
             }
@@ -118,6 +122,9 @@ $.ajax({
                     toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+notification.hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
                     toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                     $("#gpl-menu-notify ul").append(toInsert);
+		        $(".comment-notification a").click(function(){
+			window.location="/read/"+notification.referencedBookId+"?commentLocation="+notification.hash;
+		    });
                 }
             });
         }
@@ -170,6 +177,9 @@ function addAcceptedNotification(notificationId, bookId, libraryId) {
                                 book = data;
                                 toInsert = "<li class=\"library-notification\" id=\""+notificationId+"\"><a href=/library/"+libraryId+"\><b>" + book.title + "</b> was accepted to the library <b>" + library.title + "</b></a><a class=\"remove-notification\">&#x2717;</a></li>";
                                 $("#gpl-menu-notify ul").append(toInsert);
+				$(".library-notification a").click(function(){
+				    window.location="/library/"+libraryId;
+				});  
                             }
                         });
                     }
@@ -199,7 +209,7 @@ function addRejectNotification(notificationId, bookId, libraryId) {
                             success: function (data) {
                                 book = data;
                                 toInsert = "<li class=\"library-notification\"  id=\""+notificationId+"\"><a><b>" + book.title + "</b> was not accepted to <b>" + library.title + "</b></a><a class=\"remove-notification\">&#x2717;</a></li>";
-                                $("#gpl-menu-notify ul").append(toInsert);
+                                $("#gpl-menu-notify ul").append(toInsert); 
                             }
                         });
                     }
