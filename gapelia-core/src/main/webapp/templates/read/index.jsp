@@ -126,7 +126,7 @@
 
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/userNotifications.js"></script>
-    <script src="/static/scripts/readBook.js"></script
+    <script src="/static/scripts/readBook.js"></script>
 
     <script src="/static/scripts/cookie.js"></script>
     <script src="/static/scripts/merci.js"></script>
