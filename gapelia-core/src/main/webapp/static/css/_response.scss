@@ -1950,6 +1950,7 @@
 			a {
 				font-weight: 700;
 				margin-left: 5px;
+				opacity: 0.85;
 			}
 			
 		}
@@ -3038,7 +3039,16 @@
 	}
 	
 	.profile {
+		#book-scroller { z-index: 100000000 !important; }
+		
+		.follow, .unfollow {
+			font-size: 0.75rem;
+			top: 1.5rem !important;
+		}
+		
 		#user-extra { display: none; }
+		
+		#user-panel #g-menu-toggle { width: 50%; }
 		
 		h5 {
 			font-size: 0.8rem;

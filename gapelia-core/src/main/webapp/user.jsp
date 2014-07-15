@@ -234,15 +234,6 @@
 			    $("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
 		    } 
 		    
-		    //contributions and last published//
-		    getRecentlyPublished(); 
-		    $("#mp-pusher").append("<h5 id=\"recently-published\" style=\"position: fixed; z-index: 10;\">Recently published <a href=\"/read/"+lastPublished.bookId+"\">"+lastPublished.title+"</a></h5></div>");
-		    $("#user-splash #recently-published").remove();
-		    
-		    getContributedTo();
-		    $("#mp-pusher").append("<h5 id=\"contributes-to\" style=\"position: fixed; z-index: 10;\"><a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a></h5></div>");
-		    $("#user-splash #contributes-to").remove();
-		    
 		    $(function () {
     
 			if ($vW < "321") {
@@ -256,9 +247,9 @@
 			    $("#featured-nav").toggle();
 				
 			    if ($("#featured-nav").css("display") == "block") {
-				$(".follow").hide();
+				$(".follow, .unfollow").hide();
 			    } else {
-				$(".follow").show();
+				$(".follow, .unfollow").show();
 				$("#user-splash .follow").hide();
 			    }
     

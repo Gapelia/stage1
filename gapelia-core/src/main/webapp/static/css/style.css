@@ -9066,7 +9066,8 @@ a.count span.dont-move {
     width: 100%; }
   .profile h5 a {
     font-weight: 700;
-    margin-left: 5px; }
+    margin-left: 5px;
+    opacity: 0.85; }
   .profile #contributes-to {
     margin-top: 2rem; }
   .profile #user-panel {
@@ -9755,8 +9756,15 @@ a.count span.dont-move {
     font-size: 0.9rem;
     line-height: 1.5; }
 
+  .profile #book-scroller {
+    z-index: 100000000 !important; }
+  .profile .follow, .profile .unfollow {
+    font-size: 0.75rem;
+    top: 1.5rem !important; }
   .profile #user-extra {
     display: none; }
+  .profile #user-panel #g-menu-toggle {
+    width: 50%; }
   .profile h5 {
     font-size: 0.8rem;
     top: 56%; }
