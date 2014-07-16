@@ -278,9 +278,6 @@
 
 $(document).ready(function() {
     loadDelete();
-
-    var hash = GetURLParameter("commentLocation");
-    $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
         
 	document.addEventListener("readrboard.reaction",function() {
 
@@ -334,6 +331,9 @@ $(document).ready(function() {
 
 
  setTimeout(function () {
+
+         var hash = GetURLParameter("commentLocation");
+         $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
 
             /*$(".fluid-wrapper").imgLiquid({
                 fill: true
