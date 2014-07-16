@@ -261,17 +261,25 @@
 		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
 	}
 
-$(document).ready(function() {
-    loadDelete();
-
-    //comment location
-    $.urlParam = function(name){
-        var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-        return results[1] || 0;
+	function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam)
+            {
+                return sParameterName[1];
+            }
+        }
     }
 
 
-    var hash = $.urlParam('commentLocation');
+
+$(document).ready(function() {
+    loadDelete();
+
+    var hash = GetURLParameter("commentLocation");
     $("html, body").animate({ scrollTop: $('#'+hash).offset().top }, 1000);
         
 	document.addEventListener("readrboard.comment",function() {
