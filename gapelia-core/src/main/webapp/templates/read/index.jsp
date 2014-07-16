@@ -280,9 +280,9 @@ $(document).ready(function() {
     loadDelete();
 
     var hash = GetURLParameter("commentLocation");
-    $("html, body").animate({ scrollTop: $('#'+hash).offset().top }, 1000);
+    $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
         
-	document.addEventListener("readrboard.comment",function() {
+	document.addEventListener("readrboard.reaction",function() {
 
 	    $.ajax({
             url: "/api/notifications/createCommentNotification",
