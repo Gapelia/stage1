@@ -31,10 +31,9 @@ public class SocialLogin extends HttpServlet {
 			if (null != mode && "local".equals(mode)) {
 				hostName = "http://localhost:8080";
 				config.load("oauth_consumer_local.properties");
-
 			}
 			else if (null != mode && "dev".equals(mode)) {
-				config.load();
+				config.load("oauth_consumer_dev.properties");
 				hostName = "ec2-54-237-41-229.compute-1.amazonaws.com";
 			}
 			else {
