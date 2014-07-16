@@ -79,6 +79,7 @@ $.ajax({
         userFrom = '';
         for(i in notifications) {
             notification = notifications[i];
+            console.log(notification);
 
             $.ajax({
                 url: "/api/users/getUserPublic",

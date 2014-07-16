@@ -1011,7 +1011,7 @@
 
 		#featured-scroller, #book-scroller {
 			overflow-x: hidden;
-			overflow-y: auto;
+			overflow-y: hidden;
 			transform: translate3d(0, 0, 0);
 
 			-o-transform: translate3d(0, 0, 0);
@@ -1272,6 +1272,7 @@
 		//#library-splash #library-share { top: 1.5rem !important; }
 
 		#user-splash {
+			position: fixed;
 			
 			h1 { font-size: 2.4rem; }
 			h2 { font-size: 55px; }
@@ -1884,8 +1885,9 @@
 			.overlay-controls { display: none; }
 		}
 		
-		.user-book-list-wrapper {
+		#book-scroller {
 			background-color: white;
+			position: absolute;
 			top: 98%;
 		}
 
@@ -1937,6 +1939,23 @@
 				}
 			}
 		}
+		
+		h5 {
+			color: white;
+			font-weight: 100;
+			text-align: center;
+			top: 58%;
+			width: 100%;
+			
+			a {
+				font-weight: 700;
+				margin-left: 5px;
+				opacity: 0.85;
+			}
+			
+		}
+				
+		#contributes-to { margin-top: 2rem; }
 
 		#user-panel {
 			height: 75px; // 59%
@@ -2024,7 +2043,7 @@
 					-moz-transform: rotate(0deg);
 					-webkit-transform: rotate(0deg);
 				}
-
+				
 				#user-bio { display: none; }
 			}
 		}
@@ -2112,7 +2131,8 @@
 			//border-bottom: 1px solid $slate;
 			background: none !important;
 			height: 65px;
-			z-index: 100;
+			position: fixed;
+			z-index: 1000;
 			
 			#user-wrapper {
 				h2 {
@@ -2558,7 +2578,9 @@
 		
 		#user-splash {
 			#splash-user-bio { font-size: 1.25rem; }
-		}	
+		}
+		
+		h5 { top: 46%; }
 	}
 	
 	/// settings
@@ -2858,6 +2880,8 @@
 
 	.profile {
 		
+		h5 { top: 52%; }
+		
 		#user-header {
 			font-size: 1.1rem;
 			padding: 0;
@@ -3015,7 +3039,21 @@
 	}
 	
 	.profile {
+		#book-scroller { z-index: 100000000 !important; }
+		
+		.follow, .unfollow {
+			font-size: 0.75rem;
+			top: 1.5rem !important;
+		}
+		
 		#user-extra { display: none; }
+		
+		#user-panel #g-menu-toggle { width: 50%; }
+		
+		h5 {
+			font-size: 0.8rem;
+			top: 56%;
+		}
 	}
 	
 	//accounts//
@@ -3180,7 +3218,13 @@
 			}
 			
 			.user-avatar { top: 75% !important; }
-		}	
+		}
+		
+		h5 {
+			color: black;
+			opacity: 0.9;
+			top: 64%;
+		}
 	}
 	
 	.full-book {
@@ -4203,6 +4247,8 @@
 	
 	.profile {
 		
+		h5 { top: 70%; }
+		
 		#featured-nav { top: 0; }
 		
 		#user-splash {
@@ -4219,6 +4265,10 @@
 				opacity: 0.8;
 				padding-bottom: 17px;
 			}
+			
+			#splash-user-info { top: 98% !important; }
+			
+			.user-avatar { top: 86% !important; }
 		}
 		
 		#user-header {

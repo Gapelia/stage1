@@ -816,6 +816,7 @@ function getCreatedLibrariesForBook() {
 		var doesContain = false;
 		for(b in containedBooks){
 			book = containedBooks[b];
+			console.log(book);
 			if(current.title == book.title){
 				console.log("yes");
 				 doesContain = true;
@@ -2718,12 +2719,13 @@ function isFollowing() {
 	    alreadyFollowing = data;
 	    
 		if (alreadyFollowing) {
-		    stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
+			stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
 		} else {
-		    stuff = "<button class=\"follow white-border\">Follow</button>";
+			stuff = "<button class=\"follow white-border\">Follow</button>";
 		}
 
 		$("#user-splash").append(stuff);
+		
         },
         error: function (q, status, err) {
             if (status == "timeout") {

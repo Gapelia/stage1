@@ -223,38 +223,45 @@
 
                 // Dropdown menu for mobile
                 if ($vW < "1025") {
-                $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
-		$("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: absolute; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>")
+		    $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 		    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
 		    
-                    $(function () {
-
-                        if ($vW < "321") {
-                            $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
-                        }
-                        if ($vW < "321") {
-                            $(".book-snippet").css("display","block")
-                        				}
-
+		    //follow/unfollow buttons//
+		    if (alreadyFollowing) {
+			    $("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");
+			    $("#user-splash .unfollow").remove();	
+		    } else {
+			    $("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
+		    } 
+		    
+		    $(function () {
+    
+			if ($vW < "321") {
+			    $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
+			}
+			if ($vW < "321") {
+			    $(".book-snippet").css("display","block")
+			}
+    
 			$("#g-menu-toggle").click(function () {
-                            $("#featured-nav").toggle();
-			    
+			    $("#featured-nav").toggle();
+				
 			    if ($("#featured-nav").css("display") == "block") {
-				$(".follow").hide();
+				$(".follow, .unfollow").hide();
 			    } else {
-				$(".follow").show();
+				$(".follow, .unfollow").show();
 				$("#user-splash .follow").hide();
 			    }
-
-                        });
-
-                    });
-
-                    // Log Out
-                    $("#logout").click(function (e) {
-                        document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-                        window.location = "";
-                    });
+    
+			});
+    
+		    });
+    
+		    // Log Out
+		    $("#logout").click(function (e) {
+			document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+			window.location = "";
+		    });
 
                 }
 		

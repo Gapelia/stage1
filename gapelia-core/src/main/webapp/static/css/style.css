@@ -8383,7 +8383,7 @@ a.count span.dont-move {
     display: none; }
   .app #featured-scroller, .app #book-scroller {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -8570,6 +8570,8 @@ a.count span.dont-move {
     font-weight: 400;
     height: 50px !important;
     left: 48% !important; }
+  .app #user-splash {
+    position: fixed; }
   .app #user-splash h1 {
     font-size: 2.4rem; }
   .app #user-splash h2 {
@@ -9012,8 +9014,9 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash .overlay-controls {
     display: none; }
-  .profile .user-book-list-wrapper {
+  .profile #book-scroller {
     background-color: white;
+    position: absolute;
     top: 98%; }
   .profile #featured-nav {
     width: 100%;
@@ -9055,6 +9058,18 @@ a.count span.dont-move {
   .profile #featured-nav .current a {
     border: 0;
     color: #fcfcfc; }
+  .profile h5 {
+    color: white;
+    font-weight: 100;
+    text-align: center;
+    top: 58%;
+    width: 100%; }
+  .profile h5 a {
+    font-weight: 700;
+    margin-left: 5px;
+    opacity: 0.85; }
+  .profile #contributes-to {
+    margin-top: 2rem; }
   .profile #user-panel {
     height: 75px;
     position: relative;
@@ -9187,7 +9202,8 @@ a.count span.dont-move {
   .profile #user-panel {
     background: none !important;
     height: 65px;
-    z-index: 100; }
+    position: fixed;
+    z-index: 1000; }
   .profile #user-panel #user-wrapper h2 {
     width: 100%;
     height: 65px;
@@ -9467,6 +9483,8 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash #splash-user-bio {
     font-size: 1.25rem; }
+  .profile h5 {
+    top: 46%; }
 
   .accounts .account-info-wrapper label {
     width: 49%; }
@@ -9644,6 +9662,8 @@ a.count span.dont-move {
   .full-book .backcover-wrapper #fin-next .book-title .book-title:before {
     margin: 0 0 -0.5rem 0; }
 
+  .profile h5 {
+    top: 52%; }
   .profile #user-header {
     font-size: 1.1rem;
     padding: 0; }
@@ -9736,8 +9756,18 @@ a.count span.dont-move {
     font-size: 0.9rem;
     line-height: 1.5; }
 
+  .profile #book-scroller {
+    z-index: 100000000 !important; }
+  .profile .follow, .profile .unfollow {
+    font-size: 0.75rem;
+    top: 1.5rem !important; }
   .profile #user-extra {
     display: none; }
+  .profile #user-panel #g-menu-toggle {
+    width: 50%; }
+  .profile h5 {
+    font-size: 0.8rem;
+    top: 56%; }
 
   .accounts #account-splash-wrapper {
     margin-bottom: -2rem;
@@ -9850,6 +9880,10 @@ a.count span.dont-move {
     width: 80%; }
   .profile #user-splash .user-avatar {
     top: 75% !important; }
+  .profile h5 {
+    color: black;
+    opacity: 0.9;
+    top: 64%; }
 
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
@@ -10520,6 +10554,8 @@ a.count span.dont-move {
   .full-book h3 {
     font-size: 1.5rem; }
 
+  .profile h5 {
+    top: 70%; }
   .profile #featured-nav {
     top: 0; }
   .profile #user-splash {
@@ -10530,6 +10566,10 @@ a.count span.dont-move {
     border-bottom: 1px solid rgba(25, 25, 25, 0.2);
     opacity: 0.8;
     padding-bottom: 17px; }
+  .profile #user-splash #splash-user-info {
+    top: 98% !important; }
+  .profile #user-splash .user-avatar {
+    top: 86% !important; }
   .profile #user-header {
     font-size: 0.9rem !important;
     margin-top: 0.8rem;
