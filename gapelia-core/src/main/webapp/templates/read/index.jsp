@@ -333,8 +333,8 @@ $(document).ready(function() {
  setTimeout(function () {
 
          var hash = GetURLParameter("commentLocation");
-         $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
-         $("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+         $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+         //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
 
 
             /*$(".fluid-wrapper").imgLiquid({
