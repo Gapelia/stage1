@@ -28,6 +28,18 @@ public class DatabaseManager {
 
 	private DatabaseManager() {
 		try {
+
+			String mode = null;
+			try {
+				mode = System.getProperty("gapeliaMode");
+			} catch (Exception ex) {
+				// Ignore mode is null
+			}
+			if (null != mode && ("local".equals(mode) || "dev".equals(mode))) {
+				LOG.info("In local/dev mode. Only connecting to dev database.");
+				DB_HOSTNAME = "foliodev.chxnadlmqc14.us-east-1.rds.amazonaws.com";
+			}
+
 			Class.forName(DB_DRIVER);
 			String connectionString = DB_CONN_STRING + DB_HOSTNAME + ":" + DB_PORT + "/" + DB_NAME;
 			String userName = DB_USER;
