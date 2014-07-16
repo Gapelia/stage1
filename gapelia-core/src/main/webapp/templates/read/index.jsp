@@ -277,6 +277,7 @@
 
 
 $(document).ready(function() {
+    window.READRBOARDCOM.actions.reInit();
     loadDelete();
         
 	document.addEventListener("readrboard.reaction",function() {
@@ -379,7 +380,6 @@ $(document).ready(function() {
         }, 2000);
       
         addLoggedInMenuForBook();
-	window.READRBOARDCOM.actions.reInit();
 	
     </script>
 
