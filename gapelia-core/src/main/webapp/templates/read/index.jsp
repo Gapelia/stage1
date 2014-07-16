@@ -333,7 +333,7 @@ $(document).ready(function() {
  setTimeout(function () {
 
          var hash = GetURLParameter("commentLocation");
-         $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+         if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
          //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
 
 
