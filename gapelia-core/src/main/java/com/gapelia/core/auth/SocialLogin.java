@@ -34,7 +34,7 @@ public class SocialLogin extends HttpServlet {
 			}
 			else if (null != mode && "dev".equals(mode)) {
 				config.load("oauth_consumer_dev.properties");
-				hostName = "ec2-54-237-41-229.compute-1.amazonaws.com";
+				hostName = "http://ec2-54-237-41-229.compute-1.amazonaws.com";
 			}
 			else {
 				config.load();
