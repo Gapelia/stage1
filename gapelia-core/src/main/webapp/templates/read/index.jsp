@@ -282,6 +282,32 @@
 $(document).ready(function() {
     loadDelete();
 
+    document.addEventListener("readrboard.comment",function() {
+        console.log(readrboard.getLastEvent().supplementary.hash);
+        $.ajax({
+            url: "/api/notifications/createCommentNotification",
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            async: false,
+            type: "POST",
+            data: {
+                sessionId: sessionId,
+                referencedBook: current.bookId,
+                hash: readrboard.getLastEvent().supplementary.hash,
+                type: 'Comment',
+                comment: readrboard.getLastEvent().value
+            },
+            success: function (data) {
+              console.log("data returned: " + data);
+             },
+            error: function (q, status, err) {
+            console.log("ERROR" + err);
+                if (status == "timeout") {
+                    alert("Request timed out trying again");
+                }
+            }
+        });
+    } ,false); //end readerboard block
+
 
     $(".fluid-wrapper").imgLiquid({
             fill: true
@@ -305,33 +331,6 @@ $(document).ready(function() {
 
 
  setTimeout(function () {
-
-        document.addEventListener("readrboard.reaction",function() {
-            console.log(readrboard.getLastEvent().supplementary.hash);
-            $.ajax({
-                url: "/api/notifications/createCommentNotification",
-                contentType: "application/x-www-form-urlencoded;charset=utf-8",
-                async: false,
-                type: "POST",
-                data: {
-                    sessionId: sessionId,
-                    referencedBook: current.bookId,
-                    hash: readrboard.getLastEvent().supplementary.hash,
-                    type: 'Comment',
-                    comment: readrboard.getLastEvent().value
-                },
-                success: function (data) {
-                  console.log("data returned: " + data);
-                 },
-                error: function (q, status, err) {
-                console.log("ERROR" + err);
-                    if (status == "timeout") {
-                        alert("Request timed out trying again");
-                    }
-                }
-            });
-        } ,false); //end readerboard block
-
 
          var hash = GetURLParameter("commentLocation");
          if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
