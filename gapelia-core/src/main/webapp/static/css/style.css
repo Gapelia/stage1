@@ -8383,7 +8383,7 @@ a.count span.dont-move {
     display: none; }
   .app #featured-scroller, .app #book-scroller {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
