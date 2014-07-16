@@ -50,7 +50,7 @@
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/fluidbox.css" rel="stylesheet" />
 
-    <script defer src='http://www.readrboard.com/static/engage.js'></script>
+    <script defer src="http://www.readrboard.com/static/engage.js"></script>
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
@@ -221,7 +221,7 @@
 			    }
 			}
 		});
-        });
+    });
 	
 	// Hide submission dropdown when click outisde
 	$(document).mouseup(function (e) {
@@ -278,12 +278,9 @@
 
 $(document).ready(function() {
     loadDelete();
-
-    var hash = GetURLParameter("commentLocation");
-    $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
         
 	document.addEventListener("readrboard.reaction",function() {
-
+        console.log(readrboard.getLastEvent().supplementary.hash);
 	    $.ajax({
             url: "/api/notifications/createCommentNotification",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -335,6 +332,11 @@ $(document).ready(function() {
 
  setTimeout(function () {
 
+         var hash = GetURLParameter("commentLocation");
+         if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+         //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+
+
             /*$(".fluid-wrapper").imgLiquid({
                 fill: true
             });*/
@@ -374,9 +376,9 @@ $(document).ready(function() {
 	    
 	    document.title = pages[0].title;
 	    
-        }, 2000);
+}, 2000);
       
-        addLoggedInMenuForBook();
+    addLoggedInMenuForBook();
 	window.READRBOARDCOM.actions.reInit();
 	
     </script>
