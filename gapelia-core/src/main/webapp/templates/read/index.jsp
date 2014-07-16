@@ -221,7 +221,7 @@
 			    }
 			}
 		});
-        });
+    });
 	
 	// Hide submission dropdown when click outisde
 	$(document).mouseup(function (e) {
@@ -277,7 +277,6 @@
 
 
 $(document).ready(function() {
-    window.READRBOARDCOM.actions.reInit();
     loadDelete();
         
 	document.addEventListener("readrboard.reaction",function() {
@@ -335,7 +334,7 @@ $(document).ready(function() {
 
          var hash = GetURLParameter("commentLocation");
          $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top }, 1000);
-         $("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"})
+         $("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
 
 
             /*$(".fluid-wrapper").imgLiquid({
@@ -377,9 +376,10 @@ $(document).ready(function() {
 	    
 	    document.title = pages[0].title;
 	    
-        }, 2000);
+}, 2000);
       
-        addLoggedInMenuForBook();
+    addLoggedInMenuForBook();
+	window.READRBOARDCOM.actions.reInit();
 	
     </script>
 
