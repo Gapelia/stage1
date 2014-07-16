@@ -50,7 +50,7 @@
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/fluidbox.css" rel="stylesheet" />
 
-    <script defer src='http://www.readrboard.com/static/engage.js'></script>
+    <script defer src="http://www.readrboard.com/static/engage.js"></script>
 
     <script src="/static/scripts/modernizr.custom.js"></script>
     <script src="/static/scripts/jquery-2.1.0.min.js"></script>
@@ -280,7 +280,7 @@ $(document).ready(function() {
     loadDelete();
         
 	document.addEventListener("readrboard.reaction",function() {
-
+        console.log(readrboard.getLastEvent().supplementary.hash);
 	    $.ajax({
             url: "/api/notifications/createCommentNotification",
             contentType: "application/x-www-form-urlencoded;charset=utf-8",
