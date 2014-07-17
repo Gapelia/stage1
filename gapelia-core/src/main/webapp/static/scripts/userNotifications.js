@@ -54,7 +54,6 @@ function getBookNotifications() {
                         toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
                         toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
                         $("#gpl-menu-notify ul").append(toInsert);
-			$("#gpl-menu-notify ul").append(toInsert);
 		        $(".vote-notification a").click(function(){
 			    window.location="/"+userFrom.displayName;
 			});    
