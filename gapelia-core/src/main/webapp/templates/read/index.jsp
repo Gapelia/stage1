@@ -100,7 +100,7 @@
 </body>
 
 <!--/ scripts /-->
-<script src="http://www.readrboard.com/static/engage.js"></script>
+<script defer src="http://www.readrboard.com/static/engage.js"></script>
 
 <script src="/static/scripts/modernizr.custom.js"></script>
 <script src="/static/scripts/jquery-2.1.0.min.js"></script>
@@ -136,6 +136,8 @@
     //readrboard block
 
     document.addEventListener("readrboard.hashed_nodes",function(){
+        console.log("readrboard.hashed_nodes");
+        console.log( readrboard.getLastEvent() );
         var hash = GetURLParameter("commentLocation");
         if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
         //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
@@ -319,7 +321,7 @@
 
     $(document).ready(function() {
         loadDelete();
-        window.READRBOARDCOM.actions.reInit();
+        //window.READRBOARDCOM.actions.reInit();
 
         $(".fluid-wrapper").imgLiquid({ fill: true });
         $(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
