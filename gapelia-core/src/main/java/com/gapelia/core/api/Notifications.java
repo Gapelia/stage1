@@ -175,7 +175,7 @@ public class Notifications {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String getAllreadySubmitted(@FormParam("sessionId") String sessionId,
 									   @FormParam("libraryId") int libraryId) {
-		if (!APIUtil.isValidSession(sessionId))
+        if (!APIUtil.isValidSession(sessionId))
 			return APIUtil.INVALID_SESSION_ERROR_MSG;
 		Gson gson = new GsonBuilder().create();
 		User u = SessionManager.getUserFromSessionId(sessionId);

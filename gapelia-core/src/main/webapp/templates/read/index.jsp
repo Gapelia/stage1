@@ -3,226 +3,224 @@
 <%@ page import="com.gapelia.core.model.Book" %>
 <%@ page import="com.gapelia.core.database.QueryUtils" %>
 <%
-    String currentURL = "http://folio.is"+getUrl(request);
-    Integer bookId = getIdFromUrl(request);
-    if(!isValidBookId(bookId)) {
-        //out.println("This book doesn't exist in the database!");
-        response.sendRedirect("/");
-        return;
-    }
-    Book book = QueryUtils.getBookFromBookId(bookId);
-    User user = QueryUtils.getUserFromBookId(bookId);
+	String currentURL = "http://folio.is"+getUrl(request);
+	Integer bookId = getIdFromUrl(request);
+	if(!isValidBookId(bookId)) {
+		//out.println("This book doesn't exist in the database!");
+		response.sendRedirect("/");
+		return;
+	}
+	Book book = QueryUtils.getBookFromBookId(bookId);
+	User user = QueryUtils.getUserFromBookId(bookId);
 
-    String author = user.getName();
-    String title = book.getTitle();
-    String snippet = book.getSnippet();
-    String coverPhoto = book.getCoverPhoto();
+	String author = user.getName();
+	String title = book.getTitle();
+	String snippet = book.getSnippet();
+	String coverPhoto = book.getCoverPhoto();
 
 %>
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
 
-<head>
-    
-    <meta charset="utf-8" />
+		<!-- Search tags --> 
+		<title></title>
+		<meta name="author" content="<%= author %>" />
+		<meta name="description" content="<%= snippet %>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Search tags --> 
-    <title></title>
-    <meta name="author" content="<%= author %>" />
-    <meta name="description" content="<%= snippet %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-    <!-- for Facebook -->  
-    <meta property="og:title" content="<%= title %>"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content="<%= coverPhoto %>"/>
-    <meta property="og:url" content="<%= currentURL %>"/>
-    <meta property="og:description" content="<%= snippet %>"/>
-    
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="<%= title %>" />
-    <meta name="twitter:description" content="<%= snippet %>" />
-    <meta name="twitter:image" content="<%= coverPhoto %>" />
-    
-    <link href="/static/images/favicon.png" rel="shortcut icon" />
+		<!-- for Facebook -->  
+		<meta property="og:title" content="<%= title %>"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:image" content="<%= coverPhoto %>"/>
+		<meta property="og:url" content="<%= currentURL %>"/>
+		<meta property="og:description" content="<%= snippet %>"/>
 
-    <link href="/static/css/style.css" rel="stylesheet" />
-    <link href="/static/css/fluidbox.css" rel="stylesheet" />
+		<!-- for Twitter -->          
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="<%= title %>" />
+		<meta name="twitter:description" content="<%= snippet %>" />
+		<meta name="twitter:image" content="<%= coverPhoto %>" />
 
-</head>
+		<link href="/static/images/favicon.png" rel="shortcut icon" />
 
-<body class="app full-book g-body">
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/fluidbox.css" rel="stylesheet" />
 
-    <div id="mp-pusher" class="super-wrapper">
+	</head>
 
-        <!--/ site-menu /-->
-        <nav id="site-menu" class="mp-menu">
-            <div class="mp-level">
-                <h2><a href="/featured">Gapelia</a></h2>
-        <ul>
-                    <li><a href="/">Sign up</a> </li>
-            <li><a href="/read/755">Learn more</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!--//site-menu /-->
-    
-    <div id="featured-panel" style="display: none;"></div>
-    
-        <button id="g-menu-toggle" class="notification-time">
-        <span id="notification-count" style="display: none;"></span>
-                <i class="ion-drag"></i>
-        </button>
+	<body class="app full-book g-body">
 
-        <div id="bb-nav-prev">&#xf153;</div>
-        <div id="bb-nav-next">&#xf154;</div>
+		<div id="mp-pusher" class="super-wrapper">
 
-        <div id="the-book" class="bb-custom-wrapper">
-            <div id="bb-bookblock" class="bb-bookblock">
-            </div>
-            <ul id="stay-right">
-            <li id="my-libraries">
-                <a class=submission-dropdown href="#">&#9733;</a>
-                <ul></ul>
-            </li>
-        </ul>
-        <ul id="edit-shortcut">
-                <a class=edit-book href="#">Edit Work</a>
-                <a class=delete-book href="#">Delete</a>
-        </ul>
-        <ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
-        
-        <div id="delete-book-overlay" style="display: none; background-color: white; left: 0; top: 0; height: 100%; opacity: 0.85; padding-top: 12rem; position: absolute; text-align: center; width: 100%; z-index: 1000;"><h3>Hold on there, are you *sure* you want to delete your story?</h3><div class="wrapper" style="margin-top: 3rem;"><a href="#" id="confirm-delete-book" class="button a red">Yes, delete</a><a href="#" id="close-overlay" class="button b green">No, cancel</a></div></div>
-        </div>
+			<!--/ site-menu /-->
+			<nav id="site-menu" class="mp-menu">
+				<div class="mp-level">
+					<h2><a href="/featured">Gapelia</a></h2>
+					<ul>
+						<li><a href="/">Sign up</a> </li>
+						<li><a href="/read/755">Learn more</a></li>
+					</ul>
+				</div>
+			</nav>
+			<!--//site-menu /-->
 
-    </div>
-</body>
+			<div id="featured-panel" style="display: none;"></div>
 
-<!--/ scripts /-->
-<script defer src="http://www.readrboard.com/static/engage.js"></script>
+			<button id="g-menu-toggle" class="notification-time">
+				<span id="notification-count" style="display: none;"></span>
+				<i class="ion-drag"></i>
+			</button>
 
-<script src="/static/scripts/modernizr.custom.js"></script>
-<script src="/static/scripts/jquery-2.1.0.min.js"></script>
+			<div id="bb-nav-prev">&#xf153;</div>
+			<div id="bb-nav-next">&#xf154;</div>
 
-<script src="/static/scripts/nprogress.js"></script>
-<script src="/static/scripts/imgLiquid.js"></script>
-<script src="/static/scripts/g.money.js"></script>
-<script src="/static/scripts/books.js"></script>
+			<div id="the-book" class="bb-custom-wrapper">
+				<div id="bb-bookblock" class="bb-bookblock">
+				</div>
+				<ul id="stay-right">
+					<li id="my-libraries">
+						<a class=submission-dropdown href="#">&#9733;</a>
+						<ul></ul>
+					</li>
+				</ul>
+				<ul id="edit-shortcut">
+					<a class=edit-book href="#">Edit Work</a>
+					<a class=delete-book href="#">Delete</a>
+				</ul>
+				<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
 
-<script src="/static/scripts/classie.js"></script>
-<script src="/static/scripts/mlpushmenu.js"></script>
+				<div id="delete-book-overlay" style="display: none; background-color: white; left: 0; top: 0; height: 100%; opacity: 0.85; padding-top: 12rem; position: absolute; text-align: center; width: 100%; z-index: 1000;"><h3>Hold on there, are you *sure* you want to delete your story?</h3><div class="wrapper" style="margin-top: 3rem;"><a href="#" id="confirm-delete-book" class="button a red">Yes, delete</a><a href="#" id="close-overlay" class="button b green">No, cancel</a></div></div>
+			</div>
 
-<script src="/static/scripts/jquery.mousewheel.js"></script>
-<script src="/static/scripts/vimeothumb.js"></script>
+		</div>
+	</body>
 
-<!--/ scripts/page-flip /-->
-<script src="/static/scripts/jquerypp.custom.js"></script>
-<script src="/static/scripts/bookblock.js"></script>
+	<!--/ scripts /-->
+	<script defer src="http://www.readrboard.com/static/engage.js"></script>
 
-<!--/ scripts/fluidbox /-->
-<script src="/static/scripts/imagesloaded.min.js"></script>
-<script src="/static/scripts/fluidbox.min.js"></script>
+	<script src="/static/scripts/modernizr.custom.js"></script>
+	<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
-<script src="/static/scripts/ajax.js"></script>
-<script src="/static/scripts/userNotifications.js"></script>
-<script src="/static/scripts/readBook.js"></script>
+	<script src="/static/scripts/nprogress.js"></script>
+	<script src="/static/scripts/imgLiquid.js"></script>
+	<script src="/static/scripts/g.money.js"></script>
+	<script src="/static/scripts/books.js"></script>
 
-<script src="/static/scripts/cookie.js"></script>
-<script src="/static/scripts/merci.js"></script>
-    
- 
-<script>
-	function GetURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) return sParameterName[1];
-        }
-    }
+	<script src="/static/scripts/classie.js"></script>
+	<script src="/static/scripts/mlpushmenu.js"></script>
 
-    //readrboard block
+	<script src="/static/scripts/jquery.mousewheel.js"></script>
+	<script src="/static/scripts/vimeothumb.js"></script>
 
-    document.addEventListener("readrboard.hashed_nodes",function(){
-        console.log("readrboard.hashed_nodes");
-        console.log( readrboard.getLastEvent() );
-        var hash = GetURLParameter("commentLocation");
-        if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
-        //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
-    },false);
+	<!--/ scripts/page-flip /-->
+	<script src="/static/scripts/jquerypp.custom.js"></script>
+	<script src="/static/scripts/bookblock.js"></script>
 
-    document.addEventListener("readrboard.reaction",function(){
-        console.log("readrboard.reaction");
-        console.log( readrboard.getLastEvent() );
-    },false);
+	<!--/ scripts/fluidbox /-->
+	<script src="/static/scripts/imagesloaded.min.js"></script>
+	<script src="/static/scripts/fluidbox.min.js"></script>
 
-    document.addEventListener("readrboard.comment",function() {
-        console.log(readrboard.getLastEvent().supplementary.hash);
-        $.ajax({
-            url: "/api/notifications/createCommentNotification",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            async: false,
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                referencedBook: current.bookId,
-                hash: readrboard.getLastEvent().supplementary.hash,
-                type: 'Comment',
-                comment: readrboard.getLastEvent().value
-            },
-            success: function (data) {
-              console.log("data returned: " + data);
-             },
-            error: function (q, status, err) {
-            console.log("ERROR" + err);
-                if (status == "timeout") {
-                    alert("Request timed out trying again");
-                }
-            }
-        });
-    } ,false);
+	<script src="/static/scripts/ajax.js"></script>
+	<script src="/static/scripts/userNotifications.js"></script>
+	<script src="/static/scripts/readBook.js"></script>
 
-    //end readerboard block
+	<script src="/static/scripts/cookie.js"></script>
+	<script src="/static/scripts/merci.js"></script>
+	
 
-    $(function () {
-        if (typeof user != "undefined") getCreatedLibrariesForBook();
-        else $(".submission-dropdown").remove();
-    });
+	<script>
+		function GetURLParameter(sParam) {
+			var sPageURL = window.location.search.substring(1);
+			var sURLVariables = sPageURL.split('&');
+			for (var i = 0; i < sURLVariables.length; i++) {
+				var sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] == sParam) return sParameterName[1];
+			}
+		}
 
-    // Hide logo after 100px when scrolling book on mobile
-    $(window).scroll(function() {
-        if ($(window).scrollTop() < 100) {
-            $("#g-menu-toggle").show();
-        }
-        else {
-            $("#g-menu-toggle").hide();
-        }
-    });
+	//readrboard block
 
-    // Click "Collect to Libraries"
-    $("#the-book #my-libraries a").click(function (e) {
+	document.addEventListener("readrboard.hashed_nodes",function(){
+		console.log("readrboard.hashed_nodes");
+		console.log( readrboard.getLastEvent() );
+		var hash = GetURLParameter("commentLocation");
+		if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+		//$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+	},false);
 
-        $("#my-libraries ul").toggle();
-        e.preventDefault();
+	document.addEventListener("readrboard.reaction",function(){
+		console.log("readrboard.reaction");
+		console.log( readrboard.getLastEvent() );
+	},false);
 
-        $("#stay-right .submission-dropdown").addClass("clicked-list");
-    });
+	document.addEventListener("readrboard.comment",function() {
+		console.log(readrboard.getLastEvent().supplementary.hash);
+		$.ajax({
+			url: "/api/notifications/createCommentNotification",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			async: false,
+			type: "POST",
+			data: {
+				sessionId: sessionId,
+				referencedBook: current.bookId,
+				hash: readrboard.getLastEvent().supplementary.hash,
+				type: 'Comment',
+				comment: readrboard.getLastEvent().value
+			},
+			success: function (data) {
+				console.log("data returned: " + data);
+			},
+			error: function (q, status, err) {
+				console.log("ERROR" + err);
+				if (status == "timeout") {
+					alert("Request timed out trying again");
+				}
+			}
+		});
+	} ,false);
 
-    // submissions confirm popup
+	//end readerboard block
 
-    $(document).on("click", "#my-libraries ul a", function () {
-        $("#collection-pop").css({"display": "block"});
+	$(function () {
+		if (typeof user != "undefined") getCreatedLibrariesForBook();
+		else $(".submission-dropdown").remove();
+	});
 
-        setTimeout(function() { $("#collection-pop").fadeOut("slow") }, 2500);
-    });
+	// Hide logo after 100px when scrolling book on mobile
+	$(window).scroll(function() {
+		if ($(window).scrollTop() < 100) {
+			$("#g-menu-toggle").show();
+		}
+		else {
+			$("#g-menu-toggle").hide();
+		}
+	});
 
- 
- 	//only show edit option if owner of book//
+	// Click "Collect to Libraries"
+	$("#the-book #my-libraries a").click(function (e) {
+
+		$("#my-libraries ul").toggle();
+		e.preventDefault();
+
+		$("#stay-right .submission-dropdown").addClass("clicked-list");
+	});
+
+	// submissions confirm popup
+
+	$(document).on("click", "#my-libraries ul a", function () {
+		$("#collection-pop").css({"display": "block"});
+
+		setTimeout(function() { $("#collection-pop").fadeOut("slow") }, 2500);
+	});
+
+
+	//only show edit option if owner of book//
 	$(document).ready(function (e) {
-		
+
 		getCreatedLibrariesForBook();
-		
+
 		if (typeof user == "undefined") {
 			$("#the-book #edit-shortcut").remove();
 			$(".submission-dropdown").remove();
@@ -230,145 +228,143 @@
 		else {
 			var author = bookOwner.name;
 			var reader = user.name;
-		
+
 			if (author == reader) $("#the-book #edit-shortcut").show();
 			else $("#the-book #edit-shortcut").remove();
 		}
 	});
 
-    // Click Edit Work
-    $("#the-book #edit-shortcut .edit-book").click(function (e) {
-        window.location.href = "/editbook/" +current.bookId;
-    });
+	// Click Edit Work
+	$("#the-book #edit-shortcut .edit-book").click(function (e) {
+		window.location.href = "/editbook/" +current.bookId;
+	});
 
-    //Click delete book and open overlay
-    $("#edit-shortcut .delete-book").click(function (e) {
-        $("#delete-book-overlay").show();
-    });
+	//Click delete book and open overlay
+	$("#edit-shortcut .delete-book").click(function (e) {
+		$("#delete-book-overlay").show();
+	});
 
-    //Close overlay
-    $("#close-overlay").click(function (e) {
-        $("#delete-book-overlay").hide();
-    });
+	//Close overlay
+	$("#close-overlay").click(function (e) {
+		$("#delete-book-overlay").hide();
+	});
 
-    // Confirm Delete Book
-    $("#confirm-delete-book").click(function (e) {
-        window.location.href = "/featured/";
+	// Confirm Delete Book
+	$("#confirm-delete-book").click(function (e) {
+		window.location.href = "/featured/";
 
-        bookId = current.bookId;
-        sessionId = readCookie("JSESSIONID");
+		bookId = current.bookId;
+		sessionId = readCookie("JSESSIONID");
 
-        $.ajax({
-            url: "/api/books/deleteBook",
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            type: "POST",
-            data: {
-                sessionId: sessionId,
-                bookId: bookId
-            },
-            error: function (q, status, err) {
-                if (status == "timeout") {
-	                alert("Request timed out");
-                }
-            }
-        });
-    });
+		$.ajax({
+			url: "/api/books/deleteBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+				sessionId: sessionId,
+				bookId: bookId
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				}
+			}
+		});
+	});
 
-    // Hide submission dropdown when click outisde
-    $(document).mouseup(function (e) {
+	// Hide submission dropdown when click outisde
+	$(document).mouseup(function (e) {
 
-    var container = $("#my-libraries ul, #collection-pop");
-    var clicked = $("#stay-right .clicked-list");
+		var container = $("#my-libraries ul, #collection-pop");
+		var clicked = $("#stay-right .clicked-list");
 
-    // if the target of the click isn't the container...
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.hide(); // ... nor a descendant of the container
-        clicked.removeClass();
-    }});
+	// if the target of the click isn't the container...
+	if (!container.is(e.target) && container.has(e.target).length === 0) {
+		container.hide(); // ... nor a descendant of the container
+		clicked.removeClass();
+	}});
 
-    //menu css overflow fix//
-    $("#g-menu-toggle").click(function() {
-        $(".full-book").css("overflow-y", "hidden");
-    });
+	//menu css overflow fix//
+	$("#g-menu-toggle").click(function() {
+		$(".full-book").css("overflow-y", "hidden");
+	});
 
-    $("#mp-pusher").click(function() {
-        $(".full-book").css("overflow-y", "scroll");
-    });
+	$("#mp-pusher").click(function() {
+		$(".full-book").css("overflow-y", "scroll");
+	});
 
-    // Dropdown menu for mobile
-    if ($vW < "1025") {
+	// Dropdown menu for mobile
+	if ($vW < "1025") {
 
-        $(".bookmark-list-wrapper").remove();
+		$(".bookmark-list-wrapper").remove();
 
-        $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+		$("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 
-	    $("#g-menu-toggle").click(function (e) {
-	        $("#featured-nav").toggle();
-	        $("#featured-panel").css("cssText", "z-index: 1000 !important;");
-	        $("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
-	    });
+		$("#g-menu-toggle").click(function (e) {
+			$("#featured-nav").toggle();
+			$("#featured-panel").css("cssText", "z-index: 1000 !important;");
+			$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
+		});
 	}
 
-    if ($vW > "1919") {
-        $(".notification-time #notification-count").css("cssText", "margin-right: 1.5rem !important");
-    }
+	if ($vW > "1919") {
+		$(".notification-time #notification-count").css("cssText", "margin-right: 1.5rem !important");
+	}
 
-    function GetURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++)
-        {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) return sParameterName[1];
-        }
-    }
+	function GetURLParameter(sParam) {
+		var sPageURL = window.location.search.substring(1);
+		var sURLVariables = sPageURL.split('&');
+		for (var i = 0; i < sURLVariables.length; i++)
+		{
+			var sParameterName = sURLVariables[i].split('=');
+			if (sParameterName[0] == sParam) return sParameterName[1];
+		}
+	}
 
 
 
-    $(document).ready(function() {
-        loadDelete();
-        //window.READRBOARDCOM.actions.reInit();
+	$(document).ready(function() {
+		loadDelete();
+		//window.READRBOARDCOM.actions.reInit();
 
-        $(".fluid-wrapper").imgLiquid({ fill: true });
-        $(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
-        $(".overlay-wrapper").imgLiquid({ fill: true });
-        $(".phototext-wrapper").imgLiquid({ fill: true });
-        $(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-    });
+		$(".fluid-wrapper").imgLiquid({ fill: true });
+		$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+		$(".overlay-wrapper").imgLiquid({ fill: true });
+		$(".phototext-wrapper").imgLiquid({ fill: true });
+		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+	});
 
-    setTimeout(function () {
-        /*$(".fluid-wrapper").imgLiquid({
-            fill: true
-        });*/
-        $(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
-        $(".overlay-wrapper").imgLiquid({ fill: true });
-        $(".phototext-wrapper").imgLiquid({ fill: true });
-        $(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
-        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+	setTimeout(function () {
+		
+		$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
+		$(".overlay-wrapper").imgLiquid({ fill: true });
+		$(".phototext-wrapper").imgLiquid({ fill: true });
+		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
+		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 
-        //adding http://  and new-tab-location to all hyperlinks//
-        $(".full-book .page-desc a").each(function() {
-	        var href = $(this).attr("href");
-	        $(this).attr("href", "http://" + href);
-	        $(this).attr("target", "_blank");
-        });
+		//adding http://  and new-tab-location to all hyperlinks//
+		$(".full-book .page-desc a").each(function() {
+			var href = $(this).attr("href");
+			$(this).attr("href", "http://" + href);
+			$(this).attr("target", "_blank");
+		});
 
-        //this fixes situation when a book is not yet part of a library//
-        if (getLibraryFromBookBackCover(current.bookId) == "") {
+		//this fixes situation when a book is not yet part of a library//
+		if (getLibraryFromBookBackCover(current.bookId) == "") {
 
-	        $("#fin-next").css({
-	            "height" : "100%",
-	            "width" : "35%",
-	            "float" : "right"
-	        })
+			$("#fin-next").css({
+				"height" : "100%",
+				"width" : "35%",
+				"float" : "right"
+			})
 
-	        //$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
-        }
+			//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
+		}
 
-        document.title = pages[0].title;
-    }, 2000);
+		document.title = pages[0].title;
+	}, 2000);
 
-    addLoggedInMenuForBook();
+	addLoggedInMenuForBook();
 </script>
 </html>
