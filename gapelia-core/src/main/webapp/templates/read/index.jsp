@@ -116,9 +116,162 @@
 <script src="/static/scripts/jquery.mousewheel.js"></script>
 <script src="/static/scripts/vimeothumb.js"></script>
 
+<<<<<<< HEAD
+    <script src="/static/scripts/ajax.js"></script>
+    <script src="/static/scripts/userNotifications.js"></script>
+    <script src="/static/scripts/readBook.js"></script>
+    
+    <script src="/static/scripts/cookie.js"></script>
+    <script src="/static/scripts/merci.js"></script>
+    
+    <script>
+
+    window.READRBOARDCOM.actions.reInit();
+	
+    </script>
+    
+    <script>
+	
+        // Hide logo after 100px when scrolling book on mobile
+	$(window).scroll(function() {
+		if ($(window).scrollTop() < 100) {
+		    $("#g-menu-toggle").show();
+		}
+		else {
+		    $("#g-menu-toggle").hide();
+		}
+	});
+	
+	// Click "Collect to Libraries"
+        $("#the-book #my-libraries a").click(function (e) {
+
+		$("#my-libraries ul").toggle();
+		e.preventDefault();
+		
+		$("#stay-right .submission-dropdown").addClass("clicked-list");
+        });
+	
+	// submissions confirm popup
+		
+	$(document).on("click", "#my-libraries ul a", function () {
+		$("#collection-pop").css({"display": "block"});
+		
+		setTimeout(function() {
+		$("#collection-pop").fadeOut("slow");
+		}, 2500);
+	});
+	
+	//only show edit option if owner of book//
+	$(document).ready(function (e) {
+		
+	if (typeof user == "undefined") {
+		$("#the-book #edit-shortcut").remove();	
+	} else {
+		var author = bookOwner.name;
+		var reader = user.name;
+	
+		if (author == reader) {
+			$("#the-book #edit-shortcut").show();
+		} else {
+			$("#the-book #edit-shortcut").remove();
+		}
+	}
+		
+	});
+	
+	// Click Edit Work
+        $("#the-book #edit-shortcut .edit-book").click(function (e) {
+		window.location.href = "/editbook/" +current.bookId;
+        });
+	
+	//Click delete book and open overlay
+	$("#edit-shortcut .delete-book").click(function (e) {
+		$("#delete-book-overlay").show();
+        });
+	
+	//Close overlay
+	$("#close-overlay").click(function (e) {
+		$("#delete-book-overlay").hide();
+        });
+	
+	// Confirm Delete Book
+	$("#confirm-delete-book").click(function (e) {
+		window.location.href = "/featured/";
+		
+		bookId = current.bookId;
+		sessionId = readCookie("JSESSIONID");
+		
+		$.ajax({
+			url: "/api/books/deleteBook",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    bookId: bookId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		});
+    });
+	
+	// Hide submission dropdown when click outisde
+	$(document).mouseup(function (e) {
+
+	var container = $("#my-libraries ul, #collection-pop");
+	var clicked = $("#stay-right .clicked-list");
+
+	// if the target of the click isn't the container...
+	if (!container.is(e.target) && container.has(e.target).length === 0) {
+		container.hide(); // ... nor a descendant of the container
+		clicked.removeClass();
+	}});
+	
+	//menu css overflow fix//	
+	$("#g-menu-toggle").click(function() {
+		$(".full-book").css("overflow-y", "hidden");
+	});
+	
+	$("#mp-pusher").click(function() {
+		$(".full-book").css("overflow-y", "scroll");
+	});
+	
+	// Dropdown menu for mobile
+        if ($vW < "1025") {
+		
+        $(".bookmark-list-wrapper").remove();
+                
+        $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
+	
+	$("#g-menu-toggle").click(function (e) {
+		$("#featured-nav").toggle();
+		$("#featured-panel").css("cssText", "z-index: 1000 !important;");
+		$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
+	})}
+	
+	if ($vW > "1919") {
+		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
+	}
+
+	function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam)
+            {
+                return sParameterName[1];
+            }
+        }
+    }
+=======
 <!--/ scripts/page-flip /-->
 <script src="/static/scripts/jquerypp.custom.js"></script>
 <script src="/static/scripts/bookblock.js"></script>
+>>>>>>> 39a4ee3bff84d51116fe270f288abb2c83b6c576
 
 <!--/ scripts/fluidbox /-->
 <script src="/static/scripts/imagesloaded.min.js"></script>
@@ -210,23 +363,27 @@
         }, 2500);
     });
 
-    //only show edit option if owner of book//
-    $(document).ready(function (e) {
-
-    var author = bookOwner.name;
-    var reader = user.name;
-
-        if (author == reader) {
-            $("#the-book #edit-shortcut").show();
-        } else {
-            $("#the-book #edit-shortcut").remove();
-        }
-    });
-
-    //dont show edit-shortcut if user is not logged in//
-    if (typeof user == "undefined") {
-        $("#the-book #edit-shortcut").remove();
-    }
+ 
+ 	//only show edit option if owner of book//
+	$(document).ready(function (e) {
+		
+		getCreatedLibrariesForBook();
+		
+		if (typeof user == "undefined") {
+			$("#the-book #edit-shortcut").remove();
+			$(".submission-dropdown").remove();
+		} else {
+			var author = bookOwner.name;
+			var reader = user.name;
+		
+			if (author == reader) {
+				$("#the-book #edit-shortcut").show();
+			} else {
+				$("#the-book #edit-shortcut").remove();
+			}
+		}
+		
+	});
 
     // Click Edit Work
         $("#the-book #edit-shortcut .edit-book").click(function (e) {
