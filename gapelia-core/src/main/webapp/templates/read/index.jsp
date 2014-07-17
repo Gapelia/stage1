@@ -250,10 +250,6 @@
 		$("#featured-panel").css("cssText", "z-index: 1000 !important;");
 		$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
 	})}
-	
-	if ($vW > "1919") {
-		$(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
-	}
 
 	function GetURLParameter(sParam) {
         var sPageURL = window.location.search.substring(1);
@@ -458,7 +454,7 @@
     })}
 
     if ($vW > "1919") {
-        $(".notification-time #notification-count").css("cssText", "margin-right: 5.5rem !important");
+        $(".notification-time #notification-count").css("cssText", "margin-right: 1.5rem !important");
     }
 
     function GetURLParameter(sParam) {
