@@ -282,6 +282,17 @@
 $(document).ready(function() {
     loadDelete();
 
+
+    //readrboard block
+
+    document.addEventListener("readrboard.hashed_nodes",function(){
+        console.log("readrboard.hashed_nodes");
+        console.log( readrboard.getLastEvent() );
+        var hash = GetURLParameter("commentLocation");
+        if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+        //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+    },false);
+
     document.addEventListener("readrboard.comment",function() {
         console.log(readrboard.getLastEvent().supplementary.hash);
         $.ajax({
@@ -306,7 +317,9 @@ $(document).ready(function() {
                 }
             }
         });
-    } ,false); //end readerboard block
+    } ,false);
+
+    //end readerboard block
 
 
     $(".fluid-wrapper").imgLiquid({
@@ -331,29 +344,23 @@ $(document).ready(function() {
 
 
  setTimeout(function () {
+        /*$(".fluid-wrapper").imgLiquid({
+            fill: true
+        });*/
+        $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".overlay-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".phototext-wrapper").imgLiquid({
+            fill: true
+        });
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({
+            fill: true
+        });
 
-         var hash = GetURLParameter("commentLocation");
-         if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
-         //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
-
-
-            /*$(".fluid-wrapper").imgLiquid({
-                fill: true
-            });*/
-	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".overlay-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".phototext-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                fill: true
-            });
-
-            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 	    
 	    //adding http://  and new-tab-location to all hyperlinks//
 	    $(".full-book .page-desc a").each(function() {
