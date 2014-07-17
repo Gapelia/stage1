@@ -19,7 +19,7 @@ public class QueryDatabaseSearch {
 
     private static final String SEARCH_BOOKS = "select id,title,cover_photo,doc,ts_rank(search.doc, to_tsquery('english', ?)) " +
 			"from (select id, title, cover_photo, snippet, to_tsvector('english',title) || to_tsvector('english',tags) || to_tsvector('english',snippet) as doc " +
-			"from books group by id) search where doc @@ to_tsquery('english',?) ORDER BY ts_rank(search.doc, to_tsquery('english', ?)) DESC limit 5";
+			"from books where is_published = 't' group by id) search where doc @@ to_tsquery('english',?) ORDER BY ts_rank(search.doc, to_tsquery('english', ?)) DESC limit 5";
 
 
     public static void searchBooks(String query, Search s) {
