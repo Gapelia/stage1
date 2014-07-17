@@ -3291,3 +3291,25 @@ function loadEditorExtra(templateId) {
 	    e.preventDefault();
     
 	});}
+
+
+function getRepliesByBookId(bookId) {
+    $.ajax({
+        url: "/api/books/getReplies",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+        data: {
+	        bookId : bookId
+        },
+        success: function (data) {
+            replies = data;
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+}
