@@ -116,6 +116,14 @@
 <script src="/static/scripts/jquery.mousewheel.js"></script>
 <script src="/static/scripts/vimeothumb.js"></script>
 
+<!--/ scripts/page-flip /-->
+<script src="/static/scripts/jquerypp.custom.js"></script>
+<script src="/static/scripts/bookblock.js"></script>
+
+<!--/ scripts/fluidbox /-->
+<script src="/static/scripts/imagesloaded.min.js"></script>
+<script src="/static/scripts/fluidbox.min.js"></script>
+
 <script src="/static/scripts/ajax.js"></script>
 <script src="/static/scripts/userNotifications.js"></script>
 <script src="/static/scripts/readBook.js"></script>
