@@ -48,20 +48,18 @@ function getBookNotifications() {
 					success: function (data) {
 						userFrom = data;
 						getBookFromBookId(notification.bookId);
-
 						sender = userFrom.name;
 						bookTitle = bookFromBookId.title;
 						toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
 						toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
 						$("#gpl-menu-notify ul").append(toInsert);
-						$("#gpl-menu-notify ul").append(toInsert);
 						/*
 						$(".vote-notification a").click(function(){
 							window.location="/"+userFrom.displayName;
 						});
-						*/
-					}
-				});
+				*/
+			}
+		});
 			}
 		}
 	});
@@ -131,9 +129,9 @@ function getCommentNotifications() {
 					$(".comment-notification a").click(function(){
 						window.location="/read/"+notification.referencedBookId+"?commentLocation="+hash;
 					});
-					*/
-				}
-			});
+*/
+}
+});
 }
 }
 });
@@ -188,9 +186,9 @@ function addAcceptedNotification(notificationId, bookId, libraryId) {
 					$(".library-notification a").click(function(){
 						window.location="/library/"+libraryId;
 					});
-					*/
-				}
-			});
+			*/
+		}
+	});
 		}
 	});
 }
