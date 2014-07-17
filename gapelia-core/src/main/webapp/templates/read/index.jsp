@@ -188,6 +188,11 @@
 		}	
 	});
 	
+	//dont show edit-shortcut if user is not logged in//
+	if (typeof user == "undefined") {
+		$("#the-book #edit-shortcut").remove();	
+	}
+	
 	// Click Edit Work
         $("#the-book #edit-shortcut .edit-book").click(function (e) {
 		window.location.href = "/editbook/" +current.bookId;
@@ -328,10 +333,8 @@ $(document).ready(function() {
         $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
     });
 
-
-
  setTimeout(function () {
-
+	
          var hash = GetURLParameter("commentLocation");
          if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
          //$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
@@ -361,6 +364,7 @@ $(document).ready(function() {
 		$(this).attr("href", "http://" + href);
 		$(this).attr("target", "_blank");
 	    });
+	    
 	    
 	    //this fixes situation when a book is not yet part of a library//
 	    if (getLibraryFromBookBackCover(current.bookId) == "") {
