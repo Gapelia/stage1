@@ -108,6 +108,12 @@
 
         &:after { content: "Add to library"; margin-left: 5px; }
       }
+      
+      #my-libraries {
+        ul li a {
+          background-color: transparent;
+        }
+      }
 
       ul {
         display: none;

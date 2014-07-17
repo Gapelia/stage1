@@ -6782,6 +6782,8 @@ a.count span.dont-move {
 .full-book #the-book #stay-right .clicked-list:after, .full-book #the-book #edit-shortcut .clicked-list:after {
   content: "Add to library";
   margin-left: 5px; }
+.full-book #the-book #stay-right #my-libraries ul li a, .full-book #the-book #edit-shortcut #my-libraries ul li a {
+  background-color: transparent; }
 .full-book #the-book #stay-right ul, .full-book #the-book #edit-shortcut ul {
   display: none;
   top: 3.8rem;
