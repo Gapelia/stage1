@@ -178,20 +178,20 @@
 	//only show edit option if owner of book//
 	$(document).ready(function (e) {
 		
-	var author = bookOwner.name;
-	var reader = user.name;
+	if (typeof user == "undefined") {
+		$("#the-book #edit-shortcut").remove();	
+	} else {
+		var author = bookOwner.name;
+		var reader = user.name;
 	
 		if (author == reader) {
 			$("#the-book #edit-shortcut").show();
 		} else {
 			$("#the-book #edit-shortcut").remove();
-		}	
-	});
-	
-	//dont show edit-shortcut if user is not logged in//
-	if (typeof user == "undefined") {
-		$("#the-book #edit-shortcut").remove();	
+		}
 	}
+		
+	});
 	
 	// Click Edit Work
         $("#the-book #edit-shortcut .edit-book").click(function (e) {
