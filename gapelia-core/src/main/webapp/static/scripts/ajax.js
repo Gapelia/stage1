@@ -94,8 +94,8 @@ function loadDelete() {
                     notificationId: notificationId
                 }
             });
-        } else {
-            $.ajax({
+        } else if (type == "book-notification") {
+		$.ajax({
                 url: "/api/notifications/removeBookNotification",
                 contentType: "application/x-www-form-urlencoded;charset=utf-8",
                 type: "POST",
@@ -104,10 +104,10 @@ function loadDelete() {
                     notificationId: notificationId
                 }
             });
-        }
+	}
 	
-	if (type == "comment-notification") {
-		
+	else if (type == "comment-notification") {
+		console.log(notificationId);
 	    $.ajax({
 		url: "/api/notifications/removeCommentNotification",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
