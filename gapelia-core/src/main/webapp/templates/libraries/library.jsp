@@ -473,6 +473,8 @@
 
             // Dropdown menu for mobile
             if ($vW < "1025") {
+		
+		$("#featured-scroller").css("cssText", "overflow-y: scroll !important");
 
                 $("#featured-panel .featured-info").remove();
 
