@@ -8811,8 +8811,8 @@ a.count span.dont-move {
     line-height: 3.3rem; }
   .full-book .overlay-wrapper .page-bg {
     display: initial !important;
-    height: 100%;
-    width: auto; }
+    height: auto;
+    width: 100%; }
   .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution {
     bottom: initial;
     left: 0;
