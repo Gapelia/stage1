@@ -72,6 +72,8 @@
                 </li>
         </ul>
 	
+	<div id="contact-editor"><a href="#">Contact Editor</a></div>
+	
 	<!--/ main-content /-->
         <div id="featured-scroller">
             <div id="nav-wrapper">
@@ -114,6 +116,10 @@
             $(".mp-pushed").ready(function () {
                 $("#book-scroller").css("z-index", "0");
             });
+	    
+	    $("#contact-editor").click(function(){
+		window.location.href = "mailto:"+libraryOwner.email+"";
+	    })
         }
 
         $(document).on("ready", function () {

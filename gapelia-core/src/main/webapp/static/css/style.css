@@ -3187,6 +3187,12 @@ body.landing .error {
   content: "Library of the day"; }
 .app #library-splash:after {
   background-image: linear-gradient(to top, rgba(25, 25, 25, 0.6), rgba(25, 25, 25, 0.73)); }
+.app #contact-editor {
+  bottom: 1.5rem;
+  left: 1rem;
+  color: white;
+  position: absolute;
+  z-index: 1000; }
 .app #library-splash #close-splash {
   background-image: url("../images/splash-arrow.png");
   background-size: 70px;
@@ -8557,6 +8563,8 @@ a.count span.dont-move {
     top: 1rem !important;
     right: 1rem !important;
     text-align: right; }
+  .app #contact-editor {
+    display: none; }
   .app #library-splash #library-info {
     left: 10%;
     text-align: center;

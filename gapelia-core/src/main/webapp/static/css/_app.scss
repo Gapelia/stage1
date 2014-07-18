@@ -1104,6 +1104,15 @@
     background-image: linear-gradient(to top, rgba(25, 25, 25, 0.6), rgba(25, 25, 25, 0.73));
   }
   
+  #contact-editor {
+    bottom: 1.5rem;
+    left: 1rem;
+    color: white;
+    position: absolute;
+    z-index: 1000;
+  }
+  
+  
   #library-splash {
     
 		#close-splash {
