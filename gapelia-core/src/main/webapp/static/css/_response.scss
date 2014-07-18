@@ -1574,7 +1574,7 @@
 		.overlay-wrapper {
 			margin: 0 0 3rem 0;
 			height: 100%;
-
+			
 			.author-info .author-avatar { margin-left: 45%; }
 			.overlay-preview {
 				top: intial; left: initial;
@@ -1594,7 +1594,7 @@
 			
 			.page-bg {
 				display: initial !important;
-				height: 100%; width: auto;
+				height: auto; width: 100%;
 			}
 		}
 

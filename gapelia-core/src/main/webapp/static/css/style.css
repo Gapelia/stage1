@@ -3419,8 +3419,7 @@ body.landing .error {
   letter-spacing: 0;
   padding: 0.1rem 0.1rem 0.1rem 0.1rem;
   position: absolute;
-  text-align: center;
-  display: block !important; }
+  text-align: center; }
 
 .onboard #onboard-photos-overlay:hover .cover-button {
   opacity: 1; }
@@ -7270,6 +7269,8 @@ a.count span.dont-move {
 .full-book .phototext-wrapper .phototext-preview .page-desc {
   font-size: 1.2rem;
   line-height: 1.7rem; }
+.full-book .phototext-wrapper .author-info .author-avatar {
+  margin-left: -3rem; }
 .full-book .vertical-wrapper section {
   width: 25%;
   height: 100%; }
@@ -8811,8 +8812,8 @@ a.count span.dont-move {
     line-height: 3.3rem; }
   .full-book .overlay-wrapper .page-bg {
     display: initial !important;
-    height: 100%;
-    width: auto; }
+    height: auto;
+    width: 100%; }
   .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution {
     bottom: initial;
     left: 0;

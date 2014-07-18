@@ -183,10 +183,6 @@
 
 	//end readerboard block
 
-	$(function () {
-		if (typeof user != "undefined") getCreatedLibrariesForBook();
-		else $(".submission-dropdown").remove();
-	});
 
 	// Hide logo after 100px when scrolling book on mobile
 	$(window).scroll(function() {
@@ -219,13 +215,12 @@
 	//only show edit option if owner of book//
 	$(document).ready(function (e) {
 
-		getCreatedLibrariesForBook();
-
 		if (typeof user == "undefined") {
 			$("#the-book #edit-shortcut").remove();
 			$(".submission-dropdown").remove();
 		} 
 		else {
+			getCreatedLibrariesForBook();
 			var author = bookOwner.name;
 			var reader = user.name;
 
