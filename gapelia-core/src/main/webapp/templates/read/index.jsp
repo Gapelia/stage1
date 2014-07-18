@@ -321,8 +321,6 @@
 		}
 	}
 
-
-
 	$(document).ready(function() {
 		loadDelete();
 		//window.READRBOARDCOM.actions.reInit();
@@ -336,7 +334,6 @@
 	});
 
 	setTimeout(function () {
-		
 		$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
 		$(".overlay-wrapper").imgLiquid({ fill: true });
 		$(".phototext-wrapper").imgLiquid({ fill: true });
@@ -352,13 +349,11 @@
 
 		//this fixes situation when a book is not yet part of a library//
 		if (getLibraryFromBookBackCover(current.bookId) == "") {
-
 			$("#fin-next").css({
 				"height" : "100%",
 				"width" : "35%",
 				"float" : "right"
 			})
-
 			//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 		}
 
