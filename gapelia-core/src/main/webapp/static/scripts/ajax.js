@@ -1066,7 +1066,7 @@ function getLibrary() {
 	    
 	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/><a id=\"library-contributors\">  &#124;  10 contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
@@ -1096,6 +1096,10 @@ function getLibrary() {
             toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
             
 	    $("#mp-pusher").prepend(toInsert);
+	    
+	    $("#library-contributors").click(function(){
+		$("#library-splash").append("<ul id=\"contributor-list\"><li><a></a></li></ul>");
+	    })
 	    	    
 	    $("#library-info").mouseenter(function (e) {
 		$("#library-splash #close-splash").css("cssText", "color: #59B3A6 !important")
@@ -1137,6 +1141,36 @@ function getLibraryFromLibraryId(libraryId) {
             }
         }
     });
+}
+
+function getLibraryContributors(libraryId) {
+    sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/libraries/getLibraryContributors",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+	    libraryId: libraryId
+        },
+        success: function (data) {
+            contributors = data;
+
+                lib = "<a href=\""+user.displayName+"\">"+user.name+"</a>";
+		
+                $("#contributor-list li").append(lib);
+             
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
 }
 
 function getAllLibraries() {

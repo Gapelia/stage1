@@ -9,6 +9,14 @@ body.library {
 		.wrapper { width: 100%; }
 	}
 	
+	#contributor-list {
+		background-color: white;
+		border-radius: 0.25rem;
+		padding: 1rem;
+		position: absolute;
+		z-index: 1;
+	}
+	
 	#featured-nav .current {
 		margin: 0.7rem 1rem 0 0;
 		

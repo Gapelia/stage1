@@ -520,6 +520,7 @@
             getLibrary();
             //getBooksInLibrary();
 	    getBooksInLibraryArray();
+	    getLibraryContributors(libraryId);
 	    
 	    if (typeof user != 'undefined') {
 			getSubmissionsInLibrary();

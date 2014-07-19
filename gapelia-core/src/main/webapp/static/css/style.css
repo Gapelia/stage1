@@ -3543,6 +3543,12 @@ body.library #nav-wrapper {
   z-index: 1; }
 body.library .book .wrapper, body.library .library .wrapper {
   width: 100%; }
+body.library #contributor-list {
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  position: absolute;
+  z-index: 1; }
 body.library #featured-nav .current {
   margin: 0.7rem 1rem 0 0; }
 body.library #featured-nav .current c {
