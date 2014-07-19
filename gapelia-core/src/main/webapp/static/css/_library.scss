@@ -12,9 +12,47 @@ body.library {
 	#contributor-list {
 		background-color: white;
 		border-radius: 0.25rem;
-		padding: 1rem;
+		left: 25%;
+		min-height: 100px;
+		max-height: 300px;
+		overflow-y: scroll;
+		padding: 0rem 1.5rem 1.5rem 1.5rem;
 		position: absolute;
-		z-index: 1;
+		top: 25%;
+		width: 50%;
+		z-index: 10;
+		
+		a { padding-left: 1.75rem; }
+		
+		img {
+			border-radius: 300em;
+			height: 35px;
+			position: relative;
+			left: -1rem;
+			top: 10px;
+			width: 35px;
+		}
+		
+		li { margin-top: 10px; }
+		
+		#contributor-bio {
+			font-size: 1rem !important;
+			margin-left: 0.75rem;
+		}
+	}
+	
+	#contributors-title {
+		background-color: white;
+		border-radius: 0.25rem;
+		color: rgba(0, 0, 0, 0.75);
+		font-weight: 400 !important;
+		left: 25%;
+		padding: 5px !important;
+		position: absolute;
+		text-align: center;
+		top: 18%;
+		width: 50%;
+		z-index: 10;
 	}
 	
 	#featured-nav .current {

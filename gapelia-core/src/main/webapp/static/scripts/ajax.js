@@ -1025,6 +1025,8 @@ function getLibrary() {
 	    
 	    var ownThisLibrary = false;
 	    
+	    getLibraryContributors(libraryId);
+	    
 	    if (typeof user != 'undefined') {
 	    myLibraries = getCreatedLibrariesArray(sessionId);
 		
@@ -1066,7 +1068,7 @@ function getLibrary() {
 	    
 	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/><a id=\"library-contributors\">  &#124;  10 contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/><a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    } else {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
@@ -1097,10 +1099,38 @@ function getLibrary() {
             
 	    $("#mp-pusher").prepend(toInsert);
 	    
+	    
+	    
 	    $("#library-contributors").click(function(){
-		$("#library-splash").append("<ul id=\"contributor-list\"><li><a></a></li></ul>");
-	    })
-	    	    
+		
+		
+
+		if ($("#contributor-list li").length == 0){
+			$("#library-splash").append("<p id=\"contributors-title\"></p><ul id=\"contributor-list\"></ul>");
+		
+			$("#contributors-title").append("Contributors to "+library.title+"");
+			
+			console.log("filing empty contrib list");
+			
+			for (i in contributors) {
+				contributor = contributors[i];
+
+				lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+" <span id=\"contributor-bio\">"+contributor.bio+"</span></a></li>";
+		
+				 $("#contributor-list").append(lib);
+		
+			}
+		    
+		}    
+		
+		//hide and show list//
+		$("#contributor-list").mouseleave(function (e) {
+			$("#contributor-list, #contributors-title").hide();
+		});
+		$("#contributor-list, #contributors-title").show();
+		
+	    });
+	    
 	    $("#library-info").mouseenter(function (e) {
 		$("#library-splash #close-splash").css("cssText", "color: #59B3A6 !important")
 	    });
@@ -1156,10 +1186,7 @@ function getLibraryContributors(libraryId) {
         },
         success: function (data) {
             contributors = data;
-
-                lib = "<a href=\""+user.displayName+"\">"+user.name+"</a>";
-		
-                $("#contributor-list li").append(lib);
+	    
              
         },
         error: function (q, status, err) {
