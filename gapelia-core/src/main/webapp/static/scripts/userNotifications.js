@@ -53,11 +53,11 @@ function getBookNotifications() {
 						toInsert = "<li class=\"vote-notification\" id=\""+notification.notificationId+"\"><a href=/"+userFrom.displayName+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">"+sender + " liked <b>" + bookTitle +"<b></a>";
 						toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
 						$("#gpl-menu-notify ul").append(toInsert);
-						/*
+						
 						$(".vote-notification a").click(function(){
 							window.location="/"+userFrom.displayName;
 						});
-				*/
+				
 			}
 		});
 			}
@@ -121,15 +121,15 @@ function getCommentNotifications() {
 					if(text.length > 30) text = text.substr(0, 30) + "\u2026";
 
 					var hash = notification.hash;
-
-					toInsert = "<li class=\"comment-notification\" id=\""+notification.notificationId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
+					console.log(notification);
+					toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
 					toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
 					$("#gpl-menu-notify ul").append(toInsert);
-					/*
+					
 					$(".comment-notification a").click(function(){
 						window.location="/read/"+notification.referencedBookId+"?commentLocation="+hash;
 					});
-*/
+
 }
 });
 }
@@ -182,11 +182,10 @@ function addAcceptedNotification(notificationId, bookId, libraryId) {
 					book = data;
 					toInsert = "<li class=\"library-notification\" id=\""+notificationId+"\"><a href=/library/"+libraryId+"\><b>" + book.title + "</b> was accepted to the library <b>" + library.title + "</b></a><a class=\"remove-notification\">&#x2717;</a></li>";
 					$("#gpl-menu-notify ul").append(toInsert);
-					/*
 					$(".library-notification a").click(function(){
 						window.location="/library/"+libraryId;
 					});
-			*/
+			
 		}
 	});
 		}

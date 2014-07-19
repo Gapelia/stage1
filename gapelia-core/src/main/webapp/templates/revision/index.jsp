@@ -251,7 +251,7 @@ $(document).ready(function() {
 
  //votes and recommendation get removed for revisions//
  setTimeout(function () {
-	    $("#fin, #fin-next, .g-body hr, .backcover-wrapper").remove();
+	    $("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();
 	    
     }, 1000);
 

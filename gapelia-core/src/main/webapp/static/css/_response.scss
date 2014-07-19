@@ -1244,6 +1244,8 @@
 			}
 		}
 		
+		#contact-editor { display: none; }
+		
 		#library-splash {
 			#library-info {
 				left: 10%;
@@ -1269,8 +1271,6 @@
 			}
 		}
 		
-		//#library-splash #library-share { top: 1.5rem !important; }
-
 		#user-splash {
 			position: fixed;
 			
@@ -1290,12 +1290,11 @@
 			.user-avatar { top: 21.5%; }
 			
 			#close-splash {
+				border: none;
 				bottom: 0.5rem;
-				font-size: 4rem;
+				font-size: 2rem;
 				left: 48.5% !important; right: inherit;
 				text-align: center;
-				
-				display: none !important; 
 			}
 		}
 		
@@ -1887,6 +1886,7 @@
 		
 		#book-scroller {
 			background-color: white;
+			height: auto;
 			position: absolute;
 			top: 98%;
 		}
@@ -2372,6 +2372,8 @@
 		
 		#user-splash {
 			
+			#close-splash { left: 48% !important; }
+			
 			.user-avatar { top: 20%; }
 			
 			#splash-user-info {
@@ -2381,6 +2383,10 @@
 			#splash-user-info {
 				padding: 0 6rem;
 				top: 23%;
+			}
+			
+			#user-extra{
+				bottom: -36rem;
 			}
 			
 			h1 {
@@ -2662,6 +2668,7 @@
 		}
 		
 		#user-splash {
+			#close-splash { left: 47.5% !important; }
 			.user-avatar { top: 19%; }
 			#splash-user-bio { font-size: 1rem; }
 			#splash-user-info {
@@ -2975,6 +2982,8 @@
 		
 		#user-splash{
 			
+			#close-splash { left: 46% !important; }
+			
 			h1 { font-size: 1.7rem; }
 			
 			h5 { font-size: 0.8rem; }
@@ -3173,6 +3182,8 @@
 			
 			#library-info { top: 40%; }
 		}
+		
+		#user-splash #close-splash { color: black; }
 		
 		//onboarding process//
 		#university-affiliation {
@@ -3528,7 +3539,9 @@
 		}
 		
 		#user-splash #close-splash {
-			left: 32%;
+			bottom: 0 !important;
+			font-size: 1.5rem;
+			left: 45% !important;
 		}
 
 		// Header
@@ -3835,11 +3848,6 @@
 					span { font-size: 0.9rem !important; }
 				}
 			}	
-				
-			#close-splash {
-				
-				display: none; // hidden unti book repo is optimized
-			}
 		}
 		
 		//onboarding process//

@@ -453,10 +453,11 @@
 		}
 
 		.fluid-preview {
-			width: 100%; height: auto; // min-height: 53%;
+			width: 100%; height: auto;
 			top: 75%; left: 0; bottom: 0;
 
 			background-color: $white;
+      min-height: 53%;
 			padding: 1rem 2rem 0 2rem;
 			position: absolute;
 

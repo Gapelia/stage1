@@ -58,7 +58,7 @@
 			<div id="back">
 				<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
 				<ul id="revision-toggle">
-					<li id="revisions">
+					<li id="revisions" style="padding: 0 2.5rem 2.5rem 0;">
 					    <a class=revision-dropdown href="#">Revisions</a>
 						<ul style="display: none;">
 							<li style="font-weight: 500; margin-bottom: 10px; text-align: center;">Past versions sorted by day</li>
@@ -191,14 +191,7 @@
 			getUser();
 			
 		});
-            	function load() { loadBookEditor(); getRevisions();
-		
-			//check that book owner is the user//
-			/*
-			if (user.userId != book.userId) {
-				window.location.href = "/404";
-			}
-			*/
+            	function load() { loadBookEditor();  getRevisions();	
 			
 			//share draft code//
 			if ($vW > "1024") {
@@ -225,13 +218,10 @@
 				if ($("#revisions ul li").css("display") != "block") {
 					$("#revisions ul li").css("display", "block");
 					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-				} /*else {
-					$("#revisions ul li").css("display", "none");
-					$("#revision-toggle ul").css("box-shadow", "none");
-				}*/
+				} 
 			});
 			
-		$("#back").mouseleave(function () {
+		$("#revisions").mouseleave(function () {
 				$("#revision-toggle ul").css("display", "none");
 			});
 			
@@ -249,9 +239,14 @@
 			$("#save-drafts").hide();
 		})
 		
-		$("#pages-scroller").mouseleave(function(){
+		$("#pages-scroller, #layout-scroller").mouseleave(function(){
 			$("#save-drafts").show();
 		})
+		
+		$("#layout-scroller").mouseenter(function(){
+			$("#save-drafts").hide();
+		})
+		
 		
 
 		$("#publish-this").on("click", function (e) {
