@@ -29,6 +29,15 @@ public class Libraries {
 		return gson.toJson(QueryDatabaseLibrary.getNumSubscribers(libraryId));
 	}
 
+	@Path("getLibraryContributors")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getLibraryContributors(@FormParam("libraryId") int libraryId) {
+		Gson gson = new GsonBuilder().create();
+		return gson.toJson(QueryDatabaseLibrary.getLibraryContributors(libraryId));
+	}
+
 	@Path("getMostVotedBookInLibrary")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
