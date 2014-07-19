@@ -1068,9 +1068,14 @@ function getLibrary() {
 	    
 	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/><a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/>";
 	    } else {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/>";
+	    }
+	    if (contributors.length != 0) {
+		toInsert += "<a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+	    } else {
+		toInsert += "</h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
 	    if (featuredBookTitle == "") {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
@@ -1103,22 +1108,18 @@ function getLibrary() {
 	    
 	    $("#library-contributors").click(function(){
 		
-		
-
 		if ($("#contributor-list li").length == 0){
 			$("#library-splash").append("<p id=\"contributors-title\"></p><ul id=\"contributor-list\"></ul>");
 		
 			$("#contributors-title").append("Contributors to "+library.title+"");
 			
-			console.log("filing empty contrib list");
-			
 			for (i in contributors) {
 				contributor = contributors[i];
-
-				lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+" <span id=\"contributor-bio\">"+contributor.bio+"</span></a></li>";
-		
+				
+				lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+"  &#8212;<span id=\"contributor-bio\">"+contributor.bio+"</span></a></li>";
+				
 				 $("#contributor-list").append(lib);
-		
+				 
 			}
 		    
 		}    

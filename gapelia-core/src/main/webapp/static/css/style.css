@@ -3232,6 +3232,7 @@ body.landing .error {
   opacity: 0.8; }
 .app #library-splash h1 span {
   font-size: 0.9rem !important;
+  font-weight: 700 !important;
   font-style: italic; }
 .app #library-splash h1 a {
   font-style: italic;
@@ -3547,7 +3548,7 @@ body.library #contributor-list {
   background-color: white;
   border-radius: 0.25rem;
   left: 25%;
-  min-height: 100px;
+  min-height: 75px;
   max-height: 300px;
   overflow-y: scroll;
   padding: 0rem 1.5rem 1.5rem 1.5rem;
@@ -3555,7 +3556,10 @@ body.library #contributor-list {
   top: 25%;
   width: 50%;
   z-index: 10; }
+body.library #contributor-list:hover {
+  opacity: 1; }
 body.library #contributor-list a {
+  font-size: 1rem;
   padding-left: 1.75rem; }
 body.library #contributor-list img {
   border-radius: 300em;
@@ -3568,13 +3572,15 @@ body.library #contributor-list li {
   margin-top: 10px; }
 body.library #contributor-list #contributor-bio {
   font-size: 1rem !important;
-  margin-left: 0.75rem; }
+  margin-left: 5px;
+  opacity: 0.75; }
 body.library #contributors-title {
   background-color: white;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.75);
   font-weight: 400 !important;
   left: 25%;
+  opacity: 1 !important;
   padding: 5px !important;
   position: absolute;
   text-align: center;
@@ -7779,6 +7785,10 @@ a.count span.dont-move {
   body.library #submission-pop {
     height: 5% !important;
     margin-left: 8% !important; }
+  body.library #contributors-title {
+    top: 32% !important; }
+  body.library #contributor-list {
+    top: 38% !important; }
 
   body.library-manager #featured-nav .typeahead {
     display: block; }
@@ -7969,6 +7979,10 @@ a.count span.dont-move {
     padding: 1.25rem 1rem 0rem 1rem; }
   body.library #featured-panel #g-menu-toggle {
     top: 0; }
+  body.library #contributors-title {
+    top: 28%; }
+  body.library #contributor-list {
+    top: 35%; }
 
   .mp-menu ul .fq {
     margin-top: 160%; }

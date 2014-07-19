@@ -84,6 +84,10 @@
 			height: 5% !important;
 			margin-left: 8% !important;
 		}
+		
+		#contributors-title { top: 32% !important; }
+		
+		#contributor-list { top: 38% !important; }
 	}
 	
 	body.library-manager {
@@ -335,6 +339,10 @@
 		}
 		
 		#featured-panel #g-menu-toggle { top: 0; }
+		
+		#contributors-title { top: 28%; }
+		
+		#contributor-list { top: 35%; }
 	}
 	
 	.mp-menu ul .fq { margin-top: 160%; }
