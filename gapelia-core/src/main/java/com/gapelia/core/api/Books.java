@@ -7,6 +7,7 @@ import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.database.QueryDatabaseRevisions;
+import com.gapelia.core.database.QueryDatabaseResponses;
 import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Page;
@@ -123,23 +124,24 @@ public class Books {
 		return gson.toJson(QueryDatabaseRevisions.getRevisionsForBookId(bookId));
 	}
 
-    @Path("getReplies")
+    @Path("getResponses")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String getReplies(@FormParam("bookId") int bookId) {
+    public String getResponses(@FormParam("bookId") int bookId) {
 
-        Book b = QueryDatabaseUser.getBookByID(bookId);
+        //Book b = QueryDatabaseUser.getBookByID(bookId);
 
         Gson gson = new GsonBuilder().create();
-        //return gson.toJson(QueryDatabaseRevisions.getRevisionsForBookId(bookId));
+        return gson.toJson(QueryDatabaseResponses.getResponsesForBookId(bookId));
 
+        /*
         String example = "[" +
                 "{\"responseId\":21,\"authorId\":49,\"coverPhoto\":\"https://www.filepicker.io/api/file/GGm1QycxRvewJO5FIBEP\",\"title\":\"Example Response\",\"created\":\"May 15, 2014 1:41:10 PM\"}," +
                 "{\"responseId\":22,\"authorId\":30,\"coverPhoto\":\"https://www.filepicker.io/api/file/I9ynE7BTGmJndhsAvsAn\",\"title\":\"Testing Test\",\"created\":\"May 15, 2014 1:41:10 PM\"}," +
         "]";
-
         return example;
+        */
     }
 
 	@Path("getLibrariesBookBelongsTo")

@@ -131,14 +131,6 @@
 	
 
 	<script>
-		function GetURLParameter(sParam) {
-			var sPageURL = window.location.search.substring(1);
-			var sURLVariables = sPageURL.split('&');
-			for (var i = 0; i < sURLVariables.length; i++) {
-				var sParameterName = sURLVariables[i].split('=');
-				if (sParameterName[0] == sParam) return sParameterName[1];
-			}
-		}
 
 	//readrboard block
 
@@ -209,24 +201,6 @@
 		$("#collection-pop").css({"display": "block"});
 
 		setTimeout(function() { $("#collection-pop").fadeOut("slow") }, 2500);
-	});
-
-
-	//only show edit option if owner of book//
-	$(document).ready(function (e) {
-
-		if (typeof user == "undefined") {
-			$("#the-book #edit-shortcut").remove();
-			$(".submission-dropdown").remove();
-		} 
-		else {
-			getCreatedLibrariesForBook();
-			var author = bookOwner.name;
-			var reader = user.name;
-
-			if (author == reader) $("#the-book #edit-shortcut").show();
-			else $("#the-book #edit-shortcut").remove();
-		}
 	});
 
 	// Click Edit Work
@@ -316,9 +290,42 @@
 		}
 	}
 
+	function addResondToButton() {
+		var $button = $('<button>', {id: 'respondToButton', type: 'button', text: 'respond'});
+		$("#fin").append($button);
+		$("#respondToButton").click(function() {
+			window.location.href = "/respondTo/"+bookId;
+		});
+	}
+
+	function getAllResponses() {
+		var $responses = $('<ul>');
+		var responses = getResponsesByBookId(bookId);
+		
+		$.each(responses, function(index, value) {
+			alert( index + ": " + value );
+		});
+
+		$("#fin").append($resonses);
+	}
+
 	$(document).ready(function() {
 		loadDelete();
 		//window.READRBOARDCOM.actions.reInit();
+
+		//only show edit option if owner of book//
+		if (typeof user == "undefined") {
+			$("#the-book #edit-shortcut").remove();
+			$(".submission-dropdown").remove();
+		} 
+		else {
+			getCreatedLibrariesForBook();
+			var author = bookOwner.name;
+			var reader = user.name;
+
+			if (author == reader) $("#the-book #edit-shortcut").show();
+			else $("#the-book #edit-shortcut").remove();
+		}		
 
 		$(".fluid-wrapper").imgLiquid({ fill: true });
 		$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
@@ -351,6 +358,8 @@
 			})
 			//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 		}
+		addResondToButton();
+		getAllResponses();
 
 		document.title = pages[0].title;
 	}, 2000);
