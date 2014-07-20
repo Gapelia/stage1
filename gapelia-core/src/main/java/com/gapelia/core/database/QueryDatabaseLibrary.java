@@ -1,6 +1,7 @@
 package com.gapelia.core.database;
 
 import com.gapelia.core.model.Library;
+import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.Profile;
 import com.gapelia.core.model.Book;
@@ -27,6 +28,7 @@ public class QueryDatabaseLibrary {
 	private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
 	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
     private static final String IS_VALID_LIBRARYID = "SELECT 1 FROM libraries WHERE id = ?";
+    private static final String GET_LIBRARY_CONTRIBUTORS = "select distinct users.* from users join books on users.id = books.owned_by join library_books on books.id = library_books.book_id where library_books.library_id = ?";
 
 	private static final String MOST_VOTED_BOOK = "select library_books.book_id from library_books left join (select count(book_id) " +
 			"as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id " +
@@ -51,6 +53,64 @@ public class QueryDatabaseLibrary {
             return false;
         }
     }
+
+	public static ArrayList<User> getLibraryContributors(int library_id) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		String num = null;
+		ArrayList<User> list = new ArrayList<User>();
+		User user = null;
+		try {
+			statement = connection.prepareStatement(GET_LIBRARY_CONTRIBUTORS);
+			statement.setInt(1, library_id);
+			rs = statement.executeQuery();
+			while (rs.next()) {
+				user = new User();
+				user.setUserId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setEmail(rs.getString("email"));
+				user.setDisplayName(rs.getString("display_name"));
+				user.setFullName(rs.getString("full_name"));
+				user.setCoverImage(rs.getString("cover_image"));
+				user.setProviderId(rs.getString("provider_id"));
+				user.setValidatedId(rs.getString("validated_id"));
+				user.setBio(rs.getString("bio"));
+				user.setFb(rs.getString("fb"));
+				user.setGp(rs.getString("gp"));
+				user.setTwt(rs.getString("twt"));
+				user.setAvatarImage(rs.getString("avatar_image"));
+				user.setGender(rs.getString("gender"));
+				user.setLocation(rs.getString("location"));
+				user.setDob(rs.getDate("dob"));
+				user.setLastUpdated(rs.getTimestamp("last_updated"));
+				user.setLastLogin(rs.getTimestamp("last_login"));
+				user.setMemeberSince(rs.getTimestamp("member_since"));
+				user.setPersonalWebsite(rs.getString("personal_website"));
+				user.setIsPublic(rs.getBoolean("is_public"));
+				user.setTags(rs.getString("tags"));
+				user.setIsOnboarded(rs.getBoolean("is_onboarded"));
+				user.setEmailOptOut(rs.getBoolean("opt_out"));
+				user.setUniversity(rs.getString("university"));
+				user.setDepartment(rs.getString("department"));
+
+				list.add(user);
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR library contributors for lib id:" + library_id, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection libraryGetContribs lib id" + library_id + " " + ex.getMessage());
+			}
+		}
+		return list;
+	}
 
 	public static String getNumSubscribers(int library_id) {
 		PreparedStatement statement = null;

@@ -1025,6 +1025,8 @@ function getLibrary() {
 	    
 	    var ownThisLibrary = false;
 	    
+	    getLibraryContributors(libraryId);
+	    
 	    if (typeof user != 'undefined') {
 	    myLibraries = getCreatedLibrariesArray(sessionId);
 		
@@ -1066,9 +1068,14 @@ function getLibrary() {
 	    
 	    toInsert += "<div id=\"library-info\">";
 	    if (numSubscribers != null) {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/>";
 	    } else {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+		toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/>";
+	    }
+	    if (contributors.length != 0) {
+		toInsert += "<a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+	    } else {
+		toInsert += "</h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 	    }
 	    if (featuredBookTitle == "") {
 		toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
@@ -1096,7 +1103,35 @@ function getLibrary() {
             toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
             
 	    $("#mp-pusher").prepend(toInsert);
-	    	    
+	    
+	    
+	    
+	    $("#library-contributors").click(function(){
+		
+		if ($("#contributor-list li").length == 0){
+			$("#library-splash").append("<p id=\"contributors-title\"></p><ul id=\"contributor-list\"></ul>");
+		
+			$("#contributors-title").append("Contributors to "+library.title+"");
+			
+			for (i in contributors) {
+				contributor = contributors[i];
+				
+				lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+"  &#8212;<span id=\"contributor-bio\">"+contributor.bio+"</span></a></li>";
+				
+				 $("#contributor-list").append(lib);
+				 
+			}
+		    
+		}    
+		
+		//hide and show list//
+		$("#contributor-list").mouseleave(function (e) {
+			$("#contributor-list, #contributors-title").hide();
+		});
+		$("#contributor-list, #contributors-title").show();
+		
+	    });
+	    
 	    $("#library-info").mouseenter(function (e) {
 		$("#library-splash #close-splash").css("cssText", "color: #59B3A6 !important")
 	    });
@@ -1137,6 +1172,33 @@ function getLibraryFromLibraryId(libraryId) {
             }
         }
     });
+}
+
+function getLibraryContributors(libraryId) {
+    sessionId = readCookie("JSESSIONID");
+
+    $.ajax({
+        url: "/api/libraries/getLibraryContributors",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        type: "POST",
+	async: false,
+        data: {
+	    libraryId: libraryId
+        },
+        success: function (data) {
+            contributors = data;
+	    
+             
+        },
+        error: function (q, status, err) {
+            if (status == "timeout") {
+                alert("Request timed out");
+            } else {
+                alert("Some issue happened with your request: " + err.message);
+            }
+        }
+    });
+
 }
 
 function getAllLibraries() {
