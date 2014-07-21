@@ -45,27 +45,46 @@
 
 		<div id="mp-pusher" class="super-wrapper" style="overflow: hidden;">
 
-			<h5 id="beta">Sweet Beta</h5>
-			<h1 id="gapelia"><a href="/">Gapelia</a></h1>
-			<h4>A Laboratory of Ideas</h4>
+			<h5 id="beta">Product in Beta &#8212; Engineered at Harvard Innovation Lab</h5>
+			<h1 id="gapelia"></h1>
+			<h4 style="border: none; font-size: 2rem;">Folio &#8212; A Laboratory of Ideas</h4></br>
+			<h4 id="subtitle">The blogging platform for scholars and researchers.</h4>
 
 			<div class="wrapper">
 				<button class="fb-btn">Sign in with Facebook</button>
 				<button class="gplus-btn">Sign in with Gmail</button>
 			</div>
 
-			<img class="page-bg" src="/static/images/rock-bg.gif"/>
+			<img class="page-bg" src="http://static4.businessinsider.com/image/520e7890eab8ea642c000000/77bke.gif"/>
+			
+			<div id="about-one">
+				<h1>Re-imagining scholarly publishing</h1></br><p id="creation">We are building Folio because we believe scholars need a place on the Internet where to collaborate, discuss complex ideas and connect with the public. We have a vision of a renewed and rejuvenated academy &#8212; one that is publicly engaged, collaborative, and designed.</p>
+				<iframe src="http://player.vimeo.com/video/99745946" width="75%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-			<footer>
-				<nav>
-					<ul>
-						<li><a href="/read/754">LEARN MORE</a></li>
-						<li><a id="how-it-works" href="/read/755">HOW IT WORKS</a></li>
-						<li><a id="team" href="/read/2939">TEAM</a></li>
-					</ul>
-				</nav>
-			</footer>
-
+				<h1>An outlet for your writing, ideas and stories</h1></br><p id="curation">Folio provides an easy-to-use content management system, letting authors publish digitally native multimedia articles, peer-review and seek feedback from others, and conveniently track previous revisions of their work.</p>
+				<img src="/static/images/darwin.jpg"/>
+				<h1>Start a digital publication, reach an audience</h1></br><p id="reach">On Folio, content is organized across "libraries", which are curated by editors &#8212; users who self-start topic-based publications. The idea is that everybody can create content, however, stories will only gain exposure if they are previously reviewed and accepted by an editor.</p>
+				<img src="/static/images/evolve-magazine.jpg"/>
+				
+				<footer>
+					<nav>
+						<ul>
+							<li><a href="/read/754">LEARN MORE</a></li>
+							<li><a id="how-it-works" href="/read/755">HOW IT WORKS</a></li>
+							<li><a id="team" href="/read/2939">TEAM</a></li>
+						</ul>
+					</nav>
+				</footer>
+				
+				<div class="wrapper" id="wrapper-bottom"><p>Create an account today. It is free.</p>
+					<button class="fb-btn" style="margin-top: 3.5rem !important;">Sign in with Facebook</button>
+					<button class="gplus-btn">Sign in with Gmail</button>
+				</div>
+				
+				<h1 id="gapelia"></h1>
+			</div>
+			
+			<div id="home-quote" style="display: none;"><p>Be curious. Read widely. Try new things. What people call intelligence just boils down to curiosity. &#8212; Aaron Swartz</p></div>
 		</div>
 
 		<!--/ scripts /-->
@@ -89,8 +108,12 @@
 			});
 			
 			if ($vW > "1919") {
-				$("#gapelia").css("cssText", "left: 44.75% !important");
+				$("#about-one img, iframe").css("cssText", "height: 700px !important");
 			}
+			
+			$("#gapelia").mouseenter(function(){
+				$("#home-quote").show();
+			})
 		</script>
 		<!--//scripts /-->
 

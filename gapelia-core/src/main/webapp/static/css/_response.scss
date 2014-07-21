@@ -33,6 +33,14 @@
 	
 	#contactable-inner { top: 92% !important; }
 	
+	body.landing {
+		#about-one {
+			img, iframe {
+				height: 700px !important;
+			}
+		}
+	}
+	
 	.app{
 		.book, .collection, .library, .new, .draft {
 			width: 600px !important;
@@ -138,8 +146,6 @@
 	
 	#publish-modal { padding: 22rem 4rem !important; }
 	
-	body.landing #gapelia { margin-left: 1%; height: 27% !important; }
-	
 	.g-body #share-draft-overlay h3 { margin: 15% 31%; }
 }	
 
@@ -147,15 +153,20 @@
 	
 	body.landing {
 		
-		#gapelia {
-			height: 34%;
-			left: 43.75% !important;
-			top: 2rem;
+		#mp-pusher {
+			padding: 18%;
 		}
 		
-		footer { bottom: 3rem; }
+		#about-one {
+			img, iframe {
+				height: 600px !important;
+			}
+		}
 		
-		.wrapper { margin: 2rem 0 0 0 !important; }
+		#beta {
+			top: 88%;
+		}
+		
 	}
 	
 	.app {
@@ -595,12 +606,6 @@
 	
 	.accounts .notification-time #notification-count { right: 2.5rem; }
 	
-	// splash home //
-	
-	body.landing #gapelia {
-		left: 43%;
-		top: 3rem;
-	}
 	
 	#draft-tutorial {
 		margin-top: 12% !important;
@@ -690,23 +695,36 @@
 	
 	body.landing {
 		
-		#gapelia { left: 40.5%; top: 2rem; }
+		.super-wrapper { padding: 20%; }
 		
-		h4 { font-size: 1.2rem; }
+		#about-one {
+			
+			img {
+				height: 450px !important;
+				left: 10%;
+				width: 80%;
+			}
+			
+			p {
+				font-size: 1.5rem;
+			}
+		}	
+		
+		h1 { font-size: 2.5rem; }
+		
+		h4 {
+			font-size: 1.2rem;
+			width: 90%;
+		}
 		
 		h5 {
 			font-size: 2.4rem;
 		}
 		
-		img { height: 100%; width: auto; }
-		
-		footer {
-			bottom: 2rem; left: 2rem;
-			
-			#how-it-works, #team { display: none; }
+		iframe {
+			height: 450px;
+			width: 80%;
 		}
-		
-		.wrapper { margin: 2rem 0 0 0 !important; }
 	}
 	
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
@@ -2281,7 +2299,26 @@
 
 	body.landing {
 		
-		#gapelia { left: 37.25%; top: 7.5rem; }
+		#about-one {
+			top: 58%;
+			
+			h1 { font-size: 2rem; }
+			
+			p { font-size: 1.25rem; }
+			
+			img, iframe {
+				height: 375px;
+				width: 85%;
+			}
+			
+			img { left: 7.5%; }
+		}
+		
+		.page-bg { height: 600px; }
+		
+		.super-wrapper {
+			padding: 30% 16%;
+		}
 		
 		h4 { width: 80%; }
 		
@@ -2619,18 +2656,34 @@
 	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	body.landing {
-		.super-wrapper { padding: 22% 10%; }
+		.super-wrapper { padding: 25% 15%; }
 		
-		#gapelia { left: 34.5%; top: 2.5rem; }
+		#about-one {
+			h1 {
+				font-size: 1.75rem;
+				margin-top: 2rem;
+			}
+			
+			iframe, img {
+				height: 300px !important;
+			}
+			
+			p {
+				left: 7.5%;
+				width: 85%;
+			}
+			
+			#gapelia { top: 102%; }
+		}
 		
-		h4 { font-size: 1rem; }
+		footer ul li a { font-size: 1.5rem; }
+		
+		h4 {
+			font-size: 1rem;
+			width: 100%;
+		}
 		
 		h5 { font-size: 1.4rem; }
-		
-		footer {
-			bottom: 3rem;
-			font-size: 0.8rem;
-		}
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
@@ -3105,12 +3158,44 @@
 		text-align: center;
 	}
 	
-	body.landing {
-		#gapelia { left: 28.25%; }
-	}
-	
 	.full-book {
 		.photo-wrapper .page-bg { height: auto; }
+	}
+	
+	body.landing {
+		#mp-pusher {
+			padding: 32% 13%;
+		}
+		
+		#about-one {
+			top: 75%;
+			
+			#gapelia {
+				left: 41%;
+				margin-bottom: 1rem;
+				top: 107%;
+			}
+			
+			h1 {
+				font-size: 1.4rem;
+				margin-bottom: 0;
+			}
+			
+			img, iframe {
+				left: 1%;
+				width: 98%;
+			}
+			
+			p {
+				left: 5%;
+				font-size: 1rem;
+				width: 90%;
+			}
+		}
+		
+		h4  { font-size: 1.5rem !important; }
+		
+		footer ul li a { font-size: 1.1rem; }
 	}
 }
 
@@ -3120,11 +3205,17 @@
 //APP///
 
 	body.landing {
-		#gapelia {
-			height: 32%;
-			left: 24.25%;
-			top: 3rem;
+		#mp-pusher {
+			padding: 40% 5%;
 		}
+		
+		#about-one {
+			h1 { font-size: 1.1rem; }
+			
+			img, iframe { height: 250px !important; }
+		}
+		
+		footer ul li a { font-size: 0.9rem; }
 	}	
 
 	.app {
@@ -3462,16 +3553,20 @@
 	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
 
 	body.landing {
-
-		.super-wrapper { padding: 6% 6%; }
 		
-		#beta { display: none; }
-		
-		#gapelia {
-			height: 26.5%;
-			left: 23.75%;
-			top: 4.2rem;
+		#mp-pusher {
+			padding: 28% 6%;	
 		}
+		
+		#about-one {
+			h1 { font-size: 1rem; }
+			
+			img { height: 210px !important; }
+			
+			#gapelia { left: 39%; }
+		}
+		
+		#subtitle { font-size: 1.3rem !important; }
 		
 		h4 {
 			margin-top: 2rem;
@@ -3479,19 +3574,12 @@
 		}
 		
 		h5 { font-size: 1.2rem; }
-
+		
 		footer {
-			bottom: 3rem; left: 0;
-			text-align: center;
-			
-			ul li {
-				display: block;
-				margin: 15px 0 0 0;
-				
-				&:last-child { margin: 15px 0 0 0; }
-			}
+			left: 5%;
+			width:90%;
 		}
-	
+
 	}
 
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////

@@ -2262,9 +2262,13 @@ ol {
 
 body.landing {
   text-align: center; }
+body.landing #mp-pusher {
+  background-color: white !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important; }
 body.landing .super-wrapper {
   background-image: none !important;
-  padding: 12%; }
+  padding: 14%; }
 body.landing .super-wrapper:after {
   width: 100%;
   height: 100%;
@@ -2285,41 +2289,51 @@ body.landing #beta {
   opacity: 0.8;
   position: absolute;
   text-align: right;
-  top: -10px;
+  top: 85%;
   right: 1rem;
   z-index: 10; }
 body.landing #gapelia, body.landing h4, body.landing .wrapper, body.landing footer {
   z-index: 1; }
 body.landing #gapelia {
-  width: 100%;
-  height: 28%;
-  background-image: url("/static/images/folio-logo.png");
+  width: 70px;
+  height: 70px;
+  background-image: url("../images/folio-icon-solid.png");
   background-repeat: no-repeat;
-  left: 42.35%;
+  left: 1rem;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  top: 1rem;
+  z-index: 100;
   border: 0;
   color: transparent;
   font: 0/0 a;
   text-shadow: none; }
+body.landing #home-quote {
+  color: white;
+  font-size: 1.25rem;
+  font-style: italic;
+  left: 6rem;
+  position: absolute;
+  top: 2.5rem;
+  z-index: 100; }
 body.landing h4 {
   border-bottom: 1px solid rgba(252, 252, 252, 0.25);
   color: rgba(252, 252, 252, 0.85);
   font-weight: 700;
-  margin: 0 auto;
   padding: 0 0 1rem 0;
   position: relative;
-  width: 40%; }
+  text-align: left;
+  width: 70%; }
 body.landing img {
   display: block !important;
   left: 0;
   top: 0;
-  height: auto;
+  height: 100%;
   width: 100%;
   position: absolute; }
 body.landing .wrapper {
   margin: 1rem 0 0 0;
-  position: relative; }
+  position: absolute; }
 body.landing .wrapper button {
   display: block;
   font-size: 0.8rem;
@@ -2327,22 +2341,78 @@ body.landing .wrapper button {
   margin: 1rem auto !important;
   text-transform: none;
   width: 190px; }
+body.landing .wrapper p {
+  font-style: italic;
+  font-size: 2rem; }
+body.landing #wrapper-bottom {
+  padding-bottom: 3rem;
+  width: 100%; }
 body.landing footer {
   width: 100%;
   height: auto;
   bottom: 1.5rem;
   left: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
   font-weight: 100;
-  position: absolute;
-  text-align: center; }
+  left: 12%;
+  margin-top: 5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  width: 75%;
+  z-index: 100; }
 body.landing footer ul li {
   display: inline-block;
   margin: 0 1.5rem 0 0; }
 body.landing footer ul li a {
-  color: #fcfcfc;
-  font-weight: 500; }
+  color: #191919;
+  font-size: 2rem;
+  font-weight: 100; }
 body.landing footer ul li:last-child {
   margin: 0; }
+body.landing #scroll-down {
+  bottom: 0;
+  color: white;
+  font-size: 2rem;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 100; }
+body.landing #subtitle {
+  font-weight: 100;
+  margin-top: -20px; }
+body.landing #about-one {
+  background-color: white;
+  height: auto;
+  left: 0;
+  padding-bottom: 4rem;
+  position: absolute;
+  top: 95%;
+  width: 100%;
+  z-index: 1000; }
+body.landing #about-one h1 {
+  margin-top: 4rem; }
+body.landing #about-one p {
+  font-size: 1.75rem;
+  font-weight: 100;
+  left: 15%;
+  line-height: 1.25;
+  position: absolute;
+  text-align: center;
+  width: 70%; }
+body.landing #about-one img {
+  height: 500px !important;
+  left: 12%;
+  margin-top: 10rem;
+  position: relative;
+  width: 75%; }
+body.landing #about-one iframe {
+  margin-top: 10rem; }
+body.landing #about-one #gapelia {
+  height: 70px;
+  position: absolute;
+  top: 100%; }
 body.landing h5 {
   color: #fcfcfc;
   font-size: 3rem;
@@ -7747,6 +7817,9 @@ a.count span.dont-move {
   #contactable-inner {
     top: 92% !important; }
 
+  body.landing #about-one img, body.landing #about-one iframe {
+    height: 700px !important; }
+
   .app {
     .library-location-left: 6%; }
   .app .book, .app .collection, .app .library, .app .new, .app .draft {
@@ -7837,21 +7910,15 @@ a.count span.dont-move {
   #publish-modal {
     padding: 22rem 4rem !important; }
 
-  body.landing #gapelia {
-    margin-left: 1%;
-    height: 27% !important; }
-
   .g-body #share-draft-overlay h3 {
     margin: 15% 31%; } }
 @media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
-  body.landing #gapelia {
-    height: 34%;
-    left: 43.75% !important;
-    top: 2rem; }
-  body.landing footer {
-    bottom: 3rem; }
-  body.landing .wrapper {
-    margin: 2rem 0 0 0 !important; }
+  body.landing #mp-pusher {
+    padding: 18%; }
+  body.landing #about-one img, body.landing #about-one iframe {
+    height: 600px !important; }
+  body.landing #beta {
+    top: 88%; }
 
   .app #g-menu-toggle {
     top: 0.35rem;
@@ -8147,10 +8214,6 @@ a.count span.dont-move {
   .accounts .notification-time #notification-count {
     right: 2.5rem; }
 
-  body.landing #gapelia {
-    left: 43%;
-    top: 3rem; }
-
   #draft-tutorial {
     margin-top: 12% !important; } }
 @media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -8191,23 +8254,24 @@ a.count span.dont-move {
     overflow-x: hidden;
     overflow-y: auto; }
 
-  body.landing #gapelia {
-    left: 40.5%;
-    top: 2rem; }
+  body.landing .super-wrapper {
+    padding: 20%; }
+  body.landing #about-one img {
+    height: 450px !important;
+    left: 10%;
+    width: 80%; }
+  body.landing #about-one p {
+    font-size: 1.5rem; }
+  body.landing h1 {
+    font-size: 2.5rem; }
   body.landing h4 {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    width: 90%; }
   body.landing h5 {
     font-size: 2.4rem; }
-  body.landing img {
-    height: 100%;
-    width: auto; }
-  body.landing footer {
-    bottom: 2rem;
-    left: 2rem; }
-  body.landing footer #how-it-works, body.landing footer #team {
-    display: none; }
-  body.landing .wrapper {
-    margin: 2rem 0 0 0 !important; }
+  body.landing iframe {
+    height: 450px;
+    width: 80%; }
 
   .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     margin: 0;
@@ -9363,9 +9427,21 @@ a.count span.dont-move {
   #gpl-menu-notify .vote-notification, #gpl-menu-notify .comment-notification {
     padding-top: 0 !important; } }
 @media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
-  body.landing #gapelia {
-    left: 37.25%;
-    top: 7.5rem; }
+  body.landing #about-one {
+    top: 58%; }
+  body.landing #about-one h1 {
+    font-size: 2rem; }
+  body.landing #about-one p {
+    font-size: 1.25rem; }
+  body.landing #about-one img, body.landing #about-one iframe {
+    height: 375px;
+    width: 85%; }
+  body.landing #about-one img {
+    left: 7.5%; }
+  body.landing .page-bg {
+    height: 600px; }
+  body.landing .super-wrapper {
+    padding: 30% 16%; }
   body.landing h4 {
     width: 80%; }
   body.landing h5 {
@@ -9565,17 +9641,24 @@ a.count span.dont-move {
     font-size: 0.9rem; } }
 @media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
   body.landing .super-wrapper {
-    padding: 22% 10%; }
-  body.landing #gapelia {
-    left: 34.5%;
-    top: 2.5rem; }
+    padding: 25% 15%; }
+  body.landing #about-one h1 {
+    font-size: 1.75rem;
+    margin-top: 2rem; }
+  body.landing #about-one iframe, body.landing #about-one img {
+    height: 300px !important; }
+  body.landing #about-one p {
+    left: 7.5%;
+    width: 85%; }
+  body.landing #about-one #gapelia {
+    top: 102%; }
+  body.landing footer ul li a {
+    font-size: 1.5rem; }
   body.landing h4 {
-    font-size: 1rem; }
+    font-size: 1rem;
+    width: 100%; }
   body.landing h5 {
     font-size: 1.4rem; }
-  body.landing footer {
-    bottom: 3rem;
-    font-size: 0.8rem; }
 
   .app #header-message {
     font-size: 1rem;
@@ -9865,16 +9948,40 @@ a.count span.dont-move {
     padding-right: 0.5rem;
     text-align: center; }
 
-  body.landing #gapelia {
-    left: 28.25%; }
-
   .full-book .photo-wrapper .page-bg {
-    height: auto; } }
+    height: auto; }
+
+  body.landing #mp-pusher {
+    padding: 32% 13%; }
+  body.landing #about-one {
+    top: 75%; }
+  body.landing #about-one #gapelia {
+    left: 41%;
+    margin-bottom: 1rem;
+    top: 107%; }
+  body.landing #about-one h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0; }
+  body.landing #about-one img, body.landing #about-one iframe {
+    left: 1%;
+    width: 98%; }
+  body.landing #about-one p {
+    left: 5%;
+    font-size: 1rem;
+    width: 90%; }
+  body.landing h4 {
+    font-size: 1.5rem !important; }
+  body.landing footer ul li a {
+    font-size: 1.1rem; } }
 @media all and (max-width: 360px), screen and (max-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
-  body.landing #gapelia {
-    height: 32%;
-    left: 24.25%;
-    top: 3rem; }
+  body.landing #mp-pusher {
+    padding: 40% 5%; }
+  body.landing #about-one h1 {
+    font-size: 1.1rem; }
+  body.landing #about-one img, body.landing #about-one iframe {
+    height: 250px !important; }
+  body.landing footer ul li a {
+    font-size: 0.9rem; }
 
   .app #featured-panel {
     height: 70px; }
@@ -10094,28 +10201,24 @@ a.count span.dont-move {
     width: 2px;
     height: 2px; }
 
-  body.landing .super-wrapper {
-    padding: 6% 6%; }
-  body.landing #beta {
-    display: none; }
-  body.landing #gapelia {
-    height: 26.5%;
-    left: 23.75%;
-    top: 4.2rem; }
+  body.landing #mp-pusher {
+    padding: 28% 6%; }
+  body.landing #about-one h1 {
+    font-size: 1rem; }
+  body.landing #about-one img {
+    height: 210px !important; }
+  body.landing #about-one #gapelia {
+    left: 39%; }
+  body.landing #subtitle {
+    font-size: 1.3rem !important; }
   body.landing h4 {
     margin-top: 2rem;
     width: 90%; }
   body.landing h5 {
     font-size: 1.2rem; }
   body.landing footer {
-    bottom: 3rem;
-    left: 0;
-    text-align: center; }
-  body.landing footer ul li {
-    display: block;
-    margin: 15px 0 0 0; }
-  body.landing footer ul li:last-child {
-    margin: 15px 0 0 0; }
+    left: 5%;
+    width: 90%; }
 
   .app #header-message {
     font-size: 0.9rem;
