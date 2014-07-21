@@ -7,7 +7,6 @@ import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.database.QueryDatabaseRevisions;
-import com.gapelia.core.database.QueryDatabaseResponses;
 import com.gapelia.core.database.QueryDatabaseUser;
 import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Page;
@@ -133,8 +132,8 @@ public class Books {
         //Book b = QueryDatabaseUser.getBookByID(bookId);
 
         Gson gson = new GsonBuilder().create();
-        return gson.toJson(QueryDatabaseResponses.getResponsesForBookId(bookId));
-
+//        return gson.toJson(QueryDatabaseResponses.getResponsesForBookId(bookId));
+return null;  //TODO  REMOVE THIS
         /*
         String example = "[" +
                 "{\"responseId\":21,\"authorId\":49,\"coverPhoto\":\"https://www.filepicker.io/api/file/GGm1QycxRvewJO5FIBEP\",\"title\":\"Example Response\",\"created\":\"May 15, 2014 1:41:10 PM\"}," +
