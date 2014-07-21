@@ -298,7 +298,9 @@
 		});
 	}
 
-	function getAllResponses() {
+	//Tim's work in progress//
+	
+	/*function getAllResponses() {
 		var $responses = $('<ul>');
 		var responses = getResponsesByBookId(bookId);
 		
@@ -307,7 +309,7 @@
 		});
 
 		$("#fin").append($resonses);
-	}
+	}*/
 
 	$(document).ready(function() {
 		loadDelete();
