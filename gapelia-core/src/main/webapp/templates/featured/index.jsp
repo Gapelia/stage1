@@ -108,7 +108,7 @@
 		    <input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 				
                     <div id="stay-right">
-                        <button id="start-story" class="brand-i"><a href="/createBook">New Story</a>
+                        <button id="start-story" class="brand-i"><a href="/createbook">New Story</a>
                         </button>
                     </div>
 		    <div id="contactable"></div>

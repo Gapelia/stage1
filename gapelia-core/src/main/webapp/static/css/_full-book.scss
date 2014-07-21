@@ -508,8 +508,6 @@
             img { display: none; }
           }
           
-          #respondToButton { background-color: white !important; }
-
           figure.merci {
             left: 46%;
             margin: 0;
@@ -563,11 +561,33 @@
               text-shadow: none;
             }
           }
+          
+          #response-button {
+            left: 40%;
+            margin: 0rem 0 3rem 0;
+            padding-top: 2rem;
+            position: absolute;
+            text-align: center;
+            width: 20%;
+            
+            #respondToButton {
+              background-color: transparent !important;
+              border: 1px solid #59b3a6 !important;
+              color: #59b3a6 !important;
+            }
+          }
         }
 			}
+      
+      #editor_response_info {
+        font-style: italic;
+             
+        #editor_response_info_title { font-weight: 700; }
+      }
 
-      .page-title-elem, .page-desc {
-				margin: 1rem auto 0;
+      .page-title-elem, .page-desc, #editor_response_info {
+				color: rgba($black, 0.8);
+        margin: 1rem auto 0;
 				width: 60%;
 			}
 

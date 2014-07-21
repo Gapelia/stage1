@@ -742,8 +742,14 @@
 							position: absolute;
 							width: 100%;
 						}
+            
+            #editor_response_info {
+             font-style: italic;
+             
+             #editor_response_info_title { font-weight: 700; }
+            }
 
-						.page-title-elem, .page-desc {
+						.page-title-elem, .page-desc, #editor_response_info {
 							color: rgba($black, 0.8); //
 							margin: 1rem auto 0;
 							text-align: left;

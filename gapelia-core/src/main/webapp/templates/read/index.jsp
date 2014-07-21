@@ -291,8 +291,8 @@
 	}
 
 	function addResondToButton() {
-		var $button = $('<button>', {id: 'respondToButton', type: 'button', text: 'respond'});
-		$("#fin").append($button);
+		var $button = $("<hr style=\"margin-top: -1rem;\"><div id=\"response-button\"><button type=\"button\" id=\"respondToButton\">Respond</button></div>");
+		$("#fin-next").append($button);
 		$("#respondToButton").click(function() {
 			window.location.href = "/respondTo/"+bookId;
 		});

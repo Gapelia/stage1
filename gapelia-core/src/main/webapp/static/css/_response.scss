@@ -1525,7 +1525,7 @@
 					position: relative;
 					
 					#fin { display: none; }
-					#fin-next { display: none; }
+					#fin-next, #response-button { display: none; }
 				}
 
 				.page-title-elem, .page-desc { width: 70%; }
@@ -1785,6 +1785,8 @@
 				float: none;
 				width: 100%;
 			}
+			
+			#response-button { display: none; }
 
 			#fin {
 				padding: 3rem 8rem 0 10rem;

@@ -5622,7 +5622,11 @@ body.library-manager ::-webkit-scrollbar {
   left: 0;
   position: absolute;
   width: 100%; }
-.book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview .page-desc {
+.book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview #editor_response_info {
+  font-style: italic; }
+.book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview #editor_response_info #editor_response_info_title {
+  font-weight: 700; }
+.book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview .page-desc, .book-creation #book-creation-wrapper #create-book #create-content .fluid-preview-wrapper .fluid-preview #editor_response_info {
   color: rgba(25, 25, 25, 0.8);
   margin: 1rem auto 0;
   text-align: left;
@@ -7198,8 +7202,6 @@ a.count span.dont-move {
   text-decoration: underline; }
 .full-book .fluid-wrapper .fluid-preview article #fin #credits img {
   display: none; }
-.full-book .fluid-wrapper .fluid-preview article #fin #respondToButton {
-  background-color: white !important; }
 .full-book .fluid-wrapper .fluid-preview article #fin figure.merci {
   left: 46%;
   margin: 0;
@@ -7242,7 +7244,23 @@ a.count span.dont-move {
   font-size: 0.9rem;
   font-weight: 100;
   text-shadow: none; }
-.full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
+.full-book .fluid-wrapper .fluid-preview article #fin-next #response-button {
+  left: 40%;
+  margin: 0rem 0 3rem 0;
+  padding-top: 2rem;
+  position: absolute;
+  text-align: center;
+  width: 20%; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next #response-button #respondToButton {
+  background-color: transparent !important;
+  border: 1px solid #59b3a6 !important;
+  color: #59b3a6 !important; }
+.full-book .fluid-wrapper .fluid-preview #editor_response_info {
+  font-style: italic; }
+.full-book .fluid-wrapper .fluid-preview #editor_response_info #editor_response_info_title {
+  font-weight: 700; }
+.full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc, .full-book .fluid-wrapper .fluid-preview #editor_response_info {
+  color: rgba(25, 25, 25, 0.8);
   margin: 1rem auto 0;
   width: 60%; }
 .full-book .fluid-wrapper .fluid-preview h5 {
@@ -8874,7 +8892,7 @@ a.count span.dont-move {
     position: relative; }
   .full-book .fluid-wrapper .fluid-preview article #fin {
     display: none; }
-  .full-book .fluid-wrapper .fluid-preview article #fin-next {
+  .full-book .fluid-wrapper .fluid-preview article #fin-next, .full-book .fluid-wrapper .fluid-preview article #response-button {
     display: none; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
     width: 70%; }
@@ -9059,6 +9077,8 @@ a.count span.dont-move {
     display: block;
     float: none;
     width: 100%; }
+  .full-book .backcover-wrapper #response-button {
+    display: none; }
   .full-book .backcover-wrapper #fin {
     padding: 3rem 8rem 0 10rem;
     height: auto; }
