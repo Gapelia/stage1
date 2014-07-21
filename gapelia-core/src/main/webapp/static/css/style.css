@@ -7198,6 +7198,8 @@ a.count span.dont-move {
   text-decoration: underline; }
 .full-book .fluid-wrapper .fluid-preview article #fin #credits img {
   display: none; }
+.full-book .fluid-wrapper .fluid-preview article #fin #respondToButton {
+  background-color: white !important; }
 .full-book .fluid-wrapper .fluid-preview article #fin figure.merci {
   left: 46%;
   margin: 0;
