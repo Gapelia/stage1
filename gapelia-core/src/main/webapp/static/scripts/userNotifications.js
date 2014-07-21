@@ -57,9 +57,9 @@ function getBookNotifications() {
 						$(".vote-notification a").click(function(){
 							window.location="/"+userFrom.displayName;
 						});
-				
-			}
-		});
+
+					}
+				});
 			}
 		}
 	});
@@ -79,7 +79,6 @@ function getCommentNotifications() {
 			userFrom = '';
 			for(i in notifications) {
 				notification = notifications[i];
-				console.log(notification);
 
 				$.ajax({
 					url: "/api/users/getUserPublic",
@@ -121,7 +120,6 @@ function getCommentNotifications() {
 					if(text.length > 30) text = text.substr(0, 30) + "\u2026";
 
 					var hash = notification.hash;
-					console.log(notification);
 					toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
 					toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
 					$("#gpl-menu-notify ul").append(toInsert);
@@ -130,11 +128,11 @@ function getCommentNotifications() {
 						window.location="/read/"+notification.referencedBookId+"?commentLocation="+hash;
 					});
 
-}
-});
-}
-}
-});
+					}
+				});
+			}
+		}
+	});
 }
 
 
@@ -185,9 +183,9 @@ function addAcceptedNotification(notificationId, bookId, libraryId) {
 					$(".library-notification a").click(function(){
 						window.location="/library/"+libraryId;
 					});
-			
-		}
-	});
+
+				}
+			});
 		}
 	});
 }
@@ -244,25 +242,24 @@ function addSubmission(notificationId,bookId,libraryId) {
 				success: function (data) {
 					book = data;
 					toInsert = "<li class=\"submission\" id=\""+notificationId+"\" bookId=\""+bookId+"\" libraryId=\""+libraryId+"\"><a href=\"/read/"+book.bookId+"\"><b>" + book.title + "</b>  was submitted for consideration in <b>" + library.title + "</b></a>";
-								//toInsert += "<a href=\"#\" class=\"respond-link\">&#x2717;</a>";
-				//$(this).next(".respond-submision").toggle();
-				toInsert += "<span class=\"respond-submission\">";
-				toInsert += "Accept Submission?";
-				toInsert += "<button class=\"a yay-respond-link green\" style=\"margin-left: 1rem !important;\">&#x2713;</button>";
-				toInsert += "<button class=\"b nay-respond-link red\">&#x2717;</button>";
-				toInsert += "</span></li>";
-				$("#gpl-menu-notify ul").append(toInsert);
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					alert("Request timed out");
-				} else {
-					alert("Some issue happened with your request: " + err.message);
+
+					toInsert += "<span class=\"respond-submission\">";
+					toInsert += "Accept Submission?";
+					toInsert += "<button class=\"a yay-respond-link green\" style=\"margin-left: 1rem !important;\">&#x2713;</button>";
+					toInsert += "<button class=\"b nay-respond-link red\">&#x2717;</button>";
+					toInsert += "</span></li>";
+					$("#gpl-menu-notify ul").append(toInsert);
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						alert("Request timed out");
+					} else {
+						alert("Some issue happened with your request: " + err.message);
+					}
 				}
-			}
-		});
-}
-});
+			});
+		}
+	});
 }
 
 
