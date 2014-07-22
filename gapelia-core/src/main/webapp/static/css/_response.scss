@@ -1298,7 +1298,6 @@
 		}
 		
 		#user-splash {
-			position: fixed;
 			
 			h1 { font-size: 2.4rem; }
 			h2 { font-size: 55px; }
@@ -3045,7 +3044,7 @@
 		
 		#user-splash{
 			
-			#close-splash { left: 46% !important; }
+			#close-splash { display: none; }
 			
 			h1 { font-size: 1.7rem; }
 			
@@ -3115,6 +3114,7 @@
 		
 		.follow, .unfollow {
 			font-size: 0.75rem;
+			position: absolute !important;
 			top: 1.5rem !important;
 		}
 		
@@ -3284,8 +3284,6 @@
 			#library-info { top: 40%; }
 		}
 		
-		#user-splash #close-splash { color: black; }
-		
 		//onboarding process//
 		#university-affiliation {
 			padding: 8rem 2rem;
@@ -3305,6 +3303,11 @@
 	}
 	
 	.profile {
+		
+		.super-wrapper { background-color: white; }
+		
+		#book-scroller { top: 100%; }
+		
 		#user-panel #g-menu-toggle { width: 13.5%; }
 		
 		.user-avatar .avatar-wrapper { height: 110px; width: 110px; }
@@ -3316,7 +3319,15 @@
 		
 			.avatar-wrapper #splash-edit-profile { display: none !important; }
 			
-			#splash-user-bio { border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+			#contributes-to {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+				padding-bottom: 1rem;
+			}
+			
+			#splash-user-bio {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+				margin: 0 0 1rem 0;	
+			}
 			
 			#splash-user-info {
 				color: black;
@@ -3336,6 +3347,8 @@
 			color: black;
 			opacity: 0.9;
 			top: 64%;
+			
+			a { display: block !important; }
 		}
 	}
 	
@@ -3636,12 +3649,6 @@
 			section { font-size: 1rem; line-height: initial; }
 		}
 		
-		#user-splash #close-splash {
-			bottom: 0 !important;
-			font-size: 1.5rem;
-			left: 45% !important;
-		}
-
 		// Header
 		#welcoming-title {
 			background-size: 600px;
@@ -3916,7 +3923,6 @@
 				
 				a {
 					color: $black;
-					display: block !important;
 					font-size: 0.8rem;
 					margin: 8px 8px 0 0;
 				}
@@ -3928,7 +3934,6 @@
 			}
 			
 			#splash-user-info {
-				color: rgba($black, 0.8);
 				padding: 0;
 				top: 17%;
 				

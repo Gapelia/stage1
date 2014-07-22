@@ -4378,7 +4378,7 @@ body.library-manager ::-webkit-scrollbar {
   font-weight: 100;
   margin: 0 0 1rem 0; }
 .profile #user-splash h5 a {
-  display: inline-block !important;
+  display: inline-block;
   font-family: "ff-more-web-pro", "Poly", Georgia, serif;
   font-style: italic;
   font-weight: 600 !important;
@@ -8718,8 +8718,6 @@ a.count span.dont-move {
     font-weight: 400;
     height: 50px !important;
     left: 48% !important; }
-  .app #user-splash {
-    position: fixed; }
   .app #user-splash h1 {
     font-size: 2.4rem; }
   .app #user-splash h2 {
@@ -9893,7 +9891,7 @@ a.count span.dont-move {
   .app #library-splash #library-share {
     display: none; }
   .app #user-splash #close-splash {
-    left: 46% !important; }
+    display: none; }
   .app #user-splash h1 {
     font-size: 1.7rem; }
   .app #user-splash h5 {
@@ -9938,6 +9936,7 @@ a.count span.dont-move {
     z-index: 100000000 !important; }
   .profile .follow, .profile .unfollow {
     font-size: 0.75rem;
+    position: absolute !important;
     top: 1.5rem !important; }
   .profile #user-extra {
     display: none; }
@@ -10049,8 +10048,6 @@ a.count span.dont-move {
     font-size: 1rem !important; }
   .app #library-splash #library-info {
     top: 40%; }
-  .app #user-splash #close-splash {
-    color: black; }
   .app #university-affiliation {
     padding: 8rem 2rem; }
   .app #intro {
@@ -10062,6 +10059,10 @@ a.count span.dont-move {
     text-align: right;
     top: 0.5rem; }
 
+  .profile .super-wrapper {
+    background-color: white; }
+  .profile #book-scroller {
+    top: 100%; }
   .profile #user-panel #g-menu-toggle {
     width: 13.5%; }
   .profile .user-avatar .avatar-wrapper {
@@ -10073,8 +10074,12 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
+  .profile #user-splash #contributes-to {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem; }
   .profile #user-splash #splash-user-bio {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0 0 1rem 0; }
   .profile #user-splash #splash-user-info {
     color: black;
     opacity: 0.9;
@@ -10088,6 +10093,8 @@ a.count span.dont-move {
     color: black;
     opacity: 0.9;
     top: 64%; }
+  .profile h5 a {
+    display: block !important; }
 
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
@@ -10274,10 +10281,6 @@ a.count span.dont-move {
   .app #library-splash section {
     font-size: 1rem;
     line-height: initial; }
-  .app #user-splash #close-splash {
-    bottom: 0 !important;
-    font-size: 1.5rem;
-    left: 45% !important; }
   .app #welcoming-title {
     background-size: 600px;
     height: 0;
@@ -10473,14 +10476,12 @@ a.count span.dont-move {
     text-transform: uppercase; }
   .app #user-splash h5 a {
     color: #191919;
-    display: block !important;
     font-size: 0.8rem;
     margin: 8px 8px 0 0; }
   .app #user-splash #user-box {
     left: 6%;
     width: 85%; }
   .app #user-splash #splash-user-info {
-    color: rgba(25, 25, 25, 0.8);
     padding: 0;
     top: 17%; }
   .app #user-splash #splash-user-info h1 {
