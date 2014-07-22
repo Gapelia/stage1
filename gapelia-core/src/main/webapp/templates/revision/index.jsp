@@ -66,19 +66,20 @@
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
 		<ul id="edit-shortcut" style="text-align: right !important;">
-			    <a id="back-to-revision" href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
-			    <a id="close-revision" href="#" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
+		    <a id="back-to-revision" href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
+		    <a id="close-revision" href="#" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
 		</ul>
         </div>
 
     </div>
 
     <!--/ scripts /-->
+    <script defer src='http://www.readrboard.com/static/engage.js'></script>
+    
     <script src="/static/scripts/nprogress.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
     <script src="/static/scripts/g.money.js"></script>
     <script src="/static/scripts/books.js"></script>
-    <script defer src='http://www.readrboard.com/static/engage.js'></script>
 
     <script src="/static/scripts/classie.js"></script>
     <script src="/static/scripts/mlpushmenu.js"></script>
@@ -102,193 +103,178 @@
     <script src="/static/scripts/merci.js"></script>
     
     <script>
-	
-        // Hide logo after 100px when scrolling book on mobile
-	$(window).scroll(function() {
-		if ($(window).scrollTop() < 100) {
-		    $("#g-menu-toggle").show();
+    
+    //readrboard block
+
+    document.addEventListener("readrboard.hashed_nodes",function(){
+	console.log("readrboard.hashed_nodes");
+	console.log( readrboard.getLastEvent() );
+	var hash = GetURLParameter("commentLocation");
+	if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+	//$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+    },false);
+
+    document.addEventListener("readrboard.reaction",function(){
+	console.log("readrboard.reaction");
+	console.log( readrboard.getLastEvent() );
+    },false);
+
+    document.addEventListener("readrboard.comment",function() {
+	console.log(readrboard.getLastEvent().supplementary.hash);
+	$.ajax({
+	    url: "/api/notifications/createCommentNotification",
+	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	    async: false,
+	    type: "POST",
+	    data: {
+		sessionId: sessionId,
+		referencedBook: current.bookId,
+		hash: readrboard.getLastEvent().supplementary.hash,
+		type: 'Comment',
+		comment: readrboard.getLastEvent().value
+	    },
+		success: function (data) {
+		console.log("data returned: " + data);
+	    },
+		error: function (q, status, err) {
+		console.log("ERROR" + err);
+		if (status == "timeout") {
+		    alert("Request timed out trying again");
+		    }
 		}
-		else {
-		    $("#g-menu-toggle").hide();
-		}
-	});
+	    });
+    } ,false);
+
+    //end readerboard block	
 	
-	//only show edit option if owner of book//
-	$(document).ready(function (e) {
+	
+    // Hide logo after 100px when scrolling book on mobile
+    $(window).scroll(function() {
+	if ($(window).scrollTop() < 100) {
+	    $("#g-menu-toggle").show();
+	} else {
+	    $("#g-menu-toggle").hide();
+	}
+    });
+	
+    //only show edit option if owner of book//
+    $(document).ready(function (e) {
 		
 	var author = bookOwner.name;
 	var reader = user.name;
 	
-		if (author == reader) {
-			$("#the-book #edit-shortcut").show();
-		} else {
-			$("#the-book #edit-shortcut").remove();
-		}	
-	});
+	if (author == reader) {
+	    $("#the-book #edit-shortcut").show();
+	} else {
+	    $("#the-book #edit-shortcut").remove();
+	}	
+    });
 	
-	// Click Edit Work
-        //*$("#the-book #edit-shortcut").click(function (e) {
-	//	window.location.href = "/editbook/" +current.bookId;
-        //})
-	
-	// Dropdown menu for mobile
-        if ($vW < "1025") {
+    // Dropdown menu for mobile
+    if ($vW < "1025") {
 		
         $(".bookmark-list-wrapper").remove();
                 
         $("#featured-panel").append('<ul id="featured-nav" style="display: none;"><li id="nav-profile"><a href="/featured"></a>Folio</li><li id="nav-profile"><a href="/featured">Featured</a></li><li id="nav-profile"><a href="/librarmanager">Libraries</a></li><li id="nav-profile"><a href="/me">Me</a></li><li id="nav-accounts"><a href="accounts" id="accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 	
 	$("#g-menu-toggle").click(function (e) {
-		$("#featured-nav").toggle();
-		$("#featured-panel").css("cssText", "z-index: 1000 !important;");
-		$("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
-	})}
+	    $("#featured-nav").toggle();
+	    $("#featured-panel").css("cssText", "z-index: 1000 !important;");
+	    $("#g-menu-toggle").css("cssText", "z-index: 1000 !important;");
+	}	
+    )};
 	
-	if ($vW > "1919") {
-		$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
-	}
+    if ($vW > "1919") {
+	$(".notification-time #notification-count").css("cssText", "right: 5.5rem !important");
+    }
 	
-$(document).ready(function() {
+    $(document).ready(function() {
      	loadDelete();
         
-	document.addEventListener("readrboard.reaction",function() {
-		$.ajax({
-			url: "/api/notifications/createCommentNotification",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			async: false,
-			type: "POST",
-				data: {
-				sessionId: sessionId,
-				referencedBook: current.bookId
-				},
-			success: function (data) {
-				console.log("notification submitted to book: " + current.bookId);
-				console.log("data returned: " + data);
-				},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					alert("Request timed out");
-				} else {
-					alert("Since you are not signed in, your feedback will be anonymous!");
-				}
-			}
-		});
-	} ,false); //end readerboard block
-	
-	
 	//retireving original bookId//
 	originalBookId = $.ajax({
-		    url: "/api/books/getOriginalBookIdFromRevisionId",
-		    contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		    type: "POST",
-		    async: false,
-		    data: {
-			sessionId: sessionId,
-			revisionBookId: bookId
-		    },
-		    error: function (q, status, err) {
-			if (status == "timeout") {
-			    alert("Request timed out");
-			}
-		    }
-		}).responseText;
+	    url: "/api/books/getOriginalBookIdFromRevisionId",
+	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	    type: "POST",
+	    async: false,
+	    data: {
+		sessionId: sessionId,
+		revisionBookId: bookId
+	    },
+	    error: function (q, status, err) {
+		if (status == "timeout") {
+		alert("Request timed out");
+	    }
+	}
+    }).responseText;
 	
 	
-	//close revision and back to draft//
-	$("#close-revision").click(function (e) {
-	    $("#close-revision").attr("href", "/editbook/" + originalBookId  + "");
-	})
+    //close revision and back to draft//
+    $("#close-revision").click(function (e) {
+	$("#close-revision").attr("href", "/editbook/" + originalBookId  + "");
+    })
 	
-	
-	//transplanting revision//
-	$(document).on("click", "#back-to-revision", function (ev) {
+    //transplanting revision//
+    $(document).on("click", "#back-to-revision", function (ev) {
 	    
-		
-	    $("#back-to-revision").attr("href", "/editbook/" + originalBookId  + "");
+	$("#back-to-revision").attr("href", "/editbook/" + originalBookId  + "");
 	    
-	    sessionId = readCookie("JSESSIONID");
+	sessionId = readCookie("JSESSIONID");
 		
-	    $.ajax({
-		url: "/api/actions/revertToRevision",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		async: false,
-		data: {
-		    sessionId: sessionId,
-		    revisionBookId: bookId
-		},
-		error: function (q, status, err) {
-		    if (status == "timeout") {
-			alert("Request timed out");
-		    }
+	$.ajax({
+	    url: "/api/actions/revertToRevision",
+	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
+	    type: "POST",
+	    async: false,
+	    data: {
+		sessionId: sessionId,
+		revisionBookId: bookId
+	    },
+	    error: function (q, status, err) {
+		if (status == "timeout") {
+		    alert("Request timed out");
 		}
-	    });
-	    
+	    }
 	});
-
-
-	book = getFullBookFromBookId(bookId);
+	    
+    });
+	
+    book = getFullBookFromBookId(bookId);
 	   
-	    $(".fluid-wrapper").imgLiquid({
-                fill: true
-            });
-	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".overlay-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".phototext-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                fill: true
-            });
+	$(".fluid-wrapper").imgLiquid({fill: true});
+	$(".photo-wrapper .page-bg-wrapper").imgLiquid({fill: true});
+        $(".overlay-wrapper").imgLiquid({fill: true});
+        $(".phototext-wrapper").imgLiquid({fill: true});
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({fill: true});
+	$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");	    
+    });
 
-            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-	    
-});
-
- //votes and recommendation get removed for revisions//
- setTimeout(function () {
-	    $("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();
-	    
+    //votes and recommendation get removed for revisions//
+    setTimeout(function () {
+	$("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();    
     }, 1000);
 
- setTimeout(function () {
-
-            $(".fluid-wrapper").imgLiquid({
-                fill: true
-            });
-	    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".overlay-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".phototext-wrapper").imgLiquid({
-                fill: true
-            });
-            $(".vertical-wrapper .draggable-placeholder").imgLiquid({
-                fill: true
-            });
-
-            $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+    setTimeout(function () {
+        $(".fluid-wrapper").imgLiquid({fill: true});
+	$(".photo-wrapper .page-bg-wrapper").imgLiquid({fill: true});
+        $(".overlay-wrapper").imgLiquid({fill: true});
+        $(".phototext-wrapper").imgLiquid({fill: true});
+        $(".vertical-wrapper .draggable-placeholder").imgLiquid({fill: true});
+        $(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
 	    
-	    //adding http://, underline styling and new-tab-location to all hyperlinks//
-	    $(function() {
-		$(".full-book .page-desc a").each(function() {
-		var href = $(this).attr("href");
-		   $(this).attr("href", + href);
-		   $(this).attr("target", "_blank");
-		});
-		$(".full-book .page-desc a").css("text-decoration", "underline");
+	//adding http://, underline styling and new-tab-location to all hyperlinks//
+	$(function() {
+	    $(".full-book .page-desc a").each(function() {
+	    var href = $(this).attr("href");
+		$(this).attr("href", + href);
+		$(this).attr("target", "_blank");
 	    });
+	    $(".full-book .page-desc a").css("text-decoration", "underline");
+	});
+	document.title = pages[0].title;
     }, 2000);
       
-        addLoggedInMenuForBook();
-	window.READRBOARDCOM.actions.reInit();
-	
+    addLoggedInMenuForBook();
     </script>
 
 </body>
