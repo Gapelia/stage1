@@ -216,7 +216,6 @@
 				$("#revision-toggle ul").css("display", "block");
 			});
 			
-			
 			$("#publish-this").on("click", function (e) {
 				
 				lastPublishedBook = getLastPublishedBookId();
@@ -239,7 +238,6 @@
 				$("#publish-modal").append("<div id=\"lib-submission\">Submit to a <a class='published' href='/libraryManager'>curated library</a> or start editing <a class='published-i' href='/createlibrary'>your own.</a></div>");
 				$("#publish-modal").append("<div id=\"lib-tutorial\" style=\"bottom: 1rem; right: 1rem; position: absolute\">Want to learn more about libraries? <a class='published' href='http://folio.is/read/756'>Read this</a></div>");
 			});
-
 </script>
 <!--//scripts /-->
 
