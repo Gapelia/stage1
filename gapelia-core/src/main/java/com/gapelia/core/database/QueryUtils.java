@@ -266,7 +266,7 @@ public class QueryUtils {
         }
         return null;
     }
-
+    
 	public static Library getLibraryFromBookId(int bookId) {
 		PreparedStatement statement = null;
 		ResultSet rs = null;

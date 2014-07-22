@@ -7,7 +7,7 @@
 <%
 	// server-side check if this is a response to a book
 	Boolean isResponse = false;
-	Integer bookId = getIdFromUrl(request);
+	Integer responseTo = getIdFromUrl(request);
 
 	String currentURL = getUrl(request);
 	if(currentURL.toLowerCase().contains("respondTo".toLowerCase())) isResponse = true;
@@ -222,13 +222,19 @@
 				getUserFromBookId(lastPublishedBook.bookId);
 				firstTitle = pages.page[0].title;
 
-				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
-
 				e.preventDefault();
 
 				currentWebsite = document.URL;
+				//for some weird reason we have to fetch this again, to get the actual correct bookId 
 				lastPublishedBook = getLastPublishedBookId();
-				getUserFromBookId(lastPublishedBook.bookId)
+				getUserFromBookId(lastPublishedBook.bookId);
+
+				<% if(isResponse) { %>
+					console.log("adding: response: "+lastPublishedBook.bookId+", <%= responseTo %>");
+					addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
+				<% } %>
+
+				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
 
 				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + lastPublishedBook.bookId;
 				twitterShare = "http://twitter.com/share?text="+lastPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read" + lastPublishedBook.bookId;
