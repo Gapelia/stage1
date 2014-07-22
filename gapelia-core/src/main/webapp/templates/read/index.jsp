@@ -301,14 +301,17 @@
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
 		
+		var $delete_button = "<button id=\"delete-symbol\">&#9003;</button>";
+		
 		$.each(responses, function(index, value) {
 			$responses.append(
 				$("<li>", {class: "response"}).append(
-					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"})
+					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"}),
+					$delete_button
 				)
 			);
 		});
-		$("#fin").append($responses);
+		$("#fin-next").append($responses);
 	}
 
 	$(document).ready(function() {

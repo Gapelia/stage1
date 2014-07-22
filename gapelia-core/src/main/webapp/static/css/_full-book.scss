@@ -576,6 +576,29 @@
               color: #59b3a6 !important;
             }
           }
+          
+          #responses_list {
+            margin: 7rem 0 2rem 0;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            
+            #delete-symbol {
+              background-color: transparent !important;
+              color: black !important;
+              opacity: 0.7;
+            }
+            
+            li {
+              font-size: 1.3rem;
+              font-style: italic;
+              margin: 10px;
+              
+              a {
+                &:first-letter { text-decoration: uppercase; }
+              }  
+            }
+          }
         }
 			}
       

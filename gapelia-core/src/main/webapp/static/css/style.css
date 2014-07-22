@@ -7271,6 +7271,19 @@ a.count span.dont-move {
   background-color: transparent !important;
   border: 1px solid #59b3a6 !important;
   color: #59b3a6 !important; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next #responses_list {
+  margin: 7rem 0 2rem 0;
+  position: absolute;
+  text-align: center;
+  width: 100%; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next #responses_list #delete-symbol {
+  background-color: transparent !important; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next #responses_list li {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 10px; }
+.full-book .fluid-wrapper .fluid-preview article #fin-next #responses_list li a:first-letter {
+  text-decoration: uppercase; }
 .full-book .fluid-wrapper .fluid-preview #editor_response_info {
   font-style: italic; }
 .full-book .fluid-wrapper .fluid-preview #editor_response_info #editor_response_info_title {
