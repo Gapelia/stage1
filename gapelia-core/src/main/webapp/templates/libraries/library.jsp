@@ -486,6 +486,15 @@
 		$(document).on("click", "#g-menu-toggle", function () {
                     $("#featured-nav").toggle();
                 });
+		
+		//subscribed/unsubscribe buttons//
+		if (library.libraryId in subscribed == true) {
+			$("#featured-panel").append("<button class=\"unsubscribe brand-blue\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Unsubscribe</button>");
+			$(".subscribe").remove();	
+		} else {
+			$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>");
+			$("#library-splash .subscribe").remove();
+		} 
 
                 // Log Out
                 $(".logout").click(function (e) {
@@ -494,10 +503,6 @@
                 });
 
             }
-	    if ($vW < "1025") {
-		$("#library-splash .subscribe").remove();
-		$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>")
-	    }
 	    
             if ($vW < "421") {
                 $(".book-snippet").css("display","block");

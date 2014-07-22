@@ -668,12 +668,12 @@ function loadMoreBooksInLibrary(count,items) {
 			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
 		}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-		if (libraryOwner.userId == user.userId) {
-			toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
-		}else {
-			toInsert += "";	
-		}
-		if (typeof user != 'undefined') {
+		if (typeof user != 'undefined') {	
+			if (libraryOwner.userId == user.userId) {
+				toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
+			}else {
+				toInsert += "";	
+			}
 			toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
 		}
 		toInsert += "<div class=\"book-title\">";
@@ -1047,7 +1047,7 @@ function getLibrary() {
 				$("#featured-nav").append("<div id=\"library-editor\" style=\"display: inline-block; margin-left:-15px;\"><a style=\"color: #59b3a6; font-weight: 700;\" href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/></div>");
 				$("#nav-submissions").css("display", "none");
 			}	    
-			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img src=" + library.coverPhoto + " style=\"height: auto; left: 0; position: absolute; top: 0; width: 100%;\">";
+			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img id=\"library-cover\" src=" + library.coverPhoto + " style=\"height: auto; left: 0; position: absolute; top: 0; width: 100%;\">";
 			if (ownThisLibrary) {
 				toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + library.libraryId + "\">Edit Library</a></button>";
 			} else {

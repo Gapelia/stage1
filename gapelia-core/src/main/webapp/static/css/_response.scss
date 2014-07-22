@@ -283,8 +283,8 @@
 		
 		#library-splash {
 			
-			h1  {
-				font-size: 1.5rem;
+			h1, h1 span  {
+				font-size: 1.4rem !important;
 				padding-bottom: 1rem;
 			}
 			
@@ -293,9 +293,20 @@
 			p { font-size: 2rem !important; opacity: 0.8; }
 			
 			#library-info {
-				section { font-size: 1.8rem; }
+				h2 { margin-top: 1rem; }
 				
-				span { font-size: 1.7rem !important; }
+				section {
+					font-size: 1.8rem;
+					margin-top: 1rem; 
+					position: absolute;
+					
+					#featured-avatar {
+						height: 40px;
+						width: 40px;
+					}
+				}
+				
+				p span { font-size: 1.7rem !important; }
 			}	
 		}
 		
@@ -1283,6 +1294,10 @@
 			}
 			
 			button { right: 1rem; }
+			
+			#library-cover {
+				height: 125% !important;
+			}
 			
 			#library-share {
 				right: 1.5rem;
@@ -2405,6 +2420,12 @@
 		}
 		
 		#library-splash {
+			
+			#library-cover {
+				left: -25% !important;
+				width: 150% !important;
+			}
+			
 			#library-info {
 				left: 12%;
 				top: 38%;
