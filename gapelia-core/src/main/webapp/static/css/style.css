@@ -3278,6 +3278,8 @@ body.landing .error {
   padding: 0 0 12px 0 !important;
   top: 45%;
   width: 60%; }
+.app #library-splash #library-info h1 {
+  display: inline; }
 .app #library-splash #library-info h2 {
   font-size: 50px;
   font-weight: 700;
@@ -3320,12 +3322,19 @@ body.landing .error {
   padding: 0 0 15px 0; }
 .app #library-splash section #featured-library {
   display: inline !important; }
+.app #library-splash section #featured-library #featured-avatar {
+  border-radius: 300em;
+  display: inline;
+  height: 30px;
+  margin-right: 10px;
+  position: relative;
+  top: 10px;
+  width: 30px; }
 .app #library-splash section .author-name {
   display: inline;
   font-weight: 100;
   font-style: italic;
   margin-left: 8px;
-  opacity: 0.75;
   padding-bottom: 15px; }
 .app #library-splash section .author-name:before {
   content: "by";

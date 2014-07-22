@@ -1132,6 +1132,10 @@
 			padding: 0 0 12px 0 !important;
 			top: 45%;
 			width: 60%;
+      
+      h1 {
+        display: inline;
+      }
 
 			h2 {
 				font-size: 50px;
@@ -1191,14 +1195,25 @@
       font-weight: 700;
 			padding: 0 0 15px 0;
       
-      #featured-library { display: inline !important; }
+      #featured-library {
+        display: inline !important;
+        
+        #featured-avatar {
+          border-radius: 300em;
+          display: inline;
+          height: 30px;
+          margin-right: 10px;
+          position: relative;
+          top: 10px;
+          width: 30px;
+        }
+      }
       
       .author-name {
         display: inline;
         font-weight: 100;
         font-style: italic;
         margin-left: 8px;
-        opacity: 0.75;
         padding-bottom: 15px;
         
         &:before {

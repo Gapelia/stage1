@@ -1025,6 +1025,7 @@ function getLibrary() {
 			var ownThisLibrary = false;
 			
 			getLibraryContributors(libraryId);
+			getUserFromBookIdForFeaturedBook(bookId);
 			
 			if (typeof user != 'undefined') {
 				myLibraries = getCreatedLibrariesArray(sessionId);
@@ -1046,7 +1047,7 @@ function getLibrary() {
 				$("#featured-nav").append("<div id=\"library-editor\" style=\"display: inline-block; margin-left:-15px;\"><a style=\"color: #59b3a6; font-weight: 700;\" href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/></div>");
 				$("#nav-submissions").css("display", "none");
 			}	    
-			toInsert = "<section id=\"library-splash\" class=\"imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img src=" + library.coverPhoto + " style=\"height: auto; left: 0; position: absolute; top: 0; width: 100%;\">";
 			if (ownThisLibrary) {
 				toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + library.libraryId + "\">Edit Library</a></button>";
 			} else {
@@ -1077,10 +1078,10 @@ function getLibrary() {
 				toInsert += "</h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
 			}
 			if (featuredBookTitle == "") {
-				toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
+				toInsert += "<section><a id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
 			} else {
-				toInsert += "<section><a id=\"featured-library\" href=\"/read/" + featuredBookId + "\" style=\"display: block; width: 100%; height: 100%;\">";
-				toInsert += featuredBookTitle + getUserFromBookIdForFeaturedBook(bookId) + "</a></section></div>";
+				toInsert += "<section><div id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\">";
+				toInsert += "<a href=\"/"+bookOwner.displayName+"\"><img id=\"featured-avatar\" src=\""+bookOwner.avatarImage+"\"></a><a href=\"/read/"+featuredBookId+"\">" + featuredBookTitle + "</a>" + getUserFromBookIdForFeaturedBook(bookId) + "</div></section></div>";
 				if ($vW > "1024") {
 					toInsert += "<div id=\"close-splash\"></div>";
 				} else {
@@ -1102,9 +1103,7 @@ function getLibrary() {
 			toInsert += "<li><a href=\""+emailShare+"\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
 
 			$("#mp-pusher").prepend(toInsert);
-
-
-
+			
 			$("#library-contributors").click(function(){
 
 				if ($("#contributor-list li").length == 0){
