@@ -290,29 +290,30 @@
 		}
 	}
 
-	function addResondToButton() {
-		var $button = $("<hr style=\"margin-top: -1rem;\"><div id=\"response-button\"><button type=\"button\" id=\"respondToButton\">Respond</button></div>");
+	function addRespondToButton() {
+		var $button = $('<hr style="margin-top: -1rem;"><div id="response-button"><button type="button" id="respondToButton">Respond</button></div>');
 		$("#fin-next").append($button);
 		$("#respondToButton").click(function() {
 			window.location.href = "/respondTo/"+bookId;
 		});
 	}
 
-	//Tim's work in progress//
-	
-	/*function getAllResponses() {
-		var $responses = $('<ul>');
-		var responses = getResponsesByBookId(bookId);
+	function showResponses(responses) {
+		var $responses = $("<ul>", {id: "responses_list"});
 		
 		$.each(responses, function(index, value) {
-			alert( index + ": " + value );
+			$responses.append(
+				$("<li>", {class: "response"}).append(
+					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"})
+				)
+			);
 		});
-
-		$("#fin").append($resonses);
-	}*/
+		$("#fin").append($responses);
+	}
 
 	$(document).ready(function() {
 		loadDelete();
+		getResponsesByBookId(bookId);
 		//window.READRBOARDCOM.actions.reInit();
 
 		//only show edit option if owner of book//
@@ -360,8 +361,7 @@
 			})
 			//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 		}
-		addResondToButton();
-		getAllResponses();
+		addRespondToButton();
 
 		document.title = pages[0].title;
 	}, 2000);

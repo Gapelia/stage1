@@ -3362,7 +3362,7 @@ function getResponsesByBookId(bookId) {
 			bookId : bookId
 		},
 		success: function (data) {
-			return data;
+			showResponses(data);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
