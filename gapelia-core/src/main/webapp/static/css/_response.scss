@@ -710,6 +710,12 @@
 		
 		#about-one {
 			
+			iframe {
+				height: 450px;
+				margin-top: 10rem;
+				width: 80%;
+			}
+			
 			img {
 				height: 450px !important;
 				left: 10%;
@@ -718,6 +724,8 @@
 			
 			p {
 				font-size: 1.5rem;
+				left: 10%;
+				width: 80%;
 			}
 		}	
 		
@@ -730,11 +738,6 @@
 		
 		h5 {
 			font-size: 2.4rem;
-		}
-		
-		iframe {
-			height: 450px;
-			width: 80%;
 		}
 	}
 	
@@ -2685,6 +2688,8 @@
 				font-size: 1.75rem;
 				margin-top: 2rem;
 			}
+			
+			hr { display: none; }
 			
 			iframe, img {
 				height: 300px !important;

@@ -2392,15 +2392,22 @@ body.landing #about-one {
   width: 100%;
   z-index: 1000; }
 body.landing #about-one h1 {
-  margin-top: 4rem; }
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 7rem 0 0.75rem 0; }
 body.landing #about-one p {
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 100;
   left: 15%;
-  line-height: 1.25;
+  line-height: 1.35;
   position: absolute;
   text-align: center;
   width: 70%; }
+body.landing #about-one hr {
+  left: 25%;
+  margin-top: 4rem;
+  position: absolute;
+  width: 50%; }
 body.landing #about-one img {
   height: 500px !important;
   left: 12%;
@@ -2408,7 +2415,7 @@ body.landing #about-one img {
   position: relative;
   width: 75%; }
 body.landing #about-one iframe {
-  margin-top: 10rem; }
+  margin-top: 8rem; }
 body.landing #about-one #gapelia {
   height: 70px;
   position: absolute;
@@ -8292,12 +8299,18 @@ a.count span.dont-move {
 
   body.landing .super-wrapper {
     padding: 20%; }
+  body.landing #about-one iframe {
+    height: 450px;
+    margin-top: 10rem;
+    width: 80%; }
   body.landing #about-one img {
     height: 450px !important;
     left: 10%;
     width: 80%; }
   body.landing #about-one p {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    left: 10%;
+    width: 80%; }
   body.landing h1 {
     font-size: 2.5rem; }
   body.landing h4 {
@@ -8305,9 +8318,6 @@ a.count span.dont-move {
     width: 90%; }
   body.landing h5 {
     font-size: 2.4rem; }
-  body.landing iframe {
-    height: 450px;
-    width: 80%; }
 
   .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     margin: 0;
@@ -9686,6 +9696,8 @@ a.count span.dont-move {
   body.landing #about-one h1 {
     font-size: 1.75rem;
     margin-top: 2rem; }
+  body.landing #about-one hr {
+    display: none; }
   body.landing #about-one iframe, body.landing #about-one img {
     height: 300px !important; }
   body.landing #about-one p {

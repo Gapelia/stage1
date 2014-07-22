@@ -58,12 +58,13 @@
 			<img class="page-bg" src="http://static4.businessinsider.com/image/520e7890eab8ea642c000000/77bke.gif"/>
 			
 			<div id="about-one">
-				<h1>Re-imagining scholarly publishing</h1></br><p id="creation">We are building Folio because we believe scholars need a place on the Internet where to collaborate, discuss complex ideas and connect with the public. We have a vision of a renewed and rejuvenated academy &#8212; one that is publicly engaged, collaborative, and designed.</p>
+				<h1 style="margin-top: 4rem;">Re-imagining scholarly publishing</h1><p id="creation">We are building Folio because we believe scholars need a place on the Internet where to collaborate, discuss complex ideas and connect with the public. We have a vision of a renewed and rejuvenated academy &#8212; one that is publicly engaged, collaborative, and designed.</p>
 				<iframe src="http://player.vimeo.com/video/99745946" width="75%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-				<h1>An outlet for your writing, ideas and stories</h1></br><p id="curation">Folio provides an easy-to-use content management system, letting authors publish digitally native multimedia articles, peer-review and seek feedback from others, and conveniently track previous revisions of their work.</p>
+				<hr><h1>An outlet for your writing, ideas and stories</h1><p id="curation">Folio provides an easy-to-use content management system, letting authors publish digitally native multimedia articles, peer-review and seek feedback from others, and conveniently track previous revisions of their work.</p>
 				<img src="/static/images/darwin.jpg"/>
-				<h1>Start a digital publication, reach an audience</h1></br><p id="reach">On Folio, content is organized across "libraries", which are curated by editors &#8212; users who self-start topic-based publications. The idea is that everybody can create content, however, stories will only gain exposure if they are previously reviewed and accepted by an editor.</p>
+				
+				<hr><h1>Start a digital publication, reach an audience</h1><p id="reach">On Folio, content is organized across "libraries", which are curated by editors &#8212; users who self-start topic-based publications. The idea is that everybody can create content, however, stories will only gain exposure if they are previously reviewed and accepted by an editor.</p>
 				<img src="/static/images/evolve-magazine.jpg"/>
 				
 				<footer>
