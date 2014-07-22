@@ -3375,7 +3375,6 @@ function getResponsesByBookId(bookId) {
 }
 
 function addResponseForBookId(bookId, responseId) {
-	console.log("in function");
 	$.ajax({
 		url: "/api/books/addResponse",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -3385,7 +3384,30 @@ function addResponseForBookId(bookId, responseId) {
 			responseId: responseId
 		},
 		success: function (data) {
-			console.log("response added");
+			console.log(data);
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
+
+function deleteResponse(bookId, responseId) {
+	console.log("in function deleteResponse");
+	$.ajax({
+		url: "/api/books/deleteResponse",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			bookId : bookId,
+			responseId: responseId
+		},
+		success: function (data) {
+			console.log("response deleted");
 			console.log(data);
 		},
 		error: function (q, status, err) {
