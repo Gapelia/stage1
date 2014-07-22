@@ -12,6 +12,7 @@ public class QueryDatabaseResponses {
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
 	private static final String GET_RESPONSES_FOR_BOOKID= "SELECT response.id AS response_id,response.title AS response_title FROM books AS receiver, books AS response, responses AS r WHERE receiver.id = ? AND r.response_to = receiver.id AND r.book_id = response.id ORDER BY response.created DESC";
 	private static final String ADD_RESPONSE_FOR_BOOKID= "INSERT INTO responses(book_id, response_to) VALUES (?, ?);";
+    private static final String DELETE_RESPONSE= "DELETE FROM responses WHERE book_id = ? AND response_to = ?;";
 
 	public static ArrayList<Response> getResponsesForBookId(int bookId) {
 		ArrayList<Response> list = new ArrayList<Response>();
@@ -64,5 +65,28 @@ public class QueryDatabaseResponses {
 			}
 		}
 	}
+
+    public static String deleteResponse(int bookId, int responseId){
+        PreparedStatement insert = null;
+        try {
+            insert = connection.prepareStatement(DELETE_RESPONSE);
+            insert.setInt(1, responseId);
+            insert.setInt(2, bookId);
+            insert.executeUpdate();
+            return "Success";
+        } catch (SQLException ex) {
+            LOG.error("error removing response:" +bookId + " responseId: " + responseId + ex);
+            return "error removing response:" +bookId + " responseId: " + responseId + ex;
+        } finally {
+            try {
+                if (insert != null) {
+                    insert.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("error closing connection: "  + ex.getMessage());
+                return "Error closing connection";
+            }
+        }
+    }
 
 }

@@ -145,6 +145,17 @@ public class Books {
         return gson.toJson(QueryDatabaseResponses.addResponseForBookId(bookId, responseId));
     }
 
+    @Path("deleteResponse")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String deleteResponse(@FormParam("bookId") int bookId,
+                                       @FormParam("responseId") int responseId) {
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseResponses.deleteResponse(bookId, responseId));
+    }
+
 	@Path("getLibrariesBookBelongsTo")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
