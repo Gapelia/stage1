@@ -662,10 +662,13 @@ function loadMoreBooksInLibrary(count,items) {
 
 		book = books[offset + i];
 
-		if (typeof user != 'undefined' && book.bookId in bookmarked) {
+		if (typeof user != 'undefined' && book && book.bookId in bookmarked) {
 			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
-		} else {
+		} else if(book) {
 			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+		}
+		else{
+			return;
 		}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		if (typeof user != 'undefined') {	
@@ -988,8 +991,12 @@ function getFeaturedBook() {
 			libraryId: libraryId
 		},
 		success: function (data) {
-			featuredBookTitle = data.title;
-			featuredBookId = data.bookId;
+
+			if(data != null){
+				featuredBookTitle = data.title;
+				featuredBookId = data.bookId;
+			}
+
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -1025,7 +1032,10 @@ function getLibrary() {
 			var ownThisLibrary = false;
 			
 			getLibraryContributors(libraryId);
-			getUserFromBookIdForFeaturedBook(bookId);
+
+			if(featuredBookId != ""){
+				getUserFromBookIdForFeaturedBook(bookId);
+			}
 			
 			if (typeof user != 'undefined') {
 				myLibraries = getCreatedLibrariesArray(sessionId);
@@ -1292,7 +1302,7 @@ function getLibrariesSuggestion() {
 			});
 			
 			$("#recommended-libraries").prepend("<h3>Featured Libraries</h3>")
-			e.preventDefault();
+
 		},
 		
 		error: function (q, status, err) {
@@ -1337,7 +1347,7 @@ function getLibrariesSuggestionTwo() {
 			});
 			
 			$("#created-libraries").prepend("<h3>My Libraries</h3>")
-			e.preventDefault();
+			
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -1380,7 +1390,7 @@ function getLibrariesSuggestionThree() {
 			});
 			
 			$("#subscribed-libraries").prepend("<h3>Subscribed Libraries</h3>")
-			e.preventDefault();
+			
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
