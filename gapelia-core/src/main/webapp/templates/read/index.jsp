@@ -317,7 +317,7 @@
 			//getUserFromBookId(value.id);
 			//responseUser = bookOwner.userId;
 			
-			if (user.userId == bookOwner.userId || user.userId == responseUser) {
+			if (user.userId == bookOwner.userId /*|| user.userId == responseUser*/) {
 				$delete_button.clone().appendTo($lines).click(function() {
 					
 					$(".delete-symbol").closest($lines).append("<p>Delete this response?<button id=\"confirm-response-deletion\">Yes</button><button id=\"cancel-response-deletion\">NO</button></p>");
@@ -325,6 +325,10 @@
 					$("#confirm-response-deletion").click(function(){
 						$(this).closest(".response").remove();
 						deleteResponse(bookId, value.id)	
+					});
+					
+					$("#cancel-response-deletion").click(function(){
+						$(this).closest("p").remove();
 					});
 				});
 			}
