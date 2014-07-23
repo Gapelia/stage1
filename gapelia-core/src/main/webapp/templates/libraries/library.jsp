@@ -496,11 +496,7 @@
 			$("#library-splash .subscribe").remove();
 		} 
 
-                // Log Out
-                $(".logout").click(function (e) {
-                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-                    window.location = "";
-                });
+                
 
             }
 	    
@@ -648,6 +644,14 @@
 		}
 		
 		addLoggedInMenu();
+
+        // Log Out
+                $(".logout").click(function (e) {
+                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+                    window.location = "";
+                });
+
+
 		document.title = library.title;
 	    
 		//Meta Tags//
@@ -667,6 +671,8 @@
 	       $('<meta[name="twitter:image"]').attr('content', library.coverPhoto);
 	       
 		
+
+
         },2000);
 	 
 	 
