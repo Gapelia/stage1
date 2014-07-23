@@ -216,6 +216,14 @@
 				$("#revision-toggle ul").css("display", "block");
 			});
 			
+			function saveResponse() {
+				console.log("called");
+				lastPublishedBook = getLastPublishedBookId();
+				<% if(isResponse) { %>
+				addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
+				<% } %>
+			}
+
 			$("#publish-this").on("click", function (e) {
 				
 				lastPublishedBook = getLastPublishedBookId();
@@ -228,11 +236,6 @@
 				//for some weird reason we have to fetch this again, to get the actual correct bookId 
 				lastPublishedBook = getLastPublishedBookId();
 				getUserFromBookId(lastPublishedBook.bookId);
-
-				<% if(isResponse) { %>
-					console.log("adding: response: "+lastPublishedBook.bookId+", <%= responseTo %>");
-					addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
-				<% } %>
 
 				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + lastPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
 

@@ -3141,7 +3141,9 @@ function updateBookAndPages(isPublished) {
 			isPublished: isPublished,
 			snippet: $(".add-description").html()
 		},
-		success: function (data) {},
+		success: function (data) {
+			saveResponse();
+		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
 				alert("Request timed out");

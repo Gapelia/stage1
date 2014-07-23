@@ -13,6 +13,8 @@ public class QueryDatabaseResponses {
 	private static final String GET_RESPONSES_FOR_BOOKID= "SELECT response.id AS response_id,response.title AS response_title FROM books AS receiver, books AS response, responses AS r WHERE receiver.id = ? AND r.response_to = receiver.id AND r.book_id = response.id ORDER BY response.created DESC";
 	private static final String ADD_RESPONSE_FOR_BOOKID= "INSERT INTO responses(book_id, response_to) VALUES (?, ?);";
     private static final String DELETE_RESPONSE= "DELETE FROM responses WHERE book_id = ? AND response_to = ?;";
+    private static final String GET_DRAFT_RESPONSE= "SELECT b.title, b.id FROM books AS b, responses AS r WHERE r.book_id = ? AND r.response_to = b.id";
+
 
 	public static ArrayList<Response> getResponsesForBookId(int bookId) {
 		ArrayList<Response> list = new ArrayList<Response>();
@@ -39,6 +41,34 @@ public class QueryDatabaseResponses {
 
 		return list;
 	}
+
+    public static String getDraftResponse(int bookId) {
+        //TODO: I need some help here
+
+        /*
+        PreparedStatement insert = null;
+        try {
+            insert = connection.prepareStatement(GET_DRAFT_RESPONSE);
+            insert.setInt(1, bookId);
+            ResultSet rs = insert.executeQuery();
+
+            while(rs.next()){
+                response.setId(rs.getInt("title"));
+                response.setTitle(rs.getString("id"));
+            }
+
+            rs.close();
+            insert.close();
+
+        } catch (SQLException ex) {
+            LOG.error("Cannot get the book for response :" + bookId + " " + ex.getMessage());
+            return null;
+        }
+
+        return reponse;
+        */
+        return null;
+    }
 
 	public static String addResponseForBookId(int bookId, int responseId){
 		PreparedStatement insert = null;

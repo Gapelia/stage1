@@ -134,6 +134,16 @@ public class Books {
         return gson.toJson(QueryDatabaseResponses.getResponsesForBookId(bookId));
     }
 
+    @Path("getDraftResponse")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getDraftResponse(@FormParam("bookId") int bookId) {
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseResponses.getDraftResponse(bookId));
+    }
+
     @Path("addResponse")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
