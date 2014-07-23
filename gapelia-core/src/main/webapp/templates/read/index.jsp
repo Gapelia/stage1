@@ -301,15 +301,20 @@
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
 		
-		var $delete_button = "<button id=\"delete-symbol\">&#9003;</button>";
-		
+		//var $delete_button = "<button class=\"delete-symbol\">&#9003;</button>";
+		var $delete_button = $("<button>", {class: "delete-symbol", html: "&#9003;"});
+
 		$.each(responses, function(index, value) {
+			var $lines = $("<li>", {class: "response"});
 			$responses.append(
-				$("<li>", {class: "response"}).append(
-					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"}),
-					$delete_button
+				$lines.append(
+					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"})
 				)
 			);
+			$delete_button.clone().appendTo($lines).click(function() {
+	    		$(this).closest($lines).remove();
+	            deleteResponse(bookId, value.id)
+		    });	
 		});
 		$("#fin-next").append($responses);
 	}
