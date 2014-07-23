@@ -8069,6 +8069,8 @@ a.count span.dont-move {
   .app #library-splash p {
     font-size: 2rem !important;
     opacity: 0.8; }
+  .app #library-splash #library-info {
+    top: 40%; }
   .app #library-splash #library-info h2 {
     margin-top: 1rem; }
   .app #library-splash #library-info section {
