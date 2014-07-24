@@ -162,8 +162,6 @@ public class Books {
     public String deleteResponse(@FormParam("bookId") int bookId,
                                        @FormParam("responseId") int responseId) {
         //TODO: needs user-id check to see if user is allowed to delete this response
-        if (!APIUtil.isValidSession(sessionId))
-            return APIUtil.INVALID_SESSION_ERROR_MSG;
         Gson gson = new GsonBuilder().create();
         return gson.toJson(QueryDatabaseResponses.deleteResponse(bookId, responseId));
     }
