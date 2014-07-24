@@ -10045,7 +10045,8 @@ a.count span.dont-move {
     top: 107%; }
   body.landing #about-one h1 {
     font-size: 1.4rem;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-top: 1rem !important; }
   body.landing #about-one img, body.landing #about-one iframe {
     left: 1%;
     width: 98%; }
@@ -10295,12 +10296,15 @@ a.count span.dont-move {
 
   body.landing #mp-pusher {
     padding: 28% 6%; }
+  body.landing #about-one {
+    top: 88%; }
   body.landing #about-one h1 {
     font-size: 1rem; }
   body.landing #about-one img {
     height: 210px !important; }
   body.landing #about-one #gapelia {
-    left: 39%; }
+    left: 39%;
+    margin-bottom: 2rem; }
   body.landing #subtitle {
     font-size: 1.3rem !important; }
   body.landing h4 {

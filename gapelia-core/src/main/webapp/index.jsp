@@ -58,7 +58,7 @@
 			<img class="page-bg" src="http://static4.businessinsider.com/image/520e7890eab8ea642c000000/77bke.gif"/>
 			
 			<div id="about-one">
-				<h1 style="margin-top: 4rem;">Re-imagining scholarly publishing</h1><p id="creation">We are building Folio because we believe scholars need a place on the Internet where to collaborate, discuss complex ideas and connect with the public. We have a vision of a renewed and rejuvenated academy &#8212; one that is publicly engaged, collaborative, and designed.</p>
+				<h1 style="margin-top: 4rem;">Re-imagining Digital Publications</h1><p id="creation">Scholars need a place on the Internet where to collaborate, discuss complex ideas and connect with the public. We envision a renewed and rejuvenated academy &#8212; one that is publicly engaged, networked, and designed.</p>
 				<iframe src="http://player.vimeo.com/video/99745946" width="75%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 				<hr><h1>An outlet for your writing, ideas and stories</h1><p id="curation">Folio provides an easy-to-use content management system, letting authors publish digitally native multimedia articles, peer-review and seek feedback from others, and conveniently track previous revisions of their work.</p>

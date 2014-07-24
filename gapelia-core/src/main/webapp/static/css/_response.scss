@@ -3209,6 +3209,7 @@
 			h1 {
 				font-size: 1.4rem;
 				margin-bottom: 0;
+				margin-top: 1rem !important;
 			}
 			
 			img, iframe {
@@ -3602,11 +3603,18 @@
 		}
 		
 		#about-one {
-			h1 { font-size: 1rem; }
+			top: 88%;
+			
+			h1 {
+				font-size: 1rem;
+			}
 			
 			img { height: 210px !important; }
 			
-			#gapelia { left: 39%; }
+			#gapelia {
+				left: 39%;
+				margin-bottom: 2rem;
+			}
 		}
 		
 		#subtitle { font-size: 1.3rem !important; }

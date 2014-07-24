@@ -648,7 +648,7 @@
         // Log Out
                 $(".logout").click(function (e) {
                     document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-                    window.location = "";
+                    window.location = "/";
                 });
 
 
