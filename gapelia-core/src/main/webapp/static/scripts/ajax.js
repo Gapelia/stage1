@@ -3172,6 +3172,7 @@ function updateBookAndPages(isPublished) {
 			snippet: $(".add-description").html()
 		},
 		success: function (data) {
+			console.log("updateBookAndPages got data: "+data);
 			if(typeof saveResponse == 'function') { saveResponse(); }
 		},
 		error: function (q, status, err) {

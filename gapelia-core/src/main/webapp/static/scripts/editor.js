@@ -1415,6 +1415,9 @@
 					$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
 				});
 				break;
+			default: 
+				console.log("default case");
+				break;
 		}
 	}
 
