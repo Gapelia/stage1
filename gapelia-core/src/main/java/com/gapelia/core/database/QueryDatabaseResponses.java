@@ -4,6 +4,7 @@ import com.gapelia.core.model.Book;
 import com.gapelia.core.model.Response;
 import org.apache.log4j.Logger;
 
+import java.lang.Integer;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class QueryDatabaseResponses {
 	private static final String GET_RESPONSES_FOR_BOOKID= "SELECT response.id AS response_id,response.title AS response_title FROM books AS receiver, books AS response, responses AS r WHERE receiver.id = ? AND r.response_to = receiver.id AND r.book_id = response.id ORDER BY response.created DESC";
 	private static final String ADD_RESPONSE_FOR_BOOKID= "INSERT INTO responses(book_id, response_to) VALUES (?, ?);";
     private static final String DELETE_RESPONSE= "DELETE FROM responses WHERE book_id = ? AND response_to = ?;";
-    private static final String GET_DRAFT_RESPONSE= "SELECT b.title, b.id FROM books AS b, responses AS r WHERE r.book_id = ? AND r.response_to = b.id";
+    private static final String GET_DRAFT_RESPONSE= "SELECT b.id FROM books AS b, responses AS r WHERE r.book_id = ? AND r.response_to = b.id";
 
 
 	public static ArrayList<Response> getResponsesForBookId(int bookId) {
@@ -42,10 +43,9 @@ public class QueryDatabaseResponses {
 		return list;
 	}
 
-    public static String getDraftResponse(int bookId) {
-        //TODO: I need some help here
+    public static ArrayList<Integer> getDraftResponse(int bookId) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
 
-        /*
         PreparedStatement insert = null;
         try {
             insert = connection.prepareStatement(GET_DRAFT_RESPONSE);
@@ -53,8 +53,7 @@ public class QueryDatabaseResponses {
             ResultSet rs = insert.executeQuery();
 
             while(rs.next()){
-                response.setId(rs.getInt("title"));
-                response.setTitle(rs.getString("id"));
+                list.add(rs.getInt("id"));
             }
 
             rs.close();
@@ -65,9 +64,7 @@ public class QueryDatabaseResponses {
             return null;
         }
 
-        return reponse;
-        */
-        return null;
+        return list;
     }
 
 	public static String addResponseForBookId(int bookId, int responseId){

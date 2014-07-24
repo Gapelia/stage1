@@ -293,7 +293,7 @@
 
 		var listItems = $("#pages-scroller li section div .page-thumb-number");
 		listItems.each(function(idx, li) {
-   		 	$(li).text(idx);
+			$(li).text(idx);
 		});
 
 		pages.page.splice(currentPage, 1);
@@ -633,7 +633,7 @@
 			}
 		}
 
-        showResponseInfo();
+		showResponseInfo();
 
 	}
 
@@ -1295,14 +1295,14 @@
 	// ------------------------------------------------------------------------------------
 
 	$("#publish-toggle").on("click", function (e) {
-        if(title=="") {
-            alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
-        }
+		if(title=="") {
+			alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
+		}
 	
 	firstTitle=pages.page[0].title;
 	
-        $("#publish-book-title").html(firstTitle);
-        $(".page-title-elem").html(title);
+		$("#publish-book-title").html(firstTitle);
+		$(".page-title-elem").html(title);
 		$("#publish-modal").css({
 			"width": "100%",
 			"height": "100%",
@@ -1400,13 +1400,23 @@
 	}
 
 	function showResponseInfo() {
-	    var urlArray = location.pathname.split("/");
-	    if ( urlArray[1] == "respondTo" ) {
-	        var bookId = urlArray[urlArray.length-1];
-	        getBookFromBookId(bookId);
-            $(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
-        }
-    }
+		var urlArray = location.pathname.split("/");
+		switch(urlArray[1]) {
+			case "respondTo":
+				var bookId = urlArray[urlArray.length-1];
+				getBookFromBookId(bookId);
+				$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
+				break;
+			case "editbook":
+				var responseId = urlArray[urlArray.length-1];
+				bookIds =  getDraftResponse(responseId);
+				$.each(bookIds, function(value,id) {
+					getBookFromBookId(id);
+					$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
+				});
+				break;
+		}
+	}
 
 	$(document).mousemove(function () {
 

@@ -566,6 +566,27 @@ function getUserDrafts() {
 	});
 }
 
+function getUserDraftsArray(userId) {
+	$.ajax({
+		url: "/api/users/getDraftBooks",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			sessionId: sessionId
+		},
+		success: function (data) {
+			drafts = data;
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+	return drafts;
+}
+
 function getBooksInLibrary() {
 	$.ajax({
 		url: "/api/libraries/getBooksInLibrary",
@@ -2990,8 +3011,6 @@ function getLastPublishedBookId() {
 		},
 		success: function (data) {
 			lastPublished = data;
-
-
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -3141,6 +3160,7 @@ function updateBookAndPages(isPublished) {
 		url: "/api/books/updateBook",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
+		async: false,
 		data: {
 			sessionId: sessionId,
 			bookId: pages.bookId,
@@ -3152,7 +3172,7 @@ function updateBookAndPages(isPublished) {
 			snippet: $(".add-description").html()
 		},
 		success: function (data) {
-			saveResponse();
+			if(typeof saveResponse == 'function') { saveResponse(); }
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -3409,7 +3429,6 @@ function addResponseForBookId(bookId, responseId) {
 }
 
 function deleteResponse(bookId, responseId) {
-	console.log("in function deleteResponse");
 	$.ajax({
 		url: "/api/books/deleteResponse",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -3430,4 +3449,28 @@ function deleteResponse(bookId, responseId) {
 			}
 		}
 	});
+}
+
+function getDraftResponse(bookId) {
+	var d = null;
+	$.ajax({
+		url: "/api/books/getDraftResponse",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			bookId : bookId
+		},
+		success: function(data) {
+			d = data;
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return d;
 }

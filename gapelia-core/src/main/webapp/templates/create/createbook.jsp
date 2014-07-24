@@ -217,8 +217,7 @@
 			});
 			
 			function saveResponse() {
-				console.log("called");
-				lastPublishedBook = getLastPublishedBookId();
+				lastPublishedBook = getUserDraftsArray(user.id)[0];
 				<% if(isResponse) { %>
 				addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
 				<% } %>
