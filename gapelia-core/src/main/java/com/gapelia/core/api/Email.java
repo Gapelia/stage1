@@ -62,7 +62,7 @@ public class Email {
 				"/bin/sh",
 				"-c",
 				"/emailScripts/subscriberEmail.sh '"+b.getTitle()+
-						"' '"+l.getTitle()+"' '" + u.getEmail()+"' '" +l.getLibraryId() + "'"
+						"' '"+l.getTitle()+"' '" + u.getEmail()+"' '" + b.getBookId() + "'"
 		};
 
 		LOG.info("Emailing subscriber email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
