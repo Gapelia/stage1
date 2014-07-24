@@ -114,6 +114,7 @@ public class QueryDatabaseBook {
 				int pageNumSequence = rs.getInt(1);
 
 				QueryDatabaseMetric.initializePageViews(page.getBookId(),pageNumSequence);
+				LOG.info("success creating page w/ id: " + pageNumSequence);
 				return pageNumSequence;
 			}
 			return 0;
@@ -148,6 +149,10 @@ public class QueryDatabaseBook {
 			insert.setTimestamp(9, page.getLastUpdated());
 			insert.setInt(10, page.getPageId());
 			insert.executeUpdate();
+
+			LOG.info("success updating page....page title: " + page.getTitle());
+
+
 			return "Success";
 		} catch (SQLException ex) {
 			LOG.error("ERROR updating page: : " + page.getPageId() + " "  + ex.getMessage());
@@ -222,11 +227,14 @@ public class QueryDatabaseBook {
 
 
 
+
+
 			ResultSet rs = insert.getGeneratedKeys();
 			if ( rs.next() ) {
 				int bookSequence =  rs.getInt(1);
 				QueryDatabaseMetric.initializeBookViews(bookSequence);
 				QueryDatabaseMetric.initializeBookShares(bookSequence);
+				LOG.info("success creating book w/ id: " + bookSequence);
 				return bookSequence;
 			}
 
@@ -275,6 +283,9 @@ public class QueryDatabaseBook {
 				insert.setString(7, book.getSnippet());
 				insert.setInt(8, book.getBookId());
 				insert.executeUpdate();
+
+
+				LOG.info("success updating book... title: " + book.getTitle());
 			}
 			else{  //we need to make a new revision.
 
