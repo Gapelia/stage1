@@ -4,10 +4,7 @@ import com.gapelia.core.auth.SessionManager;
 import com.gapelia.core.database.QueryDatabaseBook;
 import com.gapelia.core.database.QueryDatabaseLibrary;
 import com.gapelia.core.database.QueryDatabaseUser;
-import com.gapelia.core.model.CommentNotification;
-import com.gapelia.core.model.LibraryNotification;
-import com.gapelia.core.model.Page;
-import com.gapelia.core.model.User;
+import com.gapelia.core.model.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -56,6 +53,28 @@ public class Email {
 		}
 
 		return "failed for some reason";
+	}
+
+	public static void sendLibrarySubscriberEmail(User u, Book b, Library l){
+		if(u.getEmailOptOut()) return;
+
+		String[] cmd = {
+				"/bin/sh",
+				"-c",
+				"/emailScripts/subscriberEmail.sh '"+b.getTitle()+
+						"' '"+l.getTitle()+"' '" + u.getEmail()+"' '" + b.getBookId() + "'"
+		};
+
+		LOG.info("Emailing subscriber email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
+
+
+		Process p = null;
+		try {
+			p = rt.exec(cmd);
+//			p .waitFor();
+		} catch (Exception e) {
+			LOG.error("Error sending notification acceptance:" + e.getMessage());
+		}
 	}
 
 	public static void sendAcceptanceToLibraryEmail(User u, LibraryNotification n){
