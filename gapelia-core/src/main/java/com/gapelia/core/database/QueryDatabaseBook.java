@@ -286,6 +286,7 @@ public class QueryDatabaseBook {
 
 
 				LOG.info("success updating book... title: " + book.getTitle());
+				LOG.info("is published? " + book.getIsPublished());
 			}
 			else{  //we need to make a new revision.
 
