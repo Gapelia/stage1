@@ -176,6 +176,10 @@
                             }
                         }
                     });
+
+		$("#featured-scroller").append("<div id=\"thanks-feedback\">Thank you for your feedback!</div>");
+		$("#contactable").remove();
+
 			}
 		});
 	};

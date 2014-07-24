@@ -583,6 +583,15 @@
             text-align: center;
             width: 100%;
             
+            #cancel-response-deletion {
+              background-color: green !important;
+            }
+            
+            #confirm-response-deletion {
+              background-color: red !important;
+              margin: 0 5px 0 5px !important;
+            }
+            
             .delete-symbol {
               background-color: transparent !important;
               color: black !important;
@@ -597,6 +606,16 @@
               a {
                 &:first-letter { text-decoration: uppercase; }
               }  
+            }
+            
+            p {
+              font-size: 1rem;
+              left: 25%;
+              border-top: 1px solid rgba($black, 0.3) !important;
+              padding-top: 10px;
+              width: 50%;
+              
+              button { font-size: 10px; }
             }
           }
         }

@@ -297,7 +297,7 @@
 			window.location.href = "/respondTo/"+bookId;
 		});
 	}
-
+	
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
 		
@@ -311,10 +311,28 @@
 					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"})
 				)
 			);
-			$delete_button.clone().appendTo($lines).click(function() {
-	    		$(this).closest($lines).remove();
-	            deleteResponse(bookId, value.id)
-		    });	
+			
+			//TO-DO: find way to differentiate userId from the current book versus a book//
+			
+			//getUserFromBookId(value.id);
+			//responseUser = bookOwner.userId;
+			
+			if (user.userId == bookOwner.userId /*|| user.userId == responseUser*/) {
+				$delete_button.clone().appendTo($lines).click(function() {
+					
+					$(".delete-symbol").closest($lines).append("<p>Delete this response?<button id=\"confirm-response-deletion\">Yes</button><button id=\"cancel-response-deletion\">NO</button></p>");
+								
+					$("#confirm-response-deletion").click(function(){
+						$(this).closest(".response").remove();
+						deleteResponse(bookId, value.id)	
+					});
+					
+					$("#cancel-response-deletion").click(function(){
+						$(this).closest("p").remove();
+					});
+				});
+			}
+			
 		});
 		$("#fin-next").append($responses);
 	}
@@ -352,7 +370,7 @@
 		$(".phototext-wrapper").imgLiquid({ fill: true });
 		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
-
+		
 		//adding http://  and new-tab-location to all hyperlinks//
 		$(".full-book .page-desc a").each(function() {
 			var href = $(this).attr("href");

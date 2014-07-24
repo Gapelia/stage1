@@ -144,6 +144,9 @@
                 $("#book-scroller").css("z-index", "0");
             });
 	    
+	    $(document).on("click", "#splash-edit-wrapper .quick-edit-profile, #splash-user-bio", function (e) {
+		$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
+	    });
         }
 
         $(function () {
