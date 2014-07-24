@@ -301,7 +301,6 @@
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
 		
-		//var $delete_button = "<button class=\"delete-symbol\">&#9003;</button>";
 		var $delete_button = $("<button>", {class: "delete-symbol", html: "&#9003;"});
 
 		$.each(responses, function(index, value) {
@@ -312,12 +311,13 @@
 				)
 			);
 			
-			//TO-DO: find way to differentiate userId from the current book versus a book//
+			var bookOwnerId = bookOwner.userId;
+			getUserFromBookId(value.id);
+			responseUser = bookOwner.userId;
+			console.log("bookOwner: "+bookOwnerId);
+			console.log("responseOwner: "+responseUser);
 			
-			//getUserFromBookId(value.id);
-			//responseUser = bookOwner.userId;
-			
-			if (user.userId == bookOwner.userId /*|| user.userId == responseUser*/) {
+			if (user.userId == bookOwnerId || user.userId == responseUser) {
 				$delete_button.clone().appendTo($lines).click(function() {
 					
 					$(".delete-symbol").closest($lines).append("<p>Delete this response?<button id=\"confirm-response-deletion\">Yes</button><button id=\"cancel-response-deletion\">NO</button></p>");
