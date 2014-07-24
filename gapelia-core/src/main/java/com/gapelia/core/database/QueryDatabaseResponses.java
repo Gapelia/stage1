@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class QueryDatabaseResponses {
 	private static Logger LOG = Logger.getLogger(QueryDatabaseResponses.class);
 	private static Connection connection = DatabaseManager.getInstance().getConnection();
-	private static final String GET_RESPONSES_FOR_BOOKID= "SELECT response.id AS response_id,response.title AS response_title FROM books AS receiver, books AS response, responses AS r WHERE receiver.id = ? AND r.response_to = receiver.id AND r.book_id = response.id ORDER BY response.created DESC";
+	private static final String GET_RESPONSES_FOR_BOOKID= "SELECT response.id AS response_id, response.title AS response_title FROM books AS receiver, books AS response, responses AS r WHERE receiver.id = ? AND r.response_to = receiver.id AND r.book_id = response.id AND response.is_published = true ORDER BY response.created DESC";
 	private static final String ADD_RESPONSE_FOR_BOOKID= "INSERT INTO responses(book_id, response_to) VALUES (?, ?);";
     private static final String DELETE_RESPONSE= "DELETE FROM responses WHERE book_id = ? AND response_to = ?;";
     private static final String GET_DRAFT_RESPONSE= "SELECT b.id FROM books AS b, responses AS r WHERE r.book_id = ? AND r.response_to = b.id";
