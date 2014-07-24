@@ -175,8 +175,6 @@
 	function load() {
             $("#g-menu-toggle").css("color", "#fcfcfc");
 
-            
-
             if ($vW > "1024") {
 		
 
@@ -537,15 +535,6 @@
 		$("#book-list").fadeIn("100");
 			
 
-
-$("#logout").click(function (e) {
-            console.log("setting up logout");
-            document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-            window.location = "/";
-            });
-
-
-
 		if ($vW > "1024") {
 			var options = {
 				horizontal: 1,
@@ -657,11 +646,10 @@ $("#logout").click(function (e) {
 		addLoggedInMenu();
 
         // Log Out
-        $(".logout").click(function (e) {
-            console.log("setting up logout");
-            document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-            window.location = "/";
-        });
+                $(".logout").click(function (e) {
+                    document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+                    window.location = "";
+                });
 
 
 		document.title = library.title;

@@ -387,8 +387,7 @@
 			    if ($vW > "1024") {
 				$("#user-book-list .book").css("height", $vH - 97 + "px");
 			    }
-                        }, 600);
-			
+                        }, 600);	
 			
 			setTimeout(function () {
 			$("#user-book-list li").fadeIn("100");

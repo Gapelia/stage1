@@ -158,7 +158,7 @@
 				"z-index": "1"
 			});
 
-			$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
+			//$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
 				
 			$("#splash-user-location").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
 			$("#splash-user-website").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)");
