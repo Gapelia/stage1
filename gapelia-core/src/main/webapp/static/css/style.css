@@ -2539,7 +2539,7 @@ body.landing .error {
   height: 100%;
   width: 100%;
   background: linear-gradient(135deg, #8dd6c3 6%, #c5e5e2 40%, #eafaeb 70%, #f9f7ca 88%, #fceea1 100%);
-  padding: 9rem 15rem;
+  padding: 8rem 15rem;
   position: absolute;
   text-align: center;
   z-index: 10000000000; }
@@ -2555,6 +2555,13 @@ body.landing .error {
   line-height: 1.25; }
 .app #university-affiliation #school-intro {
   margin-top: 3rem; }
+.app #university-affiliation #skip-onboarding {
+  bottom: 1rem;
+  margin: 0;
+  opacity: 0.75;
+  padding: 0.5rem;
+  position: absolute;
+  right: 1rem; }
 .app #university-affiliation #uni-intro a {
   border-bottom: 1px solid rgba(25, 25, 25, 0.3); }
 .app #university-affiliation #welcome {

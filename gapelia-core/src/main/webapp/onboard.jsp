@@ -56,7 +56,7 @@
 				<select id="university-search" placeholder="Select university"></select>
 				<p id="school-intro"><b>School affiliation</b></br>We will use this information to personalize your experience.</p>
 				<select id="school-search" placeholder="Select school"></select>
-				</br><button id="uni-next" class="branded">NEXT STEP</button>
+				</br><a id="skip-onboarding" href="/featured">SKIP: Take me to Folio</a><button id="uni-next" class="branded">NEXT STEP</button>
 			</div>
 			
 			<div id="intro" style="opacity: 0";>
@@ -205,6 +205,9 @@
 				//clicking on uni//
 				$("#uni-next").click(function (e) {
 					
+					$("#intro").css("opacity", "0.75");
+					$("#university-affiliation").css("display", "none");
+					
 					user.university = $(".selectize-input div")[0].textContent;
 					user.department = $(".selectize-input div")[1].textContent;
 					
@@ -236,9 +239,6 @@
 						    }
 						}
 					    });
-					
-					$("#intro").css("opacity", "0.75");
-					$("#university-affiliation").css("display", "none");
 				});
 				
 				//school and uni dropdowns//
