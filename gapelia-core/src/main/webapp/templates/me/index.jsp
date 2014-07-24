@@ -67,8 +67,8 @@
                         </ul>
                     </li>
 
-		    <li class="fq"><a href="#">Help</a>
-		    <li class="help"><a href="#">Contact</a>
+                    <li class="fq"><a href="/read/755">How It Works</a>
+		    <li class="help"><a href="mailto:team@folio.is">Report a bug</a>
                     <li class="logout"><a href="#">Log Out</a>
 
                 </ul>
