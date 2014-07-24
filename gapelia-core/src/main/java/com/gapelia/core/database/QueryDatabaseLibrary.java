@@ -1,5 +1,6 @@
 package com.gapelia.core.database;
 
+import com.gapelia.core.api.Email;
 import com.gapelia.core.model.Library;
 import com.gapelia.core.model.User;
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ public class QueryDatabaseLibrary {
 			"where num_subscribers > 4 order by num_subscribers desc nulls last limit 20";
 
 	private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
+	private static final String GET_EMAILS_FOR_LIBRARY_SUBSCRIBERS = "select users.id from user_subscriptions join users on user_subscriptions.user_id = users.id where library_id = ? and not email = ''";
 	private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
 	private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
 	private static final String GET_BOOK = "SELECT * FROM books where id=?";
@@ -53,6 +55,37 @@ public class QueryDatabaseLibrary {
             return false;
         }
     }
+
+
+	public static ArrayList<User> getEmailsForLibrarySubscribers(int library_id) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		String num = null;
+		ArrayList<User> list = new ArrayList<User>();
+		User user = null;
+		try {
+			statement = connection.prepareStatement(GET_EMAILS_FOR_LIBRARY_SUBSCRIBERS);
+			statement.setInt(1, library_id);
+			rs = statement.executeQuery();
+			while (rs.next()) {
+				list.add(QueryDatabaseUser.getUserById(rs.getInt(1)));
+			}
+		} catch (Exception ex) {
+			LOG.error("ERROR getting library subscriber emails:" + library_id, ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException ex) {
+				LOG.error("Error closing connection libraryGetContribs lib id" + library_id + " " + ex.getMessage());
+			}
+		}
+		return list;
+	}
 
 	public static ArrayList<User> getLibraryContributors(int library_id) {
 		PreparedStatement statement = null;
@@ -325,6 +358,22 @@ public class QueryDatabaseLibrary {
 			insert.setInt(1, libraryId);
 			insert.setInt(2, bookId);
 			insert.executeUpdate();
+
+
+			// now notify all subscribers there has been a new addition
+			Library l = QueryDatabaseLibrary.getLibrary(libraryId);
+			Book b = QueryDatabaseUser.getBookByID(bookId);
+			ArrayList<User> users = getEmailsForLibrarySubscribers(libraryId);
+
+			int count = 0;
+			for(User u : users){
+				Email.sendLibrarySubscriberEmail(u,b,l);
+				count++;
+			}
+			LOG.info("emailed subscriber email out to " + count + " users.");
+			//---------------------------------------------------------
+
+
 			return "Success";
 		} catch (SQLException ex) {
 			LOG.error("ERROR: : " + libraryId + " " + bookId + " " + ex.getMessage());
