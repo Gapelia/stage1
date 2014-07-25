@@ -102,6 +102,9 @@ function getCommentNotifications() {
 							case "Review":
 							var typeString = "review"
 							break;
+							case "response":
+                            var typeString = "response"
+                            break;
 							default:
 							var typeString = "comment"
 							break;

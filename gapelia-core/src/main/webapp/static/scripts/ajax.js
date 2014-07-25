@@ -3176,6 +3176,15 @@ function updateBookAndPages(isPublished) {
 		success: function (data) {
 			console.log("updateBookAndPages got data: "+data);
 			if(typeof saveResponse == 'function') { saveResponse(); }
+			if(isPublished) {
+				bookIds =  getDraftResponse(pages.bookId);
+				$.each(bookIds, function(value,id) {
+					getBookFromBookId(id);
+					createNotification(pages.bookId, 'response', '', pages.page[0].title);
+				});
+			 					
+			}
+			
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -3476,4 +3485,29 @@ function getDraftResponse(bookId) {
 		}
 	});
 	return d;
+}
+
+function createNotification(bookId, type, hash, comment) {
+	$.ajax({
+		url: "/api/notifications/createCommentNotification",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		//async: false,
+		type: "POST",
+		data: {
+			sessionId: sessionId,
+			referencedBook: bookId,
+			hash: hash,
+			type: type,
+			comment: comment
+		},
+		success: function (data) {
+			console.log("data returned: " + data);
+		},
+		error: function (q, status, err) {
+			console.log("ERROR" + err);
+			if (status == "timeout") {
+				alert("Request timed out trying again");
+			}
+		}
+	});
 }
