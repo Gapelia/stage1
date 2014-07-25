@@ -11,7 +11,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Folio &middot; Be Curious</title>
+		<title>Folio: The Blogging Platform for Scholars and Researchers</title>
 
 		<!--/ WELCOME TO GAPELIA
 			 ______   ______   ______  ______   __       __   ______    
@@ -24,20 +24,31 @@
 
 		/-->
 
-		<meta name="author" content="Folio" />
-		<meta name="description" content="Reimagining scholarly publishing" />
+		<meta name="author" content="Folio: The Blogging Platform for Scholars and Researchers" />
+		<meta name="description" content="Our mission is to bring public access to the public domain. Engineered at Harvard Innovation Lab." />
 		<meta name="keywords" content="academia, publishing, blogging, scholar, ideas, storytelling, long-form, platform, collaboration" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 		<link href="/static/css/style.css" rel="stylesheet"/>
 		<link href="/static/images/favicon.png" rel="shortcut icon"/>
 
-
-
 		<script src="/static/scripts/modernizr.custom.js"></script>
 		<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 
 		<script src="/static/scripts/nprogress.js"></script>
+		
+		
+		<script>
+		//// Google Analytics ////
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	      
+		ga('create', 'UA-41288707-4', 'auto');
+		ga('send', 'pageview');
+		//// Google Analytics ////
+		</script> 
 
 	</head>
 
@@ -46,6 +57,10 @@
 		<div id="mp-pusher" class="super-wrapper" style="overflow: hidden;">
 
 			<h5 id="beta">Product in Beta &#8212; Engineered at Harvard Innovation Lab</h5>
+			
+			<a href="https://twitter.com/folio" class="twitter-follow-button" data-show-count="false">Follow @folio</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			
 			<h1 id="gapelia"></h1>
 			<h4 style="border: none; font-size: 2rem;">Folio &#8212; A Laboratory of Ideas</h4></br>
 			<h4 id="subtitle">The blogging platform for scholars and researchers.</h4>

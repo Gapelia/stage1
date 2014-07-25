@@ -2344,6 +2344,11 @@ body.landing .wrapper button {
 body.landing .wrapper p {
   font-style: italic;
   font-size: 2rem; }
+body.landing #twitter-widget-0 {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  z-index: 100; }
 body.landing #wrapper-bottom {
   padding-bottom: 3rem;
   width: 100%; }
