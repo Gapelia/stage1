@@ -174,8 +174,7 @@
 	} ,false);
 
 	//end readerboard block
-
-
+	
 	// Hide logo after 100px when scrolling book on mobile
 	$(window).scroll(function() {
 		if ($(window).scrollTop() < 100) {
@@ -339,7 +338,6 @@
 
 	$(document).ready(function() {
 		loadDelete();
-		draftDelete();
 		getResponsesByBookId(bookId);
 		//window.READRBOARDCOM.actions.reInit();
 
@@ -371,6 +369,15 @@
 		$(".phototext-wrapper").imgLiquid({ fill: true });
 		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+		
+		//only using this method inside of books because of some weird click overwrites//
+		$(".vote-notification a").click(function(){
+			window.location.href = "/"+userFrom.displayName;	
+		});
+		
+		$(".comment-notification a").click(function(){
+			window.location.href = "/read/"+notification.referencedBookId+"?commentLocation="+hash;
+		});
 		
 		//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
 		$(".dd-link").click(function (e) {
@@ -421,7 +428,6 @@
 			//$(".fluid-wrapper #fin-next").css("cssText", "width: 100%");
 		}
 		addRespondToButton();
-
 		document.title = pages[0].title;
 	}, 2000);
 
