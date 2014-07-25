@@ -409,9 +409,8 @@
 
         // "fix" featured menu pop-in
         setTimeout(function () {
-            $("#featured-panel, #featured-scroller").css("opacity", "1");
+        $("#featured-panel, #featured-scroller").css("opacity", "1");
             }, 400);
-
         }, 1000);
 
         //$("#nav-explore").addClass("current");

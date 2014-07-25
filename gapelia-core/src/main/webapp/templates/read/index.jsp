@@ -339,6 +339,7 @@
 
 	$(document).ready(function() {
 		loadDelete();
+		draftDelete();
 		getResponsesByBookId(bookId);
 		//window.READRBOARDCOM.actions.reInit();
 
@@ -370,6 +371,38 @@
 		$(".phototext-wrapper").imgLiquid({ fill: true });
 		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+		
+		//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
+		$(".dd-link").click(function (e) {
+			$(this).next(".delete-draft").toggle();
+			e.preventDefault();
+		});
+		
+		$(".nay-dd").click(function () {
+			$(this).closest(".delete-draft").hide();
+		});
+		
+		$(".yay-dd").click(function () {
+			e = $(this).closest(".yay-dd");
+			console.log("deleting");
+			bookId = e.parent().parent().attr("id");
+			$(this).closest("li").remove();
+			sessionId = readCookie("JSESSIONID");
+			$.ajax({
+				url: "/api/books/deleteBook",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				type: "POST",
+				data: {
+					sessionId: sessionId,
+					bookId: bookId
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						alert("Request timed out");
+					}
+				}
+			});
+		});
 		
 		//adding http://  and new-tab-location to all hyperlinks//
 		$(".full-book .page-desc a").each(function() {

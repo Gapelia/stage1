@@ -94,7 +94,8 @@ function loadDelete() {
 				notificationId: notificationId
 			}
 		});
-	} else if (type == "book-notification") {
+	} else if (type == "vote-notification") {
+		console.log("vote")
 		$.ajax({
 			url: "/api/notifications/removeBookNotification",
 			contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -159,6 +160,7 @@ $(".yay-respond-link").click(function () {
 	if ($("#gpl-menu-notify li").size() == 0)  $(".notification-time span").css("display", "none");
 	else $("#notification-count").html($("#gpl-menu-notify li").size());
 });
+	
 $(".dd-link").click(function (e) {
 	$(this).next(".delete-draft").toggle();
 	e.preventDefault();

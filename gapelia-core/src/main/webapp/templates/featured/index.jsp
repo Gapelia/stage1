@@ -745,6 +745,40 @@
 		
             });
 	}
+	
+	//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
+	setTimeout(function () {
+		$(".dd-link").click(function (e) {
+			$(this).next(".delete-draft").toggle();
+			e.preventDefault();
+		});
+		
+		$(".nay-dd").click(function () {
+			$(this).closest(".delete-draft").hide();
+		});
+		
+		$(".yay-dd").click(function () {
+			e = $(this).closest(".yay-dd");
+			console.log("deleting");
+			bookId = e.parent().parent().attr("id");
+			$(this).closest("li").remove();
+			sessionId = readCookie("JSESSIONID");
+			$.ajax({
+				url: "/api/books/deleteBook",
+				contentType: "application/x-www-form-urlencoded;charset=utf-8",
+				type: "POST",
+				data: {
+					sessionId: sessionId,
+					bookId: bookId
+				},
+				error: function (q, status, err) {
+					if (status == "timeout") {
+						alert("Request timed out");
+					}
+				}
+			});
+		});
+	}, 2000);	
     </script>
     <!--//scripts /-->
 
