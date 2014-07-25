@@ -383,7 +383,7 @@
 		var insert = "<section id=\"test-blank\" class=\"blank-preview-wrapper\"><div class=\"blank-preview\"><article><p contenteditable=\"false\">Choose a layout from the <i class=\"ion-gear-b\"></i> menu</p></article></div></section>";
 		$("#create-content").html(insert);
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -633,7 +633,7 @@
 			}
 		}
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -749,7 +749,7 @@
 			}
 		}
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -856,7 +856,7 @@
 				e.preventDefault();
 			}
 		}
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 	}
 
 	// Photo/Text Layout
@@ -970,7 +970,7 @@
 			}
 		}
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -1085,7 +1085,7 @@
 			}
 		}
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -1227,7 +1227,7 @@
 
 		});
 
-		showResponseInfo();
+		showResponseInfo(location.pathname.split("/"));
 
 	}
 
@@ -1399,27 +1399,6 @@
 
 	}
 
-	function showResponseInfo() {
-		var urlArray = location.pathname.split("/");
-		switch(urlArray[1]) {
-			case "respondTo":
-				var bookId = urlArray[urlArray.length-1];
-				getBookFromBookId(bookId);
-				$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
-				break;
-			case "editbook":
-				var responseId = urlArray[urlArray.length-1];
-				bookIds =  getDraftResponse(responseId);
-				$.each(bookIds, function(value,id) {
-					getBookFromBookId(id);
-					$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
-				});
-				break;
-			default: 
-				console.log("default case");
-				break;
-		}
-	}
 
 	$(document).mousemove(function () {
 

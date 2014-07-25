@@ -226,6 +226,7 @@ public class Notifications {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String createCommentNotification(@FormParam("sessionId") String sessionId,
 											@FormParam("referencedBook") int referencedBook,
+											@FormParam("responseId") int responseId,
 											@FormParam("hash") String hash,
 											@FormParam("type") String type,
 											@FormParam("comment") String comment) {
@@ -239,6 +240,7 @@ public class Notifications {
 
 		CommentNotification commentNotification = new CommentNotification();
 		commentNotification.setReferencedBookId(referencedBook);
+		commentNotification.setResponseId(responseId);
 		commentNotification.setCommenterUserId(u.getUserId());
 		commentNotification.setHash(hash);
 		commentNotification.setType(type);

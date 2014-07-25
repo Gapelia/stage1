@@ -6,6 +6,7 @@ public class CommentNotification {
 	private int pendingId;
 	private int commenterUserId;
 	private int referencedBookId;
+	private int responseId;
 	private int commentId;
 	private String hash;
 	private String type;
@@ -86,4 +87,12 @@ public class CommentNotification {
 		this.referencedBookId = referencedBookId;
 	}
 
+	public int getResponseId() {
+		return responseId;
+	}
+
+	public void setResponseId(int responseId) {
+		this.responseId = responseId;
+	}
+	
 }

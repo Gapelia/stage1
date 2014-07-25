@@ -3180,7 +3180,7 @@ function updateBookAndPages(isPublished) {
 				bookIds =  getDraftResponse(pages.bookId);
 				$.each(bookIds, function(value,id) {
 					getBookFromBookId(id);
-					createNotification(pages.bookId, 'response', '', pages.page[0].title);
+					createNotification(id, pages.bookId, "response", "", pages.page[0].title);
 				});
 			 					
 			}
@@ -3418,6 +3418,29 @@ function getResponsesByBookId(bookId) {
 	});
 }
 
+function showResponseInfo(urlArray) {
+	switch(urlArray[1]) {
+		case "respondTo":
+			var bookId = urlArray[urlArray.length-1];
+			getBookFromBookId(bookId);
+			$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title">'+bookFromBookId.title+'</span></p>');
+			break;
+		case "editbook":
+		case "read":
+			var responseId = urlArray[urlArray.length-1];
+			bookIds =  getDraftResponse(responseId);
+			$.each(bookIds, function(value,id) {
+				getBookFromBookId(id);
+				getUserFromBookId(id);
+				$(".page-desc").before('<p id="editor_response_info">In Response to: <span id="editor_response_info_title"><a href="/read/'+id+'">'+bookFromBookId.title+'</a> by <a href="/'+bookOwner.displayName+'">'+bookOwner.name+'</a></span></p>');
+			});
+			break;
+		default: 
+			console.log("default case");
+			break;
+	}
+}
+
 function addResponseForBookId(bookId, responseId) {
 	$.ajax({
 		url: "/api/books/addResponse",
@@ -3487,15 +3510,15 @@ function getDraftResponse(bookId) {
 	return d;
 }
 
-function createNotification(bookId, type, hash, comment) {
+function createNotification(bookId, responseId, type, hash, comment) {
 	$.ajax({
 		url: "/api/notifications/createCommentNotification",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		//async: false,
 		type: "POST",
 		data: {
 			sessionId: sessionId,
 			referencedBook: bookId,
+			responseId: responseId,
 			hash: hash,
 			type: type,
 			comment: comment

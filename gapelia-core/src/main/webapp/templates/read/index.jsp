@@ -149,7 +149,7 @@
 
 	document.addEventListener("readrboard.comment",function() {
 		console.log(readrboard.getLastEvent().supplementary.hash);
-		createNotification(current.bookId, "comment", readrboard.getLastEvent().supplementary.hash, readrboard.getLastEvent().value);
+		createNotification(current.bookId, 0, "comment", readrboard.getLastEvent().supplementary.hash, readrboard.getLastEvent().value);
 	} ,false);
 
 	//end readerboard block
@@ -282,10 +282,11 @@
 		var $delete_button = $("<button>", {class: "delete-symbol", html: "&#9003;"});
 
 		$.each(responses, function(index, value) {
+			getUserFromBookId(value.id);
 			var $lines = $("<li>", {class: "response"});
 			$responses.append(
 				$lines.append(
-					$("<a>", {href: "/read/"+value.id, text: value.title, class: "response_link"})
+					$("<a>", {href: "/read/"+value.id, html: value.title+" by <a href=\"/"+bookOwner.displayName+"\">"+bookOwner.name, class: "response_link"})
 				)
 			);
 			
@@ -318,6 +319,7 @@
 	$(document).ready(function() {
 		loadDelete();
 		getResponsesByBookId(bookId);
+		
 		//window.READRBOARDCOM.actions.reInit();
 
 		//only show edit option if owner of book//
@@ -343,6 +345,7 @@
 	});
 
 	setTimeout(function () {
+		showResponseInfo(location.pathname.split("/"));
 		$(".photo-wrapper .page-bg-wrapper").imgLiquid({ fill: true });
 		$(".overlay-wrapper").imgLiquid({ fill: true });
 		$(".phototext-wrapper").imgLiquid({ fill: true });

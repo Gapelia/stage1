@@ -103,8 +103,8 @@ function getCommentNotifications() {
 							var typeString = "review"
 							break;
 							case "response":
-                            var typeString = "response"
-                            break;
+							var typeString = "response"
+							break;
 							default:
 							var typeString = "comment"
 							break;
@@ -118,7 +118,9 @@ function getCommentNotifications() {
 					if(text.length > 30) text = text.substr(0, 30) + "\u2026";
 
 					var hash = notification.hash;
-					toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
+					
+					if (notification.type == "response") toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/read/"+notification.responseId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
+					else toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/read/"+notification.referencedBookId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
 					toInsert += "<a class=\"remove-notification\">&#x2717;</a></li>";
 					$("#gpl-menu-notify ul").append(toInsert);
 					}
