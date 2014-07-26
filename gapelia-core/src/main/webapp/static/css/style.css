@@ -3935,7 +3935,8 @@ body.library-manager #featured-nav .suggested-libs #suggested-lib-list a {
   color: black;
   font-weight: 700;
   margin-right: 1rem;
-  opacity: 0.9; }
+  opacity: 0.9;
+  text-transform: capitalize; }
 body.library-manager #featured-nav .suggested-libs #suggested-lib-list li {
   display: block;
   height: 80px;
