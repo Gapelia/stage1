@@ -149,7 +149,20 @@
       }
     }
     
-		#finish { float: right; }
+		#finish {
+      float: right;
+      
+      .zen-mode {
+        background: transparent !important;
+        margin-right: -5px;
+        opacity: 0.6;
+        
+        img {
+          height: 15px;
+          width: 15px;
+        }
+      }
+    }
 	}
 
 	.menu {
@@ -197,6 +210,8 @@
 	}
 
 	#pages-scroller {
+    height: 100%;
+    
 		li, section { position: relative; }
 		li {
       border: 3px solid transparent;
@@ -299,6 +314,8 @@
 	}
 
 	#layout-scroller {
+    height: 100%;
+    
 		h5 {
 			width: 100%; height: 48px;
 			top: 0; left: 0;

@@ -208,7 +208,28 @@
 					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
 				} 
 			});
-
+			
+			//zen-mode expansion//
+			$(".zen-mode").click(function(){
+				document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
+				
+				function requestFullscreen(element) {
+				    if (element.requestFullscreen) {
+					element.requestFullscreen();
+				    } else if (element.mozRequestFullScreen) {
+					element.mozRequestFullScreen();
+				    } else if (element.webkitRequestFullScreen) {
+					element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+				    }
+				}
+				
+				if (document.fullscreenEnabled) {
+				    requestFullscreen(document.documentElement);
+				    //$("#back, #finish").hide();
+				}
+				
+			});
+			
 			$("#revision-toggle ul").mouseleave(function () {
 				$("#revision-toggle ul").css("display", "none");
 			});
@@ -253,4 +274,3 @@
 </body>
 
 </html>
-edu
