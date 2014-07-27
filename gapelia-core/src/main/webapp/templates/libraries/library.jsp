@@ -167,7 +167,7 @@
 	       
                getUserFromLibraryId(libraryId);
 	       
-	       getBooksInLibraryArray();
+	       getBooksInLibraryArray();  
             
         });
 
@@ -177,8 +177,7 @@
 
             if ($vW > "1024") {
 		
-
-                // Close splash on desktops
+		// Close splash on desktops
                 $(document).on("click", "#close-splash", function () {
 
                     $("#close-splash").css({
@@ -319,9 +318,11 @@
                 setTimeout(function () {
                     $("#featured-panel, #featured-scroller").css("opacity", "1");
                 }, 400);
-
 		
-		
+		//hide arrow when only one book//
+		if (books.length < 2) {
+			$("#close-splash").remove();
+		}	
             }, 1000);
 
             $("#nav-books").addClass("current");
@@ -494,10 +495,7 @@
 		} else {
 			$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>");
 			$("#library-splash .subscribe").remove();
-		} 
-
-                
-
+		}
             }
 	    
             if ($vW < "421") {
@@ -563,11 +561,11 @@
 			
 			loadMoreBooksInLibrary(5,items);
 	
-			if(books.length > 4){
+			if(books.length >= 1){
 			
 				slyBookWrapper.on('load change', function () {
 					if (this.pos.dest > this.pos.end - 200) {
-					loadMoreBooksInLibrary(5,items);
+					loadMoreBooksInLibrary(1,items);
 		
 					    $(".book").css("height", h);
 					    $(".book-snippet").css("display", "block")
