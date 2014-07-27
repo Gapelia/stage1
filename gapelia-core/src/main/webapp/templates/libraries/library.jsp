@@ -479,9 +479,9 @@
             if ($vW < "1025") {
 		
 		$("#featured-scroller").css("cssText", "overflow-y: scroll !important");
-
                 $("#featured-panel .featured-info").remove();
-
+		$("#library-splash .expand").remove();
+		
                 $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
 		
 		$(document).on("click", "#g-menu-toggle", function () {
@@ -748,6 +748,20 @@
 					}
 				}
 			});
+		});
+		
+		
+		$("#library-splash .expand").click(function(e){
+			$("#library-splash, #contact-editor, #stay-right, #g-menu-toggle").fadeOut("slow").css("cssText", "display: none");
+				
+			$("#mp-pusher").append("<div id=\"expanded-cover\" style=\"display: block !important\"><img src=\"" +library.coverPhoto+ "\"></div>");
+			$("#mp-pusher").append("<div id=\"library-data\"><p class=\"lib-title\">"+library.title+", edited by "+libraryOwner.name+"</p><button id=\"resize-back\"><img src=\"../static/images/eye-close.png\"</button></div>");
+				
+			$("#mp-pusher").css("overflow", "scroll");
+				
+			$("#resize-back").click(function(){		
+				window.location.href = "/library/"+library.libraryId;	
+			});	
 		});
 	}, 3000);
 	

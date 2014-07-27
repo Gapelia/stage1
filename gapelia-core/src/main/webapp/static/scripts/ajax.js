@@ -1086,6 +1086,10 @@ function getLibrary() {
 			} else {
 				toInsert += "";
 			}
+			
+			if ($vW > "1025") {
+				toInsert += "<button class=\"expand\"><img src=\"../static/images/eye-expand.png\"></button>";
+			}
 
 			if (typeof user != 'undefined') {
 				if (library.libraryId in subscribed) {

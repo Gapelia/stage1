@@ -1113,6 +1113,50 @@
     background-image: linear-gradient(to top, rgba(25, 25, 25, 0.6), rgba(25, 25, 25, 0.73));
   }
   
+  #library-data {
+      background: linear-gradient(to bottom, rgba(25, 25, 25, 0.6),rgba(25, 25, 25, 0.3), rgba(25, 25, 25, 0));
+      color: white;
+      left: 0;
+      padding-left: 1rem;
+      position: fixed;
+      text-align: left;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      
+    p {
+        font-size: 2rem;
+        font-weight: 100 !important;
+        font-style: italic;
+        padding-top: 1rem;
+    }
+    
+    #resize-back {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 300em;
+      display: inherit;
+      font-size: 1.5rem;
+      font-weight: 300;
+      height: 50px; width: 50px;
+      padding: 0 !important;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      
+      img {
+        height: 25px;
+        width: 25px;
+        margin-top: 5px;
+      }
+    }
+  }
+    
+  #expanded-cover {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
   #contact-editor {
     bottom: 1.5rem;
     left: 1rem;
@@ -1133,6 +1177,19 @@
       left: 94% !important;
       width: 100px;
       bottom: 42%;
+    }
+    
+    .expand {
+      background-color: transparent !important;
+      height: 37px;
+      margin-right: 7.25rem !important;
+      padding: 0 !important;
+      position: absolute;
+      
+      img {
+        height: 25px;
+        width: 25px;
+      }
     }
     
     #library-info {
