@@ -65,12 +65,13 @@
 						</ul>
 					</li>
 				</ul>
-				<a id ="save-drafts" class="button brand-iii" href="#" style="margin-left: 6.25rem !important; padding-top: 7px !important;">Share Draft</a>
+				<a id ="save-drafts" class="button brand-iii" href="#" style="margin-left: 5rem !important; padding-top: 8px !important;">Share Draft</a>
 			</div>
 			
 			</div>
 
 			<div id="finish">
+				<a class="zen-mode" href="#"><img src="../static/images/zen-mode.png"></a>
 				<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
 				<a class="button middle-button brand-iii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
 				<a class="button b brand-iii" id="close-button" title="Save changes and quit">Save + Close</a>
@@ -215,11 +216,31 @@
 		
 		//display and hide revisions//
 		$(document).on("click", "#revisions .revision-dropdown", function (e) {
-				if ($("#revisions ul li").css("display") != "block") {
-					$("#revisions ul li").css("display", "block");
-					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-				} 
-			});
+			if ($("#revisions ul li").css("display") != "block") {
+				$("#revisions ul li").css("display", "block");
+				$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
+			} 
+		});
+		
+		//zen-mode expansion//
+		$(".zen-mode").click(function(){
+			document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
+				
+			function requestFullscreen(element) {
+				if (element.requestFullscreen) {
+					element.requestFullscreen();
+				} else if (element.mozRequestFullScreen) {
+					element.mozRequestFullScreen();
+				} else if (element.webkitRequestFullScreen) {
+					element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+				}
+			}
+				
+			if (document.fullscreenEnabled) {
+				requestFullscreen(document.documentElement);
+				//$("#back, #finish").hide();
+			}	
+		});
 			
 		$("#revisions").mouseleave(function () {
 				$("#revision-toggle ul").css("display", "none");
@@ -236,19 +257,26 @@
 		
 		//show,hide draft share button when pages open//
 		$("#pages-toggle").click(function(){
-			$("#save-drafts").hide();
-		})
+			$("#revision-toggle, #save-drafts").hide();
+			$("#pages-toggle").css({
+				"border-top-left-radius": "0",
+				"border-bottom-left-radius": "0"
+			});
+		});
 		
 		$("#pages-scroller, #layout-scroller").mouseleave(function(){
-			$("#save-drafts").show();
+			$("#save-drafts, #revision-toggle").show();
+			$("#pages-toggle").css({
+				"border-top-left-radius": "5px",
+				"border-bottom-left-radius": "5px"
+			});
 		})
 		
 		$("#layout-scroller").mouseenter(function(){
-			$("#save-drafts").hide();
+			$("#save-drafts, #revision-toggle").hide();
 		})
 		
 		
-
 		$("#publish-this").on("click", function (e) {
 				
 		lastPublishedBook = getLastPublishedBookId();

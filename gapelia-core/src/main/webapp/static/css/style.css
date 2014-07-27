@@ -5163,15 +5163,19 @@ body.library-manager ::-webkit-scrollbar {
   border-bottom-right-radius: 5px; }
 .book-creation header #back {
   float: left; }
+.book-creation header #back .brand-iii {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important; }
 .book-creation header #back #revision-toggle {
-  left: 5.5rem;
+  left: 4.9rem;
   top: 0.55rem;
   position: absolute; }
 .book-creation header #back #revision-toggle .revision-dropdown {
   background-color: rgba(252, 252, 252, 0.9);
   border: 1px solid rgba(89, 179, 166, 0.4);
-  border-radius: 5px;
   color: #59b3a6;
+  height: 33px;
+  margin-top: -1px;
   padding: 7.5px 12px 7.5px 12px; }
 .book-creation header #back #revision-toggle .revision-dropdown:hover {
   background-color: #59b3a6;
@@ -5197,6 +5201,11 @@ body.library-manager ::-webkit-scrollbar {
   padding: 1rem; }
 .book-creation header #back #revision-toggle ul li a:first-child {
   padding-top: 0.5rem; }
+.book-creation header #back #save-drafts {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important; }
 .book-creation header #finish {
   float: right; }
 .book-creation header #finish .zen-mode {
