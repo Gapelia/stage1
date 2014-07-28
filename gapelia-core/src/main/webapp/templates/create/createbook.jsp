@@ -204,8 +204,6 @@
 			
 				myBookId = getUserDraftsArray()[0].bookId;
 				
-				getRevisions(myBookId);
-				
 				//share draft code//
 				if ($vW > "1024") {
 					$("#share-draft-overlay").append("<p>folio.is/revision/" + myBookId + "</p>");
