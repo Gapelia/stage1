@@ -75,6 +75,7 @@
 				<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
 				<a class="button middle-button brand-iii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
 				<a class="button b brand-iii" id="close-button" title="Save changes and quit">Save + Close</a>
+				<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">&#9998;</a>
 			</div>
 		</header>
 		
@@ -128,6 +129,14 @@
 					<div id="video-layout">Video Layout</div>
 					<span>Video</span>
 				</li>
+			</ul>
+		</div>
+		
+		<div id="draft-access">
+			<h5><a href="#">My Drafts</a></h5>
+			
+			<ul id="draft-list">
+
 			</ul>
 		</div>
 
@@ -192,7 +201,7 @@
 			getUser();
 			
 		});
-            	function load() { loadBookEditor();  getRevisions();	
+            	function load() { loadBookEditor();  getUserDrafts(); getRevisions(); 	
 			
 			//share draft code//
 			if ($vW > "1024") {
@@ -220,6 +229,18 @@
 				$("#revisions ul li").css("display", "block");
 				$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
 			} 
+		});
+		
+		//show draft list//
+		$("#drafts-shortcut").click(function(){
+			$("#draft-access").css("right", "0");
+			$("#draft-list .delete-draft").css("display", "none");
+			$("#finish").fadeOut();
+		});
+			
+		$("#draft-access").mouseleave(function(){
+			$("#draft-access").css("right", "-250px");
+			$("#finish").fadeIn();
 		});
 		
 		//zen-mode expansion//
@@ -298,6 +319,41 @@
 			$("#publish-modal").append("<div id=\"lib-submission\">Submit to a <a class='published' href='/libraryManager'>curated library</a> or start editing <a class='published-i' href='/createlibrary'>your own.</a></div>");
 			$("#publish-modal").append("<div id=\"lib-tutorial\" style=\"bottom: 1rem; right: 1rem; position: absolute\">Want to learn more about libraries? <a class='published' href='http://folio.is/read/756'>Read this</a></div>");
 		});
+		
+		//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
+		setTimeout(function () {
+			$(".dd-link").click(function (e) {
+				$(this).next(".delete-draft").toggle();
+				e.preventDefault();
+			});
+				
+			$(".nay-dd").click(function () {
+				$(this).closest(".delete-draft").hide();
+			});
+				
+			$(".yay-dd").click(function () {
+				e = $(this).closest(".yay-dd");
+				console.log("deleting");
+				bookId = e.parent().parent().attr("id");
+				$(this).closest("li").remove();
+				sessionId = readCookie("JSESSIONID");
+				$.ajax({
+					url: "/api/books/deleteBook",
+					contentType: "application/x-www-form-urlencoded;charset=utf-8",
+					type: "POST",
+					data: {
+						sessionId: sessionId,
+						bookId: bookId
+					},
+					error: function (q, status, err) {
+						if (status == "timeout") {
+							alert("Request timed out");
+						}
+					}
+				});
+			});
+		}, 2000);	
+
 		
 		</script>
 		<!--//scripts /-->

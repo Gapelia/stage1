@@ -12,7 +12,8 @@ function readCookie(name) {
 	return null;
 }
 
-function getRevisions(){
+function getRevisions(myBookId){
+	myBookId = myBookId || bookId;
 	$.ajax({
 		url: "/api/books/getRevisions",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -20,7 +21,7 @@ function getRevisions(){
 		type: "POST",
 		data: {
 			sessionId: sessionId,
-			bookId: bookId
+			bookId: myBookId
 		},
 		success: function (data) {
 			revisionsList = data;
@@ -558,7 +559,7 @@ function getUserDrafts() {
 			if (toInsert == "") {
 				toInsert = "<li ><a>There are no drafts</a></li>"; //code
 			}
-			$("#draft-menu").html(toInsert);
+			$("#draft-menu, #draft-list").html(toInsert);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -587,6 +588,27 @@ function getUserDraftsArray(userId) {
 		}
 	});
 	return drafts;
+}
+
+function getCreatedBooksArray(userId) {
+	$.ajax({
+		url: "/api/users/getCreatedBooks",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			sessionId: sessionId
+		},
+		success: function (data) {
+			createdBooks = data;
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+	return createdBooks;
 }
 
 function getBooksInLibrary() {

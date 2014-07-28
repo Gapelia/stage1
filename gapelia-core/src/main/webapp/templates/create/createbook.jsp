@@ -50,14 +50,14 @@
 	<header>
 		<div id="back">
 			<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
-			<ul id="revision-toggle" style="display: none;">
-				<li id="revisions">
+			<ul id="revision-toggle">
+				<li id="revisions" style="padding: 0 2.5rem 2.5rem 0;">
 					<a class=revision-dropdown href="#">Revisions</a>
 					<ul style="display: none;">
-						<li style="font-weight: 500; margin-bottom: 10px;">Past versions sorted by day</li>
+						<li style="font-weight: 500; margin-bottom: 10px; text-align: center;">Past versions sorted by day</li>
 					</ul>
 				</li>
-			</ul>	
+			</ul>
 		</div>
 
 		<div id="finish">
@@ -65,6 +65,7 @@
 			<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
 			<a class="button middle-button brand-iii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
 			<a class="button b brand-iii" id="close-button" title="Save changes and quit">Save + Close</a>
+			<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">&#9998;</a>
 		</div>
 
 
@@ -135,6 +136,14 @@
 			</li>
 		</ul>
 	</div>
+	
+	<div id="draft-access">
+		<h5><a href="#">My Drafts</a></h5>
+			
+		<ul id="draft-list">
+			
+		</ul>
+	</div>
 
 	<!--/ main-content /-->
 	<section id="main-content">
@@ -191,7 +200,22 @@
 	<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); }
+			function load() { createBook(); getUserDrafts();
+			
+				myBookId = getUserDraftsArray()[0].bookId;
+				
+				getRevisions(myBookId);
+				
+				//share draft code//
+				if ($vW > "1024") {
+					$("#share-draft-overlay").append("<p>folio.is/revision/" + myBookId + "</p>");
+					$("#share-draft-overlay a").attr("href", "http://folio.is/revision/" + myBookId);
+					
+					$("#share-draft-overlay button").click(function(){
+						$("#share-draft-overlay").css("display", "none");
+					})
+				} 
+			}
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
 			
@@ -207,6 +231,18 @@
 					$("#revisions ul li").css("display", "block");
 					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
 				} 
+			});
+			
+			//show draft list//
+			$("#drafts-shortcut").click(function(){
+				$("#draft-access").css("right", "0");
+				$("#draft-list .delete-draft").css("display", "none");
+				$("#finish").fadeOut();
+			});
+			
+			$("#draft-access").mouseleave(function(){
+				$("#draft-access").css("right", "-250px");
+				$("#finish").fadeIn();
 			});
 			
 			//zen-mode expansion//
@@ -239,7 +275,7 @@
 			});
 			
 			function saveResponse() {
-				lastPublishedBook = getUserDraftsArray(user.id)[0];
+				lastPublishedBook = getCreatedBooksArray(user.id)[0];
 				<% if(isResponse) { %>
 				addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
 				<% } %>
@@ -247,7 +283,7 @@
 
 			$("#publish-this").on("click", function (e) {
 
-				freshPublishedBook = getUserDraftsArray()[0];
+				freshPublishedBook = getCreatedBooksArray()[0];
 				getUserFromBookId(freshPublishedBook.bookId);
 				firstTitle = pages.page[0].title;
 
@@ -256,7 +292,7 @@
 				e.preventDefault();
 
 				currentWebsite = document.URL;
-				freshPublishedBook = getUserDraftsArray()[0];
+				freshPublishedBook = getCreatedBooksArray()[0];
 				getUserFromBookId(freshPublishedBook.bookId);
 
 				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + freshPublishedBook.bookId;
@@ -267,6 +303,40 @@
 				$("#publish-modal").append("<div id=\"lib-submission\">Submit to a <a class='published' href='/libraryManager'>curated library</a> or start editing <a class='published-i' href='/createlibrary'>your own.</a></div>");
 				$("#publish-modal").append("<div id=\"lib-tutorial\" style=\"bottom: 1rem; right: 1rem; position: absolute\">Want to learn more about libraries? <a class='published' href='http://folio.is/read/756'>Read this</a></div>");
 			});
+			
+			//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
+			setTimeout(function () {
+				$(".dd-link").click(function (e) {
+					$(this).next(".delete-draft").toggle();
+					e.preventDefault();
+				});
+				
+				$(".nay-dd").click(function () {
+					$(this).closest(".delete-draft").hide();
+				});
+				
+				$(".yay-dd").click(function () {
+					e = $(this).closest(".yay-dd");
+					console.log("deleting");
+					bookId = e.parent().parent().attr("id");
+					$(this).closest("li").remove();
+					sessionId = readCookie("JSESSIONID");
+					$.ajax({
+						url: "/api/books/deleteBook",
+						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+						type: "POST",
+						data: {
+							sessionId: sessionId,
+							bookId: bookId
+						},
+						error: function (q, status, err) {
+							if (status == "timeout") {
+								alert("Request timed out");
+							}
+						}
+					});
+				});
+			}, 2000);	
 
 </script>
 <!--//scripts /-->

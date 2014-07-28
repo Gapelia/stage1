@@ -5254,6 +5254,16 @@ body.library-manager ::-webkit-scrollbar {
   border-bottom-right-radius: 5px !important; }
 .book-creation header #finish {
   float: right; }
+.book-creation header #finish #close-button {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+.book-creation header #finish #drafts-shortcut {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-right: 10px !important;
+  padding-left: 10px !important; }
+.book-creation header #finish .middle-button {
+  margin: 0 -2px !important; }
 .book-creation header #finish .zen-mode {
   background: transparent !important;
   margin-right: -5px;
@@ -5429,6 +5439,29 @@ body.library-manager ::-webkit-scrollbar {
   text-align: center; }
 .book-creation #layout-scroller ul .selected-layout {
   background-color: #cfcfcf; }
+.book-creation #draft-access {
+  background-color: #a8e0d8;
+  box-shadow: 1px 0 0 0 rgba(25, 25, 25, 0.3);
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  right: -250px;
+  width: 250px;
+  z-index: 100; }
+.book-creation #draft-access h5 {
+  font-weight: 700;
+  padding: 1rem;
+  text-align: center; }
+.book-creation #draft-access #draft-list li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem; }
+.book-creation #draft-access #draft-list .dd-link {
+  margin-left: 8px; }
+.book-creation #draft-access #draft-list .delete-draft {
+  display: inline-block;
+  margin-top: 10px; }
+.book-creation #draft-access #draft-list .delete-draft .red {
+  margin-left: 10px !important; }
 .book-creation #main-content {
   left: 0;
   position: fixed;
