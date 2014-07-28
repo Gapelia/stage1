@@ -30,7 +30,7 @@ public class QueryDatabaseNotifications {
 
 	private static final String GET_COMMENT_NOTIFICATION = "SELECT * FROM comment_notifications WHERE referenced_book = ?";
 	private static final String GET_PENDING_NOTIFICATIONS = "select pending_comment_notifications.id as pending_id,comment_id,commenter,referenced_book,hash,type,comment," +
-			"time from pending_comment_notifications join comment_notifications on comment_id = comment_notifications.id where recipient = ? and commenter != ? order by time desc";
+			"time,response_id from pending_comment_notifications join comment_notifications on comment_id = comment_notifications.id where recipient = ? and commenter != ? order by time desc";
 
 	private static final String GET_OTHER_COMMENT_HASHES = "select * from comment_notifications where hash = ?";
 
@@ -57,7 +57,7 @@ public class QueryDatabaseNotifications {
 				commentNotification.setPendingId(rs.getInt("pending_id"));
 				commentNotification.setCommenterUserId(rs.getInt("commenter"));
 				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
-                commentNotification.setResponseId(rs.getInt("responde_id"));
+                commentNotification.setResponseId(rs.getInt("response_id"));
 				commentNotification.setHash(rs.getString("hash"));
 				commentNotification.setType(rs.getString("type"));
 				commentNotification.setComment(rs.getString("comment"));
