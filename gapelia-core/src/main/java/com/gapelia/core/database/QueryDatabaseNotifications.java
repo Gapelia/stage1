@@ -36,7 +36,7 @@ public class QueryDatabaseNotifications {
 
 	private static final String DELETE_PENDING_COMMENT_NOTIF = "DELETE FROM pending_comment_notifications where id = ?";
 	private static final String INSERT_PENDING_NOTIFICATION = "insert into pending_comment_notifications (recipient,comment_id) values (?,?)";
-	private static final String INSERT_COMMENT_NOTIFICATION = "insert into comment_notifications (commenter,referenced_book,hash,type,comment,time) values (?,?,?,?,?,now())";
+	private static final String INSERT_COMMENT_NOTIFICATION = "insert into comment_notifications (commenter,referenced_book,hash,type,comment,time,response_id) values (?,?,?,?,?,now(),?)";
 
 	public static ArrayList<CommentNotification> getCommentNotifications(User u) {
 
@@ -57,6 +57,7 @@ public class QueryDatabaseNotifications {
 				commentNotification.setPendingId(rs.getInt("pending_id"));
 				commentNotification.setCommenterUserId(rs.getInt("commenter"));
 				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
+                commentNotification.setResponseId(rs.getInt("responde_id"));
 				commentNotification.setHash(rs.getString("hash"));
 				commentNotification.setType(rs.getString("type"));
 				commentNotification.setComment(rs.getString("comment"));
@@ -114,6 +115,7 @@ public class QueryDatabaseNotifications {
 			statement.setString(3, incomingNotification.getHash());
 			statement.setString(4, incomingNotification.getType());
 			statement.setString(5, incomingNotification.getComment());
+            statement.setInt(6, incomingNotification.getResponseId());
 			statement.executeUpdate();
 
 			rs = statement.getGeneratedKeys();
@@ -138,8 +140,7 @@ public class QueryDatabaseNotifications {
 				commentNotification.setType(rs.getString("type"));
 				commentNotification.setComment(rs.getString("comment"));
 				commentNotification.setTime(rs.getTimestamp("time"));
-
-
+                commentNotification.setResponseId(rs.getInt("response_id"));
 
 				if(commentNotification.getCommenterUserId() != incomingNotification.getCommenterUserId()){
 
@@ -196,6 +197,7 @@ public class QueryDatabaseNotifications {
 				commentNotification.setPendingId(rs.getInt("id"));
 				commentNotification.setCommenterUserId(rs.getInt("commenter"));
 				commentNotification.setReferencedBookId(rs.getInt("referenced_book"));
+                commentNotification.setResponseId(rs.getInt("response_id"));
 				commentNotifications.add(commentNotification);
 			}
 		} catch (SQLException ex) {
