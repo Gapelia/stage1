@@ -1318,7 +1318,6 @@
 
 	$("#publish-this").on("click", function (e) {
 		hasClickedPublish = true;
-		updateBookAndPages(true);
 	});
 
 	$("#close-button").on("click", function (e) {
