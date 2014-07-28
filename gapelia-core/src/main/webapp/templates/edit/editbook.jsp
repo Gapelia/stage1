@@ -12,8 +12,8 @@
     }
     authorId = QueryUtils.getUserFromBookId(bookId).getUserId();
 
-    if(userId != authorId) {
-       //out.println("you are not the author!");
+    if(!userId.equals(authorId)) {
+       //out.println("you are not the author! "+authorId+" userId: "+userId);
        response.sendRedirect("/");
        return;
     }
