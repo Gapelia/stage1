@@ -2560,13 +2560,14 @@ body.landing .error {
   line-height: 1.25; }
 .app #university-affiliation #school-intro {
   margin-top: 3rem; }
-.app #university-affiliation #skip-onboarding {
-  bottom: 1rem;
-  margin: 0;
-  opacity: 0.75;
-  padding: 0.5rem;
+.app #university-affiliation #skip-container {
+  bottom: 2rem;
+  left: 25%;
   position: absolute;
-  right: 1rem; }
+  width: 50%; }
+.app #university-affiliation #skip-container #skip-onboarding {
+  color: #59b3a6;
+  font-weight: 700; }
 .app #university-affiliation #uni-intro a {
   border-bottom: 1px solid rgba(25, 25, 25, 0.3); }
 .app #university-affiliation #welcome {
@@ -2582,6 +2583,7 @@ body.landing .error {
   margin-left: 25%;
   width: 50%; }
 .app #university-affiliation .selectize-control input {
+  color: black;
   font-size: 1rem;
   text-align: center; }
 .app #university-affiliation .selectize-control.single .selectize-input {

@@ -118,7 +118,7 @@
 							<label for="user-display-name">Username</label>
 							<input id="user-display-name" type="text" placeholder="Your custom url (i.e. gapelia.com/username)"></input>
 
-							<label for="user-email">Email</label>
+							<label for="user-email">Email for notifications</label>
 							<input id="user-email" type="email" placeholder="Where you receive notifications and newsletters"></input>
 
 							<label for="user-location">Location</label>
@@ -127,8 +127,8 @@
 							<label for="user-university">University Affiliation</label>
 							<select id="user-university" placeholder="Academic, research or professional institution..."></select>
 							
-							<label for="user-department" style="margin: 1.75rem 0 0.5rem 0;">Department</label>
-							<select id="user-department" placeholder="School, department or field of study.."></select>
+							<label for="user-department" style="margin: 1.75rem 0 0.5rem 0;">Academic email address</label>
+							<select id="user-department" placeholder="Add your .edu email address..."></select>
 
 							<label for="user-personal-website" style="margin: 1.75rem 0 0.5rem 0;">Website</label>
 							<input id="user-personal-website" type="text" placeholder="Link to your website, blog, portfolio..."></input>

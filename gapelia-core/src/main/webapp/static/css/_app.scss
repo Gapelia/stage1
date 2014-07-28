@@ -147,14 +147,17 @@
     
     #school-intro { margin-top: 3rem; }
     
-    #skip-onboarding {
-      bottom: 1rem;
-      margin: 0;
-      opacity: 0.75;
-      padding: 0.5rem;
+    #skip-container {
+      bottom: 2rem;
+      left: 25%;
       position: absolute;
-      right: 1rem;
-    }
+      width: 50%;
+      
+      #skip-onboarding {
+        color: #59b3a6;
+        font-weight: 700;
+      }
+    }  
     
     #uni-intro a { border-bottom: 1px solid rgba($black, 0.3); }
     
@@ -177,6 +180,7 @@
       width: 50%;
       
       input {
+        color: black;
         font-size: 1rem;
         text-align: center;
       }

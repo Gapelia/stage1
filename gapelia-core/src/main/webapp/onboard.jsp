@@ -52,11 +52,11 @@
 			
 			<div id="university-affiliation">
 				<h1 id="welcome"><p></p>, welcome to Folio</h1>
-				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Affiliates to listed institutions will own publishing rights.</br> Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added.</p>
-				<select id="university-search" placeholder="Select university"></select>
-				<p id="school-intro"><b>School affiliation</b></br>We will use this information to personalize your experience.</p>
-				<select id="school-search" placeholder="Select school"></select>
-				</br><a id="skip-onboarding" href="/featured">SKIP: Take me to Folio</a><button id="uni-next" class="branded">NEXT STEP</button>
+				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Affiliates to listed institutions will own publishing rights.</br> Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added if not listed below.</p>
+				<select id="university-search" placeholder="Search university..."></select>
+				<p id="school-intro"><b>Academic email</b></br>Folio is a community for scholarly discourse.<br/>Verify your .edu email address.</p>
+				<select id="school-search" placeholder="Add your email..."></select>
+				</br><div id="skip-container"><a id="skip-onboarding" href="/featured">SKIP ONBOARDING PROCESS: Take me to Folio</a></div><button id="uni-next" class="branded">NEXT STEP</button>
 			</div>
 			
 			<div id="intro" style="opacity: 0";>
@@ -205,13 +205,10 @@
 				//clicking on uni//
 				$("#uni-next").click(function (e) {
 					
-					$("#intro").css("opacity", "0.75");
-					$("#university-affiliation").css("display", "none");
-					
 					user.university = $(".selectize-input div")[0].textContent;
 					user.department = $(".selectize-input div")[1].textContent;
 					
-					 $.ajax({
+					$.ajax({
 						url: "/api/users/updateUser",
 						contentType: "application/x-www-form-urlencoded;charset=utf-8",
 						type: "POST",
@@ -238,37 +235,44 @@
 							alert("Request timed out");
 						    }
 						}
-					    });
+					});
+					
+					$("#intro").css("opacity", "0.75");
+					$("#university-affiliation").css("display", "none");
 				});
 				
 				//school and uni dropdowns//
 				$("#university-search").selectize({
 					options: [
-						{ name: "Harvard University", value: "harvard university" },
+						{ name: "Brown University", value: "brown" },
+						{ name: "Columbia University", value: "columbia" },
+						{ name: "Cornell University", value: "cornell" },
+						{ name: "Darmouth College", value: "darmouth" },
+						{ name: "Harvard University", value: "harvard" },
+						{ name: "Duke University", value: "duke" },
+						{ name: "Massachusetts Institute of Technology", value: "mit" },
+						{ name: "Princetown University", value: "princeton" },
+						{ name: "University of Pennsylvania", value: "pennsylvania" },
+						{ name: "Stamford University", value: "stamford" },
+						{ name: "Yale University", value: "yale" },
 					],
 					labelField: "name",
 					searchField: ["name"]
 				});
 				
 				$("#school-search").selectize({
-					options: [
-						{ name: "Harvard Business School", value: "harvardbusinessschool" },
-						{ name: "Division of Continuing Education", value: "harvardcontinuingeducation" },
-						{ name: "Harvard Graduate School of Arts and Sciences", value: "harvardschoolartsandsciences" },
-						{ name: "Graduate School of Design", value: "harvardgraduateschoolofdesign" },
-						{ name: "Harvard Graduate School of Education", value: "harvardgraduteschooleducation" },
-						{ name: "Harvard Kennedy School", value: "harvardkennedyschool" },
-						{ name: "Harvard Law School", value: "harvardlawschool" },
-						{ name: "Harvard School of Public Health", value: "harvardschoolofpublichealth" },
-						{ name: "Harvard College", value: "harvardcollege" },
-						{ name: "Harvard School of Dental Medicine", value: "harvardschoolofdentalmedicine" },
-						{ name: "Harvard Divinity School", value: "harvarddivinityschool" },
-						{ name: "Harvard School of Engineering and Applied Sciences", value: "harvard engineeringappliedsciences" },
-						{ name: "Harvard Medical School", value: "harvardmedicalschool" },
-					],
-					labelField: "name",
-					searchField: ["name"]
+					delimiter: ',',
+					persist: false,
+					create: function(input) {
+					    return {
+						value: input,
+						text: input
+					    }
+					}
 				});
+				
+				//hide suggestions for email box//
+				//$(".selectize-dropdown").remove();
 								
 				//tutorial message goes away on click//
 				$("#next-intro").click(function (e) {
