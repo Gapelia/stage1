@@ -1,3 +1,24 @@
+<%@include file="../../tools.jsp" %>
+<%@ page import="com.gapelia.core.api.Libraries" %>
+<%@ page import="com.gapelia.core.model.Library" %>
+<%@ page import="com.gapelia.core.database.QueryUtils" %>
+<%
+	String currentURL = "http://folio.is"+getUrl(request);
+	Integer libraryId = getIdFromUrl(request);
+	if(!isValidLibraryId(libraryId)) {
+		//out.println("This library doesn't exist in the database!");
+		response.sendRedirect("/");
+		return;
+	}
+	Library library = QueryUtils.getLibraryFromLibraryId(libraryId);
+	User user = QueryUtils.getUserFromLibraryId(libraryId);
+
+	String author = user.getName();
+	String title = library.getTitle();
+	String snippet = library.getDescription();
+	String coverPhoto = library.getCoverPhoto();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,25 +26,24 @@
 
     <meta charset="utf-8" />
     
-    <!-- Search tags --> 
-    <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-    <!-- for Facebook -->  
-    <meta property="og:title" content=""/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:description" content=""/>
-    
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=""/>
-    <meta name="twitter:description" content=""/>
-    <meta name="twitter:image" content=""/>
+		<!-- Search tags --> 
+		<title></title>
+		<meta name="author" content="<%= author %>" />
+		<meta name="description" content="<%= snippet %>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+		<!-- for Facebook -->  
+		<meta property="og:title" content="<%= title %>"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:image" content="<%= coverPhoto %>"/>
+		<meta property="og:url" content="<%= currentURL %>"/>
+		<meta property="og:description" content="<%= snippet %>"/>
+
+		<!-- for Twitter -->          
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="<%= title %>" />
+		<meta name="twitter:description" content="<%= snippet %>" />
+		<meta name="twitter:image" content="<%= coverPhoto %>" />
 
     <link href="/static/css/style.css" rel="stylesheet" />
     <link href="/static/css/slytest.css" rel="stylesheet" />
