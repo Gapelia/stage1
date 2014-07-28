@@ -50,14 +50,7 @@
 	<header>
 		<div id="back">
 			<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
-			<ul id="revision-toggle">
-				<li id="revisions" style="padding: 0 2.5rem 2.5rem 0;">
-					<a class=revision-dropdown href="#">Revisions</a>
-					<ul style="display: none;">
-						<li style="font-weight: 500; margin-bottom: 10px; text-align: center;">Past versions sorted by day</li>
-					</ul>
-				</li>
-			</ul>
+			<a id ="save-drafts" class="button brand-iii" href="#" style="margin-left: -5px !important; padding-top: 8px !important;">Share Draft</a>
 		</div>
 
 		<div id="finish">
@@ -75,6 +68,8 @@
 		<p class="draft-tutorial-text" style="opacity: 0.7;">TIP: your work has been saved as a Draft, but is not public yet.</br>You can access your drafts later on the side menu.</br><a id="leave-editor" href="/">Ok, I get it</a><a id="close-draft-tutorial" style="font-size: 1rem; font-weight: 100; top: 1.8rem; right: 10rem; position: absolute;">Back to editor</a></p>
 		<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
 	</div>
+	
+	<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="_blank" href="#">Go to Link</a></div>
 
 	<!--/ scrollers /-->
 
@@ -200,14 +195,14 @@
 	<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); getUserDrafts();
+			function load() { createBook(); getUserDrafts(); //getRevisions();
 			
 				myBookId = getUserDraftsArray()[0].bookId;
 				
 				//share draft code//
 				if ($vW > "1024") {
 					$("#share-draft-overlay").append("<p>folio.is/revision/" + myBookId + "</p>");
-					$("#share-draft-overlay a").attr("href", "http://folio.is/revision/" + myBookId);
+					$("#share-draft-overlay a").attr("href", "/revision/" + myBookId);
 					
 					$("#share-draft-overlay button").click(function(){
 						$("#share-draft-overlay").css("display", "none");
@@ -221,14 +216,6 @@
 			$(document).on("click", "#close-draft-tutorial", function (e) {
 				$("#draft-tutorial").hide();
 				$("#create-book, #back, #finish, #notify-saving").show();
-			});
-			
-			//display and hide revisions//
-			$(document).on("click", "#revisions .revision-dropdown", function (e) {
-				if ($("#revisions ul li").css("display") != "block") {
-					$("#revisions ul li").css("display", "block");
-					$("#revision-toggle ul").css("box-shadow", "2px 2px 2px rgba(0, 0, 0, 0.36");
-				} 
 			});
 			
 			//show draft list//
@@ -264,12 +251,9 @@
 				
 			});
 			
-			$("#revision-toggle ul").mouseleave(function () {
-				$("#revision-toggle ul").css("display", "none");
-			});
-
-			$("#revision-toggle").click(function () {
-				$("#revision-toggle ul").css("display", "block");
+			//drafts//
+			$("#save-drafts").click(function() {
+				$("#share-draft-overlay").css("display", "block");
 			});
 			
 			function saveResponse() {
