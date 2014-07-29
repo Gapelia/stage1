@@ -51,6 +51,23 @@
 		<div id="back">
 			<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
 			<a id ="save-drafts" class="button brand-iii" href="#" style="margin-left: -5px !important; padding-top: 8px !important;">Share Draft</a>
+			<ul id="tool-box" style="margin-left: -5px;">
+				<li id="tools">
+					<a class=revision-dropdown href="#">&#9881;</a>
+					<ul style="display: none;">
+						<li>Characters:<p id="word-count"></p></li>
+						<li>Paragraphs:<p id="paragraph-count"></p></li>
+						<li>Reading Time:<p class="eta"></p></li>
+						<li>Edit mode<p style="margin-top: -10px;"></p>
+							<div class="checkboxFive">
+								<input type="checkbox" value="1" id="checkboxFiveInput" name="" />
+								<label for="checkboxFiveInput"></label>
+							</div>
+						</li>
+						<li><a id="export-pdf">Export to PDF</a></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 
 		<div id="finish">
@@ -190,6 +207,7 @@
 	<script src="/static/scripts/editor.js"></script>
 	<script src="/static/scripts/gapelia-editor.js"></script>
 	<script src="/static/scripts/spin.js"></script>
+	<script src="/static/scripts/readingTime.js"></script>
 	<!--/ <script src="/static/scripts/draggable_background.js"></script> /-->
 
 	<script>
@@ -207,7 +225,7 @@
 					$("#share-draft-overlay button").click(function(){
 						$("#share-draft-overlay").css("display", "none");
 					})
-				} 
+				}
 			}
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
@@ -228,6 +246,41 @@
 			$("#draft-access").mouseleave(function(){
 				$("#draft-access").css("right", "-250px");
 				$("#finish").fadeIn();
+			});
+			
+			//tool-box//
+			$("#tool-box").click(function(){
+				$("#tools ul").show();
+				$("#tools #word-count").text($(".page-desc").text().length);
+				$("#tools #paragraph-count").text($(".page-desc").children("p").length);
+				
+				$(function() {
+					$('article').readingTime({
+						readingTimeTarget: $(this).find('.eta'),
+					});
+				});
+			});
+			
+			$("#tools ul, #tools").mouseleave(function(){
+				$("#tools ul").hide();	
+			});
+			
+			//coming soon...//
+			$("#export-pdf").click(function(){
+				
+				$(".book-creation").append("<div id=\"pdf-coming-soon\"><p>Exporting to PDF is coming soon...</p></div>");
+				
+				setTimeout(function() {
+					$("#pdf-coming-soon").fadeOut('slow').remove();
+				}, 3000);
+			});
+			
+			$("#checkboxFiveInput").click(function(){
+				$(".book-creation").append("<div id=\"edit-coming-soon\" style=\"width: 400px;\"><p><span style=\"font-weight: 700;\">Edit Mode</span> will help you writer better. <span style=\"font-style: italic;\">COMING SOON...</span></p></div>");
+				
+				setTimeout(function() {
+					$("#edit-coming-soon").fadeOut('slow').remove();
+				}, 5000);
 			});
 			
 			//zen-mode expansion//
@@ -317,6 +370,13 @@
 								alert("Request timed out");
 							}
 						}
+					});
+				});
+				
+				//calculating reading time for the first time, needs timeOut//
+				$(function() {
+					$('article').readingTime({
+						readingTimeTarget: $(this).find('.eta'),
 					});
 				});
 			}, 2000);	
