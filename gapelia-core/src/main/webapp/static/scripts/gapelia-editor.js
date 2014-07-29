@@ -70,8 +70,11 @@ function getCaretPosition() {
 }
 
 function pasteHtmlAtPosition(pos,html) {
-	console.log($(pos.startContainer.parentElement));
-	$(pos.startContainer.parentElement).focus().html($(pos.startContainer.parentElement).html().substring(0,pos.startOffset) + html + $(pos.startContainer.parentElement).html().substring(pos.startOffset));
+	//console.log($(pos.startContainer.parentElement));
+	var container = null;
+	if(pos.commonAncestorContainer.nodeName == "P") container = pos.commonAncestorContainer;
+	else container = pos.startContainer.parentElement
+	$(container).focus().html($(container).html().substring(0,pos.startOffset) + html + $(container).html().substring(pos.startOffset));
 }
 //
 
