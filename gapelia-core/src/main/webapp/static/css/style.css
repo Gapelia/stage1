@@ -5258,7 +5258,7 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation header #tool-box {
   display: inline-block !important; }
 .book-creation header #tool-box #tools {
-  padding: 0 4.5rem 4.5rem 0; }
+  padding: 0 3rem 2.5rem 0; }
 .book-creation header #tool-box #tools a {
   background-color: rgba(252, 252, 252, 0.9) !important;
   border: 1px solid rgba(89, 179, 166, 0.4) !important;
@@ -5283,6 +5283,8 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation header #tool-box ul li {
   font-weight: 500;
   text-align: left; }
+.book-creation header #tool-box ul li:last-child {
+  margin-bottom: -10px; }
 .book-creation header #tool-box ul li p {
   display: inline-block;
   margin-left: 5px;
