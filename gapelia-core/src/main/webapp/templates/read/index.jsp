@@ -278,15 +278,17 @@
 	
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
-		
 		var $delete_button = $("<button>", {class: "delete-symbol", html: "&#9003;"});
-
+		var $responses_header = $("<h5>Related stories:</h5>");
+		
 		$.each(responses, function(index, value) {
 			getUserFromBookId(value.id);
 			var $lines = $("<li>", {class: "response"});
 			$responses.append(
-				$lines.append(
-					$("<a>", {href: "/read/"+value.id, html: value.title+" by <a href=\"/"+bookOwner.displayName+"\">"+bookOwner.name, class: "response_link"})
+				$responses_header.append(
+					$lines.append(
+						$("<a>", {href: "/read/"+value.id, html: value.title+"<a id=\"response-author\" href=\"/"+bookOwner.displayName+"\">"+bookOwner.name, class: "response_link"})
+					)	
 				)
 			);
 			

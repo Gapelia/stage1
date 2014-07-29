@@ -598,13 +598,33 @@
               opacity: 0.7;
             }
             
+            h5 {
+              font-size: 1rem;
+              font-style: italic;
+            }
+            
             li {
               font-size: 1.3rem;
               font-style: italic;
               margin: 10px;
               
+              &:first-child { margin-top: 2rem; }
+              
               a {
-                &:first-letter { text-decoration: uppercase; }
+                text-transform: capitalize;
+                
+                &:hover { opacity: 1; }
+                
+                #response-author {
+                  font-size: 1rem;
+                  margin-left: 5px;
+                  opacity: 0.75;
+                  
+                  &:before {
+                    content: "by";
+                    margin-right: 5px;
+                  }
+                }
               }  
             }
             
@@ -849,7 +869,9 @@
 		section {
 			width: 25%; height: 100%;
 		}
-
+    
+    .author-info .author-avatar { margin-left: -3rem; }
+    
 		.draggable-placeholder {
 			width: 25%; height: 100%;
 		}
