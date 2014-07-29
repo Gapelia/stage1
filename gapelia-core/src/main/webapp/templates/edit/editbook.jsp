@@ -208,6 +208,7 @@
 		<script src="/static/scripts/sortable.js"></script>
 		<script src="/static/scripts/editor.js"></script>
 		<script src="/static/scripts/gapelia-editor.js"></script>
+		<script src="/static/scripts/jquery.caret.1.02.min.js"></script>
 		<script src="/static/scripts/spin.js"></script>
 		<script src="/static/scripts/readingTime.js"></script>
 		<!--/ <script src="/static/scripts/draggable_background.js"></script> /-->

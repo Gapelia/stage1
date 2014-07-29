@@ -547,6 +547,8 @@
 		// Inline content embedder
 		$(".add-inline-content").click(function (e) {
 
+			caretPosition = getCaretPosition();
+
 			// $(".add-inline-content-wrapper").toggle();
 
 			$(".add-inline-content-wrapper").toggle(function () {
@@ -570,8 +572,8 @@
 				$(".add-inline-content-wrapper .gapelia-editor-toolbar-form-anchor").toggle();
 				
 				
-				$(".fluid-preview .page-desc p:last").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
-				
+				//$(".fluid-preview .page-desc p:last").append('<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
+				pasteHtmlAtPosition(caretPosition, '<a href="' + this.value + '" class="embedded-embedly" style="display: none;">test</a>');
 				
 				// Embedly
 				var regex;

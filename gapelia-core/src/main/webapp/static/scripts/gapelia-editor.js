@@ -49,6 +49,30 @@ function pasteHtmlAtCaret(html) {
 	}
 
 }
+
+function getCaretPosition() {
+
+	var sel, range;
+
+	if (window.getSelection) {
+		// IE9 and non-IE
+		sel = window.getSelection();
+
+		if (sel.getRangeAt && sel.rangeCount) {
+			range = sel.getRangeAt(0);
+			//range.deleteContents();
+			return range;
+		}
+	} else if (document.selection && document.selection.type != "Control") {
+		// IE < 9
+		return document.selection.createRange();
+	}
+}
+
+function pasteHtmlAtPosition(pos,html) {
+	console.log($(pos.startContainer.parentElement));
+	$(pos.startContainer.parentElement).focus().html($(pos.startContainer.parentElement).html().substring(0,pos.startOffset) + html + $(pos.startContainer.parentElement).html().substring(pos.startOffset));
+}
 //
 
 (function (window, document) {
@@ -1041,7 +1065,7 @@ function pasteHtmlAtCaret(html) {
                     [new RegExp(/&lt;(\/?)(i|b|a)&gt;/gi), '<$1$2>'],
 
                      // replace manually a tags with real ones, converting smart-quotes from google docs
-                    [new RegExp(/&lt;a\s+href=(&quot;|&rdquo;|&ldquo;|Ò|Ó)([^&]+)(&quot;|&rdquo;|&ldquo;|Ò|Ó)&gt;/gi), '<a href="$2">']
+                    [new RegExp(/&lt;a\s+href=(&quot;|&rdquo;|&ldquo;|Ã’|Ã“)([^&]+)(&quot;|&rdquo;|&ldquo;|Ã’|Ã“)&gt;/gi), '<a href="$2">']
 
                 ];
             /*jslint regexp: false*/
