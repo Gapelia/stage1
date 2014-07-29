@@ -1605,7 +1605,7 @@ function updateLibrary() {
 function updateUserOnboard() {
 
 	name = user.name;
-	email = null;
+	email = user.email;
 	current = user.location; // if not, redirect
 	var bg = $(".account-avatar-wrapper").css("background-image");
 	
@@ -1634,10 +1634,10 @@ function updateUserOnboard() {
 		bio = "";
 	}
 	
-	tags = null;
-	fb = null;
-	gp = null;
-	twt = null;
+	tags = user.tags;
+	fb = user.fb;
+	gp = user.gp;
+	twt = user.twt;
 	isPublic = true;
 	university = user.university;
 	department = user.department;
