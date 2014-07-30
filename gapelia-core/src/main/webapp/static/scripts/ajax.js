@@ -3560,3 +3560,15 @@ function createNotification(bookId, responseId, type, hash, comment) {
 		}
 	});
 }
+
+// I know, not really an ajax method, but I don't know where to put it 
+// currently used by: read/index.jsp and revision/index.jsp
+function GetURLParameter(sParam) {
+	var sPageURL = window.location.search.substring(1);
+	var sURLVariables = sPageURL.split('&');
+	for (var i = 0; i < sURLVariables.length; i++)
+	{
+		var sParameterName = sURLVariables[i].split('=');
+		if (sParameterName[0] == sParam) return sParameterName[1];
+	}
+}

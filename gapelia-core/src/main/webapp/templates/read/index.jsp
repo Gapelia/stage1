@@ -129,27 +129,29 @@
 	<script src="/static/scripts/cookie.js"></script>
 	<script src="/static/scripts/merci.js"></script>
 	
-
 	<script>
 
 	//readrboard block
 
 	document.addEventListener("readrboard.hashed_nodes",function(){
-		console.log("readrboard.hashed_nodes");
-		console.log( readrboard.getLastEvent() );
+		console.log("readrboard ready!");
 		var hash = GetURLParameter("commentLocation");
 		if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
 		//$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
 	},false);
 
 	document.addEventListener("readrboard.reaction",function(){
-		console.log("readrboard.reaction");
+		console.log("readrboard.reaction event:");
 		console.log( readrboard.getLastEvent() );
+		//TODO: This is stupid, we should contact Porter to fix this!
+		//it should be all done in the comment eventlistener
+		readrboard_type = readrboard.getLastEvent().value;
 	},false);
 
 	document.addEventListener("readrboard.comment",function() {
-		console.log(readrboard.getLastEvent().supplementary.hash);
-		createNotification(current.bookId, 0, "comment", readrboard.getLastEvent().supplementary.hash, readrboard.getLastEvent().value);
+		console.log("readrboard.comment event:");
+		console.log(readrboard.getLastEvent());
+		createNotification(current.bookId, current.bookId, readrboard_type, readrboard.getLastEvent().supplementary.hash, readrboard.getLastEvent().value);
 	} ,false);
 
 	//end readerboard block
@@ -258,15 +260,6 @@
 		$(".notification-time #notification-count").css("cssText", "margin-right: 1.5rem !important");
 	}
 
-	function GetURLParameter(sParam) {
-		var sPageURL = window.location.search.substring(1);
-		var sURLVariables = sPageURL.split('&');
-		for (var i = 0; i < sURLVariables.length; i++)
-		{
-			var sParameterName = sURLVariables[i].split('=');
-			if (sParameterName[0] == sParam) return sParameterName[1];
-		}
-	}
 
 	function addRespondToButton() {
 		var $button = $('<hr style="margin-top: -1rem;"><div id="response-button"><button type="button" id="respondToButton">Respond</button></div>');

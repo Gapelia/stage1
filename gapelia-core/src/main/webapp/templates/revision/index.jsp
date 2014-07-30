@@ -1,40 +1,54 @@
+<%@include file="../../tools.jsp" %>
+<%@ page import="com.gapelia.core.api.Books" %>
+<%@ page import="com.gapelia.core.model.Book" %>
+<%@ page import="com.gapelia.core.database.QueryUtils" %>
+<%
+	String currentURL = "http://folio.is"+getUrl(request);
+	Integer bookId = getIdFromUrl(request);
+	if(!isValidBookId(bookId)) {
+		//out.println("This book doesn't exist in the database!");
+		response.sendRedirect("/");
+		return;
+	}
+	Book book = QueryUtils.getBookFromBookId(bookId);
+	User user = QueryUtils.getUserFromBookId(bookId);
+
+	String author = user.getName();
+	String title = book.getTitle();
+	String snippet = book.getSnippet();
+	String coverPhoto = book.getCoverPhoto();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
 
-<head>
-	
-    <meta charset="utf-8" />
+		<!-- Search tags --> 
+		<title></title>
+		<meta name="author" content="<%= author %>" />
+		<meta name="description" content="<%= snippet %>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Search tags --> 
-    <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-    <!-- for Facebook -->  
-    <meta property="og:title" content=""/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:description" content=""/>
-    
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
-    
-    <link href="/static/images/favicon.png" rel="shortcut icon" />
+		<!-- for Facebook -->  
+		<meta property="og:title" content="<%= title %>"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:image" content="<%= coverPhoto %>"/>
+		<meta property="og:url" content="<%= currentURL %>"/>
+		<meta property="og:description" content="<%= snippet %>"/>
 
-    <link href="/static/css/style.css" rel="stylesheet" />
-    <link href="/static/css/fluidbox.css" rel="stylesheet" />
+		<!-- for Twitter -->          
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="<%= title %>" />
+		<meta name="twitter:description" content="<%= snippet %>" />
+		<meta name="twitter:image" content="<%= coverPhoto %>" />
 
-    <script defer src='http://www.readrboard.com/static/engage.js'></script>
+		<link href="/static/images/favicon.png" rel="shortcut icon" />
 
-    <script src="/static/scripts/modernizr.custom.js"></script>
-    <script src="/static/scripts/jquery-2.1.0.min.js"></script>
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/fluidbox.css" rel="stylesheet" />
 
-</head>
+	</head>
 
 <body class="app full-book g-body">
 
@@ -75,6 +89,9 @@
 
     <!--/ scripts /-->
     <script defer src='http://www.readrboard.com/static/engage.js'></script>
+
+	<script src="/static/scripts/modernizr.custom.js"></script>
+	<script src="/static/scripts/jquery-2.1.0.min.js"></script>    
     
     <script src="/static/scripts/nprogress.js"></script>
     <script src="/static/scripts/imgLiquid.js"></script>
@@ -104,48 +121,30 @@
     
     <script>
     
-    //readrboard block
+	//readrboard block
 
-    document.addEventListener("readrboard.hashed_nodes",function(){
-	console.log("readrboard.hashed_nodes");
-	console.log( readrboard.getLastEvent() );
-	var hash = GetURLParameter("commentLocation");
-	if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
-	//$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
-    },false);
+	document.addEventListener("readrboard.hashed_nodes",function(){
+		console.log("readrboard ready!");
+		var hash = GetURLParameter("commentLocation");
+		if(hash) $("body").animate({ scrollTop: $("p[rdr-hash='"+hash+"']").offset().top-100 }, 1000);
+		//$("p[rdr-hash='"+hash+"']").css({"background-color":"#59B3A6"});
+	},false);
 
-    document.addEventListener("readrboard.reaction",function(){
-	console.log("readrboard.reaction");
-	console.log( readrboard.getLastEvent() );
-    },false);
+	document.addEventListener("readrboard.reaction",function(){
+		console.log("readrboard.reaction event:");
+		console.log( readrboard.getLastEvent() );
+		//TODO: This is stupid, we should contact Porter to fix this!
+		//it should be all done in the comment eventlistener
+		readrboard_type = readrboard.getLastEvent().value;
+	},false);
 
-    document.addEventListener("readrboard.comment",function() {
-	console.log(readrboard.getLastEvent().supplementary.hash);
-	$.ajax({
-	    url: "/api/notifications/createCommentNotification",
-	    contentType: "application/x-www-form-urlencoded;charset=utf-8",
-	    async: false,
-	    type: "POST",
-	    data: {
-		sessionId: sessionId,
-		referencedBook: current.bookId,
-		hash: readrboard.getLastEvent().supplementary.hash,
-		type: 'Comment',
-		comment: readrboard.getLastEvent().value
-	    },
-		success: function (data) {
-		console.log("data returned: " + data);
-	    },
-		error: function (q, status, err) {
-		console.log("ERROR" + err);
-		if (status == "timeout") {
-		    alert("Request timed out trying again");
-		    }
-		}
-	    });
-    } ,false);
+	document.addEventListener("readrboard.comment",function() {
+		console.log("readrboard.comment event:");
+		console.log(readrboard.getLastEvent());
+		createNotification(current.bookId, current.bookId, readrboard_type, readrboard.getLastEvent().supplementary.hash, readrboard.getLastEvent().value);
+	} ,false);
 
-    //end readerboard block	
+	//end readerboard block
 	
 	
     // Hide logo after 100px when scrolling book on mobile
@@ -159,19 +158,15 @@
 	
     //only show edit option if owner of book//
     $(document).ready(function (e) {
-	    
-	if (typeof user == "undefined") {
-	    $("#the-book #edit-shortcut").remove();
-	}
-	
+		
 	var author = bookOwner.name;
 	var reader = user.name;
 	
 	if (author == reader) {
 	    $("#the-book #edit-shortcut").show();
-        } else {
+	} else {
 	    $("#the-book #edit-shortcut").remove();
-        }      
+	}	
     });
 	
     // Dropdown menu for mobile
