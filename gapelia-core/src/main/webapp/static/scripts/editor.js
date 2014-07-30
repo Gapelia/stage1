@@ -1356,6 +1356,8 @@
 
 	$(document).on("click", ".close-modal", function (e) {
 
+		hasClickedPublish = false;
+
 		$(this).closest(".modal").css({
 			"display": "none",
 			"opacity": "0"
