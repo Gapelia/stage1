@@ -79,13 +79,13 @@
 			</div>
 
 			<!--/ library-editing /-->
-			<section id="new-library">
+			<section id="new-library" style="background-image: url('/static/images/cover-bg.jpg')";>
 				<div class="library-controls">
 					<button id="confirm-create-library" style="display: none;" class="outline">Create</button>
 				</div>
 
 				<div class="button-wrapper">
-					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.page-bg').attr('src', url).attr('data-adaptive-background', '1'); $('#new-library').imgLiquid({ fill: true }); $('.page-bg').bind('load', function () { $('.spinner').hide(); });">
+					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('#new-library').css('background-image', 'url(' + url + ')');">
 				</div>
 
 				<div id="new-library-info">
@@ -115,7 +115,6 @@
 				<div id="library-tutorial">*Title, description and cover photo are required.</div>
 
 				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
-				<img class="page-bg" src="/static/images/cover-bg.jpg"/>
 			</section>
 			<!--//library-editing /-->
 
@@ -235,9 +234,8 @@
 				});
 				
 				$("button.photo-picker").html("&#xf2e4;");
-				$("#new-library").imgLiquid({ fill: true });
 				$("#g-menu-toggle").css("color", "#fcfcfc");
-				
+				//$("#new-library").css({"overflow: hidden; background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
 			});
 		</script>
 		<!--//scripts /-->

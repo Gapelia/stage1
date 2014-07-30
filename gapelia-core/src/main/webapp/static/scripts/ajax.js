@@ -1102,7 +1102,7 @@ function getLibrary() {
 				$("#featured-nav").append("<div id=\"library-editor\" style=\"display: inline-block; margin-left:-15px;\"><a style=\"color: #59b3a6; font-weight: 700;\" href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/></div>");
 				$("#nav-submissions").css("display", "none");
 			}	    
-			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img id=\"library-cover\" src=" + library.coverPhoto + " style=\"height: auto; left: 0; position: absolute; top: 0; width: 100%;\">";
+			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden; background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;\">";
 			if (ownThisLibrary) {
 				toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + library.libraryId + "\">Edit Library</a></button>";
 			} else {
@@ -1186,6 +1186,8 @@ function getLibrary() {
 			$("#contributor-list, #contributors-title").hide();
 		});
 		$("#contributor-list, #contributors-title").show();
+		
+		$("#library-cover").css({"background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
 		
 	});
 
@@ -1510,7 +1512,7 @@ function editLibrary() {
 			library = data;
 			$("#new-library-info h2").html(library.title);
 			$("#new-library-info p").html(library.description);
-			$("#new-library").css({"background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
+			$("#new-library").css({"overflow: hidden; background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {

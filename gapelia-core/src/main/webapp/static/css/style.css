@@ -3416,6 +3416,11 @@ body.landing .error {
   position: absolute;
   text-transform: none !important;
   z-index: 11; }
+.app #new-library {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden; }
 .app #new-library .spinner {
   top: 50% !important;
   left: 50% !important;
@@ -3426,6 +3431,12 @@ body.landing .error {
   position: absolute;
   text-align: center;
   width: 100%; }
+.app #new-library .page-bg {
+  height: 110%;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0; }
 .app #new-library .photo-picker {
   margin: 0 !important;
   padding: 0 !important;
