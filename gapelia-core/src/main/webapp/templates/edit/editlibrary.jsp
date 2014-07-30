@@ -12,7 +12,7 @@
     }
     authorId = QueryUtils.getUserFromLibraryId(libraryId).getUserId();
 
-    if(userId.equals(authorId)) {
+    if(!userId.equals(authorId)) {
        //out.println("you are not the author!");
        response.sendRedirect("/");
        return;
