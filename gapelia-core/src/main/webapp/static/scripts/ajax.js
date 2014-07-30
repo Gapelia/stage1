@@ -1102,7 +1102,7 @@ function getLibrary() {
 				$("#featured-nav").append("<div id=\"library-editor\" style=\"display: inline-block; margin-left:-15px;\"><a style=\"color: #59b3a6; font-weight: 700;\" href=/"+ libraryOwner.displayName +">" + libraryOwner.name + "<a/></div>");
 				$("#nav-submissions").css("display", "none");
 			}	    
-			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img id=\"library-cover\" src=" + library.coverPhoto + " style=\"height: 155%; left: 0; position: absolute; top: 0; width: 100%;\">";
+			toInsert = "<section id=\"library-splash\" style=\"overflow: hidden;\"><img id=\"library-cover\" src=" + library.coverPhoto + " style=\"height: auto; left: 0; position: absolute; top: 0; width: 100%;\">";
 			if (ownThisLibrary) {
 				toInsert += "<button class=\"white-border\" style=\"right:46%;\"><a href=\"/editlibrary/" + library.libraryId + "\">Edit Library</a></button>";
 			} else {
