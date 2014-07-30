@@ -748,7 +748,8 @@
             });
 	}
 	
-	//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
+	//code to make draft deletion work here...for some reason it wasnt working from ajax.js
+	//TODO: doesn't work at Tims computer - fix this later
 	setTimeout(function () {
 		$(".dd-link").click(function (e) {
 			$(this).next(".delete-draft").toggle();
