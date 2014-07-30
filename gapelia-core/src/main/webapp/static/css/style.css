@@ -7383,8 +7383,6 @@ a.count span.dont-move {
 .full-book .fluid-wrapper {
   background-color: #fcfcfc;
   height: 100%; }
-.full-book .fluid-wrapper .page-bg {
-  top: -25% !important; }
 .full-book .fluid-wrapper section, .full-book .fluid-wrapper .fluid-preview {
   transition: all 0.2s ease; }
 .full-book .fluid-wrapper section {
