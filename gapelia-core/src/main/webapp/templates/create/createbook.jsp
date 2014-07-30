@@ -276,7 +276,7 @@
 			});
 			
 			$("#checkboxFiveInput").click(function(){
-				$(".book-creation").append("<div id=\"edit-coming-soon\" style=\"width: 400px;\"><p><span style=\"font-weight: 700;\">Edit Mode</span> will help you writer better. <span style=\"font-style: italic;\">COMING SOON...</span></p></div>");
+				$(".book-creation").append("<div id=\"edit-coming-soon\" style=\"width: 400px;\"><p><span style=\"font-weight: 700;\">Edit Mode</span> will help you write better. <span style=\"font-style: italic;\">COMING SOON...</span></p></div>");
 				
 				setTimeout(function() {
 					$("#edit-coming-soon").fadeOut('slow').remove();
