@@ -1312,6 +1312,11 @@
 	}
 
 	#new-library {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    
 		.spinner {
 			top: 50% !important; left: 50% !important;
 			display: none;
@@ -1324,6 +1329,13 @@
 			text-align: center;
 			width: 100%;
 		}
+    
+    .page-bg {
+      height: 110%; width: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
 
 		.photo-picker {
 			margin: 0 !important; padding: 0 !important;
