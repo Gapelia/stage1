@@ -221,59 +221,7 @@
 		    } 	
 		});
 		
-	    } else {
-		  $(function () {
-
-                    // Close splash on mobile
-                    $("#library-splash").swipe({
-                        // Generic swipe handler for all directions
-                        swipeUp: function (event, direction, distance, duration, fingerCount) {
-
-                            $("#close-splash").css({
-                                "height": "0",
-                                "top": "-200%"
-                            });
-
-                            $("#library-splash").css("top", "-200%");
-                            $("#g-menu-toggle").css("color", "#fcfcfc");
-			    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
-			    $("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
-			    $("#featured-panel").css({
-				"background-color": "white",
-				"border-bottom": "1px solid rgba(89, 179, 166, 0.5)"
-			    });
-			    $("#featured-panel .subscribe").remove();
-			    $("#featured-scroller").css("background-color", "white");
-			    $(".library h1").remove();
-                        },
-                        threshold: 0
-                    });
-
-                    $(document).on("click", "#close-splash", function () {
-
-                        $("#close-splash").css({
-                            "height": "0",
-                            "top": "-200%"
-                        });
-
-                        $("#library-splash, #library-splash button").css("top", "-200%");
-                        $("#g-menu-toggle").css("color", "#fcfcfc");
-			$(".book-list-wrapper, #featured-nav").css("opacity", "1");
-			$("#featured-panel").append("<span id=\"category-title\"><a>"+ library.title + "</a></span>");
-			$("#featured-panel").css({
-				"background-color": "white",
-				"border-bottom": "1px solid rgba(89, 179, 166, 0.5)"
-			});
-			$("#featured-panel .subscribe").remove();
-			$("#featured-scroller").css("background-color", "white");
-			$(".library h1").remove();
-                    });
-		    
-		    
-
-                });
-
-            }
+	    }
 	    
 		// submissions confirm popup
 		
@@ -511,7 +459,7 @@
 		//subscribed/unsubscribe buttons//
 		if (library.libraryId in subscribed == true) {
 			$("#featured-panel").append("<button class=\"unsubscribe brand-blue\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Unsubscribe</button>");
-			$(".subscribe").remove();	
+			$(".subscribe, #library-splash .unsubscribe").remove();
 		} else {
 			$("#featured-panel").append("<button class=\"subscribe white-border\" style=\"font-size: 0.8rem; position: absolute; top: 1.3rem; right: 1.3rem;\">Subscribe</button>");
 			$("#library-splash .subscribe").remove();
@@ -578,15 +526,16 @@
 				
 			var slyBookWrapper = new Sly('.book-list-wrapper', options);
 			var items = $('#book-list');
-			
+				
 			loadMoreBooksInLibrary(5,items);
-	
-			if(books.length >= 1){
+			
+			if(books.length > 4){
 			
 				slyBookWrapper.on('load change', function () {
 					if (this.pos.dest > this.pos.end - 200) {
-					loadMoreBooksInLibrary(1,items);
-		
+					
+					loadMoreBooksInLibrary(5,items);
+					
 					    $(".book").css("height", h);
 					    $(".book-snippet").css("display", "block")
 					    

@@ -1144,7 +1144,7 @@ function getLibrary() {
 				if ($vW > "1024") {
 					toInsert += "<div id=\"close-splash\"></div>";
 				} else {
-					toInsert += "<div id=\"close-splash\">^</div>";
+					toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
 			}
 			if (ownThisLibrary) {
