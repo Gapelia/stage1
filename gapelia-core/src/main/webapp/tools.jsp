@@ -26,6 +26,7 @@ public String getUrl(HttpServletRequest request) {
     String currentURL = null;
     if( request.getAttribute("javax.servlet.forward.request_uri") != null ){
         currentURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
+        currentURL = currentURL.replace("#", "");
     }
     return currentURL;
 }
@@ -34,6 +35,7 @@ public Integer getIdFromUrl(HttpServletRequest request) {
 
     String currentURL = getUrl(request);
     String urlBookId = currentURL.substring(currentURL.lastIndexOf('/')+1);
+    urlBookId = urlBookId.replace("#", "");
     Integer bookId = 0;
     if(!urlBookId.equals("createbook")) bookId = Integer.parseInt(urlBookId.split("\\?")[0]);
 
