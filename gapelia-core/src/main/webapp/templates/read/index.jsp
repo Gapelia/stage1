@@ -86,8 +86,8 @@
 					</li>
 				</ul>
 				<ul id="edit-shortcut">
-					<a class=edit-book href="#">Edit Work</a>
-					<a class=delete-book href="#">Delete</a>
+					<a class="edit-book">Edit Work</a>
+					<a class="delete-book">Delete</a>
 				</ul>
 				<ul id="collection-pop" style="display: none;"><p>Story added to library<p/></ul>
 
