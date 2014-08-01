@@ -362,9 +362,19 @@
 	var file = '<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>';
 
 	function handleFile(file) {
+		console.log(file);
+
+		var inkblob = { url: file };
+		filepicker.stat(inkblob, function(metadata){
+		    console.log(JSON.stringify(metadata));
+		});
+		filepicker.stat(inkblob, {path: true},
+		  function(metadata){
+		    console.log(JSON.stringify(metadata));
+		});
 
 		pasteHtmlAtCaret('<p><a class="inserted-img" href=' + file + '><img src=' + file + '></a></p>');
-		console.log(file);
+		
 		
 		//this fixes margin for photos//
 		$(".page-desc p").each(function() {
