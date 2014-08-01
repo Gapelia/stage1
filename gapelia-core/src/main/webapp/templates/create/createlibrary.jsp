@@ -79,13 +79,13 @@
 			</div>
 
 			<!--/ library-editing /-->
-			<section id="new-library" style="background-image: url('/static/images/cover-bg.jpg')";>
+			<section id="new-library" style="background-image: url('/static/images/cover-bg.jpg');">
 				<div class="library-controls">
 					<button id="confirm-create-library" style="display: none;" class="outline">Create</button>
 				</div>
 
 				<div class="button-wrapper">
-					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('#new-library').css('background-image', 'url(' + url + ')');">
+					<input class="photo-picker" type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; insertBackgroundImage(url);">
 				</div>
 
 				<div id="new-library-info">
@@ -133,6 +133,12 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 
 		<script>
+			function insertBackgroundImage(file) {
+				filepicker.stat({ url: file }, {container: true, path: true}, function(metadata){
+					$('#new-library').css('background-image', 'url("https://s3.amazonaws.com/' + metadata.container + '/' + metadata.path + '")');
+				});
+			}
+
 			if ($vW > "1024") {
 				new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 				

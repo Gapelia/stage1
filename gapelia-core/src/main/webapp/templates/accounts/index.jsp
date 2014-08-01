@@ -96,7 +96,7 @@
 									<div class="account-avatar-wrapper" style="background-image: url(/static/images/users/user-avatar.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
 
 										<div class="button-wrapper avatar-button">
-											<input type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; console.log(url); $('.spinner').show(); $('.user-avatar').attr('src', url); $('.account-avatar-wrapper').css({ 'background-image': 'url(' + url + ')', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); $('.spinner').hide();">
+											<input type="filepicker" data-fp-apikey="AqrddQT2HQIebG8DinaqUz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE" data-fp-maxSize="10485760*1024" onchange="url=event.fpfile.url; insertProfilePicture(url);">
 										</div>
 
 										<!--/ <img class="user-avatar" src="/static/images/users/user-avatar.jpg"/> /-->
@@ -204,6 +204,20 @@
 				});
 
 			});
+
+			function insertProfilePicture(file) {
+				filepicker.stat({
+					url: file
+				}, {
+					container: true,
+					path: true
+				}, function (metadata) {
+					$('.spinner').show(); 
+					$('.user-avatar').attr('src', 'https://s3.amazonaws.com/' + metadata.container + '/' + metadata.path); 
+					$('.account-avatar-wrapper').css({ 'background-image': 'url("https://s3.amazonaws.com/' + metadata.container + '/' + metadata.path + '")', 'background-position': '50% 50%', 'background-repeat': 'no-repeat no-repeat', 'background-size': 'cover' }); 
+					$('.spinner').hide();
+				});
+			}
 
 		 function load() {
                  getNotifications();
