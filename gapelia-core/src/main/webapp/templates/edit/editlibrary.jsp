@@ -148,7 +148,6 @@
 	<script src="/static/scripts/imgLiquid.js"></script>
 	<script src="/static/scripts/ajax.js"></script>
 	<script src="/static/scripts/userNotifications.js"></script>
-
 	<script src="/static/scripts/classie.js"></script>
 	<script src="/static/scripts/charLimiter.js"></script>
 	<script src="/static/scripts/mlpushmenu.js"></script>
