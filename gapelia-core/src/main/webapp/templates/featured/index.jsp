@@ -278,24 +278,10 @@
 			//e.preventDefault();
 		});
 
-<<<<<<< HEAD
-		if(books.length > 5){
-		
-			slyBookWrapper.on('load change', function () {
-				if (this.pos.dest > this.pos.end - 200) {
-					
-					if(items.children().length <= books.length-1) {
-					    loadMoreBooks(1,items);
-		
-					    $(".book").css("height", h);
-					    $(".book-snippet").css("display", "block")
-					    
-					   this.reload();
-=======
 		$(".nay-dd").off().click(function () {
 			$(this).closest(".delete-draft").hide();
 		});
-		
+
 		$(".yay-dd").off().click(function () {
 			e = $(this).closest(".yay-dd");
 			console.log("deleting");
@@ -313,11 +299,10 @@
 				error: function (q, status, err) {
 					if (status == "timeout") {
 						alert("Request timed out");
->>>>>>> b2879f7d08b3a2572c50a647e85c849beafdda5f
 					}
 				}
 			});
-		});		
+		});				
 	});	
 
 	function load() {
