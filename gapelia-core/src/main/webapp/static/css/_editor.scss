@@ -2,12 +2,6 @@
 
 .book-creation {
   
-  @media print {
-    #back, #finish, .add-inline-content, .photo-picker {
-      display: none !important;  
-    }
-  }
-
 	// background-image: url("../images/blankBG.jpg");
 	@include sans;
 	overflow: hidden;

@@ -40,9 +40,9 @@ body.landing {
 		z-index: 10;
 	}
 	
-	.gapelia, h4, .wrapper, footer { z-index: 1; }
+	#gapelia, h4, .wrapper, footer { z-index: 1; }
 
-	.gapelia {
+	#gapelia {
 		width: 70px; height: 70px;
 
 		background-image: url("../images/folio-icon-solid.png");
