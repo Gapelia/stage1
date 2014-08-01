@@ -529,17 +529,18 @@
 				
 			loadMoreBooksInLibrary(5,items);
 			
-			if(books.length > 4){
+			if(books.length > 5){
 			
 				slyBookWrapper.on('load change', function () {
 					if (this.pos.dest > this.pos.end - 200) {
-					
-					loadMoreBooksInLibrary(5,items);
-					
-					    $(".book").css("height", h);
-					    $(".book-snippet").css("display", "block")
-					    
-					   this.reload();
+						if (items.children().length <= books.length-1) {
+							loadMoreBooksInLibrary(1,items);
+							
+							$(".book").css("height", h);
+							$(".book-snippet").css("display", "block")
+							    
+							this.reload();
+						}
 					}
 				});
 			}	

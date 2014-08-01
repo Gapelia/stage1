@@ -352,6 +352,7 @@ function getFeaturedBookArray() {
 function loadMoreBooks(count,items) {
 	var output = '';
 	var offset = items.children().length;
+	
 	for (var i = 0; i < count; i++) {
 
 		if(i == books.length-1) break;
@@ -701,9 +702,13 @@ function getBooksInLibraryArray() {
 function loadMoreBooksInLibrary(count,items) {
 	var toInsert = '';
 	var offset = items.children().length;
+	
 	for (var i = 0; i < count; i++) {
+		
 
-		if(i == books.length-1) break;
+		if(i == books.length-1){
+			break;
+		}
 
 		book = books[offset + i];
 
@@ -713,6 +718,7 @@ function loadMoreBooksInLibrary(count,items) {
 			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
 		}
 		else{
+			console.log("returning for no reason");
 			return;
 		}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
