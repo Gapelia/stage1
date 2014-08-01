@@ -3183,6 +3183,7 @@ function getContributedTo() {
 
 function updateBookAndPages(isPublished) {
 	tags = '';
+	snipped = $(".add-description").html();
 	if (isPublished == true) {
 
 		var elms = $(".selectize-input div");
@@ -3202,10 +3203,10 @@ function updateBookAndPages(isPublished) {
 			bookId: pages.bookId,
 			coverPhoto: pages.page[0].image,
 			title: pages.page[0].title,
+			snippet: snippet,
 			language: "English",
 			tags: tags,
-			isPublished: isPublished,
-			snippet: $(".add-description").html()
+			isPublished: isPublished			
 		},
 		success: function (data) {
 			console.log("updateBookAndPages got data: "+data);
