@@ -86,6 +86,7 @@
 
     <script>
         $(function () {
+	     
             function getUserFromBook(bookId) {
                     responseText = '';
                     $.ajax({
@@ -212,6 +213,7 @@
                 }
 
                 function fluidLayout(isFirst) {
+			
                     if(current.image==null ||current.image=="static/images/grayBG.png") {
                         htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
                          htmlToInsert += "</section>";
@@ -464,6 +466,16 @@
 
                 Page.init();
                 NProgress.done();
+		
+		setTimeout (function() {
+			if (window.location.href.split("/")[3] == "preview?showPdf") {
+				$(".content").append("<div id=\"export-container\"><div id=\"child-export\"><a>EXPORT TO PRINT/PDF</a></div></div>");
+				
+				document.title = $(".page-title-elem").text();
+				
+				$("#export-container a").click(function(){ window.print() });
+			}
+		}, 500)
 
             });
 
