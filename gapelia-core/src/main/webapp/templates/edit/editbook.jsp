@@ -79,7 +79,7 @@
 								<label for="checkboxFiveInput"></label>
 							</div>
 						</li>
-						<li><a id="export-pdf">Export to PDF</a></li>
+						<li><a id="export-pdf" href="/preview?showPdf" target="_blank">Export Data</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -278,17 +278,8 @@
 		$("#tools ul, #tools").mouseleave(function(){
 			$("#tools ul").hide();	
 		});
-			
-		//coming soon...//
-		$("#export-pdf").click(function(){
-				
-			$(".book-creation").append("<div id=\"pdf-coming-soon\"><p>Exporting to PDF is coming soon...</p></div>");
-				
-			setTimeout(function() {
-				$("#pdf-coming-soon").fadeOut('slow').remove();
-			}, 3000);
-		});
-			
+		
+		//coming soon...//	
 		$("#checkboxFiveInput").click(function(){
 			$(".book-creation").append("<div id=\"edit-coming-soon\" style=\"width: 400px;\"><p><span style=\"font-weight: 700;\">Edit Mode</span> will help you write better. <span style=\"font-style: italic;\">COMING SOON...</span></p></div>");
 				

@@ -5155,6 +5155,9 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
   overflow: hidden; }
+@media print {
+  .book-creation #back, .book-creation #finish, .book-creation .add-inline-content, .book-creation .photo-picker {
+    display: none !important; } }
 .book-creation ::selection {
   background-color: #59b3a6;
   color: #fcfcfc; }
@@ -8094,6 +8097,37 @@ a.count span.dont-move {
 .g-body blockquote {
   margin-bottom: 2rem; }
 
+.content #export-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(25, 25, 25, 0.6);
+  font-size: 3rem;
+  position: absolute;
+  top: 0;
+  z-index: 100; }
+.content #export-container #child-export {
+  border: 5px solid white;
+  border-radius: 10px;
+  color: white;
+  left: 25%;
+  margin-top: 20%;
+  padding: 2rem;
+  position: absolute;
+  text-align: center;
+  width: 50%; }
+
+@media print {
+  .full-book #export-container, .full-book #close-preview, .full-book .author-info, .full-book #bb-nav-prev, .full-book #bb-nav-next {
+    display: none !important; }
+  .full-book .page-desc p {
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 1rem 0 !important; }
+  .full-book .page-title-elem p {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 1rem 0 !important; } }
+
 @media all and (min-height: 1199px), screen and (min-height: 1199px) and (-webkit-min-device-pixel-ratio: 2) {
   #contactable-inner {
     top: 93% !important; }
@@ -8553,6 +8587,8 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this:hover .right-bm {
     width: 47px;
     height: 25px; }
+  .app #welcoming-title {
+    display: none; }
 
   .profile #user-splash .avatar-wrapper #splash-edit-wrapper {
     top: 3.85rem; } }
