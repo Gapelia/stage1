@@ -457,20 +457,22 @@
 					var items = $('#user-book-list');
 			
 				
-					loadMoreUserBooks(6,items);
+					loadMoreUserBooks(5,items);
 					
 			
-					if(books.length >= 1){
+					if(books.length > 1){
 						
 						slyBookWrapper.on('load change', function () {
 							if (this.pos.dest > this.pos.end - 200) {
-							loadMoreUserBooks(1,items);
-								
-							    $(".book").css("height", h);
-							    $(".book-snippet").css("display", "block")
-							    
-							   this.reload();
-							}
+								if (items.children().length <= books.length-1) {
+								    loadMoreUserBooks(1,items);
+									
+								    $(".book").css("height", h);
+								    $(".book-snippet").css("display", "block")
+								    
+								    this.reload();
+								}
+							}	
 						});
 					}	
 			

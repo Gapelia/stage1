@@ -423,19 +423,21 @@
 					var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 					var items = $('#user-book-list');
 			
-					loadMorePublicUserBooks(6,items);
+					loadMorePublicUserBooks(5,items);
 			
-					if(books.length >= 1){
+					if(books.length > 1){
 					    
 					    slyBookWrapper.on('load change', function () {
-						    if (this.pos.dest > this.pos.end - 200) {
+						if (this.pos.dest > this.pos.end - 200) {
+						    if (items.children().length <= books.length-1) {
 						    loadMorePublicUserBooks(1,items);
-			    
+				
 							$(".book").css("height", h);
 							$(".book-snippet").css("display", "block")
-							
-						       this.reload();
+							    
+							this.reload();
 						    }
+					        } 	
 					    });
 					}    
 			

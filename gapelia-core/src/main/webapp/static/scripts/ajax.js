@@ -2798,7 +2798,7 @@ function loadMoreUsers(count,items) {
 
 	$("#following-list .book").css("height", $vH - 97 + "px");
 
-	if (friends.length < 2) {
+	if (friends.length < 1) {
 		toInsert += "<p style=\"font-size: 2rem; margin-top: -5rem; opacity: 0.75; text-align: center; width: 100%;\">You are not following any users, yet.</br><span style=\"font-size: 1rem;\">TIP: follow your favorite users and Folio will keep you posted on their latest pieces.</span></p>"
 
 		$(".following-list-wrapper").css("height", "100%");
