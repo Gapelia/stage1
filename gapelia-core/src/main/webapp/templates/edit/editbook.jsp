@@ -91,7 +91,7 @@
 				<a class="zen-mode" href="#"><img src="../static/images/zen-mode.png"></a>
 				<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
 				<a class="button middle-button brand-iii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
-				<a class="button b brand-iii" id="close-button" title="Save changes and quit">Save + Close</a>
+				<a class="button b brand-iii" id="close-button" href="/featured" title="Save changes and quit">Save + Close</a>
 				<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">&#9998;</a>
 			</div>
 		</header>

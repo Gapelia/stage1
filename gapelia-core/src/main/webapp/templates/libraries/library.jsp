@@ -198,26 +198,28 @@
             if ($vW > "1024") {
 		
 		// Close splash on desktops
-                $(document).on("click", "#close-splash", function () {
+        $(document).on("click", "#close-splash", function () {
 
-                    $("#close-splash").css({
-                        "left": "-200%",
-                        "right": "initial",
-			"background-image": "none"
-                    });
+            $("#close-splash").css({
+                "left": "-200%",
+                "right": "initial",
+				"background-image": "none"
+            });
 
 		    $("#library-splash").css("left", "-200%");
+			
 		    $(".book-list-wrapper, #featured-nav").css("opacity", "1");
-                    $("#g-menu-toggle").css("color", "#70a1b1");
+		    $("#contact-editor").remove();
+            $("#g-menu-toggle").css("color", "#70a1b1");
 		    $(".submission-dropdown").css({
-			"background-color": "#transparent",
-			"border-color": "#59B3A6",
-			"border-width": "0",
-			"color": "#59B3A6"
+				"background-color": "#transparent",
+				"border-color": "#59B3A6",
+				"border-width": "0",
+				"color": "#59B3A6"
 		     });
 		    
 		    if (typeof user == 'undefined') {
-			$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
+				$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
 		    } 	
 		});
 		
