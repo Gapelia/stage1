@@ -79,7 +79,7 @@
 								<label for="checkboxFiveInput"></label>
 							</div>
 						</li>
-						<li><a id="export-pdf" href="/preview?showPdf" target="_blank">Export Data</a></li>
+						<li><a id="export-pdf" href="/preview?export" target="_blank">Export Data</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -85,6 +85,7 @@
     <script src="/static/scripts/fluidbox.min.js"></script>
 
     <script>
+		
         $(function () {
 	     
             function getUserFromBook(bookId) {
@@ -123,7 +124,7 @@
             setTimeout(function () {
 
                 $(function () {
-
+						
                     pages = JSON.parse(localStorage.getItem("pages"));
                     console.log(pages);
                     size = pages.page.length;
@@ -142,7 +143,7 @@
                     }
 
                     $("#bb-bookblock").html(htmlToInsert);
-
+					
                     $(".content").css({
                         "width": $vW + "px",
                         "height": $vH + "px"
@@ -151,7 +152,7 @@
                     $(".fluid-wrapper").imgLiquid({
                         fill: true
                     });
-		    $(".photo-wrapper .page-bg-wrapper").imgLiquid({
+						$(".photo-wrapper .page-bg-wrapper").imgLiquid({
                         fill: true
                     });
                     $(".overlay-wrapper").imgLiquid({
@@ -169,12 +170,13 @@
 		    
 		    //adding http://, underline styling and new-tab-location to all hyperlinks//
 		    $(function() {
-			$(".full-book .page-desc a").each(function() {
-			    var href = $(this).attr("href");
-			       $(this).attr("href", "http://" + href);
-			       $(this).attr("target", "_blank");
-			    });
-			$(".full-book .page-desc a").css("text-decoration", "underline");
+				$(".full-book .page-desc a").each(function() {
+					var href = $(this).attr("href");
+					   $(this).attr("href", "http://" + href);
+					   $(this).attr("target", "_blank");
+				});
+				
+				$(".full-book .page-desc a").css("text-decoration", "underline");
 		    });
                 });
 
@@ -443,39 +445,74 @@
                                         right: 39,
                                         down: 40
                                     };
-
+									
                                 switch (keyCode) {
                                 case arrow.left:
                                     config.$bookBlock.bookblock("prev");
                                     break;
-
+								
                                 case arrow.right:
                                     config.$bookBlock.bookblock("next");
                                     break;
                                 }
-
+								
                             });
-
+							
                         };
-
+						
                     return {
                         init: init
                     };
-
+					
                 })();
-
+				
                 Page.init();
                 NProgress.done();
+				
+				//export data dialog//
+				setTimeout (function() {
+				
+						if (window.location.href.split("/")[3] == "preview?export") {
 		
-		setTimeout (function() {
-			if (window.location.href.split("/")[3] == "preview?showPdf") {
-				$(".content").append("<div id=\"export-container\"><div id=\"child-export\"><a>EXPORT TO PRINT/PDF</a></div></div>");
-				
-				document.title = $(".page-title-elem").text();
-				
-				$("#export-container a").click(function(){ window.print() });
-			}
-		}, 500)
+						    myBookId = pages.bookId;
+							title = $(".page-title-elem").html();
+							
+							emailShare = "mailto:?subject=Feedback%20on%20My%20Writing&amp;body="+ title + " by " + bookOwner.fullName + "   " +  "http://folio/revision/" + myBookId+"";
+							
+							$(".content").append("<div id=\"export-container\"><div class=\"header-export\"><h3>Your data. Export it anytime.</h3></div><div id=\"child-export\"><a id=\"export-print\"><img src=\"/static/images/pdf-export.png\">Export to PDF via Print Preview</a><br><br><a id=\"html-export\"><img src=\"/static/images/html-export.png\">Export to HTML Plain Text</a><br><br><a id=\"email-export\" href=\""+emailShare+"\"><img src=\"/static/images/email-export.png\">Share a draft via email</a></div></div>");
+							$("#the-book").css("overflow-y", "hidden");
+							$("#close-preview").css("color", "white");
+							
+							document.title = $(".page-title-elem").text();
+							
+							//export to print preview//
+							$("#export-container #export-print").click(function(){ window.print() });
+							
+							//export to html//
+							$("#html-export").click(function() {
+									
+								$(".author-info").remove();
+								$(".fluid-wrapper").wrap("<div id=\"export-ready\"></div>");
+									
+								function downloadInnerHtml(filename, elId, mimeType) {
+										var elHtml = document.getElementById(elId).innerHTML;
+										var link = document.createElement('a');
+										mimeType = mimeType || 'text/plain';
+									
+										link.setAttribute('download', filename);
+										link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+										link.click(); 
+									}
+									
+								var fileName =  'tags.html'; // You can use the .txt extension if you want
+								downloadInnerHtml(fileName, 'export-ready','text/html');
+							});
+							
+						    if ($vW > "1599") {
+								$(".content #email-export img").css("cssText", "left: 10.rem !important");
+						    }
+						}
+				}, 500)
 
             });
 

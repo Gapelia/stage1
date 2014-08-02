@@ -5155,9 +5155,6 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation {
   font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif;
   overflow: hidden; }
-@media print {
-  .book-creation #back, .book-creation #finish, .book-creation .add-inline-content, .book-creation .photo-picker {
-    display: none !important; } }
 .book-creation ::selection {
   background-color: #59b3a6;
   color: #fcfcfc; }
@@ -8101,20 +8098,44 @@ a.count span.dont-move {
   height: 100%;
   width: 100%;
   background-color: rgba(25, 25, 25, 0.6);
-  font-size: 3rem;
+  font-size: 2.25rem;
+  font-weight: 100;
   position: absolute;
   top: 0;
   z-index: 100; }
 .content #export-container #child-export {
+  background-color: white;
   border: 5px solid white;
   border-radius: 10px;
-  color: white;
+  color: black;
   left: 25%;
-  margin-top: 20%;
-  padding: 2rem;
+  margin-top: 15%;
+  padding: 2rem 2rem 4rem 2rem;
   position: absolute;
   text-align: center;
   width: 50%; }
+.content #export-container .header-export {
+  color: white;
+  font-weight: 500;
+  left: 25%;
+  text-align: center;
+  position: absolute;
+  margin-top: 10%;
+  width: 50%; }
+.content #export-container #email-export {
+  left: 0;
+  position: absolute;
+  width: 100%; }
+.content #export-container #email-export img {
+  height: 60px;
+  width: 60px;
+  left: 5.5rem;
+  position: absolute;
+  top: -15px; }
+.content #export-container img {
+  height: 35px;
+  width: 35px;
+  margin-right: 20px; }
 
 @media print {
   .full-book #export-container, .full-book #close-preview, .full-book .author-info, .full-book #bb-nav-prev, .full-book #bb-nav-next {
@@ -8244,6 +8265,9 @@ a.count span.dont-move {
     margin-left: 88% !important; }
   .full-book .photo-wrapper .page-bg {
     height: 100%; }
+
+  .content #email-export img {
+    margin-left: 5% !important; }
 
   a.mercibject div.opening div.circle {
     left: 38.5%; }
@@ -8554,6 +8578,9 @@ a.count span.dont-move {
     height: 5.5%; }
   .full-book .backcover-wrapper #fin {
     padding: 9rem 5rem 0 9rem; }
+
+  .content #email-export img {
+    left: 21% !important; }
 
   #publish-modal {
     padding: 15rem 4rem; }
