@@ -387,9 +387,9 @@
 				$('.fluid-preview article').css('padding', '0 0 4rem 0'); 
 				$('.spinner').hide(); 
 				$('.image-attribution').css('display', 'block'); 
-				$('.button-wrapper').css({ 'bottom': '8%', 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center', 'width': '100%' }); 
+				$('.button-wrapper').css({ 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center' }); 
 				$('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); 
-				$('.page-bg').css('display', 'block').css('top', '-25%').css('position', 'absolute'); 
+				$('.page-bg').css('display', 'block').css('position', 'absolute'); 
 				$('.image-attribution').show().text('Add photo credit?'); 
 				$.adaptiveBackground.run({ normalizeTextColor: true });
 			});

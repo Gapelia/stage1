@@ -5872,6 +5872,8 @@ body.library-manager ::-webkit-scrollbar {
   max-width: 50%; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .button-wrapper {
   bottom: 25%; }
+.book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-bg {
+  height: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview {
   width: 100%;
   height: 100%;
@@ -5946,7 +5948,7 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .image-attribution {
   max-width: 30%; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .button-wrapper, .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .image-attribution {
-  width: 25%; }
+  width: 30%; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .button-wrapper {
   bottom: 45%; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .page-bg {
@@ -5956,7 +5958,7 @@ body.library-manager ::-webkit-scrollbar {
   width: 25%;
   height: 100%; }
 .book-creation #book-creation-wrapper #create-book #create-content .vertical-preview-wrapper .vertical-preview {
-  width: 75%;
+  width: 70%;
   height: 100%;
   top: 0;
   right: 0;

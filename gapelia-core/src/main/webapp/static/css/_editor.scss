@@ -971,6 +971,8 @@
 
 				.overlay-preview-wrapper {
 					.button-wrapper { bottom: 25%; } //
+          
+          .page-bg { height: 100% !important; }
 
           .overlay-preview {
 						width: 100%; height: 100%;
@@ -1068,7 +1070,7 @@
 				}
 
 				.vertical-preview-wrapper {
-					.button-wrapper, .image-attribution { width: 25%; }
+					.button-wrapper, .image-attribution { width: 30%; }
 
 					.button-wrapper { bottom: 45%; } // 10%
 
@@ -1081,7 +1083,7 @@
 					}
 
 					.vertical-preview {
-						width: 75%; height: 100%;
+						width: 70%; height: 100%;
 						top: 0; right: 0;
 
 						background-color: $white;
