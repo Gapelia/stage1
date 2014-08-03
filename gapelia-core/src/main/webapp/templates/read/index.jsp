@@ -272,7 +272,7 @@
 	function showResponses(responses) {
 		var $responses = $("<ul>", {id: "responses_list"});
 		var $delete_button = $("<button>", {class: "delete-symbol", html: "&#9003;"});
-		var $responses_header = $("<h5>Related stories:</h5>");
+		var $responses_header = $("<h5><span>Related stories:</span></h5>");
 		
 		$.each(responses, function(index, value) {
 			getUserFromBookId(value.id);
@@ -346,6 +346,16 @@
 		$(".phototext-wrapper").imgLiquid({ fill: true });
 		$(".vertical-wrapper .draggable-placeholder").imgLiquid({ fill: true });
 		$(".photo-wrapper .page-bg-wrapper").css("top", $vH / 2 - 200 + "px");
+		
+		//backcover response list//
+		listSize = $("#responses_list li").size();
+		$(".backcover-wrapper #responses_list").wrap("<div id=\"backcover-responses-list\"><a>("+listSize+" responses)</a></div>");
+		$("#backcover-responses-list a").click(function(){
+			$("#responses_list").show();
+			$("#responses_list").mouseleave(function(){
+				$("#responses_list").hide();
+			});
+		});
 		
 		//only using this method inside of books because of some weird click overwrites//
 		$(".vote-notification a").click(function(){

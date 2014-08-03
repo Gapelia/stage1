@@ -5873,7 +5873,7 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .button-wrapper {
   bottom: 25%; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .page-bg {
-  height: 100%; }
+  height: 100% !important; }
 .book-creation #book-creation-wrapper #create-book #create-content .overlay-preview-wrapper .overlay-preview {
   width: 100%;
   height: 100%;
@@ -7940,6 +7940,66 @@ a.count span.dont-move {
   opacity: 0.8;
   position: absolute;
   z-index: 0; }
+.full-book .backcover-wrapper #responses_list {
+  background: white;
+  border-radius: 5px;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  width: 450px; }
+.full-book .backcover-wrapper #responses_list #cancel-response-deletion {
+  background-color: green !important;
+  display: inline-block !important; }
+.full-book .backcover-wrapper #responses_list #confirm-response-deletion {
+  background-color: red !important;
+  margin: 0 5px 0 5px !important; }
+.full-book .backcover-wrapper #responses_list .delete-symbol {
+  background-color: transparent !important;
+  color: black !important;
+  opacity: 0.7;
+  padding: 5px 0 5px 5px !important; }
+.full-book .backcover-wrapper #responses_list li {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0; }
+.full-book .backcover-wrapper #responses_list li:first-child {
+  margin-top: 0; }
+.full-book .backcover-wrapper #responses_list li a {
+  text-transform: capitalize; }
+.full-book .backcover-wrapper #responses_list li a:hover {
+  opacity: 1; }
+.full-book .backcover-wrapper #responses_list li a #response-author {
+  font-size: 1rem;
+  margin-left: 5px;
+  opacity: 0.75; }
+.full-book .backcover-wrapper #responses_list li a #response-author:before {
+  content: "by";
+  margin-right: 5px; }
+.full-book .backcover-wrapper #responses_list p {
+  font-size: 1rem;
+  left: 0;
+  border-top: 1px solid rgba(25, 25, 25, 0.3) !important;
+  padding-top: 10px;
+  width: 100%; }
+.full-book .backcover-wrapper #responses_list p button {
+  font-size: 10px; }
+.full-book .backcover-wrapper #response-button, .full-book .backcover-wrapper #backcover-responses-list {
+  position: absolute;
+  right: 105%;
+  top: 1rem; }
+.full-book .backcover-wrapper #backcover-responses-list {
+  color: black;
+  text-align: center;
+  top: 3.5rem !important;
+  width: 105px; }
+.full-book .backcover-wrapper #backcover-responses-list a:hover {
+  opacity: 1 !important; }
+.full-book .backcover-wrapper #backcover-responses-list #responses_list {
+  display: none;
+  padding: 10px; }
+.full-book .backcover-wrapper #backcover-responses-list #responses_list span {
+  display: none; }
 .full-book #next-book {
   float: right;
   font-size: 1.2rem;
