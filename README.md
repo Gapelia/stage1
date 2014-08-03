@@ -2,8 +2,10 @@ alpha branch
 ======
 
 # Tomcat Configuration
-add this to your catalina.sh (Debian/Ubuntu: /usr/share/tomcat7/bin)
+add this to your ```catalina.sh``` (Debian/Ubuntu: /usr/share/tomcat7/bin)
+```bash
 JAVA_OPTS="$JAVA_OPTS -DgapeliaMode=local -DgapeliaDummy=true"
+```
 
 # Amazon S3
 ## Bucket Policy
