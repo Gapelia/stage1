@@ -86,7 +86,7 @@
         <!--//main-panel /-->
 
         <!--/ main-scroller /-->
-        <div id="book-scroller" style="z-index: 100;">
+        <div id="book-scroller" style="z-index: -1;">
             <!--/ your-books /-->
 	    	<div class="scrollbar">
 			<div class="handle">
@@ -145,21 +145,21 @@
          // Splash page
         function load() {
 
-            h = $(this).outerHeight() - 92;
-            $(".book").css("height", h);
-            // Splash page
-            $(function () {
+        h = $(this).outerHeight() - 92;
+        $(".book").css("height", h);
+        // Splash page
+        $(function () {
 		
 		
-                stuff = "";
-                stuff += "<section id=\"user-splash\">";
-                stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
-                stuff += "</div></div>";
-                stuff += "<div id=\"splash-user-info\">";
-                stuff += "<h1 id=\"user-name\"></h1>";
-                stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" contenteditable=\"false\"></div>";
-                stuff += "<h5 id=\"recently-published\"></h5>";
-                stuff += "<h5 id=\"contributes-to\"></h5></div>";
+        stuff = "";
+        stuff += "<section id=\"user-splash\">";
+        stuff += "<div class=\"user-avatar\"><div class=\"avatar-wrapper\">";
+        stuff += "</div></div>";
+        stuff += "<div id=\"splash-user-info\">";
+        stuff += "<h1 id=\"user-name\"></h1>";
+        stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" contenteditable=\"false\"></div>";
+        stuff += "<h5 id=\"recently-published\"></h5>";
+        stuff += "<h5 id=\"contributes-to\"></h5></div>";
 		stuff += "<ul id=\"user-extra\">";
 		stuff += "<li id=\"location\"></li>"
 		stuff += "<li id=\"university\"></li>"
@@ -167,17 +167,18 @@
 		stuff += "<li><a id=\"website\"  target=\"blank\"  href=\"" +user.personalWebsite+ "\"></a></li>"
 		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
 		stuff += "</ul></div>";
-                stuff += "</div>";
+        stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
-		
-                stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
-                stuff += "</section>";
-
-                $("#mp-pusher").prepend(stuff);
+        stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
+		if ($vW < "1025") {
+			stuff += "<div id=\"book-scroller\" style=\"z-index: 10;\"><div class=\"scrollbar\"><div class=\"handle\"><div class=\"mousearea\"></div></div></div><div class=\"user-book-list-wrapper\"><ul id=\"user-book-list\"></ul></div></div>";
+		}		
+        stuff += "</section>";
+        $("#mp-pusher").prepend(stuff);
 		
 		getUserMe();
 		isFollowing();
@@ -218,14 +219,18 @@
 
             $(function () {
 
-                var $vW = $(window).width(),
-                    $vH = $(window).height();
+            var $vW = $(window).width(),
+                $vH = $(window).height();
 
-                // Dropdown menu for mobile
-                if ($vW < "1025") {
+            // Dropdown menu for mobile
+            if ($vW < "1025") {
 		    $("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 		    $("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
-		    
+		    $("#mp-pusher").css({
+				"overflow-y": "scroll",
+				"overflow-x": "hidden"
+			});
+			
 		    //follow/unfollow buttons//
 		    if (alreadyFollowing) {
 			    $("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");

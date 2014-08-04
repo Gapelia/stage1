@@ -502,7 +502,8 @@ function getUserCreatedBooks() {
 			if (toInsert == "") {
 				(elem = document.getElementById('close-splash')).parentNode.removeChild(elem);
 			}
-			$("#user-book-list").html(toInsert);
+		    $("#user-book-list").html(toInsert);
+			
 			var w = 0,
 			h = 0;
 

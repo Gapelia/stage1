@@ -10404,8 +10404,6 @@ a.count span.dont-move {
     font-size: 0.9rem;
     line-height: 1.5; }
 
-  .profile #book-scroller {
-    z-index: 100000000 !important; }
   .profile .follow, .profile .unfollow {
     font-size: 0.75rem;
     position: absolute !important;
@@ -10548,7 +10546,7 @@ a.count span.dont-move {
   .profile .super-wrapper {
     background-color: white; }
   .profile #book-scroller {
-    top: 100%; }
+    top: 250%; }
   .profile #user-panel #g-menu-toggle {
     width: 13.5%; }
   .profile .user-avatar .avatar-wrapper {
@@ -10561,7 +10559,6 @@ a.count span.dont-move {
   .profile #user-splash .avatar-wrapper #splash-edit-profile {
     display: none !important; }
   .profile #user-splash #contributes-to {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 1rem; }
   .profile #user-splash #splash-user-bio {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -10815,10 +10812,13 @@ a.count span.dont-move {
     box-shadow: none;
     padding: 1.3rem; }
   .app .book .author-avatar, .app .collection .author-avatar, .app .library .author-avatar {
-    height: 35px;
-    width: 35px;
+    height: 35px !important;
+    width: 35px !important;
     margin: 0;
-    margin-top: 4px; }
+    margin-top: 4px;
+    display: inline !important;
+    left: 0 !important;
+    position: relative !important; }
   .app .book:hover .book-title, .app .book:hover .library-location, .app .book:hover .author-name, .app .book:hover .library-info, .app .book:hover .collection-info, .app .collection:hover .book-title, .app .collection:hover .library-location, .app .collection:hover .author-name, .app .collection:hover .library-info, .app .collection:hover .collection-info, .app .library:hover .book-title, .app .library:hover .library-location, .app .library:hover .author-name, .app .library:hover .library-info, .app .library:hover .collection-info {
     text-shadow: none !important; }
   .app .book .book-title, .app .book .book-info, .app .book .library-location, .app .book .collection-info, .app .book .library-info, .app .collection .book-title, .app .collection .book-info, .app .collection .library-location, .app .collection .collection-info, .app .collection .library-info, .app .library .book-title, .app .library .book-info, .app .library .library-location, .app .library .collection-info, .app .library .library-info {
@@ -10940,12 +10940,13 @@ a.count span.dont-move {
   .app #user-splash {
     background-image: none !important; }
   .app #user-splash img {
-    display: block !important;
     height: 240px;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%; }
+  .app #user-splash .page-bg {
+    display: block !important; }
   .app #user-splash:after {
     background-image: none !important; }
   .app #user-splash .user-avatar {
