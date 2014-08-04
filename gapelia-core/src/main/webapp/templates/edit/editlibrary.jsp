@@ -135,7 +135,6 @@
 				</section>
 			</div>
 		</div>
-			<img class="page-bg" src="/static/images/cover-bg.jpg" />
 		</section>
 		<!--//library-editing /-->
 
@@ -158,12 +157,16 @@
 				$('.spinner').show();
 				$('#new-library').css('background-image', 'url("https://s3.amazonaws.com/' + metadata.container + '/' + metadata.path + '")');
 				$('.page-bg').attr('src', url).attr('data-adaptive-background', '1');
-				$('#new-library').imgLiquid({ fill: true });
 				$('.page-bg').bind('load', function () { 
 					$('.spinner').hide();
 				});
 			});
 		}
+		
+		//retrieving cover photo and inserting in css//
+		setTimeout (function(){
+			$('#new-library').css('background-image','url('+library.coverPhoto+')');	
+		}, 1000);
 
 		if ($vW > "1024") {
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
@@ -178,8 +181,7 @@
 			length: 10
 		}).spin(document.getElementById("new-library"));
 
-		$(function () {
-
+		$(function () {	
 			var third = getNotifications();
 			editLibrary();
 			// Click "Save" button
@@ -207,12 +209,11 @@
 	
 	
 	// Delete library
-		$("#delete-this-library").click(function () {
-			$("#delete-library-confirm").show();
+	$("#delete-this-library").click(function () {
+		$("#delete-library-confirm").show();
 
-			e.preventDefault();
-			});
-
+		e.preventDefault();
+	});	
 
 	// Confirm library deletion
 		$(".yay-delete-library").click(function () {
