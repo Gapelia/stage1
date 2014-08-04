@@ -298,7 +298,7 @@
                 "z-index": "0",
                 "top": "-1rem"
             })
-        }
+        }   
         
         if ($vW > "1919") {
             $("#featured-nav .typeahead").css("cssText", "left: 14rem !important");

@@ -707,7 +707,7 @@
 		margin: 0; padding: 0;
 
 		overflow-x: hidden;
-		overflow-y: auto;
+		overflow-y: hidden;
 	}
 
 	//// Landing (homepage + 404) ///
@@ -1133,7 +1133,7 @@
 
 			.library-info, .draft-info, .featured-info {
 				padding: 0 4rem;
-				top: 22%;
+				top: 30%;
 
 				.title, .lib-blurb { padding: 0; }
 
@@ -1418,6 +1418,15 @@
 		top: 0;
 		width: 100%;
 		display: block !important;
+	}
+	
+	body.library-manager {
+		.library .wrapper {
+			padding: 0 1rem 0 0;
+			text-align: right;
+			top: 1rem;
+		}
+		#featured-scroller { padding-bottom: 4rem; }
 	}
 	
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -2466,6 +2475,11 @@
 				h2 { font-size: 2.5rem; }
 				
 				p { font-size: 1.2rem; }
+				
+				#library-extra {
+					position: absolute;
+					width: 100%;
+				}
 			}
 		}
 		
@@ -2501,6 +2515,10 @@
 		}
 	}
 	
+	body.library-manager {
+		.library .library-info { top: 22%; }
+	}
+	
 	.onboard #onboard-photos-overlay #user-info {
 		padding: 0 4rem;
 	}
@@ -2514,7 +2532,7 @@
 				height: 475px;
 				
 				.page-bg {
-					height: 100%; width: auto;
+					height: auto; width: 100%;
 				}
 			}
 			
@@ -2786,7 +2804,7 @@
 			padding: 0;
 			#library-info {
 				left: 7%;
-				top: 36%;
+				top: 30%;
 				width: 85%;
 				
 				h2 { font-size: 2rem; }
@@ -2840,6 +2858,14 @@
 			}
 		}
 		
+	}
+	
+	body.library-manager {
+		.library .library-info {
+			top: 30%;
+		
+			.lib-blurb { font-size: 1rem; }
+		}
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
@@ -3099,6 +3125,8 @@
 			
 			#close-splash { left: 44% !important; }
 			
+			#featured-library a { display: inline-block !important; }
+			
 			#library-info {
 				left: 5%; width: 90%;
 			}
@@ -3219,11 +3247,19 @@
 		.switchery { margin: 0.5rem 6.5rem; left: 1rem; }
 	}	
 	
-	body.library-manager .library .wrapper {
-		bottom: 0; top: 1rem;
-		height: 50px;
-		padding-right: 0.5rem;
-		text-align: center;
+	body.library-manager .library {
+		.library-info {
+			padding: 5px;
+			
+			.lib-blurb { font-size: 0.95rem; }
+		}
+		
+		.wrapper {
+			bottom: 0; top: 1rem;
+			height: 50px;
+			padding-right: 0.5rem;
+			text-align: right;
+		}
 	}
 	
 	.full-book {
@@ -3355,8 +3391,6 @@
 		#library-splash {
 			p { font-size: 1rem; }
 			span { font-size: 1rem !important; }
-			
-			#library-info { top: 40%; }
 		}
 		
 		//onboarding process//
@@ -3371,9 +3405,20 @@
 		
 		#nav-wrapper { display: none !important; }
 		
-		.library .wrapper {
-			text-align: right;
-			top: 0.5rem;
+		.library {
+			height: 220px !important;
+			
+			.library-info {
+				padding: 0;
+				top: 29%;
+				
+				.lib-blurb { font-size: 0.9rem; }
+			}
+			
+			.wrapper {
+				text-align: right;
+				top: 6px !important;
+			}
 		}
 	}
 	
@@ -3712,7 +3757,6 @@
 			}
 
 			#featured-info { top: 50%; }
-			#library-info { top: 50%; }
 		}
 
 		#library-splash {
@@ -3723,7 +3767,6 @@
 				p {
 					font-size: 0.9rem;
 					text-align: center;
-					border-bottom: 1px solid rgba(255, 255, 255, 0.44);
 					padding: 10px 0 12px 0 !important;
 				}
 				
@@ -3868,7 +3911,6 @@
 			}
 
 			.library-info {
-				top: 0 !important;
 				
 				a {color: $white !important;}
 				
@@ -4054,15 +4096,21 @@
 	.onboard #onboard-photos-overlay #user-info #user-bio { padding: 0; }
 
 	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
-
-	body.library-manager .library .wrapper {
-		margin: 0;
-		text-align: center !important;
-		top: 0rem !important;
-	}
 	
-	body.library {
+	body.library-manager {
 		.library-list-wrapper { z-index: 0; top: -1rem !important; }
+		
+		.library {
+			padding: 1rem 0 0 0;
+			
+			.library-info { top: 15%; }
+			
+			.wrapper {
+				margin: 0 !important;
+				position: absolute !important;
+				top: 0.5rem;
+			}
+		}
 	}
 	
 	.library {
@@ -4071,7 +4119,6 @@
 			
 			#library-info {
 				left: 0;
-				top: 43%;
 				width: 100%;
 			}
 			

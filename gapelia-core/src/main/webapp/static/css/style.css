@@ -8693,7 +8693,7 @@ a.count span.dont-move {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    overflow-y: auto; }
+    overflow-y: hidden; }
 
   body.landing .super-wrapper {
     padding: 20%; }
@@ -9012,7 +9012,7 @@ a.count span.dont-move {
     padding-bottom: 1rem !important; }
   .app .book .library-info, .app .book .draft-info, .app .book .featured-info, .app .collection .library-info, .app .collection .draft-info, .app .collection .featured-info, .app .library .library-info, .app .library .draft-info, .app .library .featured-info {
     padding: 0 4rem;
-    top: 22%; }
+    top: 30%; }
   .app .book .library-info .title, .app .book .library-info .lib-blurb, .app .book .draft-info .title, .app .book .draft-info .lib-blurb, .app .book .featured-info .title, .app .book .featured-info .lib-blurb, .app .collection .library-info .title, .app .collection .library-info .lib-blurb, .app .collection .draft-info .title, .app .collection .draft-info .lib-blurb, .app .collection .featured-info .title, .app .collection .featured-info .lib-blurb, .app .library .library-info .title, .app .library .library-info .lib-blurb, .app .library .draft-info .title, .app .library .draft-info .lib-blurb, .app .library .featured-info .title, .app .library .featured-info .lib-blurb {
     padding: 0; }
   .app .book .library-info .title, .app .book .draft-info .title, .app .book .featured-info .title, .app .collection .library-info .title, .app .collection .draft-info .title, .app .collection .featured-info .title, .app .library .library-info .title, .app .library .draft-info .title, .app .library .featured-info .title {
@@ -9213,6 +9213,13 @@ a.count span.dont-move {
     top: 0;
     width: 100%;
     display: block !important; }
+
+  body.library-manager .library .wrapper {
+    padding: 0 1rem 0 0;
+    text-align: right;
+    top: 1rem; }
+  body.library-manager #featured-scroller {
+    padding-bottom: 4rem; }
 
   .g-body hr {
     display: none; }
@@ -9964,6 +9971,9 @@ a.count span.dont-move {
     font-size: 2.5rem; }
   .app #library-splash #library-info p {
     font-size: 1.2rem; }
+  .app #library-splash #library-info #library-extra {
+    position: absolute;
+    width: 100%; }
   .app #user-splash #close-splash {
     left: 48% !important; }
   .app #user-splash .user-avatar {
@@ -9981,14 +9991,17 @@ a.count span.dont-move {
   .app #university-affiliation {
     padding: 12rem 4rem; }
 
+  body.library-manager .library .library-info {
+    top: 22%; }
+
   .onboard #onboard-photos-overlay #user-info {
     padding: 0 4rem; }
 
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
   .full-book .fluid-wrapper .draggable-placeholder .page-bg {
-    height: 100%;
-    width: auto; }
+    height: auto;
+    width: 100%; }
   .full-book .fluid-wrapper .fluid-preview {
     padding: 1rem 2rem 2rem 2rem; }
   .full-book .fluid-wrapper .fluid-preview .page-title-elem, .full-book .fluid-wrapper .fluid-preview .page-desc {
@@ -10152,7 +10165,7 @@ a.count span.dont-move {
     padding: 0; }
   .app #library-splash #library-info {
     left: 7%;
-    top: 36%;
+    top: 30%;
     width: 85%; }
   .app #library-splash #library-info h2 {
     font-size: 2rem; }
@@ -10187,6 +10200,11 @@ a.count span.dont-move {
   .modal-login #login-platforms li {
     display: block;
     margin: 0 0 1rem 0; }
+
+  body.library-manager .library .library-info {
+    top: 30%; }
+  body.library-manager .library .library-info .lib-blurb {
+    font-size: 1rem; }
 
   .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution {
     top: 1.12rem; }
@@ -10337,6 +10355,8 @@ a.count span.dont-move {
     display: none; }
   .app #library-splash #close-splash {
     left: 44% !important; }
+  .app #library-splash #featured-library a {
+    display: inline-block !important; }
   .app #library-splash #library-info {
     left: 5%;
     width: 90%; }
@@ -10414,12 +10434,16 @@ a.count span.dont-move {
     margin: 0.5rem 6.5rem;
     left: 1rem; }
 
+  body.library-manager .library .library-info {
+    padding: 5px; }
+  body.library-manager .library .library-info .lib-blurb {
+    font-size: 0.95rem; }
   body.library-manager .library .wrapper {
     bottom: 0;
     top: 1rem;
     height: 50px;
     padding-right: 0.5rem;
-    text-align: center; }
+    text-align: right; }
 
   .full-book .fluid-wrapper .author-info .author-name a {
     margin-left: 10px; }
@@ -10503,8 +10527,6 @@ a.count span.dont-move {
     font-size: 1rem; }
   .app #library-splash span {
     font-size: 1rem !important; }
-  .app #library-splash #library-info {
-    top: 40%; }
   .app #university-affiliation {
     padding: 8rem 2rem; }
   .app #intro {
@@ -10512,9 +10534,16 @@ a.count span.dont-move {
 
   body.library-manager #nav-wrapper {
     display: none !important; }
+  body.library-manager .library {
+    height: 220px !important; }
+  body.library-manager .library .library-info {
+    padding: 0;
+    top: 29%; }
+  body.library-manager .library .library-info .lib-blurb {
+    font-size: 0.9rem; }
   body.library-manager .library .wrapper {
     text-align: right;
-    top: 0.5rem; }
+    top: 6px !important; }
 
   .profile .super-wrapper {
     background-color: white; }
@@ -10727,8 +10756,6 @@ a.count span.dont-move {
     padding: 0; }
   .app #featured-splash #featured-info, .app #library-splash #featured-info, .app #user-splash #featured-info {
     top: 50%; }
-  .app #featured-splash #library-info, .app #library-splash #library-info, .app #user-splash #library-info {
-    top: 50%; }
   .app #library-splash button {
     font-size: 0.6rem; }
   .app #library-splash #library-info h2 {
@@ -10736,7 +10763,6 @@ a.count span.dont-move {
   .app #library-splash #library-info p {
     font-size: 0.9rem;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.44);
     padding: 10px 0 12px 0 !important; }
   .app #library-splash #library-info span {
     font-size: 0.9rem !important;
@@ -10837,8 +10863,6 @@ a.count span.dont-move {
     color: rgba(25, 25, 25, 0.9);
     line-height: 1.2rem;
     margin: 0; }
-  .app .book .library-info, .app .collection .library-info, .app .library .library-info {
-    top: 0 !important; }
   .app .book .library-info a, .app .collection .library-info a, .app .library .library-info a {
     color: #fcfcfc !important; }
   .app .book .library-info .lib-blurb, .app .collection .library-info .lib-blurb, .app .library .library-info .lib-blurb {
@@ -10966,18 +10990,20 @@ a.count span.dont-move {
   .onboard #onboard-photos-overlay #user-info #user-bio {
     padding: 0; }
 
-  body.library-manager .library .wrapper {
-    margin: 0;
-    text-align: center !important;
-    top: 0rem !important; }
-
-  body.library .library-list-wrapper {
+  body.library-manager .library-list-wrapper {
     z-index: 0;
     top: -1rem !important; }
+  body.library-manager .library {
+    padding: 1rem 0 0 0; }
+  body.library-manager .library .library-info {
+    top: 15%; }
+  body.library-manager .library .wrapper {
+    margin: 0 !important;
+    position: absolute !important;
+    top: 0.5rem; }
 
   .library #library-splash #library-info {
     left: 0;
-    top: 43%;
     width: 100%; }
   .library #library-splash #library-share {
     display: none; }

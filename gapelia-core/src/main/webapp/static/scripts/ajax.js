@@ -1138,15 +1138,15 @@ function getLibrary() {
 				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/>";
 			}
 			if (contributors.length != 0) {
-				toInsert += "<a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+				toInsert += "<a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;
 			} else {
-				toInsert += "</h1><h2>" + library.title + "</h2><p>" + library.description + "</p>";
+				toInsert += "</h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;
 			}
 			if (featuredBookTitle == "") {
-				toInsert += "<section><a id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></div>";
+				toInsert += "<section><a id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></p></div></div>";
 			} else {
 				toInsert += "<section><div id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\">";
-				toInsert += "<a href=\"/"+bookOwner.displayName+"\"><img id=\"featured-avatar\" src=\""+bookOwner.avatarImage+"\"></a><a href=\"/read/"+featuredBookId+"\">" + featuredBookTitle + "</a>" + getUserFromBookIdForFeaturedBook(bookId) + "</div></section></div>";
+				toInsert += "<a href=\"/"+bookOwner.displayName+"\"><img id=\"featured-avatar\" src=\""+bookOwner.avatarImage+"\"></a><a href=\"/read/"+featuredBookId+"\">" + featuredBookTitle + "</a>" + getUserFromBookIdForFeaturedBook(bookId) + "</div></section></p></div></div>";
 				if ($vW > "1024") {
 					toInsert += "<div id=\"close-splash\"></div>";
 				} else {
