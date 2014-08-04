@@ -3183,9 +3183,9 @@ function getContributedTo() {
 
 function updateBookAndPages(isPublished) {
 	tags = '';
+	//snippet = $(".add-description").html();
 	if(typeof snippet == 'undefined') snippet = ""; 
 	if (isPublished == true) {
-
 		var elms = $(".selectize-input div");
 		elms.each(function (i) {
 			var elm = $(this);
@@ -3193,6 +3193,7 @@ function updateBookAndPages(isPublished) {
 		});
 		tags = tags.substring(0, tags.length - 1);
 	}
+	console.log(snippet);
 	$.ajax({
 		url: "/api/books/updateBook",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",

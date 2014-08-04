@@ -345,9 +345,8 @@
 		
 		$("#publish-this").on("click", function () {
 			snippet = $(".add-description").html();
-			
+			console.log(snippet);
 			freshPublishedBook = getUserDraftsArray()[0];
-			console.log(freshPublishedBook);
 			if (typeof freshPublishedBook !== "undefined" && freshPublishedBook !== null) { 
 		    	getUserFromBookId(freshPublishedBook.bookId);
 		  	}
