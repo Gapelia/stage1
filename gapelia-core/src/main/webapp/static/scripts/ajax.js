@@ -3183,7 +3183,7 @@ function getContributedTo() {
 
 function updateBookAndPages(isPublished) {
 	tags = '';
-	snipped = $(".add-description").html();
+	if(typeof snippet == 'undefined') snippet = ""; 
 	if (isPublished == true) {
 
 		var elms = $(".selectize-input div");
