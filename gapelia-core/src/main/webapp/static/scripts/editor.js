@@ -381,13 +381,20 @@
 			$('.spinner').show(); 
 			$($('#pages-scroller li section img')[currentPage]).attr('src', 'https://s3.amazonaws.com/'+ metadata.container + '/'+metadata.path); 
 			$('.page-bg').attr('src', 'https://s3.amazonaws.com/'+ metadata.container + '/'+metadata.path).attr('data-adaptive-background', '1'); 
-			$('.fluid-preview-wrapper').imgLiquid({ fill: true }); 
 			$('.page-bg').bind('load', function () { 
 				$('.fluid-preview').css('top', '75%'); 
 				$('.fluid-preview article').css('padding', '0 0 4rem 0'); 
 				$('.spinner').hide(); 
 				$('.image-attribution').css('display', 'block'); 
-				$('.button-wrapper').css({ 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center' }); 
+				$('.button-wrapper').css({ 'top': 'initial', 'opacity': '0', 'position': 'absolute', 'text-align': 'center' });
+				$(".draggable-placeholder .button-wrapper").css({
+						"bottom": "8%",
+						"margin-top": "300px",
+						"position": "absolute",
+						"text-align": "center",
+						"top": "inherit",
+						"width": "100%"
+				});	
 				$('.page-bg, .button-wrapper, button.photo-picker').css('opacity', '1'); 
 				$('.page-bg').css('display', 'block').css('position', 'absolute'); 
 				$('.image-attribution').show().text('Add photo credit?'); 
@@ -431,11 +438,11 @@
 
 		} else {
 
-			insert += "<section class=\"fluid-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + ");";
+			insert += "<section class=\"fluid-preview-wrapper\">";
 
-			insert += "background-size: cover; background-position: center center; background-repeat: no-repeat; height: 75%;\"><section class=\"draggable-placeholder\">";
+			insert += "<section class=\"draggable-placeholder\">";
 
-			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
+			insert += "<img class=\"page-bg\" style=\"height: auto; width: 100%; display: block; opacity: 1;\" src=\"" + imageURL + "\" alt=\"\" data-adaptive-background=\"1\" style=\"1\"/>";
 
 			insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; insertCoverImage(url); \"></div>";
 
@@ -891,9 +898,7 @@
 
 		var insert = "";
 
-		// insert += "<section class=\"phototext-preview-wrapper\">";
-
-		insert += "<section class=\"phototext-preview-wrapper imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + imageURL + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;\">";
+		insert += "<section class=\"phototext-preview-wrapper\">";
 
 		if (imageURL == "static/images/grayBG.png") {
 			insert += "<span class=\"image-attribution\" style=\"background: transparent;\"></span>";
@@ -904,7 +909,7 @@
 		if (imageURL == null) {
 			insert += "<img class=\"page-bg\" src=\"static/images/grayBG.png\" alt=\"\"/>";
 		} else {
-			insert += "<img class=\"page-bg\" src=\"" + imageURL + "\" alt=\"\"/>";
+			insert += "<img class=\"page-bg\" style=\"display: block;\" src=\"" + imageURL + "\" alt=\"\"/>";
 		}
 
 		insert += "<div class=\"button-wrapper\"><input class=\"photo-picker\" type=\"filepicker\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,FACEBOOK,FLICKR, DROPBOX, GOOGLE_DRIVE, PICASA, IMAGE_SEARCH\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; insertCoverImage(url);\"></div>";
