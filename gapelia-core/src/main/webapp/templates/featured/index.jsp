@@ -426,53 +426,41 @@
 			slyBookWrapper.init();
 		}
 
-			// Dropdown menu for mobile
-			if ($vW < "1025") {
-
+		// Dropdown menu for mobile
+		if ($vW < "1025") {
 				$("#featured-scroller").css("cssText", "overflow-y: scroll !important");
-
 				$(".bookmark-list-wrapper, .following-list-wrapper").remove();
-
 				$("#featured-panel .featured-info").remove();
+				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
+				$("#featured-scroller").css({"z-index": "10"})
+				$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
+				$(".book-list-wrapper").append("<div id=\"footer-menu\"><ul><li><a href=\"/libraryManager\">Explore Libraries</a></li><li><a href=\"/me\">My Profile</a></li><li><a href=\"/accounts\">Account Settings</a></li><li><a href=\"/#\">Log Out</a></li></ul></div>")
 
-				$("#book-list").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
+				// Log Out
+				$("#logout").click(function (e) {
+					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+					window.location = "";
+				});
+		}
 
-		// Log Out
-		$("#logout").click(function (e) {
-			document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-			window.location = "";
-		});
-	}
-
-	if ($vW < "1025") {
-		$(".book-list-wrapper").css({
-			"top": "450px",
-			"background-color": "white"
-		})
-		
-		$("#featured-scroller").css({"z-index": "10"})
-		
-		$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
-	}
-
-	if ($vW < "361") {
-		$(".book-snippet").css("display", "block")
-		$(".book-list-wrapper").css({
-			"top": "300px",
-			"background-color": "white"
-		})
-	}
-
-	if ($vW > "1599") {
-		$("#contactable-contactForm").css("cssText", "top: 76% !important");
-	}
-
-	if ($vW > "1919") {
-		$("#book-list, #bookmark-list, #following-list").css("cssText", "width: 12000px !important");
-		$("#book-list").css("cssText", "display: block !important");
-		$("#featured-nav .tt-dropdown-menu").css("cssText", "margin-left: 90% !important");
-		$(".app .following-list-wrapper img").css("cssText", "left: 37% !important");
-	}
+		if ($vW < "361") {
+			$(".book-snippet").css("display", "block")
+			$(".book-list-wrapper").css({
+				"top": "300px",
+				"background-color": "white"
+			})
+		}
+	
+		if ($vW > "1599") {
+			$("#contactable-contactForm").css("cssText", "top: 76% !important");
+		}
+	
+		if ($vW > "1919") {
+			$("#book-list, #bookmark-list, #following-list").css("cssText", "width: 12000px !important");
+			$("#book-list").css("cssText", "display: block !important");
+			$("#featured-nav .tt-dropdown-menu").css("cssText", "margin-left: 90% !important");
+			$(".app .following-list-wrapper img").css("cssText", "left: 37% !important");
+		}
 
 		//imacs specs//
 		if ($vH > "1079") {
@@ -639,21 +627,21 @@
 
 				}, 1000);
 
-e.preventDefault();
+		e.preventDefault();
+		
+		$("#nav-books").removeClass("current");
+		$("#nav-following").removeClass("current");
+		$("#nav-bookmarks").addClass("current");
+		
+		NProgress.done();
+		
+		
+		
+		
+		});
 
-$("#nav-books").removeClass("current");
-$("#nav-following").removeClass("current");
-$("#nav-bookmarks").addClass("current");
-
-NProgress.done();
-
-
-
-
-});
-
-	// Click "Following"
-	$("#nav-following").click(function (e) {
+		// Click "Following"
+		$("#nav-following").click(function (e) {
 
 		NProgress.start();
 
@@ -765,24 +753,24 @@ NProgress.done();
 			});  
 		});
 		
-	}, 1000);
+		}, 1000);
 
-e.preventDefault();
+		e.preventDefault();
+		
+		$("#nav-books").removeClass("current");
+		$("#nav-following").addClass("current");
+		$("#nav-bookmarks").removeClass("current");
+		
+		NProgress.done();
+		
+		});
+		}
 
-$("#nav-books").removeClass("current");
-$("#nav-following").addClass("current");
-$("#nav-bookmarks").removeClass("current");
-
-NProgress.done();
-
-});
-}
-
-	//code to make draft deletion work here...for some reason it wasnt working from ajax.js
-	//TODO: doesn't work at Tims computer - fix this later
-	setTimeout(function () {
-
-	}, 3000);	
+		//code to make draft deletion work here...for some reason it wasnt working from ajax.js
+		//TODO: doesn't work at Tims computer - fix this later
+		setTimeout(function () {
+	
+		}, 3000);	
 </script>
 <!--//scripts /-->
 
