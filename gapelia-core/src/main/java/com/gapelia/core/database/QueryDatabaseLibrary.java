@@ -31,11 +31,7 @@ public class QueryDatabaseLibrary {
 	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
     private static final String IS_VALID_LIBRARYID = "SELECT 1 FROM libraries WHERE id = ?";
     private static final String GET_LIBRARY_CONTRIBUTORS = "select distinct users.* from users join books on users.id = books.owned_by join library_books on books.id = library_books.book_id where library_books.library_id = ?";
-
-	private static final String MOST_VOTED_BOOK = "select library_books.book_id from library_books left join (select count(book_id) " +
-			"as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id " +
-			"where library_id = ? limit 1";
-
+	private static final String GET_MOST_VOTED_BOOKS = "select library_books.book_id from library_books left join (select count(book_id) as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id where library_id = ? limit ?";
 
     public static boolean isValidLibraryId(int libraryId) {
         PreparedStatement insert = null;
@@ -173,25 +169,24 @@ public class QueryDatabaseLibrary {
 		return num;
 	}
 
-	/**
-	 *
-	 * returns the most voted book in the library -- if it returns null it means there are none that fit that criteria!
-	 *
-	 * @param library_id
-	 * @return
-	 */
-	public static Book getMostVotedBookInLibrary(int library_id) {
+	public static ArrayList<Book> getMostVotedBooksInLibrary(int library_id, int limit) {
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		Book book = null;
+        ArrayList<Book> bookList = null;
 		try {
-			statement = connection.prepareStatement(MOST_VOTED_BOOK);
+			statement = connection.prepareStatement(GET_MOST_VOTED_BOOKS);
 			statement.setInt(1, library_id);
+            statement.setInt(2, limit);
 			rs = statement.executeQuery();
-			if (rs.next()) {
-				int book_id = rs.getInt(1);
-				book = QueryDatabaseUser.getBookByID(book_id);
+
+            bookList = new ArrayList<Book>();
+
+            while (rs.next()) {
+				int book_id = rs.getInt("book_id");
+				Book book = QueryDatabaseUser.getBookByID(book_id);
+                bookList.add(book);
 			}
+
 		} catch (Exception ex) {
 			LOG.error("ERROR getting most voted book in library:" + library_id, ex);
 		} finally {
@@ -206,7 +201,7 @@ public class QueryDatabaseLibrary {
 				LOG.error("Error closing connection " + library_id + " " + ex.getMessage());
 			}
 		}
-		return book;
+        return bookList;
 	}
 
 	public static ArrayList<Library> getAllLibraries() {

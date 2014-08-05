@@ -1030,24 +1030,20 @@ function loadMoreSubmissions(count,items) {
 	return items.append(toInsert);
 }
 
-function getFeaturedBook() {
-	featuredBookTitle = '';
-	featuredBookId= '';
+function getMostVotedBooksInLibrary(limit) {
+	var featuredBooks = null;
 	$.ajax({
-		url: "/api/libraries/getMostVotedBookInLibrary",
+		url: "/api/libraries/getMostVotedBooksInLibrary",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		async: false,
 		data: {
-			libraryId: libraryId
+			libraryId: libraryId,
+			limit: limit
 		},
 		success: function (data) {
-
-			if(data != null){
-				featuredBookTitle = data.title;
-				featuredBookId = data.bookId;
-			}
-
+		    console.log(data);
+			featuredBooks = data;
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -1057,12 +1053,13 @@ function getFeaturedBook() {
 			}
 		}
 	});
+	return featuredBooks;
 }
 
 function getLibrary() {
 	libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
 	sessionId = readCookie("JSESSIONID");
-	getFeaturedBook();
+	featuredBooks = getMostVotedBooksInLibrary(2);
 	$.ajax({
 		url: "/api/libraries/getLibrary",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -1074,7 +1071,6 @@ function getLibrary() {
 		success: function (data) {
 			library = data;
 			userName = libraryOwner.name;
-			bookId = featuredBookId;
 			currentWebsite = document.URL;
 			facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/library/' + libraryId;
 			twitterShare = "http://twitter.com/share?text="+library.title+" edited by "+ libraryOwner.fullName;"&url=http://folio.is/library" + libraryId;
@@ -1083,10 +1079,6 @@ function getLibrary() {
 			var ownThisLibrary = false;
 			
 			getLibraryContributors(libraryId);
-
-			if(featuredBookId != ""){
-				getUserFromBookIdForFeaturedBook(bookId);
-			}
 			
 			if (typeof user != 'undefined') {
 				myLibraries = getCreatedLibrariesArray(sessionId);
@@ -1142,16 +1134,27 @@ function getLibrary() {
 			} else {
 				toInsert += "</h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;
 			}
-			if (featuredBookTitle == "") {
+
+
+
+			if (featuredBooks == "") {
 				toInsert += "<section><a id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></p></div></div>";
 			} else {
-				toInsert += "<section><div id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\">";
-				toInsert += "<a href=\"/"+bookOwner.displayName+"\"><img id=\"featured-avatar\" src=\""+bookOwner.avatarImage+"\"></a><a href=\"/read/"+featuredBookId+"\">" + featuredBookTitle + "</a>" + getUserFromBookIdForFeaturedBook(bookId) + "</div></section></p></div></div>";
+				toInsert += "<section>";
+				toInsert += "<div id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\">";
+				toInsert += "<ul>";
+				$.each(featuredBooks, function(id, obj) {
+					getUserFromBookId(obj.bookId);
+					toInsert += "<li><a href=\"/"+bookOwner.displayName+"\"><img id=\"featured-avatar\" src=\""+bookOwner.avatarImage+"\"></a><a href=\"/read/"+obj.bookId+"\">" + obj.title + "</a>" + "<a href=\"/" + bookOwner.displayName + "\"><img class=\"author-avatar\" src=\"" + bookOwner.avatarImage + "\"><div class=\"author-name\">" + bookOwner.name + "</a>" + "</div></li>";
+				});
+				toInsert += "</ul>";
+				toInsert += "</section></p></div></div>";
 				if ($vW > "1024") {
-					toInsert += "<div id=\"close-splash\"></div>";
-				} else {
-					toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
+						toInsert += "<div id=\"close-splash\"></div>";
+					} else {
+						toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
+				
 			}
 			if (ownThisLibrary) {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
@@ -1867,31 +1870,6 @@ function getUserFromBookId(bookId) {
 		success: function (data) {
 			bookOwner = data;
 			responseText = "<a href=\"/" + data.displayName + "\"><img class=\"author-avatar\" src=\"" + data.avatarImage + "\"><div class=\"author-name\">" + data.name + "</a>";
-		},
-		error: function (q, status, err) {
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
-			}
-		}
-	});
-	return responseText;
-}
-
-function getUserFromBookIdForFeaturedBook(bookId) {
-	responseText = '';
-	$.ajax({
-		url: "/api/utils/getUserFromBookId",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		async: false,
-		type: "POST",
-		data: {
-			bookId: bookId
-		},
-		success: function (data) {
-			bookOwner = data;
-			responseText = "<a href=\"/" + data.displayName + "\"><div class=\"author-name\">" + data.name + "</a>";
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {

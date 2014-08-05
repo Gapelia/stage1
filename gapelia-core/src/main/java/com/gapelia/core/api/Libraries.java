@@ -38,14 +38,14 @@ public class Libraries {
 		return gson.toJson(QueryDatabaseLibrary.getLibraryContributors(libraryId));
 	}
 
-	@Path("getMostVotedBookInLibrary")
+	@Path("getMostVotedBooksInLibrary")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String getMostVotedBookInLibrary(@FormParam("libraryId") int libraryId) {
+	public String getMostVotedBooksInLibrary(@FormParam("libraryId") int libraryId,
+                                             @FormParam("limit") int limit) {
 		Gson gson = new GsonBuilder().create();
-		Book b = QueryDatabaseLibrary.getMostVotedBookInLibrary(libraryId);
-		return gson.toJson(b);
+		return gson.toJson(QueryDatabaseLibrary.getMostVotedBooksInLibrary(libraryId, limit));
 	}
 
     @Path("getGodLibraries")
