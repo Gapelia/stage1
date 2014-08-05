@@ -1130,9 +1130,9 @@ function getLibrary() {
 
 			toInsert += "<div id=\"library-info\">";
 			if (numSubscribers != null) {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/>";
+				toInsert += "<h1>Edited by " + "<a href=/"+libraryOwner.displayName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + numSubscribers + " subscribers<span/>";
 			} else {
-				toInsert += "<h1>Edited by " + "<a href=/"+ userName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/>";
+				toInsert += "<h1>Edited by " + "<a href=/"+libraryOwner.displayName+">" + userName + "<a/>" + "<c>" + "&#124;" + "<c/>" + "<span>" + "No subscribers<span/>";
 			}
 			if (contributors.length != 0) {
 				toInsert += "<a id=\"library-contributors\">  &#124;  "+contributors.length+" contributors</a></h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;

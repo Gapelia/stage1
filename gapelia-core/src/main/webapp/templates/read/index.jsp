@@ -401,7 +401,7 @@
 		//adding http://  and new-tab-location to all hyperlinks//
 		$(".full-book .page-desc a").each(function() {
 			var href = $(this).attr("href");
-			$(this).attr("href", "http://" + href);
+			//$(this).attr("href", "http://" + href);
 			$(this).attr("target", "_blank");
 		});
 
