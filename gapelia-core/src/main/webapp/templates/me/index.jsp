@@ -81,7 +81,7 @@
 		</div>
 		<!--//main-panel /-->
 		<!--/ main-scroller /-->
-		<div id="book-scroller" style="z-index: 10;">
+		<div id="book-scroller" style="z-index: -1;">
 			<!--/ your-books /-->
 			<div class="scrollbar">
 				<div class="handle">
@@ -188,6 +188,9 @@
 					stuff += "<div id=\"close-splash\">^</div>";
 				}
 				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
+				if ($vW < "1025") {
+				    stuff += "<div id=\"book-scroller\" style=\"z-index: 10;\"><div class=\"scrollbar\"><div class=\"handle\"><div class=\"mousearea\"></div></div></div><div class=\"user-book-list-wrapper\"><ul id=\"user-book-list\"></ul></div></div>";
+				}
 				stuff += "</section>";
 				$("#mp-pusher").prepend(stuff);
 				//hide archive buttons if less than two published books//
@@ -223,10 +226,15 @@
 			$(function () {
 				var $vW = $(window).width(),
 					$vH = $(window).height();
+					
 				// Dropdown menu for mobile
 				if($vW < "1025") {
 					$("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
-					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
+					$("#mp-pusher").css({
+						"overflow-y": "scroll",
+						"overflow-x": "hidden"
+					});
 					$(function () {
 						if($vW < "321") {
 							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
@@ -244,6 +252,7 @@
 						window.location = "";
 					});
 				}
+				
 				if($vW > "1919") {
 					$("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
 					$(".profile .follow").css("cssText", "left: 92.5% !important");

@@ -3204,7 +3204,6 @@
 	}
 	
 	.profile {
-		#book-scroller { z-index: 100000000 !important; }
 		
 		.follow, .unfollow {
 			font-size: 0.75rem;
@@ -3426,7 +3425,7 @@
 		
 		.super-wrapper { background-color: white; }
 		
-		#book-scroller { top: 100%; }
+		#book-scroller { top: 250%; }
 		
 		#user-panel #g-menu-toggle { width: 13.5%; }
 		
@@ -3440,7 +3439,6 @@
 			.avatar-wrapper #splash-edit-profile { display: none !important; }
 			
 			#contributes-to {
-				border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 				padding-bottom: 1rem;
 			}
 			
@@ -3845,8 +3843,12 @@
 			padding: 1.3rem;
 			
 			.author-avatar {
-				height: 35px; width: 35px;
+				height: 35px !important; width: 35px !important;
 				margin: 0; margin-top: 4px;
+				
+				display: inline !important;
+				left: 0 !important;
+				position: relative !important;
 			}
 			
 			&:hover {.book-title, .library-location, .author-name, .library-info, .collection-info { text-shadow: none !important; } }
@@ -4021,13 +4023,14 @@
 			background-image: none !important;
 			
 			img {
-				display: block !important;
 				height: 240px;
 				left: 0;
 				position: absolute;
 				top: 0;
 				width: 100%;
 			}
+			
+			.page-bg { display: block !important; }
 			
 			&:after { background-image: none !important; }
 			
