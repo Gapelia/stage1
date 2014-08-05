@@ -62,7 +62,7 @@
 				}
 			}(document, 'script', 'twitter-wjs');
 		</script>
-		<h1 class="gapelia"></h1>
+		<h1 id="gapelia"></h1>
 		<h4 style="border: none; font-size: 2rem;">Folio &#8212; A Laboratory of Ideas</h4>
 		<br>
 		<h4 id="subtitle">The blogging platform for scholars and researchers.</h4>
