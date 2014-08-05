@@ -8593,7 +8593,7 @@ a.count span.dont-move {
   .app .book, .app .collection, .app .library {
     width: 500px; }
   .app #book-list {
-    width: 9300px !important; }
+    width: 20000px !important; }
   .app #featured-nav #nav-search {
     margin-left: 26.5% !important; }
   .app #featured-nav .typeahead {
