@@ -3387,6 +3387,8 @@ body.landing .error {
   padding: 0 0 15px 0; }
 .app #library-splash section #featured-library {
   display: inline !important; }
+.app #library-splash section #featured-library li:last-child {
+  margin-top: 10px; }
 .app #library-splash section #featured-library #featured-avatar {
   border-radius: 300em;
   display: inline;
@@ -3395,6 +3397,8 @@ body.landing .error {
   position: relative;
   top: 10px;
   width: 30px; }
+.app #library-splash section #featured-library .author-avatar {
+  display: none; }
 .app #library-splash section .author-name {
   display: inline;
   font-weight: 100;

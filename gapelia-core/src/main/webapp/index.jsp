@@ -70,7 +70,7 @@
 			<button class="fb-btn">Sign in with Facebook</button>
 			<button class="gplus-btn">Sign in with Gmail</button>
 		</div>
-		<img class="page-bg" src="http://static4.businessinsider.com/image/520e7890eab8ea642c000000/77bke.gif" alt="flash" />
+		<img class="page-bg" src="../static/images/home-animated.gif" alt="flash" />
 		<div id="about-one">
 			<h1 style="margin-top: 4rem;">Re-imagining Digital Publications</h1>
 			<p id="creation">
