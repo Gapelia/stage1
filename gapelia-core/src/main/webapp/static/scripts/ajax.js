@@ -545,18 +545,20 @@ function getUserDrafts() {
 			toInsert = "";
 			for (i in drafts) {
 				draft = drafts[i]
-				if (draft.title == "") {
-					toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + "Untitled" + "</a>";	
-				} else {
-					toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";	
+				if (draft.title != null) {
+						if (draft.title == "") {
+							toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + "Untitled" + "</a>";	
+						} else {
+							toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";	
+						}
+						toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
+						toInsert += "<span class=\"delete-draft\">";
+						toInsert += "Delete draft?";
+						toInsert += "<button class=\"a yay-dd red\">Yes</button>";
+						toInsert += "<button class=\"b nay-dd white\">No</button>";
+						toInsert += "</span>";
+						toInsert += "</li>";
 				}
-				toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
-				toInsert += "<span class=\"delete-draft\">";
-				toInsert += "Delete draft?";
-				toInsert += "<button class=\"a yay-dd red\">Yes</button>";
-				toInsert += "<button class=\"b nay-dd white\">No</button>";
-				toInsert += "</span>";
-				toInsert += "</li>";
 			}
 			if (toInsert == "") {
 				toInsert = "<li ><a>There are no drafts</a></li>"; //code
@@ -1109,7 +1111,9 @@ function getLibrary() {
 			}
 			
 			if ($vW > "1025") {
-				toInsert += "<button class=\"expand\"><img src=\"../static/images/eye-expand.png\"></button>";
+				if (typeof user != "undefined") {
+						toInsert += "<button class=\"expand\"><img src=\"../static/images/eye-expand.png\"></button>";
+				}
 			}
 
 			if (typeof user != 'undefined') {
@@ -1135,9 +1139,6 @@ function getLibrary() {
 			} else {
 				toInsert += "</h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;
 			}
-
-
-
 			if (featuredBooks == "") {
 				toInsert += "<section><a id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\"></a>" + "Sorry, but this library is empty. Become the first contributor!" + "</a></section></p></div></div>";
 			} else {
@@ -1155,7 +1156,6 @@ function getLibrary() {
 					} else {
 						toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
-				
 			}
 			if (ownThisLibrary) {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
@@ -1183,7 +1183,7 @@ function getLibrary() {
 					for (i in contributors) {
 						contributor = contributors[i];
 
-						lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+"  &#8212;<span id=\"contributor-bio\">"+contributor.bio+"</span></a></li>";
+						lib = "<li><a href=\""+contributor.displayName+"\"><img src=\""+contributor.avatarImage+"\">"+contributor.name+"  &#8212;<span id=\"contributor-bio\">"+contributor.bio+"</span></a></li><br><br>";
 
 						$("#contributor-list").append(lib);
 

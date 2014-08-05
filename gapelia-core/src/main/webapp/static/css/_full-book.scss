@@ -848,7 +848,11 @@
 			padding: 2rem 2rem 2rem 2rem;
 			position: absolute;
 
-			.page-title-elem {
+			.page-title-elem, .page-desc {
+        color: rgba(25, 25, 25, 0.85);
+      }
+      
+      .page-title-elem {
 				font-size: 1.7rem;
 				line-height: 1.7rem;
         margin-top: 1.25rem !important;

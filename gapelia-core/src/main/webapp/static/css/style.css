@@ -3733,11 +3733,14 @@ body.library #contributor-list img {
   top: 10px;
   width: 35px; }
 body.library #contributor-list li {
+  min-height: 30px;
   margin-top: 10px; }
 body.library #contributor-list #contributor-bio {
   font-size: 1rem !important;
   margin-left: 5px;
-  opacity: 0.75; }
+  opacity: 0.75;
+  padding-top: 20px !important;
+  position: absolute; }
 body.library #contributors-title {
   background-color: white;
   border-radius: 0.25rem;
@@ -5183,7 +5186,7 @@ body.library-manager ::-webkit-scrollbar {
   z-index: 10; }
 .book-creation header {
   width: 100%;
-  height: auto;
+  height: 50px;
   top: 0;
   left: 0;
   padding: 0.5rem;
@@ -5930,6 +5933,8 @@ body.library-manager ::-webkit-scrollbar {
   overflow-y: auto;
   padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
+.book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-title-elem, .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-desc {
+  color: rgba(25, 25, 25, 0.85); }
 .book-creation #book-creation-wrapper #create-book #create-content .phototext-preview-wrapper .phototext-preview .page-title-elem {
   font-size: 1.7rem;
   line-height: 1.7rem; }
@@ -7694,6 +7699,8 @@ a.count span.dont-move {
   overflow-y: auto;
   padding: 2rem 2rem 2rem 2rem;
   position: absolute; }
+.full-book .phototext-wrapper .phototext-preview .page-title-elem, .full-book .phototext-wrapper .phototext-preview .page-desc {
+  color: rgba(25, 25, 25, 0.85); }
 .full-book .phototext-wrapper .phototext-preview .page-title-elem {
   font-size: 1.7rem;
   line-height: 1.7rem;
