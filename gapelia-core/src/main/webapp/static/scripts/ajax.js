@@ -992,8 +992,9 @@ function getSubmissionsInLibrary() {
 				toInsert += getUserFromBookId(currBook.bookId);
 				toInsert += "</div></div></li>";
 			}
-			if (toInsert == "") {
-				toInsert = "<div class=\"library-empty\"><a class=\"empty-created-libraries\">Nobody submitted stories to your libary yet.</a></div>";
+			if (notificationLibraries == 0) {
+				$("#nav-submissions").html("<span style=\"opacity: 0.5;\">No Submissions to Review</span>")
+				$("#nav-submissions").off("click");
 			}
 			$("#submission-list").html(toInsert);
 			var w = 0,

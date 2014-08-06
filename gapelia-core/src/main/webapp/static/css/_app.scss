@@ -567,40 +567,6 @@
 		-webkit-transform: translateY(-50%);
 	}
   
-  //empty lists
-  
-  #no-bookmarks {
-    opacity: 0.8;
-		padding: 12rem 10rem 10rem 16rem;
-		
-		a {
-			color: $slate;
-			opacity: 0.75;
-		}
-	}
-
-  .library-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .book-list-wrapper, .bookmark-list-wrapper {
-    .library-empty {
-      color: rgba(11, 72, 107, 0.25);
-      font-size: 1.6rem;
-      left: 13rem;
-      margin-top: -15%;
-      position: relative;
-      text-align: center;
-      width: 235%;
-    }  
-  }
-  
-  .book-list-wrapper .library-empty { width: 500%; }
-  
-  .library-list-wrapper .library-empty { position: absolute; top: 100px; }
-  
-  .submission-list-wrapper .library-empty { left: 21rem; width: 300%; }
-  
-  .subscription-list-wrapper .library-empty { left: 8% !important; }
-  
-  //
-  
   #book-list { width: 8240px !important; } // temporary fix so 20 books fit in featured
   
   //
