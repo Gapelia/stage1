@@ -2,7 +2,6 @@
 
 .book-creation {
   
-	// background-image: url("../images/blankBG.jpg");
 	@include sans;
 	overflow: hidden;
 
@@ -39,10 +38,7 @@
 	header {
 		width: 100%; height: 50px;
 		top: 0; left: 0;
-
-		// background-color: rgba($white, 0.3);
-		// background-image: linear-gradient(to bottom, $white, transparent);
-		// border-bottom: 1px solid rgba($white, 0.3);
+    
 		padding: 0.5rem;
 		position: fixed;
 		z-index: 1;
@@ -101,7 +97,6 @@
 
 		#back {
       float: left;
-      //height: 5rem;
       
       .brand-iii {
         border-top-right-radius: 0 !important;
@@ -157,8 +152,6 @@
       #save-drafts {
         border-top-left-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
-        //border-top-right-radius: 5px !important;
-        //border-bottom-right-radius: 5px !important;
       }
     }
     
@@ -227,6 +220,7 @@
     
 		#finish {
       float: right;
+      margin-right: 7px;
       
       #close-button{
         border-top-right-radius: 0;
@@ -296,8 +290,6 @@
 			width: 100%; height: auto;
       
 			cursor: pointer;
-
-			// &:first-child { border-top: none; }
 		}
 	}
 
@@ -307,7 +299,6 @@
 		li, section { position: relative; }
 		li {
       border: 3px solid transparent;
-      //border-bottom: 1px solid rgba(12, 12, 12, 0.3);
     }
 
 		.sortable-placeholder {
@@ -330,7 +321,7 @@
 		}
 
 		img {
-			width: 100%; height: 140px; // auto
+			width: 100%; height: 140px; 
       background-color: white;
 			display: block;
 		}
@@ -411,9 +402,8 @@
 		h5 {
 			width: 100%; height: 48px;
 			top: 0; left: 0;
-
+      
 			background-color: $slate;
-			//border-bottom: 1px solid rgba($black, 0.3);
 			color: $white;
 			font-size: inherit;
 			padding: 0.8rem;
@@ -629,15 +619,7 @@
 						line-height: inherit;
 						margin: 0 0 1.5rem 0;
 					}
-
-					/*
-					h5 {
-						font-size: 0.8rem;
-						letter-spacing: 0.2rem;
-						text-transform: uppercase;
-					}
-					*/
-
+          
 					.image-attribution {
 						background-color: rgba($white, 0.75);
 						bottom: 0;
@@ -652,21 +634,11 @@
 						p {
 							margin: 0; padding: 0;
 							color: rgba($black, 0.95);
-
-							// Copyright symbol and space
-							/*
-							&:before {
-								content:"Image \00a9\00a0";
-								@include serif;
-								font-style: italic;
-							}
-							*/
-
+              
 							a { font-weight: 700; }
 						}
-
+            
 						&:after {
-							// color: $black; // $white
 							font-style: normal;
 							position: relative;
 						}
@@ -701,9 +673,7 @@
 							display: block;
 							height: 50px;
 							opacity: 1 !important;
-
-							// &:after { display: none; }
-
+              
 							&:after {
 								color: $black !important;
 								position: absolute;
@@ -780,12 +750,6 @@
 
 				.phototext-preview-wrapper, .vertical-preview-wrapper, .video-preview-wrapper {
 					.image-attribution { left: 0; }
-
-					.page-desc {
-						// overflow-x: hidden;
-						// overflow-y: auto;
-						// padding: 0 1rem 1rem 0;
-					}
 				}
 
 				.scroller-wrapper {
@@ -845,7 +809,6 @@
 					}
           
           .draggable-placeholder {
-						// position: relative;
 						height: 75%;
 						position: absolute;
             
@@ -857,7 +820,7 @@
             
             color: rgba($black, 0.95); 
 						margin: 0 auto;
-						max-width: 35%; //
+						max-width: 35%; 
 					}
 
 					.page-bg {
@@ -870,11 +833,10 @@
 					}
 
 					.fluid-preview {
-						width: 100%; min-height: 53%; // min-height: 53%;
+						width: 100%; min-height: 53%; 
 						left: 0; bottom: 0; // top: 20%; // remove to use editor.js styling
 
 						background-color: $white;
-						// padding: 1rem 2rem 0 2rem; // remove to use editor.js styling
 						position: absolute;
 
 						article {
@@ -899,8 +861,8 @@
 						}
 
             .page-desc img {
-              width: 100%; height: auto; //
-              display: initial !important; //
+              width: 100%; height: auto; 
+              display: initial !important; 
             }
 
 						h5 {
@@ -922,7 +884,7 @@
 				.photo-preview-wrapper {
 					background-color: $white;
 
-					.button-wrapper { bottom: 45%; } // 30%
+					.button-wrapper { bottom: 45%; }
 
           .page-bg-wrapper {
 						width: 50%; height: 65%;
@@ -942,7 +904,7 @@
           }
 
 					.photo-preview {
-						width: 100%; height: 100%; // height: auto
+						width: 100%; height: 100%; 
 						margin: 8% 0 0 0; padding: 1rem 2rem;
             
 						color: $black;
@@ -965,12 +927,12 @@
           .image-attribution {
 						right: 0;
 						width: auto;
-            max-width: 50%; //
+            max-width: 50%; 
 					}
 				}
 
 				.overlay-preview-wrapper {
-					.button-wrapper { bottom: 25%; } //
+					.button-wrapper { bottom: 25%; } 
           
           .page-bg { height: 100% !important; }
 
@@ -1017,8 +979,6 @@
 						max-width: 30%;
 						position: fixed;
 						width: auto;
-
-						// p { color: $white !important; }
 					}
 				}
 
@@ -1063,20 +1023,19 @@
 					}
 
 					.button-wrapper {
-						bottom: 45% !important; //
-						width: 80% !important; //
+						bottom: 45% !important; 
+						width: 80% !important; 
 					}
 
           .image-attribution {
-						// border-top-right-radius: 8px; //
-						max-width: 30%; //
+						max-width: 30%; 
           }
 				}
 
 				.vertical-preview-wrapper {
 					.button-wrapper, .image-attribution { width: 30%; }
 
-					.button-wrapper { bottom: 45%; } // 10%
+					.button-wrapper { bottom: 45%; } 
 
           .page-bg {
 						width: auto; height: 100%;
@@ -1096,7 +1055,7 @@
 						padding: 2rem 2rem 2rem 2rem;
 						position: absolute;
 
-            article { width: 90%; } //
+            article { width: 90%; } 
 
 						.page-desc { text-align: left; }
 
@@ -1106,7 +1065,6 @@
 					}
 
           .image-attribution {
-						// background-color: transparent; //
             color: rgba($black, 0.8);
 					}
 				}
@@ -1165,7 +1123,7 @@
 					}
 
 					.button-wrapper {
-						bottom: 45%; // 10%
+						bottom: 45%; 
 						width: 70%;
 						z-index: 1;
 
@@ -1315,7 +1273,7 @@
 
 	.text-menu {
 		color: $white;
-		margin: -20px 0 0 -115px; // margin-top: -20px; margin-left: -115px;
+		margin: -20px 0 0 -115px; 
 		position: absolute;
 		transition: opacity 180ms, margin 180ms;
 
@@ -1376,14 +1334,13 @@
 
 	.options {
 		width: 176px; height: 33px;
-		margin: -28px 0 0 23px; padding: 5px 4px 5px 5px; // margin-top: -28px; margin-left: 23px;
+		margin: -28px 0 0 23px; padding: 5px 4px 5px 5px; 
 
 		background-color: #262625;
 		border-radius: 5px;
 		box-shadow: 0 0 2px #262625;
 		box-sizing: content-box;
 		@include serif;
-		// font-family: "icomoon" !important;
 		position:  absolute;
 		transition:  all 300ms ease-in-out;
 		z-index: 1000;
@@ -1444,7 +1401,7 @@
 			background: transparent;
 			border-left: 2px solid transparent;
 			color: $white;
-			padding-left: 5px; padding-right: 5px; // padding: 0 5px; 
+			padding-left: 5px; padding-right: 5px;  
 			width: 155px;
 		}
 	}

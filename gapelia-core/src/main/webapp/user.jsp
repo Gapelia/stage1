@@ -133,13 +133,8 @@
         $(function () {
 	    getNotifications();
             var first = getUserPublic();
-	    
-
             var second = getListBookmarked();
             var third = getUserDrafts();
- 
-
-		       
 		});
 
          // Splash page
@@ -159,14 +154,14 @@
         stuff += "<h1 id=\"user-name\"></h1>";
         stuff += "<div id=\"user-box\"><div id=\"splash-user-bio\" contenteditable=\"false\"></div>";
         stuff += "<h5 id=\"recently-published\"></h5>";
-        stuff += "<h5 id=\"contributes-to\"></h5></div>";
+        stuff += "<h5 id=\"contributes-to\"></h5></div></div>";
 		stuff += "<ul id=\"user-extra\">";
-		stuff += "<li id=\"location\"></li>"
-		stuff += "<li id=\"university\"></li>"
-		stuff += "<li id=\"department\"></li>"
-		stuff += "<li><a id=\"website\"  target=\"blank\"  href=\"" +user.personalWebsite+ "\"></a></li>"
-		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" +user.twt+ "\"></a></li>"
-		stuff += "</ul></div>";
+		stuff += "<li id=\"location\"></li>";
+		stuff += "<li id=\"university\"></li>";
+		stuff += "<li id=\"department\"></li>";
+		stuff += "<li><a id=\"website\"  target=\"blank\" href=\"" + user.personalWebsite + "\"></a></li>";
+		stuff += "<li><a id=\"twitter\" target=\"blank\" href=\"http://www.twitter.com/" + user.twt + "\"></a></li>";
+		stuff += "</ul>";
         stuff += "</div>";
 		if ($vW > "1024") {
 			stuff += "<div id=\"close-splash\">See all posts</div>";
@@ -268,7 +263,6 @@
                 }
 		
 		if ($vW > "1919") {
-		    $("#user-splash #user-extra").css("cssText", "bottom: -30rem !important");
 		    $("#user-splash .unfollow").css("cssText", "left: 92.5% !important");
 		    $("#user-splash #close-splash").css("cssText", "left: 85%");
 		}
@@ -285,23 +279,23 @@
 		}
 		
 
-                // User details
-                $("#splash-user-info h1, #user-header").text(user.name);
-		$("#splash-user-info #location").text(user.location);
-		$("#splash-user-info #university").text(user.university);
-		$("#splash-user-info #department").text(user.department);
-		$("#splash-user-info #website").text(user.personalWebsite);
-		$("#splash-user-info #twitter").text(user.twt);
-                $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
-                $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
+        // User details
+        $("#splash-user-info h1, #user-header").text(user.name);
+		$("#location").text(user.location);
+		$("#university").text(user.university);
+		$("#department").text(user.department);
+		$("#website").text(user.personalWebsite);
+		$("#twitter").text(user.twt);
+        $(".avatar-wrapper").css("background-image", "url(" + user.avatarImage + ")");
+        $("#user-splash").css("background-image", "url(" + user.coverImage + ")");
 
-                //scenarios with empty classes//
+        //scenarios with empty classes//
 		if (user.avatarImage == undefined) {
-                    $("#user-splash").css("background-image", "url(/static/images/users/user-avatar.jpg)");
-                }
+            $("#user-splash").css("background-image", "url(/static/images/users/user-avatar.jpg)");
+        }
 
-                if (user.coverImage == undefined) {
-                    $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
+        if (user.coverImage == undefined) {
+            $("#user-splash").css("background-image", "url(/static/images/cover-bg.jpg)");
 		}
 		
 		if (user.bio == "") {
@@ -312,20 +306,19 @@
 		}
 		
 		if (user.location == "") {
-		    $("#splash-user-info #location").remove();
+		    $("#location").remove();
 		}
 		
 		if (user.personalWebsite == "") {
-		    $("#splash-user-info #website").remove();
+		    $("#website").remove();
 		}
 		
 		if (user.twt == "") {
-		    $("#splash-user-info #twitter").remove();
+		    $("#twitter").remove();
 		}
 		
 		var fourth = getPublicBooksArray();
                 
-		
 		$(document).ready(function() {
 			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
 		});
