@@ -110,7 +110,7 @@
     <script src="/static/scripts/mlpushmenu.js"></script>
     <script src="/static/scripts/ajax.js"></script>
     <script src="/static/scripts/userNotifications.js"></script>
-
+	<script src="/static/scripts/autolinker.js"></script>
 
     <script>
         if ($vW > "1024") {
@@ -321,6 +321,10 @@
                 
 		$(document).ready(function() {
 			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
+			
+			//Creates hrefs when user inputs a website in the bio//
+			var myTextEl = document.getElementById( "splash-user-bio" );
+			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
 		});
 		
 		// Load Gapelia

@@ -258,8 +258,13 @@
 			border-bottom: 1px solid rgba($white, 0.6);
 			display: block;
 			font-size: 1.1rem;
-			font-weight: 200;
+			font-weight: 500;
 			line-height: 2.1rem;
+			
+			a {
+				font-style: italic;
+				text-decoration: underline;
+		    }
 			
 			div { text-align: center !important; }
 		}

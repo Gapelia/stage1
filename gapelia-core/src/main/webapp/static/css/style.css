@@ -3349,6 +3349,9 @@ body.landing .error {
   font-size: 50px;
   font-weight: 700;
   text-transform: uppercase; }
+.app #library-splash #library-info p a {
+  font-style: italic;
+  text-decoration: underline; }
 .app #library-splash #library-share {
   font-size: 1.8rem !important;
   opacity: 1;
@@ -4500,8 +4503,11 @@ body.library-manager ::-webkit-scrollbar {
   border-bottom: 1px solid rgba(252, 252, 252, 0.6);
   display: block;
   font-size: 1.1rem;
-  font-weight: 200;
+  font-weight: 500;
   line-height: 2.1rem; }
+.profile #user-splash #splash-user-bio a {
+  font-style: italic;
+  text-decoration: underline; }
 .profile #user-splash #splash-user-bio div {
   text-align: center !important; }
 .profile #user-splash #user-box {

@@ -106,7 +106,7 @@
 	<!--/ scripts /-->
 	<script src="/static/scripts/touchSwipe.min.js"></script>
 	<script src="/static/scripts/g.money.js"></script>
-	<script src="/static/scripts/imgLiquid.js"></script>
+	<script src="/static/scripts/autolinker.js"></script>
 	<script src="/static/scripts/userNotifications.js"></script>
 	<script src="/static/scripts/classie.js"></script>
 	<script src="/static/scripts/mlpushmenu.js"></script>
@@ -120,11 +120,7 @@
 				window.location.href = "mailto:" + libraryOwner.email + "";
 			})
 		}
-		$(document).on("ready", function () {
-			$(".book").imgLiquid({
-				fill: true
-			});
-		});
+		
 		if($vH > "1190") {
 			$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
 			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
@@ -160,6 +156,11 @@
 
 		function load() {
 			$("#g-menu-toggle").css("color", "#fcfcfc");
+			
+		    //Creates hrefs when a website is part of the description//
+			var myTextEl = document.getElementById( "library-extra" );
+			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
+			
 			if($vW > "1024") {
 				// Close splash on desktops
 				$(document).on("click", "#close-splash", function () {

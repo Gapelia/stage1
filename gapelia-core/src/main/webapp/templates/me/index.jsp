@@ -104,6 +104,7 @@
 	<script src="/static/scripts/mlpushmenu.js"></script>
 	<script src="/static/scripts/ajax.js"></script>
 	<script src="/static/scripts/userNotifications.js"></script>
+	<script src="/static/scripts/autolinker.js"></script>
 	<script>
 		if($vW > "1024") {
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
@@ -302,6 +303,10 @@
 				}
 				$(document).ready(function () {
 					$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
+				    
+					//Creates hrefs when user inputs a website in the bio//
+					var myTextEl = document.getElementById( "splash-user-bio" );
+				    myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
 				});
 				//cleans up text when copty/paste
 				$('[contenteditable]').on('paste', function (e) {
