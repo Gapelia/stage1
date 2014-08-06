@@ -2490,6 +2490,9 @@ body.landing .error {
   text-align: center; }
 .app #site-menu #account-links a:first-child:after {
   content: "\00a0\00b7"; }
+.app #site-menu #footer-items {
+  bottom: 1rem;
+  position: absolute; }
 .app button {
   margin: 0 auto;
   padding: 0.5rem 1rem;
@@ -8315,9 +8318,6 @@ a.count span.dont-move {
   .accounts .account-delete-wrapper {
     padding-bottom: 7rem; }
 
-  .mp-menu ul .fq {
-    margin-top: 200% !important; }
-
   .full-book .notification-time #notification-count {
     right: 5.5rem !important; }
   .full-book #g-menu-toggle {
@@ -8353,6 +8353,16 @@ a.count span.dont-move {
     height: 600px !important; }
   body.landing #beta {
     top: 88%; }
+
+  .mp-menu {
+    width: 350px; }
+  .mp-menu ul {
+    font-size: 1.75rem; }
+  .mp-menu ul li {
+    margin-top: 10px; }
+
+  .app #site-menu h2 {
+    height: 65px; }
 
   .app #g-menu-toggle {
     top: 0.35rem;
@@ -8494,9 +8504,6 @@ a.count span.dont-move {
   body.library #contributor-list {
     top: 35%; }
 
-  .mp-menu ul .fq {
-    margin-top: 160%; }
-
   .profile #user-splash #splash-user-bio {
     font-size: 1.5rem;
     margin: 0 0 2rem 0; }
@@ -8590,9 +8597,6 @@ a.count span.dont-move {
 
   #contactable-contactForm {
     top: 81% !important; }
-
-  .mp-menu ul .fq {
-    margin-top: 160%; }
 
   .app .user-book-list-wrapper, .app .book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 52.5%; }

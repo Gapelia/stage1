@@ -120,8 +120,6 @@
 	
 	.accounts .account-delete-wrapper { padding-bottom: 7rem; }
 	
-	.mp-menu ul .fq { margin-top: 200% !important; }
-	
 	.full-book {
 		.notification-time #notification-count {	right: 5.5rem !important; }
 		#g-menu-toggle { top: 1rem !important; }
@@ -167,6 +165,18 @@
 		}
 		
 	}
+	
+	//side menu optimization//
+	.mp-menu {
+		width: 350px;
+		ul {
+			font-size: 1.75rem;
+			
+			li { margin-top: 10px; }
+		}
+	}
+	.app #site-menu h2 { height: 65px; }
+	//side menu optimization//
 	
 	.app {
 		
@@ -368,9 +378,6 @@
 		#contributor-list { top: 35%; }
 	}
 	
-	.mp-menu ul .fq { margin-top: 160%; }
-
-	
 	/// PROFILE ///
 	
 	.profile {
@@ -514,10 +521,6 @@
 
 	#contactable-inner { top: 90% !important; }
 	#contactable-contactForm { top: 81% !important; }
-	
-	//menu//
-	
-	.mp-menu ul .fq { margin-top: 160%; }
 	
 	//size of book & libraries in carousel//
 	

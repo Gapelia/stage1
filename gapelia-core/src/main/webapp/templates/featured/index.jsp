@@ -73,12 +73,12 @@
 				</ul>
 			</li>
 
-			<li class="fq"><a href="/read/755">How It Works</a>
-				<li class="help"><a href="mailto:team@folio.is">Report a bug</a>
-					<li class="logout"><a href="#">Log Out</a>
-					</ul>
+			<div id="footer-items"><li class="fq"><a href="/read/755">How It Works</a>
+		    <li class="help"><a href="mailto:team@folio.is">Report a bug</a>
+		    <li class="logout"><a href="#">Log Out</a></div>
+		</ul>
 
-				</div>
+		    </div>
 			</nav>
 			<!--//site-menu /-->
 
@@ -456,7 +456,6 @@
 		if ($vH > "1079") {
 			$(".book-list-wrapper, .bookmark-list-wrapper").css("cssText", "top: 52% !important");
 			$(".book, .collection, .library, .new, .draft").css("cssText", "height: 900px !important");
-			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 			$("#contactable-inner").css("cssText", "top: 92% !important");
 			$("#contactable-contactForm").css("cssText", "top: 80% !important");
 			$(".following-list-wrapper").css("cssText", "top: 52% !important");

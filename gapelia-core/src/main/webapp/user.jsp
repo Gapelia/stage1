@@ -274,7 +274,6 @@
 		
 		if ($vH > "1190") {
 		    $(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
-		    $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 		    $("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
 		}
 		

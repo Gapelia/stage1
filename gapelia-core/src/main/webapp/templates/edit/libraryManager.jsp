@@ -64,9 +64,9 @@
                         <ul></ul>
                     </li>
             
-                    <li class="fq"><a href="/read/755">How It Works</a>
-		    <li class="help"><a href="mailto:team@folio.is">Report a bug</a>
-                    <li class="logout"><a href="#">Log Out</a>
+                    <div id="footer-items"><li class="fq"><a href="/read/755">How It Works</a>
+                    <li class="help"><a href="mailto:team@folio.is">Report a bug</a>
+                    <li class="logout"><a href="#">Log Out</a></div>
                 </ul>
     
             </div>
@@ -324,7 +324,6 @@
         
         if ($vH > "1190") {
 	    $(".library-list-wrapper, .subscription-list-wrapper").css("cssText", "top: 52.5% !important");
-            $(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
             $(".app .library").css("cssText", "height: 900px !important");
 	}
 
