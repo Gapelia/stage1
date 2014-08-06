@@ -86,7 +86,7 @@
         <!--//main-panel /-->
 
         <!--/ main-scroller /-->
-        <div id="book-scroller" style="z-index: -1;">
+        <div id="book-scroller" style="z-index: 10;">
             <!--/ your-books /-->
 	    	<div class="scrollbar">
 			<div class="handle">
@@ -173,10 +173,7 @@
 		} else {
 			stuff += "<div id=\"close-splash\">^</div>";
 		}
-        stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
-		if ($vW < "1025") {
-			stuff += "<div id=\"book-scroller\" style=\"z-index: 10;\"><div class=\"scrollbar\"><div class=\"handle\"><div class=\"mousearea\"></div></div></div><div class=\"user-book-list-wrapper\"><ul id=\"user-book-list\"></ul></div></div>";
-		}		
+        stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";	
         stuff += "</section>";
         $("#mp-pusher").prepend(stuff);
 		
@@ -207,9 +204,9 @@
                     $("#user-panel").css("width", "100%");
                     $("#user-splash .overlay-controls").css("left", "-200%");
                     $("#g-menu-toggle").css({
-			"color": "#70a1b1",
-			"width": "7.5%"
-		    });
+					"color": "#70a1b1",
+					"width": "7.5%"
+					});
 	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
                     $("#user-header").css("opacity", "1");
 

@@ -750,6 +750,8 @@
 
 	.app {
 		
+		.super-wrapper { overflow-y: scroll; }  //making library vertically scrollable in mobile//
+		
 		//fixing scrollbar for mobile//
 		
 		.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .following-ist-wrapper {
@@ -3374,7 +3376,7 @@
 		
 		.super-wrapper { background-color: white; }
 		
-		#book-scroller { top: 250%; }
+		#book-scroller { top: 100%; }
 		
 		#user-panel #g-menu-toggle { width: 13.5%; }
 		
@@ -3387,13 +3389,15 @@
 		
 			.avatar-wrapper #splash-edit-profile { display: none !important; }
 			
+			#recently-published { display: none; }
+			
 			#contributes-to {
 				padding-bottom: 1rem;
 			}
 			
 			#splash-user-bio {
 				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-				margin: 0 0 1rem 0;	
+				margin: 0.4rem 0 1rem 0;	
 			}
 			
 			#splash-user-info {
@@ -3403,8 +3407,8 @@
 			}
 			
 			#user-box {
-				left: 10%;
-				width: 80%;
+				left: 7.5%;
+				width: 85%;
 			}
 			
 			.user-avatar { top: 75% !important; }
@@ -3903,9 +3907,10 @@
 			.author-avatar { width: 35px; }
 			
 			&:last-child {
+				border-bottom: none !important;
 				bottom: 0;
 				margin: 0;
-				padding-bottom: 6rem !important;
+				padding-bottom: 4.5rem !important;
 			}
 		}
 		
@@ -3952,7 +3957,7 @@
 			background-image: none !important;
 			
 			img {
-				height: 240px;
+				height: 210px;
 				left: 0;
 				position: absolute;
 				top: 0;
@@ -3989,11 +3994,6 @@
 				}
 			}
 			
-			#user-box {
-				left: 6%;
-				width: 85%;
-			}
-			
 			#splash-user-info {
 				padding: 0;
 				top: 17%;
@@ -4003,10 +4003,14 @@
 					line-height: 60px;
 				}
 				
+				#user-box {
+					left: 2.5%;
+					width: 95%;
+				}
+				
 				#splash-user-bio {
 					font-size: 0.8rem;
 					line-height: 1.25;
-					margin: 0.4rem 0 1.5rem 0;
 					padding: 0;
 					
 					span { font-size: 0.9rem !important; }
@@ -4033,7 +4037,7 @@
 		.library-list-wrapper { z-index: 0; top: -1rem !important; }
 		
 		.library {
-			padding: 1rem 0 0 0;
+			padding: 1rem 2px 0 2px;
 			
 			.library-info { top: 15%; }
 			
