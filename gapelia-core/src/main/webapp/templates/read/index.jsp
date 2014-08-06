@@ -146,6 +146,7 @@
 		//TODO: This is stupid, we should contact Porter to fix this!
 		//it should be all done in the comment eventlistener
 		readrboard_type = readrboard.getLastEvent().value;
+		$(".rdr_commentSubmit").click(function(){ $("div.rdr.rdr_window.w320").fadeOut("slow")}); //hiding box after commenting//
 	},false);
 
 	document.addEventListener("readrboard.comment",function() {
