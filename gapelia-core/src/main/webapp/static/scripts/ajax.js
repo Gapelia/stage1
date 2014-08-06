@@ -207,6 +207,10 @@ function getBookmarksArray() {
 		},
 		success: function (data) {
 			bookmarks = data;
+			
+		    if (bookmarks.length == 0) {
+				$("#nav-bookmarks").html("<span style=\"color: rgba(11, 72, 107, 0.25);\">Bookmarks (0)</span>").click("off");
+	        }
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -223,7 +227,7 @@ function loadMoreBookmarks(count,items) {
 	var offset = items.children().length;
 	for (var i = 0; i < count; i++) {
 
-		if(i == bookmarks.length-1) break;
+		if(i == bookmarks.length) break;
 
 		bookmark = bookmarks[offset + i];
 
@@ -240,12 +244,6 @@ function loadMoreBookmarks(count,items) {
 		toInsert += getUserFromBookId(bookmark.bookId);
 		toInsert += "</div><div class=\"num-votes\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(bookmark.bookId) + "</div>";
 		toInsert += "</div></div></li>";
-	}
-
-	if (bookmarks.length < 2) {
-		toInsert += "<p style=\"font-size: 2rem; margin-top: -3rem; opacity: 0.75; text-align: center; width: 100%;\">You have not bookmarked anything, yet.</p>"
-		
-		$(".bookmark-list-wrapper").css("height", "100%");
 	}
 
 	$("#bookmark-list .book").css("height", $vH - 97 + "px");
@@ -2805,7 +2803,7 @@ function loadMoreUsers(count,items) {
 	var offset = items.children().length;
 	for (var i = 0; i < count; i++) {
 
-		if(i == friends.length-1) break;
+		if(i == friends.length) break;
 
 		friend = friends[offset + i];
 
@@ -2819,12 +2817,6 @@ function loadMoreUsers(count,items) {
 	}
 
 	$("#following-list .book").css("height", $vH - 97 + "px");
-
-	if (friends.length < 1) {
-		toInsert += "<p style=\"font-size: 2rem; margin-top: -5rem; opacity: 0.75; text-align: center; width: 100%;\">You are not following any users, yet.</br><span style=\"font-size: 1rem;\">TIP: follow your favorite users and Folio will keep you posted on their latest pieces.</span></p>"
-
-		$(".following-list-wrapper").css("height", "100%");
-	}
 
 	return items.append(toInsert);
 }
@@ -2841,6 +2833,10 @@ function getFollowingUsers() {
 		},
 		success: function (data) {
 			friends = data;
+			
+		    if (friends.length == 0) {
+				$("#nav-following").html("<span style=\"color: rgba(11, 72, 107, 0.25);\">Following (0)</span>").click("off");
+	        }
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
