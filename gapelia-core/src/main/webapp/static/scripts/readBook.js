@@ -285,7 +285,7 @@ function getLibraryFromBookRec(bookId) {
 				},
 				success: function (data) {
 					nextBook = data;
-					backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+					backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
 					htmlToInsert += backPage;
 					$("#bb-bookblock").html(htmlToInsert);
 					$("#header-author").html(bookOwner.name);
@@ -320,7 +320,7 @@ function getLibraryFromBookRec(bookId) {
                 },
                 success: function (data) {
                     nextBook = data;
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover;\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                     htmlToInsert += backPage;
                     $("#bb-bookblock").html(htmlToInsert);
                     $("#header-author").html(bookOwner.name);
@@ -352,7 +352,7 @@ function getLibraryFromBookRec(bookId) {
 function getReadNextBook() {
         
         if (typeof user == "undefined") {
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover;\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio. Join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio. Join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                     
                     htmlToInsert += backPage;
                     $("#bb-bookblock").html(htmlToInsert);
