@@ -9246,6 +9246,8 @@ a.count span.dont-move {
     position: relative; }
   .full-book .fluid-wrapper .page-bg, .full-book .fluid-wrapper iframe, .full-book .photo-wrapper .page-bg, .full-book .photo-wrapper iframe, .full-book .overlay-wrapper .page-bg, .full-book .overlay-wrapper iframe, .full-book .phototext-wrapper .page-bg, .full-book .phototext-wrapper iframe, .full-book .vertical-wrapper .page-bg, .full-book .vertical-wrapper iframe, .full-book .video-wrapper .page-bg, .full-book .video-wrapper iframe, .full-book .backcover-wrapper .page-bg, .full-book .backcover-wrapper iframe {
     position: relative; }
+  .full-book .page-desc h3 {
+    font-size: 1.4rem; }
   .full-book .scroller-wrapper {
     overflow-y: initial;
     position: relative; }
@@ -10392,6 +10394,8 @@ a.count span.dont-move {
     margin-left: 15px; }
   .full-book .photo-wrapper .page-bg {
     height: auto; }
+  .full-book .page-desc h3 {
+    font-size: 1.2rem; }
 
   body.landing #mp-pusher {
     padding: 32% 13%; }
@@ -10510,14 +10514,17 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash #splash-user-bio {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    margin: 0.4rem 0 1rem 0; }
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
   .profile #user-splash #splash-user-info {
     color: black;
     opacity: 0.9;
-    top: 82% !important; }
+    top: 84% !important; }
   .profile #user-splash #user-box {
-    left: 7.5%;
-    width: 85%; }
+    left: 5%;
+    width: 90%; }
   .profile #user-splash .user-avatar {
     top: 75% !important; }
   .profile h5 {
@@ -10581,6 +10588,8 @@ a.count span.dont-move {
     margin-top: 0.5rem; }
   .full-book .vertical-wrapper .author-info .author-avatar {
     margin-left: 25%; }
+  .full-book .page-desc h3 {
+    font-size: 1.1rem; }
   .full-book .backcover-wrapper #fin {
     padding: 2rem 2rem;
     text-align: center; }
@@ -11174,7 +11183,7 @@ a.count span.dont-move {
     font-size: 0.8rem;
     padding: 0 2rem; }
   .full-book h3 {
-    font-size: 1.5rem; }
+    font-size: 1.1rem; }
 
   .profile h5 {
     top: 70%; }

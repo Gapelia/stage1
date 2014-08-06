@@ -1469,6 +1469,8 @@
 
 			.page-bg, iframe { position: relative; }
 		}
+		
+		.page-desc h3 { font-size: 1.4rem; }
 
 		.scroller-wrapper {
 			overflow-y: initial;
@@ -3199,6 +3201,8 @@
 		}
 		
 		.photo-wrapper .page-bg { height: auto; }
+		
+		.page-desc h3 { font-size: 1.2rem; }
 	}
 	
 	body.landing {
@@ -3376,18 +3380,21 @@
 			
 			#splash-user-bio {
 				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-				margin: 0.4rem 0 1rem 0;	
+				line-height: 1.5;
+				margin: 0 0 1rem 0;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
 			}
 			
 			#splash-user-info {
 				color: black;
 				opacity: 0.9;
-				top: 82% !important;
+				top: 84% !important;
 			}
 			
 			#user-box {
-				left: 7.5%;
-				width: 85%;
+				left: 5%;
+				width: 90%;
 			}
 			
 			.user-avatar { top: 75% !important; }
@@ -3493,6 +3500,8 @@
 				.author-avatar { margin-left: 25%; }
 			}	
 		}
+		
+		.page-desc h3 { font-size: 1.1rem; }
 		
 		.backcover-wrapper {
 			#fin {
@@ -4397,7 +4406,7 @@
 			}
 		}
 		
-		h3 { font-size: 1.5rem; }
+		h3 { font-size: 1.1rem; }
 
 	}
 
