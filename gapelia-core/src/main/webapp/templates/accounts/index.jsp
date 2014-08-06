@@ -238,30 +238,31 @@
 				//school and uni dropdowns//
 				$("#user-university").selectize({
 					options: [
-						{ name: "Harvard University", value: "harvard university" },
+						{ name: "Brown University", value: "brown" },
+						{ name: "Columbia University", value: "columbia" },
+						{ name: "Cornell University", value: "cornell" },
+						{ name: "Darmouth College", value: "darmouth" },
+						{ name: "Harvard University", value: "harvard" },
+						{ name: "Duke University", value: "duke" },
+						{ name: "Massachusetts Institute of Technology", value: "mit" },
+						{ name: "Princetown University", value: "princeton" },
+						{ name: "University of Pennsylvania", value: "pennsylvania" },
+						{ name: "Stamford University", value: "stamford" },
+						{ name: "Yale University", value: "yale" },
 					],
 					labelField: "name",
 					searchField: ["name"]
 				});
 				
 				$("#user-department").selectize({
-					options: [
-						{ name: "Harvard Business School", value: "harvardbusinessschool" },
-						{ name: "Division of Continuing Education", value: "harvardcontinuingeducation" },
-						{ name: "Harvard Graduate School of Arts and Sciences", value: "harvardschoolartsandsciences" },
-						{ name: "Graduate School of Design", value: "harvardgraduateschoolofdesign" },
-						{ name: "Harvard Graduate School of Education", value: "harvardgraduteschooleducation" },
-						{ name: "Harvard Kennedy School", value: "harvardkennedyschool" },
-						{ name: "Harvard Law School", value: "harvardlawschool" },
-						{ name: "Harvard School of Public Health", value: "harvardschoolofpublichealth" },
-						{ name: "Harvard College", value: "harvardcollege" },
-						{ name: "Harvard School of Dental Medicine", value: "harvardschoolofdentalmedicine" },
-						{ name: "Harvard Divinity School", value: "harvarddivinityschool" },
-						{ name: "Harvard School of Engineering and Applied Sciences", value: "harvard engineeringappliedsciences" },
-						{ name: "Harvard Medical School", value: "harvardmedicalschool" },
-					],
-					labelField: "name",
-					searchField: ["name"]
+					delimiter: ',',
+					persist: false,
+					create: function(input) {
+					    return {
+						value: input,
+						text: input
+					    }
+					}
 				});
 				
 
