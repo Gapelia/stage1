@@ -423,7 +423,7 @@
 			
 					loadMorePublicUserBooks(5,items);
 			
-					if(books.length > 1){
+					if(books.length > 5){
 					    
 					    slyBookWrapper.on('load change', function () {
 						if (this.pos.dest > this.pos.end - 200) {

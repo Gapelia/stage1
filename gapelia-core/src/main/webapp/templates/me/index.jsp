@@ -378,14 +378,14 @@
 								};
 								var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 								var items = $('#user-book-list');
-								loadMoreUserBooks(6, items);
-								if(books.length >= 1) {
+								loadMoreUserBooks(5, items);
+								if(books.length > 5) {
 									slyBookWrapper.on('load change', function () {
 										if(this.pos.dest > this.pos.end - 200) {
 											if (items.children().length <= books.length-1) {
 												loadMoreUserBooks(1, items);
 												$(".book").css("height", h);
-												$(".book-snippet").css("display", "block")
+												$(".book-snippet").css("display", "block");
 												this.reload();
 											}
 										}
