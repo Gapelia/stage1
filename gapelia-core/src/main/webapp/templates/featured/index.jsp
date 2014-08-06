@@ -144,7 +144,6 @@
 <!--/ scripts /-->
 <script src="/static/scripts/touchSwipe.min.js"></script>
 <script src="/static/scripts/g.money.js"></script>
-<script src="/static/scripts/imgLiquid.js"></script>
 <script src="/static/scripts/userNotifications.js"></script>
 <script src="/static/scripts/ajax.js"></script>
 <script src="/static/scripts/feedback.js"></script>
@@ -246,11 +245,6 @@
 			subject: 'A Feeback Message'
 		});
 		
-		//$("#contactable .contactable-submit").click(function (){
-		//$("#featured-scroller").append("<div id=\"thanks-feedback\">Thank you for your feedback!</div>");
-		//$("#contactable").remove();
-		//});
-
 		//hide search box after clicking on item//
 		$(".tt-dropdown-menu").click(function () {
 			$(".typeahead").css("display", "none");
@@ -264,7 +258,6 @@
 		});
 	}
 	
-
 	$(function () {
 		getNotifications();
 		getListSubscribed();
@@ -275,7 +268,6 @@
 
 		$(".dd-link").off().click(function () {
 			$(this).next(".delete-draft").toggle();
-			//e.preventDefault();
 		});
 
 		$(".nay-dd").off().click(function () {
@@ -316,6 +308,7 @@
 		$(".book, .library").css("height", h);
 		$("#book-list li").fadeIn("100");
 		$("#book-list").fadeIn("100");
+		
 		if ($vW > "1024") {
 
 			var options = {
@@ -426,7 +419,7 @@
 			slyBookWrapper.init();
 		}
 
-		// Dropdown menu for mobile
+		// Mobile and size optimization stuff//
 		if ($vW < "1025") {
 				$("#featured-scroller").css("cssText", "overflow-y: scroll !important");
 				$(".bookmark-list-wrapper, .following-list-wrapper").remove();
@@ -445,10 +438,7 @@
 
 		if ($vW < "361") {
 			$(".book-snippet").css("display", "block")
-			$(".book-list-wrapper").css({
-				"top": "300px",
-				"background-color": "white"
-			})
+			$(".book-list-wrapper").css({"top": "300px", "background-color": "white"});
 		}
 	
 		if ($vW > "1599") {
@@ -536,8 +526,8 @@
 		//delete draft	
 		loadDelete();
 
-			// Click "Bookmarks"
-			$("#nav-bookmarks").click(function (e) {
+		// Click "Bookmarks"
+		$("#nav-bookmarks").click(function (e) {
 
 				NProgress.start();
 
@@ -634,10 +624,7 @@
 		$("#nav-bookmarks").addClass("current");
 		
 		NProgress.done();
-		
-		
-		
-		
+
 		});
 
 		// Click "Following"
@@ -765,12 +752,6 @@
 		
 		});
 		}
-
-		//code to make draft deletion work here...for some reason it wasnt working from ajax.js
-		//TODO: doesn't work at Tims computer - fix this later
-		setTimeout(function () {
-	
-		}, 3000);	
 </script>
 <!--//scripts /-->
 

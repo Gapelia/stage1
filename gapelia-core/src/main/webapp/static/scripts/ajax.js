@@ -360,9 +360,9 @@ function loadMoreBooks(count,items) {
 		book = books[offset + i];
 
 		if (book.bookId in bookmarked == true) {
-			output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			output += "<li id=\'" + book.bookId + "\' class=\"book bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
 		} else {
-			output += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+			output += "<li id=\'" + book.bookId + "\' class=\"book\" style=\"background-image: url(" + book.coverPhoto + ");";
 		}
 		output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 		output += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
@@ -392,9 +392,9 @@ function getFeaturedBooks() {
 			for (i in books) {
 				book = books[i];
 				if (book.bookId in bookmarked == true) {
-					toInsert = "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+					toInsert = "<li id=\'" + book.bookId + "\' class=\"book bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
 				} else {
-					toInsert = "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+					toInsert = "<li id=\'" + book.bookId + "\' class=\"book\" style=\"background-image: url(" + book.coverPhoto + ");";
 				}
 				toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 				toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
