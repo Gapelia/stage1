@@ -236,6 +236,11 @@
 				text-transform: capitalize;
 				&:first-letter { text-transform: uppercase; }
 			}
+			
+			span {
+				font-weight: 100;
+				text-transform: lowercase;
+		    }  
 		}
 
 		#splash-user-info {

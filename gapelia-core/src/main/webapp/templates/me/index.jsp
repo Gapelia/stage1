@@ -228,10 +228,7 @@
 				if($vW < "1025") {
 					$("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
-					$("#mp-pusher").css({
-						"overflow-y": "scroll",
-						"overflow-x": "hidden"
-					});
+					$("#mp-pusher").css({"overflow-y": "scroll", "overflow-x": "hidden"});
 					$(function () {
 						if($vW < "321") {
 							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();

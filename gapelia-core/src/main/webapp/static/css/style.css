@@ -4484,6 +4484,9 @@ body.library-manager ::-webkit-scrollbar {
   text-transform: capitalize; }
 .profile #user-splash h5 a:first-letter {
   text-transform: uppercase; }
+.profile #user-splash h5 span {
+  font-weight: 100;
+  text-transform: lowercase; }
 .profile #user-splash #splash-user-info {
   font-size: 2.8rem;
   font-weight: 700;
@@ -10517,6 +10520,8 @@ a.count span.dont-move {
     display: none; }
   .profile #user-splash #contributes-to {
     padding-bottom: 1rem; }
+  .profile #user-splash #contributes-to span {
+    display: none; }
   .profile #user-splash #splash-user-bio {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     margin: 0.4rem 0 1rem 0; }

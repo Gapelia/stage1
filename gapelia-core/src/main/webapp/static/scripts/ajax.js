@@ -3114,6 +3114,9 @@ function getContributedTo() {
 				}
 				$("#contributes-to").html(toInsert);
 			}
+            if (contributions.length > 1) {
+				$("#contributes-to a:first-child").append("<span> and</span>");
+		    }
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
