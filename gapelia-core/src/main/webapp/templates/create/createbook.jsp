@@ -150,11 +150,12 @@
 	</div>
 	
 	<div id="draft-access">
-		<h5><a href="#">My Drafts</a></h5>
-			
-		<ul id="draft-list">
-			
-		</ul>
+		<!--/ drafts /-->
+		<h5 id="first-list"><a href="#">My Drafts </a>(<span></span>)</h5>
+		<ul id="draft-list"></ul>
+		<!--/ published /-->
+		<h5 id="second-list"><a href="#">Published Stories </a>(<span></span>)</h5>
+		<ul id="published-list"></ul>
 	</div>
 
 	<!--/ main-content /-->
@@ -213,7 +214,7 @@
 	<script>
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
-			function load() { createBook(); getUserDrafts(); //getRevisions();
+			function load() { createBook(); getUserDrafts(); getUserCreatedBooksList(); //getRevisions();
 			
 				myBookId = getUserDraftsArray()[0].bookId;
 				
@@ -239,12 +240,17 @@
 			//show draft list//
 			$("#drafts-shortcut").click(function(){
 				$("#draft-access").css("right", "0");
-				$("#draft-list .delete-draft").css("display", "none");
+				$("#draft-access .delete-draft").css("display", "none");
 				$("#finish").fadeOut();
+				//book counters//
+				draftLength = drafts.length;
+				publishedLength = books.length;
+				$("#first-list span").html(""+draftLength+"");
+				$("#second-list span").html(""+publishedLength+"");
 			});
 			
 			$("#draft-access").mouseleave(function(){
-				$("#draft-access").css("right", "-250px");
+				$("#draft-access").css("right", "-300px");
 				$("#finish").fadeIn();
 			});
 			

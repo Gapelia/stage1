@@ -463,8 +463,8 @@
     height: 100%;
     overflow-y: scroll;
     position: absolute;
-    right: -250px;
-    width: 250px;
+    right: -300px;
+    width: 300px;
     z-index: 100;
     
     h5 {
@@ -473,10 +473,16 @@
       text-align: center;
     }
     
-    #draft-list {
+    #draft-list, #published-list {
       li {
         border-bottom: 1px solid rgba(black, 0.1);
         padding: 1rem;
+      }
+      
+      img {
+        height: 35px;
+        width: 35px;
+        margin-right: 10px;
       }
       
       .dd-link { margin-left: 8px; }
@@ -488,6 +494,8 @@
         .red { margin-left: 10px !important; }
       }
     }
+    
+    #second-list { margin-top: 10px; }
   }  
 
 	#main-content {

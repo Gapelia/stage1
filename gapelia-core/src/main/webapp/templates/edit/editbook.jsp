@@ -150,11 +150,13 @@
 		</div>
 		
 		<div id="draft-access">
-			<h5><a href="#">My Drafts</a></h5>
-			
-			<ul id="draft-list">
-
-			</ul>
+			<!--/ drafts /-->
+			<h5 id="first-list"><a href="#">My Drafts </a>(<span></span>)</h5>
+			<ul id="draft-list"></ul>
+			<!--/ published /-->
+			<h5 id="second-list"><a href="#">Published Stories </a>(<span></span>)</h5>
+			<ul id="published-list"></ul>
+		</div>
 		</div>
 
 		<!--/ main-content /-->
@@ -220,7 +222,7 @@
 			getUser();
 			
 		});
-            	function load() { loadBookEditor();  getUserDrafts(); getRevisions(); 	
+            	function load() { loadBookEditor();  getUserDrafts(); getUserCreatedBooksList(); getRevisions(); 	
 			
 			//share draft code//
 			if ($vW > "1024") {
@@ -252,13 +254,18 @@
 		
 		//show draft list//
 		$("#drafts-shortcut").click(function(){
-			$("#draft-access").css("right", "0");
-			$("#draft-list .delete-draft").css("display", "none");
-			$("#finish").fadeOut();
+		    $("#draft-access").css("right", "0");
+		    $("#draft-access .delete-draft").css("display", "none");
+		    $("#finish").fadeOut();
+		    //book counters//
+		    draftLength = drafts.length;
+		    publishedLength = books.length;
+		    $("#first-list span").html(""+draftLength+"");
+		    $("#second-list span").html(""+publishedLength+"");
 		});
 			
 		$("#draft-access").mouseleave(function(){
-			$("#draft-access").css("right", "-250px");
+			$("#draft-access").css("right", "-300px");
 			$("#finish").fadeIn();
 		});
 		

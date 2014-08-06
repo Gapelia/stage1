@@ -531,6 +531,40 @@ function getUserCreatedBooks() {
 	});
 }
 
+function getUserCreatedBooksList() {
+	sessionId = readCookie("JSESSIONID");
+	$.ajax({
+		url: "/api/users/getCreatedBooks",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			sessionId: sessionId
+		},
+		success: function (data) {
+			books = data;
+			toInsert = "";
+			for (i in books) {
+				book = books[i]
+				if (book.coverPhoto == "static/images/grayBG.png") {
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + book.title + "</a>";	
+				} else {
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
+				}		
+				  toInsert += "</li>";
+			}
+			if (toInsert == "") {
+				$("#draft-menu, #published-list").remove();
+			}
+			$("#draft-menu, #published-list").html(toInsert);
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+}
+
 function getUserDrafts() {
 	sessionId = readCookie("JSESSIONID");
 	$.ajax({
@@ -547,9 +581,17 @@ function getUserDrafts() {
 				draft = drafts[i]
 				if (draft.title != null) {
 						if (draft.title == "") {
-							toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + "Untitled" + "</a>";	
+								if (draft.coverPhoto == "static/images/grayBG.png") {
+										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + "Untitled" + "</a>";	
+								} else {
+										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\""+draft.coverPhoto+"\">" + "Untitled" + "</a>";		
+								}
 						} else {
-							toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\">" + draft.title + "</a>";	
+								if (draft.coverPhoto == "static/images/grayBG.png") {
+										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + draft.title + "</a>";	
+								} else {
+										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\""+draft.coverPhoto+"\">" + draft.title + "</a>";	
+								}
 						}
 						toInsert += "<a href=\"#\" class=\"dd-link\">&times;</a>";
 						toInsert += "<span class=\"delete-draft\">";

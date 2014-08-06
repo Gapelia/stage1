@@ -5523,23 +5523,29 @@ body.library-manager ::-webkit-scrollbar {
   height: 100%;
   overflow-y: scroll;
   position: absolute;
-  right: -250px;
-  width: 250px;
+  right: -300px;
+  width: 300px;
   z-index: 100; }
 .book-creation #draft-access h5 {
   font-weight: 700;
   padding: 1rem;
   text-align: center; }
-.book-creation #draft-access #draft-list li {
+.book-creation #draft-access #draft-list li, .book-creation #draft-access #published-list li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem; }
-.book-creation #draft-access #draft-list .dd-link {
+.book-creation #draft-access #draft-list img, .book-creation #draft-access #published-list img {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px; }
+.book-creation #draft-access #draft-list .dd-link, .book-creation #draft-access #published-list .dd-link {
   margin-left: 8px; }
-.book-creation #draft-access #draft-list .delete-draft {
+.book-creation #draft-access #draft-list .delete-draft, .book-creation #draft-access #published-list .delete-draft {
   display: inline-block;
   margin-top: 10px; }
-.book-creation #draft-access #draft-list .delete-draft .red {
+.book-creation #draft-access #draft-list .delete-draft .red, .book-creation #draft-access #published-list .delete-draft .red {
   margin-left: 10px !important; }
+.book-creation #draft-access #second-list {
+  margin-top: 10px; }
 .book-creation #main-content {
   left: 0;
   position: fixed;
