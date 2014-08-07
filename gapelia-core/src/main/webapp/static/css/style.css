@@ -2603,10 +2603,10 @@ body.landing .error {
   overflow: hidden;
   width: 25%; }
 .app #user-panel {
+  height: 55px !important;
   margin: 5px 0 0 0 !important; }
 .app #featured-panel, .app #user-panel {
   width: 96px;
-  /* 7% */
   height: 48px;
   background-color: transparent;
   box-shadow: none;
@@ -8220,8 +8220,6 @@ a.count span.dont-move {
 
   .profile #user-splash .user-avatar {
     top: 22% !important; }
-  .profile #user-header {
-    margin-top: 14px; }
   .profile #user-extra {
     bottom: -26rem !important; }
 
@@ -8284,14 +8282,10 @@ a.count span.dont-move {
   body.library-manager #featured-nav .typeahead {
     display: block; }
 
-  .profile #user-panel {
-    height: 100px; }
   .profile #user-panel #g-menu-toggle {
     left: 1rem; }
   .profile #user-panel .notification-time #notification-count {
     right: 5.7rem !important; }
-  .profile #user-panel #user-heard {
-    margin-top: 14px; }
   .profile #user-panel #user-splash .user-avatar {
     top: 20.5% !important; }
   .profile #user-panel #user-splash #close-splash {
@@ -9095,7 +9089,7 @@ a.count span.dont-move {
   .app #library-splash #library-info h2 {
     font-size: 3rem; }
   .app #library-splash button {
-    right: 1rem; }
+    display: none; }
   .app #library-splash #library-cover {
     height: 125% !important; }
   .app #library-splash #library-share {
@@ -9154,6 +9148,48 @@ a.count span.dont-move {
   .notification-time #notification-count {
     display: none; }
 
+  body.library .book-buttons {
+    display: none; }
+  body.library #featured-nav {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid rgba(25, 25, 25, 0.07);
+    box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 0 0 1px rgba(25, 25, 25, 0.05);
+    font-size: 1.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    z-index: 1; }
+  body.library #featured-nav li:first-child {
+    background-color: #59b3a6;
+    color: #fcfcfc;
+    padding: 1.5rem; }
+  body.library #featured-nav li:first-child a {
+    color: #fcfcfc; }
+  body.library #featured-nav li {
+    margin: 0;
+    padding: 1rem;
+    background-color: #fcfcfc;
+    box-shadow: inset 0 0 0 rgba(25, 25, 25, 0.5), inset 0 1px 0 0 rgba(25, 25, 25, 0.05);
+    cursor: pointer;
+    display: inherit !important;
+    top: 0;
+    translate: translateY(0);
+    -o-translate: translateY(0);
+    -ms-translate: translateY(0);
+    -moz-translate: translateY(0);
+    -webkit-translate: translateY(0); }
+  body.library #featured-nav .current {
+    background-color: #59b3a6;
+    border-bottom: 0;
+    display: none;
+    padding: 1rem; }
+  body.library #featured-nav .current a {
+    border: 0;
+    color: #fcfcfc; }
   body.library #featured-panel {
     background-color: transparent;
     height: 71px;
@@ -9164,7 +9200,7 @@ a.count span.dont-move {
   body.library #stay-right {
     display: none; }
 
-  #book-scroller #user-header {
+  #book-scroller {
     background-color: transparent !important;
     padding-right: 2rem;
     position: absolute;
@@ -9626,13 +9662,10 @@ a.count span.dont-move {
   .profile #contributes-to {
     margin-top: 2rem; }
   .profile #user-panel {
-    height: 75px;
     position: relative;
     transition: all 0.5s ease; }
   .profile #user-panel h2, .profile #user-panel .button-wrapper {
     display: none; }
-  .profile #user-panel h2 {
-    transition: all 0.5s ease; }
   .profile #user-panel .button-wrapper {
     bottom: 8%;
     left: 0; }
@@ -9641,66 +9674,6 @@ a.count span.dont-move {
     color: transparent !important;
     left: 0.7rem;
     top: 0.5rem; }
-  .profile #user-panel #user-wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    right: 0;
-    display: block;
-    overflow: hidden;
-    position: absolute; }
-  .profile #user-panel #user-wrapper .user-avatar {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    top: initial;
-    z-index: 5; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper {
-    width: 75px;
-    height: 75px;
-    top: 0;
-    right: 0;
-    border: 0;
-    position: absolute; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper img {
-    left: initial;
-    right: 0;
-    border: 0;
-    border-radius: 0; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
-    width: 75px;
-    height: 75px;
-    border-radius: 0;
-    left: initial; }
-  .profile #user-panel #user-wrapper h2 {
-    width: 100%;
-    height: 75px;
-    margin: 0;
-    padding: 0 6rem;
-    top: 0;
-    left: 0;
-    bottom: initial;
-    background-image: none;
-    background-position: initial;
-    background-size: initial;
-    color: #191919 !important;
-    display: block;
-    font-size: 2rem;
-    line-height: 5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transform: rotate(0deg);
-    white-space: normal;
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg); }
-  .profile #user-panel #user-wrapper #user-bio {
-    display: none; }
   .profile #mobile-header {
     width: 100%;
     height: 65px;
@@ -9747,44 +9720,11 @@ a.count span.dont-move {
     height: 135px;
     width: 135px; }
   .profile #user-header {
-    color: rgba(11, 72, 107, 0.5);
-    font-size: 1.2rem;
-    font-style: italic;
-    font-weight: 400;
-    margin-top: 0.5rem;
-    opacity: 1;
     display: none !important; }
-  .profile #user-header:before {
-    content: "Published by";
-    margin-right: 6px; }
   .profile #user-panel {
     background: none !important;
-    height: 65px;
     position: fixed;
     z-index: 1000; }
-  .profile #user-panel #user-wrapper h2 {
-    width: 100%;
-    height: 65px;
-    margin: 0;
-    padding: 1.6rem 6rem;
-    font-size: 1.3rem;
-    line-height: 1rem;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper {
-    width: 65px;
-    height: 65px;
-    display: none; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper img {
-    border-radius: 300rem;
-    height: 50px;
-    width: 50px;
-    right: 2rem;
-    top: 0.5rem; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
-    display: none; }
 
   .accounts #account-splash-wrapper {
     margin-bottom: 0; }
@@ -9940,6 +9880,10 @@ a.count span.dont-move {
   .app #university-affiliation {
     padding: 12rem 4rem; }
 
+  body.library #featured-nav {
+    font-size: 1.3rem;
+    top: 0px; }
+
   body.library-manager .library .library-info {
     top: 22%; }
 
@@ -10034,30 +9978,6 @@ a.count span.dont-move {
   .profile #featured-nav {
     font-size: 1.3rem;
     top: 0px; }
-  .profile #user-panel {
-    height: 65px; }
-  .profile #user-panel #user-wrapper h2 {
-    width: 100%;
-    height: 65px;
-    margin: 0;
-    padding: 1.6rem 6rem;
-    font-size: 1.3rem;
-    line-height: 1rem;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper {
-    width: 65px;
-    height: 65px; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper img {
-    border-radius: 300rem;
-    height: 50px;
-    width: 50px;
-    right: 2rem;
-    top: 0.5rem; }
-  .profile #user-panel #user-wrapper .user-avatar .avatar-wrapper:after {
-    display: none; }
   .profile #user-splash #splash-user-bio {
     font-size: 1.25rem; }
   .profile h5 {
@@ -10255,9 +10175,6 @@ a.count span.dont-move {
 
   .profile h5 {
     top: 52%; }
-  .profile #user-header {
-    font-size: 1.1rem;
-    padding: 0; }
 
   .accounts .account-info-wrapper label {
     width: 49%; }
@@ -10466,13 +10383,15 @@ a.count span.dont-move {
   .app .library:last-child {
     bottom: 2.5rem;
     margin-top: 2.5rem !important; }
-  .app #library-splash #close-splash {
-    font-size: 2rem;
-    font-weight: 400; }
   .app #library-splash p {
     font-size: 1rem; }
   .app #library-splash span {
     font-size: 1rem !important; }
+  .app #library-splash #close-splash {
+    font-size: 2rem;
+    font-weight: 400; }
+  .app #library-splash #library-info {
+    top: 25%; }
   .app #university-affiliation {
     padding: 8rem 2rem; }
   .app #intro {
@@ -10714,6 +10633,8 @@ a.count span.dont-move {
     top: 50%; }
   .app #library-splash button {
     font-size: 0.6rem; }
+  .app #library-splash #library-info {
+    top: 22%; }
   .app #library-splash #library-info h2 {
     font-size: 26px; }
   .app #library-splash #library-info p {
@@ -11201,22 +11122,14 @@ a.count span.dont-move {
     top: 98% !important; }
   .profile #user-splash .user-avatar {
     top: 86% !important; }
-  .profile #user-header {
-    font-size: 0.9rem !important;
-    margin-top: 0.8rem;
-    text-align: right !important;
-    padding-right: 1rem !important; }
   .profile #user-panel {
     background: transparent !important;
-    height: 55px;
     margin-top: 0 !important; }
   .profile #user-panel #g-menu-toggle {
     color: #fcfcfc;
     left: 0.8rem !important;
     top: 0.7rem !important;
     width: 64px; }
-  .profile #user-panel #user-wrapper .user-data {
-    display: none; }
   .profile .book {
     padding: 1.2rem 1.2rem 0 1.2rem; }
   .profile .book .book-buttons {

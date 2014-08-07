@@ -60,24 +60,11 @@
 		<!--//site-menu /-->
 		<!--/ main-panel /-->
 		<div id="user-panel">
-			<button id="g-menu-toggle" class="notification-time">	<span id="notification-count" style="display: none;"></span>
+			<button id="g-menu-toggle" class="notification-time">
+				<span id="notification-count" style="display: none;"></span>
 				<i class="ion-drag"></i>
-			</button>	<span id="user-header" style="opacity: 0;">USERNAME</span>
-			<h1 id="mobile-header" style="display: none;"><a href="/featured">Gapelia</a></h1>
-			<div id="user-wrapper">
-				<div class="user-avatar">
-					<div class="avatar-wrapper">
-						<!--/ <img src="/static/images/users/user-avatar.jpg"/> /-->
-					</div>
-				</div>
-				<div class="user-data">
-					<h2 id="user-info"></h2>
-					<span id="user-bio" contenteditable="false"></span>
-				</div>
-				<div class="button-wrapper">
-					<button class="edit-profile slate">Edit Profile</button>
-				</div>
-			</div>
+			</button>
+			<span id="user-header" style="opacity: 0;">USERNAME</span>
 		</div>
 		<!--//main-panel /-->
 		<!--/ main-scroller /-->
@@ -228,19 +215,10 @@
 				// Dropdown menu for mobile
 				if($vW < "1025") {
 					$("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
-					$("#user-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
+					$("#mp-pusher").append('<ul id="featured-nav" style="display: none; z-index: 100;"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
+				    $("#g-menu-toggle").click(function () { $("#featured-nav").toggle(); });
 					$("#mp-pusher").css({"overflow-y": "scroll", "overflow-x": "hidden"});
-					$(function () {
-						if($vW < "321") {
-							$("#user-panel #user-bio, #user-panel .button-wrapper").remove();
-						}
-						if($vW < "321") {
-							$(".book-snippet").css("display", "block")
-						}
-						$("#g-menu-toggle").click(function () {
-							$("#featured-nav").toggle();
-						});
-					});
+					
 					// Log Out
 					$("#logout").click(function (e) {
 						document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
