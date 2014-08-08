@@ -339,7 +339,7 @@
 			// Dropdown menu for mobile
 			if($vW < "1025") {
 				//$("#mp-pusher").css("cssText", "overflow-y: scroll !important");
-				$("#featured-panel .featured-info, #library-splash .expand").remove();
+				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user").remove();
 				$("#g-menu-toggle").click(function () {
 						if (typeof user !=  "undefined") {
 								$("#mp-pusher").append('<ul id="featured-nav" style="display: block; z-index: 100;"><li id="nav-featured"><img id="close-mobile-menu" style="height: 50px; left: 1rem; position: absolute; top: 12px; width: 50px;" src="/static/images/folio-icon-solid.png"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
@@ -358,6 +358,7 @@
 					$("#library-splash .subscribe").remove();
 				}
 			}
+			
 			if($vW < "421") {
 				$(".book-snippet").css("display", "block");
 				$(".library #library-splash h1").remove();
