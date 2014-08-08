@@ -391,8 +391,7 @@
 			var slyBookWrapper = new Sly('.book-list-wrapper', options);
 			var items = $('#book-list');
 
-			loadMoreBooks(5,items);
-
+			loadMoreBooks(20,items);
 
 			if(books.length > 5){
 
