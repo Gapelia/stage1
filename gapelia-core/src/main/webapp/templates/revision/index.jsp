@@ -193,8 +193,7 @@
     }
 	
     $(document).ready(function() {
-     	loadDelete();
-        
+     	loadDelete(); 
 	//retireving original bookId//
 	originalBookId = $.ajax({
 	    url: "/api/books/getOriginalBookIdFromRevisionId",
@@ -255,8 +254,11 @@
 
     //votes and recommendation get removed for revisions//
     setTimeout(function () {
-	$("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();    
-    }, 1000);
+	$("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();
+		if (bookId == drafts[0].bookId) {
+		$("#edit-shortcut").remove();
+	}
+    }, 150);
 
     setTimeout(function () {
         $(".fluid-wrapper").imgLiquid({fill: true});
@@ -274,7 +276,7 @@
 		$(this).attr("target", "_blank");
 	    });
 	    $(".full-book .page-desc a").css("text-decoration", "underline");
-	});
+	});	
 	document.title = pages[0].title;
     }, 2000);
       
