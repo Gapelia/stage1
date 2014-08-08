@@ -423,7 +423,7 @@
 				
 			if ($vW < "1025") {
 				
-				getUserCreatedBooks();
+				getPublicCreatedBooks();
 
 				var options = {
 					horizontal: 1,
@@ -450,20 +450,21 @@
 				var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 				var items = $('#user-book-list');
 		
-				loadMoreBooks(20,items);
-		
-		
-				if(books.length > 4){
+				loadMorePublicUserBooks(5,items);
+				
+				if(books.length > 5){
 				
 					slyBookWrapper.on('load change', function () {
 						if (this.pos.dest > this.pos.end - 200) {
-						loadMoreBooks(20,items);
-			
-						    $(".book").css("height", h);
-						    $(".book-snippet").css("display", "block")
-						    
-						   this.reload();
-						}
+							if (items.children().length <= books.length-1) {
+								loadMorePublicUserBooks(1,items);
+					
+								$(".book").css("height", h);
+								$(".book-snippet").css("display", "block")
+									
+								this.reload();
+							}
+						}	
 					});
 				}	
 		

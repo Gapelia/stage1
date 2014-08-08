@@ -299,7 +299,6 @@
 						firstBook = $(allBooks).first(); // gets first book in list
 					$(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
 					setTimeout(function () {
-						// $("#user-book-list").hide();
 						$("#user-book-list").css("opacity", "0").show();
 						if($vW > "1024") {
 							$("#user-book-list .book").css("height", $vH - 97 + "px");
@@ -403,14 +402,16 @@
 								};
 								var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 								var items = $('#user-book-list');
-								loadMoreBooks(20, items);
-								if(books.length > 4) {
+								loadMoreUserBooks(5, items);
+								if(books.length > 5) {
 									slyBookWrapper.on('load change', function () {
 										if(this.pos.dest > this.pos.end - 200) {
-											loadMoreBooks(20, items);
-											$(".book").css("height", h);
-											$(".book-snippet").css("display", "block")
-											this.reload();
+												if (items.children().length <= books.length-1) {
+														loadMoreUserBooks(1, items);
+														$(".book").css("height", h);
+														$(".book-snippet").css("display", "block")
+														this.reload();
+												}		
 										}
 									});
 								}
