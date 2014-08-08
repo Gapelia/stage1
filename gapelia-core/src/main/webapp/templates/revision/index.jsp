@@ -160,13 +160,17 @@
     //only show edit option if owner of book//
     $(document).ready(function (e) {
 		
-	var author = bookOwner.name;
-	var reader = user.name;
-	
-		if (author == reader) {
-			$("#the-book #edit-shortcut").show();
-		} else {
+		if (typeof user == "undefined") {
 			$("#the-book #edit-shortcut").remove();
+		} else {
+			var author = bookOwner.name;
+			var reader = user.name;
+		
+			if (author == reader) {
+				$("#the-book #edit-shortcut").show();
+			} else {
+				$("#the-book #edit-shortcut").remove();
+			}
 		}	
     });
 	
