@@ -2491,8 +2491,8 @@ body.landing .error {
 .app #site-menu #account-links a:first-child:after {
   content: "\00a0\00b7"; }
 .app #site-menu #footer-items {
-  bottom: 1rem;
-  position: absolute; }
+  bottom: 0;
+  position: relative; }
 .app button {
   margin: 0 auto;
   padding: 0.5rem 1rem;
@@ -7088,8 +7088,7 @@ a.count span.dont-move {
   text-decoration: underline; }
 .full-book #the-book #edit-shortcut {
   font-size: 0.9rem;
-  left: 6rem;
-  padding: 1.6rem 1.25rem 0 0 !important;
+  padding: 1.6rem 1.25rem 0 6rem !important;
   right: 0 !important;
   text-align: left !important;
   text-transform: uppercase; }
