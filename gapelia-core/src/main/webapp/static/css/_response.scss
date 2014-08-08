@@ -1480,6 +1480,8 @@
 				}
 			}
 		}
+		
+		#editor_response_info { width: 70% !important; }
 
 		#the-book {
 			height: auto;
@@ -2398,7 +2400,9 @@
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
-
+		
+		#editor_response_info { margin-left: 1.75rem !important }
+		
 		.fluid-wrapper {
 			.draggable-placeholder {
 				height: 475px;
@@ -3310,6 +3314,12 @@
 	}
 	
 	.full-book {
+		
+		#editor_response_info {
+			font-size: 0.8rem;
+			margin-left: 1rem !important;
+			span { font-size: 0.8rem !important; }
+		}
 		
 		.fluid-wrapper {
 			margin-bottom: 0;

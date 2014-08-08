@@ -9255,6 +9255,8 @@ a.count span.dont-move {
     display: none;
     font-size: 0.8rem;
     margin: 1rem 0 0 0; }
+  .full-book #editor_response_info {
+    width: 70% !important; }
   .full-book #the-book {
     height: auto; }
   .full-book #the-book #stay-right, .full-book #the-book #edit-shortcut {
@@ -9890,6 +9892,8 @@ a.count span.dont-move {
   .onboard #onboard-photos-overlay #user-info {
     padding: 0 4rem; }
 
+  .full-book #editor_response_info {
+    margin-left: 1.75rem !important; }
   .full-book .fluid-wrapper .draggable-placeholder {
     height: 475px; }
   .full-book .fluid-wrapper .draggable-placeholder .page-bg {
@@ -10453,6 +10457,11 @@ a.count span.dont-move {
   .profile h5 a {
     display: block !important; }
 
+  .full-book #editor_response_info {
+    font-size: 0.8rem;
+    margin-left: 1rem !important; }
+  .full-book #editor_response_info span {
+    font-size: 0.8rem !important; }
   .full-book .fluid-wrapper {
     margin-bottom: 0; }
   .full-book .fluid-wrapper .draggable-placeholder {
