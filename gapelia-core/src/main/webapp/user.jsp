@@ -199,7 +199,19 @@
 			if($vW < "1025") {
 				$("#featured-scroller").append("<span id='category-title'>[ Library Name ]</span>");
 				$("#mp-pusher").append('<ul id="featured-nav" style="display: none; z-index: 100;"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
-				$("#g-menu-toggle").click(function () { $("#featured-nav").toggle(); });
+				$("#g-menu-toggle").click(function () {
+					if (typeof user != "undefined") {
+						$("#featured-nav").toggle();
+						if ($("#featured-nav").css("display") == "block") {
+							$(".follow, .unfollow").hide();
+						} else {
+							$(".follow, .unfollow").show();
+							$("#user-splash .follow").hide();
+						}
+					} else {
+						window.location.href = "/";
+					}
+				});
 				$("#mp-pusher").css({"overflow-y": "scroll", "overflow-x": "hidden"});
 					
 				// Log Out
@@ -207,61 +219,34 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
+				
+				//follow/unfollow buttons//
+				if (alreadyFollowing) {
+					$("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");
+					$("#user-splash .unfollow").remove();	
+				} else {
+					$("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
+				}
 			}
 			
-		    //follow/unfollow buttons//
-		    if (alreadyFollowing) {
-			    $("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");
-			    $("#user-splash .unfollow").remove();	
-		    } else {
-			    $("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
-		    } 
-		    
-		    $(function () {
-    
 			if ($vW < "321") {
 			    $("#user-panel #user-bio, #user-panel .button-wrapper").remove();
 			}
-			if ($vW < "321") {
-			    $(".book-snippet").css("display","block")
-			}
-    
-			$("#g-menu-toggle").click(function () {
-			    $("#featured-nav").toggle();
-				
-			    if ($("#featured-nav").css("display") == "block") {
-				$(".follow, .unfollow").hide();
-			    } else {
-				$(".follow, .unfollow").show();
-				$("#user-splash .follow").hide();
-			    }
-    
-			});
-    
-		    });
-    
-		    // Log Out
-		    $("#logout").click(function (e) {
-			document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-			window.location = "";
-		    });
 
-                }
-		
-		if ($vW > "1919") {
-		    $("#user-splash .unfollow").css("cssText", "left: 92.5% !important");
-		    $("#user-splash #close-splash").css("cssText", "left: 85%");
-		}
-		
-		if ($vH > "1079") {
-		    $(".user-book-list-wrapper").css("cssText", "top: 51% !important");
-		    $("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
-		}
-		
-		if ($vH > "1190") {
-		    $(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
-		    $("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
-		}
+			if ($vW > "1919") {
+				$("#user-splash .unfollow").css("cssText", "left: 92.5% !important");
+				$("#user-splash #close-splash").css("cssText", "left: 85%");
+			}
+			
+			if ($vH > "1079") {
+				$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
+				$("#close-splash, #follow-user").css("cssText", "bottom: 94% !important");
+			}
+			
+			if ($vH > "1190") {
+				$(".user-book-list-wrapper").css("cssText", "top: 50.5% !important");
+				$("#user-splash #splash-user-info").css("cssText", "top: 25.5% !important");
+			}
 		
 
         // User details

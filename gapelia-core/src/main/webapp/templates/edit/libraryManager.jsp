@@ -276,28 +276,22 @@
         // Dropdown menu for mobile
         if ($vW < "1025") {
         
-        $("#featured-scroller").css("cssText", "overflow-y: scroll !important");
-        
-        $(".bookmark-list-wrapper").remove();
-                        
-        $("#featured-panel .featured-info").remove();
-        $("#featured-panel").append('<span id="category-title">Explore Libraries</span>');
-        
-        $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
-        
-        $("#book-list").append('<li class="book" id="book-cta"><p><a href="#">Explore</a> some of our featured topic-based libraries.</p><img src="/static/images/covers/bg.jpg" alt=""/></li>');
-        
-        $(document).on("click", "#g-menu-toggle, #nav-books", function () {
-            $("#featured-nav").toggle();
-        });
-                        
-        if ($vW < "1025") {
-                        
-            $("#featured-scroller").css({"top": "70px"})
+            $("#featured-scroller").css("cssText", "overflow-y: scroll !important");
+            $(".bookmark-list-wrapper, #featured-panel .featured-info").remove();   
+            $("#featured-panel").append('<span id="category-title">Explore Libraries</span>');
+            $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
+            $(document).on("click", "#g-menu-toggle", function () { $("#featured-nav").toggle(); });    
+            $("#featured-scroller").css({"top": "70px"});
             $(".library-list-wrapper").css({
                 "z-index": "0",
                 "top": "-1rem"
-            })
+            });
+            // Log Out
+            $("#logout").click(function (e) {
+                document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+                window.location = "";
+            });
+            
         }   
         
         if ($vW > "1919") {
@@ -309,8 +303,6 @@
             document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
             window.location = "";
         });
-
-        }
         
         if ($vW > "1599") {
             $(".suggested-libs").css("cssText", "margin-left: 28% !important");
