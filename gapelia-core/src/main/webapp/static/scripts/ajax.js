@@ -427,7 +427,7 @@ function loadMoreUserBooks(count,items) {
 	
 	for (var i = 0; i < count; i++) {
 
-		if(i == books.length-1) break;
+		if(i == books.length) break;
 
 		book = books[offset + i];
 
