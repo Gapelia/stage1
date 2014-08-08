@@ -2230,6 +2230,8 @@ ol {
   background-image: none !important;
   color: #191919 !important;
   font-size: 12px; }
+.mp-menu ul li #draft-menu li a img {
+  display: none; }
 .mp-menu ul li #draft-menu li:hover .dd-link {
   color: #ff3b30;
   right: 4px; }
