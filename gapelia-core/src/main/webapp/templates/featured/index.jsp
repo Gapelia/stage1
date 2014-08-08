@@ -397,8 +397,8 @@
 			if(books.length > 5){
 
 				slyBookWrapper.on('load change', function () {
-						if (items.children().length <= books.length-1) {
-								if (this.pos.dest > this.pos.end - 200) {
+						if (this.pos.dest > this.pos.end - 200) {
+								if (items.children().length <= books.length-1) {
 									loadMoreBooks(1,items);
 			
 									$(".book").css("height", h);
@@ -423,7 +423,7 @@
 
 		// Mobile and size optimization stuff//
 		if ($vW < "1025") {
-				$("#featured-scroller").css("cssText", "overflow-y: scroll !important");
+				$("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
 				$(".bookmark-list-wrapper, .following-list-wrapper").remove();
 				$("#featured-panel .featured-info").remove();
 				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
