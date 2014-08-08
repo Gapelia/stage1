@@ -2491,8 +2491,8 @@ body.landing .error {
 .app #site-menu #account-links a:first-child:after {
   content: "\00a0\00b7"; }
 .app #site-menu #footer-items {
-  bottom: 1rem;
-  position: absolute; }
+  bottom: 0;
+  position: relative; }
 .app button {
   margin: 0 auto;
   padding: 0.5rem 1rem;
