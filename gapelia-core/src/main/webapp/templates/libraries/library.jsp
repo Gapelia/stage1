@@ -338,7 +338,7 @@
 			});
 			// Dropdown menu for mobile
 			if($vW < "1025") {
-				//$("#mp-pusher").css("cssText", "overflow-y: scroll !important");
+				$("#featured-scroller").css("cssText", "height: auto !important;");
 				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user").remove();
 				$("#g-menu-toggle").click(function () {
 						if (typeof user !=  "undefined") {
@@ -457,7 +457,7 @@
 				};
 				var slyBookWrapper = new Sly('.book-list-wrapper', options);
 				var items = $('#book-list');
-				loadMoreBooksInLibrary(5, items);
+				loadMoreBooksInLibrary(20, items);
 				if(books.length > 5) {
 					slyBookWrapper.on('load change', function () {
 						if(this.pos.dest > this.pos.end - 200) {
