@@ -104,7 +104,7 @@
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
 						<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
 						<li id="nav-following"><a href="#">Following</a></li>
-						<div id="nav-search" style="display: inline-block; margin-left: 21.5%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"> Search</p></div>		    
+						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"> Search</p></div>		    
 						<input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 
 						<div id="stay-right">
@@ -305,6 +305,7 @@
 		$vH = $(window).height();
 		
 		h = $(this).outerHeight() - 92;
+		
 		$(".book, .library").css("height", h);
 		$("#book-list li").fadeIn("100");
 		$("#book-list").fadeIn("100");
@@ -423,8 +424,7 @@
 		// Mobile and size optimization stuff//
 		if ($vW < "1025") {
 				$("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
-				$(".bookmark-list-wrapper, .following-list-wrapper").remove();
-				$("#featured-panel .featured-info").remove();
+				$(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info").remove();
 				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
 				$("#featured-scroller").css({"z-index": "10"})
 				$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
@@ -447,27 +447,19 @@
 		}
 	
 		if ($vW > "1919") {
-			$("#book-list, #bookmark-list, #following-list").css("cssText", "width: 12000px !important");
-			$("#book-list").css("cssText", "display: block !important");
-			$("#featured-nav .tt-dropdown-menu").css("cssText", "margin-left: 90% !important");
 			$(".app .following-list-wrapper img").css("cssText", "left: 37% !important");
 		}
 
 		//imacs specs//
 		if ($vH > "1079") {
-			$(".book-list-wrapper, .bookmark-list-wrapper").css("cssText", "top: 52% !important");
-			$(".book, .collection, .library, .new, .draft").css("cssText", "height: 900px !important");
+			$(".book-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper").css("cssText", "top: 53% !important");
 			$("#contactable-inner").css("cssText", "top: 92% !important");
 			$("#contactable-contactForm").css("cssText", "top: 80% !important");
-			$(".following-list-wrapper").css("cssText", "top: 52% !important");
 		}
 		
 		if ($vH > "1190") {
-			$(".book-list-wrapper").css("cssText", "top: 50.5% !important");
-			$(".mp-menu ul .fq").css("cssText", "margin-top: 260% !important");
 			$("#contactable-contactForm").css("cssText", "top: 82% !important");
 			$("#contactable-inner").css("cssText", "top: 93% !important");
-			$(".following-list-wrapper").css("cssText", "top: 52.5% !important");
 		}	
 
 		$("#nav-books").addClass("current");
