@@ -119,6 +119,7 @@ function getCommentNotifications() {
 
 					var hash = notification.hash;
 					var urlPage = "read";
+					console.log(bookFromBookId);
 					if(!bookFromBookId.isPublished) urlPage = "revision";
 
 					if (notification.type == "response") toInsert = "<li class=\"comment-notification\" id=\""+notification.pendingId+"\"><a href=/"+urlPage+"/"+notification.responseId+"?commentLocation="+hash+"><img class=\"avatar-notif\" src=\""+userFrom.avatarImage + "\">On "+time+" , <b>"+sender+"</b> left a "+typeString+" on <b>"+ bookTitle + " &#8212; </b>"+"<i>'' "+text+"</i> ''</a>";
