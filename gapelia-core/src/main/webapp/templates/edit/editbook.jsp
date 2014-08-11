@@ -59,16 +59,16 @@
 				<a class="button brand-iii" href="#" id="pages-toggle" title="Add and manage pages in your book">Pages</a>
 				<ul id="revision-toggle">
 					<li id="revisions" style="padding: 0 2.5rem 2.5rem 0;">
-					    <a class=revision-dropdown href="#">Revisions</a>
+					    <a class="revision-dropdown">Revisions</a>
 						<ul style="display: none;">
 							<li style="font-weight: 500; margin-bottom: 10px; text-align: center;">Past versions sorted by day</li>
 						</ul>
 					</li>
 				</ul>
-				<a id ="save-drafts" class="button brand-iii" href="#" style="margin-left: 5rem !important; padding-top: 8px !important;">Share Draft</a>
+				<a id ="save-drafts" class="button brand-iii" style="margin-left: 5rem !important; padding-top: 8px !important;">Share Draft</a>
 				<ul id="tool-box" style="margin-left: -5px;">
 				<li id="tools">
-					<a class=revision-dropdown href="#">&#9881;</a>
+					<a class="revision-dropdown">&#9881;</a>
 					<ul style="display: none;">
 						<li>Characters:<p id="word-count"></p></li>
 						<li>Paragraphs:<p id="paragraph-count"></p></li>
@@ -88,9 +88,9 @@
 			</div>
 
 			<div id="finish">
-				<a class="zen-mode" href="#"><img src="../static/images/zen-mode.png"></a>
+				<a class="zen-mode"><img src="../static/images/zen-mode.png"></a>
 				<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
-				<a class="button middle-button brand-iii" href="#" id="publish-toggle" title="Publish your book">Publish</a>
+				<a class="button middle-button brand-iii" id="publish-toggle" title="Publish your book">Publish</a>
 				<a class="button b brand-iii" id="close-button" href="/featured" title="Save changes and quit">Save + Close</a>
 				<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">&#9998;</a>
 			</div>

@@ -80,8 +80,8 @@
             <div id="bb-bookblock" class="bb-bookblock">
             </div>
 		<ul id="edit-shortcut" style="text-align: right !important;">
-		    <a id="back-to-revision" href="#" style="background-color: #59B3A6;">Go Back to this Revision</a>
-		    <a id="close-revision" href="#" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
+		    <a id="back-to-revision" style="background-color: #59B3A6;">Go Back to this Revision</a>
+		    <a id="close-revision" style="background-color: #59B3A6; margin-left: 5px;">Close</a>
 		</ul>
         </div>
 
@@ -171,7 +171,8 @@
 			} else {
 				$("#the-book #edit-shortcut").remove();
 			}
-		}	
+		}
+		
     });
 	
     // Dropdown menu for mobile
@@ -255,10 +256,7 @@
     //votes and recommendation get removed for revisions//
     setTimeout(function () {
 	$("#fin, #fin-next, .g-body hr, .backcover-wrapper, #next-book").remove();
-		if (bookId == drafts[0].bookId) {
-		$("#edit-shortcut").remove();
-	}
-    }, 150);
+    }, 1000);
 
     setTimeout(function () {
         $(".fluid-wrapper").imgLiquid({fill: true});
@@ -271,13 +269,13 @@
 	//adding http://, underline styling and new-tab-location to all hyperlinks//
 	$(function() {
 	    $(".full-book .page-desc a").each(function() {
-	    var href = $(this).attr("href");
-		//$(this).attr("href", "http://" + href);
-		$(this).attr("target", "_blank");
-	    });
-	    $(".full-book .page-desc a").css("text-decoration", "underline");
-	});	
-	document.title = pages[0].title;
+			var href = $(this).attr("href");
+			//$(this).attr("href", "http://" + href);
+			$(this).attr("target", "_blank");
+			});
+			$(".full-book .page-desc a").css("text-decoration", "underline");
+		});	
+		document.title = pages[0].title;
     }, 2000);
       
     addLoggedInMenuForBook();

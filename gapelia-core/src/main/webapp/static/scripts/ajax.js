@@ -32,6 +32,8 @@ function getRevisions(myBookId){
 				toInsert = "<li><a href=\"/revision/" + revisionsResult.revisionBookId + "\">" + revisionsResult.created + "</a></li>";
 
 				$("#revision-toggle ul").append(toInsert);
+				
+				document.URL.substring(document.URL.lastIndexOf('/')+1).replace("#","");
 
 			}
 		},
