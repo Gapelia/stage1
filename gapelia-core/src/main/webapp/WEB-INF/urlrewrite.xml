@@ -22,10 +22,6 @@
         <from>^/read/([0-9]+)$</from>
         <to>/templates/read/index.jsp</to>
     </rule>
-    <outbound-rule>
-        <from>^/templates/read/index.jsp</from>
-        <to>/read/([0-9]+)$</to>
-    </outbound-rule>
     <rule>
         <from>^/user/([0-9]+)$</from>
         <to>/templates/user/index.jsp</to>
@@ -173,5 +169,14 @@
         <from>^/about.jsp?$</from>
         <to>/about$</to>
     </outbound-rule>
+    <!--new read (testing)-->
+    <outbound-rule>
+        <from>^/templates/read/index2.jsp</from>
+        <to>/read2/([0-9]+)$</to>
+    </outbound-rule>
+    <rule>
+        <from>^/read2/([0-9]+)$</from>
+        <to>/templates/read/index2.jsp</to>
+    </rule>
 
 </urlrewrite>
