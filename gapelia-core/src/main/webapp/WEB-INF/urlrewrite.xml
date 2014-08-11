@@ -169,14 +169,4 @@
         <from>^/about.jsp?$</from>
         <to>/about$</to>
     </outbound-rule>
-    <!--new read (testing)-->
-    <outbound-rule>
-        <from>^/templates/read/index2.jsp</from>
-        <to>/read2/([0-9]+)$</to>
-    </outbound-rule>
-    <rule>
-        <from>^/read2/([0-9]+)$</from>
-        <to>/templates/read/index2.jsp</to>
-    </rule>
-
 </urlrewrite>

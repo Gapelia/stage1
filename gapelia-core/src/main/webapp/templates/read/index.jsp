@@ -98,7 +98,6 @@
 	</body>
 
 	<!--/ scripts /-->
-	<script defer src="http://www.readrboard.com/static/engage.js"></script>
 
 	<script src="/static/scripts/modernizr.custom.js"></script>
 	<script src="/static/scripts/jquery-2.1.0.min.js"></script>
@@ -423,4 +422,6 @@
 
 	addLoggedInMenuForBook();
 </script>
+<!-- keep this at the end -->
+<script defer src="http://www.readrboard.com/static/engage.js"></script>
 </html>
