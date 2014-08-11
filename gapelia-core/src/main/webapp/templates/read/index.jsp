@@ -264,10 +264,12 @@
 
 	function addRespondToButton() {
 		var $button = $('<hr style="margin-top: -1rem;"><div id="response-button"><button type="button" id="respondToButton">Respond</button></div>');
-		$("#fin-next").append($button);
-		$("#respondToButton").click(function() {
-			window.location.href = "/respondTo/"+bookId;
-		});
+		if (getLibraryFromBook(bookId) != "") { //this features only applies to books that are part of a library
+				$("#fin-next").append($button);
+				$("#respondToButton").click(function() {
+					window.location.href = "/respondTo/"+bookId;
+				});
+		}		
 	}
 	
 	function showResponses(responses) {

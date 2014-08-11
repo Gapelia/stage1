@@ -234,11 +234,16 @@ function loadMoreBookmarks(count,items) {
 		bookmark = bookmarks[offset + i];
 
 		if (bookmark.bookId in bookmarked == true) {
-			toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+			toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\"";
 		} else {
-			toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\" style=\"background-image: url(" + bookmark.coverPhoto + ");";
+			toInsert += "<li id=\'" + bookmark.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked active\"";
 		}
-		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+		if (book.coverPhoto != "../static/images/grayBG.png") {
+		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ")";
+		} else {
+		    toInsert += "style=\"background: #59B3A6;";
+		}
+		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";	
 		toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
 		toInsert += "<div class=\"library-location\">";
 		toInsert += getLibraryFromBook(bookmark.bookId);
@@ -360,11 +365,17 @@ function loadMoreBooks(count,items) {
 		book = books[offset + i];
 
 		if (book.bookId in bookmarked == true) {
-			output += "<li id=\'" + book.bookId + "\' class=\"book bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			output += "<li id=\'" + book.bookId + "\' class=\"book bookmarked\"";
 		} else {
-			output += "<li id=\'" + book.bookId + "\' class=\"book\" style=\"background-image: url(" + book.coverPhoto + ");";
+		    output += "<li id=\'" + book.bookId + "\' class=\"book\"";
+		}		
+		if (book.coverPhoto != "../static/images/grayBG.png") {
+		    output += "style=\"background-image: url(" + book.coverPhoto + ");";
+		} else {
+		    output += "style=\"background: #59B3A6;";
 		}
-		output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
+		output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+		output += "<div class=\"bookmark-this\"><span class=\"top-bm\">";
 		output += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
 		output += getLibraryFromBook(book.bookId);
 		output += "</div><div class=\"book-title\">";
@@ -433,7 +444,13 @@ function loadMoreUserBooks(count,items) {
 
 		book = books[offset + i];
 
-		toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";	
+		toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\"";
+		if (book.coverPhoto != "../static/images/grayBG.png") {
+		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ")";
+		} else {
+		    toInsert += "style=\"background: #59B3A6;";
+		}
+		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";	
 		toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a>"
 		toInsert += "<a class=\"edit-this-book\" href=\"/editbook/" + book.bookId + "\">&#9998;</a></div><div class=\"library-location\">"; 
 		toInsert += getLibraryFromBook(book.bookId);
@@ -545,7 +562,7 @@ function getUserCreatedBooksList() {
 			toInsert = "";
 			for (i in books) {
 				book = books[i]
-				if (book.coverPhoto == "static/images/grayBG.png") {
+				if (book.coverPhoto == "../static/images/grayBG.png") {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + book.title + "</a>";	
 				} else {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
@@ -581,13 +598,13 @@ function getUserDrafts() {
 				draft = drafts[i]
 				if (draft.title != null) {
 						if (draft.title == "") {
-								if (draft.coverPhoto == "static/images/grayBG.png") {
+								if (draft.coverPhoto == "../static/images/grayBG.png") {
 										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + "Untitled" + "</a>";	
 								} else {
 										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\""+draft.coverPhoto+"\">" + "Untitled" + "</a>";		
 								}
 						} else {
-								if (draft.coverPhoto == "static/images/grayBG.png") {
+								if (draft.coverPhoto == "../static/images/grayBG.png") {
 										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + draft.title + "</a>";	
 								} else {
 										toInsert += "<li id =\"" + draft.bookId + "\"><a href=\"/editbook/" + draft.bookId + "\"><img src=\""+draft.coverPhoto+"\">" + draft.title + "</a>";	
@@ -758,15 +775,20 @@ function loadMoreBooksInLibrary(count,items) {
 		book = books[offset + i];
 
 		if (typeof user != 'undefined' && book && book.bookId in bookmarked) {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\"";
 		} else if(book) {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\"";
 		}
 		else{
 			console.log("returning for no reason");
 			return;
 		}
-		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+		if (book.coverPhoto != "../static/images/grayBG.png") {
+		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ")";
+		} else {
+		    toInsert += "style=\"background: #59B3A6;";
+		}
+		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";	
 		if (typeof user != 'undefined') {	
 			if (libraryOwner.userId == user.userId) {
 				toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
@@ -2063,7 +2085,7 @@ function getLibraryFromBook(bookId) {
 		success: function (data) {
 			if (data.libraryId != 0) {
 				responseText = "<a href=\"library/" + data.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + data.title + "</a>";
-			}
+			} 
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -2137,9 +2159,14 @@ function loadMorePublicUserBooks(count,items) {
 		book = books[offset + i];
 
 		if (book.bookId in bookmarked == true) {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\"";
 		} else {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\"";
+		}
+		if (book.coverPhoto != "../static/images/grayBG.png") {
+		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ")";
+		} else {
+		    toInsert += "style=\"background: #59B3A6;";
 		}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 		toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";

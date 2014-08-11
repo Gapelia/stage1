@@ -349,7 +349,6 @@
 			$("#save-drafts, #revision-toggle").hide();
 		})
 		
-		
 		$("#publish-this").on("click", function () {
 			snippet = $(".add-description").html();
 			console.log(snippet);

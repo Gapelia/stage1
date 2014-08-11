@@ -138,7 +138,12 @@ $(function () {
                     backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"   
                 }
                 backPage += "<hr/><section>";
-                backPage += getLibraryFromBookBackCover(current.bookId);
+                
+                if (getLibraryFromBook(current.bookId) != "") {
+                    backPage += getLibraryFromBookBackCover(current.bookId);
+                } else {
+                    backPage += "<section><a id=\"library-avatar\"><img  style=\"border: 1px solid rgba(0, 0, 0, 0.33);\" src=\"../static/images/whiteBG.jpg\"></a><div id=\"library-name\"><a style=\"display: block; width: 100%; height: 100%;\">--</a></div><div id=\"library-info-blurb\"><a>This story is not part of a library yet.<br> Visit the <a href=\"/"+user.userId+"\">author's profile</a> or browse <a href=\"/\">curated stories</a></a></div><section>";
+                }
                 backPage += "</div></section></div>";
                 getReadNextBook();
                 initializeMerciObject();
@@ -306,8 +311,6 @@ function getLibraryFromBookRec(bookId) {
             }
             else{
                 
-              //  console.log("book not in library, recommending...");
-                
                 $.ajax({
                 url: "/api/users/getNextReadRecommendation",
                 contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -320,7 +323,7 @@ function getLibraryFromBookRec(bookId) {
                 },
                 success: function (data) {
                     nextBook = data;
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+                    backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\" style=\"text-shadow: 3px 3px 3px rgba(25, 25, 25, 0.7);\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
                     htmlToInsert += backPage;
                     $("#bb-bookblock").html(htmlToInsert);
                     $("#header-author").html(bookOwner.name);
@@ -352,14 +355,14 @@ function getLibraryFromBookRec(bookId) {
 function getReadNextBook() {
         
         if (typeof user == "undefined") {
-                    backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio. Join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
-                    
-                    htmlToInsert += backPage;
-                    $("#bb-bookblock").html(htmlToInsert);
-                    loadBook();
+            backPage += "<div id=\"fin-next\" style=\"background-image: url(../static/images/cover.jpg); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\"><a href=\"/\">Sign up with Folio. Join a community of thinkers and storytellers</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+            
+            htmlToInsert += backPage;
+            $("#bb-bookblock").html(htmlToInsert);
+            loadBook();
         }
         else{
-                    getLibraryFromBookRec(current.bookId); 
+            getLibraryFromBookRec(current.bookId); 
         }
     }
 
@@ -474,10 +477,10 @@ function getReadNextBook() {
     }
     
     function fluidLayout(isFirst) {
-        if(current.photoUrl ==null ||current.photoUrl=="static/images/grayBG.png") {
+        if(current.photoUrl ==null ||current.photoUrl=="../static/images/grayBG.png") {
             htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
             htmlToInsert += "</section>";
-            htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
+            htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 4rem;\">";
         } else {
             htmlToInsert += "<section class=\"fluid-wrapper\">";
             getUserFromBook(bookId)
