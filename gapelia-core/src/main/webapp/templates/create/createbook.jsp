@@ -312,7 +312,7 @@
 				addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
 				<% } %>
 			}
-
+		
 			$("#publish-this").on("click", function () {
 				snippet = $(".add-description").html();
 				freshPublishedBook = getUserDraftsArray()[0];
@@ -340,6 +340,7 @@
 			
 			//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
 			setTimeout(function () {
+				
 				$(".dd-link").click(function (e) {
 					$(this).next(".delete-draft").toggle();
 					e.preventDefault();
@@ -369,6 +370,13 @@
 							}
 						}
 					});
+				});
+				
+				//cleans up text when copty/paste
+				$('.page-title-elem').on('paste',function(e) {
+					e.preventDefault();
+					var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+					document.execCommand('insertText', false, text);
 				});
 				
 				//calculating reading time for the first time, needs timeOut//

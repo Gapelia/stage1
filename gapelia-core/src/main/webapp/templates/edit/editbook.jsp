@@ -406,6 +406,13 @@
 				});
 			});
 			
+		    //cleans up text when copty/paste
+		    $('.page-title-elem').on('paste',function(e) {
+				e.preventDefault();
+				var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+				document.execCommand('insertText', false, text);
+		    });
+			
 			//calculating reading time for the first time, needs timeOut//
 			$(function() {
 				$('article').readingTime({
