@@ -216,7 +216,7 @@
 
                 function fluidLayout(isFirst) {
 			
-                    if(current.image==null ||current.image=="static/images/grayBG.png") {
+                    if(current.image==null ||current.image=="../static/images/grayBG.png") {
                         htmlToInsert += "<section class=\"fluid-wrapper\"><section class=\"draggable-placeholder\">";
                          htmlToInsert += "</section>";
                         htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 0px;\">";
