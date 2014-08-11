@@ -31,7 +31,7 @@ public class QueryDatabaseLibrary {
 	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
     private static final String IS_VALID_LIBRARYID = "SELECT 1 FROM libraries WHERE id = ?";
     private static final String GET_LIBRARY_CONTRIBUTORS = "select distinct users.* from users join books on users.id = books.owned_by join library_books on books.id = library_books.book_id where library_books.library_id = ?";
-	private static final String GET_MOST_VOTED_BOOKS = "select library_books.book_id from library_books left join (select count(book_id) as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id where library_id = ? limit ?";
+	private static final String GET_MOST_VOTED_BOOKS = "select library_books.book_id from library_books right join (select count(book_id) as num_votes,book_id from user_votes group by book_id order by num_votes desc) as t2 on library_books.book_id = t2.book_id where library_id = ? limit ?";
 
     public static boolean isValidLibraryId(int libraryId) {
         PreparedStatement insert = null;
