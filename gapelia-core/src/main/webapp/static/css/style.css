@@ -4509,29 +4509,22 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
   opacity: 0.75;
   margin-right: 5px; }
-.profile #user-splash #close-splash, .profile #user-splash .follow, .profile #user-splash .unfollow {
-  width: auto;
-  height: auto;
-  bottom: 92%;
-  left: 81.5%;
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: rgba(252, 252, 252, 0.8);
-  cursor: pointer;
-  font-family: "ff-more-web-pro", "Poly", Georgia, serif;
-  font-size: 1rem;
-  font-style: italic !important;
-  font-weight: 400;
-  padding: 9.5px;
-  position: fixed;
-  text-align: center;
-  transition: bottom 1.3s ease, left 1.3s ease;
+.profile #user-splash #records-access {
+  left: initial !important;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
   z-index: 10; }
 .profile #user-splash .follow, .profile #user-splash .unfollow {
+  border-radius: 5px;
+  color: rgba(252, 252, 252, 0.8);
   font-style: italic;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  bottom: 92%;
   left: 91%;
   padding: 7px 20px 9px 20px !important;
   position: absolute;
+  text-align: center;
   text-transform: lowercase;
   z-index: 10; }
 .profile #user-splash .follow:first-letter, .profile #user-splash .unfollow:first-letter {
@@ -4542,6 +4535,45 @@ body.library-manager ::-webkit-scrollbar {
   color: white; }
 .profile #user-splash .unfollow {
   padding: 7px 10px 9px 10px !important; }
+.profile #user-records {
+  background-color: #fcfcfc;
+  box-shadow: 1px 0 0 0 rgba(25, 25, 25, 0.3);
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  right: -300px;
+  width: 300px;
+  z-index: 100; }
+.profile #user-records div {
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.46);
+  margin-left: 25px; }
+.profile #user-records h5 {
+  font-weight: 700;
+  padding: 1rem;
+  text-align: left; }
+.profile #user-records span {
+  color: gray;
+  display: inline;
+  position: absolute; }
+.profile #user-records #published-records-list li, .profile #user-records #library-records-list li, .profile #user-records #contribution-records-list li {
+  color: gray;
+  padding: 1rem;
+  text-transform: capitalize; }
+.profile #user-records #published-records-list img, .profile #user-records #library-records-list img, .profile #user-records #contribution-records-list img {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px; }
+.profile #user-records #published-records-list .dd-link, .profile #user-records #library-records-list .dd-link, .profile #user-records #contribution-records-list .dd-link {
+  margin-left: 8px; }
+.profile #user-records #published-records-list .delete-draft, .profile #user-records #library-records-list .delete-draft, .profile #user-records #contribution-records-list .delete-draft {
+  display: inline-block;
+  margin-top: 10px; }
+.profile #user-records #published-records-list .delete-draft .red, .profile #user-records #library-records-list .delete-draft .red, .profile #user-records #contribution-records-list .delete-draft .red {
+  margin-left: 10px !important; }
+.profile #user-records #library-records, .profile #user-records #contribution-records {
+  margin-top: 10px; }
+.profile #user-records #library-records, .profile #user-records #published-records, .profile #user-records #contribution-records {
+  padding-right: 0; }
 .profile .book-buttons {
   top: 0;
   right: 0;

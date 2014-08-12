@@ -104,7 +104,7 @@
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
 						<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
 						<li id="nav-following"><a href="#">Following</a></li>
-						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"> Search</p></div>		    
+						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"></p></div>		    
 						<input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 
 						<div id="stay-right">

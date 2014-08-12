@@ -58,6 +58,20 @@
 			</div>
 		</nav>
 		<!--//site-menu /-->
+		
+		<div id="user-records">
+		<!--/ published /-->
+				<h5>Content</h5>
+				<h5 id="published-records"><span></span><div><a href="#">Stories</a></div></h5>
+				<ul id="published-records-list"></ul>
+		<!--/ contributions /-->
+				<h5 id="contribution-records"><span></span><div><a href="#">Contributions</a></div></h5>
+				<ul id="contribution-records-list"></ul>
+		<!--/ editor /-->
+				<h5 id="library-records"><span></span><div><a href="#">Editorial</a></div></h5>
+				<ul id="library-records-list"></ul>
+		</div>
+		
 		<!--/ main-panel /-->
 		<div id="user-panel">
 			<button id="g-menu-toggle" class="notification-time">
@@ -85,7 +99,6 @@
 	<!--/ scripts /-->
 	<script src="/static/scripts/touchSwipe.min.js"></script>
 	<script src="/static/scripts/g.money.js"></script>
-	<script src="/static/scripts/imgLiquid.js"></script>
 	<script src="/static/scripts/charLimiter.js"></script>
 	<script src="/static/scripts/classie.js"></script>
 	<script src="/static/scripts/mlpushmenu.js"></script>
@@ -102,11 +115,6 @@
 				$("#splash-user-bio").attr("contenteditable", "true").css("background-color", "rgba(252, 252, 252, 0.3)").trigger("focus");
 			});
 		}
-		$(function () {
-			$(".user-bg, .book, .collection, .draft").imgLiquid({
-				fill: true
-			});
-		});
 	</script>
 	<script>
 		$(function () {
@@ -142,7 +150,7 @@
 			// Splash page
 			$(function () {
 				stuff = "";
-				stuff += "<section id=\"user-splash\">";
+				stuff += "<section id=\"user-splash\" style=\"background-size: cover; background-position: 50% 50%;\">";
 				stuff += "<div class=\"overlay-controls\">";
 				stuff += "<input type=\"filepicker\" id=\"change-cover-photo\" data-fp-apikey=\"AqrddQT2HQIebG8DinaqUz\" data-fp-mimetypes=\"image/*\" data-fp-container=\"modal\" data-fp-services=\"COMPUTER,BOX,DROPBOX,FACEBOOK,FLICKR,GOOGLE_DRIVE\" data-fp-maxSize=\"10485760*1024\" onchange=\"url=event.fpfile.url; insertBackgroundImage(url);\">";
 				stuff += "</div>";
@@ -171,27 +179,19 @@
 				stuff += "</ul>";
 				stuff += "</div>";
 				if($vW > "1024") {
-					stuff += "<div id=\"close-splash\" style=\"left: 90%;\">See all posts</div>";
+					stuff += "<div id=\"records-access\"><img src=\"/static/images/arrow-right.png\" style=\"height: 50px; width: 50px;\"/></div>";
 				} else {
 					stuff += "<div id=\"close-splash\">^</div>";
 				}
-				stuff += "<img class=\"page-bg\" src=\"/static/images/cover-bg.jpg\"/>";
 				stuff += "</section>";
 				$("#mp-pusher").prepend(stuff);
-				//hide archive buttons if less than two published books//
-				if(books.length < 2) {
-					$("#close-splash").remove()
-				}
-				$("#user-splash").imgLiquid({
-					fill: true
-				});
 				$("#g-menu-toggle").css("color", "#fcfcfc");
 				var element = $("#change-cover-photo");
 				element = element[0];
 				element.type = "filepicker";
 				filepicker.constructWidget(element);
 			});
-			if($vW > "1024") {
+			/*if($vW > "1024") {
 				$(document).on("click", "#close-splash", function () {
 					$("#close-splash").css({
 						"left": "-200%",
@@ -207,7 +207,7 @@
 					$(".user-book-list-wrapper, #user-header").css("opacity", "1");
 					$("#user-header").css("opacity", "1");
 				});
-			}
+			}*/
 			$(function () {
 				var $vW = $(window).width(),
 					$vH = $(window).height();
@@ -228,7 +228,6 @@
 				
 				if($vW > "1919") {
 					$(".profile .follow").css("cssText", "left: 92.5% !important");
-					$("#user-splash #close-splash").css("left", "92%");
 				}
 				if($vH > "1079") {
 					$(".user-book-list-wrapper").css("cssText", "top: 51% !important");
@@ -279,11 +278,29 @@
 					}
 				}
 				$(document).ready(function () {
+				    getUserCreatedBooksList();
+					getCreatedLibrariesArray();
 					$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
 				    
 					//Creates hrefs when user inputs a website in the bio//
 					var myTextEl = document.getElementById( "splash-user-bio" );
 				    myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
+					
+				    //show user records list//
+				    $("#records-access").click(function(){
+						$("#user-records").css("right", "0");
+						$("#user-records .delete-draft").css("display", "none");
+						//book counters//
+						publishedLength = books.length;
+						libraryLength = libraries.length;
+						contributionsLength = contributions.length,
+						$("#published-records span").html(""+publishedLength+"");
+						$("#library-records span").html(""+libraryLength+"");
+						$("#contribution-records span").html(""+contributionsLength+"");
+					});
+				    $("#user-records").mouseleave(function(){
+						$("#user-records").css("right", "-300px");
+				    });
 				});
 				//cleans up text when copty/paste
 				$('[contenteditable]').on('paste', function (e) {
@@ -291,6 +308,7 @@
 					var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
 					document.execCommand('insertText', false, text);
 				});
+		
 				// Load Gapelia
 				$(function () {
 					NProgress.start();
@@ -303,9 +321,6 @@
 						if($vW > "1024") {
 							$("#user-book-list .book").css("height", $vH - 97 + "px");
 						}
-						$(".book").imgLiquid({
-							fill: true
-						});
 						var w = 0,
 							h = 0;
 						$("#user-book-list li").each(function () {

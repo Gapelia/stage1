@@ -562,6 +562,7 @@ function getUserCreatedBooksList() {
 				$("#draft-menu, #published-list").remove();
 			}
 			$("#draft-menu, #published-list").html(toInsert);
+			$("#published-records-list").html(toInsert);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -853,7 +854,11 @@ function getCreatedLibrariesArray() {
 		success: function (data) {
 			libraries = data;
 			
-
+		    for (i in libraries) {
+				library = libraries[i]
+				toInsert = "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
+			}
+			$("#library-records-list").html(toInsert);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -2912,7 +2917,7 @@ function isFollowing() {
 				stuff = "<button class=\"follow white-border\">Follow</button>";
 			}
 
-			$("#user-splash").append(stuff);
+			//$("#user-splash").append(stuff);
 
 		},
 		error: function (q, status, err) {
@@ -3191,10 +3196,13 @@ function getContributedTo() {
 			contributions = data;
 			if(contributions.length >0) {
 				toInsert = "Contributes to";
+				output = "";
 				for(i in contributions) {
 					toInsert+="<a href=\"/library/"+contributions[i].libraryId+"\">"+contributions[i].title+"</a>";
+					output+="<li><a href=\"/library/"+contributions[i].libraryId+"\"><img src=\""+contributions[i].coverPhoto+"\"/>"+contributions[i].title+"</a></li>";
 				}
 				$("#contributes-to").html(toInsert);
+				$("#contribution-records-list").html(output);
 			}
             if (contributions.length > 1) {
 				$("#contributes-to a:first-child").append("<span> and</span>");
