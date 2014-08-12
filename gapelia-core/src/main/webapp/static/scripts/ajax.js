@@ -871,6 +871,31 @@ function getCreatedLibrariesArray() {
 	return libraries;
 }
 
+function getCreatedLibrariesByUserArray(userId) {
+	userId = userId;
+	libraries = [];
+	$.ajax({
+		url: "/api/users/getCreatedLibraries",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			userId: userId
+		},
+		success: function (data) {
+			libraries = data;
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return libraries;
+}
+
 function getCreatedLibraries() {
 	sessionId = readCookie("JSESSIONID");
 	$.ajax({

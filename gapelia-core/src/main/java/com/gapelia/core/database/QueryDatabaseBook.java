@@ -316,7 +316,7 @@ public class QueryDatabaseBook {
 				}
 				else{
 
-					LOG.info("updating book in db");
+					LOG.info("updating revision in db");
 
 					book.setBookId(bookSequence);
 
@@ -334,12 +334,13 @@ public class QueryDatabaseBook {
 
 					QueryDatabaseRevisions.addRevisionForBookId(originalBookId,bookSequence);
 
+                    LOG.info(pageList);
 					for(Page p : pageList){
 						LOG.info("updating page id" + p.getPageId());
 
 						p.setBookId(bookSequence);
 
-						LOG.info(p.getTitle());
+						LOG.info(p.getTitle()); //this is empty :(
 
 						int newPageNum = createPage(p);
 

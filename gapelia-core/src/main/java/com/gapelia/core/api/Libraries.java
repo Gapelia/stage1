@@ -82,6 +82,15 @@ public class Libraries {
         return gson.toJson(QueryDatabaseUser.getCreatedLibraries(u.getUserId()));
     }
 
+    @Path("getCreatedLibrariesByUserId")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getCreatedLibraries(@FormParam("userId") int userId) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseUser.getCreatedLibraries(userId));
+    }
+
 
     @Path("getBooksInLibrary")
     @POST
