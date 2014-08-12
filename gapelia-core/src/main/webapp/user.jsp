@@ -165,29 +165,6 @@
         $("#g-menu-toggle").css("color", "#fcfcfc");
 		});
 
-            /*if ($vW > "1024") {
-
-                $(document).on("click", "#close-splash", function () {
-
-                    $("#close-splash").css({
-                        "left": "-200%",
-                        "right": "initial"
-                    });
-
-                    $("#user-splash").css("left", "-200%");
-                    $("#user-panel").css("width", "100%");
-                    $("#user-splash .overlay-controls").css("left", "-200%");
-                    $("#g-menu-toggle").css({
-					"color": "#70a1b1",
-					"width": "7.5%"
-					});
-	            $(".user-book-list-wrapper, #user-header").css("opacity", "1");
-                    $("#user-header").css("opacity", "1");
-
-                });
-		
-            }*/ 
-
             $(function () {
 
             var $vW = $(window).width(),
@@ -287,29 +264,32 @@
 		var fourth = getPublicBooksArray();
                 
 		$(document).ready(function() {
-			getUserCreatedBooksList();
-			getCreatedLibrariesArray();
-			$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
-			
-			//Creates hrefs when user inputs a website in the bio//
-			var myTextEl = document.getElementById( "splash-user-bio" );
-			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
-			
-			//show user records list//
-			$("#records-access").click(function(){
-				$("#user-records").css("right", "0");
-				$("#user-records .delete-draft").css("display", "none");
-			//book counters//
-			publishedLength = books.length;
-			libraryLength = libraries.length;
-			contributionsLength = contributions.length,
-				$("#published-records span").html(""+publishedLength+"");
-				$("#library-records span").html(""+libraryLength+"");
-				$("#contribution-records span").html(""+contributionsLength+"");
-			});
-			$("#user-records").mouseleave(function(){
-				$("#user-records").css("right", "-300px");
-			});
+			if ($vW > "1025") {
+				getPublicUserCreatedBooksList();
+				getCreatedLibrariesArray();
+				$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
+								
+				//Creates hrefs when user inputs a website in the bio//
+				var myTextEl = document.getElementById( "splash-user-bio" );
+				myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
+								
+				//show user records list//
+				$("#records-access").click(function(){
+					$("#user-records").css("right", "0");
+					$("#user-records .delete-draft").css("display", "none");
+					//book counters//
+					publishedLength = books.length;
+					libraryLength = libraries.length;
+					contributionsLength = contributions.length,
+					$("#published-records span").html(""+publishedLength+"");
+					$("#library-records span").html(""+libraryLength+"");
+					$("#contribution-records span").html(""+contributionsLength+"");
+				});
+				
+				$("#user-records").mouseleave(function(){
+					$("#user-records").css("right", "-25%");
+				});
+			}
 		});
 		
 		// Load Gapelia
@@ -372,65 +352,6 @@
 			setTimeout(function () {
 			$("#user-book-list li").fadeIn("100");
 			$("#user-book-list").fadeIn("100");
-
-			
-
-
-			   if ($vW > "1024") {
-				
-					var options = {
-						horizontal: 1,
-						itemNav: 'forceCentered',
-						smart: 1,
-						activateMiddle: 1,
-						activateOn: 'click',
-						mouseDragging: 1,
-						touchDragging: 1,
-						swingSpeed: 1,
-						releaseSwing: 0,
-						startAt: 0,
-						scrollBar: $(".scrollbar"),
-						scrollBy: 1,
-						speed: 0.0001,
-						elasticBounds: 1,
-						easing: 'swing',
-						dragHandle: 1,
-						dynamicHandle: 1,
-						clickBar: 1,
-						keyboardNavBy: 'items',
-					};
-						
-					var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
-					var items = $('#user-book-list');
-			
-					loadMorePublicUserBooks(5,items);
-			
-					if(books.length > 5){
-					    
-					    slyBookWrapper.on('load change', function () {
-						if (this.pos.dest > this.pos.end - 200) {
-						    if (items.children().length <= books.length-1) {
-						    loadMorePublicUserBooks(1,items);
-				
-							$(".book").css("height", h);
-							$(".book-snippet").css("display", "block")
-							    
-							this.reload();
-						    }
-					        } 	
-					    });
-					}    
-			
-				    h = $(this).outerHeight() - 92;
-				    $(".book").css("height", h);
-				    $("#user-book-list li").fadeIn("100");
-				    $("#user-book-list").fadeIn("100");
-				    if ($vW > "300") {
-					$(".book-snippet").css("display", "block")
-				    }
-			
-				    slyBookWrapper.init();
-				}
 				
 			if ($vW < "1025") {
 				

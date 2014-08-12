@@ -572,6 +572,37 @@ function getUserCreatedBooksList() {
 	});
 }
 
+function getPublicUserCreatedBooksList() {
+	sessionId = readCookie("JSESSIONID");
+	$.ajax({
+		url: "/api/users/getCreatedBooksPublic",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			userId: profileUserId
+		},
+		success: function (data) {
+			books = data;
+			toInsert = "";
+			for (i in books) {
+				book = books[i]
+				if (book.coverPhoto == "../static/images/grayBG.png") {
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + book.title + "</a>";	
+				} else {
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
+				}		
+				  toInsert += "</li>";
+			}
+			$("#published-records-list").html(toInsert);
+		},
+		error: function (q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			}
+		}
+	});
+}
+
 function getUserDrafts() {
 	sessionId = readCookie("JSESSIONID");
 	$.ajax({
@@ -872,8 +903,7 @@ function getCreatedLibrariesArray() {
 }
 
 function getCreatedLibrariesByUserArray(userId) {
-	userId = userId;
-	libraries = [];
+	var libraries = [];
 	$.ajax({
 		url: "/api/users/getCreatedLibraries",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
