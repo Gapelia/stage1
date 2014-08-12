@@ -905,7 +905,7 @@ function getCreatedLibrariesArray() {
 function getCreatedLibrariesByUserArray(userId) {
 	var libraries = [];
 	$.ajax({
-		url: "/api/users/getCreatedLibraries",
+		url: "/api/users/getCreatedLibrariesByUserId",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		async: false,
@@ -929,7 +929,7 @@ function getCreatedLibrariesByUserArray(userId) {
 function getCreatedLibraries() {
 	sessionId = readCookie("JSESSIONID");
 	$.ajax({
-		url: "/api/users/getCreatedLibraries",
+		url: "/api/users/getCreatedLibrariesByUserId",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		async: false,
