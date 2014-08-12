@@ -122,7 +122,7 @@ public class Email {
 	public static void sendCommentEmail(User u, CommentNotification n){
 		if(u.getEmailOptOut()) return;
 
-		n.setComment("'"+n.getComment()+"'");
+		n.setComment("&quot;"+n.getComment()+"&quot;");
 
 		String[] cmd = {
 				"/bin/sh",
