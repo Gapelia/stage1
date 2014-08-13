@@ -4288,8 +4288,6 @@ body.library-manager ::-webkit-scrollbar {
 #wonder-portal-bg {
   background-color: #b356d6; }
 
-.profile #mp-pusher {
-  overflow-x: hidden; }
 .profile .wrapper {
   text-align: center;
   width: 100%; }

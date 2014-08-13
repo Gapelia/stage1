@@ -48,7 +48,7 @@
 		</nav>
 		
 		<!--/ access-to-user-records /-->
-		<div id="user-records">
+		<div id="user-records" style="display: none;">
 				<h5>Content</h5>
 		<!--/ published /-->
 				<h5 id="published-records"><span></span><div><a href="#">Stories</a></div></h5>
@@ -166,6 +166,7 @@
 				stuff += "</section>";
 				
 				$("#mp-pusher").prepend(stuff);
+				$("#g-menu-toggle").css("color", "#fcfcfc");
 				
 				var element = $("#change-cover-photo");
 				element = element[0];
@@ -254,7 +255,7 @@
 								getUserCreatedBooksList();
 								getCreatedLibrariesArray();
 								
-								$("#user-records").css("right", "0");
+								$("#user-records").css("right", "0").fadeIn(100);;
 								$("#user-records .delete-draft").css("display", "none");
 								
 								//counters//
@@ -267,7 +268,7 @@
 						});
 						
 								$("#user-records").mouseleave(function(){
-										$("#user-records").css("right", "-25%");
+										$("#user-records").css("right", "-25%").fadeOut(100);
 								});
 						}
 				});
