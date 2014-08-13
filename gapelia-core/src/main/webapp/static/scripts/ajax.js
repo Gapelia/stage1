@@ -902,7 +902,7 @@ function getCreatedLibrariesArray() {
 	return libraries;
 }
 
-function getCreatedLibrariesByUserArray() {
+function getCreatedLibrariesByUserArray(userId) {
 	libraries = [];
 	$.ajax({
 		url: "/api/users/getCreatedLibrariesByUserId",
@@ -913,11 +913,10 @@ function getCreatedLibrariesByUserArray() {
 			userId: userId
 		},
 		success: function (data) {
-			libraries = data;
-			
+			libraries = data;			
 		    for (i in libraries) {
-				library = libraries[i];
-				toInsert = "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
+				var library = libraries[i];
+				toInsert += "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
 			}
 			$("#library-records-list").html(toInsert);
 		},
