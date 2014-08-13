@@ -1448,7 +1448,6 @@ function getLibrariesSuggestion() {
 				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";	
 				$("#suggested-lib-list").append(libs);
 			}
-			getUser();
 			$(".lib-blurb c").each(function(i){
 				len=$(this).text().length;
 				if(len>200)
@@ -1493,7 +1492,6 @@ function getLibrariesSuggestionTwo() {
 				$("#suggested-lib-list").append(libs);
 				
 			}
-			getUser();
 			$(".lib-blurb c").each(function(i){
 				len=$(this).text().length;
 				if(len>200)
@@ -1536,7 +1534,6 @@ function getLibrariesSuggestionThree() {
 
 				$("#suggested-lib-list").append(libs);
 			}
-			getUser();
 			$(".lib-blurb c").each(function(i){
 				len=$(this).text().length;
 				if(len>200)
