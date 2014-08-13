@@ -37,52 +37,37 @@
 	<script src="/static/scripts/typeahead.js"></script>
 	<script src="/static/scripts/nprogress.js"></script>
 
-
-
-
 </head>
 
 	<!--/ <body class="app profile"> /-->
 
 <body class="app">
 
-
-
-	<div id="mp-pusher" class="super-wrapper">
-
-	<!--/ site-menu /-->
-	<nav id="site-menu" class="mp-menu">
-	<div class="mp-level">
-
-		<h2><a href="/featured">Gapelia</a></h2>
-
-		<ul>
-			<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a>
-			</li>
-			<li class="not-mobile"><a href="/librarymanager">Libraries</a>
-			</li>
-			<li class="not-mobile"><a href="/createbook">New Story</a>
-			</li>
-
-			<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
-				<ul id="draft-menu"></ul>
-			</li>
-
-			<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
+		<div id="mp-pusher" class="super-wrapper">
+	
+		<!--/ site-menu /-->
+		<nav id="site-menu" class="mp-menu">
+			<div class="mp-level"><h2></h2>
 				<ul>
+					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
+					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
+					<li class="not-mobile"><a href="/createbook">New Story</a></li>
+					<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
+						<ul id="draft-menu"></ul>
+					</li>
+					<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a><ul></ul></li>
+					<div id="footer-items">
+						<li class="fq"><a href="/read/755">How It Works</a>
+						<li class="help"><a href="mailto:team@folio.is">Report a bug</a>
+						<li class="logout"><a href="#">Log Out</a>
+					</div>
 				</ul>
-			</li>
+		
+		   </div>
+	   </nav>
+		<!--//site-menu /-->
 
-			<div id="footer-items"><li class="fq"><a href="/read/755">How It Works</a>
-		    <li class="help"><a href="mailto:team@folio.is">Report a bug</a>
-		    <li class="logout"><a href="#">Log Out</a></div>
-		</ul>
-
-		    </div>
-			</nav>
-			<!--//site-menu /-->
-
-			<!--/ main-panel /-->
+		<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle" class="notification-time">
 					<span id="notification-count" style="display: none;"></span>
@@ -104,6 +89,7 @@
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
 						<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
 						<li id="nav-following"><a href="#">Following</a></li>
+						
 						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"></p></div>		    
 						<input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
 
@@ -111,27 +97,26 @@
 							<button id="start-story" class="brand-i"><a href="/createbook">New Story</a>
 							</button>
 						</div>
+						
 						<div id="contactable"></div>
 					</ul>
 				</div>
-
-
+			
 				<div class="scrollbar">
 					<div class="handle">
 						<div class="mousearea"></div>
 					</div>
 				</div>
+				
 				<!--/ Featured Books /-->
 				<div class="book-list-wrapper">
 					<ul id="book-list"></ul>
 				</div>
-				<!--//Featured Books /-->
 
 				<!--/ User's Bookmarks /-->
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list"></ul>
 				</div>
-				<!--//User's Bookmarks /-->
 
 				<!--/ Subscription List /-->
 				<div class="following-list-wrapper">
@@ -142,12 +127,10 @@
 			</div>
 
 <!--/ scripts /-->
-<script src="/static/scripts/touchSwipe.min.js"></script>
 <script src="/static/scripts/g.money.js"></script>
 <script src="/static/scripts/userNotifications.js"></script>
 <script src="/static/scripts/ajax.js"></script>
 <script src="/static/scripts/feedback.js"></script>
-
 <script src="/static/scripts/classie.js"></script>
 <script src="/static/scripts/mlpushmenu.js"></script>
 
@@ -206,7 +189,7 @@
 		displayKey: 'value',
 		source: books.ttAdapter(),
 		templates: {
-			header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; text-transform: uppercase;">Books</h5></center>'
+			header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; text-transform: uppercase;">Stories</h5></center>'
 		}
 	},
 	{
@@ -223,9 +206,6 @@
 
 		$(".mp-pushed").ready(function () {
 			$("#book-scroller").css("z-index", "0");
-		});
-		
-		$(".mp-pushed").ready(function () {
 			$("#welcoming-title").css("display", "none");
 		});
 		
@@ -261,7 +241,6 @@
 	$(function () {
 		getNotifications();
 		getListSubscribed();
-		//getFollowingUsers();
 		var second = getBookmarksArray();
 		var fourth = getListBookmarked();
 		var fifth = getLibraries();
@@ -466,8 +445,8 @@
 
 		NProgress.done();
 
-			// Click "Books"
-			$("#nav-books").click(function (e) {
+		// Click "Books"
+		$("#nav-books").click(function (e) {
 
 				NProgress.start();
 
@@ -523,8 +502,7 @@
 
 				NProgress.start();
 
-				var
-				allBooks = $("#bookmark-list li"), // gets all books in a section
+				var allBooks = $("#bookmark-list li"), // gets all books in a section
 					firstBook = $(allBooks).first(); // gets first book in list
 
 				$(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
@@ -624,8 +602,7 @@
 
 		NProgress.start();
 
-		var
-				allBooks = $("#following li"), // gets all books in a section
+				var allBooks = $("#following li"), // gets all books in a section
 					firstBook = $(allBooks).first(); // gets first book in list
 
 				$(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
@@ -677,10 +654,9 @@
 
 						var slyBookWrapper = new Sly('.following-list-wrapper', options);
 						var items = $('#following-list');
-
-
+						
 						loadMoreUsers(5,items);
-
+						
 						if(friends.length > 5){
 							slyBookWrapper.on('load change', function () {
 								if (this.pos.dest > this.pos.end - 200) {
@@ -700,49 +676,49 @@
 						$(".book").css("height", h);
 						$("#following-list li").fadeIn("100");
 						$("#following-list").fadeIn("100");
-
+						
 						slyBookWrapper.init();
-					}
-
-		//unfollow user//
-		$("#following-list .unfollow").click(function () {
-			$(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
-			
-			e = $(this).closest("button");
-			profileUserId = e.parent().parent();
-			profileUserId = profileUserId.attr("id");
-			a = parseInt(profileUserId);
-			
-			sessionId = readCookie("JSESSIONID");
-			profileUserId = friend.userId;
-			
-			$.ajax({
-				url: "/api/users/unFollowUser",
-				contentType: "application/x-www-form-urlencoded;charset=utf-8",
-				type: "POST",
-				data: {
-					sessionId: sessionId,
-					followerId: a
-				},
-				error: function (q, status, err) {
-					if (status == "timeout") {
-						alert("Request timed out");
-					}
 				}
-			});  
-		});
+
+				//unfollow user//
+				$("#following-list .unfollow").click(function () {
+					$(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
+					
+					e = $(this).closest("button");
+					profileUserId = e.parent().parent();
+					profileUserId = profileUserId.attr("id");
+					a = parseInt(profileUserId);
+					
+					sessionId = readCookie("JSESSIONID");
+					profileUserId = friend.userId;
+					
+					$.ajax({
+						url: "/api/users/unFollowUser",
+						contentType: "application/x-www-form-urlencoded;charset=utf-8",
+						type: "POST",
+						data: {
+							sessionId: sessionId,
+							followerId: a
+						},
+						error: function (q, status, err) {
+							if (status == "timeout") {
+								alert("Request timed out");
+							}
+						}
+					});  
+				});
 		
 		}, 1000);
 
-		e.preventDefault();
-		
-		$("#nav-books").removeClass("current");
-		$("#nav-following").addClass("current");
-		$("#nav-bookmarks").removeClass("current");
-		
-		NProgress.done();
-		
-		});
+				e.preventDefault();
+				
+				$("#nav-books").removeClass("current");
+				$("#nav-following").addClass("current");
+				$("#nav-bookmarks").removeClass("current");
+				
+				NProgress.done();
+				
+				});
 		}
 </script>
 <!--//scripts /-->
