@@ -2218,11 +2218,11 @@ function getPublicCreatedBooks() {
 			var toInsert = "";
 			for (i in books) {
 				book = books[i];
-				if (book.bookId in bookmarked == true) {
-					toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
-				} else {
+				//if (book.bookId in bookmarked == true) {
+					//toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+				//} else {
 					toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-				}
+				//}
 				toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 				toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
 				toInsert += getLibraryFromBook(book.bookId);

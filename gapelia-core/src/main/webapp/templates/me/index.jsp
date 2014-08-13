@@ -166,7 +166,6 @@
 				stuff += "</section>";
 				
 				$("#mp-pusher").prepend(stuff);
-				$("#g-menu-toggle").css("color", "#fcfcfc");
 				
 				var element = $("#change-cover-photo");
 				element = element[0];
@@ -253,7 +252,6 @@
 						//show user records side menu//
 						$("#records-access").click(function(){
 								getUserCreatedBooksList();
-								getCreatedLibrariesArray();
 								
 								$("#user-records").css("right", "0").fadeIn(100);;
 								$("#user-records .delete-draft").css("display", "none");
@@ -280,7 +278,7 @@
 					document.execCommand('insertText', false, text);
 				});
 		
-				// Load Gapelia
+				// Load books
 				$(function () {
 					NProgress.start();
 						
