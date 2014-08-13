@@ -265,8 +265,9 @@
                 
 		$(document).ready(function() {
 			if ($vW > "1025") {
+				userId = profileUserId;
 				getPublicUserCreatedBooksList();
-				getCreatedLibrariesArray();
+				getCreatedLibrariesByUserArray();
 				$("#user-panel, #book-scroller").delay(5000).fadeIn(5000);
 								
 				//Creates hrefs when user inputs a website in the bio//

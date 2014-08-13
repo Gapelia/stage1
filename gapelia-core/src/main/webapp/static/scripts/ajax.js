@@ -902,8 +902,8 @@ function getCreatedLibrariesArray() {
 	return libraries;
 }
 
-function getCreatedLibrariesByUserArray(userId) {
-	var libraries = [];
+function getCreatedLibrariesByUserArray() {
+	libraries = [];
 	$.ajax({
 		url: "/api/users/getCreatedLibrariesByUserId",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -914,6 +914,12 @@ function getCreatedLibrariesByUserArray(userId) {
 		},
 		success: function (data) {
 			libraries = data;
+			
+		    for (i in libraries) {
+				library = libraries[i];
+				toInsert = "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
+			}
+			$("#library-records-list").html(toInsert);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
