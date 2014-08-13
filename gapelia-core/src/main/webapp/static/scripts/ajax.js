@@ -708,7 +708,7 @@ function getBooksInLibrary() {
 			var ownThisLibrary = false;
 			if (typeof user != 'undefined') {
 
-				myLibraries = getCreatedLibrariesArray(sessionId);
+				myLibraries = getCreatedLibraries(sessionId);
 
 
 				for (i in myLibraries) {
@@ -1174,7 +1174,7 @@ function getLibrary() {
 			getLibraryContributors(libraryId);
 			
 			if (typeof user != 'undefined') {
-				myLibraries = getCreatedLibrariesArray(sessionId);
+				myLibraries = getCreatedLibraries(sessionId);
 
 
 				for (i in myLibraries) {
@@ -2490,7 +2490,7 @@ $(document).on("click", "#my-submissions ul li a", function (ev) {
 	
 	//detect if this is the users own library
 	
-	myLibraries = getCreatedLibrariesArray(sessionId);
+	myLibraries = getCreatedLibraries(sessionId);
 	var ownThisLibrary = false;
 	
 	for (i in myLibraries) {
