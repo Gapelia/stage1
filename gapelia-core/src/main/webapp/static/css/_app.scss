@@ -564,7 +564,7 @@
 		-webkit-transform: translateY(-50%);
 	}
   
-  #book-list { width: 8240px !important; } // temporary fix so 20 books fit in featured
+  #book-list, #bookmark-list, #following-list-wrapper { width: 10040px !important; } // temporary fix so 20 books fit in featured
   
   //
     

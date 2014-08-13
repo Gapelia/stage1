@@ -2870,8 +2870,8 @@ body.landing .error {
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%); }
-.app #book-list {
-  width: 8240px !important; }
+.app #book-list, .app #bookmark-list, .app #following-list-wrapper {
+  width: 10040px !important; }
 .app .book, .app .collection, .app .library, .app .new, .app .draft {
   width: 400px;
   height: auto;
@@ -8596,7 +8596,7 @@ a.count span.dont-move {
     top: 52.5%; }
   .app .book, .app .collection, .app .library {
     width: 500px; }
-  .app #book-list {
+  .app #book-list, .app #bookmark-list, .app #following-list-wrapper {
     width: 20000px !important; }
   .app #featured-nav #nav-search {
     margin-left: 26.5% !important; }
