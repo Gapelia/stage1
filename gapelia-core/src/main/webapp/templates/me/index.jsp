@@ -23,7 +23,6 @@
 	<script src="/static/scripts/modernizr.custom.js"></script>
 	<script src="/static/scripts/jquery-2.1.0.min.js"></script>
 	<script src="/static/scripts/sly.js"></script>
-	
 	<script src="/static/scripts/nprogress.js"></script>
 </head>
 
@@ -78,7 +77,6 @@
 	</div>
 	
 	<!--/ scripts /-->
-	<script src="/static/scripts/touchSwipe.min.js"></script>
 	<script src="/static/scripts/g.money.js"></script>
 	<script src="/static/scripts/charLimiter.js"></script>
 	<script src="/static/scripts/classie.js"></script>
@@ -246,8 +244,6 @@
 		     $(document).ready(function () {
 				    
 				if ($vW > "1025") {
-						getUserCreatedBooksList();
-						getCreatedLibrariesArray();
 								
 						//Creates hrefs when user inputs a website in the bio//
 						var myTextEl = document.getElementById( "splash-user-bio" );
@@ -255,14 +251,19 @@
 								
 						//show user records side menu//
 						$("#records-access").click(function(){
+								getUserCreatedBooksList();
+								getCreatedLibrariesArray();
+								
 								$("#user-records").css("right", "0");
 								$("#user-records .delete-draft").css("display", "none");
 								
 								//counters//
-								publishedLength = books.length;
-								contributionsLength = contributions.length,
-								$("#published-records span").html(""+publishedLength+"");
-								$("#contribution-records span").html(""+contributionsLength+"");
+								setTimeout (function () {
+										publishedLength = books.length;
+										contributionsLength = contributions.length,
+										$("#published-records span").html(""+publishedLength+"");
+										$("#contribution-records span").html(""+contributionsLength+"");
+								}, 100 );		
 						});
 						
 								$("#user-records").mouseleave(function(){
@@ -288,31 +289,29 @@
 				    
 					NProgress.done();
 						
-				    setTimeout(function () {
-
-						if($vW < "1025") {
-								getUserCreatedBooks();
-								var options = {
-									horizontal: 1,
-									itemNav: 'forceCentered',
-									smart: 1,
-									activateMiddle: 1,
-									activateOn: 'click',
-									mouseDragging: 1,
-									touchDragging: 1,
-									swingSpeed: 1,
-									releaseSwing: 0,
-									startAt: 0,
-									scrollBar: $(".scrollbar"),
-									scrollBy: 1,
-									speed: 0.0001,
-									elasticBounds: 1,
-									easing: 'swing',
-									dragHandle: 1,
-									dynamicHandle: 1,
-									clickBar: 1,
-									keyboardNavBy: 'items',
-								};
+				    if($vW < "1025") {
+						getUserBooksArray();
+						var options = {
+								horizontal: 1,
+								itemNav: 'forceCentered',
+								smart: 1,
+								activateMiddle: 1,
+								activateOn: 'click',
+								mouseDragging: 1,
+								touchDragging: 1,
+								swingSpeed: 1,
+								releaseSwing: 0,
+								startAt: 0,
+								scrollBar: $(".scrollbar"),
+								scrollBy: 1,
+								speed: 0.0001,
+								elasticBounds: 1,
+								easing: 'swing',
+								dragHandle: 1,
+								dynamicHandle: 1,
+								clickBar: 1,
+								keyboardNavBy: 'items',
+						};
 								var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 								var items = $('#user-book-list');
 								loadMoreUserBooks(5, items);
@@ -327,11 +326,9 @@
 									});
 								}
 								slyBookWrapper.init();
-							}
+						}
 							
-							document.title = user.name;
-							
-						}, 1000);
+						document.title = user.name;
 				});
 			});
 		}
