@@ -295,6 +295,11 @@
 			}
 			
 		}
+		
+		#close-splash {
+				height: 50px;
+				width: 50px;
+		}
 
 		#records-access {
 		    left: initial !important;
@@ -302,6 +307,11 @@
 			right: 1rem;
 			top: 1rem;
 			z-index: 10;
+			
+			img {
+				height: 50px;
+				width: 50px;
+			}
 		}
 		
 		.follow, .unfollow {

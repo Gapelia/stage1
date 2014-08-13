@@ -4509,12 +4509,18 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash #user-extra #location:before, .profile #user-splash #user-extra #website:before, .profile #user-splash #user-extra #twitter:before {
   opacity: 0.75;
   margin-right: 5px; }
+.profile #user-splash #close-splash {
+  height: 50px;
+  width: 50px; }
 .profile #user-splash #records-access {
   left: initial !important;
   position: absolute;
   right: 1rem;
   top: 1rem;
   z-index: 10; }
+.profile #user-splash #records-access img {
+  height: 50px;
+  width: 50px; }
 .profile #user-splash .follow, .profile #user-splash .unfollow {
   border-radius: 5px;
   color: rgba(252, 252, 252, 0.8);
