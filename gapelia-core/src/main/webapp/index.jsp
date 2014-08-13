@@ -63,7 +63,7 @@
 			}(document, 'script', 'twitter-wjs');
 		</script>
 		<h1 id="gapelia"></h1>
-		<h4 style="border: none; font-size: 2rem;">Folio &#8212; A Laboratory of Ideas</h4>
+		<h4 style="border: none; font-size: 2rem;">Folio is <span style="font-style: italic">a laboratory of ideas</span></h4>
 		<br>
 		<h4 id="subtitle">The blogging platform for scholars and researchers.</h4>
 		<div class="wrapper">
@@ -111,14 +111,10 @@
 	</div>
 	<!--/ scripts /-->
 	<script src="/static/scripts/g.money.js"></script>
-	<script src="/static/scripts/imgLiquid.js"></script>
 	<script>
 		// Load Gapelia
 		$(function () {
 			NProgress.start();
-			$("#mp-pusher").imgLiquid({
-				fill: true
-			});
 			$(".fb-btn").click(function () {
 				window.location.href = "/login?type=facebook"
 			});
@@ -127,9 +123,20 @@
 			});
 			NProgress.done();
 		});
+		
+		setInterval(function() {
+		$("#mp-pusher h4 span").fadeOut(500, function() {
+				var $this = $(this);
+				$this.text($this.text() == 'a platform for scholarly discourse' ? 'making the world a smarter place' : 'a platform for scholarly discourse');        
+				$this.toggleClass('first second');        
+				$this.fadeIn(800);
+			});
+		}, 5000);
+		
 		if($vW > "1919") {
 			$("#about-one img, iframe").css("cssText", "height: 700px !important");
 		}
+		
 		$("#gapelia").mouseenter(function () {
 			$("#home-quote").show()
 		});

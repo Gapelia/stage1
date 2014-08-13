@@ -552,9 +552,9 @@ function getUserCreatedBooksList() {
 			for (i in books) {
 				book = books[i]
 				if (book.coverPhoto == "../static/images/grayBG.png") {
-				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + book.title + "</a>";	
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";	
 				} else {
-				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/editbook/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
 				}		
 				  toInsert += "</li>";
 			}
@@ -587,7 +587,7 @@ function getPublicUserCreatedBooksList() {
 			for (i in books) {
 				book = books[i]
 				if (book.coverPhoto == "../static/images/grayBG.png") {
-				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/whiteBG.jpg\">" + book.title + "</a>";	
+				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";	
 				} else {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
 				}		
@@ -887,35 +887,6 @@ function getCreatedLibrariesArray() {
 			
 		    for (i in libraries) {
 				library = libraries[i]
-				toInsert = "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
-			}
-			$("#library-records-list").html(toInsert);
-		},
-		error: function (q, status, err) {
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
-			}
-		}
-	});
-	return libraries;
-}
-
-function getCreatedLibrariesByUserArray(userId) {
-	libraries = [];
-	$.ajax({
-		url: "/api/users/getCreatedLibrariesByUserId",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		async: false,
-		data: {
-			userId: userId
-		},
-		success: function (data) {
-			libraries = data;			
-		    for (i in libraries) {
-				var library = libraries[i];
 				toInsert += "<li id =\"" + library.libraryId + "\"><a href=\"/library/" + library.libraryId + "\"><img src=\""+library.coverPhoto+"\">" + library.title + "</a></li>";	
 			}
 			$("#library-records-list").html(toInsert);

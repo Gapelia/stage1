@@ -60,16 +60,13 @@
 		<!--//site-menu /-->
 		
 		<div id="user-records">
-		<!--/ published /-->
 				<h5>Content</h5>
+		<!--/ published /-->
 				<h5 id="published-records"><span></span><div><a href="#">Stories</a></div></h5>
 				<ul id="published-records-list"></ul>
 		<!--/ contributions /-->
-				<h5 id="contribution-records"><span></span><div><a href="#">Contributions</a></div></h5>
+				<h5 id="contribution-records"><span></span><div><a href="#">Libraries</a></div></h5>
 				<ul id="contribution-records-list"></ul>
-		<!--/ editor /-->
-				<h5 id="library-records"><span></span><div><a href="#">Editorial</a></div></h5>
-				<ul id="library-records-list"></ul>
 		</div>
 		
 		<!--/ main-panel /-->
@@ -281,7 +278,6 @@
 									libraryLength = libraries.length;
 									contributionsLength = contributions.length,
 									$("#published-records span").html(""+publishedLength+"");
-									$("#library-records span").html(""+libraryLength+"");
 									$("#contribution-records span").html(""+contributionsLength+"");
 								});
 								$("#user-records").mouseleave(function(){
