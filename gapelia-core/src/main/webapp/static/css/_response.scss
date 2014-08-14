@@ -2652,6 +2652,8 @@
 			}
 		}
 		
+		#g-menu-toggle { position: absolute !important; }
+		
 		#library-splash {
 			padding: 0;
 			#library-info {
@@ -2718,12 +2720,16 @@
 		
 			.lib-blurb { font-size: 1rem; }
 		}
+		
+		#g-menu-toggle { position: absolute !important; }
 	}
 
 	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
 
 	.full-book {
-
+		
+		#g-menu-toggle { position: absolute !important; }
+		
 		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
 			.image-attribution { top: 1.12rem; }
 		}
@@ -2891,6 +2897,8 @@
 
 	.profile {
 		h5 { top: 52%; }
+		
+		#user-panel { position: absolute !important; }
 	}
 	
 	.accounts {
@@ -2898,6 +2906,8 @@
 			label { width: 49%; }
 			.col-0 .bl_form input { width: 80%; }
 		}
+		
+		#g-menu-toggle { position: absolute !important; }
 		
 		#notifications-toggle {
 			margin-left: 11%;

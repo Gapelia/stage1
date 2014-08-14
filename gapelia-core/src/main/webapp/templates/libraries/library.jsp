@@ -87,7 +87,7 @@
 		<!--/ main-content /-->
 		<div id="featured-scroller">
 			<div id="nav-wrapper">
-				<ul id="featured-nav">
+				<ul id="featured-nav" style="display: none;">
 					<li id="nav-books" class="current">
 						<a></a>
 					</li>
@@ -176,6 +176,7 @@
 				    getBooksInLibraryArray();
 					
 					$("#library-splash, #close-splash, #contact-editor").fadeOut("fast");
+					$("#featured-nav").fadeIn("slow");
 					
 					if(typeof user == 'undefined') {
 						$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
