@@ -169,4 +169,12 @@
         <from>^/about.jsp?$</from>
         <to>/about$</to>
     </outbound-rule>
+    <rule>
+        <from>^/analytics$</from>
+        <to>/templates/analytics/analytics.jsp?</to>
+    </rule>
+    <outbound-rule>
+        <from>^/templates/analytics/analytics.jsp?$</from>
+        <to>/analytics$</to>
+    </outbound-rule>
 </urlrewrite>
