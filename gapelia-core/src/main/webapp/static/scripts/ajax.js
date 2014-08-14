@@ -549,20 +549,32 @@ function getUserCreatedBooksList() {
 		success: function (data) {
 			books = data;
 			toInsert = "";
+			myTable = "";
 			for (i in books) {
 				book = books[i]
+				
+				//usage for analytics page//
+				myTable += "<tr>";
+				if (book.coverPhoto == "../static/images/grayBG.png") {
+						myTable += "<td id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";
+				} else {
+						myTable += "<td id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";
+				}
+				myTable += "</td>";
+				
+				//other usage//
 				if (book.coverPhoto == "../static/images/grayBG.png") {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";	
 				} else {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";	
 				}		
-				  toInsert += "</li>";
+				toInsert += "</li>";
 			}
 			if (toInsert == "") {
 				$("#draft-menu, #published-list").remove();
 			}
-			$("#draft-menu, #published-list").html(toInsert);
-			$("#published-records-list").html(toInsert);
+			$("#draft-menu, #published-list, #published-records-list").html(toInsert);
+			$("#analytics-table").html(myTable);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
