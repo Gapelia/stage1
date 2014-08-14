@@ -35,7 +35,7 @@
 		
 		<!--/ site-menu /-->
 		<nav id="site-menu" class="mp-menu">
-			<div class="mp-level"><h2></h2>
+			<div class="mp-level"><h2><a href="/"></a></h2>
 				<ul>
 					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
 					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>

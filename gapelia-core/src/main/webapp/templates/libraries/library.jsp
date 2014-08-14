@@ -60,7 +60,7 @@
 		<!--/ site-menu /-->
 		<nav id="site-menu" class="mp-menu">
 			<div class="mp-level">
-				<h2><a href="/featured">Gapelia</a></h2>
+				<h2><a href="/"></a></h2>
 				<ul>
 					<li><a href="/">Sign up</a> </li>
 					<li><a href="/read/755">Learn more</a></li>
