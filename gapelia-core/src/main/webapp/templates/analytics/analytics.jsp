@@ -11,7 +11,7 @@
 		<meta charset="utf-8"/>
 		<title>Folio &middot; Analytics</title>
 
-		<!--/ ACCOUNTS VIEW
+		<!--/ ANALYTIC VIEW
 			 ______   ______   ______  ______   __       __   ______    
 			/\  ___\ /\  __ \ /\  == \/\  ___\ /\ \     /\ \ /\  __ \   
 			\ \ \__ \\ \  __ \\ \  _-/\ \  __\ \ \ \____\ \ \\ \  __ \  
@@ -93,7 +93,7 @@
 										<h5>LATEST STORY</h5>
 										<h1></h1>
 										<div id="story-views-votes">
-												<h3 id="story-views">VIEWS: <span>543</span></h3>
+												<h3 id="story-views">VIEWS: <span></span></h3>
 												<h3 id="story-votes">VOTES: <span></span></h3>
 										</div>
 								</div>
@@ -107,23 +107,17 @@
 				</div>
 				
 
-				<table class="sortable">
-						<tbody id="analytics-table">
-								<tr id="column-headers">
-										<th id="header-title">Title</th>
-										<th id="hedaer-views">Views</th>
-										<th id="hedaer-votes">Votes</th>
-										<th id="header-shares">Shares</th>
-								</tr>
-				
-								<tr id="row-data">
-										<td class="row-title"></td>
-										<td class="row-views"></td>
-										<td class="row-votes"></td>
-										<td class="row-shares"></td>
-								</tr>
-
-						</tbody>
+				<table class="sortable" id="analytics-table">
+					<thead>
+						<tr id="column-headers">
+							<th id="header-title">Title</th>
+							<th id="hedaer-views">Views</th>
+							<th id="hedaer-votes">Votes</th>
+							<th id="header-shares">Shares</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
 				</table>
 		</div>
 
@@ -134,66 +128,52 @@
 		<script src="/static/scripts/mlpushmenu.js"></script>
 		
 		<script>
-		    function getUser() {
-				sessionId = readCookie("JSESSIONID");
-				$.ajax({
-					url: "/api/users/getUser",
-					contentType: "application/x-www-form-urlencoded;charset=utf-8",
-					type: "POST",
-					data: {
-						sessionId: sessionId
-					},
-					success: function (data) {
-						user = data;
-					},
-					error: function (q, status, err) {
-						if (status == "timeout") {
-							alert("Request timed out");
-						} else {
-							alert("Some issue happened with your request: " + err.message);
-						}
-					}
+			function fillAnalyticsTable(books) {
+				$.each(books, function(id,book) {
+					var numBooks = 0;
+					var numBookShares = getNumBookShares(book.bookId);
+					$.each(numBookShares, function(id,value) {
+						numBooks += value;
+					});
+
+					var row = '<tr class="row" id="'+book.bookId+'">';
+					row += '<td class="row-title"><a href="/read/'+book.bookId+'"><img src="'+book.coverPhoto+'">'+book.title+'</a>';
+					row += '<td class="row-views">'+getNumBookViews(book.bookId)+'</td>';
+					row += '<td class="row-votes">'+getNumBookVotes(book.bookId)+'</td>';
+					row += '<td class="row-shares">'+numBooks+'</td>';
+					$("#analytics-table").append(row);
 				});
-				return null;
 			}
+
+			$(document).on("folio.books_loaded",function(){	fillAnalyticsTable(books) });
 			
+			$(document).on("folio.books_loaded",function(){ 
+				getLastPublishedBookId();
+				$("#last-story h1").text(lastPublished.title);
+				$("#last-story img").attr("src", lastPublished.coverPhoto);
+				
+				$("#story-views span").text(getNumBookViews(lastPublished.bookId));
+				$("#story-votes span").text(getNumBookVotes(lastPublished.bookId));
+				
+				getFollowingUsers();
+				$("#following span").text(friends.length);
+				$("#followers span").text(0);
+			});
+
+			
+			function load() {}; //TODO: remove me (it's here beacause its calles by getUser())
+
 			$(function() {
 				
-				getUser();
-				
-				getUserCreatedBooksList();
+				getUser(); //fires "user_loaded" event		
+				getUserCreatedBooksList(); //fires "books_loaded" event
 				getNotifications();
-				
-				setTimeout(function(){
-						
-						getLastPublishedBookId();
-						$("#last-story h1").html(""+lastPublished.title+"");
-						$("#last-story img").attr("src", ""+lastPublished.coverPhoto+"");
-						
-						getNumberVotes(lastPublished.bookId);
-						$("#story-votes span").html(""+numVotes+"");
-						
-						getFollowingUsers();
-						$("#following span").html(""+friends.length+"");
-						
-				}, 1000);
 				
 				// Log Out
 				$("#logout").click(function (e) {
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
-				
-				if ($vW > "1919") {
-						$("#last-story img").css("cssText", "height: 275px !important");
-						$("#last-story-data").css("cssText", "width: 600px !important");
-						$("#last-story-data h1").css("cssText", "font-size: 2rem !important");
-						$("#last-story-data h3").css("cssText", "font-size: 1.5rem !important");
-						$("#network-data").css("cssText", "top: 9rem !important");
-						$(".sortable").css("cssText", "top: 44% !important");
-						$("#column-headers th").css("cssText", "font-size: 1.75rem !important");
-						$("#analytics-table").css("cssText", "font-size: 1.5rem !important");
-				}
 			});
 		</script>
 

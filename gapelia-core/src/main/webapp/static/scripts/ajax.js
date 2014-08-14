@@ -548,20 +548,12 @@ function getUserCreatedBooksList() {
 		},
 		success: function (data) {
 			books = data;
+			$(document).trigger("folio.books_loaded");
+
 			toInsert = "";
-			myTable = "";
 			for (i in books) {
 				book = books[i]
-				
-				//usage for analytics page//
-				myTable += "<tr>";
-				if (book.coverPhoto == "../static/images/grayBG.png") {
-						myTable += "<td id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";
-				} else {
-						myTable += "<td id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "</a>";
-				}
-				myTable += "</td>";
-				
+							
 				//other usage//
 				if (book.coverPhoto == "../static/images/grayBG.png") {
 				  toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + "</a>";	
@@ -574,7 +566,6 @@ function getUserCreatedBooksList() {
 				$("#draft-menu, #published-list").remove();
 			}
 			$("#draft-menu, #published-list, #published-records-list").html(toInsert);
-			$("#analytics-table").html(myTable);
 		},
 		error: function (q, status, err) {
 			if (status == "timeout") {
@@ -1838,6 +1829,7 @@ function getUser() {
 		},
 		success: function (data) {
 			user = data;
+			$(document).trigger("folio.user_loaded");
 			load();
 		},
 		error: function (q, status, err) {
@@ -3623,6 +3615,79 @@ function createNotification(bookId, responseId, type, hash, comment) {
 			}
 		}
 	});
+}
+
+// Analytics Stuff
+function getNumBookViews(bookId) {
+	var views = 0;
+	$.ajax({
+		url: "/api/metrics/getNumBookViews",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			bookId : bookId
+		},
+		success: function(data) {
+			views = data;
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return views;
+}
+
+function getNumBookVotes(bookId) {
+	votes = 0;
+	$.ajax({
+		url: "/api/metrics/getNumBookVotes",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			bookId : bookId
+		},
+		success: function(data) {
+			votes = data;			
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return votes;
+}
+
+function getNumBookShares(bookId) {
+	var shares = 0;
+	$.ajax({
+		url: "/api/metrics/getNumBookShares",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			bookId : bookId
+		},
+		success: function(data) {
+			shares = data;
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return shares;
 }
 
 // I know, not really an ajax method, but I don't know where to put it 
