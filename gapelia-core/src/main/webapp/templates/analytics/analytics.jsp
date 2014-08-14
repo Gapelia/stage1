@@ -9,7 +9,7 @@
 	<head>
 
 		<meta charset="utf-8"/>
-		<title>Folio &middot; Account Settings</title>
+		<title>Folio &middot; Analytics</title>
 
 		<!--/ ACCOUNTS VIEW
 			 ______   ______   ______  ______   __       __   ______    
@@ -183,6 +183,17 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
+				
+				if ($vW > "1919") {
+						$("#last-story img").css("cssText", "height: 275px !important");
+						$("#last-story-data").css("cssText", "width: 600px !important");
+						$("#last-story-data h1").css("cssText", "font-size: 2rem !important");
+						$("#last-story-data h3").css("cssText", "font-size: 1.5rem !important");
+						$("#network-data").css("cssText", "top: 9rem !important");
+						$(".sortable").css("cssText", "top: 44% !important");
+						$("#column-headers th").css("cssText", "font-size: 1.75rem !important");
+						$("#analytics-table").css("cssText", "font-size: 1.5rem !important");
+				}
 			});
 		</script>
 

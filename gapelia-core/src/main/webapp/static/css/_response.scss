@@ -161,6 +161,7 @@
 			li { margin-top: 10px; }
 		}
 	}
+	
 	.app #site-menu h2 { height: 65px; }
 	//side menu optimization//
 	
@@ -403,6 +404,25 @@
 		.notification-time #notification-count { right: 4rem !important; }
 	}
 	
+	.analytics {
+		
+		#featured-nav { top: 0.5rem; }
+		
+		#top-container {
+			top: 6rem !important;
+			
+			#last-story {
+				img {
+					height: 250px !important;
+					width: 350px !important;
+				}
+			}
+			
+			#network-data { top: 7rem !important; }
+		}
+		
+		.sortable { top: 48% !important; }
+	}
 	
 	///FULL BOOK///
 	

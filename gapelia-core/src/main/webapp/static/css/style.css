@@ -8536,6 +8536,18 @@ a.count span.dont-move {
   .profile .notification-time #notification-count {
     right: 4rem !important; }
 
+  .analytics #featured-nav {
+    top: 0.5rem; }
+  .analytics #top-container {
+    top: 6rem !important; }
+  .analytics #top-container #last-story img {
+    height: 250px !important;
+    width: 350px !important; }
+  .analytics #top-container #network-data {
+    top: 7rem !important; }
+  .analytics .sortable {
+    top: 48% !important; }
+
   .g-body hr {
     margin: 6rem auto 20px auto; }
 
