@@ -3222,6 +3222,36 @@ function getContributedTo() {
 }
 
 function updateBookAndPages(isPublished) {
+
+	i = 0;
+	while (i <= pagesCreated) {
+		$.ajax({
+			url: "/api/books/updatePage",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			async: false,
+			type: "POST",
+			data: {
+				sessionId: sessionId,
+				title: pages.page[i].title,
+				pageId: pages.page[i].pageId,
+				content: pages.page[i].text,
+				creativeCommons: pages.page[i].attribution,
+				templateId: pages.page[i].templateId,
+				videoUrl: pages.page[i].video,
+				bookId: pages.bookId,
+				pageNumber: i,
+				photoUrl: pages.page[i].image,
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out trying again");
+				}
+			}
+
+		});
+		i++;
+	}
+	
 	tags = '';
 	//snippet = $(".add-description").html();
 	if(typeof snippet == 'undefined') snippet = ""; 
@@ -3270,34 +3300,6 @@ function updateBookAndPages(isPublished) {
 			}
 		}
 	});
-	i = 0;
-	while (i <= pagesCreated) {
-		$.ajax({
-			url: "/api/books/updatePage",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			async: false,
-			type: "POST",
-			data: {
-				sessionId: sessionId,
-				title: pages.page[i].title,
-				pageId: pages.page[i].pageId,
-				content: pages.page[i].text,
-				creativeCommons: pages.page[i].attribution,
-				templateId: pages.page[i].templateId,
-				videoUrl: pages.page[i].video,
-				bookId: pages.bookId,
-				pageNumber: i,
-				photoUrl: pages.page[i].image,
-			},
-			error: function (q, status, err) {
-				if (status == "timeout") {
-					alert("Request timed out trying again");
-				}
-			}
-
-		});
-		i++;
-	}
 }
 
 function loadBookEditor() {
