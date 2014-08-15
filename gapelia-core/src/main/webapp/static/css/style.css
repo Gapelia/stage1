@@ -8288,7 +8288,7 @@ a.count span.dont-move {
   .app #featured-nav #stay-right a {
     font-size: 1rem; }
   .app #footer-items {
-    top: 20%; }
+    top: 30%; }
   .app #new-library #close-splash {
     margin-left: 4% !important;
     height: 6% !important; }
@@ -8365,7 +8365,7 @@ a.count span.dont-move {
     font-size: 1.75rem;
     height: 100%; }
   .mp-menu ul #footer-items {
-    bottom: -4rem; }
+    bottom: -4rem !important; }
   .mp-menu ul li {
     margin-top: 10px; }
 

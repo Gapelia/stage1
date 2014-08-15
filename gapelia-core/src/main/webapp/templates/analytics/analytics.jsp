@@ -137,13 +137,13 @@
 					$.each(numBookShares, function(id,value) {
 						numBooks += value;
 					});
-
-					var row = '<tr class="row" id="'+book.bookId+'">';
-					row += '<td class="row-title"><a href="/read/'+book.bookId+'"><img src="'+book.coverPhoto+'">'+book.title+'</a>';
-					row += '<td class="row-views">'+getNumBookViews(book.bookId)+'</td>';
-					row += '<td class="row-votes">'+getNumBookVotes(book.bookId)+'</td>';
-					row += '<td class="row-shares">'+numBooks+'</td>';
-					$("#analytics-table").append(row);
+					
+						var row = '<tr class="row" id="'+book.bookId+'">';
+						row += '<td class="row-title"><a href="/read/'+book.bookId+'"><img src="'+book.coverPhoto+'">'+book.title+'</a>';
+						row += '<td class="row-views">'+getNumBookViews(book.bookId)+'</td>';
+						row += '<td class="row-votes">'+getNumBookVotes(book.bookId)+'</td>';
+						row += '<td class="row-shares">'+numBooks+'</td>';
+						$("#analytics-table").append(row);
 				});
 			}
 
@@ -170,6 +170,17 @@
 				getUser(); //fires "user_loaded" event		
 				getUserCreatedBooksList(); //fires "books_loaded" event
 				getNotifications();
+				
+				setTimeout(function(){		
+						if (books.length == 0) {
+								$("#analytics-table").append('<td class="row-title"><a style="margin-top: 2rem; position: absolute;">No publishing activity yet.</a>');
+								$("#last-story-data h1").html('No recent publishing activity');
+								$("#story-views span, #story-votes span").html(' - - ');
+						}
+						if ($("#following, #followers").value == undefined) {
+								$("#following span, #followers span").html('0');
+						}
+				},1000)		
 				
 				// Log Out
 				$("#logout").click(function (e) {
