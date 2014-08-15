@@ -58,6 +58,8 @@
 						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 							<ul id="draft-menu"></ul>
 						</li>
+						
+						<li class="not-mobile"><a href="/analytics">Analytics</a></li>
 
 						<li id="gpl-menu-notify">
 							<a>Notifications</a><a class="icon" href="#"></a>
@@ -185,6 +187,10 @@
                     $("#column-headers th").css("cssText", "font-size: 1.75rem !important");
                     $("#analytics-table").css("cssText", "font-size: 1.5rem !important");
 				}
+				
+				$(".mp-pushed").ready(function () {
+						new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+				});		
 			});
 		</script>
 
