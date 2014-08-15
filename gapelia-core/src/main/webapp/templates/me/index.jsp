@@ -36,7 +36,7 @@
 					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
 					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 					<li class="not-mobile"><a href="/createbook">New Story</a></li>
-					<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><ul id="draft-menu"></ul></li>
+					<li id="gpl-menu-drafts" class="not-mobile"><a>My Drafts</a><ul id="draft-menu"></ul></li>
 					<li class="not-mobile"><a href="/analytics">Analytics</a></li>
 					<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a><ul></ul></li>
 				    <div id="footer-items">

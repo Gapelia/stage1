@@ -52,7 +52,7 @@
 					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
 					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 					<li class="not-mobile"><a href="/createbook">New Story</a></li>
-					<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
+					<li id="gpl-menu-drafts" class="not-mobile"><a>My Drafts</a>
 						<ul id="draft-menu"></ul>
 					</li>
 					<li class="not-mobile"><a href="/analytics">Analytics</a></li>
@@ -88,7 +88,7 @@
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
-						<li id="nav-bookmarks"><a href="#">Bookmarks</a></li>
+						<li id="nav-bookmarks"><a href="#">My Bookmarks</a></li>
 						<li id="nav-following"><a href="#">Following</a></li>
 						
 						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"></p></div>		    

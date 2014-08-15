@@ -55,7 +55,7 @@
 						<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
 						<li class="not-mobile"><a href="/createbook">New Story</a></li>
 
-						<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
+						<li id="gpl-menu-drafts" class="not-mobile"><a>My Drafts</a>
 							<ul id="draft-menu"></ul>
 						</li>
 						
