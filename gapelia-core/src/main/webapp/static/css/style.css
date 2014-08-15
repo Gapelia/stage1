@@ -2557,6 +2557,8 @@ body.landing .error {
   position: absolute;
   right: 1rem;
   top: 1rem; }
+.app #university-affiliation .appendix a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4); }
 .app #university-affiliation #university-search, .app #university-affiliation #school-search {
   margin-left: 25%;
   width: 50%; }
@@ -2565,14 +2567,9 @@ body.landing .error {
   line-height: 1.25; }
 .app #university-affiliation #school-intro {
   margin-top: 3rem; }
-.app #university-affiliation #skip-container {
-  bottom: 2rem;
-  left: 25%;
-  position: absolute;
-  width: 50%; }
-.app #university-affiliation #skip-container #skip-onboarding {
-  color: #59b3a6;
-  font-weight: 700; }
+.app #university-affiliation #skip-container a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  opacity: 0.85; }
 .app #university-affiliation #uni-intro a {
   border-bottom: 1px solid rgba(25, 25, 25, 0.3); }
 .app #university-affiliation #welcome {
@@ -8735,6 +8732,8 @@ a.count span.dont-move {
 
   .app .super-wrapper {
     overflow-y: scroll; }
+  .app #university-affiliation {
+    padding: 8rem 6rem; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     margin: 0;
     padding: 0;
@@ -9920,7 +9919,11 @@ a.count span.dont-move {
     font-size: 2.2rem;
     line-height: 42px; }
   .app #university-affiliation {
-    padding: 12rem 4rem; }
+    padding: 12rem 2rem; }
+  .app #university-affiliation .selectize-control {
+    left: 20%;
+    margin-left: 0;
+    width: 60%; }
 
   body.library #featured-nav {
     font-size: 1.3rem;
@@ -10058,6 +10061,10 @@ a.count span.dont-move {
   body.landing h5 {
     font-size: 1.4rem; }
 
+  .app #university-affiliation {
+    padding: 12rem 0rem; }
+  .app #university-affiliation #school-intro, .app #university-affiliation #uni-intro {
+    font-size: 1.1rem; }
   .app #header-message {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -10239,6 +10246,26 @@ a.count span.dont-move {
   .accounts #notifications-toggle span {
     font-size: 0.9rem; } }
 @media all and (max-width: 420px), screen and (max-width: 420px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #university-affiliation {
+    padding: 8rem 0.5rem; }
+  .app #university-affiliation .appendix {
+    display: none; }
+  .app #university-affiliation .selectize-control {
+    left: 5%;
+    margin-left: 0;
+    width: 90%; }
+  .app #university-affiliation #skip-container {
+    font-size: 1rem !important; }
+  .app #university-affiliation #uni-intro, .app #university-affiliation #school-intro {
+    font-size: 0.9rem; }
+  .app #university-affiliation #welcome {
+    font-size: 1rem; }
+  .app #intro {
+    font-size: 1.3rem; }
+  .app #header-message {
+    padding: 1.4rem 0 0.5rem 0; }
+  .app #header-message button {
+    font-size: 12px; }
   .app #featured-scroller #g-menu-toggle {
     left: 34.75%; }
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
@@ -10292,21 +10319,6 @@ a.count span.dont-move {
     top: 21% !important; }
   .app #user-splash .user-avatar {
     top: 17% !important; }
-  .app #intro {
-    font-size: 1.3rem; }
-  .app #header-message {
-    padding: 1.4rem 0 0.5rem 0; }
-  .app #header-message button {
-    font-size: 12px; }
-  .app #university-affiliation {
-    padding: 8rem 3rem; }
-  .app #university-affiliation .selectize-control {
-    margin-left: 13%;
-    width: 75%; }
-  .app #university-affiliation #uni-intro, .app #university-affiliation #school-intro, .app #university-affiliation #welcome {
-    font-size: 1rem; }
-  .app #university-affiliation button {
-    font-size: 12px; }
 
   .onboard #featured-scroller {
     overflow-y: hidden; }
@@ -10447,8 +10459,12 @@ a.count span.dont-move {
     font-weight: 400; }
   .app #library-splash #library-info {
     top: 25%; }
-  .app #university-affiliation {
-    padding: 8rem 2rem; }
+  .app #university-affiliation .selectize-control {
+    left: 2.5%;
+    width: 95%; }
+  .app #university-affiliation button {
+    top: 92%;
+    right: 7.5rem; }
   .app #intro {
     padding: 3rem 2rem; }
 
@@ -10903,9 +10919,8 @@ a.count span.dont-move {
   .app #user-splash #splash-user-info #splash-user-bio span {
     font-size: 0.9rem !important; }
   .app #university-affiliation {
-    padding: 7rem 0.5rem; }
+    padding: 6rem 0.5rem; }
   .app #university-affiliation button {
-    top: 92%;
     right: 6.5rem; }
 
   .onboard #onboard-photos-overlay #user-info #user-bio {

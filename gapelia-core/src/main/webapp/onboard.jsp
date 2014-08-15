@@ -52,11 +52,18 @@
 			
 			<div id="university-affiliation">
 				<h1 id="welcome"><p></p>, welcome to Folio</h1>
-				<p id="uni-intro"><b>Select your academic/research institution</b><br/>Affiliates to listed institutions will own publishing rights.</br> Please <a href='mailto:team@folio.is?subject=New%20University%20Request&amp;body=Hello Folio team, I understand that publishing rights are only given to affiliates of Harvard University at this time, however I would like to request that you add my university too.'>request yours</a> to be added if not listed below.</p>
-				<select id="university-search" placeholder="Search university..."></select>
-				<p id="school-intro"><b>Academic email</b></br>Folio is a community for scholarly discourse.<br/>Verify your .edu email address.</p>
-				<select id="school-search" placeholder="Add your email..."></select>
-				</br><div id="skip-container"><a id="skip-onboarding" href="/featured">SKIP ONBOARDING PROCESS: Take me to Folio</a></div><button id="uni-next" class="branded">NEXT STEP</button>
+				
+				<p id="uni-intro"><b>If you are a practicing scholar,  fill in below and click "Next Step"</b><br/><br/><br/><b><i>Select your academic or research institution</i></b></br><br/>
+						<select id="university-search" placeholder="Type the name of your university/institution..."></select>
+						<div class="appendix" style="margin-top:-1rem;"><font size=2>If outside of the US or Canada,<a href='mailto:team@folio.is?subject=New%20University%20Request&amp;'> request yours</a> to be added.</font></div>
+				</p>
+				
+				<p id="school-intro"><b><i>Verify your affiliation</i></b></br><br/>
+						<select id="school-search" placeholder="Type your email@myuniversity.edu"></select>
+						<div class="appendix" style="margin-top:-1rem;"><font size=2>Please note that only verified scholars will be able to publish</font></div>
+				</p>
+				
+				</br><hr><div id="skip-container" style="font-size: 1.25rem;"><b>If you are not a practicing scholar, <a href="/featured">skip this</a> and join the conversation too!</b></div><button id="uni-next" class="branded">NEXT STEP</button>
 			</div>
 			
 			<div id="intro" style="opacity: 0";>
@@ -231,6 +238,18 @@
 				
 				//clicking on uni//
 				$("#uni-next").click(function (e) {
+						
+				    if ($(".selectize-input div")[0] == undefined) {
+						$("#uni-intro .selectize-control.single .selectize-input").css("cssText", "border: 1px solid red !important;");
+					} else {
+						$("#uni-intro .selectize-control.single .selectize-input").css("cssText", "border: none !important;");
+					}
+					
+				    if ($(".selectize-input div")[1] == undefined) {
+						$("#school-intro .selectize-control.single .selectize-input").css("cssText", "border: 1px solid red !important;");
+					} else {
+						$("#school-intro .selectize-control.single .selectize-input").css("cssText", "border: none !important;");
+					}
 					
 					user.university = $(".selectize-input div")[0].textContent;
 					user.department = $(".selectize-input div")[1].textContent;
@@ -4772,7 +4791,103 @@
 						{"name":"University of Fredericton","value":"University of Fredericton"},
 						{"name":"Atlantic School of Theology","value":"Atlantic School of Theology"},
 						{"name":"Tyndale University College","value":"Tyndale University College"},
-						{"name":"Redeemer University College","value":"Redeemer University College"}
+						{"name":"Redeemer University College","value":"Redeemer University College"},
+						{"name":"Aerospace Federally Funded Research and Development Center","value":"El Segundo"},
+						{"name":"Ames Laboratory","value":"Ames"},
+						{"name":"Argonne National Laboratory","value":"Downers Grove Township"},
+						{"name":"Arroyo Center","value":"Santa Monica"},
+						{"name":"Brookhaven National Laboratory","value":"Upton"},
+						{"name":"National Security Engineering Center","value":"Bedford, MA, andMcLean"},
+						{"name":"Center for Advanced Aviation System Development","value":"McLean"},
+						{"name":"Center for Enterprise Modernization","value":"McLean"},
+						{"name":"Center for Naval Analyses","value":"Alexandria"},
+						{"name":"Center for Nuclear Waste Regulatory Analyses","value":"San Antonio"},
+						{"name":"Centers for Communications and Computing","value":"Alexandria"},
+						{"name":"Fermi National Accelerator Laboratory","value":"Batavia"},
+						{"name":"Homeland Security Studies and Analysis Institute","value":"Arlington"},
+						{"name":"Homeland Security Systems Engineering and Development Institute","value":"McLean"},
+						{"name":"Idaho National Laboratory","value":"Idaho Falls"},
+						{"name":"Jet Propulsion Laboratory","value":"Pasadena"},
+						{"name":"Lawrence Berkeley National Laboratory","value":"Berkeley"},
+						{"name":"Lawrence Livermore National Laboratory","value":"Livermore"},
+						{"name":"Lincoln Laboratory","value":"Lexington"},
+						{"name":"Los Alamos National Laboratory","value":"Los Alamos"},
+						{"name":"National Astronomy and Ionosphere Center","value":"Arecibo"},
+						{"name":"National Biodefense Analysis and Countermeasures Center","value":"Frederick"},
+						{"name":"Frederick National Laboratory for Cancer Research","value":"Frederick"},
+						{"name":"National Center for Atmospheric Research","value":"Boulder"},
+						{"name":"National Defense Research Institute","value":"Santa Monica"},
+						{"name":"National Optical Astronomy Observatories","value":"Tucson"},
+						{"name":"National Radio Astronomy Observatory","value":"Charlottesville"},
+						{"name":"National Renewable Energy Laboratory","value":"Golden"},
+						{"name":"Oak Ridge National Laboratory","value":"Oak Ridge"},
+						{"name":"Pacific Northwest National Laboratory","value":"Richland"},
+						{"name":"Princeton Plasma Physics Laboratory","value":"Princeton"},
+						{"name":"Project Air Force","value":"Santa Monica"},
+						{"name":"SLAC National Accelerator Laboratory","value":"Stanford"},
+						{"name":"Sandia National Laboratories","value":"Albuquerque"},
+						{"name":"Savannah River National Laboratory","value":"Aiken"},
+						{"name":"Science and Technology Policy Institute","value":"Washington"},
+						{"name":"Software Engineering Institute","value":"Pittsburgh"},
+						{"name":"Studies and Analyses Center","value":"Alexandria"},
+						{"name":"Thomas Jefferson National Accelerator Facility","value":"Newport News"},
+						{"name":"Archaeology Centre","value":"Toronto"},
+						{"name":"Avataq Cultural Institute","value":"Inukjuak"},
+						{"name":"Avian Research Centre","value":"Vancouver"},
+						{"name":"Bamfield Marine Sciences Centre","value":"Bamfield"},
+						{"name":"Biotron Institute for Experimental Climate Change Research Centre","value":"London"},
+						{"name":"Canadian Centre for Climate Modelling and Analysis","value":"Victoria"},
+						{"name":"Canadian Drosophila Microarray Centre","value":"Toronto"},
+						{"name":"Canadian Institute for Theoretical Astrophysics","value":"Toronto"},
+						{"name":"Canadian Institute for Advanced Research","value":"Toronto"},
+						{"name":"Canadian Museum of Civilization","value":"Ottawa"},
+						{"name":"Canadian Museum of Nature","value":"Ottawa"},
+						{"name":"Canadian Polar Commission","value":"Yellowknife"},
+						{"name":"CANMET Energy","value":"Devon"},
+						{"name":"CANMET Materials","value":"Hamilton"},
+						{"name":"Centre for Cold Ocean Resources Engineering (C-CORE)","value":"St. John’s"},
+						{"name":"Center for Earth Observation Sciences","value":"Edmonton"},
+						{"name":"Center for Earth Observation Sciences","value":"Winnipeg"},
+						{"name":"Centre d'optique photonique et laser","value":"Quebec City"},
+						{"name":"Centre for Intelligent Machines","value":"Montreal"},
+						{"name":"Centre for Mathematical Biology","value":"Edmonton"},
+						{"name":"Centre for Mathematics in the Life Sciences","value":"Calgary"},
+						{"name":"Centre for Particle Physics","value":"Edmonton"},
+						{"name":"Centre interuniversitaire en calcul mathématique algébrique (CICMA)","value":"Montreal"},
+						{"name":"C-FER Technologies","value":"Edmonton"},
+						{"name":"Communications Research Centre Canada","value":"Ottawa"},
+						{"name":"David Florida Laboratory","value":"Ottawa"},
+						{"name":"Dominion Radio Astrophysical Observatory","value":"Penticton"},
+						{"name":"Donnelly Centre for Cellular and Biomolecular Research","value":"Toronto"},
+						{"name":"Fields Institute","value":"Toronto"},
+						{"name":"Freshwater Institute Science Laboratory","value":"Winnipeg"},
+						{"name":"Global Aerospace Centre for Icing and Environmental Research Inc. (GLACIER)","value":"Thompson"},
+						{"name":"Huntsman Marine Science Centre","value":"St. Andrews"},
+						{"name":"Institute for Biocomplexity and Informatics","value":"Calgary"},
+						{"name":"Institute for Space Imaging Science","value":"Calgary"},
+						{"name":"Institute of Ocean Sciences","value":"Sydney"},
+						{"name":"IREQ, Institut de recherche en électricité du Québec","value":"Shawinigan and Varennes"},
+						{"name":"Institute of Space and Atmospheric Studies","value":"Saskatoon"},
+						{"name":"J.S. Marshall Radar Observatory","value":"Montreal"},
+						{"name":"Lyman Entomological Museum and Research Laboratory","value":"Montreal"},
+						{"name":"McGill Arctic Research Stations","value":"Nunavut"},
+						{"name":"McGill University Herbarium","value":"Montreal"},
+						{"name":"McMaster Ancient DNA Centre","value":"Hamilton"},
+						{"name":"National Research Council Research Centres","value":"n/a"},
+						{"name":"NRC Canadian Neutron Beam Centre","value":"Chalk River"},
+						{"name":"Ontario Research Centre for Computer Algebra (ORCCA)","value":"London & Waterloo"},
+						{"name":"Origins Institute","value":"Hamilton"},
+						{"name":"Pacific Institute for the Mathematical Sciences (PIMS)","value":"Vancouver"},
+						{"name":"Perimeter Institute for Theoretical Physics","value":"Waterloo"},
+						{"name":"Pipe Flow Technology Centre","value":"Saskatoon"},
+						{"name":"Plasma Physics Laboratory","value":"Saskatoon"},
+						{"name":"Proteomics Research Center","value":"Toronto"},
+						{"name":"The Redpath Museum","value":"Montreal"},
+						{"name":"Saskatchewan Research Council","value":"Regina"},
+						{"name":"Sudbury Neutrino Observatory (SNO)","value":"Sudbury"},
+						{"name":"TRIUMF National Laboratory for Particle and Nuclear Physics","value":"Vancouver"},
+						{"name":"UBC Botanical Garden and Centre for Plant Research","value":"Vancouver"},
+						{"name":"University of Ottawa Heart Institute","value":"Ottawa"}
 					],
 					labelField: "name",
 					searchField: ["name"]

@@ -741,6 +741,11 @@
 		
 		.super-wrapper { overflow-y: scroll; }  //making library vertically scrollable in mobile//
 		
+		//onboarding//
+		#university-affiliation {
+			padding: 8rem 6rem;
+		}
+		
 		//fixing scrollbar for mobile//
 		
 		.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .following-ist-wrapper {
@@ -2386,7 +2391,13 @@
 		//onboarding process//
 		
 		#university-affiliation {
-			padding: 12rem 4rem;
+			padding: 12rem 2rem;
+			
+			.selectize-control {
+				left: 20%;
+				margin-left: 0;
+				width: 60%;
+			}
 		}
 	}
 	
@@ -2624,6 +2635,15 @@
 	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
 
 	.app {
+		
+		//onboarding//
+		#university-affiliation {
+			padding: 12rem 0rem;
+			
+			#school-intro, #uni-intro {
+				font-size: 1.1rem;
+			}
+		}
 
 		#header-message {
 			font-size: 1rem;
@@ -2919,6 +2939,33 @@
 	
 	.app {
 		
+		//onboarding process//
+		#university-affiliation {
+			padding: 8rem 0.5rem;
+			
+			.appendix { display: none; }
+			
+			.selectize-control {
+				left: 5%;
+				margin-left: 0;
+				width: 90%;
+			}
+			
+			#skip-container { font-size: 1rem !important; }
+			
+			#uni-intro, #school-intro { font-size: 0.9rem; }
+			
+			#welcome { font-size: 1rem; }
+		}
+		
+		#intro { font-size: 1.3rem; }
+			
+		#header-message {
+			padding: 1.4rem 0 0.5rem 0;
+				
+			button { font-size: 12px; }
+		}	
+		
 		#featured-scroller #g-menu-toggle { left: 34.75%; }
 		
 		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list, #book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
@@ -3002,30 +3049,6 @@
 			}
 			
 			.user-avatar { top: 17% !important;; }
-		}
-		
-		//onboarding process//
-		#intro { font-size: 1.3rem; }
-		
-		#header-message {
-			padding: 1.4rem 0 0.5rem 0;
-			
-			button { font-size: 12px; }
-		}	
-		
-		#university-affiliation {
-			padding: 8rem 3rem;
-			
-			.selectize-control {
-				margin-left: 13%;
-				width: 75%;
-			}
-			
-			#uni-intro, #school-intro, #welcome {
-				font-size: 1rem;
-			}
-			
-			button { font-size: 12px; }
 		}
 	}
 	
@@ -3251,7 +3274,15 @@
 		
 		//onboarding process//
 		#university-affiliation {
-			padding: 8rem 2rem;
+			.selectize-control {
+				left: 2.5%;
+				width: 95%;
+			}
+			
+			button {
+				top: 92%;
+				right: 7.5rem;
+			}
 		}
 		
 		#intro { padding: 3rem 2rem; }
@@ -3942,10 +3973,9 @@
 		
 		//onboarding process//
 		#university-affiliation {
-			padding: 7rem 0.5rem;
+			padding: 6rem 0.5rem;
 			
 			button {
-				top: 92%;
 				right: 6.5rem;
 			}
 		}

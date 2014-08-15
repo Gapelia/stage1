@@ -140,6 +140,8 @@
       right: 1rem; top: 1rem;
     }
     
+    .appendix a { border-bottom: 1px solid rgba(black, 0.4); }
+    
     #university-search, #school-search {
       margin-left: 25%;
       width: 50%;
@@ -153,14 +155,9 @@
     #school-intro { margin-top: 3rem; }
     
     #skip-container {
-      bottom: 2rem;
-      left: 25%;
-      position: absolute;
-      width: 50%;
-      
-      #skip-onboarding {
-        color: #59b3a6;
-        font-weight: 700;
+      a {
+        border-bottom: 1px solid rgba(black, 0.4);
+        opacity: 0.85;
       }
     }  
     
