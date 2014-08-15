@@ -24,6 +24,7 @@ public class QueryDatabaseMetric {
 	private static final String GET_NUM_VOTES = "select count(*) from user_votes where book_id = ?";
 	private static final String GET_NUM_PAGE_VIEWS = "select views from metric_page_views where book_id = ? and page_num = ?";
 	private static final String GET_BOOK_SHARES = "select fb,twitter,email from metric_book_shares where book_id = ?";
+    private static final String GET_NUM_FOLLOWERS = "SELECT count(user_id) FROM user_friends WHERE user_id = ?";
 	private static final String INCREMENT_BOOK_VIEWS = "update metric_book_views set views = views + 1 where book_id = ?";
 	private static final String INCREMENT_PAGE_VIEWS = "update metric_page_views set views = views + 1 where book_id = ? and page_num = ?";
 	private static final String INCREMENT_BOOK_SHARES_FB = "update metric_book_shares set fb = fb + 1 where book_id = ?";
@@ -59,6 +60,35 @@ public class QueryDatabaseMetric {
 		}
 		return numVotes;
 	}
+
+    public static int getNumFollowers(int userId) {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        int numFollowers = 0;
+        try {
+            statement = connection.prepareStatement(GET_NUM_FOLLOWERS);
+            statement.setInt(1, userId);
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                numFollowers = rs.getInt(1);
+            }
+
+        } catch (Exception ex) {
+            LOG.error("Cannot get num followers:" + userId, ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                LOG.error("Error closing connection " + userId + " " + ex.getMessage());
+            }
+        }
+        return numFollowers;
+    }
 
 	public static Map<String,Integer> getBookShares(int bookId) {
 		PreparedStatement statement = null;

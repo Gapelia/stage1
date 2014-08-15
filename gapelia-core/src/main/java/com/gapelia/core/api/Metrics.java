@@ -76,4 +76,17 @@ public class Metrics {
         return gson.toJson(QueryDatabaseMetric.getBookShares(bookId));
     }
 
+    @Path("getNumFollowers")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String getNumFollowers(@FormParam("userId") int userId) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(QueryDatabaseMetric.getNumFollowers(userId));
+    }
+
+
+
+
 }
+

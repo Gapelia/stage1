@@ -3728,6 +3728,29 @@ function incrementNumBookShares(bookId, type) {
 	});
 }
 
+function getNumFollowers(userId) {
+	var followers = 0;
+	$.ajax({
+		url: "/api/metrics/getNumFollowers",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: false,
+		data: {
+			userId : userId
+		},
+		success: function(data) {
+			followers = data;
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+	return followers;
+}
 
 
 // I know, not really an ajax method, but I don't know where to put it 

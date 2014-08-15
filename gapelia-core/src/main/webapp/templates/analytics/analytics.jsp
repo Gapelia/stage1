@@ -102,7 +102,7 @@
 						
 						<div id="network-data">
 								<h3 class="data-counters" id="following"><span></span><br>FOLLOWING</h3>
-								<h3 class="data-counters" id="followers"><span>543</span><br>FOLLOWERS</h3>
+								<h3 class="data-counters" id="followers"><span></span><br>FOLLOWERS</h3>
 						</div>
 				</div>
 				
@@ -157,7 +157,7 @@
 				
 				getFollowingUsers();
 				$("#following span").text(friends.length);
-				$("#followers span").text(0);
+				$("#followers span").text(getNumFollowers(user.userId));
 			});
 
 			
@@ -174,7 +174,7 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
-
+				
                 if ($vW > "1919") {
                     $("#last-story img").css("cssText", "height: 275px !important");
                     $("#last-story-data").css("cssText", "width: 600px !important");
