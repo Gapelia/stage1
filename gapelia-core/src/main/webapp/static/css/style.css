@@ -2591,7 +2591,8 @@ body.landing .error {
 .app #university-affiliation .selectize-control.single .selectize-input {
   background-image: none !important;
   box-shadow: none !important;
-  border: none !important; }
+  border: none !important;
+  font-size: 1rem; }
 .app #user-panel, .app #book-scroller, .app #dimension-panel, .app #dimension-scroller, .app #featured-panel, .app #featured-scroller {
   float: left;
   height: 100%;
@@ -11408,7 +11409,8 @@ a.count span.dont-move {
 .analytics .sortable #column-headers th {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 1.25rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+  padding-right: 5rem; }
 .analytics .sortable #column-headers #header-title {
   width: 65%; }
 .analytics .sortable tbody td {
@@ -11420,3 +11422,5 @@ a.count span.dont-move {
   vertical-align: middle; }
 .analytics .sortable tbody li {
   list-style: none; }
+.analytics .sortable tbody .row-views, .analytics .sortable tbody .row-votes, .analytics .sortable tbody .row-shares {
+  padding-left: 1.5rem; }

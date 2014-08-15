@@ -51,7 +51,7 @@
 			</div>
 			
 			<div id="university-affiliation">
-				<h1 id="welcome"><p></p>, welcome to Folio</h1>
+				<h1 id="welcome">Hello, <p></p>!</h1>
 				
 				<p id="uni-intro"><b>If you are a practicing scholar,  fill in below and click "Next Step"</b><br/><br/><br/><b><i>Select your academic or research institution</i></b></br><br/>
 						<select id="university-search" placeholder="Type the name of your university/institution..."></select>
@@ -63,7 +63,7 @@
 						<div class="appendix" style="margin-top:-1rem;"><font size=2>Please note that only verified scholars will be able to publish</font></div>
 				</p>
 				
-				</br><hr><div id="skip-container" style="font-size: 1.25rem;"><b>If you are not a practicing scholar, <a href="/featured">skip this</a> and join the conversation too!</b></div><button id="uni-next" class="branded">NEXT STEP</button>
+				</br><hr><div id="skip-container" style="font-size: 1.25rem;"><b>If you are not a practicing scholar, <a>skip this</a> and join the conversation too!</b></div><button id="uni-next" class="branded">NEXT STEP</button>
 			</div>
 			
 			<div id="intro" style="opacity: 0";>
@@ -234,18 +234,23 @@
 				// Empty bio field when user clicks in it
 				$(document).one("click", "#user-bio", function () { $(this).text(""); });
 				$("#user-bio").limit({ maxlength: 300 });
-
+				
+				// Skip first step //
+				$("#skip-container a").click(function () {
+				    $("#intro").css("opacity", "0.75");
+					$("#university-affiliation").css("display", "none");
+				});
 				
 				//clicking on uni//
 				$("#uni-next").click(function (e) {
 						
-				    if ($(".selectize-input div")[0] == undefined) {
+				    if ($("#uni-intro .selectize-input div")[0] == undefined) {
 						$("#uni-intro .selectize-control.single .selectize-input").css("cssText", "border: 1px solid red !important;");
 					} else {
 						$("#uni-intro .selectize-control.single .selectize-input").css("cssText", "border: none !important;");
 					}
 					
-				    if ($(".selectize-input div")[1] == undefined) {
+				    if ($("#school-intro .selectize-input div")[0] == undefined) {
 						$("#school-intro .selectize-control.single .selectize-input").css("cssText", "border: 1px solid red !important;");
 					} else {
 						$("#school-intro .selectize-control.single .selectize-input").css("cssText", "border: none !important;");
