@@ -65,6 +65,8 @@
 		
 		.library-location: { left: 6%; }
 		
+		#footer-items { top: 30%; }
+		
 		#new-library #close-splash { margin-left: 4% !important; height: 6% !important; }
 		
 		#new-library #new-library-info { top: 51.5%; }
@@ -157,6 +159,9 @@
 		width: 350px;
 		ul {
 			font-size: 1.75rem;
+			height: 100%;
+			
+			#footer-items { bottom: -4rem !important; }
 			
 			li { margin-top: 10px; }
 		}

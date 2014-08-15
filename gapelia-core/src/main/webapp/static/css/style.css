@@ -2493,7 +2493,7 @@ body.landing .error {
 .app #site-menu #account-links a:first-child:after {
   content: "\00a0\00b7"; }
 .app #site-menu #footer-items {
-  bottom: 0;
+  bottom: 1rem;
   position: relative; }
 .app button {
   margin: 0 auto;
@@ -8287,6 +8287,8 @@ a.count span.dont-move {
     top: -0.6rem; }
   .app #featured-nav #stay-right a {
     font-size: 1rem; }
+  .app #footer-items {
+    top: 20%; }
   .app #new-library #close-splash {
     margin-left: 4% !important;
     height: 6% !important; }
@@ -8360,7 +8362,10 @@ a.count span.dont-move {
   .mp-menu {
     width: 350px; }
   .mp-menu ul {
-    font-size: 1.75rem; }
+    font-size: 1.75rem;
+    height: 100%; }
+  .mp-menu ul #footer-items {
+    bottom: -4rem; }
   .mp-menu ul li {
     margin-top: 10px; }
 
