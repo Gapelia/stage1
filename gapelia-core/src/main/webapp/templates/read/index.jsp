@@ -313,6 +313,10 @@
 	}
 
 	$(document).ready(function() {
+
+		//increase view-counter
+		incrementNumBookViews(bookId);
+
 		loadDelete();
 		getResponsesByBookId(bookId);
 		
