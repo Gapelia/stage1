@@ -10078,6 +10078,8 @@ a.count span.dont-move {
     left: 5%;
     padding: 0;
     width: 90%; }
+  .app #g-menu-toggle {
+    position: absolute !important; }
   .app #library-splash {
     padding: 0; }
   .app #library-splash #library-info {
@@ -10122,7 +10124,11 @@ a.count span.dont-move {
     top: 30%; }
   body.library-manager .library .library-info .lib-blurb {
     font-size: 1rem; }
+  body.library-manager #g-menu-toggle {
+    position: absolute !important; }
 
+  .full-book #g-menu-toggle {
+    position: absolute !important; }
   .full-book .phototext-wrapper .image-attribution, .full-book .vertical-wrapper .image-attribution, .full-book .video-wrapper .image-attribution {
     top: 1.12rem; }
   .full-book .fluid-wrapper .fluid-preview {
@@ -10223,11 +10229,15 @@ a.count span.dont-move {
 
   .profile h5 {
     top: 52%; }
+  .profile #user-panel {
+    position: absolute !important; }
 
   .accounts .account-info-wrapper label {
     width: 49%; }
   .accounts .account-info-wrapper .col-0 .bl_form input {
     width: 80%; }
+  .accounts #g-menu-toggle {
+    position: absolute !important; }
   .accounts #notifications-toggle {
     margin-left: 11%; }
   .accounts #notifications-toggle span {
