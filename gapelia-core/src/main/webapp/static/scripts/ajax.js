@@ -3642,6 +3642,22 @@ function getNumBookViews(bookId) {
 	return views;
 }
 
+function incrementNumBookViews(bookId) {
+	$.ajax({
+		url: "/api/metrics/incrementNumBookViews",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {bookId : bookId},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				console.log("Request timed out");
+			} else {
+				console.log("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
+
 function getNumBookVotes(bookId) {
 	votes = 0;
 	$.ajax({
@@ -3689,6 +3705,27 @@ function getNumBookShares(bookId) {
 	});
 	return shares;
 }
+
+function incrementNumBookShares(bookId, type) {
+	$.ajax({
+		url: "/api/metrics/incrementNumBookShares",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		data: {
+			bookId : bookId,
+			type: type
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				console.log("Request timed out");
+			} else {
+				console.log("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
+
+
 
 // I know, not really an ajax method, but I don't know where to put it 
 // currently used by: read/index.jsp and revision/index.jsp

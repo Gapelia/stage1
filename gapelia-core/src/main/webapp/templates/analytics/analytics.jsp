@@ -174,7 +174,7 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
-				
+
                 if ($vW > "1919") {
                     $("#last-story img").css("cssText", "height: 275px !important");
                     $("#last-story-data").css("cssText", "width: 600px !important");

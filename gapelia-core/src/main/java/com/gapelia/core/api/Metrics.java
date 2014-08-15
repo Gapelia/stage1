@@ -12,28 +12,15 @@ import javax.ws.rs.core.MediaType;
 public class Metrics {
     public static Logger LOG = Logger.getLogger(Libraries.class);
 
-    @Path("incrementNumBookEmailShares")
+    @Path("incrementNumBookShares")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void incrementNumBookEmailShares(@FormParam("bookId") int bookId) {
-        QueryDatabaseMetric.incrementBookSharesEmail(bookId);
-    }
-
-    @Path("incrementNumBookTwitterShares")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void incrementNumBookTwitterShares(@FormParam("bookId") int bookId) {
-        QueryDatabaseMetric.incrementBookSharesTwitter(bookId);
-    }
-
-    @Path("incrementNumBookFBShares")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void incrementNumBookFBShares(@FormParam("bookId") int bookId) {
-        QueryDatabaseMetric.incrementBookSharesFB(bookId);
+    public void incrementNumBookTwitterShares(@FormParam("bookId") int bookId,
+                                              @FormParam("type") String type) {
+        if(type.equals("twitter")) QueryDatabaseMetric.incrementBookSharesTwitter(bookId);
+        if(type.equals("facebook")) QueryDatabaseMetric.incrementBookSharesFB(bookId);
+        if(type.equals("email")) QueryDatabaseMetric.incrementBookSharesEmail(bookId);
     }
 
     @Path("incrementNumPageViews")
