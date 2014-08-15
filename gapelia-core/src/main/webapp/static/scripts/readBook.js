@@ -478,9 +478,15 @@ function getReadNextBook() {
     
     function fluidLayout(isFirst) {
         if(current.photoUrl ==null ||current.photoUrl=="../static/images/grayBG.png") {
-            htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
-            htmlToInsert += "</section>";
-            htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 4rem;\">";
+            if ($vW > "1025") {
+                htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
+                htmlToInsert += "</section>";
+                htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 4rem;\">";
+            } else {
+                htmlToInsert += "<section class=\"fluid-wrapper\" style=\"margin-bottom: 10rem; top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
+                htmlToInsert += "</section>";
+                htmlToInsert +="<div class=\"fluid-preview\" style=\"padding: 1rem 2rem 0px; top: 10rem;\">";
+            }
         } else {
             htmlToInsert += "<section class=\"fluid-wrapper\">";
             getUserFromBook(bookId)

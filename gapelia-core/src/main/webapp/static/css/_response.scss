@@ -1223,8 +1223,6 @@
 			font-size: 0.9rem;
 			margin-left: 5px;
 			opacity: 1;
-			
-			&:before { opacity: 0.75; }
 		}
 
 		#featured-splash, #library-splash, #user-splash, #new-library {
@@ -2929,7 +2927,10 @@
 		
 		//books//
 		
-		.book-title { font-size: 1.4rem; }
+		.book-title {
+			font-size: 1.4rem;
+			padding: 0 0rem 0 2rem;
+		}
 		
 		.book-info .author-name, .collection-info .author.name { font-size: 0.7rem; }
 		
@@ -3281,7 +3282,10 @@
 		
 		.super-wrapper { background-color: white; }
 		
-		#book-scroller { top: 100%; }
+		#book-scroller {
+			padding-right: 0;
+			top: 100%;
+		}
 		
 		#user-panel #g-menu-toggle { width: 13.5%; }
 		

@@ -3098,8 +3098,6 @@ body.landing .error {
   font-style: normal;
   text-transform: none; }
 .app .book-info .author-name:before, .app .collection-info .author-name:before {
-  font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
-.app .book-info .author-name:before, .app .collection-info .author-name:before {
   content: "by "; }
 .app #bookmarks-scroller {
   width: 300px;
@@ -9103,8 +9101,6 @@ a.count span.dont-move {
     font-size: 0.9rem;
     margin-left: 5px;
     opacity: 1; }
-  .app .book-info .author-name:before, .app .collection-info .author.name:before {
-    opacity: 0.75; }
   .app #featured-splash, .app #library-splash, .app #user-splash, .app #new-library {
     z-index: 10; }
   .app #featured-splash #library-info, .app #featured-splash #splash-user-info, .app #library-splash #library-info, .app #library-splash #splash-user-info, .app #user-splash #library-info, .app #user-splash #splash-user-info {
@@ -10248,7 +10244,8 @@ a.count span.dont-move {
   .app #user-book-list, .app #bookmarks-list, .app #user-library-list, .app #user-draft-list, .app #book-list, .app #library-list, .app #bookmark-list, .app #subscription-list, .app #explore-list {
     padding: 2.3rem 2rem 0.25rem 2rem; }
   .app .book-title {
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    padding: 0 0rem 0 2rem; }
   .app .book-info .author-name, .app .collection-info .author.name {
     font-size: 0.7rem; }
   .app .book .book-info .num-votes, .app .collection .book-info .num-votes, .app .library .book-info .num-votes {
@@ -10471,6 +10468,7 @@ a.count span.dont-move {
   .profile .super-wrapper {
     background-color: white; }
   .profile #book-scroller {
+    padding-right: 0;
     top: 100%; }
   .profile #user-panel #g-menu-toggle {
     width: 13.5%; }

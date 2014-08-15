@@ -367,7 +367,9 @@ function loadMoreBooks(count,items) {
 		if (book.coverPhoto != "../static/images/grayBG.png") {
 		    output += "style=\"background-image: url(" + book.coverPhoto + ");";
 		} else {
-		    output += "style=\"background: #59B3A6;";
+				if ($vW > "1025") {
+						output += "style=\"background: #59B3A6;";
+				}
 		}
 		output += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		output += "<div class=\"bookmark-this\"><span class=\"top-bm\">";
@@ -2229,7 +2231,8 @@ function getPublicCreatedBooks() {
 				toInsert += getLibraryFromBook(book.bookId);
 				toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
 				toInsert += "<div class=\"book-info\"";
-				toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+				toInsert += getUserFromBookId(book.bookId);
+				toInsert += "</div><div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 				toInsert += "</div>";
 				toInsert += "</li>";
 			}
