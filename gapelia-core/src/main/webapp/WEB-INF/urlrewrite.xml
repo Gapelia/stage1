@@ -179,7 +179,7 @@
     </outbound-rule>
     <rule>
         <from>^/featuredTutorial$</from>
-        <to>/templates/featured-tutotiral/featuredTutorial.jsp?</to>
+        <to>/templates/featured-tutorial/featuredTutorial.jsp?</to>
     </rule>
     <outbound-rule>
         <from>^/templates/featured-tutorial/featuredTutorial.jsp?$</from>
