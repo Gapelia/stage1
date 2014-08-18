@@ -4956,7 +4956,12 @@
 				$("#finalize-setup").click(function () {
 
 					updateUserOnboard();
-					document.location.href = "/featured";
+					
+					if ($vW > "1025") {
+						document.location.href = "/featuredTutorial";
+					} else {
+						document.location.href = "/featured";
+					}
 
 				});
 				

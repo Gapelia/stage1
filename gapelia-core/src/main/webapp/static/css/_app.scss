@@ -126,6 +126,50 @@
     }
   }
   
+  #featuredTutorial, #featuredTutorialTwo, #featuredTutorialThree {
+    height: 100%; width: 100%;
+    background: none;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.25;
+    padding: 4rem 4rem 1rem 1rem;
+    
+    #intro-tutorial {
+      width: 40%;
+    }
+    
+    #next-intro {
+      background-color: black !important;
+      margin-left: 26% !important;
+      padding: 11px !important;
+      position: absolute;
+    }
+  }
+  
+  #featuredTutorialTwo {
+    padding: 5rem 1rem 1rem 1rem;
+    
+    #intro-tutorial {
+      border-top: 2px dotted black;
+      padding-top: 2rem;
+      width: 55%;
+    }
+    
+    #next-intro-final {
+      background-color: black !important;
+      margin-left: 38% !important;
+      padding: 11px !important;
+      position: absolute;
+    }  
+  }
+  
+  #right-tutorial {
+    height: 100px; width: 100px;
+    position: absolute;
+    right: 40%;
+    top: 40%;
+  }
+  
   #university-affiliation {
     height: 100%; width: 100%;
     

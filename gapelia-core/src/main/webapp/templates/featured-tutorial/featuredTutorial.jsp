@@ -44,18 +44,37 @@
 <body class="app">
 
 		<div id="mp-pusher" class="super-wrapper">
+		
+		<!--/ tutorials /-->	
+		<section id="featuredTutorial" style="position: absolute; z-index: 1000;">
+			<p id="intro-tutorial"><b>Welcome to Folio's homepage.</b></br></br>Here, you you will find the most relevant articles tailored to the libraries and authors you've subscribed to.</br></br>Click on the arrow and scroll the page to the <b>right</b> with your mousepad or right/left keyboard.</p>
+			</br><a><img id="right-tutorial" src="../static/images/right-tutorial.png"></a>
+			<a href="/" style="bottom: 1rem; right: 1rem; font-size: 1.5rem; position: absolute;">Skip Tutorial</a>
+		</section>
+		
+		<section id="featuredTutorialTwo" style="display: none; position: absolute; z-index: 1000;">
+			<p id="intro-tutorial"><b>Stories:</b> recommended articles for you.</br></br><b>Bookmarks:</b> your collected articles to read later.</br></br><b>Following:</b> users you follow.</br></br>In addition, you can click the magnifying glass to <b>search</b> for specific content.</p>
+			</br><button id="next-intro-final" class="branded">Continue Tutorial</button>
+			<a href="/" style="bottom: 1rem; right: 1rem; font-size: 1.5rem; position: absolute;">Skip Tutorial</a>
+		</section>
+		
+		<section id="featuredTutorialThree" style="display: none; position: absolute; z-index: 1000;">
+			<p id="intro-tutorial">Access the main <b>menu</b> by clicking on the Folio icon.</br></br>Click on it and select <b>"New Story"</b> to finish this tutorial.</br></br></p>
+			<a href="/" style="bottom: 1rem; right: 1rem; font-size: 1.5rem; position: absolute;">Skip Tutorial</a>
+		</section>
+		<!--/ tutorials /-->
 	
 		<!--/ site-menu /-->
 		<nav id="site-menu" class="mp-menu">
 			<div class="mp-level"><h2><a href="/"></a></h2>
 				<ul>
-					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
-					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
+					<li><a>Me</a><a class="icon not-mobile">&#xf13d;</a></li>
+					<li class="not-mobile"><a>Libraries</a></li>
 					<li class="not-mobile"><a href="/createbook">New Story</a></li>
 					<li id="gpl-menu-drafts" class="not-mobile"><a>My Drafts</a>
 						<ul id="draft-menu"></ul>
 					</li>
-					<li class="not-mobile"><a href="/analytics">Analytics</a></li>
+					<li class="not-mobile"><a>Analytics</a></li>
 					<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a><ul></ul></li>
 					<div id="footer-items">
 						<li class="fq"><a href="/read/755">How It Works</a>
@@ -69,7 +88,7 @@
 		<!--//site-menu /-->
 
 		<!--/ main-panel /-->
-			<div id="featured-panel">
+			<div id="featured-panel" style="opacity: 0.25;">
 				<button id="g-menu-toggle" class="notification-time">
 					<span id="notification-count" style="display: none;"></span>
 					<i class="ion-drag"></i>
@@ -84,7 +103,7 @@
 			<!--//main-panel /-->
 
 			<!--/ main-content /-->
-			<div id="featured-scroller">
+			<div id="featured-scroller" style="opacity: 0.25;">
 				<div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
@@ -149,7 +168,7 @@
 			filter: function (results) {
 				return $.map(results.books, function (book) {
 					return {
-						value: '<a href=\"http://folio.is/read/' + book.bookId + '\"><img src=\"'+book.coverPhoto+'\" height=50px width=50px>'+book.title+'</a>'
+						value: '<a href=\"http://folio.is/read/' + book.bookId + '\"><img src=\"'+book.coverPhoto+'\" height=50px width=50px>'+book.title+'</a>',
 					}
 				}); 
 			}
@@ -221,22 +240,26 @@
 			$("#nav-search").fadeIn("slow");
 		});
 		
-		//feedback form//
-		$('#contactable').contactable({
-			subject: 'A Feeback Message'
-		});
+		//tutorial experience//
+		$("#right-tutorial").click(function(){
+			$("#featuredTutorial").fadeOut();
+			$("#featured-scroller, #featured-panel").css("opacity", "1").fadeIn();
+			$("#book-list a").removeAttr("href");
+		});	
 		
-		//hide search box after clicking on item//
-		$(".tt-dropdown-menu").click(function () {
-			$(".typeahead").css("display", "none");
+		$("#next-intro-final").click(function(){
+			$("#featuredTutorialTwo, #featured-scroller").hide();
+			$("#featuredTutorialThree").fadeIn();
+			$("#featured-panel").css("z-index", "10000");
 		});
-		
-	}
+	}	
 	
 	if ($vW > "1919") {
 		$(".mp-pushed").ready(function () {
 			$("#nav-search").css("margin-left", "34%");
 		});
+		
+		$("#featuredTutorialTwo #intro-tutorial").css("cssText", "width: 52% !important");
 	}
 	
 	$(function () {
@@ -245,41 +268,10 @@
 		var second = getBookmarksArray();
 		var fourth = getListBookmarked();
 		var fifth = getLibraries();
-
-		$(".dd-link").off().click(function () {
-			$(this).next(".delete-draft").toggle();
-		});
-
-		$(".nay-dd").off().click(function () {
-			$(this).closest(".delete-draft").hide();
-		});
-
-		$(".yay-dd").off().click(function () {
-			e = $(this).closest(".yay-dd");
-			console.log("deleting");
-			bookId = e.parent().parent().attr("id");
-			$(this).closest("li").remove();
-			sessionId = readCookie("JSESSIONID");
-			$.ajax({
-				url: "/api/books/deleteBook",
-				contentType: "application/x-www-form-urlencoded;charset=utf-8",
-				type: "POST",
-				data: {
-					sessionId: sessionId,
-					bookId: bookId
-				},
-				error: function (q, status, err) {
-					if (status == "timeout") {
-						alert("Request timed out");
-					}
-				}
-			});
-		});				
 	});	
 
 	function load() {
 		getFeaturedBookArray();
-		getFollowingUsers();
 
 		var $vW = $(window).width(),
 		$vH = $(window).height();
@@ -324,6 +316,8 @@
 					if (this.pos.dest > this.pos.end - 200) {
 						if (items.children().length <= books.length-1) {
 							loadMoreBooks(1,items);
+							$("#featuredTutorialTwo").show();
+							$(".book-list-wrapper").css("opacity", "0.15");
 	
 							$(".book").css("height", h);
 							$(".book-snippet").css("display", "block")
@@ -345,83 +339,7 @@
 			slyBookWrapper.init();
 		}
 
-		if ($vW < "1025") {
-
-			var options = {
-				horizontal: 1,
-				itemNav: 'forceCentered',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				swingSpeed: 1,
-				releaseSwing: 0,
-				startAt: 0,
-				scrollBar: $(".scrollbar"),
-				scrollBy: 1,
-				speed: 0.0001,
-				elasticBounds: 1,
-				easing: 'swing',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-				keyboardNavBy: 'items',
-			};
-			
-			var slyBookWrapper = new Sly('.book-list-wrapper', options);
-			var items = $('#book-list');
-
-			loadMoreBooks(20,items);
-
-			if(books.length > 5){
-
-				slyBookWrapper.on('load change', function () {
-						if (this.pos.dest > this.pos.end - 200) {
-								if (items.children().length <= books.length-1) {
-									loadMoreBooks(1,items);
-			
-									$(".book").css("height", h);
-									$(".book-snippet").css("display", "block")
-			
-									this.reload();
-								}
-						}		
-				});
-			}	
-
-			h = $(this).outerHeight() - 92;
-			$(".book").css("height", h);
-			$("#book-list li").fadeIn("100");
-			$("#book-list").fadeIn("100");
-			if ($vW > "300") {
-				$(".book-snippet").css("display", "block")
-			}
-
-			slyBookWrapper.init();
-		}
-
 		// Mobile and size optimization stuff//
-		if ($vW < "1025") {
-				$("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
-				$(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info").remove();
-				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
-				$("#featured-scroller").css({"z-index": "10"})
-				$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
-				$(".book-list-wrapper").append("<div id=\"footer-menu\"><ul><li><a href=\"/libraryManager\">Explore Libraries</a></li><li><a href=\"/me\">My Profile</a></li><li><a href=\"/accounts\">Account Settings</a></li><li><a href=\"/#\">Log Out</a></li></ul></div>")
-
-				// Log Out
-				$("#logout").click(function (e) {
-					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-					window.location = "";
-				});
-		}
-
-		if ($vW < "361") {
-			$(".book-snippet").css("display", "block")
-			$(".book-list-wrapper").css({"top": "300px", "background-color": "white"});
-		}
-	
 		if ($vW > "1599") {
 			$("#contactable-contactForm").css("cssText", "top: 76% !important");
 		}
@@ -495,231 +413,6 @@
 
 			});
 
-		//delete draft	
-		loadDelete();
-
-		// Click "Bookmarks"
-		$("#nav-bookmarks").click(function (e) {
-
-				NProgress.start();
-
-				var allBooks = $("#bookmark-list li"), // gets all books in a section
-					firstBook = $(allBooks).first(); // gets first book in list
-
-				$(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
-
-				setTimeout(function () {
-
-					$("#book-list").hide();
-					$("#following-list").hide();
-					$(".following-list-wrapper p").remove();
-
-					var w = 0,
-					h = 0;
-
-					$("#bookmark-list li").each(function () {
-						w += $(this).outerWidth();
-						h += $(this).outerHeight();
-					});
-
-					w += 500;
-
-					// fades in the all the books after section width is added
-					$("#bookmark-list li").fadeIn("100");
-					$("#bookmark-list").fadeIn("100");
-					$(".bookmark-list-wrapper section").css("width", $vW + "px");
-
-					if ($vW > "1024") {
-
-						var options = {
-							horizontal: 1,
-							itemNav: 'forceCentered',
-							smart: 1,
-							activateMiddle: 1,
-							activateOn: 'click',
-							mouseDragging: 1,
-							touchDragging: 1,
-							swingSpeed: 1,
-							releaseSwing: 0,
-							startAt: 0,
-							scrollBar: $(".scrollbar"),
-							scrollBy: 1,
-							speed: 0.0001,
-							elasticBounds: 1,
-							easing: 'swing',
-							dragHandle: 1,
-							dynamicHandle: 1,
-							clickBar: 1,
-							keyboardNavBy: 'items',
-						};
-
-						var slyBookWrapper = new Sly('.bookmark-list-wrapper', options);
-						var items = $('#bookmark-list');
-
-						loadMoreBookmarks(5,items);
-
-
-						if(bookmarks.length > 5){
-
-							slyBookWrapper.on('load change', function () {
-								if (this.pos.dest > this.pos.end - 200) {
-									if (items.children().length <= bookmarks.length-1) {
-										loadMoreBookmarks(1,items);
-	
-										$(".book").css("height", h);
-										$(".book-snippet").css("display", "block")
-	
-										this.reload();
-									}	
-								}
-							});
-						}
-
-						h = $(this).outerHeight() - 92;
-						$(".book").css("height", h);
-						$("#bookmark-list li").fadeIn("100");
-						$("#bookmark-list").fadeIn("100");
-						if ($vW > "300") {
-							$(".book-snippet").css("display", "block")
-						}
-
-						slyBookWrapper.init();
-					}
-
-				}, 1000);
-
-		e.preventDefault();
-		
-		$("#nav-books").removeClass("current");
-		$("#nav-following").removeClass("current");
-		$("#nav-bookmarks").addClass("current");
-		
-		NProgress.done();
-
-		});
-
-		// Click "Following"
-		$("#nav-following").click(function (e) {
-
-		NProgress.start();
-
-				var allBooks = $("#following li"), // gets all books in a section
-					firstBook = $(allBooks).first(); // gets first book in list
-
-				$(allBooks).not(firstBook).hide(); // hides all books in a section, except the first book
-
-				setTimeout(function () {
-
-					$("#book-list").hide();
-					$("#bookmark-list").hide();
-					$(".bookmark-list-wrapper p").remove();
-
-					var w = 0,
-					h = 0;
-
-					$("#following-list li").each(function () {
-						w += $(this).outerWidth();
-						h += $(this).outerHeight();
-					});
-
-					w += 500;
-
-					// fades in the all the books after section width is added
-					$("#following-list li").fadeIn("100");
-					$("#following-list").fadeIn("100");
-					$(".following-list-wrapper section").css("width", $vW + "px");
-
-					if ($vW > "1024") {
-
-						var options = {
-							horizontal: 1,
-							itemNav: 'forceCentered',
-							smart: 1,
-							activateMiddle: 1,
-							activateOn: 'click',
-							mouseDragging: 1,
-							touchDragging: 1,
-							swingSpeed: 1,
-							releaseSwing: 0,
-							startAt: 0,
-							scrollBar: $(".scrollbar"),
-							scrollBy: 1,
-							speed: 0.0001,
-							elasticBounds: 1,
-							easing: 'swing',
-							dragHandle: 1,
-							dynamicHandle: 1,
-							clickBar: 1,
-							keyboardNavBy: 'items',
-						};
-
-						var slyBookWrapper = new Sly('.following-list-wrapper', options);
-						var items = $('#following-list');
-						
-						loadMoreUsers(5,items);
-						
-						if(friends.length > 5){
-							slyBookWrapper.on('load change', function () {
-								if (this.pos.dest > this.pos.end - 200) {
-									if (items.children().length <= friends.length-1) {
-										loadMoreUsers(1,items);
-	
-										$(".book").css("height", h);
-										$(".book-snippet").css("display", "block")
-	
-										this.reload();
-									}	
-								}
-							});
-						}
-
-						h = $(this).outerHeight() - 92;
-						$(".book").css("height", h);
-						$("#following-list li").fadeIn("100");
-						$("#following-list").fadeIn("100");
-						
-						slyBookWrapper.init();
-				}
-
-				//unfollow user//
-				$("#following-list .unfollow").click(function () {
-					$(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
-					
-					e = $(this).closest("button");
-					profileUserId = e.parent().parent();
-					profileUserId = profileUserId.attr("id");
-					a = parseInt(profileUserId);
-					
-					sessionId = readCookie("JSESSIONID");
-					profileUserId = friend.userId;
-					
-					$.ajax({
-						url: "/api/users/unFollowUser",
-						contentType: "application/x-www-form-urlencoded;charset=utf-8",
-						type: "POST",
-						data: {
-							sessionId: sessionId,
-							followerId: a
-						},
-						error: function (q, status, err) {
-							if (status == "timeout") {
-								alert("Request timed out");
-							}
-						}
-					});  
-				});
-		
-		}, 1000);
-
-				e.preventDefault();
-				
-				$("#nav-books").removeClass("current");
-				$("#nav-following").addClass("current");
-				$("#nav-bookmarks").removeClass("current");
-				
-				NProgress.done();
-				
-				});
 		}
 </script>
 <!--//scripts /-->
