@@ -47,6 +47,7 @@
 		<div id="featured-scroller" style="overflow-x: hidden";>
 			<div id="header-message" style="opacity: 0";>
 				Subscribe to at least 3 libraries. Personalize your experience.
+				<button id="back-first-step" style="left: 0.5rem;" class="branded">Back</button>
 				<button id="onboard-next" class="branded">Next step</button>
 			</div>
 			
@@ -201,6 +202,7 @@
 				oop += "<div id=\"onboard-photos-overlay\" class=\"overlay\" style=\"background-image: url(/static/images/cover-bg.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 
 				oop += "<div class=\"overlay-controls\">";
+				oop += "<button class=\"branded\" id=\"back-second-step\" style=\"left: 0.5rem; position: absolute;\">Back</button>";
 				oop += "<button class=\"branded\" id=\"finalize-setup\">Go to Folio!</button>";
 				oop += "</div>";
 
@@ -289,7 +291,17 @@
 					});
 					
 					$("#intro").css("opacity", "0.75");
+					$("#header-message").css("display", "block");
 					$("#university-affiliation").css("display", "none");
+				});
+				
+				$("#back-first-step").click(function(){
+						$("#university-affiliation").css("display", "block").fadeIn();
+						$("#header-message, #intro").css("display", "none");
+				});
+				
+				$("#back-second-step").click(function(){
+						$("#onboard-photos-overlay").removeClass("open");
 				});
 				
 				//school and uni dropdowns//
