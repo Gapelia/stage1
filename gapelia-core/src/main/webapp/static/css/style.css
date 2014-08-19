@@ -4549,26 +4549,6 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-splash #records-access img {
   height: 50px;
   width: 50px; }
-.profile #user-splash .follow, .profile #user-splash .unfollow {
-  border-radius: 5px;
-  color: rgba(252, 252, 252, 0.8);
-  font-style: italic;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  bottom: 92%;
-  left: 91%;
-  padding: 7px 20px 9px 20px !important;
-  position: absolute;
-  text-align: center;
-  text-transform: lowercase;
-  z-index: 10; }
-.profile #user-splash .follow:first-letter, .profile #user-splash .unfollow:first-letter {
-  text-transform: uppercase; }
-.profile #user-splash .follow:hover, .profile #user-splash .unfollow:hover {
-  background-color: #59B3A6;
-  border-color: #59B3A6;
-  color: white; }
-.profile #user-splash .unfollow {
-  padding: 7px 10px 9px 10px !important; }
 .profile #user-records {
   background-color: #fcfcfc;
   box-shadow: 1px 0 0 0 rgba(25, 25, 25, 0.3);
@@ -4589,6 +4569,24 @@ body.library-manager ::-webkit-scrollbar {
   color: gray;
   display: inline;
   position: absolute; }
+.profile #user-records .follow, .profile #user-records .unfollow {
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border-radius: 5px;
+  color: rgba(89, 179, 166, 0.8);
+  border: 1px solid rgba(89, 179, 166, 0.5);
+  padding: 7px 20px 9px 20px !important;
+  position: absolute;
+  text-align: center;
+  text-transform: capitalize;
+  z-index: 10; }
+.profile #user-records .follow:hover, .profile #user-records .unfollow:hover {
+  background-color: #59B3A6 !important;
+  border-color: #59B3A6;
+  color: white; }
+.profile #user-records .unfollow {
+  padding: 7px 10px 9px 10px !important; }
 .profile #user-records #published-records-list li, .profile #user-records #library-records-list li, .profile #user-records #contribution-records-list li {
   color: gray;
   padding: 1rem;

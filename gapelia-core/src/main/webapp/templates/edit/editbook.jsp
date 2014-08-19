@@ -258,7 +258,7 @@
 		    $("#draft-access .delete-draft").css("display", "none");
 		    $("#finish").fadeOut();
 		    //book counters//
-		    draftLength = drafts.length;
+		    draftLength = $("#draft-list li").length;
 		    publishedLength = books.length;
 		    $("#first-list span").html(""+draftLength+"");
 		    $("#second-list span").html(""+publishedLength+"");

@@ -315,31 +315,6 @@
 				width: 50px;
 			}
 		}
-		
-		.follow, .unfollow {
-		    border-radius: 5px;
-			color: rgba($white, 0.8);
-			font-style: italic;
-			border: 1px solid rgba(255, 255, 255, 0.4);
-			bottom: 92%; left: 91%;
-			padding: 7px 20px 9px 20px !important;
-			position: absolute;
-			text-align: center;
-			text-transform: lowercase;
-			z-index: 10;
-			
-			&:first-letter { text-transform: uppercase; }
-			
-			&:hover {
-				background-color: #59B3A6;
-				border-color: #59B3A6;
-				color: white;
-			}
-		}
-		
-		.unfollow {
-			padding: 7px 10px 9px 10px !important;
-		}
 	}
 	
 	#user-records {
@@ -367,6 +342,30 @@
 		    color: gray;
 		    display: inline;
 		    position:absolute;
+		}
+		
+		.follow, .unfollow {
+		    top: 1rem; right: 1rem;
+			
+			background: transparent;
+		    border-radius: 5px;
+			color: rgba(#59B3A6, 0.8);
+			border: 1px solid rgba(#59B3A6, 0.5);
+			padding: 7px 20px 9px 20px !important;
+			position: absolute;
+			text-align: center;
+			text-transform: capitalize;
+			z-index: 10;
+			
+			&:hover {
+				background-color: #59B3A6 !important;
+				border-color: #59B3A6;
+				color: white;
+			}
+		}
+		
+		.unfollow {
+			padding: 7px 10px 9px 10px !important;
 		}
 		
 		#published-records-list, #library-records-list, #contribution-records-list {

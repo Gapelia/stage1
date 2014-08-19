@@ -2910,36 +2910,41 @@ function getFollowingUsers() {
 
 function isFollowing() {
 	sessionId = readCookie("JSESSIONID");
-	$.ajax({
-		url: "/api/users/isFollowingUser",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		async: false,
-		data: {
-			userId : userMe.userId,
-			isFollowingId : profileUserId
-		},
-		success: function (data) {
-
-			alreadyFollowing = data;
-
-			if (alreadyFollowing) {
-				stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
-			} else {
-				stuff = "<button class=\"follow white-border\">Follow</button>";
+		$.ajax({
+			url: "/api/users/isFollowingUser",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			async: false,
+			data: {			
+				userId : userMe.userId,
+				isFollowingId : profileUserId
+			},
+			success: function (data) {
+	
+				alreadyFollowing = data;
+				if ($vW > "1025") {
+					if (alreadyFollowing) {
+						stuff = "<button class=\"unfollow brand-blue\">Unfollow</button>";
+					} else {
+						stuff = "<button class=\"follow\">Follow</button>";
+					}
+					$("#user-records").append(stuff);
+				} else {		
+					if (alreadyFollowing) {
+						$("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");
+					} else {
+						$("#mp-pusher").append("<button class=\"follow\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
+					}		
+				}
+			},
+			error: function (q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err.message);
+				}
 			}
-
-			//$("#user-splash").append(stuff);
-
-		},
-		error: function (q, status, err) {
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
-			}
-		}
-	});
+		});
 }
 
 $(document).on("click", ".bookmark-this", function (ev) {

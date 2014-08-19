@@ -145,7 +145,7 @@
 		
 		getUserMe();
 		isFollowing();
-		
+			
 		// Inserting user data //
 		$("#splash-user-info h1, #user-header").text(user.name);
 				
@@ -181,6 +181,53 @@
 		
 		$("#university").text(user.university);
 		$("#department").text(user.department);
+		
+		// Follow User
+		$(document).on("click", "button.follow", function () {
+		    $(this).removeClass("follow").addClass("unfollow brand-blue").text("Unfollow");
+		    
+		    sessionId = readCookie("JSESSIONID");
+		    
+		    $.ajax({
+			url: "/api/users/followUser",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    followerId: profileUserId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+		});
+		
+		//unfollow user//
+		$(document).on("click", "button.unfollow", function () {
+    
+		    $(this).removeClass("unfollow brand-blue").addClass("follow").text("Follow");
+		    
+		    sessionId = readCookie("JSESSIONID");
+		    
+		    $.ajax({
+			url: "/api/users/unFollowUser",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			data: {
+			    sessionId: sessionId,
+			    followerId: profileUserId
+			},
+			error: function (q, status, err) {
+			    if (status == "timeout") {
+				alert("Request timed out");
+			    }
+			}
+		    });  
+		});
+		
+		//follow user//
 
         $(function () {
 
@@ -211,14 +258,6 @@
 					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					window.location = "";
 				});
-				
-				//follow/unfollow buttons//
-				if (alreadyFollowing) {
-					$("#mp-pusher").append("<button class=\"unfollow brand-blue\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Unfollow</button>");
-					$("#user-splash .unfollow").remove();	
-				} else {
-					$("#mp-pusher").append("<button class=\"follow white-border\" style=\"position: fixed; z-index: 1000000; right: 1rem; top: 1rem;\">Follow</button>");
-				}
 			}
 			
 			if ($vW < "321") {
@@ -318,52 +357,6 @@
 				document.title = $("#user-name").text();
 			});
 		});
-		
-		// Follow User
-		$(document).on("click", "button.follow", function () {
-		    $(this).removeClass("follow white-border").addClass("unfollow brand-blue").text("Unfollow");
-		    
-		    sessionId = readCookie("JSESSIONID");
-		    
-		    $.ajax({
-			url: "/api/users/followUser",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-			    sessionId: sessionId,
-			    followerId: profileUserId
-			},
-			error: function (q, status, err) {
-			    if (status == "timeout") {
-				alert("Request timed out");
-			    }
-			}
-		    });  
-		});
-		
-		// Un-Follow User
-		$(document).on("click", "button.unfollow", function () {
-    
-		    $(this).removeClass("unfollow brand-blue").addClass("follow white-border").text("Follow");
-		    
-		    sessionId = readCookie("JSESSIONID");
-		    
-		    $.ajax({
-			url: "/api/users/unFollowUser",
-			contentType: "application/x-www-form-urlencoded;charset=utf-8",
-			type: "POST",
-			data: {
-			    sessionId: sessionId,
-			    followerId: profileUserId
-			},
-			error: function (q, status, err) {
-			    if (status == "timeout") {
-				alert("Request timed out");
-			    }
-			}
-		    });  
-		});
-
 	    
 		//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
 		setTimeout(function () {
