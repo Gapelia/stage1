@@ -43,6 +43,37 @@
 	<script src="/static/scripts/selectize.js"></script>
 	<script src="/static/scripts/ajax.js"></script>
 
+	<!-- proofreader(ATD) -->
+	<script src="/static/scripts/jquery.atd.js"></script>
+	 <!-- this script is a hack that allows cross-domain AJAX for proofreader-->
+	<script src="/static/scripts/csshttprequest.js"></script>
+
+	 <!-- this CSS file contains the style information for highlighted errors -->
+ 	<link rel="stylesheet" type="text/css" media="screen" href="/static/css/atd.css" />
+
+ 	 <script language="javascript">
+		 function check()
+		 {
+		    AtD.checkCrossAJAX('page-desc', 
+		    {
+		       success : function(errorCount) 
+		       {
+		       	// do nothing on proofread completion
+		          //if (errorCount == 0)
+		          //{
+		          //   alert("No writing errors were found");
+		          //}
+		       },
+
+		       error : function(reason)
+		       {
+		       		//do nothing for now if error
+		          //alert(reason);
+		       }
+		    });
+		 }
+     </script>
+
 </head>
 
 <body class="book-creation g-body">
@@ -60,7 +91,7 @@
 						<li>Reading Time:<p class="eta"></p></li>
 						<li>Edit mode<p style="margin-top: -10px;"></p>
 							<div class="checkboxFive">
-								<input type="checkbox" value="1" id="checkboxFiveInput" name="" />
+								<input type="checkbox" value="1" id="checkboxFiveInput" name="" onclick="check()" />
 								<label for="checkboxFiveInput"></label>
 							</div>
 						</li>

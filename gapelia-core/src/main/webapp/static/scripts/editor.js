@@ -487,14 +487,13 @@ function fluidLayout() {
 
 	if (text == null) {
 
-		insert += "<div class=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
+		insert += "<div class=\"page-desc\" id=\"page-desc\" contenteditable=\"true\" data-placeholder=\"Start writing your story here.\"></div>";
 		insert += "</article></div></section>";
 
 	} else {
 
-		insert += "<div class=\"page-desc\" contenteditable=\"true\">" + text + "</div>";
-		insert += "</article></div></section>";
-
+		insert += "<div class=\"page-desc\" id=\"page-desc\" contenteditable=\"true\">" + text + "</div>";
+			insert += "</article></div></section>";
 	}
 
 	// no video in this view, but having this allows it to keep between layout switching
