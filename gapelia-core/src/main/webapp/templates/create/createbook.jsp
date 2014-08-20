@@ -212,6 +212,8 @@
 	<!--/ <script src="/static/scripts/draggable_background.js"></script> /-->
 
 	<script>
+			clickedPublish = false; // yeah, those things suck (TODO: improve this, when you got time)
+
 			// $("img").VimeoThumb();
 			$(function () { getUser(); });	
 			function load() { createBook(); getUserDrafts(); getUserCreatedBooksList(); //getRevisions();
@@ -309,11 +311,13 @@
 			function saveResponse() {
 				lastPublishedBook = getCreatedBooksArray(user.id)[0];
 				<% if(isResponse) { %>
-				addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
+					console.log("last published book: "+lastPublishedBook.bookId);
+					addResponseForBookId(<%= responseTo %>, lastPublishedBook.bookId);
 				<% } %>
 			}
 		
 			$("#publish-this").on("click", function () {
+				clickedPublish = true;
 				snippet = $(".add-description").html();
 				freshPublishedBook = getUserDraftsArray()[0];
 				
@@ -323,6 +327,7 @@
 				firstTitle = pages.page[0].title;
 
 				$("#publish-modal").html("<div class=\"wrapper-ii\"><p><a class=\"published-ii\" href=\"/read/" + freshPublishedBook.bookId + "\">" + firstTitle + "</a></p></div>");
+				$("#publish-modal").append(showResponseInfo(location.pathname.split("/")));
 		
 				facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/read/' + freshPublishedBook.bookId;
 				twitterShare = "http://twitter.com/share?text="+freshPublishedBook.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read" + freshPublishedBook.bookId;
