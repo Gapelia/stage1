@@ -1796,27 +1796,27 @@ function deleteAccount() {
 
 function getUserMe() {
 	sessionId = readCookie("JSESSIONID");
-	$.ajax({
-		url: "/api/users/getUser",
-		contentType: "application/x-www-form-urlencoded;charset=utf-8",
-		type: "POST",
-		async: false,
-		data: {
-			sessionId: sessionId
-		},
-		success: function(data) {
-			userMe = data;
-
-		},
-		error: function(q, status, err) {
-			if (status == "timeout") {
-				alert("Request timed out");
-			} else {
-				alert("Some issue happened with your request: " + err.message);
+	if (sessionId) {
+		$.ajax({
+			url: "/api/users/getUser",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			type: "POST",
+			async: false,
+			data: {
+				sessionId: sessionId
+			},
+			success: function(data) {
+				userMe = data;
+			},
+			error: function(q, status, err) {
+				if (status == "timeout") {
+					alert("Request timed out");
+				} else {
+					alert("Some issue happened with your request: " + err.message);
+				}
 			}
-		}
-	});
-	return null;
+		});
+	}
 }
 
 function getUser() {
