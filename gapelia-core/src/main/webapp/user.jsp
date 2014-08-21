@@ -1,8 +1,3 @@
-<% /* *********************************************** */ %>
-<% /* Include this line below to make page login-safe */ %>
-<%@include file="../../auth.jsp" %>
-<% /* *********************************************** */ %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,7 +139,7 @@
         $("#mp-pusher").prepend(stuff);
 		
 		getUserMe();
-		isFollowing();
+		if(sessionId != null) isFollowing(); //only if logged in!
 			
 		// Inserting user data //
 		$("#splash-user-info h1, #user-header").text(user.name);
