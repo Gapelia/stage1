@@ -1175,7 +1175,11 @@ function getMostVotedBooksInLibrary(limit) {
 function getLibrary() {
 	libraryId = document.URL.split("/")[document.URL.split("/").length - 1];
 	sessionId = readCookie("JSESSIONID");
-	featuredBooks = getMostVotedBooksInLibrary(2);
+	if ($vW > "321") {
+		featuredBooks = getMostVotedBooksInLibrary(3);
+	} else {
+		featuredBooks = getMostVotedBooksInLibrary(1);
+	}
 	$.ajax({
 		url: "/api/libraries/getLibrary",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",

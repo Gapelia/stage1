@@ -3399,7 +3399,7 @@ body.landing .error {
   padding: 0 0 15px 0; }
 .app #library-splash section #featured-library {
   display: inline !important; }
-.app #library-splash section #featured-library li:last-child {
+.app #library-splash section #featured-library li {
   margin-top: 10px; }
 .app #library-splash section #featured-library #featured-avatar {
   border-radius: 300em;
