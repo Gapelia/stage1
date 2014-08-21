@@ -4647,7 +4647,8 @@ body.library-manager ::-webkit-scrollbar {
 .profile #user-records #published-records-list img, .profile #user-records #library-records-list img, .profile #user-records #contribution-records-list img {
   height: 35px;
   width: 35px;
-  margin-right: 10px; }
+  margin-right: 10px;
+  vertical-align: middle; }
 .profile #user-records #published-records-list .dd-link, .profile #user-records #library-records-list .dd-link, .profile #user-records #contribution-records-list .dd-link {
   margin-left: 8px; }
 .profile #user-records #published-records-list .delete-draft, .profile #user-records #library-records-list .delete-draft, .profile #user-records #contribution-records-list .delete-draft {
@@ -5631,7 +5632,8 @@ body.library-manager ::-webkit-scrollbar {
 .book-creation #draft-access #draft-list img, .book-creation #draft-access #published-list img {
   height: 35px;
   width: 35px;
-  margin-right: 10px; }
+  margin-right: 10px;
+  vertical-align: middle; }
 .book-creation #draft-access #draft-list .dd-link, .book-creation #draft-access #published-list .dd-link {
   margin-left: 8px; }
 .book-creation #draft-access #draft-list .delete-draft, .book-creation #draft-access #published-list .delete-draft {
