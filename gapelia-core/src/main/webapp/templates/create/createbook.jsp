@@ -48,9 +48,6 @@
 	 <!-- this script is a hack that allows cross-domain AJAX for proofreader-->
 	<script src="/static/scripts/csshttprequest.js"></script>
 
-	 <!-- this CSS file contains the style information for highlighted errors -->
- 	<link rel="stylesheet" type="text/css" media="screen" href="/static/css/atd.css" />
-
  	 <script language="javascript">
 		 function check()
 		 {
