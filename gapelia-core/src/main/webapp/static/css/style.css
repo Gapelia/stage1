@@ -3696,6 +3696,59 @@ body.landing .error {
   position: absolute;
   text-align: right; }
 
+.book-list-wrapper-list {
+  width: 50%;
+  left: 22.5%;
+  top: 15%;
+  padding-bottom: 5rem;
+  position: absolute;
+  z-index: 1000; }
+.book-list-wrapper-list .book-new-view {
+  margin-top: 2rem; }
+.book-list-wrapper-list .book-title-new-view {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-left: 4.1rem; }
+.book-list-wrapper-list .book-title-new-view img {
+  height: 100px;
+  width: 100px;
+  left: 0;
+  margin-right: 1.1rem;
+  vertical-align: middle; }
+.book-list-wrapper-list .book-title-new-view .book-snippet-new-view p {
+  font-size: 1.2rem;
+  font-weight: 300 !important;
+  margin-top: -2rem;
+  padding: 0 0 0 7.3rem; }
+.book-list-wrapper-list .book-info-new-view {
+  font-size: 1rem;
+  margin-left: 11.5rem;
+  margin-top: 0.5rem;
+  opacity: 0.5; }
+.book-list-wrapper-list .book-info-new-view .author-avatar {
+  display: none; }
+.book-list-wrapper-list .book-info-new-view .author-name {
+  margin-right: 0.5rem; }
+.book-list-wrapper-list .book-info-new-view .author-name:before {
+  content: "by";
+  margin-right: 5px; }
+.book-list-wrapper-list .book-info-new-view .author-name:after {
+  content: "\2022";
+  margin-left: 7px;
+  opacity: 0.8; }
+.book-list-wrapper-list .book-info-new-view .library-location-new-view a {
+  display: inline !important; }
+.book-list-wrapper-list .book-info-new-view .library-location-new-view:before {
+  content: "published in";
+  margin-right: 5px; }
+.book-list-wrapper-list .book-info-new-view .num-votes-new-view {
+  font-size: 15px;
+  position: absolute;
+  right: 0; }
+.book-list-wrapper-list .book-info-new-view .author-name, .book-list-wrapper-list .book-info-new-view .library-location-new-view, .book-list-wrapper-list .book-info-new-view .num-votes-new-view {
+  display: inline-block !important; }
+
 .chars-remaining {
   text-align: right;
   opacity: 0.75; }
@@ -8436,6 +8489,9 @@ a.count span.dont-move {
   .app .bookmarked .bookmark-this .bottom-bm {
     border-bottom: 20px solid #ff3b30;
     right: 30px; }
+  .app .book-list-wrapper-list {
+    left: 32.5%;
+    width: 40%; }
   .app .book-list-wrapper, .app .user-book-list-wrapper, .app .library-list-wrapper, .app .bookmark-list-wrapper, .app .submission-list-wrapper, .app .subscription-list-wrapper, .app .following-list-wrapper {
     top: 53% !important;
     width: 100%; }
@@ -8480,7 +8536,7 @@ a.count span.dont-move {
     top: 20px !important; }
   .app #featured-nav .typeahead {
     font-size: 1.5rem !important;
-    margin-left: 70% !important; }
+    margin-left: 55% !important; }
   .app #featured-nav .tt-dropdown-menu {
     margin-left: 67.5% !important; }
   .app #featured-nav .suggested-libs {
@@ -8659,7 +8715,7 @@ a.count span.dont-move {
   .app #book-list, .app #bookmark-list, .app #following-list-wrapper {
     width: 20000px !important; }
   .app #featured-nav #nav-search {
-    margin-left: 26.5% !important; }
+    margin-left: 25.5% !important; }
   .app #featured-nav .typeahead {
     margin-left: 50%; }
   .app #featured-nav .tt-dropdown-menu {

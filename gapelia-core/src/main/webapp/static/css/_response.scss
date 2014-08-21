@@ -225,6 +225,11 @@
 			}
 		}
 		
+		.book-list-wrapper-list {
+			left: 32.5%;
+			width: 40%;
+		}
+		
 		.book-list-wrapper, .user-book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { top: 53% !important; width: 100%; }
 		
 		.following-list-wrapper {
@@ -281,7 +286,7 @@
 			
 			.typeahead {
 				font-size: 1.5rem !important;
-				margin-left: 70% !important;
+				margin-left: 55% !important;
 			}
 			
 			.tt-dropdown-menu {
@@ -551,7 +556,7 @@
 		
 		#book-list, #bookmark-list, #following-list-wrapper { width: 20000px !important; } // temporary fix so 20 books fit in featured for book width = 450px
 		
-		#featured-nav #nav-search { margin-left: 26.5% !important }
+		#featured-nav #nav-search { margin-left: 25.5% !important }
 		
 		#featured-nav {
 			.typeahead { margin-left: 50%; }

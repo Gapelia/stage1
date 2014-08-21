@@ -82,10 +82,13 @@
 
 			<span id="welcoming-title">A Laboratory of Ideas</span>
 			<!--//main-panel /-->
-
-			<!--/ main-content /-->
-			<div id="featured-scroller">
-				<div id="nav-wrapper">
+			
+						<!--/ Featured Books /-->
+				<div class="book-list-wrapper-list">
+					<ul id="book-list-list"></ul>
+				</div>
+		
+		    <div id="nav-wrapper">
 					<ul id="featured-nav">
 						<li id="nav-books" class="current"><a href="#">Stories</a></li>
 						<li id="nav-bookmarks"><a href="#">My Bookmarks</a></li>
@@ -93,16 +96,17 @@
 						
 						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"></p></div>		    
 						<input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
-
-						<div id="stay-right">
-							<button id="start-story" class="brand-i"><a href="/createbook">New Story</a>
-							</button>
-						</div>
+						
+						<div><a id="view-change" style="font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;">LIST VIEW</a></div>
+						<div><a id="view-change-back" style="display: none; font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;">HORIZONTAL VIEW</a></div>
+						
+						<div><a id="start-story" href="/createbook" style="font-size: 1rem; position: absolute; right: 1.5rem; top: 1.7rem;">NEW STORY</a></div>
 						
 						<div id="contactable"></div>
 					</ul>
 				</div>
-			
+			<!--/ main-content /-->
+			<div id="featured-scroller">
 				<div class="scrollbar">
 					<div class="handle">
 						<div class="mousearea"></div>
@@ -231,7 +235,47 @@
 			$(".typeahead").css("display", "none");
 		});
 		
-	}
+		//view changes//
+		$("#view-change").click(function () {
+				$("#view-change-back").show();
+				$(".book-list-wrapper, #contactable, #view-change").hide();
+				$(".book-list-wrapper-list").fadeIn("slow");
+				$("#nav-wrapper").css("z-index", "100000");
+				$("#featured-panel").css("z-index", "1000000");
+				$(".super-wrapper").css("background-color", "white");
+				$("#featured-panel").css("position", "fixed");
+				$("#nav-wrapper").css({"background-color": "white", "height": "75px", "z-index": "1000"});
+				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+				setTimeout(function(){
+						var items = $('#book-list-list');
+						loadMoreBooksListView(20,items)		
+				}, 100);
+				
+				setTimeout(function() {
+					$("#loading-view").fadeOut('slow').remove();
+				}, 3000);
+				$("#g-menu-toggle").click(function() {
+						$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "0");
+						$(".app").css("overflow-y", "hidden");
+				});
+				$("#mp-pusher").click(function() {
+						$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "100000");
+						$(".app").css("overflow-y", "auto");
+				});
+		});
+		
+		//view changes//
+		$("#view-change-back").click(function () {
+				$("#view-change-back").hide();
+				$("#view-change").fadeIn();
+				$(".book-list-wrapper-list").hide();
+				$(".book-list-wrapper").fadeIn("slow");
+				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+				setTimeout(function() {
+					$("#loading-view").fadeOut('slow').remove();
+				}, 2000);
+		});
+   }
 	
 	if ($vW > "1919") {
 		$(".mp-pushed").ready(function () {
@@ -459,6 +503,7 @@
 
 				setTimeout(function () {
 
+					$("#view-change").show();
 					$("#following-list").hide();
 					$("#bookmark-list").hide();
 					$(".bookmark-list-wrapper section, .bookmark-list-wrapper p, .following-list-wrapper p").remove();
@@ -510,7 +555,7 @@
 
 				setTimeout(function () {
 
-					$("#book-list").hide();
+					$("#book-list, #book-list-list, #view-change").hide();
 					$("#following-list").hide();
 					$(".following-list-wrapper p").remove();
 
@@ -610,7 +655,7 @@
 
 				setTimeout(function () {
 
-					$("#book-list").hide();
+					$("#book-list, #book-list-list, #view-change").hide();
 					$("#bookmark-list").hide();
 					$(".bookmark-list-wrapper p").remove();
 
