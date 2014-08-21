@@ -108,11 +108,6 @@
 
 
 	</header>
-
-	<div id="draft-tutorial" style="display: none;">
-		<p class="draft-tutorial-text" style="opacity: 0.7;">TIP: your work has been saved as a Draft, but is not public yet.</br>You can access your drafts later on the side menu.</br><a id="leave-editor" href="/">Ok, I get it</a><a id="close-draft-tutorial" style="font-size: 1rem; font-weight: 100; top: 1.8rem; right: 10rem; position: absolute;">Back to editor</a></p>
-		<img src="/static/images/draft-tutorial.jpg" style="height: 300px; width: 600px;"></img>
-	</div>
 	
 	<div id="share-draft-overlay" style="display: none;"><button>&#215;</button><h3>Share this link and seek feedback from peers and colleagues</h3><a target="_blank" href="#">Go to Link</a></div>
 
@@ -260,12 +255,6 @@
 			}
 
 			Spinner({ radius: 40, length: 10 }).spin(document.getElementById("book-creation-wrapper"));
-			
-			//hide tutorial//
-			$(document).on("click", "#close-draft-tutorial", function (e) {
-				$("#draft-tutorial").hide();
-				$("#create-book, #back, #finish, #notify-saving").show();
-			});
 			
 			//show draft list//
 			$("#drafts-shortcut").click(function(){
