@@ -4027,6 +4027,48 @@ body.library .deny-book-confirm textarea {
 body.library .deny-book-confirm h5 {
   margin: 2rem 0;
   width: 100%; }
+body.library #archive-container {
+  background-color: #fcfcfc;
+  box-shadow: 1px 0 0 0 rgba(25, 25, 25, 0.3);
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  right: -25%;
+  width: 25%;
+  z-index: 100; }
+body.library #archive-container div {
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.46);
+  margin-left: 25px; }
+body.library #archive-container h5 {
+  font-weight: 700;
+  padding: 1rem;
+  text-align: left; }
+body.library #archive-container span {
+  color: gray;
+  display: inline;
+  position: absolute; }
+body.library #archive-container #archive-list li {
+  color: gray;
+  padding: 1rem;
+  text-transform: capitalize; }
+body.library #archive-container #archive-list img {
+  height: 35px;
+  width: 35px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle; }
+body.library #archive-container #archive-list p {
+  margin-bottom: -0.5rem !important; }
+body.library #archive-container #archive-list c, body.library #archive-container #archive-list .author-avatar {
+  opacity: 0.75 !important; }
+body.library #archive-container #archive-list .author-avatar {
+  display: none; }
+body.library #archive-container #archive-list .author-name {
+  border-bottom: none !important;
+  display: inline-block !important;
+  margin-left: 2.5px !important; }
+body.library #archive-container #archive-container {
+  margin-top: 10px; }
 body.library ::-webkit-input-placeholder {
   color: white !important; }
 

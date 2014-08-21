@@ -76,10 +76,18 @@
 		</div>
 		
 		<ul id="stay-right">
-			<li id="my-submissions">	<a class=submission-dropdown href="#">Submit a story</a>
+			<li id="my-submissions"><a class=submission-dropdown href="#">Submit a story</a>
 				<ul></ul>
 			</li>
 		</ul>
+		
+		<!--/ access-to-user-records /-->
+		<div id="archive-container" style="display: none;">
+				<h5>Content</h5>
+		<!--/ published /-->
+				<h5 id="archive-title"><span></span><div><a href="#">Stories</a></div></h5>
+				<ul id="archive-list"></ul>
+		</div>
 		
 		<div id="contact-editor"><a href="#">Contact Editor</a>	
 		</div>
@@ -171,6 +179,25 @@
 			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
 			
 			if($vW > "1024") {
+				
+				//show user records side menu//
+				$("#library-archive").click(function(){
+						getBooksInLibrary();
+								
+						$("#archive-container").css("right", "0").show();
+								
+						//counters//
+						setTimeout (function () {
+								publishedLength = $("#archive-list li").length;
+								$("#archive-container span").html(""+publishedLength+"");
+						}, 100 );		
+				});
+						
+						$("#archive-container").mouseleave(function(){
+								$("#archive-container").css("right", "-25%").fadeOut(100);
+						});
+				
+				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();
@@ -288,6 +315,15 @@
 			
 			// Click "Title of Library"
 			$("#nav-books").click(function (e) {
+				
+				//back to cover page and also back to books in case editor was reviewing submissions//
+				$("#library-splash").fadeIn("slow");
+				$(".submission-dropdown").css({
+						"border-color":"rgba(255, 255, 255, 0.53)",
+						"border-width":"1px",
+						"color":"white"
+				});
+				
 				NProgress.start();
 				var allBooks = $("#book-list li"), // gets all books in a section
 					firstBook = $(allBooks).first(); // gets first book in list

@@ -796,6 +796,21 @@ function getBooksInLibraryArray() {
 		},
 		success: function(data) {
 			books = data;
+		    woof = '';
+				
+				for (i in books) {
+				book = books[i];
+				
+						//used here for archive list//
+						if (book.coverPhoto == "../static/images/grayBG.png") {
+							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+						} else {
+							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+						}
+						woof += "</li>";
+				}		
+				
+				$("#archive-list").html(woof);
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
@@ -1255,6 +1270,7 @@ function getLibrary() {
 			if (contributors.length != 0) {
 				if ($vW > "321") {
 					toInsert += "<a id=\"library-contributors\">  &#124;  " + contributors.length + " contributors</a>";
+					toInsert += "<a id=\"library-archive\">  &#124;  See Full Archive</a>";
 				}
 				toInsert += "</h1><h2>" + library.title + "</h2><div id=\"library-extra\"><p>" + library.description;
 			} else {

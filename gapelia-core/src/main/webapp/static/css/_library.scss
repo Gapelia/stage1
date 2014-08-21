@@ -342,5 +342,64 @@ body.library {
 		}
 	}
 	
+	#archive-container{
+		background-color: $white;
+		box-shadow: 1px 0 0 0 rgba(25, 25, 25, 0.3);
+		height: 100%;
+		overflow-y: scroll;
+		position: absolute;
+		right: -25%;
+		width: 25%;
+		z-index: 100;
+		
+		div {
+		    border-bottom: 1.5px solid rgba(0, 0, 0, 0.46);
+		    margin-left: 25px;
+		}
+		
+		h5 {
+		  font-weight: 700;
+		  padding: 1rem;
+		  text-align: left;
+		}
+		
+		span {
+		    color: gray;
+		    display: inline;
+		    position:absolute;
+		}
+		
+		#archive-list {
+		  
+		  li {
+			color: gray;
+			padding: 1rem;
+			text-transform: capitalize;
+		  }
+		  
+		  img {
+			height: 35px;
+			width: 35px;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			vertical-align: middle;
+		  }
+		  
+		  p { margin-bottom: -0.5rem !important; }
+		  
+		  c, .author-avatar { opacity: 0.75 !important; }
+		  
+		  .author-avatar { display: none; }
+		  
+		  .author-name {
+				border-bottom: none !important;
+				display: inline-block !important;
+				margin-left: 2.5px !important;
+		   }
+		}
+		
+		#archive-container { margin-top: 10px; }
+	  }  
+	
 	::-webkit-input-placeholder { color: white !important; }
 }
