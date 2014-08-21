@@ -301,15 +301,6 @@
 				$("#tools ul").hide();	
 			});
 			
-			//coming soon...//
-			$("#checkboxFiveInput").click(function(){
-				$(".book-creation").append("<div id=\"edit-coming-soon\" style=\"width: 400px;\"><p><span style=\"font-weight: 700;\">Edit Mode</span> will help you write better. <span style=\"font-style: italic;\">COMING SOON...</span></p></div>");
-				
-				setTimeout(function() {
-					$("#edit-coming-soon").fadeOut('slow').remove();
-				}, 5000);
-			});
-			
 			//zen-mode expansion//
 			$(".zen-mode").click(function(){
 				document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
