@@ -382,6 +382,28 @@ function loadMoreBooks(count, items) {
 	return items.append(output);
 }
 
+function loadMoreBooksListView(count, items) {
+	var output = '';
+	var offset = items.children().length;
+
+	for (var i = 0; i < count; i++) {
+
+		if (i == books.length - 1) break;
+
+		book = books[offset + i];
+
+		output += "<li id=\'" + book.bookId + "\' class=\"book-new-view\">";
+		output += "<div class=\"book-title-new-view\">";
+		output += "<a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "<a class=\"book-snippet-new-view\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info-new-view\">";
+		output += getUserFromBookId(book.bookId);
+		output += "</div><div class=\"library-location-new-view\">";
+		output += getLibraryFromBook(book.bookId);
+		output += "</div><div class=\"num-votes-new-view\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div></li>";
+	}
+
+	return items.append(output);
+}
+
 function getFeaturedBooks() {
 	sessionId = readCookie("JSESSIONID");
 	$.ajax({

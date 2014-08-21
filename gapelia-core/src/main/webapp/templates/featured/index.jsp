@@ -207,7 +207,14 @@
 	});
 
 	if ($vW > "1024") {
+		//side menu opens//
 		new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
+				$("#g-menu-toggle").click(function() {
+						$("#nav-wrapper").css("z-index", "0");
+				});
+				$("#mp-pusher").click(function() {
+						$("#nav-wrapper").css("z-index", "1");
+				});
 
 		$(".mp-pushed").ready(function () {
 			$("#book-scroller").css("z-index", "0");
