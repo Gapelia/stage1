@@ -1023,7 +1023,7 @@
 
 		#close-splash {
 			width: auto; height: auto;
-			bottom: 3.5rem; left: 45%;
+			bottom: 3.5rem; 
 
 			border-bottom: 1px solid rgba($white, 0.3);
       color: $white;
@@ -1181,14 +1181,22 @@
   #library-splash {
     
 		#close-splash {
-      background-image: url("../images/splash-arrow.png");
-      background-size: 70px;
-      background-repeat: no-repeat;
-      border-bottom: none !important;
-      height: 100px;
-      left: 94% !important;
-      width: 100px;
-      bottom: 42%;
+      background-color: white;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      right: -98px;
+      height: 6%;
+      width: 120px;
+      bottom: 48%;
+      opacity: 0.75;
+      
+      p {
+        color: black;
+        font-size: 17px !important;
+        font-weight: 100 !important;
+        padding: 9px 0 0 0 !important;
+        text-align: center;
+      }
     }
     
     .expand {

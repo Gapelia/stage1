@@ -1289,7 +1289,7 @@ function getLibrary() {
 				toInsert += "</ul>";
 				toInsert += "</section></p></div></div>";
 				if ($vW > "1024") {
-					toInsert += "<div id=\"close-splash\"></div>";
+					toInsert += "<div id=\"close-splash\"><p>OPEN ME</p></div>";
 				} else {
 					toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
@@ -1300,7 +1300,7 @@ function getLibrary() {
 			} else {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 			}
-
+			toInsert += "<div id=\"right-half\" style=\"height: 100%; position: absolute; right:0; top: 0; width: 45%; z-index: 100;\"></div>";
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";

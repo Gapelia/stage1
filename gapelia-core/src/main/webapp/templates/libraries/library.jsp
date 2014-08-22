@@ -193,10 +193,16 @@
 						}, 100 );		
 				});
 						
-						$("#archive-container").mouseleave(function(){
-								$("#archive-container").css("right", "-25%").fadeOut(100);
-						});
+				$("#archive-container").mouseleave(function(){
+						$("#archive-container").css("right", "-25%").fadeOut(100);
+				});
 				
+				$("#right-half").mouseenter(function(){
+						$("#close-splash").css({
+								"right": "0",
+								"z-index": "10000"
+						});
+				});
 				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
