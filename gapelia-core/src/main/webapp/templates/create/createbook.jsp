@@ -51,6 +51,8 @@
  	 <script language="javascript">
 		 function check()
 		 {
+
+/*
 		    AtD.checkCrossAJAX('page-desc', 
 		    {
 		       success : function(errorCount) 
@@ -68,6 +70,10 @@
 		          //alert(reason);
 		       }
 		    });
+
+
+*/
+
 		 }
      </script>
 
