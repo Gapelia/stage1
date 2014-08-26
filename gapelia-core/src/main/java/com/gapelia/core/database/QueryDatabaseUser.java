@@ -997,6 +997,17 @@ public class QueryDatabaseUser {
 		return library;
 	}
 
+	public static ArrayList<Library> getGodLibrariesMinusSubscribed(int userId){
+
+		ArrayList<Library> subscribed = getSubscribedLibraries(userId);
+		ArrayList<Library> god = QueryDatabaseLibrary.getGodLibraries();
+
+		god.removeAll(subscribed);
+
+		return god;
+
+	}
+
 	public static ArrayList<Library> getSubscribedLibraries(int userId) {
 		PreparedStatement statement = null;
 		ResultSet rs = null;
