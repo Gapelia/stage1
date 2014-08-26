@@ -12,7 +12,7 @@ import java.util.Map;
 public class SessionManager implements HttpSessionListener {
     public static Logger LOG = Logger.getLogger(SessionManager.class);
 	private static final Map<String, HttpSession> sessions = new HashMap<String, HttpSession>();
-    private static final Map<String, User> sessionIdToUser = new HashMap<String, User>();
+    public static final Map<String, User> sessionIdToUser = new HashMap<String, User>();
 	@Override
 	public void sessionCreated(HttpSessionEvent event) {
 		HttpSession session = event.getSession();

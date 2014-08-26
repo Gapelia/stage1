@@ -17,6 +17,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Map;
 
 
 @Path("/utils/")
@@ -78,6 +80,22 @@ public class APIUtil {
 	public String getUserFromBookId(@FormParam("bookId") int bookId) {
 		Gson gson = new GsonBuilder().create();
 		return gson.toJson(QueryUtils.getUserFromBookId(bookId));
+	}
+
+	@Path("getOpenUserSessions")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String getOpenUserSessions() {
+		Gson gson = new GsonBuilder().create();
+
+		ArrayList<String> users = new ArrayList<String>();
+
+		for(Map.Entry<String, User> e : SessionManager.sessionIdToUser.entrySet()){
+			users.add(e.getValue().getName());
+		}
+
+		return gson.toJson(users);
 	}
 
 	@Path("getBookFromBookId")

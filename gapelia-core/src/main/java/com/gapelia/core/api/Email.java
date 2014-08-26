@@ -175,7 +175,7 @@ public class Email {
 				"/bin/sh",
 				"-c",
 				"/emailScripts/submissionEmail.sh '"+QueryDatabaseUser.getBookByID(n.getBookId()).getTitle()+
-						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"' '" +n.getLibraryId() + "'"
+						"' '"+QueryDatabaseLibrary.getLibrary(n.getLibraryId()).getTitle()+"' '" + u.getEmail()+"' '" +n.getBookId() + "'"
 		};
 
 		LOG.info("Emailing submission email:\nuser email:" +u.getEmail() + "\ncmd: " + cmd[2]);
