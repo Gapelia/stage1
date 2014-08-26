@@ -260,7 +260,7 @@
             $("#featured-scroller").css("cssText", "overflow-y: scroll !important");
             $(".bookmark-list-wrapper, #featured-panel .featured-info").remove();   
             $("#featured-panel").append('<span id="category-title">Explore Libraries</span>');
-            $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
+            $("#featured-panel").append('<ul id="featured-nav" style="display: none"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/me">Me</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');	    
             $(document).on("click", "#g-menu-toggle", function () { $("#featured-nav").toggle(); });    
             $("#featured-scroller").css({"top": "70px"});
             $(".library-list-wrapper").css({"z-index": "0", "top": "-1rem"});
@@ -298,10 +298,9 @@
 	$(function () {
             getNotifications();
             getListSubscribed();
-            var fifth = getLibraries();
-            getLibrariesSuggestion();
-            getLibrariesSuggestionTwo();
-            getLibrariesSuggestionThree();
+            getLibrariesSuggestion(); //featured recommendation//
+            getLibrariesSuggestionTwo(); //created by user//
+            getLibrariesSuggestionThree(); //subscribed by user//
         });
     
         // delete draft

@@ -226,7 +226,7 @@
 					
 				if($vW < "1025") {
 				    // Dropdown menu for mobile
-					$("#mp-pusher").append('<ul id="featured-nav" style="display: none; z-index: 100;"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
+					$("#mp-pusher").append('<ul id="featured-nav" style="display: none; z-index: 100;"><li id="nav-featured"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>')
 				    $("#g-menu-toggle").click(function () { $("#featured-nav").toggle(); });
 					$("#mp-pusher").css({"overflow-y": "scroll", "overflow-x": "hidden"});
 					$("#site-menu, #user-records").remove();

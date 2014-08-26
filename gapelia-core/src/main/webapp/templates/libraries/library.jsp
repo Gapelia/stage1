@@ -204,6 +204,13 @@
 						});
 				});
 				
+				$("#right-half").mouseleave(function(){
+						$("#close-splash").css({
+								"right": "-98px",
+								"z-index": "10000"
+						});
+				});
+				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();

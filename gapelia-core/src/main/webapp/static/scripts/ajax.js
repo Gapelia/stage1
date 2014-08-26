@@ -1300,7 +1300,7 @@ function getLibrary() {
 			} else {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 			}
-			toInsert += "<div id=\"right-half\" style=\"height: 100%; position: absolute; right:0; top: 0; width: 45%; z-index: 100;\"></div>";
+			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 45%; z-index: 100;\"></div>";
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
@@ -1459,6 +1459,7 @@ function getLibraries() {
 					lib += "<button class=\"subscribe white-border\">Subscribe</button></div>";
 				}
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
+				
 				$("#explore-list").append(lib);
 			}
 			getUser();
@@ -1490,7 +1491,17 @@ function getLibrariesSuggestion() {
 			for (i in libraries) {
 				library = libraries[i];
 
+				//browser featured libraries//
 				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
+				
+				//mobile featured libraries//
+				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
+				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
+				
+				//data insert//
+				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
 			}
 			$(".lib-blurb c").each(function(i) {
@@ -1499,7 +1510,7 @@ function getLibrariesSuggestion() {
 					$(this).text($(this).text().substr(0, 125) + '...');
 				}
 			});
-
+			
 			$("#recommended-libraries").prepend("<h3>Featured Libraries</h3>")
 
 		},
@@ -1573,8 +1584,17 @@ function getLibrariesSuggestionThree() {
 			for (i in libraries) {
 				library = libraries[i];
 
+				//subscribed libraries in desktop//
 				libs = "<ul id=\"subscribed-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
-
+				
+				//subscribed libraries in mobile//
+				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Subscribed</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
+				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
+				
+				//data insertion//
+				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
 			}
 			$(".lib-blurb c").each(function(i) {
