@@ -329,8 +329,8 @@
 		} 
 		else {
 			getCreatedLibrariesForBook();
-			var author = bookOwner.name;
-			var reader = user.name;
+			var author = bookOwner.userId;
+			var reader = user.userId;
 
 			if (author == reader) $("#the-book #edit-shortcut").show();
 			else $("#the-book #edit-shortcut").remove();

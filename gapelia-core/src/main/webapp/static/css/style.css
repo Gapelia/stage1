@@ -4038,8 +4038,8 @@ body.library #archive-container {
   height: 100%;
   overflow-y: scroll;
   position: absolute;
-  right: -25%;
-  width: 25%;
+  right: -35%;
+  width: 35%;
   z-index: 100; }
 body.library #archive-container div {
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.46);

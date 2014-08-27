@@ -194,7 +194,7 @@
 				});
 						
 				$("#archive-container").mouseleave(function(){
-						$("#archive-container").css("right", "-25%").fadeOut(100);
+						$("#archive-container").css("right", "-35%").fadeOut(100);
 				});
 				
 				$("#right-half, #close-splash").mouseenter(function(){
@@ -318,7 +318,7 @@
 					$("#featured-panel, #featured-scroller").css("opacity", "1");
 				}, 400);
 				//hide arrow when only one book//
-				if(featuredBooks.length < 2) {
+				if(books.length <= 2) {
 					$("#close-splash").remove();
 				}
 			}, 1000);
