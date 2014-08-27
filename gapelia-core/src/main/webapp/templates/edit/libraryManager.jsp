@@ -245,7 +245,9 @@
                 }
             });
                 
-          });
+        });
+            
+        $("#add-new-library").click(function () { window.location.href = "/createlibrary"; });
 	}
 
         $(document).on("ready", function () {
@@ -314,8 +316,6 @@
             $("#explore-list li").fadeIn("100");
             $("#explore-list").fadeIn("100");
             
-            $("#add-new-library").click(function () { window.location.href = "/createlibrary"; });
-    
             // Load Gapelia
             NProgress.start();
     
