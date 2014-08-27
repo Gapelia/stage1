@@ -65,7 +65,24 @@ public class Library {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(String coverPhoto) {
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Library library = (Library) o;
+
+		if (libraryId != library.libraryId) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return libraryId;
+	}
+
+	public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 

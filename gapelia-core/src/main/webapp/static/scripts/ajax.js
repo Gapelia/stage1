@@ -1300,7 +1300,7 @@ function getLibrary() {
 			} else {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 			}
-			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 45%; z-index: 100;\"></div>";
+			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
@@ -1479,7 +1479,7 @@ function getLibrariesSuggestion() {
 	sessionId = readCookie("JSESSIONID");
 
 	$.ajax({
-		url: "/api/libraries/getGodLibraries",
+		url: "/api/libraries/getGodLibrariesMinusSubscribed",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		async: false,
@@ -1495,8 +1495,12 @@ function getLibrariesSuggestion() {
 				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
 
 				//mobile featured libraries//
-				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				if ($vW < "800") {
+						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				} else {
+						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				}
+				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
 
@@ -1589,7 +1593,7 @@ function getLibrariesSuggestionThree() {
 
 				//subscribed libraries in mobile//
 				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Subscribed</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
 
@@ -2077,6 +2081,11 @@ function addLoggedInMenu() {
 		// Open notifications drawer
 		$("#gpl-menu-notify a").click(function(e) {
 			$("#gpl-menu-notify ul").toggle();
+			$("#footer-items").hide();
+			
+			if ($("#gpl-menu-notify ul").css("display") == "none") {
+				$("#footer-items").show();
+			}	
 			e.preventDefault();
 		});
 	}

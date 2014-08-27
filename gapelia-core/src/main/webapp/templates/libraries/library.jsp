@@ -197,7 +197,7 @@
 						$("#archive-container").css("right", "-25%").fadeOut(100);
 				});
 				
-				$("#right-half").mouseenter(function(){
+				$("#right-half, #close-splash").mouseenter(function(){
 						$("#close-splash").css({
 								"right": "0",
 								"z-index": "10000"
