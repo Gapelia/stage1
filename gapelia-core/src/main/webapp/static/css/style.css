@@ -2494,7 +2494,7 @@ body.landing .error {
   content: "\00a0\00b7"; }
 .app #site-menu #footer-items {
   bottom: 1rem;
-  position: relative; }
+  position: absolute; }
 .app button {
   margin: 0 auto;
   padding: 0.5rem 1rem;
@@ -8422,8 +8422,6 @@ a.count span.dont-move {
     top: -0.6rem; }
   .app #featured-nav #stay-right a {
     font-size: 1rem; }
-  .app #footer-items {
-    top: 25%; }
   .app #new-library #close-splash {
     margin-left: 4% !important;
     height: 6% !important; }
@@ -8499,8 +8497,6 @@ a.count span.dont-move {
   .mp-menu ul {
     font-size: 1.75rem;
     height: 85%; }
-  .mp-menu ul #footer-items {
-    bottom: -4rem !important; }
   .mp-menu ul li {
     margin-top: 10px; }
 

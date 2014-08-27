@@ -40,7 +40,7 @@ function getRevisions(myBookId) {
 		error: function(q, status, err) {
 			console.log("ERROR" + err);
 			if (status == "timeout") {
-				alert("Request timed out trying again");
+				console.log("Request timed out trying again");
 			}
 		}
 
@@ -62,9 +62,9 @@ function getFullBookFromBookId(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -121,9 +121,9 @@ function loadDelete() {
 				},
 				error: function(q, status, err) {
 					if (status == "timeout") {
-						alert("Request timed out");
+						console.log("Request timed out");
 					} else {
-						alert("Some issue happened with your request: " + err.message);
+						console.log("Some issue happened with your request: " + err.message);
 					}
 				}
 			});
@@ -187,7 +187,7 @@ function loadDelete() {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					console.log("Request timed out");
 				}
 			}
 		});
@@ -214,9 +214,9 @@ function getBookmarksArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -293,9 +293,9 @@ function getBookmarkedBooks() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -315,9 +315,9 @@ function getNumSubscribers() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -339,9 +339,9 @@ function getFeaturedBookArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -394,7 +394,7 @@ function loadMoreBooksListView(count, items) {
 
 		output += "<li id=\'" + book.bookId + "\' class=\"book-new-view\">";
 		output += "<div class=\"book-title-new-view\">";
-		output += "<a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "<a class=\"book-snippet-new-view\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info-new-view\">";
+		output += "<a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + "<a class=\"book-snippet-new-view\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info-new-view\">";
 		output += getUserFromBookId(book.bookId);
 		output += "</div><div class=\"library-location-new-view\">";
 		output += getLibraryFromBook(book.bookId);
@@ -443,9 +443,9 @@ function getFeaturedBooks() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -494,9 +494,9 @@ function getUserBooksArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -551,9 +551,9 @@ function getUserCreatedBooks() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -591,7 +591,7 @@ function getUserCreatedBooksList() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -622,7 +622,7 @@ function getPublicUserCreatedBooksList() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -672,7 +672,7 @@ function getUserDrafts() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -692,7 +692,7 @@ function getUserDraftsArray(userId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -713,7 +713,7 @@ function getCreatedBooksArray(userId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -776,9 +776,9 @@ function getBooksInLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -796,27 +796,27 @@ function getBooksInLibraryArray() {
 		},
 		success: function(data) {
 			books = data;
-		    woof = '';
-				
-				for (i in books) {
+			woof = '';
+
+			for (i in books) {
 				book = books[i];
-				
-						//used here for archive list//
-						if (book.coverPhoto == "../static/images/grayBG.png") {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
-						} else {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
-						}
-						woof += "</li>";
-				}		
-				
-				$("#archive-list").html(woof);
+
+				//used here for archive list//
+				if (book.coverPhoto == "../static/images/grayBG.png") {
+					woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+				} else {
+					woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+				}
+				woof += "</li>";
+			}
+
+			$("#archive-list").html(woof);
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -902,9 +902,9 @@ function getBooksInLibraryOwner() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -932,9 +932,9 @@ function getCreatedLibrariesArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -973,9 +973,9 @@ function getCreatedLibraries() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1022,9 +1022,9 @@ function getCreatedLibrariesForBook() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1046,9 +1046,9 @@ function getAlreadyAddedBookIdsInLibrary(libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1096,7 +1096,7 @@ function getSubmissionsInLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -1117,7 +1117,7 @@ function getSubmissionsInLibraryArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -1178,9 +1178,9 @@ function getMostVotedBooksInLibrary(limit) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1300,7 +1300,7 @@ function getLibrary() {
 			} else {
 				toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 			}
-			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
+			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 45%; z-index: 100;\"></div>";
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
@@ -1352,9 +1352,9 @@ function getLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1375,9 +1375,9 @@ function getLibraryFromLibraryId(libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1401,9 +1401,9 @@ function getLibraryContributors(libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1424,9 +1424,9 @@ function getAllLibraries() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1459,16 +1459,16 @@ function getLibraries() {
 					lib += "<button class=\"subscribe white-border\">Subscribe</button></div>";
 				}
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				$("#explore-list").append(lib);
 			}
 			getUser();
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1493,17 +1493,13 @@ function getLibrariesSuggestion() {
 
 				//browser featured libraries//
 				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
-				
+
 				//mobile featured libraries//
-				if ($vW < "800") {
-						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				} else {
-						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				}
-				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				//data insert//
 				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
@@ -1514,16 +1510,16 @@ function getLibrariesSuggestion() {
 					$(this).text($(this).text().substr(0, 125) + '...');
 				}
 			});
-			
+
 			$("#recommended-libraries").prepend("<h3>Featured Libraries</h3>")
 
 		},
 
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1563,9 +1559,9 @@ function getLibrariesSuggestionTwo() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1590,13 +1586,13 @@ function getLibrariesSuggestionThree() {
 
 				//subscribed libraries in desktop//
 				libs = "<ul id=\"subscribed-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
-				
+
 				//subscribed libraries in mobile//
 				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Subscribed</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
+				lib += "<div class=\"library-info\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				//data insertion//
 				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
@@ -1613,9 +1609,9 @@ function getLibrariesSuggestionThree() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1658,7 +1654,7 @@ function callUpdate() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -1688,9 +1684,9 @@ function editLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1729,9 +1725,9 @@ function createLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1768,9 +1764,9 @@ function updateLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1832,7 +1828,7 @@ function onboard() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -1850,7 +1846,7 @@ function deleteAccount() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -1876,9 +1872,9 @@ function getUserMe() {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					console.log("Request timed out");
 				} else {
-					alert("Some issue happened with your request: " + err.message);
+					console.log("Some issue happened with your request: " + err.message);
 				}
 			}
 		});
@@ -1901,9 +1897,9 @@ function getUser() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1931,9 +1927,9 @@ function getUserPublic() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1954,9 +1950,9 @@ function getUserFromUserId(userId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -1977,9 +1973,9 @@ function getUserFromLibraryId(libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2037,9 +2033,9 @@ function getUserFromBookId(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2131,9 +2127,9 @@ function getNumberVotes(incomingBookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2158,9 +2154,9 @@ function getBookFromBookId(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2184,9 +2180,9 @@ function getLibraryFromBook(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2210,9 +2206,9 @@ function getLibraryFromBookBackCover(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2235,9 +2231,9 @@ function getPublicBooksArray() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2320,9 +2316,9 @@ function getPublicCreatedBooks() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2545,9 +2541,9 @@ function getUserCreatedBooksForLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2620,7 +2616,7 @@ function submitToLibrary(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2639,9 +2635,9 @@ function acceptBook(notificationId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2660,9 +2656,9 @@ function rejectBook(notificationId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2692,7 +2688,7 @@ function refreshLibraryNotifications() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2710,7 +2706,7 @@ function addBookToLibrary2(bookId, libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2730,7 +2726,7 @@ function addBookToLibrary(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2749,7 +2745,7 @@ function addBookToSpecificLibrary(bookId, libraryId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2775,7 +2771,7 @@ $(document).on("click", ".deny-book-confirm button", function(ev) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2799,7 +2795,7 @@ $(document).on("click", ".yay-delete-book", function(ev) {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					console.log("Request timed out");
 				}
 			}
 		});
@@ -2823,7 +2819,7 @@ $(document).on("click", ".yay-delete-library-book", function(ev) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2851,7 +2847,7 @@ function getListBookmarked() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2875,7 +2871,7 @@ function getListSubscribed() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -2912,9 +2908,9 @@ function getSubscribedLibrary() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2962,9 +2958,9 @@ function getFollowingUsers() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -2996,9 +2992,9 @@ function isFollowing() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3020,7 +3016,7 @@ $(document).on("click", ".bookmark-this", function(ev) {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					console.log("Request timed out");
 				}
 			}
 		});
@@ -3035,7 +3031,7 @@ $(document).on("click", ".bookmark-this", function(ev) {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out");
+					console.log("Request timed out");
 				}
 			}
 		});
@@ -3060,9 +3056,9 @@ function createBook() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3109,9 +3105,9 @@ function createFirstPage() {
 		error: function(q, status, err) {
 
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 
 		}
@@ -3144,9 +3140,9 @@ function createPage() {
 		error: function(q, status, err) {
 
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 
 		}
@@ -3166,9 +3162,9 @@ function deletePage(deletePageId) {
 		error: function(q, status, err) {
 
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 
 		}
@@ -3190,9 +3186,9 @@ function getLastPublishedBookId() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3217,9 +3213,9 @@ function getLastPublishedBookIdByFollower() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3247,9 +3243,9 @@ function getRecentlyPublished() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3283,9 +3279,9 @@ function getContributedTo() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3314,13 +3310,14 @@ function updateBookAndPages(isPublished) {
 			},
 			error: function(q, status, err) {
 				if (status == "timeout") {
-					alert("Request timed out trying again");
+					console.log("Request timed out");
 				}
 			}
 
 		});
 		i++;
 	}
+
 
 	tags = '';
 	//snippet = $(".add-description").html();
@@ -3367,9 +3364,9 @@ function updateBookAndPages(isPublished) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3406,9 +3403,9 @@ function loadBookEditor() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3459,9 +3456,9 @@ function loadPagesEditor() {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3562,9 +3559,9 @@ function getResponsesByBookId(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3591,7 +3588,6 @@ function showResponseInfo(urlArray) {
 			});
 			break;
 		default:
-			console.log("default case");
 			break;
 	}
 }
@@ -3610,9 +3606,9 @@ function addResponseForBookId(bookId, responseId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3633,9 +3629,9 @@ function deleteResponse(bookId, responseId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3656,9 +3652,9 @@ function getDraftResponse(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3684,7 +3680,7 @@ function createNotification(bookId, responseId, type, hash, comment) {
 		error: function(q, status, err) {
 			console.log("ERROR" + err);
 			if (status == "timeout") {
-				alert("Request timed out trying again");
+				console.log("Request timed out");
 			}
 		}
 	});
@@ -3706,9 +3702,9 @@ function getNumBookViews(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3748,9 +3744,9 @@ function getNumBookVotes(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3772,9 +3768,9 @@ function getNumBookShares(bookId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});
@@ -3815,9 +3811,9 @@ function getNumFollowers(userId) {
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
-				alert("Request timed out");
+				console.log("Request timed out");
 			} else {
-				alert("Some issue happened with your request: " + err.message);
+				console.log("Some issue happened with your request: " + err.message);
 			}
 		}
 	});

@@ -187,7 +187,7 @@ $("#preview-book, #export-pdf").click(function() {
 
 	var temp = JSON.stringify(pages);
 	localStorage.setItem("pages", temp);
-
+	/*
 	// Page Sorter
 	$("#pages-scroller ul").sortable({
 		items: ":not(.disable-sort)"
@@ -195,8 +195,7 @@ $("#preview-book, #export-pdf").click(function() {
 		var temp = JSON.stringify(pages);
 		localStorage.setItem("pages", temp);
 	});
-
-
+	*/
 });
 
 // Layout and page interaction
@@ -212,7 +211,7 @@ $("#add-page").click(function(e) {
 
 	pagesCreated++;
 
-	$(this).before($("<li id=\"" + pagesCreated + "\"draggable='true'></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
+	$(this).before($("<li id=\"" + pagesCreated + "\"></li>").html("<div class=\"delete-page\"><i class=\"ion-trash-a\"></i></div><a class=\"edit-page\"><i class=\"ion-gear-b\"></i></a><section><img src=\"/static/images/grayBG.png\" id='page" + (pagesCreated) + "Image' alt=\"\"/><div id='page" + (pagesCreated) + "Title'><span class=\"page-thumb-number\">" + (pagesCreated) + "</span> &middot; <span class=\"page-thumb-title\">New Page</span></div></section>"));
 
 	title = $(".page-title-elem").html();
 	text = $(".page-desc").html();
@@ -253,15 +252,37 @@ $("#add-page").click(function(e) {
 		attribution = null;
 		baseLayout();
 	}
-
-	// Page Sorter
-	$("#pages-scroller ul").sortable({
-		items: ":not(.disable-sort)"
-	}).bind("sortupdate", function() {});
+s
+	bindPageSorter();
 
 	e.preventDefault();
 
 });
+
+function bindPageSorter() {
+	// Page Sorter
+	$("#pages-scroller ul").sortable({
+		items: ":not(#add-page)"
+	}).bind("sortupdate", function() {
+
+		/*
+		// we have to create a deep copy of our pages object, to get a REAL copy (think clone), instead of references to the existing object
+		// after that we can rearrange the position and write it back
+		var pagesCopy = jQuery.extend(true, {}, pages);
+
+		$.each($("#pages-scroller ul li").sortable("toArray"), function(id, html) {
+			if (!isNaN(html.id)) {
+				pagesCopy.page[id] = jQuery.extend(true, {}, pages.page[html.id]);
+				console.log("replacing " + pagesCopy.page[id].pageNumber + " with " + id);
+				pagesCopy.page[id].pageNumber = id;
+			}
+		});
+
+		pages = jQuery.extend(true, {}, pagesCopy);
+		*/
+
+	});
+}
 
 // Delete page
 $(document).on("click", "#pages-scroller ul li .delete-page", function(e) {
@@ -442,8 +463,6 @@ function fluidLayout() {
 
 	var insert = "";
 
-	console.log(imageURL);
-
 	if (imageURL == null || imageURL == "../static/images/grayBG.png") {
 
 		insert += "<section class=\"fluid-preview-wrapper\"><section class=\"draggable-placeholder\">";
@@ -493,7 +512,7 @@ function fluidLayout() {
 	} else {
 
 		insert += "<div class=\"page-desc\" id=\"page-desc\" contenteditable=\"true\">" + text + "</div>";
-			insert += "</article></div></section>";
+		insert += "</article></div></section>";
 	}
 
 	// no video in this view, but having this allows it to keep between layout switching
@@ -1327,8 +1346,8 @@ window.setInterval(function() {
 
 	imageURL = $(".page-bg").attr("src");
 	videoURL = $(".video-player-container iframe").attr("src");
-	title = $(".page-title-elem").html();
-	title = title.replace(/&lt;br&gt;/g, " ");
+	title = $(".page-title-elem").text();
+	//title = title.replace(/&lt;br&gt;/g, " ");
 	firstTitle = pages.page[0].title;
 	$(".page-title-elem").html(title);
 	text = $(".page-desc").html();
