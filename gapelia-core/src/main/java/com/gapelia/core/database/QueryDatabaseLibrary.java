@@ -21,7 +21,7 @@ public class QueryDatabaseLibrary {
 
 	private static final String GET_LIBRARY = "SELECT * FROM libraries WHERE id = ?";
 	private static final String GET_EMAILS_FOR_LIBRARY_SUBSCRIBERS = "select users.id from user_subscriptions join users on user_subscriptions.user_id = users.id where library_id = ? and not email = ''";
-	private static final String GET_BOOKS_IN_LIBRARY = "SELECT * FROM library_books WHERE library_id = ?";
+	private static final String GET_BOOKS_IN_LIBRARY = "SELECT library_books.library_id,library_books.book_id,created FROM library_books join books on library_books.book_id = books.id WHERE library_books.library_id = ? ORDER BY created DESC";
 	private static final String ADD_BOOK_TO_LIBRARY = "INSERT INTO library_books (library_id,book_id) VALUES (? , ?)";
 	private static final String GET_BOOK = "SELECT * FROM books where id=?";
 	private static final String GET_NUM_SUBSCRIBERS = "select count(library_id) from user_subscriptions where library_id = ? group by library_id";
