@@ -685,6 +685,11 @@
 		$("#gpl-menu-notify a").click(function (e) {
 
 			$("#gpl-menu-notify ul").toggle();
+			$("#footer-items").hide();
+			
+			if ($("#gpl-menu-notify ul").css("display") == "none") {
+				$("#footer-items").show();
+			}	
 			e.preventDefault();
 
 		});

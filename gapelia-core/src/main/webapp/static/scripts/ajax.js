@@ -1319,10 +1319,12 @@ function getLibrary() {
 					for (i in contributors) {
 						contributor = contributors[i];
 
-						lib = "<li><a href=\"" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "  &#8212;<span id=\"contributor-bio\">" + contributor.bio + "</span></a></li><br><br>";
-
+						if (contributor.bio != undefined) {		
+								lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "  &#8212;<span id=\"contributor-bio\">" + contributor.bio + "</span></a></li><br><br>";
+						} else {
+								lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "</a></li><br><br>";	
+						}
 						$("#contributor-list").append(lib);
-
 					}
 
 				}
