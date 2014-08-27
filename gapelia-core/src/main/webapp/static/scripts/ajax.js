@@ -1479,7 +1479,7 @@ function getLibrariesSuggestion() {
 	sessionId = readCookie("JSESSIONID");
 
 	$.ajax({
-		url: "/api/libraries/getGodLibraries",
+		url: "/api/libraries/getGodLibrariesMinusSubscribed",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
 		type: "POST",
 		async: false,
@@ -2081,6 +2081,11 @@ function addLoggedInMenu() {
 		// Open notifications drawer
 		$("#gpl-menu-notify a").click(function(e) {
 			$("#gpl-menu-notify ul").toggle();
+			$("#footer-items").hide();
+			
+			if ($("#gpl-menu-notify ul").css("display") == "none") {
+				$("#footer-items").show();
+			}	
 			e.preventDefault();
 		});
 	}
