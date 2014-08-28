@@ -162,7 +162,8 @@ public class Libraries {
 								@FormParam("title") String title,
 								@FormParam("description") String description,
 								@FormParam("coverPhoto") String coverPhoto,
-								@FormParam("tags") String tags) {
+								@FormParam("tags") String tags,
+                                @FormParam("about") String about) {
 		if (!APIUtil.isValidSession(sessionId))
 			return APIUtil.INVALID_SESSION_ERROR_MSG;
 
@@ -177,6 +178,7 @@ public class Libraries {
 		library.setTags(tags);
 		library.setCoverPhoto(coverPhoto);
 		library.setCreated(new Timestamp(date.getTime()));
+        library.setAbout(about);
 		return gson.toJson(QueryDatabaseLibrary.createLibrary(library));
 	}
 
@@ -189,7 +191,8 @@ public class Libraries {
 								@FormParam("title") String title,
 								@FormParam("description") String description,
 								@FormParam("coverPhoto") String coverPhoto,
-								@FormParam("tags") String tags) {
+								@FormParam("tags") String tags,
+                                @FormParam("about") String about) {
 		if (!APIUtil.isValidSession(sessionId))
 			return APIUtil.INVALID_SESSION_ERROR_MSG;
 		User u = SessionManager.getUserFromSessionId(sessionId);
@@ -200,6 +203,7 @@ public class Libraries {
 		library.setDescription(description);
 		library.setTags(tags);
 		library.setCoverPhoto(coverPhoto);
+        library.setAbout(about);
 		return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
 	}
 }

@@ -75,11 +75,12 @@ CREATE TABLE IF NOT EXISTS libraries(
         id serial PRIMARY KEY,
         created_by INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
         title TEXT NOT NULL,
-        tags TEXT,
+        tags TEXT,libraries
         cover_photo TEXT,
         description TEXT,
         featured_book INT REFERENCES books(id) ON DELETE CASCADE,
-        created TIMESTAMP WITH TIME ZONE
+        created TIMESTAMP WITH TIME ZONE,
+        about TEXT
 );
 
 
