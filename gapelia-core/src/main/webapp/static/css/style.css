@@ -9386,6 +9386,8 @@ a.count span.dont-move {
   body.library #featured-panel #g-menu-toggle {
     left: 0.8rem;
     top: 0.8rem; }
+  body.library #library-splash #close-splash {
+    background-color: transparent; }
   body.library #stay-right {
     display: none; }
 

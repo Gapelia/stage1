@@ -423,23 +423,21 @@
 			var slyBookWrapper = new Sly('.book-list-wrapper', options);
 			var items = $('#book-list');
 
-			loadMoreBooks(20,items);
-
-			if(books.length > 5){
-
-				slyBookWrapper.on('load change', function () {
-						if (this.pos.dest > this.pos.end - 200) {
-								if (items.children().length <= books.length-1) {
-									loadMoreBooks(1,items);
+		    loadMoreBooks(10,items);	
+			 
+			//show load more button when more than 10 books//
+			if(books.length > 10){
+				$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+			}
 			
-									$(".book").css("height", h);
-									$(".book-snippet").css("display", "block")
+			//load more calculating difference between total and 10 firstly loaded//
+		    $("#load-more").click(function(){
+				$("#load-more").hide();
+				if (books.length > 10) {
+						loadMoreBooks(books.length - 11,items);		
+				}
+		    });		
 			
-									this.reload();
-								}
-						}		
-				});
-			}	
 
 			h = $(this).outerHeight() - 92;
 			$(".book").css("height", h);
@@ -455,7 +453,7 @@
 		// Mobile and size optimization stuff//
 		if ($vW < "1025") {
 				$("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
-				$(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info").remove();
+				$(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info, #nav-search, #view-change, #start-story").remove();
 				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
 				$("#featured-scroller").css({"z-index": "10"})
 				$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');

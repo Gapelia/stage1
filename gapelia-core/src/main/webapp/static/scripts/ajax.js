@@ -828,7 +828,6 @@ function loadMoreBooksInLibrary(count, items) {
 
 	for (var i = 0; i < count; i++) {
 
-
 		if (i == books.length) {
 			break;
 		}
@@ -868,6 +867,29 @@ function loadMoreBooksInLibrary(count, items) {
 	}
 	return items.append(toInsert);
 
+}
+
+function loadMoreBooksInLibraryArchive(count, items) {
+	var toInsert = '';
+	var offset = items.children().length;
+
+	for (var i = 0; i < count; i++) {
+
+		if (i == books.length) {
+			break;
+		}
+
+		book = books[offset + i];
+				
+		//used here for archive list//
+		if (book.coverPhoto == "../static/images/grayBG.png") {
+				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+		} else {
+				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+		}
+		toInsert += "</li>";
+	}
+	return items.append(toInsert);
 }
 
 function getBooksInLibraryOwner() {
@@ -2260,17 +2282,18 @@ function loadMorePublicUserBooks(count, items) {
 
 		book = books[offset + i];
 
-		if (book.bookId in bookmarked == true) {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
-		} else {
+		//if (book.bookId in bookmarked == true) {
+			//toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+		//} else {
 			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
-		}
+		//}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 		toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
 		toInsert += getLibraryFromBook(book.bookId);
 		toInsert += "</div><div class=\"book-title\"><a href=\"/read/" + book.bookId + "\">" + book.title + "<a class=\"book-snippet\"><p>" + book.snippet + "</p></a></a></div>";
 		toInsert += "<div class=\"book-info\"";
-		toInsert += "<div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
+		toInsert += getUserFromBookId(book.bookId);
+		toInsert += "</div><div class=\"num-votes\" style=\"text-align: right; font-size: 1.1rem;\"><i class=\"ion-lightbulb\" style=\"margin-right: 3px;\"></i> " + getNumberVotes(book.bookId) + "</div>";
 		toInsert += "</div>";
 		toInsert += "</li>";
 	}

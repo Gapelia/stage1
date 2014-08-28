@@ -314,18 +314,21 @@
 						};
 								var slyBookWrapper = new Sly('.user-book-list-wrapper', options);
 								var items = $('#user-book-list');
+								
 								loadMoreUserBooks(5, items);
-								if(books.length > 5) {
-									slyBookWrapper.on('load change', function () {
-										if(this.pos.dest > this.pos.end - 200) {
-												if (items.children().length <= books.length-1) {
-														loadMoreUserBooks(1, items);
-														this.reload();
-												}		
-										}
-									});
+								
+								//show load more button when more than 10 books//
+								if(books.length > 5){
+										$("#user-book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
 								}
-								slyBookWrapper.init();
+			
+								//load more calculating difference between total and 10 firstly loaded//
+								$("#load-more").click(function(){
+									$("#load-more").hide();
+									if (books.length > 5) {
+											loadMoreUserBooks(books.length - 6,items);		
+										}
+								});
 						}
 							
 						document.title = user.name;

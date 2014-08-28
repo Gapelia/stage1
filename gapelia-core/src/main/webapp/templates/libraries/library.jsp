@@ -182,7 +182,24 @@
 				
 				//show user records side menu//
 				$("#library-archive").click(function(){
-						getBooksInLibrary();
+						var items = $('#archive-list');
+						
+						if ($("#archive-title span").html() == "") {
+								loadMoreBooksInLibraryArchive(10, items);
+								
+								//show load more button when more than 10 books//
+								if(books.length > 10){
+									$("#archive-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+								}
+						}
+					
+						//load more calculating difference between total and 10 firstly loaded//
+						$("#load-more").click(function(){
+							$("#load-more").hide();
+							if (books.length > 10) {
+									loadMoreBooksInLibraryArchive(books.length - 11,items);		
+								}
+						});
 								
 						$("#archive-container").css("right", "0").show();
 								
@@ -444,7 +461,7 @@
 			// Dropdown menu for mobile
 			if($vW < "1025") {
 				$("#featured-scroller").css("cssText", "height: auto !important;");
-				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user").remove();
+				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user, #right-half").remove();
 				$("#g-menu-toggle").click(function () {
 						if (typeof user !=  "undefined") {
 								$("#mp-pusher").append('<ul id="featured-nav" style="display: block; z-index: 100;"><li id="nav-featured"><img id="close-mobile-menu" style="height: 50px; left: 1rem; position: absolute; top: 12px; width: 50px;" src="/static/images/folio-icon-solid.png"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
@@ -478,7 +495,7 @@
 		}
 		setTimeout(function () {
 			getLibrary();
-			getBooksInLibraryArray();
+			//getBooksInLibraryArray();
 			if(typeof user != 'undefined') {
 				getSubmissionsInLibrary();
 				getUserCreatedBooksForLibrary();
@@ -488,43 +505,26 @@
 		
 		setTimeout(function () {
 			if($vW < "1025") {
-				getBooksInLibrary();
-				var options = {
-					horizontal: 1,
-					itemNav: 'forceCentered',
-					smart: 1,
-					activateMiddle: 1,
-					activateOn: 'click',
-					mouseDragging: 1,
-					touchDragging: 1,
-					swingSpeed: 1,
-					releaseSwing: 0,
-					startAt: 0,
-					scrollBar: $(".scrollbar"),
-					scrollBy: 1,
-					speed: 0.0001,
-					elasticBounds: 1,
-					easing: 'swing',
-					dragHandle: 1,
-					dynamicHandle: 1,
-					clickBar: 1,
-					keyboardNavBy: 'items',
-				};
+				getBooksInLibraryArray();
+				var options = {};
 				var slyBookWrapper = new Sly('.book-list-wrapper', options);
 				var items = $('#book-list');
-				loadMoreBooksInLibrary(20, items);
-				if(books.length > 5) {
-					slyBookWrapper.on('load change', function () {
-						if(this.pos.dest > this.pos.end - 200) {
-								if(items.children().length <= books.length - 1) {
-										loadMoreBooksInLibrary(1, items);
-										$(".book").css("height", h);
-										$(".book-snippet").css("display", "block")
-										this.reload();
-								}
-						}
-					});
+				
+				loadMoreBooksInLibrary(5, items);
+				
+				//show load more button when more than 10 books//
+				if(books.length > 5){
+					$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
 				}
+			
+				//load more calculating difference between total and 10 firstly loaded//
+				$("#load-more").click(function(){
+					$("#load-more").hide();
+					if (books.length > 5) {
+							loadMoreBooksInLibrary(books.length - 6,items);		
+						}
+				});
+				
 				h = $(this).outerHeight() - 92;
 				$(".book").css("height", h);
 				$("#book-list li").fadeIn("100");
