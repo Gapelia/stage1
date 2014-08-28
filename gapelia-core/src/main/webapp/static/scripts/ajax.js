@@ -3223,7 +3223,6 @@ function getLastPublishedBookId() {
 		async: false,
 		type: "POST",
 		data: {
-			sessionId: sessionId,
 			userId: user.userId
 		},
 		success: function(data) {
@@ -3275,7 +3274,6 @@ function getRecentlyPublished() {
 		async: false,
 		type: "POST",
 		data: {
-			sessionId: sessionId,
 			userId: user.userId
 		},
 		success: function(data) {
@@ -3303,7 +3301,6 @@ function getContributedTo() {
 		async: false,
 		type: "POST",
 		data: {
-			sessionId: sessionId,
 			userId: user.userId
 		},
 		success: function(data) {

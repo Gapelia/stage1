@@ -154,56 +154,56 @@ public class Libraries {
 		return gson.toJson(QueryDatabaseLibrary.deleteLibrary(libraryId));
 	}
 
-	@Path("createLibrary")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String createLibrary(@FormParam("sessionId") String sessionId,
-								@FormParam("title") String title,
-								@FormParam("description") String description,
-								@FormParam("coverPhoto") String coverPhoto,
-								@FormParam("tags") String tags,
+    @Path("createLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String createLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("title") String title,
+                                @FormParam("description") String description,
+                                @FormParam("coverPhoto") String coverPhoto,
+                                @FormParam("tags") String tags,
                                 @FormParam("about") String about) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
 
-		User u = SessionManager.getUserFromSessionId(sessionId);
-		Gson gson = new GsonBuilder().create();
-		Library library = new Library();
-		Date date = new Date();
-		LOG.info("CREATING LIBRARY");
-		library.setUserId(u.getUserId());
-		library.setTitle(title);
-		library.setDescription(description);
-		library.setTags(tags);
-		library.setCoverPhoto(coverPhoto);
-		library.setCreated(new Timestamp(date.getTime()));
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        Gson gson = new GsonBuilder().create();
+        Library library = new Library();
+        Date date = new Date();
+        LOG.info("CREATING LIBRARY");
+        library.setUserId(u.getUserId());
+        library.setTitle(title);
+        library.setDescription(description);
+        library.setTags(tags);
+        library.setCoverPhoto(coverPhoto);
+        library.setCreated(new Timestamp(date.getTime()));
         library.setAbout(about);
-		return gson.toJson(QueryDatabaseLibrary.createLibrary(library));
-	}
+        return gson.toJson(QueryDatabaseLibrary.createLibrary(library));
+    }
 
-	@Path("updateLibrary")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String updateLibrary(@FormParam("sessionId") String sessionId,
-								@FormParam("libraryId") int libraryId,
-								@FormParam("title") String title,
-								@FormParam("description") String description,
-								@FormParam("coverPhoto") String coverPhoto,
-								@FormParam("tags") String tags,
+    @Path("updateLibrary")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String updateLibrary(@FormParam("sessionId") String sessionId,
+                                @FormParam("libraryId") int libraryId,
+                                @FormParam("title") String title,
+                                @FormParam("description") String description,
+                                @FormParam("coverPhoto") String coverPhoto,
+                                @FormParam("tags") String tags,
                                 @FormParam("about") String about) {
-		if (!APIUtil.isValidSession(sessionId))
-			return APIUtil.INVALID_SESSION_ERROR_MSG;
-		User u = SessionManager.getUserFromSessionId(sessionId);
-		Gson gson = new GsonBuilder().create();
-		Library library = new Library();
-		library.setLibraryId(libraryId);
-		library.setTitle(title);
-		library.setDescription(description);
-		library.setTags(tags);
-		library.setCoverPhoto(coverPhoto);
+        if (!APIUtil.isValidSession(sessionId))
+            return APIUtil.INVALID_SESSION_ERROR_MSG;
+        User u = SessionManager.getUserFromSessionId(sessionId);
+        Gson gson = new GsonBuilder().create();
+        Library library = new Library();
+        library.setLibraryId(libraryId);
+        library.setTitle(title);
+        library.setDescription(description);
+        library.setTags(tags);
+        library.setCoverPhoto(coverPhoto);
         library.setAbout(about);
-		return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
-	}
+        return gson.toJson(QueryDatabaseLibrary.updateLibrary(library));
+    }
 }
