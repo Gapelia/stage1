@@ -135,8 +135,8 @@ var Page = (function () {
 					backPage += "<i class=\"ion-social-facebook\"></i></a></li><li><a id=\"twitter-share\" href=\"javascript:window.open("+twitterShare+",'','width=550,height=257');void(0)\">";
 					backPage += "<i class=\"ion-social-twitter\"></i></a></li><li><a id=\"email-share\" href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul><hr/><section id=\"author-section\">";
 					backPage += getUserFromBookId(bookId);
-					if (bookOwner.bio == "") {
-						backPage += "<div id=\"author-bio-blurb\">" + "This user has not added a bio yet." + "</div></section>"
+					if (bookOwner.bio == undefined) {
+						backPage += "<div id=\"author-bio-blurb\">" + bookOwner.name + " has not added a bio yet." + "</div></section>"
 					} else {
 						backPage += "<div id=\"author-bio-blurb\">" + bookOwner.bio + "</div></section>"   
 					}
@@ -145,7 +145,7 @@ var Page = (function () {
 					if (getLibraryFromBook(current.bookId) != "") {
 						backPage += getLibraryFromBookBackCover(current.bookId);
 					} else {
-						backPage += "<section><a id=\"library-avatar\"><img  style=\"border: 1px solid rgba(0, 0, 0, 0.33);\" src=\"../static/images/whiteBG.jpg\"></a><div id=\"library-name\"><a style=\"display: block; width: 100%; height: 100%;\">--</a></div><div id=\"library-info-blurb\"><a>This story is not part of a library yet.<br> Visit the <a href=\"/"+user.userId+"\">author's profile</a> or browse <a href=\"/\">curated stories</a></a></div><section>";
+						backPage += "<section><a id=\"library-avatar\"><img  style=\"border: 1px solid rgba(0, 0, 0, 0.33);\" src=\"../static/images/whiteBG.jpg\"></a><div id=\"library-name\"><a style=\"display: block; width: 100%; height: 100%;\">--</a></div><div id=\"library-info-blurb\"><p>This story is not part of a library yet.<br> Visit the <b><a href=\"/"+bookOwner.displayName+"\">author's profile</a></b> or browse <b><a href=\"/\">curated stories</a></b></p></div><section>";
 					}
 					backPage += "</div></section></div>";
 					getReadNextBook();
@@ -326,8 +326,11 @@ else{
 		},
 		success: function (data) {
 			nextBook = data;
-			backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\" style=\"text-shadow: 3px 3px 3px rgba(25, 25, 25, 0.7);\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
-			htmlToInsert += backPage;
+			
+            if ($vW > "1025") {
+                backPage += "<div id=\"fin-next\" style=\"background-image: url("+nextBook.coverPhoto+"); background-size: cover; background-position: 50% 50%\"><div class=\"book-title\" style=\"text-shadow: 3px 3px 3px rgba(25, 25, 25, 0.7);\"><a href=\"/read/" + nextBook.bookId + "\">" + nextBook.title + "</a></div><div class=\"book-info\"></div></div></div></section></div></div>";
+            } 
+            htmlToInsert += backPage;
 			$("#bb-bookblock").html(htmlToInsert);
 			$("#header-author").html(bookOwner.name);
 			$("#header-title").html(pages[0].title);
