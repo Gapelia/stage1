@@ -235,8 +235,8 @@
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();
-					$("#library-splash, #close-splash, #contact-editor").hide();
-					$("#featured-nav").fadeIn("slow");
+					$("#library-splash, #close-splash, #contact-editor, #about-section").hide();
+					$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");;
 					
 					if(typeof user == 'undefined') {
 						$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
@@ -350,7 +350,8 @@
 			$("#nav-books").click(function (e) {
 				
 				//back to cover page and also back to books in case editor was reviewing submissions//
-				$("#library-splash").fadeIn("slow");
+				$("#library-splash, #about-section").fadeIn("slow");
+				$("#book-list").css("cssText", "display: none !important");
 				$(".submission-dropdown").css({
 						"border-color":"rgba(255, 255, 255, 0.53)",
 						"border-width":"1px",
@@ -464,7 +465,7 @@
 			// Dropdown menu for mobile
 			if($vW < "1025") {
 				$("#featured-scroller").css("cssText", "height: auto !important;");
-				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user, #right-half").remove();
+				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user, #right-half, #about-section").remove();
 				$("#g-menu-toggle").click(function () {
 						if (typeof user !=  "undefined") {
 								$("#mp-pusher").append('<ul id="featured-nav" style="display: block; z-index: 100;"><li id="nav-featured"><img id="close-mobile-menu" style="height: 50px; left: 1rem; position: absolute; top: 12px; width: 50px;" src="/static/images/folio-icon-solid.png"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
