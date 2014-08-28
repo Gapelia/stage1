@@ -9364,6 +9364,8 @@ a.count span.dont-move {
 
   body.library .book-buttons {
     display: none; }
+  body.library #about-section {
+    display: none; }
   body.library #featured-nav {
     width: 100%;
     height: auto;
