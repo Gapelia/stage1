@@ -871,6 +871,7 @@ function loadMoreBooksInLibrary(count, items) {
 
 function loadMoreBooksInLibraryArchive(count, items) {
 	var toInsert = '';
+	//var books = '';
 	var offset = items.children().length;
 
 	for (var i = 0; i < count; i++) {
@@ -1316,11 +1317,13 @@ function getLibrary() {
 					toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
 			}
-			if (libraryOwner.name == user.name) {
-				toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
-
-			} else {
-				toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
+			if (typeof user != "undefined") {
+				if (libraryOwner.name == user.name) {
+					toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
+	
+				} else {
+					toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
+				}
 			}
 			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
 			toInsert += "<div id=\"library-share\">";
@@ -3008,8 +3011,8 @@ function isFollowing() {
 		type: "POST",
 		async: false,
 		data: {
-			userId: userMe.userId,
-			isFollowingId: profileUserId
+				userId: userMe.userId,
+		        isFollowingId: profileUserId
 		},
 		success: function(data) {
 

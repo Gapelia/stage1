@@ -182,32 +182,36 @@
 				
 				//show user records side menu//
 				$("#library-archive").click(function(){
+						getBooksInLibraryArray();
+						
 						var items = $('#archive-list');
 						
 						if ($("#archive-title span").html() == "") {
-								loadMoreBooksInLibraryArchive(10, items);
+								loadMoreBooksInLibraryArchive(5, items);
 								
 								//show load more button when more than 10 books//
-								if(books.length > 10){
-									$("#archive-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
-								}
+								setTimeout( function(){
+										
+										//book counter//
+										publishedLength = $("#archive-list li").length;
+										$("#archive-container span").html(""+publishedLength+"");
+										
+										//TO DO- make load more button work correctly//
+										/*if($("#archive-list li").length > 9){
+											$("#archive-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+										}
+										
+										//load more calculating difference between total and 10 firstly loaded//
+										$("#load-more").click(function(){
+											$("#load-more").hide();
+											if (books.length > 10) {
+													loadMoreBooksInLibraryArchive(books.length - 11,items);		
+												}
+										});*/
+								}, 1000);
 						}
-					
-						//load more calculating difference between total and 10 firstly loaded//
-						$("#load-more").click(function(){
-							$("#load-more").hide();
-							if (books.length > 10) {
-									loadMoreBooksInLibraryArchive(books.length - 11,items);		
-								}
-						});
-								
-						$("#archive-container").css("right", "0").show();
-								
-						//counters//
-						setTimeout (function () {
-								publishedLength = $("#archive-list li").length;
-								$("#archive-container span").html(""+publishedLength+"");
-						}, 100 );		
+						
+						$("#archive-container").css("right", "0").show();	
 				});
 						
 				$("#archive-container").mouseleave(function(){
@@ -231,7 +235,6 @@
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();
-					
 					$("#library-splash, #close-splash, #contact-editor").fadeOut("fast");
 					$("#featured-nav").fadeIn("slow");
 					
@@ -335,7 +338,7 @@
 					$("#featured-panel, #featured-scroller").css("opacity", "1");
 				}, 400);
 				//hide arrow when only one book//
-				if(books.length <= 2) {
+				if(featuredBooks.length <= 2) {
 					$("#close-splash").remove();
 				}
 			}, 1000);
