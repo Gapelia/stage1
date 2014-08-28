@@ -138,6 +138,11 @@
 			</div>
 		</div>
 		</section>
+		
+		<div id="about-section">
+			<h2>About <span></span></h2>
+			<p data-placeholder="Write an introduction statement or relevant information about this newly created library..." contenteditable="true"></p>	
+		</div>
 		<!--//library-editing /-->
 
 	</div>
