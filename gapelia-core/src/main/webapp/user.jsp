@@ -30,22 +30,15 @@
 		
 		<!--/ site-menu /-->
 		<nav id="site-menu" class="mp-menu">
-			<div class="mp-level"><h2><a href="/"></a></h2>
+			<div class="mp-level">
+				<h2><a href="/featured">Gapelia</a></h2>
 				<ul>
-					<li><a href="/me">Me</a><a class="icon not-mobile" href="/accounts">&#xf13d;</a></li>
-					<li class="not-mobile"><a href="/librarymanager">Libraries</a></li>
-					<li class="not-mobile"><a href="/createbook">New Story</a></li>
-					<li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a><ul id="draft-menu"></ul></li>
-					<li class="not-mobile"><a href="/analytics">Analytics</a></li>
-					<li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a><ul></ul></li>
-				    <div id="footer-items">
-						<li class="fq"><a href="/read/755">How It Works</a>
-						<li class="help"><a href="mailto:team@folio.is">Report a bug</a>
-						<li class="logout"><a href="#">Log Out</a>
-				    </div>
+					<li><a href="/">Sign up</a> </li>
+					<li><a href="/read/755">Learn more</a></li>
 				</ul>
 			</div>
 		</nav>
+		<!--//site-menu /-->
 		
 		<!--/ access-to-user-records /-->
 		<div id="user-records" style="display: none;">
@@ -138,7 +131,7 @@
 		
         $("#mp-pusher").prepend(stuff);
 		
-		if(sessionId != null) {
+		if (typeof(sessionId) !== 'undefined') {
 			getUserMe();
 			isFollowing(); //only if logged in!
 		}
