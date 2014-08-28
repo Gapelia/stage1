@@ -87,7 +87,7 @@
 			<a id ="save-drafts" class="button brand-iii" style="margin-left: -5px !important; padding-top: 8px !important;">Share Draft</a>
 			<ul id="tool-box" style="margin-left: -5px;">
 				<li id="tools">
-					<a class="revision-dropdown">&#9881;</a>
+					<a class="revision-dropdown">More...</a>
 					<ul style="display: none;">
 						<li>Characters:<p id="word-count"></p></li>
 						<li>Paragraphs:<p id="paragraph-count"></p></li>
@@ -109,7 +109,7 @@
 			<a class="button a brand-iii" href="/preview" target="_blank" id="preview-book" title="Preview your book">Read It</a>
 			<a class="button middle-button brand-iii" id="publish-toggle" title="Publish your book">Publish</a>
 			<a class="button b brand-iii" id="close-button" href="/featured" title="Save changes and quit">Save + Close</a>
-			<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">&#9998;</a>
+			<a class="button brand-iii" style="margin: -4px !important;" id="drafts-shortcut">+</a>
 		</div>
 
 

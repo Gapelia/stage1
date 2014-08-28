@@ -5438,9 +5438,9 @@ body.library-manager ::-webkit-scrollbar {
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
   color: #59b3a6 !important;
-  font-size: 1.25rem;
+  font-size: 15px;
   height: 33px;
-  padding: 4px 12px 0 12px !important; }
+  padding: 8px 12px 0 12px !important; }
 .book-creation header #tool-box #tools a:hover {
   background-color: #59b3a6 !important;
   color: white !important; }
@@ -8495,8 +8495,7 @@ a.count span.dont-move {
   .mp-menu {
     width: 350px; }
   .mp-menu ul {
-    font-size: 1.75rem;
-    height: 85%; }
+    font-size: 1.75rem; }
   .mp-menu ul li {
     margin-top: 10px; }
 

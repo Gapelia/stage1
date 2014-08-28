@@ -167,7 +167,7 @@
 			} else {
 				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 1rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 			}
-			
+		
 			getNumSubscribers();
 			getUserFromLibraryId(libraryId);
 		});
@@ -235,7 +235,7 @@
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();
-					$("#library-splash, #close-splash, #contact-editor").fadeOut("fast");
+					$("#library-splash, #close-splash, #contact-editor").hide();
 					$("#featured-nav").fadeIn("slow");
 					
 					if(typeof user == 'undefined') {

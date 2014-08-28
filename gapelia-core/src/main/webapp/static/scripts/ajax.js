@@ -801,11 +801,14 @@ function getBooksInLibraryArray() {
 				for (i in books) {
 				book = books[i];
 				
+				var fullDate = book.lastUpdated;
+				var minDate = fullDate.substring(0, 6).replace(",", "");
+				
 						//used here for archive list//
 						if (book.coverPhoto == "../static/images/grayBG.png") {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 						} else {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 						}
 						woof += "</li>";
 				}		
@@ -883,12 +886,15 @@ function loadMoreBooksInLibraryArchive(count, items) {
 		}
 
 		book = books[offset + i];
+		
+		var fullDate = book.lastUpdated;
+		var minDate = fullDate.substring(0, 6).replace(",", "");
 				
 		//used here for archive list//
 		if (book.coverPhoto == "../static/images/grayBG.png") {
-				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 		} else {
-				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + book.lastUpdated + "</p>";
+				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 		}
 		toInsert += "</li>";
 	}
