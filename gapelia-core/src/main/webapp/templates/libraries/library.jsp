@@ -75,6 +75,10 @@
 			</button>
 		</div>
 		
+		<ul id="edit-shortcut">
+				<a href="#" class="edit-library">Edit Library</a>
+		</ul>
+		
 		<ul id="stay-right">
 			<li id="my-submissions"><a class=submission-dropdown href="#">Submit a story</a>
 				<ul></ul>
@@ -167,7 +171,7 @@
 			} else {
 				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 1rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 			}
-		
+			
 			getNumSubscribers();
 			getUserFromLibraryId(libraryId);
 		});
@@ -499,6 +503,9 @@
 		}
 		setTimeout(function () {
 			getLibrary();
+			
+			$(".edit-library").attr("href", "/editlibrary/"+ library.libraryId +"");
+			
 			//getBooksInLibraryArray();
 			if(typeof user != 'undefined') {
 				getSubmissionsInLibrary();
