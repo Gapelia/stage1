@@ -398,28 +398,7 @@
 
 		if ($vW < "1025") {
 
-			var options = {
-				horizontal: 1,
-				itemNav: 'forceCentered',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				swingSpeed: 1,
-				releaseSwing: 0,
-				startAt: 0,
-				scrollBar: $(".scrollbar"),
-				scrollBy: 1,
-				speed: 0.0001,
-				elasticBounds: 1,
-				easing: 'swing',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-				keyboardNavBy: 'items',
-			};
-			
+			var options = {};
 			var slyBookWrapper = new Sly('.book-list-wrapper', options);
 			var items = $('#book-list');
 
@@ -427,7 +406,11 @@
 			 
 			//show load more button when more than 10 books//
 			if(books.length > 10){
-				$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+				if ($vW > "321") {
+						$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+				} else {
+							$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; position: relative; top: 1.5rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+				}
 			}
 			
 			//load more calculating difference between total and 10 firstly loaded//

@@ -467,7 +467,7 @@
 				$("#featured-panel .featured-info, #library-splash .expand, #library-splash .new-user, #right-half").remove();
 				$("#g-menu-toggle").click(function () {
 						if (typeof user !=  "undefined") {
-								$("#mp-pusher").append('<ul id="featured-nav" style="display: block; z-index: 100;"><li id="nav-featured"><img id="close-mobile-menu" style="height: 50px; left: 1rem; position: absolute; top: 12px; width: 50px;" src="/static/images/folio-icon-solid.png"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="gpl-menu-notify"><a>Notifications</a><a class="icon" style="margin-left: 10px; font-weight: 700;" href="#"></a><ul style="display: none; margin-top: 10px;"></ul></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
+								$("#mp-pusher").append('<ul id="featured-nav" style="display: block; z-index: 100;"><li id="nav-featured"><img id="close-mobile-menu" style="height: 50px; left: 1rem; position: absolute; top: 12px; width: 50px;" src="/static/images/folio-icon-solid.png"><a href="/featured">Folio</a><li id="nav-featured"><a href="/featured">Featured</a></li><li id="nav-featured"><a href="/libraryManager">Libraries</a></li><li id="nav-featured"><a href="/accounts">Account Settings</a></li><li id="nav-logout"><a href="#" id="logout">Log Out</a></li></ul>');
 								$("#close-mobile-menu").click(function(){ $("#featured-nav").remove(); })
 						} else {
 								window.location.href = "/";
@@ -517,7 +517,11 @@
 				
 				//show load more button when more than 10 books//
 				if(books.length > 5){
-					$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+					if ($vW > "321") {
+						$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+					} else {
+						$("#book-list").append("<div style=\"text-align: center; padding-bottom: 4rem; position: relative; top: 1.5rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
+					}
 				}
 			
 				//load more calculating difference between total and 10 firstly loaded//

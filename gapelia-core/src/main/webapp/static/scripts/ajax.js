@@ -843,9 +843,11 @@ function loadMoreBooksInLibrary(count, items) {
 			return;
 		}
 		if (book.coverPhoto != "../static/images/grayBG.png") {
-			toInsert += "style=\"background-image: url(" + book.coverPhoto + ");";
+		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ");";
 		} else {
-			toInsert += "style=\"background: #59B3A6;";
+			if ($vW > "1025") {
+				toInsert += "style=\"background: #59B3A6;";
+			}
 		}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 		if (typeof user != 'undefined') {
