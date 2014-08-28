@@ -3886,6 +3886,18 @@ body.library #submission-pop a {
   display: inline !important;
   margin: 5px;
   text-decoration: underline; }
+body.library #edit-shortcut {
+  left: 25%;
+  position: absolute;
+  text-align: center;
+  top: 1.75rem;
+  width: 50%;
+  z-index: 100; }
+body.library #edit-shortcut .edit-library {
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 8px;
+  color: white;
+  padding: 10px; }
 body.library #stay-right {
   top: 0;
   right: 0;
