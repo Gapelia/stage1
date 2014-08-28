@@ -1722,6 +1722,7 @@ function editLibrary() {
 				"background-size": "cover",
 				"background-position": "50% 50%"
 			});
+			$("#about-section p").html(library.about);
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
@@ -1774,6 +1775,7 @@ function updateLibrary() {
 	description = $("#new-library-info p").html();
 	bg = $("#new-library").css("background-image");
 	coverPhoto = bg.replace("url(", "").replace(")", "");
+	about = $("#about-section p").html();
 	tags = '';
 	var elms = $(".selectize-input div");
 	elms.each(function(i) {

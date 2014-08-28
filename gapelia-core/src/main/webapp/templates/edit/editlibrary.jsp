@@ -173,7 +173,7 @@
 		//retrieving cover photo and inserting in css//
 		setTimeout (function(){
 			$('#new-library').css('background-image','url('+library.coverPhoto+')');	
-		}, 1000);
+		}, 2000);
 
 		if ($vW > "1024") {
 			new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));

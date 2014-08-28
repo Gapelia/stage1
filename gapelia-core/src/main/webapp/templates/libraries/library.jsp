@@ -504,6 +504,10 @@
 		setTimeout(function () {
 			getLibrary();
 			
+			//library owner can edit//
+			if (libraryOwner.userId != user.userId) {
+				$("#edit-shortcut").remove();
+			}
 			$(".edit-library").attr("href", "/editlibrary/"+ library.libraryId +"");
 			
 			//getBooksInLibraryArray();
