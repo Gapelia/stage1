@@ -510,6 +510,11 @@
 			}
 			$(".edit-library").attr("href", "/editlibrary/"+ library.libraryId +"");
 			
+			//remove about section if it is empty//
+			if (library.about == undefined) {
+				$("#about-section").remove();
+			}
+			
 			//getBooksInLibraryArray();
 			if(typeof user != 'undefined') {
 				getSubmissionsInLibrary();
