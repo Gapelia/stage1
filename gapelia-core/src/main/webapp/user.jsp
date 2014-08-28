@@ -138,8 +138,10 @@
 		
         $("#mp-pusher").prepend(stuff);
 		
-		getUserMe();
-		if(sessionId != null) isFollowing(); //only if logged in!
+		if(sessionId != null) {
+			getUserMe();
+			isFollowing(); //only if logged in!
+		}
 			
 		// Inserting user data //
 		$("#splash-user-info h1, #user-header").text(user.name);
