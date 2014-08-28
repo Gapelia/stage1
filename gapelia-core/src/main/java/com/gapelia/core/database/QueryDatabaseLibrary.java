@@ -452,7 +452,7 @@ public class QueryDatabaseLibrary {
 			insert.setString(3, library.getCoverPhoto());
 			insert.setString(4, library.getDescription());
             insert.setString(5, library.getAbout());
-			insert.setInt(5, library.getLibraryId());
+			insert.setInt(6, library.getLibraryId());
 			insert.executeUpdate();
 			return "Success";
 		} catch (SQLException ex) {
