@@ -27,8 +27,8 @@ public class QueryDatabaseLibrary {
 	private static final String GET_NUM_SUBSCRIBERS = "select count(library_id) from user_subscriptions where library_id = ? group by library_id";
 	private static final String REMOVE_BOOK_FROM_LIBRARY = "DELETE FROM library_books WHERE library_id = ? AND book_id = ?";
 	private static final String DELETE_LIBRARY = "DELETE FROM libraries WHERE id = ?";
-	private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created) VALUES (?,?,?,?,?,?)";
-	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ? WHERE id = ?";
+	private static final String CREATE_LIBRARY = "INSERT INTO libraries (created_by,title,tags,cover_photo,description,created,about) VALUES (?,?,?,?,?,?,?)";
+	private static final String UPDATE_LIBRARY = "UPDATE libraries set title = ?,tags = ?,cover_photo = ?,description = ?,about = ? WHERE id = ?";
     private static final String IS_VALID_LIBRARYID = "SELECT 1 FROM libraries WHERE id = ?";
     private static final String GET_LIBRARY_CONTRIBUTORS = "select distinct users.* from users join books on users.id = books.owned_by join library_books on books.id = library_books.book_id where library_books.library_id = ?";
 	private static final String GET_MOST_VOTED_BOOKS = "select library_books.book_id from library_books join (select count(book_id) as num_votes,book_id from user_votes group by book_id) as t2 on library_books.book_id = t2.book_id where library_id = ? ORDER BY num_votes DESC limit ?";
@@ -281,6 +281,7 @@ public class QueryDatabaseLibrary {
 				library.setDescription(rs.getString("description"));
 				library.setFeaturedBook(rs.getInt("featured_book"));
 				library.setCreated(rs.getTimestamp("created"));
+                library.setAbout(rs.getString("about"));
 			}
 			return library;
 		} catch (Exception ex) {
@@ -419,6 +420,7 @@ public class QueryDatabaseLibrary {
 			insert.setString(4, library.getCoverPhoto());
 			insert.setString(5, library.getDescription());
 			insert.setTimestamp(6, library.getCreated());
+            insert.setString(7, library.getAbout());
 			insert.executeUpdate();
 
 			ResultSet generatedKeys = insert.getGeneratedKeys();
@@ -449,6 +451,7 @@ public class QueryDatabaseLibrary {
 			insert.setString(2, library.getTags());
 			insert.setString(3, library.getCoverPhoto());
 			insert.setString(4, library.getDescription());
+            insert.setString(5, library.getAbout());
 			insert.setInt(5, library.getLibraryId());
 			insert.executeUpdate();
 			return "Success";

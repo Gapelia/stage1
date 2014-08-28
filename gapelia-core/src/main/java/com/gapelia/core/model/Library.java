@@ -11,6 +11,7 @@ public class Library {
     private String [] tags;
     private String coverPhoto;
     private String description;
+    private String about;
     private Timestamp created;
 
     public int getLibraryId() {
@@ -92,6 +93,14 @@ public class Library {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 
     public Timestamp getCreated() {

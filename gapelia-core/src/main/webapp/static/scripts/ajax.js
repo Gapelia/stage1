@@ -394,7 +394,7 @@ function loadMoreBooksListView(count, items) {
 
 		output += "<li id=\'" + book.bookId + "\' class=\"book-new-view\">";
 		output += "<div class=\"book-title-new-view\">";
-		output += "<a href=\"/read/" + book.bookId + "\"><img src=\""+book.coverPhoto+"\">" + book.title + "<a class=\"book-snippet-new-view\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info-new-view\">";
+		output += "<a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + "<a class=\"book-snippet-new-view\"><p>" + book.snippet + "</p></a></a></div><div class=\"book-info-new-view\">";
 		output += getUserFromBookId(book.bookId);
 		output += "</div><div class=\"library-location-new-view\">";
 		output += getLibraryFromBook(book.bookId);
@@ -796,24 +796,24 @@ function getBooksInLibraryArray() {
 		},
 		success: function(data) {
 			books = data;
-		    woof = '';
-				
-				for (i in books) {
+			woof = '';
+
+			for (i in books) {
 				book = books[i];
-				
+
 				var fullDate = book.lastUpdated;
 				var minDate = fullDate.substring(0, 6).replace(",", "");
-				
-						//used here for archive list//
-						if (book.coverPhoto == "../static/images/grayBG.png") {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
-						} else {
-							woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
-						}
-						woof += "</li>";
-				}		
-				
-				$("#archive-list").html(woof);
+
+				//used here for archive list//
+				if (book.coverPhoto == "../static/images/grayBG.png") {
+					woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
+				} else {
+					woof += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
+				}
+				woof += "</li>";
+			}
+
+			$("#archive-list").html(woof);
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
@@ -846,7 +846,7 @@ function loadMoreBooksInLibrary(count, items) {
 			return;
 		}
 		if (book.coverPhoto != "../static/images/grayBG.png") {
-		    toInsert += "style=\"background-image: url(" + book.coverPhoto + ");";
+			toInsert += "style=\"background-image: url(" + book.coverPhoto + ");";
 		} else {
 			if ($vW > "1025") {
 				toInsert += "style=\"background: #59B3A6;";
@@ -886,15 +886,15 @@ function loadMoreBooksInLibraryArchive(count, items) {
 		}
 
 		book = books[offset + i];
-		
+
 		var fullDate = book.lastUpdated;
 		var minDate = fullDate.substring(0, 6).replace(",", "");
-				
+
 		//used here for archive list//
 		if (book.coverPhoto == "../static/images/grayBG.png") {
-				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
+			toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"../static/images/grayBG.png\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 		} else {
-				toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
+			toInsert += "<li id =\"" + book.bookId + "\"><a href=\"/read/" + book.bookId + "\"><img src=\"" + book.coverPhoto + "\">" + book.title + " <c> by " + getUserFromBookId(book.bookId) + "</c></div></a></br><p align = right>" + minDate + "</p>";
 		}
 		toInsert += "</li>";
 	}
@@ -1236,7 +1236,7 @@ function getLibrary() {
 		},
 		success: function(data) {
 			library = data;
-			
+
 			userName = libraryOwner.name;
 			currentWebsite = document.URL;
 			facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/library/' + libraryId;
@@ -1315,8 +1315,8 @@ function getLibrary() {
 				toInsert += "<div id=\"featured-library\" style=\"display: block; width: 100%; height: 100%;\">";
 				toInsert += "<ul>";
 				$.each(featuredBooks, function(id, obj) {
-						getUserFromBookId(obj.bookId);
-						toInsert += "<li><a href=\"/" + bookOwner.displayName + "\"><img id=\"featured-avatar\" src=\"" + bookOwner.avatarImage + "\"></a><a href=\"/read/" + obj.bookId + "\">" + obj.title + "</a>" + "<a href=\"/" + bookOwner.displayName + "\"><img class=\"author-avatar\" src=\"" + bookOwner.avatarImage + "\"><div class=\"author-name\">" + bookOwner.name + "</a>" + "</div></li>";
+					getUserFromBookId(obj.bookId);
+					toInsert += "<li><a href=\"/" + bookOwner.displayName + "\"><img id=\"featured-avatar\" src=\"" + bookOwner.avatarImage + "\"></a><a href=\"/read/" + obj.bookId + "\">" + obj.title + "</a>" + "<a href=\"/" + bookOwner.displayName + "\"><img class=\"author-avatar\" src=\"" + bookOwner.avatarImage + "\"><div class=\"author-name\">" + bookOwner.name + "</a>" + "</div></li>";
 				});
 				toInsert += "</ul>";
 				toInsert += "</section></p></div></div>";
@@ -1329,7 +1329,7 @@ function getLibrary() {
 			if (typeof user != "undefined") {
 				if (libraryOwner.name == user.name) {
 					toInsert += "<ul id=\"submission-pop\" style=\"display: none; padding-right: 15rem; padding-left: 15rem; z-index: 100 !important;\"><p>" + "Added to your library." + "<p/></ul>";
-	
+
 				} else {
 					toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 				}
@@ -1340,7 +1340,7 @@ function getLibrary() {
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
-			toInsert += "<div id=\"about-section\"><h2>About</h2><p></p></div>";
+			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p></div>";
 
 			$("#mp-pusher").prepend(toInsert);
 
@@ -1354,10 +1354,10 @@ function getLibrary() {
 					for (i in contributors) {
 						contributor = contributors[i];
 
-						if (contributor.bio != undefined) {		
-								lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "  &#8212;<span id=\"contributor-bio\">" + contributor.bio + "</span></a></li><br><br>";
+						if (contributor.bio != undefined) {
+							lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "  &#8212;<span id=\"contributor-bio\">" + contributor.bio + "</span></a></li><br><br>";
 						} else {
-								lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "</a></li><br><br>";	
+							lib = "<li><a href=\"/" + contributor.displayName + "\"><img src=\"" + contributor.avatarImage + "\">" + contributor.name + "</a></li><br><br>";
 						}
 						$("#contributor-list").append(lib);
 					}
@@ -1496,7 +1496,7 @@ function getLibraries() {
 					lib += "<button class=\"subscribe white-border\">Subscribe</button></div>";
 				}
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				$("#explore-list").append(lib);
 			}
 			getUser();
@@ -1530,17 +1530,17 @@ function getLibrariesSuggestion() {
 
 				//browser featured libraries//
 				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
-				
+
 				//mobile featured libraries//
 				if ($vW < "800") {
-						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+					lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; margin-top: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				} else {
-						lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
+					lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Featured</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				}
 				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				//data insert//
 				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
@@ -1551,7 +1551,7 @@ function getLibrariesSuggestion() {
 					$(this).text($(this).text().substr(0, 125) + '...');
 				}
 			});
-			
+
 			$("#recommended-libraries").prepend("<h3>Featured Libraries</h3>")
 
 		},
@@ -1627,13 +1627,13 @@ function getLibrariesSuggestionThree() {
 
 				//subscribed libraries in desktop//
 				libs = "<ul id=\"subscribed-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
-				
+
 				//subscribed libraries in mobile//
 				lib = "<h5 style=\"font-weight: 700; margin-bottom: 1rem; text-align: center; opacity: 0.8;\">Subscribed</h5><li class=\"library imgLiquid_bgSize imgLiquid_ready\" id=\"" + library.libraryId + "\" style=\"background-image: url(" + library.coverPhoto + "); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
 				lib += "<div class=\"library-info\" style=\"z-index: 10;\"><div class=\"title\"><a href=\"library/" + library.libraryId + "\" style=\"display: block; width: 100%; height: 100%;\">" + library.title + "</a></div>";
 				lib += "<div class=\"lib-blurb\">" + library.description + "</div></div><div class=\"wrapper\"></div>";
 				lib += "<span class=\"image-overlay\"></span><img src=" + library.coverPhoto + " alt='' style=\"display: none;\"></li>";
-				
+
 				//data insertion//
 				$("#explore-list").append(lib);
 				$("#suggested-lib-list").append(libs);
@@ -2115,10 +2115,10 @@ function addLoggedInMenu() {
 		$("#gpl-menu-notify a").click(function(e) {
 			$("#gpl-menu-notify ul").toggle();
 			$("#footer-items").hide();
-			
+
 			if ($("#gpl-menu-notify ul").css("display") == "none") {
 				$("#footer-items").show();
-			}	
+			}
 			e.preventDefault();
 		});
 	}
@@ -2292,9 +2292,9 @@ function loadMorePublicUserBooks(count, items) {
 		book = books[offset + i];
 
 		//if (book.bookId in bookmarked == true) {
-			//toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
+		//toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready bookmarked\" style=\"background-image: url(" + book.coverPhoto + ");";
 		//} else {
-			toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
+		toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
 		//}
 		toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\"><div class=\"bookmark-this\"><span class=\"top-bm\">";
 		toInsert += "</span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div><div class=\"library-location\">";
@@ -3017,8 +3017,8 @@ function isFollowing() {
 		type: "POST",
 		async: false,
 		data: {
-				userId: userMe.userId,
-		        isFollowingId: profileUserId
+			userId: userMe.userId,
+			isFollowingId: profileUserId
 		},
 		success: function(data) {
 
