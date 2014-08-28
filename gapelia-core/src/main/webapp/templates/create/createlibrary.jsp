@@ -55,6 +55,9 @@
 				    <li id="gpl-menu-drafts" class="not-mobile"><a>Drafts</a>
 					<ul id="draft-menu"></ul>
 				    </li>
+					
+				    <li class="not-mobile"><a href="/analytics">Analytics</a>
+				    </li>
 		
 				    <li id="gpl-menu-notify"><a>Notifications</a><a class="icon" href="#"></a>
 					<ul>
@@ -113,9 +116,14 @@
 				</div>
 				
 				<div id="library-tutorial">*Title, description and cover photo are required.</div>
-
+				
 				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
 			</section>
+			
+		   <div id="about-section">
+				<h2>About <span></span></h2>
+				<p data-placeholder="Write an introduction statement or relevant information about this newly created library..." contenteditable="true"></p>	
+		   </div>
 			<!--//library-editing /-->
 
 		</div>
@@ -166,16 +174,16 @@
 			function doPoll(){
 				title = $("#new-library-info h2").html();
 				description = $("#new-library-info p").html();
-				 bg = $("#new-library").css("background-image");
-				 coverPhoto = bg.replace("url(", "").replace(")", "");
+				bg = $("#new-library").css("background-image");
+				coverPhoto = bg.replace("url(", "").replace(")", "");
+				about = $("#about-section p").html();
+				
 				if ( !(description == "" || coverPhoto.indexOf("static/images/cover-bg.jpg") != -1 || title == "")) {
 					$("#confirm-create-library").css("display", "block");
 					$("#library-tutorial").css("display", "none");
-				 }
-				 else {
+				}else {
 					$("#confirm-create-library").css("display", "none");
-					$("#library-tutorial").css("display", "block");
-					
+					$("#library-tutorial").css("display", "block");	
 				}
 				setTimeout(doPoll,1000);
 			}

@@ -1362,7 +1362,13 @@ $("#select-video-layout").click(function() {
 // ------------------------------------------------------------------------------------
 
 $("#publish-toggle").on("click", function(e) {
-	if (title == "") {
+	if (title == ""  && pages.page[0].image == "../static/images/grayBG.png") {
+		alert("Please add a title and cover photo to your story before publishing.") + ("#publish-modal").css("display", "none");
+	}
+	if (pages.page[0].image == "../static/images/grayBG.png") {
+		alert("Please add a cover photo to your story before publishing.") + ("#publish-modal").css("display", "none");
+	}
+    if (title == "") {
 		alert("Please add a title to your story before publishing.") + ("#publish-modal").css("display", "none");
 	}
 

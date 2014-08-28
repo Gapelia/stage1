@@ -1498,6 +1498,26 @@
 		}
 	}
   
+  #about-section {
+    left: 20%;
+    min-height: 300px;
+    position: absolute;
+    top: 110%;
+    width: 60%;
+    
+    p {
+      font-size: 1.25rem;
+			letter-spacing: 0.006rem;
+			line-height: 2rem;
+      padding: 12px 0 0 0;
+      
+      &:empty:after {
+        color: rgba($black, 0.7);
+        content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing...";
+      }
+    }
+  }
+  
   #library-tutorial {
     bottom: 2rem;
     color: white;

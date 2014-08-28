@@ -1236,6 +1236,7 @@ function getLibrary() {
 		},
 		success: function(data) {
 			library = data;
+			
 			userName = libraryOwner.name;
 			currentWebsite = document.URL;
 			facebookShare = 'http://www.facebook.com/sharer/sharer.php?u=folio.is/library/' + libraryId;
@@ -1732,10 +1733,6 @@ function editLibrary() {
 }
 
 function createLibrary() {
-	//title = $("#new-library-info h2").html();
-	//description = $("#new-library-info p").html();
-	//bg = $("#new-library").css("background-image");
-	//coverPhoto = bg.replace("url(", "").replace(")", "");
 	tags = '';
 	var elms = $(".selectize-input div");
 	elms.each(function(i) {
@@ -1743,8 +1740,6 @@ function createLibrary() {
 		tags += elm.html() + ",";
 	});
 	tags = tags.substring(0, tags.length - 1);
-
-
 
 	$.ajax({
 		url: "/api/libraries/createLibrary",
@@ -1756,7 +1751,8 @@ function createLibrary() {
 			title: title,
 			description: description,
 			coverPhoto: coverPhoto,
-			tags: tags
+			tags: tags,
+			about: about
 		},
 		success: function(data) {
 			console.log(data)
@@ -1795,7 +1791,8 @@ function updateLibrary() {
 			title: title,
 			description: description,
 			coverPhoto: coverPhoto,
-			tags: tags
+			tags: tags,
+			about: about
 		},
 		success: function(data) {
 			console.log(data);

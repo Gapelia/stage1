@@ -480,7 +480,7 @@ function getReadNextBook() {
     }
     
     function fluidLayout(isFirst) {
-        if(current.photoUrl ==null ||current.photoUrl=="../static/images/grayBG.png") {
+        if(current.photoUrl == null ||current.photoUrl=="../static/images/grayBG.png") {
             if ($vW > "1025") {
                 htmlToInsert += "<section class=\"fluid-wrapper\" style=\"top: -6rem;\"><section class=\"draggable-placeholder\" style=\"display: none;\">";
                 htmlToInsert += "</section>";
@@ -494,7 +494,7 @@ function getReadNextBook() {
             htmlToInsert += "<section class=\"fluid-wrapper\">";
             getUserFromBook(bookId)
             htmlToInsert += "<section class=\"draggable-placeholder\">";
-            htmlToInsert += "<img class=\"page-bg\" src=\"" + current.photoUrl + "\"/>";
+            htmlToInsert += "<img class=\"page-bg\" src=\"../static/images/grayBG.png\"/>";
 
             if (current.creativeCommons != "null" && current.creativeCommons != "Add photo credit?") {
                 htmlToInsert += "<span class=\"image-attribution\">" + current.creativeCommons + "</span>";
@@ -522,7 +522,7 @@ function getReadNextBook() {
         twitterShare = "http://twitter.com/share?text="+current.title+" by "+ bookOwner.fullName;"&url=http://folio.is/read/" + current.bookId;
         emailShare = 'mailto:?subject=Recommended%20Read%20on%20Folio&amp;body='+ current.title + " by " + bookOwner.fullName + "   " +  "www.folio.is/read/" + current.bookId;
         if (getLibraryFromBook(bookId) == "") {
-            htmlToInsert += "<hr/><div id=\"fin\" style=\"padding: 2rem 0 3rem 0\">";
+           htmlToInsert += "<hr/><div id=\"fin\" style=\"padding: 2rem 0 3rem 0\">";
         } else {
             htmlToInsert += "<hr/><div id=\"fin\">";
         }    
@@ -535,7 +535,7 @@ function getReadNextBook() {
         htmlToInsert += "<i class=\"ion-social-twitter\"></i></a></li><li><a href=\""+emailShare+"\"><i class=\"ion-email\"></i></a></li></ul>";
         htmlToInsert += "</div></div>";
         htmlToInsert += "</div>";
-        if (getLibraryFromBook(bookId) == "") {
+        if (getLibraryFromBook(bookId) != "") {
             if ($vW > 1024) {
                 htmlToInsert += "<div id=\"next-book\" style=\"margin-top: -8rem;\"><p>This story is not part of a library yet. Visit the <a href=\"/"+bookOwner.displayName+"\">author's profile</a> or browse <a href=\"/featured\">curated stories.</a></p></div>";    
             }
