@@ -1505,11 +1505,15 @@
     top: 110%;
     width: 60%;
     
-    p {
+    p, div{
       font-size: 1.25rem;
 			letter-spacing: 0.006rem;
 			line-height: 2rem;
       padding: 12px 0 0 0;
+    }
+      
+    p {
+      margin-bottom: 0;
       
       &:empty:after {
         color: rgba($black, 0.7);

@@ -151,6 +151,12 @@ body.library {
 		}
 	}
 	
+	#about-section {
+		p {
+				&:empty:after { display: none !important; }
+		}
+	}
+	
 	#stay-right {
 		top: 0; right: 0;
 
