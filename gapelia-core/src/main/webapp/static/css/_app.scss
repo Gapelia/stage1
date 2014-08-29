@@ -1522,6 +1522,28 @@
     }
   }
   
+  #about-section-tutorial {
+    bottom: 1.75rem;
+    position: absolute;
+    right: 3rem;
+    z-index: 100;
+    
+    p {
+      color: white;
+      display: inline !important;
+      font-size: 1rem;
+      padding-right: 2rem;
+    }
+    
+    img {
+        bottom: -0.1rem;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      width: 30px;
+    }
+  }
+  
   #library-tutorial {
     bottom: 2rem;
     color: white;

@@ -116,6 +116,7 @@
 				</div>
 				
 				<div id="library-tutorial">*Title, description and cover photo are required.</div>
+				<div id="about-section-tutorial"><p>Scroll down and add an About section</p><img src="../static/images/arrow-down.png"></div>
 				
 				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
 			</section>

@@ -3576,6 +3576,22 @@ body.landing .error {
 .app #about-section p:empty:after {
   color: rgba(25, 25, 25, 0.7);
   content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing..."; }
+.app #about-section-tutorial {
+  bottom: 1.75rem;
+  position: absolute;
+  right: 3rem;
+  z-index: 100; }
+.app #about-section-tutorial p {
+  color: white;
+  display: inline !important;
+  font-size: 1rem;
+  padding-right: 2rem; }
+.app #about-section-tutorial img {
+  bottom: -0.1rem;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  width: 30px; }
 .app #library-tutorial {
   bottom: 2rem;
   color: white;

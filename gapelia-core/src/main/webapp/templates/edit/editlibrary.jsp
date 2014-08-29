@@ -136,6 +136,8 @@
 					</script>
 				</section>
 			</div>
+			
+			<div id="about-section-tutorial"><p>Scroll down and add an About section</p><img src="../static/images/arrow-down.png"></div>
 		</div>
 		</section>
 		
@@ -151,7 +153,6 @@
 	<script src="/static/scripts/filepicker2.js"></script>
 	<script src="/static/scripts/spin.js"></script>
 	<script src="/static/scripts/g.money.js"></script>
-	<script src="/static/scripts/imgLiquid.js"></script>
 	<script src="/static/scripts/ajax.js"></script>
 	<script src="/static/scripts/userNotifications.js"></script>
 	<script src="/static/scripts/classie.js"></script>
@@ -197,9 +198,6 @@
 			});
 
 			$("button.photo-picker").html("&#xf2e4;");
-			$("#new-library").imgLiquid({
-				fill: true
-			});
 			$("#g-menu-toggle").css("color", "#fcfcfc");
 
 		});
