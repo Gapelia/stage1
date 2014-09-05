@@ -1,0 +1,134 @@
+#contactable-inner {
+	background-image:url(../images/feedback.png);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	color:#FFFFFF;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	line-height: 18px;
+	background-color:white;
+	cursor:pointer;
+	height:88px;
+	left:-2px;
+	*margin-left: 0;
+	overflow:hidden;
+	position:fixed;
+	*position:absolute;
+	text-indent:-100000px;
+	top:86%;
+	*margin-top:10px;
+	width:26px;
+	z-index:100000;
+}
+
+p { margin: 0 0 0.5rem 0; }
+
+.contactable-footer { display: none; }
+
+#contactable-contactForm {
+	background-color:white;
+	border:2px solid #FFFFFF;
+	color:#rgba($black, 0.75);
+	left:0;
+	margin-left:-400px;
+	*margin-left:-434px;
+	margin-top:-160px;
+	overflow:hidden;
+	padding-left:0;
+	position:fixed;
+	top:75%;
+	width:390px;
+	z-index:99;
+}
+
+form#contactable-contactForm input,
+form#contactable-contactForm textarea,
+form#contactable-contactForm select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background:#FFFFFF none repeat scroll 0 0;
+	outline-style:none;
+	outline-width:medium;
+	width:100%;
+	padding:5px;
+	border:1px solid #dfdfdf;
+	font-size:1em;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin-bottom:10px;
+}
+
+form#contactable-contactForm p {
+	font-size:0.9em;
+}
+
+form#contactable-contactForm .contactable-header {
+	margin-bottom:10px;
+}
+
+#contactable-contactForm .contactable-green {
+	color:	#59B3A6;
+}
+
+#contactable-overlay {
+	background-color:#666666;
+	display:none;
+	height:100%;
+	left:0;
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index:0;
+}
+.contactable-invalid { background-color: #EDBE9C; }
+#contactable-name.contactable-invalid { background-color: #EDBE9C; }
+#contactable-email.contactable-invalid { background-color: #EDBE9C; }
+#contactable-message.contactable-invalid { background-color: #EDBE9C; }
+
+form#contactable-contactForm label{
+	line-height:150%;
+}
+
+form#contactable-contactForm #contactable-loading {
+	background: url(images/ajax-loader.gif) no-repeat;
+	width:66px;
+	height:66px;
+	margin: 80px auto;
+	display:none;
+}
+
+#contactable-callback {
+	font-size:1.1em;
+	color: #FFF;
+	width:325px;
+	margin: 100px auto;
+	display:none;
+}
+
+.contactable-holder {
+	margin:0;
+	padding:20px 10px 20px 20px;
+}
+
+/* Submit button */
+form#contactable-contactForm .contactable-submit {
+  background-color: #59B3A6;
+  border-radius: 3px;
+  color: #fff;
+  font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  line-height: 1;
+  margin-bottom: -1rem;
+  margin-left: 25%;
+  padding: 7px 0 8px 0;
+  text-align: center;
+  width: 50%;
+}
+
+
+button.contactable-cupid-green:active {
+    border: 1px solid #5b992b;
+    border-bottom: 1px solid #538c27;
+    -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+    -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+    box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee; }

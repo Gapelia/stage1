@@ -1,0 +1,246 @@
+
+////////////////////////////////////////////////////////////////////////////////////// LANDING/SCSS ///
+
+body.landing {
+
+	text-align: center;
+	
+	#mp-pusher {
+		background-color: white !important;
+		overflow-y: scroll !important;
+		overflow-x: hidden !important;
+	}
+
+	.super-wrapper {
+		background-image: none !important;
+		padding: 14%;
+
+		&:after {
+			width: 100%; height: 100%;
+			top: 0; right: 0;
+			bottom: 0; left: 0;
+
+			background-color: transparent;
+			background: rgba($black, 0.8);
+			content: "";
+			opacity: 1;
+			position: absolute;
+			z-index: 0;
+		}
+	}
+
+	#beta {
+		color: white;
+		font-size: 1rem;
+		font-weight: 100;
+		opacity: 0.8;
+		position: absolute;
+		text-align: right;
+		top: 85%; right: 1rem;
+		z-index: 10;
+	}
+	
+	#gapelia, h4, .wrapper, footer { z-index: 1; }
+
+	#gapelia {
+		width: 70px; height: 70px;
+
+		background-image: url("../images/folio-icon-solid.png");
+		//background-position: -16px -360px;
+		background-repeat: no-repeat;
+		//background-size: 240px 540px;
+		left: 1rem;
+		margin: 0 auto;
+		position: absolute;
+		top: 1rem;
+		z-index: 100;
+
+		@include hide-text;
+	}
+	
+	#home-quote {
+		color: white;
+		font-size: 1.25rem;
+		font-style: italic;
+		left: 6rem;
+		position: absolute;
+		top: 2.5rem;
+		z-index: 100;
+	}
+
+	h4 {
+		border-bottom: 1px solid rgba($white, 0.25);
+		color: rgba($white, 0.85);
+		font-weight: 700;
+		padding: 0 0 1rem 0;
+		position: relative;
+		text-align: left;
+		width: 70%;
+	}
+
+	img {
+		display: block !important;
+		left: 0; top: 0;
+		height: 100%; width: 100%;
+		position: absolute;
+	}
+	
+	.wrapper {
+		margin: 1rem 0 0 0;
+		position: absolute;
+
+		button {
+			display: block;
+			font-size: 0.8rem;
+			letter-spacing: 0.03rem;
+			margin: 1rem auto !important;
+			text-transform: none;
+			width: 190px;
+		}
+		
+		p {
+			font-style: italic;
+			font-size: 2rem;
+		}
+		
+	}
+	
+	#twitter-widget-0 {
+		position: absolute;
+		right: 1rem;
+		top: 2rem;
+		z-index: 100;
+	}
+	
+	#wrapper-bottom {
+		padding-bottom: 3rem;
+		width: 100%;
+	}
+
+	footer {
+		width: 100%; height: auto;
+		bottom: 1.5rem; left: 0;
+
+		border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+		font-weight: 100;
+		left: 12%;
+		margin-top: 5rem;
+		padding-bottom: 3rem;
+		position: relative;
+		text-align: center;
+		width: 75%;
+		z-index: 100;
+
+		ul {
+			li {
+				display: inline-block;
+				margin: 0 1.5rem 0 0;
+
+				a {
+					color: $black;
+					font-size: 2rem;
+					font-weight: 100;
+				}
+
+				&:last-child { margin: 0; }
+			}
+		}
+	}
+	
+	#scroll-down {
+		bottom: 0;
+		color: white;
+		font-size: 2rem;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 100;
+	}
+	
+	#subtitle {
+		font-weight: 100;
+		margin-top: -20px;
+	}
+	
+	#about-one {
+		background-color: white;
+		height: auto;
+		left: 0;
+		padding-bottom: 4rem;
+		position: absolute;
+		top: 95%;
+		width: 100%;
+		z-index: 1000;
+		
+		h1 {
+			font-size: 2.6rem;
+			font-weight: 700;
+			margin: 7rem 0 0.75rem 0;
+		}
+		
+		p {
+			font-size: 1.45rem;
+			font-weight: 100;
+			left: 15%;
+			line-height: 1.35;
+			position: absolute;
+			text-align: center;
+			width: 70%;
+		}
+		
+		hr {
+			left: 25%;
+			margin-top: 4rem;
+			position: absolute;
+			width: 50%;
+		}
+		
+		img {
+			height: 500px !important;
+			left: 12%;
+			margin-top: 10rem;
+			position: relative;
+			width: 75%;
+		}
+		
+		iframe {
+			margin-top: 8rem;
+		}
+		
+		#gapelia {
+			height: 70px;
+			position: absolute;
+			top: 100%;
+		}
+	}	
+	
+	//404 error//
+	h5 {
+		color: $white;
+		font-size: 3rem;
+		font-weight: 100;
+		line-height: 4rem;
+		margin: 0 auto;
+		padding: 0 0 1rem 0;
+		position: relative;
+		top: 15%;
+		width: 100%;
+		z-index: 1;
+		
+		a {
+			border-bottom: 1px solid rgba($white, 0.8);
+			color: $white;
+			display: inline !important;
+		}
+	}
+	
+	.error {
+		color: $white;
+		font-size: 2rem;
+		font-weight: 100;
+		margin: 0;
+		opacity: 1;
+	}
+
+}

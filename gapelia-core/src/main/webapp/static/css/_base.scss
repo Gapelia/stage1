@@ -1,0 +1,250 @@
+
+///////////////////////////////////////////////////////////////////////////////////////// BASE/SCSS ///
+
+/// RESET /////////////////////////////////////////////////////////////////////////////////////////////
+
+* {
+	margin: 0; padding: 0;
+
+	box-sizing: border-box;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	//text-shadow: 0 0 1px rgba(25, 25, 25, 0.1) !important;
+	// text-shadow: 1px 1px 1px rgba(25, 25, 25, 0.004);
+
+	-moz-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased !important;
+	-webkit-tap-highlight-color: rgba(#70a1b1, 0.3);
+}
+
+html, body {
+	background-color: #fcfcfc;
+	-webkit-overflow-scrolling: touch;
+
+	::-webkit-scrollbar {
+		border-top: 1px solid rgba(89, 179, 166, 0.3);
+		width: 7px; height: 7px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(89, 179, 166, 0.5);
+		&:window-inactive { background-color: #cfcfcf; }
+	}
+
+	scrollbar-3dlight-color: #fcfcfc;
+	scrollbar-arrow-color: #fcfcfc;
+	scrollbar-base-color: #fcfcfc;
+	scrollbar-darkshadow-color: #fcfcfc;
+	scrollbar-face-color: #70a1b1;
+	scrollbar-highlight-color: #fcfcfc;
+	scrollbar-shadow-color: #fcfcfc;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub,
+sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0; padding: 0;
+
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+input:focus { outline: 0; }
+
+body { line-height: 1; }
+ol, ul { list-style: none; }
+
+blockquote, q {
+	quotes: none;
+
+	&:before, &:after {
+		content: "";
+		content: none;
+	}
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/// CLEARFIX //////////////////////////////////////////////////////////////////////////////////////////
+
+.cf {
+	zoom: 1;
+
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after { clear: both; }
+}
+
+/// COLOURS ///////////////////////////////////////////////////////////////////////////////////////////
+
+$black:     rgba(25, 25, 25, 1);    // #191919;
+$gray:			rgba(228, 228, 228, 1);	// #e4e4e4;
+$l-gray:		rgba(244, 244, 244, 1);	// #f4f4f4;
+$white:     rgba(252, 252, 252, 1); // #fcfcfc;
+
+$edit:			rgba(255, 255, 153, 1); // #ffff99;
+
+$gray-i:		rgba(231, 231, 231, 1);	// #e7e7e7;
+$gray-ii:		rgba(207, 207, 207, 1);	// #cfcfcf;
+$gray-iii:	rgba(190, 190, 190, 1);	// #bebebe;
+$gray-iv:		rgba(153, 153, 153, 1);	// #999;
+$gray-v:		rgba(88, 89, 89, 1);		// #585959;
+
+$slate:			rgba(89, 179, 166, 1);	// #70a1b1;
+
+$red:				rgba(255, 59, 48, 1);		// #ff3b30;
+$orange:		rgba(255, 149, 0, 1);		// #ff9500;
+$yellow:		rgba(255, 204, 0, 1);		// #ffcc00;
+$green:			rgba(76, 217, 100, 1);	// #4cd964;
+$blue:			rgba(0, 122, 255, 1);		// #007aff;
+$purple:		rgba(179, 86, 214, 1);	// #b356d6;
+
+$facebook:	rgba(60, 105, 155, 1); 	// #3b5998;
+$google:		rgba(221, 75, 57, 1);		// #dd4b39;
+$twitter:		rgba(0, 172, 238, 1);		// #0acee;
+
+/// MIXINS ////////////////////////////////////////////////////////////////////////////////////////////
+
+@import url(http://brick.a.ssl.fastly.net/Source+Sans+Pro:300,300i,400,400i,600,700);
+@import url(http://brick.a.ssl.fastly.net/Source+Code+Pro:400);
+@import url(http://brick.a.ssl.fastly.net/Alegreya:400,400i,700);
+@import url(http://brick.a.ssl.fastly.net/Latin+Modern:400,400i,700,700i);
+
+@mixin sans { font-family: "adelle-sans", "tablet-gothic", "Source Sans Pro", Arial, sans-serif; }
+@mixin serif { font-family: "ff-more-web-pro", "Poly", Georgia, serif; }
+@mixin icon { font-family: "Ionicons"; }
+@mixin unicode { font-family: Arial, Verdana, Geneva, sans-serif; }
+@mixin mono { font-family: Menlo, Consolas, Inconsolata, "HaxrCorp 4088 Caps", Courier New, mono; }
+
+@mixin hide-text {
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/// GENERAL ///////////////////////////////////////////////////////////////////////////////////////////
+
+p { margin: 0 0 1.5rem 0; }
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover { opacity: 0.7; }
+}
+
+em, i {
+	/* @include serif; */
+	font-style: italic;
+
+	strong, .strong, b {
+		font-style: italic;
+		font-weight: 700;
+	}
+}
+
+strong, .strong, b {
+	/* @include serif; */
+	font-weight: 700;
+
+	em, i { font-style: italic; }
+}
+
+pre, code { @include mono; }
+small { font-size: 80%; }
+
+hr {
+	border: 0;
+	border-top: 1px solid #ddd;
+	clear: both;
+	height: 0;
+	margin: 10px 0 30px;
+}
+
+.icon					{ @include icon; }
+.hide-text		{ @include hide-text; }
+.unicode-char	{ @include unicode; }
+
+/// TITLES ////////////////////////////////////////////////////////////////////////////////////////////
+
+h1, h2, h3, h4, h5, h6 {
+	a { font-weight: inherit; }
+}
+
+h1 {
+	font-size: 3rem;
+	line-height: 50px;
+	margin: 0 0 14px 0;
+}
+
+h2 {
+	font-size: 2rem;
+	line-height: 40px;
+	margin: 0 0 10px 0;
+}
+
+h3 {
+	font-size: 1.7rem;
+	line-height: 34px;
+	margin: 0 0 8px 0;
+}
+
+h4 {
+	font-size: 21px;
+	line-height: 30px;
+	margin: 0 0 4px 0;
+}
+
+h5 {
+	font-size: 17px;
+	line-height: 24px;
+}
+
+h6 {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+/// LISTS /////////////////////////////////////////////////////////////////////////////////////////////
+
+ul, ol {
+	margin: 0; padding: 0;
+
+	ul, ol {
+		li {
+			margin: 0; padding: 0;
+			line-height: 1;
+		}
+	}
+}
+
+ul { list-style: none outside; }
+ol { list-style: decimal; }
+
+.square, .circle, .disc { margin-left: 30px; }
+
+.square { list-style: square outside; }
+.circle { list-style: circle outside; }
+.disc { list-style: disc outside; }

@@ -1,0 +1,4488 @@
+
+///////////////////////////////////////////////////////////////////////////////////// RESPONSE/SCSS ///
+
+@media all and (min-height: 1199px), screen and (min-height: 1199px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#contactable-inner { top: 93% !important; }
+	#contactable-contactForm { top: 82.5% !important; }
+	
+	body.landing #gapelia { top: 4rem !important; }
+	
+	body.landing .super-wrapper { height: 1200px; }
+	
+	.profile {
+		#user-splash .user-avatar { top: 22% !important; }
+		#user-extra {
+			bottom: -26rem !important;
+		}
+	}
+	
+	.full-book {
+		.photo-wrapper {
+			.page-bg-wrapper { top: 10% !important; }
+			.author-info { top: -7.5%; }
+		}
+		.overlay-wrapper .overlay-preview article { margin: 22% auto; }
+	}
+}	
+
+
+
+@media all and (min-width: 1919px), screen and (min-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#contactable-inner { top: 92% !important; }
+	
+	body.landing {
+		#about-one {
+			img, iframe {
+				height: 700px !important;
+			}
+		}
+	}
+	
+	.app{
+		.book, .collection, .library, .new, .draft {
+			width: 600px !important;
+		}
+		
+		.book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { padding: 0rem 1rem 1rem 1rem; }
+		
+		#featured-nav { top: 0.6rem !important; }
+		#featured-panel { height: 100px; }
+		
+		#g-menu-toggle { top: 0.5rem !important; }
+		
+		#featured-nav {
+
+			#stay-right {
+				right: 0.75rem;
+				top: -0.6rem;
+				
+				a { font-size: 1rem; }
+			}
+			
+		}
+		
+		.library-location: { left: 6%; }
+		
+		#new-library #close-splash { margin-left: 4% !important; height: 6% !important; }
+		
+		#new-library #new-library-info { top: 51.5%; }
+	}
+	
+	body.library {
+		#featured-panel #g-menu-toggle { left: 1.2rem; top: 0; }
+		
+		#stay-right {
+			right: 0.253rem;
+		}
+		
+		#submission-pop {
+			height: 5% !important;
+			margin-left: 8% !important;
+		}
+		
+		#contributors-title { top: 32% !important; }
+		
+		#contributor-list { top: 38% !important; }
+	}
+	
+	body.library-manager {
+		#featured-nav {
+			.typeahead { display: block; }
+		}	
+	}	
+	
+	.profile #user-panel {
+		#g-menu-toggle { left: 1rem; }
+		
+		.notification-time #notification-count { right: 5.7rem !important; }
+		
+		#user-splash {
+			.user-avatar { top: 20.5% !important; }
+			#close-splash { left: 92% !important; }
+		}	
+	}
+	
+	.accounts .account-delete-wrapper { padding-bottom: 7rem; }
+	
+	.full-book {
+		.notification-time #notification-count {	right: 5.5rem !important; }
+		#g-menu-toggle { top: 1rem !important; }
+		.backcover-wrapper #fin { padding: 14rem 15rem 0 15rem !important }
+		.fluid-wrapper .fluid-preview article #fin figure.merci { left: 47.5%; }
+		.fluid-wrapper {
+			.author-info {
+				.author-avatar { margin-left: 86% !important; }
+			}	
+		}
+		.photo-wrapper {
+			.author-info { top: -7.5%; }
+			.author-avatar { margin-left: 88% !important; }
+			.page-bg { height: 100%; }
+		}	
+	}
+	
+	.content #email-export img { margin-left: 5% !important; }
+	
+	a.mercibject div.opening div.circle { left: 38.5%; }
+	
+	#publish-modal { padding: 22rem 4rem !important; }
+	
+	.g-body #share-draft-overlay h3 { margin: 15% 31%; }
+}	
+
+@media all and (min-width: 1599px), screen and (min-width: 1599px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	body.landing {
+		
+		#mp-pusher {
+			padding: 18%;
+		}
+		
+		#about-one {
+			img, iframe {
+				height: 600px !important;
+			}
+		}
+		
+		#beta {
+			top: 88%;
+		}
+		
+	}
+	
+	//side menu optimization//
+	.mp-menu {
+		width: 350px;
+		ul {
+			font-size: 1.75rem;
+			
+			li { margin-top: 10px; }
+		}
+	}
+	
+	.app #site-menu h2 { height: 65px; }
+	//side menu optimization//
+	
+	.app {
+		
+		#g-menu-toggle { top: 0.35rem; left: 1.1rem; }
+		
+		//onboarding//
+		#intro {
+			font-size: 1.8rem;
+			padding-top: 4rem !important;
+			padding-left: 2rem !important;
+			
+			p { width: 33% !important; }
+			
+			#next-intro { margin-left: 24% !important; }
+		}
+		
+		#university-affiliation .selectize-control {
+			margin-left: 30% !important;
+			width: 40% !important;
+		}
+		
+		#featuredTutorial {
+			font-size: 2.25rem;
+			padding: 12rem 4rem 1rem 1rem;
+		}
+		
+		#featuredTutorialTwo {
+			font-size: 2.25rem;
+			
+			#intro-tutorial { width: 57%; }
+			
+			#next-intro-final { margin-left: 44% !important; }
+		}
+		
+		#featuredTutorialThree {
+			padding: 6rem 4rem 1rem 1rem;
+		}
+		
+		//onboarding//
+		
+		.bookmarked {
+			.bookmark-this {
+				.right-bm { width: 47px; }
+
+				.top-bm {
+					border-top: 20px solid $red;
+					right: 30px;
+				}
+
+				.bottom-bm {
+					border-bottom: 20px solid $red;
+					right: 30px;
+				}
+			}
+		}
+		
+		.book-list-wrapper-list {
+			left: 32.5%;
+			width: 40%;
+		}
+		
+		.book-list-wrapper, .user-book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper { top: 53% !important; width: 100%; }
+		
+		.following-list-wrapper {
+			img {
+				height: 150px !important; width: 150px !important;
+				left: 34% !important;
+				top: 20% !important;
+			}
+			
+			.library-info {
+				top: 40% !important;
+				
+				.title { font-size: 2.5rem; }
+			}	
+			
+			#last-published a { font-size: 1.5rem; }
+		}
+		
+		.book, .collection, .library, .new, .draft {
+			margin: 0 0 0 1.5rem;
+			//height: 790px !important;// changing height messes up sizing
+			width: 450px;
+		}
+		
+		.book-title { top: 34%; font-size: 2.25rem; }
+		
+		.book .book-snippet { font-size: 1.25rem; }
+		
+		.book-info .author-name { font-size: 1.25rem; }
+		
+		.library-location { font-size: 1rem; }
+		
+		.library-info {
+			.title { font-size: 2rem; }
+			.lib-blurb { font-size: 1.3rem; }
+		}
+		
+		.featured-info, .new-inner-wrapper, .draft-info, .library-info, .submission-info {
+			padding: 0 3rem;
+			top: 36%;
+		}
+		
+		#no-bookmarks {
+			padding: 17rem 10rem 10rem 28rem;
+		}
+		
+		#featured-nav {
+			font-size: 1.25rem;
+			left: 5.5rem;
+			padding-top: 0.9rem;
+			top: 0.4rem;
+			
+			#search-ii { top: 20px !important; }
+			
+			.typeahead {
+				font-size: 1.5rem !important;
+				margin-left: 55% !important;
+			}
+			
+			.tt-dropdown-menu {
+				margin-left: 67.5% !important;
+			}
+			
+			.suggested-libs {
+				margin-left: 29.5% !important;
+			}
+		}
+		
+		#featured-panel { margin: 0.8rem 0 0 0; }
+		
+		.library-location { left: 7%; }
+		
+		.library .wrapper { bottom: 12rem; }
+		
+		#library-splash {
+			
+			h1, h1 span  {
+				font-size: 1.4rem !important;
+				padding-bottom: 1rem;
+			}
+			
+			h2 { font-size: 3.5rem; }
+			
+			p { font-size: 2rem !important; opacity: 0.8; }
+			
+			#library-info {
+				top: 40%;
+				
+				h2 { margin-top: 1rem; }
+				
+				section {
+					font-size: 1.8rem;
+					margin-top: 1rem; 
+					position: absolute;
+					
+					#featured-avatar {
+						height: 40px;
+						width: 40px;
+					}
+				}
+				
+				p span { font-size: 1.7rem !important; }
+			}	
+		}
+		
+		#new-library {
+			
+			.button-wrapper { top: 24%; }
+			
+			.library-controls { bottom: 4.5rem;}
+			
+			#close-splash {
+				height: 7%;
+				left: 29% !important;
+				padding: 1.5rem 1rem 1rem 1rem;
+			}
+			
+			p { font-size: 2rem !important; line-height: 2; opacity: 0.8; }
+		}	
+		
+		.user-book-list-wrapper { top: 51.75%; }
+	}
+	
+	body.library-manager {
+		
+		#no-libraries {
+			padding: 17rem 10rem 10rem 28rem;
+		}
+		
+		.glass { margin-top: 8.2rem !important }
+		
+		#featured-nav .suggested-libs { max-height: 500px; }
+		
+	}
+	
+	body.library {
+		#submission-pop {
+			height: 7%;
+			left: 28% !important;
+				
+			p { padding: 1.25rem 1rem 0rem 1rem; }
+		}
+		
+		#featured-panel #g-menu-toggle { top: 0; }
+		
+		#contributors-title { top: 28%; }
+		
+		#contributor-list { top: 35%; }
+	}
+	
+	/// PROFILE ///
+	
+	.profile {
+		
+		#user-splash {
+			#splash-user-bio {
+				font-size: 1.5rem;
+				margin: 0 0 2rem 0;
+				
+				span { font-size: 1.5rem !important; }
+			}
+		
+			#close-splash, .follow, .unfollow {
+				font-size: 1.2rem;
+			}
+			
+			h1 {
+				font-size: 3.3rem;
+				line-height: 75px;
+			}
+			
+			h5 {
+				font-size: 1.3rem;
+				line-height: 1.75;
+				text-align: center;
+				
+				a {
+					display: inline;
+					margin: 8px 10px 0 0;
+					margin-left: 10px;
+				}
+			}
+			
+			#splash-user-bio {
+				padding-left: 3rem;
+				padding-right: 3rem;
+			}
+			
+			#splash-user-info { padding-top: 1rem; }
+			
+			#user-extra {
+				left: 1.75rem;
+				
+				li { font-size: 1.25rem; }
+			}
+			
+			.user-avatar { top: 16%; }
+		}
+		.notification-time #notification-count { right: 4rem !important; }
+	}
+	
+	.analytics {
+		
+		#featured-nav { top: 0.5rem; }
+		
+		#top-container {
+			top: 6rem !important;
+			
+			#last-story {
+				img {
+					height: 250px !important;
+					width: 350px !important;
+				}
+			}
+			
+			#network-data { top: 7rem !important; }
+		}
+		
+		.sortable { top: 48% !important; }
+	}
+	
+	///FULL BOOK///
+	
+	.g-body hr { margin: 6rem auto 20px auto; }
+	
+	.full-book {
+
+		#g-menu-toggle { top: 1rem; }
+		
+		#the-book {
+			
+			#collection-pop {
+				height: 6%;
+				padding-top: 10px;
+			}
+			
+			#stay-right {
+				padding: 1.75rem 1.75rem 0 0;
+				
+				ul { right: 1.5rem !important; top: 4rem; }
+			}
+		}
+		.frontcover-wrapper, .photo-wrapper, .text-wrapper, .horizontal-wrapper,
+		.overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			height: 100% !important;
+		}
+		
+		.fluid-wrapper .author-info .author-avatar { margin-left: 81%; }
+		
+		.photo-wrapper .author-info .author-avatar { margin-left: 86%; }
+		
+		.overlay-wrapper .author-info .author-avatar { margin-left: 45%; }
+		
+		// footer //
+		
+		.fluid-wrapper .fluid-preview article {
+			
+			#fin-next {
+				margin-left: -2rem;
+				
+				.book-title {
+					bottom: 6rem;
+					right: 8rem;
+				}
+			}
+			
+			#fin {
+				#credits { margin: 4rem 0 0 9rem; }
+				figure.merci {
+					left: 47%;
+					top: 4rem;
+				}
+			}	
+		}	
+		
+		.backcover-wrapper {
+			
+			hr { margin-bottom: 60px; }
+			
+			#fin {
+				padding: 10rem 10rem 0 10rem;
+				
+				.author-name {
+					display: inline !important; 
+					font-size: 2rem;
+
+					:first-letter { text-transform: uppercase; }
+				}
+				
+				#author-bio-blurb {
+					font-size: 1.25rem;
+					line-height: 1.5;
+				}
+				
+				.share-book { margin: 1.5rem 0 4rem 8.5rem; }
+				
+				section { margin: 0 0 -3rem 0; }
+			}	
+		}		
+		.notification-time #notification-count { right: 4rem !important; }
+	}
+	
+	.accounts .notification-time #notification-count { right: 2.5rem !important; }
+	
+	.g-body #share-draft-overlay h3 { margin: 15% 27%; }
+
+}
+
+@media all and (min-width: 1439px), screen and (min-width: 1439px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#contactable-inner { top: 90% !important; }
+	#contactable-contactForm { top: 81% !important; }
+	
+	//size of book & libraries in carousel//
+	
+	.app {
+		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .submission-list-wrapper, .subscription-list-wrapper, .following-list-wrapper {
+			top: 52.5%;
+		}
+		
+		.book, .collection, .library {
+			width: 500px;
+		}
+		
+		#book-list, #bookmark-list, #following-list-wrapper { width: 20000px !important; } // temporary fix so 20 books fit in featured for book width = 450px
+		
+		#featured-nav #nav-search { margin-left: 25.5% !important }
+		
+		#featured-nav {
+			.typeahead { margin-left: 50%; }
+			.tt-dropdown-menu { margin-left: 47%; }
+		}
+		
+		#university-affiliation { padding: 13rem 15rem; }
+	}
+	
+	// library manager //
+	
+	body.library-manager {
+		.library .wrapper { bottom: 10rem; }
+		
+		#featured-nav {
+		
+			#nav-search { margin-left: 27.5% !important; }
+			
+			.typeahead {
+				left: 5rem !important;
+				z-index: 10;
+			}
+			
+			.tt-dropdown-menu {
+				left: 10.5rem !important;
+			}
+			
+			.glass {
+				margin-left: 12.5rem;
+			}
+			
+			.suggested-libs {
+				margin-left: 31.5% !important;
+				width: 39% !important;
+			}
+		}
+	}
+	
+	// library //
+	
+	body.library {
+		#submission-pop {
+			height: 6%;
+			
+			p { padding: 1rem 1rem 0rem 1rem; } 
+		}
+	}
+	
+	//profile//
+	
+	.profile {
+		#user-splash .user-avatar { top: 18.5%; }
+		
+		#close-splash, .follow, .unfollow { bottom: 93.5% !important; }
+		
+		.follow, .unfollow { left: 90.5% !important; }
+		
+		.notification-time #notification-count { right: 3.25rem; }
+	}
+	
+	// full book //
+	
+	.full-book {
+		.notification-time #notification-count { right: 3.25rem; }
+		
+		#the-book {
+			#collection-pop { height: 5.5%; }
+		}
+		
+		.backcover-wrapper #fin { padding: 9rem 5rem 0 9rem; }
+	}
+	
+	.content #email-export img { left: 21% !important; }
+	
+	#publish-modal { padding: 15rem 4rem; }
+	
+	.modal .wrapper .wrapper { padding-top: 4rem !important; }
+	
+	// accounts //
+	
+	.accounts .notification-time #notification-count { right: 2.5rem; }
+	
+	
+	#draft-tutorial {
+		margin-top: 12% !important;
+	}
+}	
+
+@media all and (max-width: 1280px), screen and (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+
+	.app {
+
+		.book, .collection, .library, .new, .draft {
+			&:hover {
+				// box-shadow: inset 10px 0 0 0 $slate; // spine hidden until animation is developed
+				// what animation?
+			}
+		}
+		
+		.bookmarked {
+			.bookmark-this {
+				.top-bm {
+					bottom: -15px; right: 30px;
+					border-top: 20px solid $red;
+				}
+
+				.bottom-bm {
+					border-bottom: 20px solid $red;
+					right: 30px;
+				}
+
+				.right-bm {
+					width: 47px; height: 25px;
+
+					background-color: $red;
+					border-right: 0;
+				}
+
+				&:hover {
+					.top-bm {
+						bottom: -15px; right: 30px;
+					}
+
+					.bottom-bm { right: 30px; }
+
+					.right-bm {
+						width: 47px; height: 25px;
+					}
+				}
+			}
+		}
+	}
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		#user-splash {
+			.avatar-wrapper {
+				#splash-edit-wrapper { top: 3.85rem; }
+			}
+		}
+
+	}
+
+}
+
+@media all and (max-width: 1024px), screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#contactable-inner { display: none !important; }
+	
+	html, body {
+		::-webkit-scrollbar {
+			width: 12px; height: 12px;
+		}
+	}
+
+	body {
+		margin: 0; padding: 0;
+
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	//// Landing (homepage + 404) ///
+	
+	body.landing {
+		
+		.super-wrapper { padding: 20%; }
+		
+		#about-one {
+			
+			iframe {
+				height: 450px;
+				margin-top: 10rem;
+				width: 80%;
+			}
+			
+			img {
+				height: 450px !important;
+				left: 10%;
+				width: 80%;
+			}
+			
+			p {
+				font-size: 1.5rem;
+				left: 10%;
+				width: 80%;
+			}
+		}	
+		
+		h1 { font-size: 2.5rem; }
+		
+		h4 {
+			font-size: 1.2rem;
+			width: 90%;
+		}
+		
+		h5 {
+			font-size: 2.4rem;
+		}
+	}
+	
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+
+	.app {
+		
+		.super-wrapper { overflow-y: scroll; }  //making library vertically scrollable in mobile//
+		
+		//onboarding//
+		#university-affiliation {
+			padding: 8rem 6rem;
+		}
+		
+		//fixing scrollbar for mobile//
+		
+		.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .following-ist-wrapper {
+			margin: 0;
+			padding: 0;
+			overflow-y: scroll;
+			width: 100%;
+		}
+		
+		.scrollbar {
+			display: none;
+		}
+		.scrollbar .handle {
+			diplay: none;
+		}
+		.scrollbar .handle .mousearea {
+			display: none;
+		}
+		
+		.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .following-ist-wrapper  {
+			-webkit-perspective: 0px;
+			-ms-perspective: 0px;
+			perspective: 0px;
+			-webkit-perspective-origin: none;
+			-ms-perspective-origin: none;
+			perspective-origin: none;
+			overflow-y: hidden;
+		}
+		.book-list-wrapper ul, .library-list-wrapper ul, .user-book-list-wrapper ul, .following-ist-wrapper ul {
+			-webkit-transform-style: none;
+			-ms-transform-style: none;
+			transform-style: none;
+		}
+		.book-list-wrapper ul li, .library-list-wrapper ul li, .user-book-list-wrapper ul li, .following-ist-wrapper ul li {
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+			-webkit-transition: none;
+			transition: transform none;
+		}
+		
+		.book-list-wrapper ul li.active, .library-list-wrapper ul li.active, .user-book-list-wrapper ul li.active, .following-ist-wrapper ul li.active   {
+			z-index: none;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+		}
+		.book-list-wrapper ul li.active ~ li, .library-list-wrapper ul li.active  ~ li, .user-book-list-wrapper ul li.active ~ li, .following-ist-wrapper ul li.active ~ li {
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+		}
+		
+		#book-list, #library-list, #user-book-list, #following-list {
+			-webkit-transform: none !important;
+		}
+		
+		.book { width: 700px; }
+		
+		//fixing scrollbar for mobile//
+		
+		.not-mobile { display: none; }
+
+		#site-menu { display: none; }
+
+		.mp-menu {
+			#gpl-menu-me {
+				&:hover:after { content: ""; }
+			}
+
+			ul li ul {
+				display: block;
+				height: 100%;
+			}
+		}
+
+		#g-menu-toggle {
+			width: 64px; height: 71px;
+
+			text-align: center;
+			top: 0;
+		}
+
+		#header-message {
+			font-size: 1.2rem;
+			padding: 2.5rem 0 0.5rem 0;
+			
+			button { top: 2.1rem; }
+		}
+		
+		#footer-menu {
+			font-size: 1.5rem;
+			margin: -3rem 0 3rem 0;
+			text-align: center;
+			width: 100%;
+			
+			li { margin: 14px; }
+		}
+		
+		#g-menu-toggle {
+			background-image: url("../images/folio-icon-solid.png");
+			color: transparent !important;
+			left: 1.4rem;
+			top: 0.8rem;
+		}
+		
+		#next-book-toggle { right: 1rem; }
+
+		.user-book-list-wrapper, .book-list-wrapper, .library-list-wrapper, .bookmark-list-wrapper, .subscription-list-wrapper, .following-list-wrapper {
+			position: relative;
+			top: initial;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+
+		#book-scroller, #featured-scroller { background-color: rgba($black, 0.05); }
+		
+		#featured-scroller #g-menu-toggle {
+			background-image: url("../images/folio-logo.png");
+			background-size: 130px;
+			left: 43.5%; top: 11rem;
+			width: 300px;
+		}
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list, #following-list {
+			width: 100% !important; height: 100% !important; // auto
+			top: initial; bottom: 0; // 75px
+
+			//background-color: rgba($black, 0.05);
+			display: inline-block; // block
+			padding: 3.3rem 10.75rem 5.25rem 10.75rem;
+			transform: translateY(0);
+
+			-o-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+		}
+		
+		#explore-list {
+			padding: 1.5rem 1.25rem 1.25rem 1.25rem !important;
+			margin-bottom: 1rem;
+		}
+		
+		#featured-panel, #featured-scroller,
+		#user-panel, #book-scroller {
+			display: block;
+			width: 100%;
+		}
+
+		#featured-panel  {
+			border-bottom: 0;
+			height: 65px; // 301px // 188px
+			margin: 0;
+			overflow: visible;
+
+			h2 { display: none; }
+
+			small {
+				background-color: $slate;
+				color: $white;
+				font-size: 1.5em;
+				padding: 0.2rem 0;
+				position: fixed;
+				text-align: center;
+				text-transform: uppercase;
+				width: 100%;
+			}
+
+			&:after { display: none; }
+		}
+
+		#welcoming-title {
+				width: 100%; height: 450px;
+				margin: 0; padding: 16.6rem 6rem;
+
+				background-image: url("../images/cover.jpg");
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				color: $white;
+				font-size: 1.5rem;
+				font-weight: 500;
+				left: 0;
+				overflow: hidden;
+				position: absolute;
+				text-align: center;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				z-index: 10;
+			}
+		
+		#featured-panel {
+			
+			#category-title {
+				width: 100%; height: 75px;
+				margin: 0; padding: 1.6rem 2rem;
+
+				color: $slate;
+				font-size: 1.4rem;
+				font-weight: 200;
+				left: 0;
+				overflow: hidden;
+				position: absolute;
+				text-align: right;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				z-index: 1;
+			}
+
+			#category-switcher {
+				width: 64px; height: 75px;
+				top: 0; right: 1rem;
+
+				background-color: transparent;
+				border-radius: 0;
+				color: $slate;
+				display: block; // none
+				font-size: 36px;
+				position: absolute;
+				z-index: 1;
+			}
+
+			#featured-nav {
+				width: 100%; height: auto;
+				margin: 0; padding: 0;
+				top: 0; left: 0;
+
+				border-bottom: 1px solid rgba($black, 0.07);
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+				font-size: 1.5rem;
+				text-align: center;
+				transition: all 0.5s ease;
+				z-index: 1;
+
+				li:first-child {
+					background-color: $slate;
+					color: $white;
+					padding: 1.25rem;
+					
+					a { color: $white; }
+				}
+				
+				li {
+					margin: 0; padding: 1rem;
+
+					background-color: $white;
+					box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+					cursor: pointer;
+					display: block;
+					top: 0;
+					translate: translateY(0);
+
+					-o-translate: translateY(0);
+					-ms-translate: translateY(0);
+					-moz-translate: translateY(0);
+					-webkit-translate: translateY(0);
+				}
+
+				.current {
+					background-color: $slate;
+					border-bottom: 0;
+					display: none;
+					padding: 1rem;
+
+					a {
+						border: 0;
+						color: $white;
+					}
+				}
+				
+				#nav-search { display: none; }
+			}
+		}
+
+		#featured-scroller, #book-scroller {
+			overflow-x: hidden;
+			overflow-y: hidden;
+			transform: translate3d(0, 0, 0);
+
+			-o-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+
+			-webkit-overflow-scrolling: touch;
+			
+			#category-title {
+				color: rgba(11, 72, 107, 0.5);
+				font-size: 1.25rem;
+				position: absolute;
+				text-align: center;
+				top: 1.25rem;
+				width: 100%;
+			}
+			
+			#featured-nav { display: none; }
+		}
+		
+		#featured-scroller #category-title {
+			top: 1.8rem;
+		}
+
+		/// removing cover photos and giving it a list format for mobile //
+		
+		.book, .collection {
+			background-image: none !important;
+			width: 700px;
+		}
+		
+		.book, .collection, .library {
+			
+			background-color: transparent;
+			border-radius: 0 !important;
+			border-bottom: 1px solid rgba($black, 0.15);
+			padding-bottom: 1.5rem !important;
+			text-shadow: none !important;
+			
+			&:after { background: none !important; }
+			
+			&:hover:after { background: none !important; }
+			
+			&:hover {
+				.book-title a, .library-location, .author-name, .num-votes { text-shadow: none !important; color: rgba($black, 0.8) !important; }
+			}
+			
+			.author-avatar {
+				margin: 0 0 -1rem 0;
+				width: 45px; height: 45px;
+			}
+			
+			.book-title a, .library-location, .book-info, .author-name  a { color: rgba($black, 1) !important; text-shadow: none !important; }
+			
+			.book-info .num-votes {
+				bottom: 0; right: 2rem;
+				font-size: 1rem;
+			}
+			
+			.book-snippet { opacity: 0.85; }
+			
+			.bookmark-this { display: none; }
+			
+			/// removing cover photos and giving it a list format for mobile //
+		
+			margin: 0 0 2.5rem 0; padding: 0;
+			width: 100%; height: auto !important; 
+
+			&:last-child { margin-top: 1rem; bottom: 0; padding-bottom: 1rem !important; }
+
+			.library-info, .draft-info, .featured-info {
+				padding: 0 4rem;
+				top: 30%;
+
+				.title, .lib-blurb { padding: 0; }
+
+				.title {
+					font-size: 2.1rem;
+					margin: 0 0 1rem 0;
+				}
+
+				.lib-blurb {
+					font-size: 1.2em;
+					line-height: 1.9rem;
+				}
+
+				button {
+					font-size: 1.2rem;
+					&:hover { padding: initial; }
+				}
+			}
+
+			.library-info .title { border-bottom: none !important; }
+			
+			.library-location {
+				border: none !important;
+				font-weight: 100;
+				left: 2rem;
+				opacity: 1;
+				position: relative;
+			}
+			
+			.wrapper {
+				bottom: 2rem; // 4rem
+				padding: 0 4rem;
+
+				button { font-size: 1rem; }
+			}
+
+			.bookmark-this {
+				right: 4rem;
+
+				.top-bm, .bottom-bm {
+					border-left: 40px solid transparent;
+					right: 18px;
+				}
+
+				.top-bm {
+					border-top: 40px solid $white;
+					bottom: -30px;
+				}
+
+				.bottom-bm { border-bottom: 40px solid $white; }
+
+				.right-bm {
+					width: 50px; height: 50px;
+					top: -10px; right: -32px;
+				}
+
+				&:hover {
+					.top-bm, .bottom-bm { right: 18px; }
+					.right-bm { width: 50px; }
+				}
+			}
+		}
+
+		#book-list, #library-list, #bookmark-list, #user-book-list, #subscription-list, #following-list { width: 100% !important; }
+		
+		#book-list, #user-book-list { right: 0; }
+		
+		.bookmarked {
+			.bookmark-this {
+				z-index: 5;
+
+				.right-bm { width: 92px; }
+
+				.top-bm {
+					border-top: 40px solid $red;
+					right: 60px;
+				}
+
+				.bottom-bm {
+					border-bottom: 40px solid $red;
+					right: 60px;
+				}
+
+				&:hover {
+					.right-bm {
+						width: 92px; height: 50px;
+						top: -10px; right: -32px;
+					}
+
+					.top-bm {
+						bottom: -30px; right: 60px;
+						border-top: 40px solid $red;
+					}
+
+					.bottom-bm {
+						border-bottom: 40px solid $red;
+						right: 60px;
+					}
+				}
+			}
+		}
+
+		.book-title, .book-info { position: relative; }
+
+		.book-title {
+			margin: 0rem 0 1.5rem 0; padding: 0 5rem 0 2rem;
+
+			font-size: 1.5rem;
+			top: initial;
+		}
+
+		.book-info, .collection-info {
+			bottom: 1rem;
+			font-size: 1rem;
+			font-weight: 100;
+			height: 50px;
+			opacity: 0.8;
+			padding-top: 0.5rem;
+			position: relative;
+		}
+		
+		.book-info .author-name, .collection-info .author.name {
+			display: inline-block !important;
+			font-size: 0.9rem;
+			margin-left: 5px;
+			opacity: 1;
+		}
+
+		#featured-splash, #library-splash, #user-splash, #new-library {
+			z-index: 10;
+		}
+
+		#featured-splash, #library-splash, #user-splash {
+			#library-info, #splash-user-info { padding: 0 10rem; }
+
+			#close-splash {
+				border-bottom: none;
+				font-size: 2.5rem;
+				font-weight: 100;
+				left: 48%;
+				opacity: 0.75;
+			}
+		}
+		
+		.library {
+			margin: 0 0 1.5rem 0 !important;
+			
+			.image-overlay { background: rgba($black, 0.4); }
+			
+			.library-wrapper {
+				top: 1rem !important;
+				right: 1rem !important;
+				text-align: right;
+			}
+		}
+		
+		#contact-editor { display: none; }
+		
+		#library-splash {
+			#library-info {
+				left: 10%;
+				text-align: center;
+				top: 39%;
+				width: 75%;
+				
+				h2 { font-size: 3rem; }
+			}
+			
+			button { display: none; }
+			
+			#library-cover {
+				height: 125% !important;
+			}
+			
+			#library-share {
+				bottom: 1rem;
+				right: 1.5rem;
+			}
+			
+			#close-splash {
+				background-image: none !important;
+				bottom: 0.75rem;
+				height: 50px !important;
+				left: 46% !important;
+				width: auto;
+				
+				img {
+					height: 50px; width: 50px;
+				}
+			}
+		}
+		
+		#user-splash {
+			
+			h1 { font-size: 2.4rem; }
+			h2 { font-size: 55px; }
+			h5 { line-height: 20px; }
+	
+			#splash-user-bio {
+				font-size: 1rem;
+				margin: 0 0 2rem 0;
+			}
+			
+			#splash-user-info { top: 26.5%; }
+			
+			.user-avatar { top: 21.5%; }
+			
+			#close-splash {
+				border: none;
+				bottom: 0.5rem;
+				font-size: 2rem;
+				left: 48.5% !important; right: inherit;
+				text-align: center;
+			}
+		}
+		
+		.library {
+			height: 250px !important; width: 100% !important;
+			box-shadow: none;
+			-webkit-box-shadow: none; 
+			border: none;
+			
+			&:hover {
+				box-shadow: none;
+				-webkit-box-shadow: none; 	
+			}
+			
+			&:last-child {
+				bottom: 1rem;
+				margin-top: 1rem !important;
+				padding-bottom: 1rem !important;
+			}
+		}
+		
+		//onboarding process//
+		
+		#intro {
+			#intro-hello {
+				width: 80%;
+			}
+			
+			#next-intro {
+				margin-left: 0 !important;
+			}
+		}
+	}
+	
+	.onboard #onboard-photos-overlay #user-info {
+		padding: 0 6rem;
+	}
+	
+	// optimizations for library and profile splash so icons are visible //
+	
+	.notification-time #notification-count { display: none; }
+	
+	body.library {
+		
+		.book-buttons { display: none; }
+		
+		#about-section { display: none; }
+		
+		#featured-nav {
+			width: 100%; height: auto;
+			margin: 0; padding: 0;
+			top: 0; left: 0;
+
+			border-bottom: 1px solid rgba($black, 0.07);
+			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+			font-size: 1.5rem;
+			text-align: center;
+			transition: all 0.5s ease;
+			z-index: 1;
+
+			li:first-child {
+				background-color: $slate;
+				color: $white;
+				padding: 1.5rem;
+					
+				a { color: $white; }
+			}
+			
+			li {
+				margin: 0; padding: 1rem;
+
+				background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+				cursor: pointer;
+				display: inherit !important;
+				top: 0;
+				translate: translateY(0);
+
+				-o-translate: translateY(0);
+				-ms-translate: translateY(0);
+				-moz-translate: translateY(0);
+				-webkit-translate: translateY(0);
+			}
+
+			.current {
+				background-color: $slate;
+				border-bottom: 0;
+				display: none;
+				padding: 1rem;
+
+				a {
+					border: 0;
+					color: $white;
+				}
+			}
+		}
+		
+		#featured-panel {
+			background-color: transparent;
+			height: 71px;
+			z-index: 10;
+			
+			#g-menu-toggle {
+				left: 0.8rem;
+				top: 0.8rem;
+			}
+		}
+		
+		#library-splash #close-splash { background-color: transparent; }
+		
+		#stay-right { display: none; }
+	}	
+	
+	#book-scroller,  {
+		background-color: transparent !important;
+		padding-right: 2rem;
+		position: absolute;
+		z-index: 10;
+		text-align: right;
+		top: 0;
+		width: 100%;
+		display: block !important;
+	}
+	
+	body.library-manager {
+		.library .wrapper {
+			padding: 0 1rem 0 0;
+			text-align: right;
+			top: 1rem;
+		}
+		#featured-scroller { padding-bottom: 4rem; }
+	}
+	
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.g-body hr { display: none; }
+	
+	.full-book {
+
+		overflow-x: hidden;
+		overflow-y: auto;
+		
+		#book-menu {
+			width: 100%; height: auto; max-height: 500px;
+			margin: 0; padding: 64px 0 0 0;
+			top: 0; left: 0;
+
+			background-color: $slate;
+			color: $white;
+			font-size: 1.5rem;
+			overflow-y: auto;
+			position: fixed;
+			text-align: center;
+			transition: all 0.5s ease;
+			z-index: 101;
+
+			li {
+				margin: 0; padding: 1rem 0;
+
+				background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+				color: rgba(11, 72, 107, 0.25);
+				cursor: pointer;
+				display: block;
+				top: 0;
+			}
+		}
+		
+		#featured-panel {
+			height: 0px !important;
+			z-index: 100 !important;
+		}
+		
+		#book-menu {
+			#nav-notify {
+				ul {
+					display: none;
+					font-size: 0.8rem;
+					margin: 1rem 0 0 0;
+				}
+			}
+		}
+		
+		#editor_response_info { width: 70% !important; }
+
+		#the-book {
+			height: auto;
+
+			#stay-right, #edit-shortcut { display: none !important; }  //adding to library and edit shortcut disabled for phone
+		
+			#bb-bookblock {
+				height: auto;
+				overflow-x: initial;
+				overflow-y: initial;
+
+				.bb-item {
+					width: 100%; height: auto; // 100%
+					top: initial; left: initial;
+
+					display: block !important;
+					margin: 0; // 0 0 1rem 0
+					position: relative;
+
+					.content {
+						height: 100% !important;
+						width: 100% !important;
+						position: relative;
+					}
+				}
+			}
+		}
+
+		.fluid-wrapper, .photo-wrapper, .overlay-wrapper, .phototext-wrapper, .vertical-wrapper, .video-wrapper, .backcover-wrapper {
+			width: 100%; height: auto;
+
+			overflow: initial;
+			position: relative;
+
+			.page-bg, iframe { position: relative; }
+		}
+		
+		.page-desc h3 { font-size: 1.4rem; }
+
+		.scroller-wrapper {
+			overflow-y: initial;
+			position: relative;
+		}
+
+		.fluid-wrapper {
+			margin-bottom: 2rem;
+			
+			.author-info {
+				width: 80%; height: 50px;
+				margin: 1rem 0rem -4.5rem -9.5rem; padding: 0 10%;
+
+				position: relative;
+				top: initial;
+
+				.author-name {
+					border-right: 1px solid rgba($black, 0.2);
+					height: 150%;
+					margin: 0.3rem 0 0 5.25rem;
+					padding-right: 2.25rem;
+					position: absolute;
+					text-align: right;
+					text-shadow: 1px 1px 0 rgba($white, 0.1) !important;
+
+					&:before {
+						left: 15px;
+						position: relative;
+						text-align: right;
+					}
+					
+					a {
+						left: -24px;
+						padding-right: 1rem;
+						position: absolute;
+						width: 118px;
+					}
+				}
+
+				.author-avatar { margin-left: 64%; }
+			}
+
+			section { height: auto; }
+
+			.draggable-placeholder {
+				position: relative;
+				
+				.page-bg { display: block !important; }
+			}
+
+			.fluid-preview {
+				top: initial; left: initial;
+				padding: 1rem 2rem 2rem 2rem;
+				position: relative;
+
+				article {
+					left: initial;
+					padding: 0;
+					position: relative;
+					
+					#fin { display: none; }
+					#fin-next, #response-button { display: none; }
+				}
+
+				.page-title-elem, .page-desc { width: 70%; }
+
+				.page-title-elem {
+					font-size: 2.1rem;
+					line-height: 3.3rem;
+				}
+
+				.page-desc {
+					font-size: 1.25rem;
+					line-height: 2.4rem;
+				}
+			}
+
+			.image-attribution { right: 0; }
+			
+		}
+
+		.no-img {
+			.fluid-preview { top: initial; }
+		}
+
+		.photo-wrapper {
+			.author-info {
+				position: relative;
+				text-align: center;
+				top: -2.5rem;
+				width: 100%;
+				
+				.author-avatar { margin-left: 48%; }
+				
+				.author-name {
+					border-right: none !important;
+					margin-top: 3rem;
+					text-align: center;
+				}
+			}
+			
+			.page-bg-wrapper {
+				width: 100%; height: auto;
+				top: initial !important; left: initial;
+
+				box-shadow: none;
+				line-height: normal;
+				margin: 0;
+				transform: translateY(0);
+
+				-o-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+			}
+
+			.photo-preview {
+				margin: 0 0 2rem 0;
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3.3rem;
+					width: 75%;
+				}
+			}
+			
+			.page-bg {
+				display: initial !important;
+				height: 600px;
+			}
+		}
+
+		.overlay-wrapper {
+			margin: 0 0 3rem 0;
+			height: 100%;
+			
+			.author-info .author-avatar { margin-left: 45%; }
+			.overlay-preview {
+				top: intial; left: initial;
+
+				height: 100%;
+				position: absolute;
+
+				article {
+					margin: 18% auto;
+					width: 100%; }
+
+				.page-title-elem {
+					font-size: 2rem;
+					line-height: 3.3rem;
+				}
+			}
+			
+			.page-bg {
+				display: initial !important;
+				height: auto; width: 100%;
+			}
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.image-attribution {
+				bottom: initial; left: 0; top: 1.15rem;
+				position: relative;
+			}
+			
+			.author-info {
+				border-top: 1px solid rgba($black, 0.2);
+				padding-top: 1rem;
+				text-align: center;
+				width: 100%; height: 50px;
+				margin-top: 1.5rem;
+
+				position: relative;
+				top: initial;
+
+				.author-name {
+					border-right: 1px solid rgba($black, 0.3);
+					left: 0;
+					margin: 0;
+					padding-right: 0;
+					position: absolute;
+					text-shadow: 1px 1px 0 rgba($white, 0.1) !important;
+					width: 100%;
+					
+					a {
+						margin-left: 0;
+						text-align: center;
+					}
+
+					&:before {
+						margin-left: 0rem;
+						text-align: center;
+					}
+				}
+
+				.author-avatar { margin-left: 41%; }
+			}
+		}
+
+		.phototext-wrapper {
+			.phototext-preview {
+				width: 100%; height: auto;
+				top: initial; right: initial;
+
+				overflow-y: initial;
+				margin-bottom: 2rem;
+				padding: 2rem 4rem 0rem 4rem;
+				position: relative;
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					text-align: center;
+					width: 80%;
+				}
+
+				.page-title-elem {
+					font-size: 2.1rem;
+					line-height: 3.3rem;
+				}
+
+				.page-desc {
+					font-size: 1.25rem;
+					line-height: 2.5rem;
+				}
+			}
+			
+			.page-bg { display: initial !important; }
+		}
+
+		.vertical-wrapper {
+			section, .draggable-placeholder {
+				width: 100%; height: auto;
+			}
+
+			.page-bg {
+				display: initial !important; 
+				width: 100%; height: auto;
+			}
+
+			.vertical-preview {
+				width: 100%; height: auto;
+				top: initial; right: initial;
+
+				overflow-y: initial;
+				padding: 2rem;
+				position: inherit;
+
+				article { width: 100%; }
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					width: 70%;
+				}
+
+				.page-title-elem {
+					font-size: 2.1rem;
+					line-height: 3.3rem;
+					text-align: center;
+				}
+
+				.page-desc {
+					font-size: 1.25rem;
+					line-height: 2.4rem;
+				}
+			}
+		}
+
+		.video-wrapper {
+			.video-preview {
+				width: 100%; height: auto;
+				position: relative;
+			}
+
+			.button-wrapper { display: none; }
+
+			article {
+				width: 100%; height: auto;
+				top: inherit; right: inherit;
+
+				overflow-y: initial;
+				padding: 2rem;
+				position: relative;
+
+				.page-title-elem, .page-desc {
+					margin: 1rem auto 0;
+					width: 80%;
+				}
+
+				.page-title-elem {
+					font-size: 2.1rem;
+					line-height: 3.3rem;
+					text-align: center;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.5rem;
+				}
+			}
+			
+			.page-bg { display: initial !important; }
+
+			.video-player-container {
+				width: 100%; height: 500px;
+				top: initial; left: initial;
+
+				position: relative;
+
+				iframe { height: 500px; }
+			}
+		}
+
+		.backcover-wrapper {
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			//left: 5px;
+
+			#fin, #fin-next {
+				display: block;
+				float: none;
+				width: 100%;
+			}
+			
+			#response-button { display: none; }
+
+			#fin {
+				padding: 3rem 8rem 0 10rem;
+				height: auto;
+				
+				h2 {
+					font-size: 1.5rem;
+					font-weight: 500;
+					line-height: 1.25;
+					max-width: 500px;
+					
+					&:before {
+						color: rgba($black, 0.5);
+						font-size: 0.4em;
+						font-style: italic;
+					}
+				}
+				
+				.merci a.mercibject div.opening, .author-avatar {
+					height: 75px;
+					width: 75px;
+				}
+				
+				.author-avatar { margin-left: 0; }
+				
+				.author-name {
+					font-size: 1.5rem;
+					margin: 0 0 0.5rem 2.7rem;
+					display: inline !important;
+				}
+				
+				#author-bio-blurb {
+					color: rgba($black, 0.8);
+					font-size: 1.2rem;
+					margin: -2.8rem 0 0 7.5rem;
+					max-width: 500px;
+				}
+				
+				.share-book {
+					margin: 0.5rem 0 6rem 8.5rem;
+					
+					li {
+						font-size: 1.5rem;
+						padding-top: 1rem;
+					}
+					
+					&:before { display: none; }
+				}
+				
+				#author-section { margin-bottom: 4rem; }
+				
+				section {
+					margin: 0rem 0rem 5rem 0;
+					margin-left: 0.8rem;
+				}
+				
+				//library info stuff
+				
+				#library-avatar {
+					height: 75px;
+					width: 75px;
+					margin-left: 0;
+				}
+				
+				#library-name { margin-left: 2.7rem; }
+				
+				#library-info-blurb {
+					color: rgba(25, 25, 25, 0.8);
+					margin: -3rem 7.4rem 0 7.5rem;
+				}
+			}
+
+			#fin-next {
+				height: 300px;
+				padding: 2rem 0;
+				overflow: hidden;
+				
+				.book-title {
+					margin: 6rem 0 1.5rem 0;
+					text-align: center;
+				}
+
+				&:after { background-image: linear-gradient(to top, $black, transparent); }
+			}
+			
+		}
+		
+		#g-menu-toggle {
+				left: 0.7rem;
+		}
+
+		.text-fade { display: none !important; }
+		
+		#edit-shortcut { display: none; }
+
+	}
+	
+	a.mercibject div.opening div.circle {
+		width: 75px; height: 75px;
+		left: 40%;
+	}
+	
+	.merci.complete a.mercibject div.opening div.circle { top: 40% !important;  left: 40% !important; }
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		.book-buttons { display: none; }
+		
+		.book-info .author-name, {
+			bottom: 0.5rem;
+			display: inline-block !important;
+			margin-left: 3rem;
+			position: absolute;
+		}
+		
+		#user-splash {
+			z-index: 10;
+			
+			.follow { display: none; }
+			
+			.overlay-controls { display: none; }
+		}
+		
+		#book-scroller {
+			background-color: white;
+			height: auto;
+			position: absolute;
+			top: 98%;
+		}
+
+		#featured-nav {
+			width: 100%; height: auto;
+			margin: 0; padding: 0;
+			top: 0; left: 0;
+
+			border-bottom: 1px solid rgba($black, 0.07);
+			box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 0 0 1px rgba($black, 0.05);
+			font-size: 1.5rem;
+			text-align: center;
+			transition: all 0.5s ease;
+			z-index: 1;
+
+			li:first-child {
+				background-color: $slate;
+				color: $white;
+				padding: 1.5rem;
+					
+				a { color: $white; }
+			}
+			
+			li {
+				margin: 0; padding: 1rem;
+
+				background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+				cursor: pointer;
+				display: inherit !important;
+				top: 0;
+				translate: translateY(0);
+
+				-o-translate: translateY(0);
+				-ms-translate: translateY(0);
+				-moz-translate: translateY(0);
+				-webkit-translate: translateY(0);
+			}
+
+			.current {
+				background-color: $slate;
+				border-bottom: 0;
+				display: none;
+				padding: 1rem;
+
+				a {
+					border: 0;
+					color: $white;
+				}
+			}
+		}
+		
+		h5 {
+			color: white;
+			font-weight: 100;
+			text-align: center;
+			top: 58%;
+			width: 100%;
+			
+			a {
+				font-weight: 700;
+				margin-left: 5px;
+				opacity: 0.85;
+			}
+			
+		}
+				
+		#contributes-to { margin-top: 2rem; }
+
+		#user-panel {
+			position: relative;
+			transition: all 0.5s ease;
+			
+			h2, .button-wrapper { display: none; }
+			
+			.button-wrapper {
+				bottom: 8%; left: 0;
+			}
+
+			#g-menu-toggle {
+				background-image: url("../images/folio-icon-white.png");
+				color: transparent !important;
+				left: 0.7rem;
+				top: 0.5rem;
+			}	
+		}
+
+		#mobile-header {
+			width: 100%; height: 65px;
+
+			background-image: url("../images/sprite-sheet.png");
+			background-position: 0 -339px;
+			background-repeat: no-repeat;
+			background-size: 200px 500px;
+			display: none !important; // block
+			position: absolute;
+			top: -20rem;
+			transition: all 0.5s ease;
+
+			@include hide-text;
+
+			a {
+				width: 100%; height: 100%;
+
+				display: block;
+				margin: 1rem 0;
+			}
+		}
+
+		.delete-book-confirm {
+			margin: 0;
+
+			h3 {
+				margin: 1rem 0 3rem 0;
+				position: relative;
+			}
+
+			.wrapper {
+				bottom: initial;
+				position: relative;
+				text-align: center;
+			}
+		}
+
+	}
+
+	///// LIBRARY /////
+	
+	body.library {
+		.book-list-wrapper { opacity: 1 !important; }
+		
+		#featured-scroller {
+			position: absolute;
+			top: 100%;
+		}
+		.library-list-wrapper { z-index: 0; top: -1rem !important; }
+	}
+	
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	.profile {
+		
+		.user-avatar {
+			.avatar-wrapper {
+				height: 135px;
+				width: 135px;
+			}
+			
+			.avatar-wrapper:after {
+				height: 135px;
+				width: 135px;
+			}
+		}
+		
+		#user-header {
+			display: none !important; // avoids issues with z-index, this now lives on top of book-scroller
+		}
+		
+		#user-panel {
+			background: none !important;
+			position: fixed;
+			z-index: 1000;
+		}
+	}	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////// ACCOUNTS ///
+
+	.accounts {
+
+		#account-splash-wrapper {
+			margin-bottom: 0;
+		}
+		
+		.account-info-wrapper {
+			.col-0 .bl_form input { width: 50%; text-align: center; }
+			label { text-align: center; }
+		}
+		
+		#g-menu-toggle { z-index: 102; }
+
+		#menu {
+			width: 100%; height: auto; max-height: 500px;
+			margin: 0; padding: 71px 0 0 0;
+			top: 0; left: 0;
+
+			background-color: $white;
+			border-bottom: 1px solid rgba($black, 0.07);
+			font-size: 1.5rem;
+			overflow-y: auto;
+			position: fixed;
+			text-align: center;
+			transition: all 0.5s ease;
+			z-index: 101;
+
+			li {
+				margin: 0; padding: 1rem 0;
+
+				background-color: $white;
+				box-shadow: inset 0 0 0 rgba($black, 0.5),inset 0 1px 0 0 rgba($black, 0.05);
+				cursor: pointer;
+				display: block;
+				top: 0;
+			}
+
+			#nav-notify {
+				ul {
+					display: none;
+					font-size: 0.8rem;
+					margin: 1rem 0 0 0;
+				}
+			}
+		}
+		
+		#notifications-toggle { margin-left: 28%; }
+		
+		#user-panel { z-index: 1; }
+	}
+
+	/// MISCELLANEOUS ///////////////////////////////////////////////////////////////////////////////////
+
+	.notification-time {
+		#notification-count {
+			display: none !important;
+			top: 0; right: 5px;
+		}
+	}
+	
+	#gpl-menu-notify {
+		
+		li:first-child {
+			background-color: transparent !important;
+			padding: 1rem !important;
+			
+			a { color: rgba(11, 72, 107, 0.25) !important; }
+		}
+		
+		img {
+			height: 40px !important; width: 40px !important;
+			
+			border-radius: 300em;
+			display: inline;
+			margin-right: 10px;
+			position: relative !important;
+			top: 10px !important;
+		}
+		
+		.remove-notification {
+			margin-left: 10px;
+		}
+		
+		.respond-submission {
+			color: black;
+			display: inline-block;
+			margin-top: 10px;
+			opacity: 0.8;
+		}
+		
+		.vote-notification, .comment-notification { padding-top: 0 !important; }
+	}
+
+}
+
+@media all and (max-width: 800px), screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+		
+		#about-one {
+			top: 58%;
+			
+			h1 { font-size: 2rem; }
+			
+			p { font-size: 1.25rem; }
+			
+			img, iframe {
+				height: 375px;
+				width: 85%;
+			}
+			
+			img { left: 7.5%; }
+		}
+		
+		.page-bg { height: 600px; }
+		
+		.super-wrapper {
+			padding: 30% 16%;
+		}
+		
+		h4 { width: 80%; }
+		
+		h5 { font-size: 1.8rem; }
+	}
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+
+	.app {
+
+		#g-menu-toggle {
+			color: $white;
+		}
+
+		#featured-panel {
+			height: 65px;
+
+			#category-title {
+				font-size: 1.3rem;
+			}
+
+			#featured-nav {
+				top: 0; left: 0;
+				font-size: 1.3rem;
+			}
+		}
+
+		#header-message {
+			font-size: 1.2rem;
+			padding: 2rem 0 0.5rem 0;
+			text-align: left;
+			
+			button { top: 1.6rem; }
+			
+		}
+		
+		#footer-menu { margin-top: 0 !important; }
+		
+		#bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #library-list, #bookmark-list, #subscription-list, #user-book-list {
+			padding: 	3.3rem 5.25rem 0.25rem 5.25rem;
+		}
+		
+		#explore-list { padding: 0.5rem 1.25rem 1.25rem 1.25rem !important; }
+		
+		#featured-scroller #g-menu-toggle {
+			left: 41.75%; top: 10rem;
+		}
+		
+		#welcoming-title { padding: 15.6rem 6rem; }
+		
+		.library {
+			.library-info {
+				.title {
+					margin: 1rem 0 0.5rem 0; padding: 0;
+					font-size: 1.8rem;
+				}
+
+				.lib-blurb { font-size: 1rem; }
+			}
+		}
+		
+		#featured-splash, #library-splash {
+			#close-splash {
+				left: 47%;
+			}
+		}
+		
+		#library-splash {
+			
+			#library-cover {
+				left: -25% !important;
+				width: 150% !important;
+			}
+			
+			#library-info {
+				left: 12%;
+				top: 38%;
+				width: 75%;
+				
+				h2 { font-size: 2.5rem; }
+				
+				p { font-size: 1.2rem; }
+				
+				#library-extra {
+					position: absolute;
+					width: 100%;
+				}
+			}
+		}
+		
+		#user-splash {
+			
+			#close-splash { left: 48% !important; }
+			
+			.user-avatar { top: 20%; }
+			
+			#splash-user-info {
+				font-size: 0.9rem;
+			}	
+				
+			#splash-user-info {
+				padding: 0 6rem;
+				top: 23%;
+			}
+			
+			h1 {
+				font-size: 2.2rem;
+				line-height: 42px;
+			}
+		}
+		
+		//onboarding process//
+		
+		#university-affiliation {
+			padding: 12rem 2rem;
+			
+			.selectize-control {
+				left: 20%;
+				margin-left: 0;
+				width: 60%;
+			}
+		}
+	}
+	
+	body.library {
+		#featured-nav {
+			font-size: 1.3rem;
+			top: 0px;
+		}
+	}
+	
+	body.library-manager {
+		.library .library-info { top: 22%; }
+	}
+	
+	.onboard #onboard-photos-overlay #user-info {
+		padding: 0 4rem;
+	}
+
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.full-book {
+		
+		#editor_response_info { margin-left: 1.75rem !important }
+		
+		.fluid-wrapper {
+			.draggable-placeholder {
+				height: 475px;
+				
+				.page-bg {
+					height: auto; width: 100%;
+				}
+			}
+			
+			.fluid-preview {
+				padding: 1rem 2rem 2rem 2rem;
+				
+				.page-title-elem, .page-desc { width: 92%; }
+				.page-title-elem { font-size: 2.1rem; }
+				.page-desc { font-size: 1.2rem; }
+			}
+
+			.author-info {
+				width: 100%; height: auto;
+				top: initial; left: initial;
+
+				border-bottom: 1px solid rgba($black, 0.25);
+				display: inline-block;
+				margin: 0;
+				padding-bottom: 5px;
+				padding-top: 4px;
+				position: relative;
+
+				.author-name {
+					border-right: none !important;
+					margin: 0;
+					position: relative;
+					text-align: left;
+
+					a {
+						padding-left: 2%;
+						position: initial !important;
+					}
+					
+					&:before {
+						margin-left: 10px;
+						position: initial;
+						text-align: left;
+					}
+				}
+
+				.author-avatar {
+					margin-left: -10%;
+					margin-top: -2rem;
+				}
+			}
+		}
+		
+		.photo-wrapper {
+			.author-info {
+				.author-avatar { margin-left: 47%; }
+			}
+		}
+		
+		.overlay-wrapper {
+			
+			.author-info .author-avatar { margin-left: 43%; } 
+			
+			.overlay-preview {
+				article {
+					margin: 20% auto;
+					width: 100%;
+				}
+				
+				.page-title-elem {
+					font-size: 1.5rem;
+					margin-top: 30% !important;
+				}
+			}
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.author-info {
+				.author-avatar { margin-left: 37%; }
+			}
+		}
+		
+		.phototext-wrapper {
+			.phototext-preview {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				.page-title-elem, .page-desc { width: 85%; }
+				.page-title-elem { margin-top: 1rem !important; }
+			}
+		}
+
+		.video-wrapper {
+			article {
+				.page-title-elem, .page-desc { width: 85%; }
+			}
+		}
+
+		.backcover-wrapper {
+			.book-title { padding: 0 4rem; }
+			
+			#fin {
+				padding: 3rem 3rem 0 5rem;
+				
+				h2 {
+					font-size: 1.3rem;
+					max-width: 400px;
+					padding-top: 0.3rem;
+				}
+				
+				#author-bio-blurb, #library-info-blurb, #library-info-blurb span { font-size: 1rem; }
+				
+				#library-info-blurb span { font-size: 1rem !important; }
+				
+				section { padding-right: 2rem; }
+			}
+			
+			#fin-next .book-title {
+				margin: 5rem 0 0 0;
+				text-align: center;
+				width: 100%;
+			}
+			
+			.share-book { margin: -4.5rem 0 4rem 8.5rem; }
+		}
+
+	}
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+
+		#g-menu-toggle { color: $slate; }
+
+		.delete-book-confirm {
+			h3 {
+				font-size: 1.4rem;
+				margin: 1rem 0 2rem 0;
+			}
+		}
+
+		#featured-nav {
+			font-size: 1.3rem;
+			top: 0px;
+		}
+		
+		#user-splash {
+			#splash-user-bio { font-size: 1.25rem; }
+		}
+		
+		h5 { top: 46%; }
+	}
+	
+	/// settings
+	
+	.accounts {
+		.account-info-wrapper {
+			label { width: 49%; }
+			.col-0 .bl_form input { width: 60%; }
+		}
+		
+		#notifications-toggle {
+			margin-left: 25%;
+			
+			span { font-size: 0.9rem; }
+		}
+	}
+
+}
+
+@media all and (max-width: 600px), screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+		.super-wrapper { padding: 25% 15%; }
+		
+		#about-one {
+			h1 {
+				font-size: 1.75rem;
+				margin-top: 2rem;
+			}
+			
+			hr { display: none; }
+			
+			iframe, img {
+				height: 300px !important;
+			}
+			
+			p {
+				left: 7.5%;
+				width: 85%;
+			}
+			
+			#gapelia { top: 102%; }
+		}
+		
+		footer ul li a { font-size: 1.5rem; }
+		
+		h4 {
+			font-size: 1rem;
+			width: 100%;
+		}
+		
+		h5 { font-size: 1.4rem; }
+	}
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+
+	.app {
+		
+		//onboarding//
+		#university-affiliation {
+			padding: 12rem 0rem;
+			
+			#school-intro, #uni-intro {
+				font-size: 1.1rem;
+			}
+		}
+
+		#header-message {
+			font-size: 1rem;
+			line-height: 1.5rem;
+			padding: 1.8rem 0 0.5rem 0;
+			width: 68%;
+			
+			button { right: -38%; }
+		}
+		
+		#featured-scroller #g-menu-toggle { left: 39.75%; }
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #library-list, #bookmark-list, #subscription-list, #explore-list, #following-list {
+			padding: 	3.3rem 4rem 0.25rem 4rem;
+		}	
+		
+		#featured-splash, #library-splash #user-splash {
+			#featured-info, #library-info {
+				top: 55%; left: 5%;
+
+				padding: 0;
+				width: 90%;
+			}
+		}
+		
+		#g-menu-toggle { position: absolute !important; }
+		
+		#library-splash {
+			padding: 0;
+			#library-info {
+				left: 7%;
+				top: 30%;
+				width: 85%;
+				
+				h2 { font-size: 2rem; }
+				
+				p { font-size: 1rem !important; }
+			}
+		}
+		
+		#user-splash {
+			#close-splash { left: 47.5% !important; }
+			.user-avatar { top: 19%; }
+			#splash-user-bio { font-size: 1rem; }
+			#splash-user-info {
+				padding: 0 4rem;
+				top: 24%;
+			}
+			h1 { font-size: 2rem; }
+		}
+
+		.library {
+			.library-info {
+				padding: 0 2rem;
+
+				.title {
+					font-size: 2rem;
+					margin: 0 0 0.5rem 0;
+				}
+
+				.lib-blurb {
+					font-size: 1.2rem;
+					line-height: 1.5rem;
+				}
+			}
+		}
+		
+		#intro #intro-hello {
+			width: 95%;
+		}
+
+	}
+
+	.modal-login {
+		margin: -150px 0 0 -200px;
+		top: 45%;
+		width: 400px;
+
+		#login-platforms {
+			li {
+				display: block;
+				margin: 0 0 1rem 0;
+			}
+		}
+		
+	}
+	
+	body.library-manager {
+		.library .library-info {
+			top: 30%;
+		
+			.lib-blurb { font-size: 1rem; }
+		}
+		
+		#g-menu-toggle { position: absolute !important; }
+	}
+
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.full-book {
+		
+		#g-menu-toggle { position: absolute !important; }
+		
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.image-attribution { top: 1.12rem; }
+		}
+
+		.fluid-wrapper {
+			.fluid-preview {
+				padding: 1rem 1rem 0 1rem;
+				
+				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.2rem;
+					line-height: 2.3rem;
+				}
+			}
+			
+			.draggable-placeholder { height: 300px; }
+			
+			.author-info {
+				width: 100%; height: auto;
+				top: initial; left: initial;
+
+				border-bottom: 1px solid rgba($black, 0.25);
+				display: inline-block;
+				margin: 0;
+				padding-bottom: 8px;
+				position: relative;
+
+				.author-name {
+					border-right: none !important;
+					margin: 0;
+					position: relative;
+					text-align: left;
+					
+					&:before {
+						margin-left: 6px;
+						text-align: left;
+					}
+				}
+
+				.author-avatar {
+					margin-left: -12%;
+					margin-top: -2rem;
+				}
+			}
+		}
+
+		.photo-wrapper {
+			.photo-preview {
+				.page-title-elem {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+			}
+		}
+
+		.overlay-wrapper {
+			margin: 0 0 2rem 0;
+
+			.overlay-preview article { margin: 18% auto; }
+			
+			.author-info .author-avatar { margin-left: 41%; }
+			
+			.overlay-preview {
+				.page-title-elem {
+					font-size: 1.1rem;
+					line-height: 1.5rem;
+				}
+			}
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.author-info .author-avatar { margin-left: 32%; }
+		}
+		
+		.phototext-wrapper {
+			.phototext-preview {
+				padding: 1rem 1rem 0rem 1rem;
+				
+				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				padding: 1rem 1rem 0rem 1rem;
+				
+				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
+			}
+		}
+
+		.video-wrapper {
+			.video-player-container {
+				height: 350px;
+				iframe { height: 350px; }
+			}
+
+			article {
+				.page-title-elem, .page-desc { width: 90%; }
+
+				.page-title-elem {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+
+				.page-desc {
+					font-size: 1.3rem;
+					line-height: 2.3rem;
+				}
+			}
+		}
+		
+		.backcover-wrapper {
+			
+			.book-title { padding: 0 4rem; }
+			
+			#fin {
+				padding: 1rem 1rem 0 2rem;
+				
+				#author-bio-blurb { font-size: 0.9rem; }
+				
+				.author-name { display: inline !important; }
+				
+				#share-book { margin: 0rem 0 6rem 8.5rem; }
+			}
+			
+			#fin-next .book-title {
+				margin: 5rem 0 0 0;
+				text-align: center;
+				width: 100%;
+				
+				.book-title {
+					&:before { margin: 0 0 -0.5rem 0; }
+				}
+			}
+		}
+	}
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	.profile {
+		h5 { top: 52%; }
+		
+		#user-panel { position: absolute !important; }
+	}
+	
+	.accounts {
+		.account-info-wrapper {
+			label { width: 49%; }
+			.col-0 .bl_form input { width: 80%; }
+		}
+		
+		#g-menu-toggle { position: absolute !important; }
+		
+		#notifications-toggle {
+			margin-left: 11%;
+			
+			span { font-size: 0.9rem; }
+		}
+	}
+}
+
+@media all and (max-width: 420px), screen and (max-width: 420px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	.app {
+		
+		//onboarding process//
+		#university-affiliation {
+			padding: 8rem 0.5rem;
+			
+			.appendix { display: none; }
+			
+			.selectize-control {
+				left: 5%;
+				margin-left: 0;
+				width: 90%;
+			}
+			
+			#skip-container { font-size: 1rem !important; }
+			
+			#uni-intro, #school-intro { font-size: 0.9rem; }
+			
+			#welcome { font-size: 1rem; }
+		}
+		
+		#intro { font-size: 1.3rem; }
+			
+		#header-message {
+			padding: 1.4rem 0 0.5rem 0;
+				
+			button { font-size: 12px; }
+		}	
+		
+		#featured-scroller #g-menu-toggle { left: 34.75%; }
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list, #book-list, #library-list, #bookmark-list, #subscription-list, #explore-list {
+			padding: 2.3rem 2rem 0.25rem 2rem;
+		}
+		
+		//books//
+		
+		.book-title {
+			font-size: 1.4rem;
+			padding: 0 0rem 0 2rem;
+		}
+		
+		.book-info .author-name, .collection-info .author.name { font-size: 0.7rem; }
+		
+		.book .book-info .num-votes, .collection .book-info .num-votes, .library .book-info .num-votes {
+			display: none;
+		}
+		
+		.library-location { font-size: 0.7rem; }
+		
+		//libraries//
+		
+		.library {
+			height: 200px !important;
+			
+			.library-info {
+				top: 2.5rem;
+				
+				.title { font-size: 1.4rem; }
+				
+				.lib-blurb {
+					font-size: 0.8rem;
+					line-height: 1.5;
+					
+					span {
+						font-size: 0.8rem !important;
+						line-height: 1.5 !important;
+					}
+				}
+			}
+			
+			.wrapper button {
+				font-size: 0.7rem;
+			}
+		}
+		
+		//library-splash//
+		
+		#library-splash {
+			padding: 0;
+			
+			button { display: none; }
+			
+			#close-splash { left: 44% !important; }
+			
+			#featured-library a { display: inline-block !important; }
+			
+			#library-info {
+				left: 5%; width: 90%;
+			}
+			
+			#library-share { display: none; }
+		}
+		
+		//user-splash//
+		
+		#user-splash{
+			
+			#close-splash { display: none; }
+			
+			h1 { font-size: 1.7rem; }
+			
+			h5 { font-size: 0.8rem; }
+			
+			#splash-user-bio span { font-size: 0.9rem !important; }
+			
+			#splash-user-info {
+				padding: 0 1rem;
+				top: 21% !important;
+			}
+			
+			.user-avatar { top: 17% !important;; }
+		}
+	}
+	
+	.onboard {
+		#featured-scroller {
+			overflow-y: hidden;
+		}
+		
+		#onboard-photos-overlay {
+			.account-avatar-wrapper {
+				height: 120px;
+				width: 120px;
+			}
+			
+			#user-info {
+				padding: 0;
+			
+				h2 { font-size: 2rem; }
+				
+				#user-bio {
+					font-size: 0.9rem;
+					line-height: 1.5;
+				}
+			}
+		}	
+	}
+	
+	.profile {
+		
+		.follow, .unfollow {
+			font-size: 0.75rem;
+			position: absolute !important;
+			top: 1.5rem !important;
+		}
+		
+		#user-extra { display: none; }
+		
+		#user-panel #g-menu-toggle { width: 50%; }
+		
+		h5 {
+			font-size: 0.8rem;
+			top: 56%;
+		}
+	}
+	
+	//accounts//
+		
+	.accounts {
+		#account-splash-wrapper {
+			margin-bottom: -2rem;
+			top: -1em;
+		}
+			
+		.account-info-wrapper .col-0 .bl_form input {
+			font-size: 0.8rem;
+			width: 90%;
+		}
+			
+		#notifications-toggle {
+			margin-left: 6%; width: 97%;
+			
+			span {
+				line-height: 1.5;
+				text-align: center;
+			}		
+		}
+			
+		.switchery { margin: 0.5rem 6.5rem; left: 1rem; }
+	}	
+	
+	body.library-manager .library {
+		.library-info {
+			padding: 5px;
+			
+			.lib-blurb { font-size: 0.95rem; }
+		}
+		
+		.wrapper {
+			bottom: 0; top: 1rem;
+			height: 50px;
+			padding-right: 0.5rem;
+			text-align: right;
+		}
+	}
+	
+	.full-book {
+		.fluid-wrapper {
+			.author-info .author-name {
+				a { margin-left: 10px; }
+				
+				&:before { margin-left: 15px; }
+			}
+		}
+		
+		.photo-wrapper .page-bg { height: auto; }
+		
+		.page-desc h3 { font-size: 1.2rem; }
+	}
+	
+	body.landing {
+		#mp-pusher {
+			padding: 32% 13%;
+		}
+		
+		#about-one {
+			top: 75%;
+			
+			#gapelia {
+				left: 41%;
+				margin-bottom: 1rem;
+				top: 107%;
+			}
+			
+			h1 {
+				font-size: 1.4rem;
+				margin-bottom: 0;
+				margin-top: 1rem !important;
+			}
+			
+			img, iframe {
+				left: 1%;
+				width: 98%;
+			}
+			
+			p {
+				left: 5%;
+				font-size: 1rem;
+				width: 90%;
+			}
+		}
+		
+		h4  { font-size: 1.5rem !important; }
+		
+		footer ul li a { font-size: 1.1rem; }
+	}
+}
+
+
+@media all and (max-width: 360px), screen and (max-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+
+//APP///
+
+	body.landing {
+		#mp-pusher {
+			padding: 40% 5%;
+		}
+		
+		#about-one {
+			h1 { font-size: 1.1rem; }
+			
+			img, iframe { height: 250px !important; }
+		}
+		
+		footer ul li a { font-size: 0.9rem; }
+	}	
+
+	.app {
+		
+		#featured-panel { height: 70px; }
+		
+		#header-message {
+			padding: 1.25rem 0 0.5rem 0;
+			
+			button {
+				font-size: 10px;
+				right: -32%;
+			}
+		}
+		
+		#g-menu-toggle { left: 0.9rem; }
+		
+		#welcoming-title {
+			height: 300px;
+			font-size: 1.3rem;
+			padding: 12.6rem 5rem;
+			text-align: left;
+		}
+		
+		#featured-scroller #g-menu-toggle { left: 29.75%; top: 7rem; }
+		
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list, #book-list, #library-list, #bookmark-list, #subscription-list {
+			padding: 1.5rem 0.5rem 0.25rem 0.5rem;
+		}
+		
+		#explore-list { padding: 1rem 1rem 1.25rem 1rem !important; }
+		
+		.book {
+			margin: 0 0 2rem 0;
+			padding-bottom: 1rem !important;
+			
+			.author-avatar {
+				height: 40px;
+				width: 40px;
+			}
+			
+			&:last-child {
+				bottom: 10px;
+				margin-top: 0;
+				padding-bottom: 4rem !important;
+			}
+		}
+		
+		.book-title { padding: 0 2rem; }
+		
+		.library {
+			&:last-child {
+				bottom: 2.5rem;
+				margin-top: 2.5rem !important;
+			}
+		}
+		
+		#library-splash {
+			p { font-size: 1rem; }
+			span { font-size: 1rem !important; }
+			
+			#close-splash {
+				font-size: 2rem;
+				font-weight: 400;
+			}
+			
+			#library-info { top: 25%; }
+		}
+		
+		//onboarding process//
+		#university-affiliation {
+			.selectize-control {
+				left: 2.5%;
+				width: 95%;
+			}
+			
+			button {
+				top: 92%;
+				right: 7.5rem;
+			}
+		}
+		
+		#intro { padding: 3rem 2rem; }
+	}
+	
+	body.library-manager {
+		
+		#nav-wrapper { display: none !important; }
+		
+		.library {
+			height: 220px !important;
+			
+			.library-info {
+				padding: 0;
+				top: 29%;
+				
+				.lib-blurb { font-size: 0.9rem; }
+			}
+			
+			.wrapper {
+				text-align: right;
+				top: 6px !important;
+			}
+		}
+	}
+	
+	.profile {
+		
+		.super-wrapper { background-color: white; }
+		
+		#book-scroller {
+			padding-right: 0;
+			top: 100%;
+		}
+		
+		#user-panel #g-menu-toggle { width: 13.5%; }
+		
+		.user-avatar .avatar-wrapper { height: 110px; width: 110px; }
+		
+		#user-splash {
+			height: 40%;
+			
+			.avatar-wrapper:after { display: none; }
+		
+			.avatar-wrapper #splash-edit-profile { display: none !important; }
+			
+			#recently-published { display: none; }
+			
+			#contributes-to {
+				padding-bottom: 1rem;
+				
+				span { display: none; }
+			}
+			
+			#splash-user-bio {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+				line-height: 1.5;
+				margin: 0 0 1rem 0;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+			
+			#splash-user-info {
+				color: black;
+				opacity: 0.9;
+				top: 84% !important;
+			}
+			
+			#user-box {
+				left: 5%;
+				width: 90%;
+			}
+			
+			.user-avatar { top: 75% !important; }
+		}
+		
+		h5 {
+			color: black;
+			opacity: 0.9;
+			top: 64%;
+			
+			a { display: block !important; }
+		}
+	}
+	
+	.full-book {
+		
+		#editor_response_info {
+			font-size: 0.8rem;
+			margin-left: 1rem !important;
+			span { font-size: 0.8rem !important; }
+		}
+		
+		.fluid-wrapper {
+			margin-bottom: 0;
+				
+			.draggable-placeholder {
+				height: 250px;
+					
+				.page-bg {
+					display: block !important;
+					height: 250px;
+				}
+			}
+				
+			.fluid-preview {
+				padding: 0.25rem 0 0 0 !important;
+				
+				.author-info {
+					left: 10px;
+					padding-top: 20px;
+				}
+				
+				.page-desc {
+					font-size: 1rem;
+				}
+				
+				span { font-size: 1rem !important; }
+			}	
+		}	
+		
+		.photo-wrapper .photo-preview {
+			margin: 0 0 0.5rem 0;
+			
+			.page-title-elem {
+				font-sze: 1.5rem !important;
+				width: 90%;
+			}
+		}
+		
+		.photo-wrapper {
+			.author-info {
+				top: -1.5rem;
+				
+				.author-avatar {
+					margin-left: 44%;
+				}
+			}
+		}	
+		
+		
+		.overlay-wrapper {
+			margin: 0 0 5rem 0;
+
+			.author-info {
+				left: 30%; 
+				top: 0.5rem;
+				.author-avatar { margin-left: 30%;}
+			}
+			
+			.overlay-preview article { margin-top: 6%; }
+		}	
+		
+		.phototext-wrapper {
+			
+			.phototext-preview {
+			padding: 0.75rem 0 0 0;
+			
+				.page-desc {
+					font-size: 1rem;
+					margin-top: 1rem !important;
+					text-align: left;
+				}
+				.page-title-elem { font-size: 1.6rem; }
+			}
+			
+			.author-info .author-avatar { margin-left: 25%; }
+		}
+		
+		.vertical-wrapper {
+			.vertical-preview {
+				padding: 0;
+				.page-desc { font-size: 1rem; }
+				.page-title-elem { font-size: 1.4rem; }
+			}
+			
+			.author-info {
+				margin-top: 0.5rem;
+				
+				.author-avatar { margin-left: 25%; }
+			}	
+		}
+		
+		.page-desc h3 { font-size: 1.1rem; }
+		
+		.backcover-wrapper {
+			#fin {
+				padding: 2rem 2rem;
+				text-align: center;
+
+				h2 { display: none; }
+				
+				#library-info-blurb span { font-size: 0.8rem !important; } 
+				
+				.merci {
+					display: inline;
+					margin: 0;
+					position: relative;
+					
+					section { margin: 0; }
+				}	
+
+				.share-book {
+					margin: 1rem 0;
+
+					&:before {
+						display: none;
+						float: none;
+						margin: 0 0 0.5rem 0;
+						vertical-align: initial;
+					}
+
+					li {
+						display: inline;
+						float: none;
+						margin: 0 0 0.5rem 0;
+						padding: 10px;
+
+						&:after { display: none; }
+					}
+				}
+
+				hr {
+					margin: 2rem 0;
+					width: 100%;
+				}
+
+				.author-avatar, #library-avatar {
+					margin: 0 0 1rem 0;
+				}
+
+				.author-name, #library-name {
+					display: block !important;
+					font-size: 1rem;
+					margin: 0 0 1rem 0;
+				}
+
+				#author-bio-blurb, #library-info-blurb {
+					font-size: 0.9rem;
+					line-height: 1rem;
+					margin: 0;
+					margin-top: 1rem;
+					text-align: center !important;
+				}
+				
+				section {
+					margin-left: 0;
+					margin: 0rem 0rem 1rem 0;
+					padding-right: 0rem;
+				}
+				
+				#author-section {
+					margin: 2rem 0 2rem 0;
+				}
+			}
+
+			#fin-next {
+				height: 200px;
+				padding: 0;
+
+				.book-title {
+					display: block;
+					font-size: 1.5rem;
+					margin: 2.5rem 0 0 0;
+					padding: 0 1rem;
+				}
+
+				.book-info {
+					font-size: 0.8rem;
+					padding: 0 2rem;
+				}
+			}
+		}
+	}
+	
+	.accounts {
+		.account-delete-wrapper { margin-top: 0; }
+		
+		.account-info-wrapper .bl_form .update-user { margin-top: 3rem !important; }
+		
+		#notifications-toggle {
+			line-height: 1.5;
+			margin-left: 0;
+			text-align: center;
+			
+			span {
+				font-size: 0.9rem;
+				padding: 0.5rem 0rem 1rem 0;
+			}
+			
+			.switchery { left: 0; }
+		}
+	}
+	
+	#gpl-menu-notify {
+		
+		ul a, .respond-submission { font-size: 1rem !important; }
+		
+		ul li { padding: 0.5rem !important; }
+	}
+}	
+
+
+@media all and (max-width: 320px), screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	html, body {
+		::-webkit-scrollbar {
+			width: 2px; height: 2px;
+		}
+	}
+
+	/// LANDING/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	body.landing {
+		
+		#mp-pusher {
+			padding: 28% 6%;	
+		}
+		
+		#about-one {
+			top: 88%;
+			
+			h1 {
+				font-size: 1rem;
+			}
+			
+			img { height: 210px !important; }
+			
+			#gapelia {
+				left: 39%;
+				margin-bottom: 2rem;
+			}
+		}
+		
+		#subtitle { font-size: 1.3rem !important; }
+		
+		h4 {
+			margin-top: 2rem;
+			width: 90%;
+		}
+		
+		h5 { font-size: 1.2rem; }
+		
+		footer {
+			left: 5%;
+			width:90%;
+		}
+
+	}
+
+	/// APP/SCSS ////////////////////////////////////////////////////////////////////////////////////////
+	
+	.app {
+
+		//Onboarding
+		
+		#header-message {
+			font-size: 0.9rem;
+			padding: 1.3rem 0 0.5rem 0;
+			width: 66%;
+			
+			button {
+				right: -34%;
+				top: 2rem;
+			}
+		}
+		
+		#footer-menu { font-size: 1.25rem; }
+		
+		// Splash pages
+		#featured-splash, #library-splash, #user-splash {
+			font-size: 1rem;
+			padding: 1rem;
+
+			p {
+				font-size: 1rem;
+				padding: 0;
+			}
+
+			#featured-info { top: 50%; }
+		}
+
+		#library-splash {
+			button { font-size: 0.6rem; }
+
+			#library-info {
+				top: 22%;
+				
+				h2 { font-size: 26px; }
+				p {
+					font-size: 0.9rem;
+					text-align: center;
+					padding: 10px 0 12px 0 !important;
+				}
+				
+				span {
+					font-size: 0.9rem !important;
+					text-align: center;
+				}
+			}
+
+			section { font-size: 1rem; line-height: initial; }
+		}
+		
+		// Header
+		#welcoming-title {
+			background-size: 600px;
+			height: 0;
+			font-size: 1rem;
+			padding: 10.6rem 5rem;
+			text-align: center;
+		}
+		
+		#featured-panel {
+			height: 70px;
+			
+			#category-title {
+				font-size: 1rem;
+				height: 55px;
+				padding: 1.8rem 1rem 0 0;
+				text-align: right;
+			}
+			
+			#featured-nav { top: 0; }
+		}
+		
+		#featured-scroller {			
+			#g-menu-toggle {
+				background-size: 100px;
+				left: 33% !important;
+				top: 6.4rem !important;
+				width: 200px;
+			}
+		}
+
+		// Lists
+		#user-book-list, #bookmarks-list, #user-library-list, #user-draft-list,
+		#book-list, #dimension-list, #library-list, #bookmark-list, #subscription-list {
+			background-color: white;
+			//display: block;
+			padding: 0px 0 0 0;
+		}
+		
+		#g-menu-toggle {
+			font-size: 2rem;
+			height: 60px;
+			left: 1rem !important;
+			top: 0.8rem !important;
+		}
+		
+		.library-list-wrapper, .bookmark-list-wrapper { z-index: 0; top: 3.5rem; }
+		
+		.notification-time #notification-count { display: none !important; }
+		
+		#explore-list {
+			padding: 0rem 1rem 3rem 1rem !important;
+			z-index: 10;
+		}
+
+		// Books
+		.book, .collection, .library {
+			margin: 0; padding: 1.2rem;
+
+			background-color: white;
+			border-bottom: 1px solid rgba($slate, 0.3);
+			box-shadow: none;
+			//height: auto !important;
+			padding: 1.3rem;
+			
+			.author-avatar {
+				height: 35px !important; width: 35px !important;
+				margin: 0; margin-top: 4px;
+				
+				display: inline !important;
+				left: 0 !important;
+				position: relative !important;
+			}
+			
+			&:hover {.book-title, .library-location, .author-name, .library-info, .collection-info { text-shadow: none !important; } }
+			
+			.book-title, .book-info, .library-location, .collection-info, .library-info {
+				padding: 0;
+				position: relative;
+				text-shadow: none;
+				width: 100%; // 80
+				
+				a { color: rgba(black, 0.75); }
+				
+			}
+			
+			.book-title {
+				font-size: 1.2rem;
+				line-height: 1.6rem;
+				margin: 0 0 0.5rem 0;
+				text-shadow: none !important;
+				top: 8%;
+			}
+
+			.book-info, .collection-info {
+				bottom: 0;
+				color: rgba($black, 0.9);
+				font-size: smaller;
+				margin: 0;
+				
+				a { color: rgba(black, 0.75); }
+				
+				.title {
+					font-size: 1.7rem;
+					margin: 0 0 1rem 0;
+				}
+
+				.author-name {
+					display: inline-block;
+					font-size: 0.7rem;
+					margin-left: 0.3rem;
+					position: relative;
+					text-shadow: none !important;
+					top: -0.8rem;
+					
+					&:before { margin: 0 0.1rem 0 0; }
+				}
+				
+				.num-votes { display: none; }
+			}
+			
+			.book-info, .collection-info { display: inline-block !important; }
+			
+			.book, .collection {
+				background-image: none !important; 
+			}
+
+			.book-snippet {
+				p {
+					color: rgba($black, 0.9);
+					line-height: 1.2rem;
+					margin: 0;
+				}
+			}
+
+			.library-info {
+				
+				a {color: $white !important;}
+				
+				.lib-blurb {
+					font-size: 0.9rem;
+					line-height: 1.3rem;
+				}
+			}
+
+			.wrapper {
+				bottom: initial;
+				padding: 0;
+				position: relative;
+			}
+
+			.bookmark-this, &:after { display: none; }
+			
+			.library .image-overlay { background: rgba($black, 0.3); }
+			
+			.library wrapper { margin: 0; }
+
+			&:hover { box-shadow: none; }
+		}
+
+		.book, .collection {
+			background-image: none !important;
+			top: -2px; //
+
+			.book-snippet {
+				p {
+					font-size: 0.9rem;
+					font-weight: lighter;
+					margin-top: 7px;
+				}
+			}
+
+			.author-avatar { width: 35px; }
+			
+			&:last-child {
+				border-bottom: none !important;
+				bottom: 0;
+				margin: 0;
+				padding-bottom: 4.5rem !important;
+			}
+		}
+		
+		.library-location {
+			border: none;
+			font-size: 0.6rem;
+			font-style: italic;
+			font-weight: 100;
+			left: 0 !important;
+			margin-bottom: 5px;
+			opacity: 0.6;
+			text-shadow: none !important;
+			width: 100%;
+		}
+
+		// Libraries
+		.library {
+			border-bottom: none;
+			border: none;
+			margin: 1rem 1rem 0rem 0rem;
+			padding: 1rem;
+
+			.library-info {
+				margin: 1rem 0;
+				top: 1.5rem;
+
+				.title {
+					font-size: 1.4rem;
+					line-height: 1.6rem;
+				}
+			}
+
+			.wrapper {
+				margin: 2rem 0 1rem 0;
+				position: relative !important;
+			}
+			
+			button { font-size: 0.6rem !important; }
+		}
+		
+		// User-splash
+		#user-splash {
+			
+			img {
+				height: 210px;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+			
+			.page-bg { display: block !important; }
+			
+			&:after { background-image: none !important; }
+			
+			.user-avatar {
+				top: 12%;
+				
+				.avatar-wrapper, .avatar-wrapper:after {
+					height: 100px;
+					width: 100px;
+					
+					box-shadow: none;
+				}
+			}
+			
+			h5 {
+				font-size: 0.7rem;
+				font-weight: 300;
+				margin-left: 7px;
+				opacity: 0.85;
+				text-align: center;
+				text-transform: uppercase;
+				
+				a {
+					color: $black;
+					font-size: 0.8rem;
+					margin: 8px 8px 0 0;
+				}
+			}
+			
+			#splash-user-info {
+				padding: 0;
+				top: 17%;
+				
+				h1 {
+					font-size: 1.8rem;
+					line-height: 60px;
+				}
+				
+				#user-box {
+					left: 2.5%;
+					width: 95%;
+				}
+				
+				#splash-user-bio {
+					font-size: 0.8rem;
+					line-height: 1.25;
+					padding: 0;
+					
+					span { font-size: 0.9rem !important; }
+				}
+			}	
+		}
+		
+		//onboarding process//
+		#university-affiliation {
+			padding: 6rem 0.5rem;
+			
+			button {
+				right: 6.5rem;
+			}
+		}
+	}
+	
+	.onboard #onboard-photos-overlay #user-info #user-bio { padding: 0; }
+
+	/// LIBRARY/SCSS ////////////////////////////////////////////////////////////////////////////////////
+	body.library-manager {
+		.library-list-wrapper { z-index: 0; top: -1rem !important; }
+		
+		.library {
+			padding: 1rem 2px 0 2px;
+			
+			.library-info { top: 15%; }
+			
+			.wrapper {
+				margin: 0 !important;
+				position: absolute !important;
+				top: 0.5rem;
+			}
+		}
+	}
+	
+	.library {
+
+		#library-splash {
+			
+			#library-info {
+				left: 0;
+				width: 100%;
+			}
+			
+			#library-share { display: none; }
+			
+			button {
+				display: none; // displayed via js for iphone
+			}
+			
+			h1 {
+				font-size: 0.8rem !important;
+				margin: 0 0 2px 0;
+			}
+			
+			h2 {
+				font-size: 1.5rem !important;
+				margin-bottom: 0;
+				text-align: center;
+			}
+			
+			p {
+				font-size: 0.9rem !important;
+				line-height: 1.5;
+			}
+			
+			section { font-size: 0.8rem !important; }
+			
+			#close-splash {
+				bottom: 1% !important;
+				font-size: 1.5rem !important;
+				font-weight: 500;
+				left: 44% !important;
+				
+				img {
+					height: 35px; width: 35px;
+				}
+			}
+		}
+		
+		h1 {
+			color: white;
+			font-size: 0.9rem !important;
+			font-weight: 200;
+			margin: 0 0 2px 0;
+			position: absolute !important;
+			top: 3.5rem;
+			left: 1rem;
+			
+			c { margin-left: 8px; }
+			
+			span { margin-right: 8px; }
+		}
+	}
+
+	/// MERCI ////
+	
+	a.mercibject div.opening div.circle {
+		height: 75px; width: 75px;
+		left: 40%;
+	}
+	
+	.merci.complete a.mercibject div.opening div.circle { top: 40% !important; }
+	
+	
+	/// FULL-BOOK/SCSS //////////////////////////////////////////////////////////////////////////////////
+
+	.full-book {
+		
+		#g-menu-toggle {
+			left: 0.7rem !important;
+			top: 0.8rem !important;
+		}
+		
+		#book-menu, #share-menu {
+			font-size: 1rem;
+			max-height: 300px;
+		}
+
+		#book-menu {
+			#nav-notify {
+				ul {
+					font-size: 0.8rem;
+					line-height: 1rem;
+
+					li { padding: 1rem 2rem; }
+				}
+			}
+		}
+
+		.fluid-wrapper .page-desc, .photo-wrapper .page-desc, .overlay-wrapper .page-desc, .phototext-wrapper .page-desc, .vertical-wrapper .page-desc, .video-wrapper .page-desc, .backcover-wrapper .page-desc {
+			margin-top: 1rem !important;
+		}
+		
+		.fluid-wrapper {
+			margin-bottom: 0.5rem;
+			
+			.author-info {
+				width: 100%; height: auto;
+				top: initial; left: 1rem;
+
+				border-bottom: 1px solid rgba($black, 0.25);
+				display: inline-block;
+				margin: 0;
+				padding-bottom: 8px;
+				position: relative;
+				width: 90%;
+
+				.author-name {
+					border-right: none !important;
+					margin-bottom: 0;
+					padding-left: 0;
+					padding-top: 6px;
+					position: relative;
+					text-align: left;
+
+					a { padding-left: 9%; }
+					
+					&:before {
+						padding-left: 7%;
+						text-align: left;
+					}
+				}
+
+				.author-avatar {
+					margin-left: -2rem;
+					margin-top: -2rem;
+				}
+			}
+
+			.draggable-placeholder {
+				height: auto;
+				.page-bg { display: block !important; }
+			}
+			
+			.fluid-preview {
+				padding: 1rem 1rem;
+				padding-bottom: 1rem;
+				article { margin: 0; }
+
+				.page-desc { width: 100%; }
+
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+					margin-left: 1rem;
+					width: 90%;
+					
+					span { font-size: 1.5rem !important; }
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 2rem;
+					padding: 0.75rem;
+				}
+			}
+			
+			.embed iframe.embedly-embed { height: 250px; }
+		}
+
+		.photo-wrapper {
+			.photo-preview {
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+					width: 100%;
+				}
+			}
+			
+			.author-info {
+				left: 0;
+				padding-right: 0;
+				top: -2rem;
+				width: 100%;
+				
+				.author-name {
+					border-right: none !important;
+					padding-right: 0;
+					text-align: center;
+				}	
+			}
+		}
+		
+		.overlay-wrapper {
+			
+			.overlay-preview {
+				height: 100%;
+				
+				article { margin: 0rem auto; }
+
+				.page-title-elem {
+					font-size: 0.8rem;
+					line-height: 2rem;
+					width: 100%;
+				}
+			}
+		}
+
+		.phototext-wrapper, .vertical-wrapper, .video-wrapper {
+			.author-info {
+				font-size: 0.5rem;
+				
+				.author-avatar {
+					height: 35px;
+					width: 35px;
+					margin-left: 20%;
+					margin-top: -1.8rem;
+				}
+			}
+		}
+		
+		.phototext-wrapper {
+			.phototext-preview {
+				padding: 1rem 1rem;
+
+				.page-title-elem, .page-desc { width: 100%; }
+
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 2rem;
+				}
+			}
+		}
+
+		.vertical-wrapper {
+			.vertical-preview {
+				padding: 1rem 1rem;
+
+				.page-title-elem, .page-desc { width: 100%; }
+
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 2rem;
+				}
+				
+				span { font-size: 1rem !important; }
+			}
+		}
+
+		.video-wrapper {
+			.author-info .author-name a { margin-left: 6.5rem; }
+			
+			.video-player-container {
+				height: 175px;
+				iframe { height: 175px; }
+			}
+
+			article {
+				padding: 1rem 2rem;
+
+				.page-title-elem, .page-desc { width: 100%; }
+
+				.page-title-elem {
+					font-size: 1.5rem;
+					line-height: 2rem;
+				}
+
+				.page-desc {
+					font-size: 1rem;
+					line-height: 2rem;
+				}
+			}
+		}
+
+		.backcover-wrapper {
+			#fin {
+				padding: 2rem 2rem;
+				text-align: center;
+
+				h2 { display: none; }
+				
+				.merci {
+					display: inline;
+					margin: 0;
+					position: relative;
+					
+					section { margin: 0; }
+				}	
+
+				.share-book {
+					margin: 1rem 0;
+
+					&:before {
+						display: none;
+						float: none;
+						margin: 0 0 0.5rem 0;
+						vertical-align: initial;
+					}
+
+					li {
+						display: inline;
+						float: none;
+						margin: 0 0 0.5rem 0;
+						padding: 10px;
+
+						&:after { display: none; }
+					}
+				}
+
+				hr {
+					margin: 2rem 0;
+					width: 100%;
+				}
+
+				.author-avatar, #library-avatar {
+					margin: 0 0 1rem 0;
+				}
+
+				.author-name, #library-name {
+					display: block !important;
+					font-size: 1rem;
+					margin: 0 0 1rem 0;
+				}
+
+				#author-bio-blurb, #library-info-blurb {
+					font-size: 0.9rem;
+					line-height: 1rem;
+					margin: 0;
+					margin-top: 1rem;
+					text-align: center !important;
+					
+					span { font-size: 0.9rem !important; }
+				}
+				
+				section {
+					margin-left: 0;
+					margin: 0rem 0rem 1rem 0;
+					padding-right: 0rem;
+				}
+				
+				#author-section {
+					margin: 2rem 0 2rem 0;
+				}
+			}
+
+			#fin-next {
+				height: 200px;
+				padding: 0;
+
+				.book-title {
+					display: block;
+					font-size: 1.5rem;
+					margin: 2.5rem 0 0 0;
+					padding: 0 1rem;
+				}
+
+				.book-info {
+					font-size: 0.8rem;
+					padding: 0 2rem;
+				}
+			}
+		}
+		
+		h3 { font-size: 1.1rem; }
+
+	}
+
+	/// PROFILE/SCSS ////////////////////////////////////////////////////////////////////////////////////
+
+	
+	.profile {
+		
+		h5 { top: 70%; }
+		
+		#featured-nav { top: 0; }
+		
+		#user-splash {
+			padding: 0.6rem !important;
+			
+			.avatar-wrapper {
+				#splash-edit-profile {
+					display: none !important;
+				}
+			}
+			
+			#splash-user-info #splash-user-bio {
+				border-bottom: 1px solid rgba($black, 0.2);
+				opacity: 0.8;
+				padding-bottom: 17px;
+			}
+			
+			#splash-user-info { top: 98% !important; }
+			
+			.user-avatar { top: 86% !important; }
+		}
+		
+		#user-panel {
+			background: transparent !important;
+			margin-top: 0 !important;
+
+			#g-menu-toggle {
+				color: $white;
+				left: 0.8rem !important;
+				top: 0.7rem !important;
+				width: 64px;
+			}
+		}
+
+		.book {
+			padding: 1.2rem 1.2rem 0 1.2rem;
+			.book-buttons { display: none; }
+		}
+
+	}
+
+	.accounts {
+		#account-splash-wrapper {
+			margin-bottom: -7rem;
+			top: -2rem;
+			
+			.account-avatar-wrapper { height: 100px; width: 100px; }
+			
+			#account-user-splash .button-wrapper { display: none; }
+		}
+		
+		.account-delete-wrapper { margin-top: 0; }
+		
+		.account-info-wrapper {
+			
+			label { text-align: center; }
+			
+			.bl_form .update-user { margin-top: 3rem !important; }
+			
+			.col-0 .bl_form input {
+				font-size: 0.7rem;
+				text-align: center;
+				width: 100%;
+			}
+		}
+		
+		#notifications-toggle {
+			line-height: 1.5;
+			margin-left: 0;
+			text-align: center;
+			
+			span {
+				font-size: 0.9rem;
+				padding: 0.5rem 0rem 1rem 0;
+			}
+			
+			.switchery { left: 0; }
+		}
+	}
+}
