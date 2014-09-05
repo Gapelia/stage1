@@ -129,7 +129,8 @@
                     filter: function (results) {
                       return $.map(results.libraries, function (library) {
                             return {
-                                value: '<a href=\"http://folio.is/library/' + library.libraryId + '\"><img src=\"'+library.coverPhoto+'\" height=50px width=50px>'+library.title+'</a>'
+                                value: '<a href=\"http://folio.is/library/' + library.libraryId + '\"><img src=\"'+library.coverPhoto+'\" height=50px width=50px>'+library.title+'</a>',
+                                displayValue: ''+library.title+''
                             }
                         });
                     }
@@ -144,7 +145,7 @@
               highlight: true,
               hint: false,
               minLength: 2
-            },
+            },    
             {
               name: 'books',
               displayKey: 'value',

@@ -1287,7 +1287,7 @@ function getLibrary() {
 					toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
 				}
 			} else {
-				toInsert += "<div style=\"position: absolute; z-index: 100; right: 10.5rem; top: 1.9rem; font-size: 1rem;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Subscribe</a></div>";
+				toInsert += "<div style=\"position: absolute; z-index: 100; right: 9.5rem; top: 1.9rem; font-size: 1rem;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Subscribe</a></div>";
 			}
 
 

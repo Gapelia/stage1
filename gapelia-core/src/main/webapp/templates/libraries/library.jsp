@@ -169,7 +169,7 @@
 				var first = getListSubscribed();
 				var second = getListBookmarked();
 			} else {
-				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 1rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
+				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 0rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 			}
 			
 			getNumSubscribers();
@@ -239,8 +239,14 @@
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash", function () {
 				    getBooksInLibraryArray();
-					$("#library-splash, #close-splash, #contact-editor, #about-section").hide();
-					$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");;
+					$("#library-splash, #close-splash, #contact-editor, #about-section, .new-user-ii, .new-user").hide();
+					$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");
+				    if ($(".book-list-wrapper li").length == 0){
+						$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						setTimeout(function() {
+							$("#loading-view").fadeOut('slow').remove();
+						}, 2000);
+				    }	
 					
 					if(typeof user == 'undefined') {
 						$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
@@ -291,7 +297,7 @@
 						$(".submission-dropdown").css({"background-color": "#transparent","border-color": "#59B3A6","border-width": "0","color": "#59B3A6"});
 							
 						slyBookWrapper.init();
-					}, 1);
+					}, 1000);
 				});
 			}
 			
@@ -354,8 +360,9 @@
 			$("#nav-books").click(function (e) {
 				
 				//back to cover page and also back to books in case editor was reviewing submissions//
-				$("#library-splash, #about-section").fadeIn("slow");
+				$("#library-splash, #about-section, .new-user-ii, .new-user").fadeIn("slow");
 				$("#book-list").css("cssText", "display: none !important");
+				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 0rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 				$(".submission-dropdown").css({
 						"border-color":"rgba(255, 255, 255, 0.53)",
 						"border-width":"1px",
@@ -505,7 +512,11 @@
 			getLibrary();
 			
 			//library owner can edit//
-			if (libraryOwner.userId != user.userId) {
+			if (typeof user != "undefined") {
+				if (libraryOwner.userId != user.userId) {
+					$("#edit-shortcut").remove();
+				}
+			} else {
 				$("#edit-shortcut").remove();
 			}
 			$(".edit-library").attr("href", "/editlibrary/"+ library.libraryId +"");
@@ -514,6 +525,11 @@
 			if (library.about == undefined) {
 				$("#about-section").remove();
 			}
+			
+			//remove library archive if not logged in//
+			if (typeof user == "undefined") {
+				$("#library-archive").remove(); 
+			}	
 			
 			//getBooksInLibraryArray();
 			if(typeof user != 'undefined') {
