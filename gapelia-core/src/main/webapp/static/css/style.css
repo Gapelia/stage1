@@ -4120,6 +4120,34 @@ body.library #archive-container #archive-list .author-name {
   margin-left: 2.5px !important; }
 body.library #archive-container #archive-container {
   margin-top: 10px; }
+body.library #sign-up-library {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100000; }
+body.library #sign-up-library p {
+  left: 25%;
+  font-size: 2rem !important;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  width: 50%; }
+body.library #sign-up-library p span {
+  font-weight: 100; }
+body.library #sign-up-library .wrapper {
+  left: 25%;
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  width: 50%; }
+body.library #sign-up-library .wrapper button {
+  margin-right: 1rem !important;
+  position: relative;
+  right: 0;
+  top: 0; }
 body.library ::-webkit-input-placeholder {
   color: white !important; }
 
@@ -6601,6 +6629,12 @@ body.library-manager ::-webkit-scrollbar {
   display: inline;
   margin: 7px;
   position: relative; }
+#publish-modal #editor_response_info {
+  left: 25%;
+  position: absolute;
+  text-align: center;
+  top: 1rem;
+  width: 50%; }
 #publish-modal #lib-submission {
   font-size: 1.4rem;
   font-weight: 100;

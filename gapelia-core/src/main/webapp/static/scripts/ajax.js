@@ -1287,7 +1287,7 @@ function getLibrary() {
 					toInsert += "<button class=\"subscribe white-border\">Subscribe</button>";
 				}
 			} else {
-				toInsert += "<div style=\"position: absolute; z-index: 100; right: 9.5rem; top: 1.9rem; font-size: 1rem;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Subscribe</a></div>";
+				toInsert += "<div style=\"position: absolute; z-index: 100; right: 9.5rem; top: 1.9rem; font-size: 1rem;\"><a class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Subscribe</a></div>";
 			}
 
 
@@ -1385,7 +1385,24 @@ function getLibrary() {
 			$("#library-info").mouseleave(function(e) {
 				$("#library-splash #close-splash").css("cssText", "color: white !important")
 			});
-
+			
+			//Sign up on subscribe button//
+			$(".new-user").click(function(){
+				$("#library-splash").append("<div id=\"sign-up-library\"><p>Sign up to Folio and Subscribe to <font style=\"font-weight: 700; text-transform: capitalize;\">" +library.title+ "</font></span></br><span>Don't forget to subscribe to <font style=\"text-transform: capitalize;\">"+library.title+"</font> during the onboarding process.</span></p><div class=\"wrapper\"><button class=\"fb-btn\">Sign in with Facebook</button><button class=\"gplus-btn\">Sign in with Gmail</button></div></div>");
+				$(function () {
+						NProgress.start();
+						$(".fb-btn").click(function () {
+							window.location.href = "/login?type=facebook"
+						});
+						$(".gplus-btn").click(function () {
+							window.location.href = "/login?type=google"
+						});
+						NProgress.done();
+				});
+				$("#sign-up-library").click(function(){
+						$("#sign-up-library").remove();
+				})
+			})
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
