@@ -254,7 +254,7 @@
 				$(".super-wrapper").css("background-color", "white");
 				$("#featured-panel").css("position", "fixed");
 				$("#nav-wrapper").css({"background-color": "white", "height": "75px", "z-index": "1000"});
-				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
 				setTimeout(function(){
 						var items = $('#book-list-list');
 						loadMoreBooksListView(20,items)		
@@ -279,7 +279,7 @@
 				$("#view-change").fadeIn();
 				$(".book-list-wrapper-list").hide();
 				$(".book-list-wrapper").fadeIn("slow");
-				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
 				setTimeout(function() {
 					$("#loading-view").fadeOut('slow').remove();
 				}, 2000);

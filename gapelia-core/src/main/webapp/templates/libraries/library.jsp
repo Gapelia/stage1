@@ -188,9 +188,11 @@
 				$("#library-archive").click(function(){
 						getBooksInLibraryArray();
 						
+						$("#mp-pusher").css("overflow-y", "hidden"); //prevents issues when about section exists//
+						
 						var items = $('#archive-list');
 						
-						if ($("#archive-title span").html() == "") {
+						if ($("#archive-title span").html() == "") { //aka if archive has not been previously open//
 								loadMoreBooksInLibraryArchive(5, items);
 								
 								//show load more button when more than 10 books//
@@ -200,7 +202,7 @@
 										publishedLength = $("#archive-list li").length;
 										$("#archive-container span").html(""+publishedLength+"");
 										
-										//TO DO- make load more button work correctly//
+										//TO DO- make "load more" button work correctly//
 										/*if($("#archive-list li").length > 9){
 											$("#archive-list").append("<div style=\"text-align: center; padding-bottom: 4rem; width: 100%;\"><button id=\"load-more\">Load More</button></div>");
 										}
@@ -220,6 +222,7 @@
 						
 				$("#archive-container").mouseleave(function(){
 						$("#archive-container").css("right", "-35%").fadeOut(100);
+						$("#mp-pusher").css("overflow-y", "scroll");
 				});
 				
 				$("#right-half, #close-splash").mouseenter(function(){
@@ -242,7 +245,7 @@
 					$("#library-splash, #close-splash, #contact-editor, #about-section, .new-user-ii, .new-user").hide();
 					$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");
 				    if ($(".book-list-wrapper li").length == 0){
-						$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"http://i.stack.imgur.com/FhHRx.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
 						setTimeout(function() {
 							$("#loading-view").fadeOut('slow').remove();
 						}, 1000);
