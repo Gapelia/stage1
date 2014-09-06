@@ -8963,6 +8963,8 @@ a.count span.dont-move {
     overflow-y: scroll; }
   .app #university-affiliation {
     padding: 8rem 6rem; }
+  .app #back-first-step, .app #back-second-step {
+    display: none; }
   .app .book-list-wrapper, .app .library-list-wrapper, .app .user-book-list-wrapper, .app .following-ist-wrapper {
     margin: 0;
     padding: 0;
@@ -10590,6 +10592,9 @@ a.count span.dont-move {
   .accounts #notifications-toggle span {
     line-height: 1.5;
     text-align: center; }
+  .accounts .selectize-control {
+    left: 5% !important;
+    width: 90% !important; }
   .accounts .switchery {
     margin: 0.5rem 6.5rem;
     left: 1rem; }
@@ -10892,6 +10897,9 @@ a.count span.dont-move {
     padding: 0.5rem 0rem 1rem 0; }
   .accounts #notifications-toggle .switchery {
     left: 0; }
+  .accounts .selectize-control {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px; }
 
   #gpl-menu-notify ul a, #gpl-menu-notify .respond-submission {
     font-size: 1rem !important; }
@@ -11467,7 +11475,26 @@ a.count span.dont-move {
     font-size: 0.9rem;
     padding: 0.5rem 0rem 1rem 0; }
   .accounts #notifications-toggle .switchery {
-    left: 0; } }
+    left: 0; }
+  .accounts .selectize-control {
+    left: 1% !important;
+    width: 98% !important; } }
+@media all and (max-height: 480px), screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .app #university-affiliation {
+    padding: 5rem 0.5rem; }
+  .app #university-affiliation button {
+    top: 88%; }
+  .app #university-affiliation hr {
+    margin: 0px 0 22px; }
+  .app #university-affiliation p {
+    margin: 0 0 0.5rem 0; }
+  .app #university-affiliation #school-intro {
+    margin-top: 2rem; }
+  .app #university-affiliation .selectize-control input {
+    font-size: 0.9rem;
+    width: auto; }
+  .app #university-affiliation #skip-container {
+    font-size: 0.9rem; } }
 /*************************************************************************************** SHAME/SCSS **/
 /****************************** FOR THOSE BROWSERS THAT STILL NEED VENDOR PREFIXES TO WORK. PUSSIES **/
 /** FULL-BOOK/SCSS ***********************************************************************************/

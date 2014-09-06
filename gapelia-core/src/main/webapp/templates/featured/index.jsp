@@ -67,7 +67,9 @@
 		   </div>
 	   </nav>
 		<!--//site-menu /-->
-
+		
+		<span id="welcoming-title">A Laboratory of Ideas</span>;
+		
 		<!--/ main-panel /-->
 			<div id="featured-panel">
 				<button id="g-menu-toggle" class="notification-time">
@@ -76,11 +78,10 @@
 				</button>
 
 				<div class="featured-info">
-					<h2>Gapelia</h2>
+					<h2></h2>
 				</div>
 			</div>
-
-			<span id="welcoming-title">A Laboratory of Ideas</span>
+			
 			<!--//main-panel /-->
 			
 						<!--/ Featured Books /-->
@@ -88,23 +89,6 @@
 					<ul id="book-list-list"></ul>
 				</div>
 		
-		    <div id="nav-wrapper">
-					<ul id="featured-nav">
-						<li id="nav-books" class="current"><a href="#">Stories</a></li>
-						<li id="nav-bookmarks"><a href="#">My Bookmarks</a></li>
-						<li id="nav-following"><a href="#">Following</a></li>
-						
-						<div id="nav-search" style="display: inline-block; margin-left: 21%; opacity: 0.3;"><img href="#" src="../static/images/search.png" style="height: 18px; width: 18px;"><p id="search-ii" style="position: absolute; margin-left: 20px; top: 23px;"></p></div>		    
-						<input class="typeahead" placeholder="Search stories and libraries..." style="display: none;"></input>
-						
-						<div><a id="view-change" style="font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;">LIST VIEW</a></div>
-						<div><a id="view-change-back" style="display: none; font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;">HORIZONTAL VIEW</a></div>
-						
-						<div><a id="start-story" href="/createbook" style="font-size: 1rem; position: absolute; right: 1.5rem; top: 1.7rem;">NEW STORY</a></div>
-						
-						<div id="contactable"></div>
-					</ul>
-				</div>
 			<!--/ main-content /-->
 			<div id="featured-scroller">
 				<div class="scrollbar">
@@ -207,6 +191,24 @@
 	});
 
 	if ($vW > "1024") {
+		
+		//Inserting menus and search UI//
+		$(function () {
+				var toInsert = "";
+				toInsert += "<div id=\"nav-wrapper\"><ul id=\"featured-nav\">";
+				toInsert += "<li id=\"nav-books\" class=\"current\"><a href=\"#\">Stories</a></li>";
+				toInsert += "<li id=\"nav-bookmarks\"><a href=\"#\">My Bookmarks</a></li>";
+				toInsert += "<li id=\"nav-following\"><a href=\"#\">Following</a></li>";
+				toInsert += "<div id=\"nav-search\" style=\"display: inline-block; margin-left: 21%; opacity: 0.3;\"><img href=\"#\" src=\"../static/images/search.png\" style=\"height: 18px; width: 18px;\"><p id=\"search-ii\" style=\"position: absolute; margin-left: 20px; top: 23px;\"></p></div>";		    
+				toInsert += "<input class=\"typeahead\" placeholder=\"Search stories and libraries...\" style=\"display: none;\"></input>";
+				toInsert += "<div><a id=\"view-change\" style=\"font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;\">LIST VIEW</a></div>";
+				toInsert += "<div><a id=\"view-change-back\" style=\"display: none; font-size: 1rem; position: absolute; right: 8.5rem; top: 1.7rem;\">HORIZONTAL VIEW</a></div>";
+				toInsert += "<div><a id=\"start-story\" href=\"/createbook\" style=\"font-size: 1rem; position: absolute; right: 1.5rem; top: 1.7rem;\">NEW STORY</a></div>";
+				toInsert += "<div id=\"contactable\"></div></ul></div>";	
+				
+				$("#mp-pusher").append(toInsert);
+		});		
+		
 		//side menu opens//
 		new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
 				$("#g-menu-toggle").click(function() {
@@ -431,24 +433,23 @@
 			}
 
 			slyBookWrapper.init();
+			
+			//responsive optimizations//
+		    $("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
+		    $(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info").remove();
+		    $(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
+		    $("#featured-scroller").css({"z-index": "10"})
+		    $("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
+		    $(".book-list-wrapper").append("<div id=\"footer-menu\"><ul><li><a href=\"/libraryManager\">Explore Libraries</a></li><li><a href=\"/me\">My Profile</a></li><li><a href=\"/accounts\">Account Settings</a></li><li><a href=\"/#\">Log Out</a></li></ul></div>")
+				
+		    // Log Out
+		    $("#logout").click(function (e) {
+				document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+				window.location = "";
+		    });
 		}
 
-		// Mobile and size optimization stuff//
-		if ($vW < "1025") {
-				$("#featured-scroller, .book-list-wrapper").css("cssText", "overflow-y: scroll !important");
-				$(".bookmark-list-wrapper, .following-list-wrapper, #featured-panel .featured-info, #nav-search, #view-change, #start-story").remove();
-				$(".book-list-wrapper").css({"top": "450px", "background-color": "white"})
-				$("#featured-scroller").css({"z-index": "10"})
-				$("#featured-scroller").append('<button id="g-menu-toggle" class="notification-time"><span id="notification-count">0</span><i class="ion-drag"></i></button>');
-				$(".book-list-wrapper").append("<div id=\"footer-menu\"><ul><li><a href=\"/libraryManager\">Explore Libraries</a></li><li><a href=\"/me\">My Profile</a></li><li><a href=\"/accounts\">Account Settings</a></li><li><a href=\"/#\">Log Out</a></li></ul></div>")
-
-				// Log Out
-				$("#logout").click(function (e) {
-					document.cookie = "JSESSIONID" + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-					window.location = "";
-				});
-		}
-
+		//more responsive optimizations//
 		if ($vW < "361") {
 			$(".book-snippet").css("display", "block")
 			$(".book-list-wrapper").css({"top": "300px", "background-color": "white"});

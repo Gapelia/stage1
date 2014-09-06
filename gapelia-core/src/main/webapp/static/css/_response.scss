@@ -768,6 +768,9 @@
 			padding: 8rem 6rem;
 		}
 		
+		//no back buttons in mobile//
+		#back-first-step, #back-second-step { display: none; }
+		
 		//fixing scrollbar for mobile//
 		
 		.book-list-wrapper, .library-list-wrapper, .user-book-list-wrapper, .following-ist-wrapper {
@@ -3141,6 +3144,11 @@
 				text-align: center;
 			}		
 		}
+		
+		.selectize-control {
+			left: 5% !important;
+			width: 90% !important;
+		}
 			
 		.switchery { margin: 0.5rem 6.5rem; left: 1rem; }
 	}	
@@ -3600,6 +3608,11 @@
 			}
 			
 			.switchery { left: 0; }
+		}
+		
+		.selectize-control {
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
 		}
 	}
 	
@@ -4484,5 +4497,34 @@
 			
 			.switchery { left: 0; }
 		}
+		
+		.selectize-control {
+			left: 1% !important;
+			width: 98% !important;
+		}
 	}
 }
+
+@media all and (max-height: 480px), screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	.app {
+		#university-affiliation {
+			padding: 5rem 0.5rem;
+			
+			button { top: 88%; }
+			
+			hr { margin: 0px 0 22px; }
+			
+			p { margin: 0 0 0.5rem 0; }
+			
+			#school-intro { margin-top: 2rem; }
+			
+			.selectize-control input {
+				font-size: 0.9rem;
+				width: auto;
+			}
+			
+			#skip-container { font-size: 0.9rem; }
+		}
+	}	
+}	
