@@ -68,7 +68,7 @@
 	   </nav>
 		<!--//site-menu /-->
 		
-		<span id="welcoming-title">A Laboratory of Ideas</span>;
+		<span id="welcoming-title">A Laboratory of Ideas</span>
 		
 		<!--/ main-panel /-->
 			<div id="featured-panel">
