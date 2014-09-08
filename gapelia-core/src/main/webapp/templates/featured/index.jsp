@@ -207,7 +207,8 @@
 				toInsert += "<div id=\"contactable\"></div></ul></div>";	
 				
 				$("#mp-pusher").append(toInsert);
-		});		
+		});
+
 		
 		//side menu opens//
 		new mlPushMenu(document.getElementById("site-menu"), document.getElementById("g-menu-toggle"));
@@ -232,6 +233,13 @@
 		$(".book-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper").mouseenter(function () {
 			$(".typeahead").css("display", "none");
 			$("#nav-search").fadeIn("slow");
+		});
+		
+		$(function(){
+				$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						setTimeout(function() {
+						    $("#loading-view").fadeOut('slow').remove();
+				}, 1000);
 		});
 		
 		//feedback form//
@@ -333,6 +341,7 @@
 	function load() {
 		getFeaturedBookArray();
 		getFollowingUsers();
+		
 
 		var $vW = $(window).width(),
 		$vH = $(window).height();

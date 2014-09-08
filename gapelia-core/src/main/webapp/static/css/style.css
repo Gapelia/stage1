@@ -2537,6 +2537,7 @@ body.landing .error {
   font-weight: 300;
   line-height: 1.25;
   padding: 4rem;
+  padding-top: 7rem;
   opacity: 0.75; }
 .app #intro #intro-hello {
   width: 40%; }
@@ -3566,6 +3567,13 @@ body.landing .error {
   position: absolute;
   top: 110%;
   width: 60%; }
+.app #about-section h5 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.75;
+  text-transform: uppercase; }
+.app #about-section hr {
+  margin-top: 2rem; }
 .app #about-section p, .app #about-section div {
   font-size: 1.25rem;
   letter-spacing: 0.006rem;
@@ -3576,6 +3584,39 @@ body.landing .error {
 .app #about-section p:empty:after {
   color: rgba(25, 25, 25, 0.7);
   content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing..."; }
+.app #about-section section {
+  margin-bottom: 4rem;
+  position: absolute;
+  width: 100%;
+  z-index: 100000; }
+.app #about-section section img {
+  display: inline-block;
+  height: 100px;
+  vertical-align: middle;
+  width: 100px; }
+.app #about-section section #last-book-title {
+  display: inline;
+  font-weight: 700;
+  margin-left: 20px;
+  position: absolute; }
+.app #about-section section #last-book-owner {
+  font-weight: 100; }
+.app #about-section section #last-book-snippet {
+  display: inline-block;
+  margin-left: 20px;
+  position: absolute;
+  top: 2rem; }
+.app #about-section section #browse-more {
+  bottom: -12rem;
+  left: 25%;
+  margin-bottom: 3rem;
+  position: absolute;
+  text-align: center;
+  width: 50%; }
+.app #about-section section #browse-more button {
+  border: 1px solid #59b3a6;
+  background-color: transparent;
+  color: #59b3a6; }
 .app #about-section-tutorial {
   bottom: 1.75rem;
   position: absolute;
@@ -3641,6 +3682,48 @@ body.landing .error {
   position: absolute;
   text-align: center; }
 
+.onboard .suggested-libs {
+  right: 0;
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  top: 7rem;
+  width: 50%; }
+.onboard .suggested-libs #suggested-lib-list {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  opacity: 0.9 !important;
+  padding-right: 60px; }
+.onboard .suggested-libs #suggested-lib-list a {
+  color: black;
+  font-weight: 700;
+  margin-right: 1rem;
+  opacity: 0.9;
+  text-transform: capitalize; }
+.onboard .suggested-libs #suggested-lib-list button {
+  font-size: 0.6rem !important;
+  margin-bottom: 5px !important;
+  padding: 5px 10px 5px 10px !important; }
+.onboard .suggested-libs #suggested-lib-list li {
+  display: block;
+  height: 80px;
+  margin-top: -1rem !important; }
+.onboard .suggested-libs #suggested-lib-list li:first-child {
+  margin-top: 1px !important; }
+.onboard .suggested-libs #suggested-lib-list .lib-blurb {
+  position: relative;
+  top: -3.5rem;
+  left: 5rem; }
+.onboard .suggested-libs #suggested-lib-list h3 {
+  color: #59B3A6;
+  font-size: 1.25rem;
+  line-height: 34px;
+  margin: 0 0 20px 0; }
+.onboard .suggested-libs span {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  opacity: 0.9 !important; }
 .onboard #onboard-photos-overlay:hover .cover-button {
   opacity: 1; }
 .onboard #onboard-photos-overlay .spinner {

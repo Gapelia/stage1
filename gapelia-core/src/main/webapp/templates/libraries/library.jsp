@@ -184,7 +184,7 @@
 			
 			if($vW > "1024") {
 				
-				//show user records side menu//
+				//archive side menu//
 				$("#library-archive").click(function(){
 						getBooksInLibraryArray();
 						
@@ -225,6 +225,18 @@
 						$("#mp-pusher").css("overflow-y", "scroll");
 				});
 				
+				//add footer with latest post//
+				setTimeout(function(){
+						footer = "";
+						getUserFromBookIdLibraryFooter();
+						footer += "<hr><h5>Latest Story</h5><section>";
+						footer += "<a href=\"/read/"+books[0].bookId+"\"><img src=\""+books[0].coverPhoto+"\"></a>";
+						footer += "<p id=\"last-book-title\"><a href=\"/read/"+books[0].bookId+"\">"+books[0].title+"</a><a id=\"last-book-owner\" href=\"/"+bookOwnerLastPost.userId+"\"> by "+bookOwnerLastPost.name+"</a></p>";
+						footer += "<p id=\"last-book-snippet\">"+books[0].snippet+"</p>";
+						footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
+						$("#about-section div").append(footer);
+				}, 500);
+				
 				$("#right-half, #close-splash").mouseenter(function(){
 						$("#close-splash").css({
 								"right": "0",
@@ -240,8 +252,9 @@
 				});
 				
 				// load books after clicking and using Sly //
-				$(document).on("click", "#close-splash", function () {
+				$(document).on("click", "#close-splash, #browse-more", function () {
 				    getBooksInLibraryArray();
+					
 					$("#library-splash, #close-splash, #contact-editor, #about-section, .new-user-ii, .new-user").hide();
 					$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");
 				    if ($(".book-list-wrapper li").length == 0){
@@ -364,7 +377,7 @@
 				
 				//back to cover page and also back to books in case editor was reviewing submissions//
 				$("#library-splash, #about-section, .new-user-ii, .new-user").fadeIn("slow");
-				$("#book-list").css("cssText", "display: none !important");
+				$("#book-list, #featured-nav").css("cssText", "display: none !important");
 				$("#stay-right").html("<div style=\"position: absolute; z-index: 100; right: 0rem; top: 0.5rem; font-size: 1rem; width: 130px;\"><a href=\"/\" class=\"new-user white-border\" style=\"border-radius: 5px; padding: 6px 10px 7px 10px;\">Submit a Story</a></div>");
 				$(".submission-dropdown").css({
 						"border-color":"rgba(255, 255, 255, 0.53)",
@@ -532,7 +545,7 @@
 			//remove library archive if not logged in//
 			if (typeof user == "undefined") {
 				$("#library-archive").remove(); 
-			}	
+			}
 			
 			//getBooksInLibraryArray();
 			if(typeof user != 'undefined') {

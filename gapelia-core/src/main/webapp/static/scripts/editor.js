@@ -567,6 +567,14 @@ function fluidLayout() {
 	$(window).ready(function() {
 		$(".page-desc").focus();
 	});
+	
+	/*if ($(".inserted-img button").text() == "") {
+				$(".fluid-preview").mouseover(function(){
+				$(".inserted-img").append("<button style=\"position: absolute; z-index:100000; width: 100%; background-color: red;\">HAHAHA</button>");
+				
+			});
+	}*/
+	
 
 	//forcing margin for Ps due to blockquote bug//
 	$(".page-desc p").css("cssText", "margin-bottom: 1.5rem !important");

@@ -1340,7 +1340,7 @@ function getLibrary() {
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
-			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p></div>";
+			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><div></div></div>";
 
 			$("#mp-pusher").prepend(toInsert);
 
@@ -1546,7 +1546,7 @@ function getLibrariesSuggestion() {
 				library = libraries[i];
 
 				//browser featured libraries//
-				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a></br><c>" + library.description + "</c></div></li>";
+				libs = "<ul id=\"recommended-libraries\"><li><a href=\"library/" + library.libraryId + "\"><img src=\"" + library.coverPhoto + "\" height=60px width=60px>" + "<div class=\"lib-blurb\">" + library.title + "</a><button>Subscribe</button></br><c>" + library.description + "</c></div></li>";
 
 				//mobile featured libraries//
 				if ($vW < "800") {
@@ -2096,6 +2096,29 @@ function getUserFromBookId(bookId) {
 		}
 	});
 	return responseText;
+}
+
+function getUserFromBookIdLibraryFooter() {
+	bookId = books[0].bookId;
+	$.ajax({
+		url: "/api/utils/getUserFromBookId",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		async: false,
+		type: "POST",
+		data: {
+			bookId: bookId
+		},
+		success: function(data) {
+			bookOwnerLastPost = data;
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
 }
 
 function addLoggedInMenu() {

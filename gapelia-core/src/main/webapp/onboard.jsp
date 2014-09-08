@@ -75,7 +75,11 @@
 			<!--/ Featured Libraries /-->
 			<div class="library-list-wrapper" style="display: none; z-index: -1">
 				<ul id="explore-list"></ul>
-			</div>	
+			</div>
+			
+		    <div class="suggested-libs" style="display: none">
+				<ul id="suggested-lib-list"></ul>
+            </div>
 		</div>
 		<!--//main-content /-->
 
@@ -87,7 +91,7 @@
 		<script src="/static/scripts/filepicker2.js"></script>
 
 		<script>
-			$(function () { getListSubscribed();getLibraries(); });
+			$(function () { getListSubscribed();getLibraries();getLibrariesSuggestion(); });
 
 			function insertProfilePicture(file) {
 				filepicker.stat({
@@ -307,7 +311,7 @@
 				//school and uni dropdowns//
 				$("#university-search").selectize({
 					options: [
-												{"name":"A T Still University of Health Sciences","value":"A T Still University of Health Sciences"},
+						{"name":"A T Still University of Health Sciences","value":"A T Still University of Health Sciences"},
 						{"name":"Abilene Christian University","value":"Abilene Christian University"},
 						{"name":"Abraham Baldwin Agricultural College","value":"Abraham Baldwin Agricultural College"},
 						{"name":"Academy College","value":"Academy College"},
@@ -4926,10 +4930,11 @@
 								
 				//tutorial message goes away on click//
 				$("#next-intro").click(function (e) {
-					$("#intro").css("opacity", "0");
+					$("#intro").css("background", "transparent");
+					$("#intro button").hide();
 					$("#header-message").css("opacity", "1");
 					$("#featured-scroller").css("overflow-x", "auto");
-					$(".library-list-wrapper").css({
+					$(".suggested-libs").css({
 						"z-index": "1",
 						"display": "block"
 					});
@@ -4937,6 +4942,31 @@
 					if ($vW < "421") {
 						$(".onboard #featured-scroller").css("cssText", "overflow-y: scroll !important");
 					}
+					
+					$("#suggested-lib-list button").click(function () {
+						$(this).text("Subscribed!").css("background-color", "green");
+						
+						e = $(this).closest("button");
+						libraryId = e.parent().parent();
+						a = parseInt(library.libraryId);
+						
+						sessionId = readCookie("JSESSIONID");
+						
+						$.ajax({
+							url: "/api/actions/subscribeLibrary",
+							contentType: "application/x-www-form-urlencoded;charset=utf-8",
+							type: "POST",
+							data: {
+								sessionId: sessionId,
+								libraryId: a
+							},
+							error: function (q, status, err) {
+								if (status == "timeout") {
+									alert("Request timed out");
+								}
+							}
+						});  
+				    });
 				});
 				
 				// Overlay — onboard photos
