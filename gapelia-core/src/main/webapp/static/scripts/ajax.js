@@ -732,10 +732,9 @@ function getBooksInLibrary() {
 			books = data;
 			var ownThisLibrary = false;
 			if (typeof user != 'undefined') {
-
+				
 				myLibraries = getCreatedLibraries(sessionId);
-
-
+				
 				for (i in myLibraries) {
 					currentLibrary = myLibraries[i];
 					if (currentLibrary.libraryId == library.libraryId) {
@@ -753,11 +752,13 @@ function getBooksInLibrary() {
 					toInsert += "<li id=\'" + book.bookId + "\' class=\"book imgLiquid_bgSize imgLiquid_ready\" style=\"background-image: url(" + book.coverPhoto + ");";
 				}
 				toInsert += "background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;\">";
-				if (libraryOwner.userId == user.userId) {
-					toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
-				} else {
-					toInsert += "";
-				}
+				if(typeof user != "undefined") {		
+						if (libraryOwner.userId == user.userId) {
+							toInsert += "<div class=\"book-buttons\"><a href=\"#\" class=\"delete-this-book\" style=\"display: block; width: 100%; height: 100%;\">&#xf252;</a></div>";
+						} else {
+							toInsert += "";
+						}
+				}		
 				if (typeof user != 'undefined') {
 					toInsert += "<div class=\"bookmark-this\"><span class=\"top-bm\"></span><span class=\"bottom-bm\"></span><span class=\"right-bm\"></span></div>";
 				}
@@ -825,8 +826,33 @@ function getBooksInLibraryArray() {
 	});
 }
 
+function getLastBookInLibrary() {
+	$.ajax({
+		url: "/api/libraries/getBooksInLibrary",
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		type: "POST",
+		async: "false",
+		data: {
+			sessionId: sessionId,
+			libraryId: libraryId
+		},
+		success: function(data) {
+			books = data;
+			lastbook = books[0];
+		},
+		error: function(q, status, err) {
+			if (status == "timeout") {
+				alert("Request timed out");
+			} else {
+				alert("Some issue happened with your request: " + err.message);
+			}
+		}
+	});
+}
+
 function loadMoreBooksInLibrary(count, items) {
 	var toInsert = '';
+	var books = '';
 	var offset = items.children().length;
 
 	for (var i = 0; i < count; i++) {
@@ -1387,22 +1413,24 @@ function getLibrary() {
 			});
 			
 			//Sign up on subscribe button//
-			$(".new-user").click(function(){
-				$("#library-splash").append("<div id=\"sign-up-library\"><p>Sign up to Folio and Subscribe to <font style=\"font-weight: 700; text-transform: capitalize;\">" +library.title+ "</font></span></br><span>Don't forget to subscribe to <font style=\"text-transform: capitalize;\">"+library.title+"</font> during the onboarding process.</span></p><div class=\"wrapper\"><button class=\"fb-btn\">Sign in with Facebook</button><button class=\"gplus-btn\">Sign in with Gmail</button></div></div>");
-				$(function () {
-						NProgress.start();
-						$(".fb-btn").click(function () {
-							window.location.href = "/login?type=facebook"
+			if (typeof user == "undefined") {
+				$(".new-user, #close-splash, #browse-more").click(function(){
+						$("#library-splash").append("<div id=\"sign-up-library\"><p>Sign up to Folio and Subscribe to <font style=\"font-weight: 700; text-transform: capitalize;\">" +library.title+ "</font></span></br><span>Don't forget to subscribe to <font style=\"text-transform: capitalize;\">"+library.title+"</font> during the onboarding process.</span></p><div class=\"wrapper\"><button class=\"fb-btn\">Sign in with Facebook</button><button class=\"gplus-btn\">Sign in with Gmail</button></div></div>");
+						$(function () {
+								NProgress.start();
+								$(".fb-btn").click(function () {
+									window.location.href = "/login?type=facebook"
+								});
+								$(".gplus-btn").click(function () {
+									window.location.href = "/login?type=google"
+								});
+								NProgress.done();
 						});
-						$(".gplus-btn").click(function () {
-							window.location.href = "/login?type=google"
+						$("#sign-up-library").click(function(){
+								$("#sign-up-library").remove();
 						});
-						NProgress.done();
 				});
-				$("#sign-up-library").click(function(){
-						$("#sign-up-library").remove();
-				})
-			})
+			}
 		},
 		error: function(q, status, err) {
 			if (status == "timeout") {
@@ -2099,7 +2127,7 @@ function getUserFromBookId(bookId) {
 }
 
 function getUserFromBookIdLibraryFooter() {
-	bookId = books[0].bookId;
+	//bookId = books[0].bookId;
 	$.ajax({
 		url: "/api/utils/getUserFromBookId",
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
