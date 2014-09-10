@@ -852,7 +852,6 @@ function getLastBookInLibrary() {
 
 function loadMoreBooksInLibrary(count, items) {
 	var toInsert = '';
-	var books = '';
 	var offset = items.children().length;
 
 	for (var i = 0; i < count; i++) {
@@ -1414,7 +1413,7 @@ function getLibrary() {
 			
 			//Sign up on subscribe button//
 			if (typeof user == "undefined") {
-				$(".new-user, #close-splash, #browse-more").click(function(){
+				$(".new-user").click(function(){
 						$("#library-splash").append("<div id=\"sign-up-library\"><p>Sign up to Folio and Subscribe to <font style=\"font-weight: 700; text-transform: capitalize;\">" +library.title+ "</font></span></br><span>Don't forget to subscribe to <font style=\"text-transform: capitalize;\">"+library.title+"</font> during the onboarding process.</span></p><div class=\"wrapper\"><button class=\"fb-btn\">Sign in with Facebook</button><button class=\"gplus-btn\">Sign in with Gmail</button></div></div>");
 						$(function () {
 								NProgress.start();

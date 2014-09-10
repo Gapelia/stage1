@@ -247,16 +247,14 @@
 				$(document).on("click", "#close-splash, #browse-more", function () {
 				    getBooksInLibraryArray();
 				    
-					if(typeof user != "undefined"){	
-						$("#library-splash, #close-splash, #contact-editor, #about-section, .new-user-ii, .new-user").hide();
-						$("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");
-						if ($(".book-list-wrapper li").length == 0){
-							$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
-							setTimeout(function() {
+				    $("#library-splash, #close-splash, #contact-editor, #about-section, .new-user-ii, .new-user").hide();
+				    $("#featured-nav, #book-list").fadeIn("fast").css("cssText", "display: block !important");
+				    if ($(".book-list-wrapper li").length == 0){
+						$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						setTimeout(function() {
 								$("#loading-view").fadeOut('slow').remove();
-							}, 1000);
-						}
-					}	
+						}, 1000);
+				    }
 					
 					if(typeof user == 'undefined') {
 						$("#stay-right").html("<a href=\"/\" class=\"new-user-ii\" style=\"border: none !important; color: black !important; opacity: 0.75 !important; position: absolute !important; text-decoration: underline !important; top: 0.5rem !important; right: -4rem !important; width: 300px !important;\">Sign up and start contributing</a>");
@@ -555,7 +553,6 @@
 			if($vW < "1025") {
 				getBooksInLibraryArray();
 				var options = {};
-				var books = '';
 				var slyBookWrapper = new Sly('.book-list-wrapper', options);
 				var items = $('#book-list');
 				

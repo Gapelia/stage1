@@ -244,8 +244,7 @@
                 {
                   $(this).text($(this).text().substr(0,80)+'...');
                 }
-            });
-                
+            });    
         });
             
         $("#add-new-library").click(function () { window.location.href = "/createlibrary"; });
@@ -254,6 +253,9 @@
         $(document).on("ready", function () {
             
             var third = getUserDrafts();
+            
+            //hide subscription buttons//
+            $("#suggested-lib-list button").remove();
             
         });
     
