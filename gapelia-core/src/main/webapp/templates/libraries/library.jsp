@@ -226,7 +226,7 @@
 						footer += "<p id=\"last-book-title\"><a href=\"/read/"+books[0].bookId+"\">"+books[0].title+"</a><a id=\"last-book-owner\" href=\"/"+bookOwnerLastPost.userId+"\"> by "+bookOwnerLastPost.name+"</a></p>";
 						footer += "<p id=\"last-book-snippet\">"+books[0].snippet+"</p>";
 						footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
-						$("#about-section div").append(footer);
+						$("#about-section section").append(footer);
 				}, 500);
 				
 				$("#right-half, #close-splash").mouseenter(function(){

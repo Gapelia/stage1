@@ -1366,7 +1366,7 @@ function getLibrary() {
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
-			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><div></div></div>";
+			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><section></section></div>";
 
 			$("#mp-pusher").prepend(toInsert);
 
