@@ -253,45 +253,47 @@
 		});
 		
 		//view changes//
-		$("#view-change").click(function () {
-				$("#view-change-back").show();
-				$(".book-list-wrapper, #contactable, #view-change").hide();
-				$(".book-list-wrapper-list").fadeIn("slow");
-				$("#nav-wrapper").css("z-index", "100000");
-				$("#featured-panel").css("z-index", "1000000");
-				$(".super-wrapper").css("background-color", "white");
-				$("#featured-panel").css("position", "fixed");
-				$("#nav-wrapper").css({"background-color": "white", "height": "75px", "z-index": "1000"});
-				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
-				setTimeout(function(){
-						var items = $('#book-list-list');
-						loadMoreBooksListView(20,items)		
-				}, 100);
+		setTimeout(function(){
+				$("#view-change").click(function () {
+						$("#view-change-back").show();
+						$(".book-list-wrapper, #contactable, #view-change").hide();
+						$(".book-list-wrapper-list").fadeIn("slow");
+						$("#nav-wrapper").css("z-index", "100000");
+						$("#featured-panel").css("z-index", "1000000");
+						$(".super-wrapper").css("background-color", "white");
+						$("#featured-panel").css("position", "fixed");
+						$("#nav-wrapper").css({"background-color": "white", "height": "75px", "z-index": "1000"});
+						$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						setTimeout(function(){
+								var items = $('#book-list-list');
+								loadMoreBooksListView(20,items)		
+						}, 100);
+						
+						setTimeout(function() {
+							$("#loading-view").fadeOut('slow').remove();
+						}, 3000);
+						$("#g-menu-toggle").click(function() {
+								$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "0");
+								$(".app").css("overflow-y", "hidden");
+						});
+						$("#mp-pusher").click(function() {
+								$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "100000");
+								$(".app").css("overflow-y", "auto");
+						});
+				});
 				
-				setTimeout(function() {
-					$("#loading-view").fadeOut('slow').remove();
-				}, 3000);
-				$("#g-menu-toggle").click(function() {
-						$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "0");
-						$(".app").css("overflow-y", "hidden");
+				//view changes//
+				$("#view-change-back").click(function () {
+						$("#view-change-back").hide();
+						$("#view-change").fadeIn();
+						$(".book-list-wrapper-list").hide();
+						$(".book-list-wrapper").fadeIn("slow");
+						$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
+						setTimeout(function() {
+							$("#loading-view").fadeOut('slow').remove();
+						}, 2000);
 				});
-				$("#mp-pusher").click(function() {
-						$("#nav-wrapper, .book-list-wrapper-list").css("z-index", "100000");
-						$(".app").css("overflow-y", "auto");
-				});
-		});
-		
-		//view changes//
-		$("#view-change-back").click(function () {
-				$("#view-change-back").hide();
-				$("#view-change").fadeIn();
-				$(".book-list-wrapper-list").hide();
-				$(".book-list-wrapper").fadeIn("slow");
-				$("#mp-pusher").append("<div style=\"height: 100%; width: 100%; background-color: white; opacity: 0.75; position: absolute; z-index: 1000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
-				setTimeout(function() {
-					$("#loading-view").fadeOut('slow').remove();
-				}, 2000);
-		});
+		}, 1000);	
    }
 	
 	if ($vW > "1919") {
@@ -342,7 +344,6 @@
 		getFeaturedBookArray();
 		getFollowingUsers();
 		
-
 		var $vW = $(window).width(),
 		$vH = $(window).height();
 		
