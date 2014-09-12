@@ -136,11 +136,10 @@ body.library {
 	}
 	
 	#edit-shortcut {
-		left: 25%;
+		left: 5rem;
 		position: absolute;
 		text-align: center;
 		top: 1.75rem;
-		width: 50%;
 		z-index: 100;
 		
 		.edit-library {
@@ -154,6 +153,26 @@ body.library {
 	#about-section {
 		p {
 				&:empty:after { display: none !important; }
+		}
+	}
+	
+	#more-info {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.51);
+		margin-left: 10px;
+		text-decoration: initial !important;
+	}
+	
+	#arrow-down {
+		bottom: 1rem;
+		left: 25%;
+		position: absolute;
+		text-align: center;
+		width: 50%;
+		z-index: 10000;
+		
+		img {
+				height: 50px;
+				width: 50px;
 		}
 	}
 	

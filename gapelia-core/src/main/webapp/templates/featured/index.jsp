@@ -83,12 +83,7 @@
 			</div>
 			
 			<!--//main-panel /-->
-			
-						<!--/ Featured Books /-->
-				<div class="book-list-wrapper-list">
-					<ul id="book-list-list"></ul>
-				</div>
-		
+					
 			<!--/ main-content /-->
 			<div id="featured-scroller">
 				<div class="scrollbar">
@@ -101,7 +96,7 @@
 				<div class="book-list-wrapper">
 					<ul id="book-list"></ul>
 				</div>
-
+				
 				<!--/ User's Bookmarks /-->
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list"></ul>
@@ -112,7 +107,7 @@
 					<ul id="following-list"></ul>
 				</div>
 				<!--//main-content /-->
-
+				
 			</div>
 
 <!--/ scripts /-->
@@ -124,71 +119,6 @@
 <script src="/static/scripts/mlpushmenu.js"></script>
 
 <script>
-	// instantiate the bloodhound suggestion engine
-	var books = new Bloodhound({
-		datumTokenizer: function (d) {
-			return Bloodhound.tokenizers.whitespace(d.value);
-		},
-		
-		limit: 20,
-		queryTokenizer: Bloodhound.tokenizers.whitespace,
-		remote: {
-			url: 'http://folio.is/api/utils/search/%QUERY',
-			filter: function (results) {
-				return $.map(results.books, function (book) {
-					return {
-						value: '<a href=\"http://folio.is/read/' + book.bookId + '\"><img src=\"'+book.coverPhoto+'\" height=50px width=50px>'+book.title+'</a>'
-					}
-				}); 
-			}
-		}
-	});
-	
-	var libraries = new Bloodhound({
-		datumTokenizer: function (d) {
-			return Bloodhound.tokenizers.whitespace(d.value);
-		},
-		
-		limit: 20,
-		queryTokenizer: Bloodhound.tokenizers.whitespace,
-		remote: {
-			url: 'http://folio.is/api/utils/search/%QUERY',
-			filter: function (results) {
-				return $.map(results.libraries, function (library) {
-					return {
-						value: '<a href=\"http://folio.is/library/' + library.libraryId + '\"><img src=\"'+library.coverPhoto+'\" height=50px width=50px>'+library.title+'</a>'
-					}
-				});
-			}
-		}
-	});
-	
-	// initialize the bloodhounds!
-	books.initialize();
-	libraries.initialize();
-	
-	// instantiate the typeahead UI
-	$('.typeahead').typeahead({
-		highlight: true,
-		hint: false,
-		minLength: 2
-	},
-	{
-		name: 'books',
-		displayKey: 'value',
-		source: books.ttAdapter(),
-		templates: {
-			header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; text-transform: uppercase;">Stories</h5></center>'
-		}
-	},
-	{
-		name: 'libraries',
-		displayKey: 'value',
-		source: libraries.ttAdapter(),
-		templates: {
-			header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.5rem; opacity: 0.7; text-transform: uppercase;">Libraries</h5></center>'
-		}
-	});
 
 	if ($vW > "1024") {
 		
@@ -224,17 +154,6 @@
 			$("#welcoming-title").css("display", "none");
 		});
 		
-		//hide and show search engine//
-		$("#nav-search").mouseenter(function () {
-			$(".typeahead").css("display", "inline-block");
-			$("#nav-search").hide();
-		});
-		
-		$(".book-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper").mouseenter(function () {
-			$(".typeahead").css("display", "none");
-			$("#nav-search").fadeIn("slow");
-		});
-		
 		$(function(){
 				$("#featured-scroller").append("<div style=\"height: 100%; width: 100%; background-color: rgba(11, 72, 107, 0.05); opacity: 0.75; position: absolute; top: 0; z-index: 100000;\" id=\"loading-view\"><div style=\"left: 25%; width: 50%; position: absolute; text-align: center;\"><img src=\"../static/images/loading-books.gif\" style=\"margin-top: 45%;\"><p style=\"margin-top: 1rem;\"><b>Be Curious</b></p></div>");
 						setTimeout(function() {
@@ -252,8 +171,86 @@
 			$(".typeahead").css("display", "none");
 		});
 		
-		//view changes//
 		setTimeout(function(){
+				
+				// instantiate the bloodhound suggestion engine
+				var books = new Bloodhound({
+					datumTokenizer: function (d) {
+						return Bloodhound.tokenizers.whitespace(d.value);
+					},
+					
+					limit: 20,
+					queryTokenizer: Bloodhound.tokenizers.whitespace,
+					remote: {
+						url: 'http://folio.is/api/utils/search/%QUERY',
+						filter: function (results) {
+							return $.map(results.books, function (book) {
+								return {
+									value: '<a href=\"http://folio.is/read/' + book.bookId + '\"><img src=\"'+book.coverPhoto+'\" height=50px width=50px>'+book.title+'</a>'
+								}
+							}); 
+						}
+					}
+				});
+				
+				var libraries = new Bloodhound({
+					datumTokenizer: function (d) {
+						return Bloodhound.tokenizers.whitespace(d.value);
+					},
+					
+					limit: 20,
+					queryTokenizer: Bloodhound.tokenizers.whitespace,
+					remote: {
+						url: 'http://folio.is/api/utils/search/%QUERY',
+						filter: function (results) {
+							return $.map(results.libraries, function (library) {
+								return {
+									value: '<a href=\"http://folio.is/library/' + library.libraryId + '\"><img src=\"'+library.coverPhoto+'\" height=50px width=50px>'+library.title+'</a>'
+								}
+							});
+						}
+					}
+				});
+				
+				// initialize the bloodhounds!
+				books.initialize();
+				libraries.initialize();
+				
+				// instantiate the typeahead UI
+				$('.typeahead').typeahead({
+					highlight: true,
+					hint: false,
+					minLength: 2
+				},
+				{
+					name: 'books',
+					displayKey: 'value',
+					source: books.ttAdapter(),
+					templates: {
+						header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; text-transform: uppercase;">Stories</h5></center>'
+					}
+				},
+				{
+					name: 'libraries',
+					displayKey: 'value',
+					source: libraries.ttAdapter(),
+					templates: {
+						header: '<center><h5 class="label-name" style="font-size: 0.7rem; margin-top: 0.5rem; opacity: 0.7; text-transform: uppercase;">Libraries</h5></center>'
+					}
+				});
+				
+				//hide and show search engine//
+				$("#nav-search").mouseenter(function () {
+					$(".typeahead").css("display", "inline-block");
+					$("#nav-search").hide();
+				});
+				
+				$(".book-list-wrapper, .bookmark-list-wrapper, .following-list-wrapper").mouseenter(function () {
+					$(".typeahead").css("display", "none");
+					$("#nav-search").fadeIn("slow");
+				});
+				
+				//view changes//
 				$("#view-change").click(function () {
 						$("#view-change-back").show();
 						$(".book-list-wrapper, #contactable, #view-change").hide();

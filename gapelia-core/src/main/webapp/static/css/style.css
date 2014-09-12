@@ -3332,7 +3332,8 @@ body.landing .error {
   background-color: white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  right: -98px;
+  position: absolute;
+  right: 0;
   height: 45px;
   width: 120px;
   bottom: 48%;
@@ -3371,7 +3372,7 @@ body.landing .error {
   font-size: 1.8rem !important;
   opacity: 1;
   position: absolute;
-  right: 46%;
+  right: 1rem;
   bottom: 1.5rem;
   z-index: 100 !important; }
 .app #library-splash #library-share ul li {
@@ -3988,11 +3989,10 @@ body.library #submission-pop a {
   margin: 5px;
   text-decoration: underline; }
 body.library #edit-shortcut {
-  left: 25%;
+  left: 5rem;
   position: absolute;
   text-align: center;
   top: 1.75rem;
-  width: 50%;
   z-index: 100; }
 body.library #edit-shortcut .edit-library {
   border: 1px solid rgba(255, 255, 255, 0.46);
@@ -4001,6 +4001,20 @@ body.library #edit-shortcut .edit-library {
   padding: 10px; }
 body.library #about-section p:empty:after {
   display: none !important; }
+body.library #more-info {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.51);
+  margin-left: 10px;
+  text-decoration: initial !important; }
+body.library #arrow-down {
+  bottom: 1rem;
+  left: 25%;
+  position: absolute;
+  text-align: center;
+  width: 50%;
+  z-index: 10000; }
+body.library #arrow-down img {
+  height: 50px;
+  width: 50px; }
 body.library #stay-right {
   top: 0;
   right: 0;

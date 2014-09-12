@@ -1346,7 +1346,9 @@ function getLibrary() {
 				toInsert += "</ul>";
 				toInsert += "</section></p></div></div>";
 				if ($vW > "1024") {
-					toInsert += "<div id=\"close-splash\"><p>OPEN ME</p></div>";
+				    if (featuredBooks.length > 2) {
+						toInsert += "<div id=\"close-splash\"><p>OPEN ME</p></div>";
+					}
 				} else {
 					toInsert += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
@@ -1359,7 +1361,8 @@ function getLibrary() {
 					toInsert += "<ul id=\"submission-pop\" style=\"display: none;\"><p>" + "Your story was submitted! You will get notified when the editor reviews your submission." + "<p/></ul>";
 				}
 			}
-			toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
+			//toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
+			toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
@@ -1368,7 +1371,13 @@ function getLibrary() {
 			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><section></section></div>";
 
 			$("#mp-pusher").prepend(toInsert);
-
+			
+		    //append learn more when suited//
+			if ($("#about-section p").size() != 0) {
+				$($("#library-extra p")[0]).append("<a id=\"more-info\">Learn More...</a>");
+			}
+				
+		    //display number of contributors//
 			$("#library-contributors").click(function() {
 
 				if ($("#contributor-list li").length == 0) {

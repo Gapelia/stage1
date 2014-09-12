@@ -136,11 +136,12 @@
 			
 			$(".mp-pushed").ready(function () {
 				$("#book-scroller").css("z-index", "0");
+				$("#mp-pusher").css("overflow-y", "hidden");
 			});
 			
 			$("#contact-editor").click(function () {
 				window.location.href = "mailto:" + libraryOwner.email + "";
-			})
+			})	
 		}
 		
 		if($vH > "1190") {
@@ -174,10 +175,18 @@
 			
 			getNumSubscribers();
 			getUserFromLibraryId(libraryId);
+			
+		    //scroll animation when clicking on down arrow//
+			setTimeout(function(){
+				$("#arrow-down, #read-more").click(function() {
+					$('html, body').animate({
+						scrollTop: $("#about-section").offset().top
+					}, 1500);
+				});
+			}, 1000); 
 		});
 
 		function load() {
-			
 		    //Creates hrefs when a website link is part of the description//
 			var myTextEl = document.getElementById( "library-extra" );
 			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
@@ -213,8 +222,27 @@
 						
 				$("#archive-container").mouseleave(function(){
 						$("#archive-container").css("right", "-35%").fadeOut(100);
-						$("#mp-pusher").css("overflow-y", "scroll");
+						$("#mp-pusher").css("overflow-y", "initial");
 				});
+				
+				//scroll animation when clicking on down arrow//
+				setTimeout(function(){
+					$("#more-info").click(function() {
+						$('html, body').animate({
+							scrollTop: $("#about-section").offset().top
+						}, 1500);
+					});
+					
+				//hide arrow on scroll//
+				$(window).scroll(function() {
+						if ($(this).scrollTop()>0) {
+							$("#arrow-down, #close-splash, #contact-editor, #library-share").fadeOut("slow");	
+						} else {
+							$("#arrow-down, #close-splash, #contact-editor, #library-share").fadeIn("slow");	
+						}
+				});		
+					
+				}, 1000);
 				
 				//add footer with latest post//
 				setTimeout(function(){
@@ -228,20 +256,6 @@
 						footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
 						$("#about-section section").append(footer);
 				}, 500);
-				
-				$("#right-half, #close-splash").mouseenter(function(){
-						$("#close-splash").css({
-								"right": "0",
-								"z-index": "10000"
-						});
-				});
-				
-				$("#right-half").mouseleave(function(){
-						$("#close-splash").css({
-								"right": "-98px",
-								"z-index": "10000"
-						});
-				});
 				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash, #browse-more", function () {
@@ -355,10 +369,6 @@
 				setTimeout(function () {
 					$("#featured-panel, #featured-scroller").css("opacity", "1");
 				}, 400);
-				//hide arrow when only one book//
-				if(featuredBooks.length <= 2) {
-					$("#close-splash").remove();
-				}
 			}, 1000);
 			
 			$("#nav-books").addClass("current");
@@ -504,6 +514,10 @@
 							$("#library-splash .subscribe").remove();
 						}	
 				}
+			}
+			
+			if($vW > "1919") {
+				$("#edit-shortcut").css("top", "2.25rem");
 			}
 			
 			if($vW < "421") {

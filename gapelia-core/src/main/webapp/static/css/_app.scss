@@ -1185,7 +1185,8 @@
       background-color: white;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
-      right: -98px;
+      position: absolute;
+      right: 0;
       height: 45px;
       width: 120px;
       bottom: 48%;
@@ -1240,7 +1241,7 @@
       font-size: 1.8rem !important;
       opacity: 1;
       position: absolute;
-      right: 46%; bottom: 1.5rem;
+      right: 1rem; bottom: 1.5rem;
       z-index: 100 !important;
       
       ul li {
