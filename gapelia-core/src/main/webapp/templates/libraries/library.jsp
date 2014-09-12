@@ -136,7 +136,6 @@
 			
 			$(".mp-pushed").ready(function () {
 				$("#book-scroller").css("z-index", "0");
-				$("#mp-pusher").css("overflow-y", "hidden");
 			});
 			
 			$("#contact-editor").click(function () {
