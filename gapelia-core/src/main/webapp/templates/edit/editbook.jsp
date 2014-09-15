@@ -260,6 +260,22 @@
 				$("#share-draft-overlay button").click(function(){
 					$("#share-draft-overlay").css("display", "none");
 				})
+				
+				$('.copyText').click(
+				    function() {
+						var clickText = $(this).text();
+						$('<textarea id="tmp"/>')
+								.appendTo($(this))
+								.val(clickText)
+								.focus()
+								.select();
+				    return false;
+				});
+					
+				$(':not(.copyText)').click(
+				    function(){
+						$('#tmp').remove();
+				});
 			} 
 		}
 		 
@@ -393,6 +409,11 @@
 			//for some reason we have to do this twice, to get it published!
 			updateBookAndPages(true);
 		});
+		
+		//some responsive stuff//
+		if ($vW > "1919") {
+		    $(".g-body #share-draft-overlay h3").css("cssText", "margin: 15% 31%");
+		}
 		
 		//code to make draft deletion work here...for some reason it wasnt working from ajax.js//
 		setTimeout(function () {

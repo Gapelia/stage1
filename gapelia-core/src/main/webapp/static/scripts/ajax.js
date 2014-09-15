@@ -1362,7 +1362,9 @@ function getLibrary() {
 				}
 			}
 			//toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
-			toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";
+			if (library.about != undefined) {
+				toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";
+			}	
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
@@ -1373,7 +1375,7 @@ function getLibrary() {
 			$("#mp-pusher").prepend(toInsert);
 			
 		    //append learn more when suited//
-			if ($("#about-section p").size() != 0) {
+			if (library.about != undefined) {
 				$($("#library-extra p")[0]).append("<a id=\"more-info\">Learn More...</a>");
 			}
 				
