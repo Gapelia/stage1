@@ -97,6 +97,11 @@
 					<ul id="book-list"></ul>
 				</div>
 				
+				<!--/ Featured Books in List View /-->
+				<div class="book-list-wrapper-list" style="display: none;">
+					<ul id="book-list-list"></ul>
+				</div>
+				
 				<!--/ User's Bookmarks /-->
 				<div class="bookmark-list-wrapper">
 					<ul id="bookmark-list"></ul>
@@ -255,6 +260,7 @@
 						$("#view-change-back").show();
 						$(".book-list-wrapper, #contactable, #view-change").hide();
 						$(".book-list-wrapper-list").fadeIn("slow");
+						$("#featured-scroller").css("overflow-y", "scroll");
 						$("#nav-wrapper").css("z-index", "100000");
 						$("#featured-panel").css("z-index", "1000000");
 						$(".super-wrapper").css("background-color", "white");
