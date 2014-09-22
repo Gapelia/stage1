@@ -239,22 +239,29 @@
 						} else {
 							$("#arrow-down, #close-splash, #contact-editor, #library-share").fadeIn("slow");	
 						}
-				});		
+				});	
 					
 				}, 1000);
 				
+				//hide arrow and about section when not needed//
+				if (library.about != undefined || library.about != "") {
+					$("#arrow-down, #more-info, #about-section").remove()
+				}
+				
 				//add footer with latest post//
 				setTimeout(function(){
-						bookId = books[0].bookId;
-						footer = "";
-						getUserFromBookIdLibraryFooter();
-						footer += "<hr><h5>Latest Story</h5><section>";
-						footer += "<a href=\"/read/"+books[0].bookId+"\"><img src=\""+books[0].coverPhoto+"\"></a>";
-						footer += "<p id=\"last-book-title\"><a href=\"/read/"+books[0].bookId+"\">"+books[0].title+"</a><a id=\"last-book-owner\" href=\"/"+bookOwnerLastPost.userId+"\"> by "+bookOwnerLastPost.name+"</a></p>";
-						footer += "<p id=\"last-book-snippet\">"+books[0].snippet+"</p>";
-						footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
-						$("#about-section section").append(footer);
-				}, 500);
+						if (books.length != 0) {
+								bookId = books[0].bookId;
+								footer = "";
+								getUserFromBookIdLibraryFooter();
+								footer += "<hr><h5>Latest Story</h5><section>";
+								footer += "<a href=\"/read/"+books[0].bookId+"\"><img src=\""+books[0].coverPhoto+"\"></a>";
+								footer += "<p id=\"last-book-title\"><a href=\"/read/"+books[0].bookId+"\">"+books[0].title+"</a><a id=\"last-book-owner\" href=\"/"+bookOwnerLastPost.userId+"\"> by "+bookOwnerLastPost.name+"</a></p>";
+								footer += "<p id=\"last-book-snippet\">"+books[0].snippet+"</p>";
+								footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
+								$("#about-section section").append(footer);
+						}
+				}, 500);		
 				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash, #browse-more", function () {
@@ -543,11 +550,6 @@
 				$("#edit-shortcut").remove();
 			}
 			$(".edit-library").attr("href", "/editlibrary/"+ library.libraryId +"");
-			
-			//remove about section if it is empty//
-			if (library.about == undefined) {
-				$("#about-section").remove();
-			}
 			
 			//remove library archive if not logged in//
 			if (typeof user == "undefined") {

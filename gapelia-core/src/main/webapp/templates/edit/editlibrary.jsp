@@ -117,24 +117,6 @@
 
 				<h2 data-placeholder="Write your title here" contenteditable="true"></h2>
 				<p data-placeholder="Add a description" contenteditable="true"></p>
-
-				<section>
-					<input type="text" id="input-tags" placeholder="Add up to three tags" value="" />
-
-					<script>
-						$("#input-tags").selectize({
-							delimiter: ",",
-							maxItems: 3,
-							persist: false,
-							create: function (input) {
-								return {
-									value: input,
-									text: input
-								}
-							}
-						});
-					</script>
-				</section>
 			</div>
 			
 			<div id="about-section-tutorial"><p>Scroll down and add an About section</p><img src="../static/images/arrow-down.png"></div>

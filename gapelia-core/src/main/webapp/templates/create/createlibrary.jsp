@@ -118,7 +118,7 @@
 				<div id="library-tutorial">*Title, description and cover photo are required.</div>
 				<div id="about-section-tutorial"><p>Scroll down and add an About section</p><img src="../static/images/arrow-down.png"></div>
 				
-				<div id="close-splash">Your library was created! Other users can now submit stories to it.<a Id="go-to-library">Go to your library</a></div>
+				<div id="close-splash">Success! You can now receive submissions from other users.<a Id="go-to-library">Go to library</a> or<a Id="back-go-to-library"> make edits</a></div>
 			</section>
 			
 		   <div id="about-section">
@@ -232,25 +232,23 @@
 				libraryId = getCreatedLibrariesArray()[0];
 				
 				$("#go-to-library").attr("href", "/library/"+libraryId.libraryId);
+				$("#back-go-to-library").attr("href", "/editlibrary/"+libraryId.libraryId);
+				if ($("#about-section p").text() == "") {
+						$("#about-section").remove();
+				}
 				
 				// Disable
 					$(".button-wrapper").css("opacity", "0").hide();
-					$("#confirm-create-library").hide();
+					$("#confirm-create-library, #about-section-tutorial, .selectize-control, .chars-remaining").hide();
 					$("[contenteditable='true']").attr("contenteditable", "false");
 					
-				// Enable
-					$("#new-library-info").css({
-						"border-top": "1px solid #fcfcfc",
-						"border-bottom": "1px solid #fcfcfc"
-					});
-					
+				// Enable					
 					$("#new-library-info small").css("opacity", "1");
 					$("#close-splash").css("opacity", "1");
 				});
 				
 				$("button.photo-picker").html("&#xf2e4;");
 				$("#g-menu-toggle").css("color", "#fcfcfc");
-				//$("#new-library").css({"overflow: hidden; background-image": 'url(' + library.coverPhoto + ')',"background-size": "cover","background-position": "50% 50%"});
 			});
 		</script>
 		<!--//scripts /-->

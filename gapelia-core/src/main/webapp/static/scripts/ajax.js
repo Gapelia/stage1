@@ -1362,20 +1362,21 @@ function getLibrary() {
 				}
 			}
 			//toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
-			if (library.about != undefined) {
-				toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";
+			if (library.about != undefined || library.about != "") {
+				toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";	
 			}	
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";
 			toInsert += "<li><a href=\"javascript:window.open(facebookShare,'','width=555,height=368');void(0)\"><i class=\"ion-social-facebook\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"javascript:window.open(twitterShare,'','width=550,height=257');void(0)\"><i class=\"ion-social-twitter\" style=\"color: white\"></i></a></li>";
 			toInsert += "<li><a href=\"" + emailShare + "\"><i class=\"ion-email\" style=\"color: white\"></i></a></li></ul><div/></section>";
-			toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><section></section></div>";
-
+			if (library.about != undefined || library.about != "") {
+				toInsert += "<div id=\"about-section\"><h2>About</h2><p>" + library.about + "</p><section></section></div>";
+			}
 			$("#mp-pusher").prepend(toInsert);
 			
 		    //append learn more when suited//
-			if (library.about != undefined) {
+			if (library.about != undefined || library.about != "") {
 				$($("#library-extra p")[0]).append("<a id=\"more-info\">Learn More...</a>");
 			}
 				
