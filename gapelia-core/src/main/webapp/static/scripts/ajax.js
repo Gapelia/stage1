@@ -1363,7 +1363,9 @@ function getLibrary() {
 			}
 			//toInsert += "<div id=\"right-half\" style=\"height: 85%; position: absolute; right:0; bottom: 0; width: 40%; z-index: 100;\"></div>";
 			if (library.about != undefined || library.about != "") {
-				toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";	
+				if ($vW > "1025") {
+						toInsert += "<div id=\"arrow-down\"><img src=\"/static/images/arrow-down.png\"></div>";	
+				}
 			}	
 			toInsert += "<div id=\"library-share\">";
 			toInsert += "<ul class=\"share-book\">";

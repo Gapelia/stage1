@@ -244,7 +244,7 @@
 				}, 1000);
 				
 				//hide arrow and about section when not needed//
-				if (library.about != undefined || library.about != "") {
+				if (library.about == undefined || library.about == "") {
 					$("#arrow-down, #more-info, #about-section").remove()
 				}
 				
@@ -261,7 +261,7 @@
 								footer += "<div id=\"browse-more\"><button>Browse more stories...</button></div></section>"
 								$("#about-section section").append(footer);
 						}
-				}, 500);		
+				}, 1000);		
 				
 				// load books after clicking and using Sly //
 				$(document).on("click", "#close-splash, #browse-more", function () {
