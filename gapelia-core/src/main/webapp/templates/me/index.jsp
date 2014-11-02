@@ -165,6 +165,10 @@
 					stuff += "<div id=\"close-splash\"><img src=\"/static/images/arrow-down.png\"></div>";
 				}
 				stuff += "</section>";
+				stuff += "<div id=\"about-section-profile\">";
+				stuff += "<h2>About Me<span></span></h2>";
+				stuff += "<p data-placeholder=\"Write an introduction essay or relevant information about yourself...\"";
+				stuff += "contenteditable=\"false\"></p></div>";
 				
 				$("#mp-pusher").prepend(stuff);
 				
@@ -219,6 +223,11 @@
 					}
 				}
 		    
+			//making about section editable on click//
+			$("#about-section-profile").click(function(){
+				$("#about-section-profile p").attr("contenteditable", "true").css("background-color", "rgba(255, 255, 0, 0.15)");
+			});
+			
 			// Responsive design //
 			$(function () {
 				var $vW = $(window).width(),

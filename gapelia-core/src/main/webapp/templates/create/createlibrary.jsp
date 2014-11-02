@@ -31,6 +31,8 @@
 
 		<script src="/static/scripts/selectize.js"></script>
 		<script src="/static/scripts/nprogress.js"></script>
+		<script src="/static/scripts/editor.js"></script>
+		<script src="/static/scripts/gapelia-editor.js"></script>
 
 	</head>
 

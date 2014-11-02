@@ -189,6 +189,8 @@
 		    //Creates hrefs when a website link is part of the description//
 			var myTextEl = document.getElementById( "library-extra" );
 			myTextEl.innerHTML = Autolinker.link( myTextEl.innerHTML );
+			var myTextElTwo = document.getElementById( "about-section" );
+			myTextElTwo.innerHTML = Autolinker.link( myTextElTwo.innerHTML );
 			
 			if($vW > "1024") {
 				

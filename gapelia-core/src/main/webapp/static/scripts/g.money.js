@@ -57,7 +57,7 @@
 		}
 
 		// "Me" splash functionality
-		$(document).on("click", "#splash-edit-profile, #splash-user-bio, #user-splash .overlay-controls button", function (e) {
+		$(document).on("click", "#splash-edit-profile, #splash-user-bio, #about-section-profile, #user-splash .overlay-controls button", function (e) {
 
 			$("#splash-edit-wrapper").css({
 				"opacity": "1",
@@ -135,7 +135,7 @@
 			$("#splash-edit-wrapper").css("opacity", "0");
 		});
 		
-		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile, #splash-user-bio", function (e) {
+		$(document).on("click", "#splash-edit-wrapper .quick-edit-profile, #splash-user-bio, #about-section-profile", function (e) {
 
 			if ($vW > "1024") {
 
@@ -168,7 +168,7 @@
 
 				$("#splash-edit-wrapper .quick-edit-profile").text("Edit Profile").css("background-color", "transparent");
 
-				$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+				$("#splash-user-bio, #about-section-profile p").attr("contenteditable", "false").css("background-color", "transparent");
 				$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");
 				$("#splash-user-website").attr("contenteditable", "false").css("background-color", "transparent");
 				$("#splash-user-twitter").attr("contenteditable", "false").css("background-color", "transparent");
@@ -183,7 +183,7 @@
 
 			$("#splash-edit-wrapper .quick-edit-profile").text("Edit Profile").css("background-color", "transparent").removeClass("quick-save-profile");
 
-			$("#splash-user-bio").attr("contenteditable", "false").css("background-color", "transparent");
+			$("#splash-user-bio, #about-section-profile p").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-location").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-website").attr("contenteditable", "false").css("background-color", "transparent");
 			$("#splash-user-twitter").attr("contenteditable", "false").css("background-color", "transparent");

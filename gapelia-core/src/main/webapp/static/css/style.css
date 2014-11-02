@@ -3562,59 +3562,65 @@ body.landing .error {
   display: inline !important;
   margin: 5px;
   text-decoration: underline; }
-.app #about-section {
+.app #about-section-profile p:empty:after {
+  content: "Write an introduction essay or add relevant information about yourself..."; }
+.app #about-section p:empty:after {
+  content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing..."; }
+.app #about-section, .app #about-section-profile {
   left: 20%;
   min-height: 300px;
   position: absolute;
   top: 110%;
-  width: 60%; }
-.app #about-section h5 {
+  width: 60%;
+  z-index: 100000; }
+.app #about-section a, .app #about-section-profile a {
+  text-decoration: underline; }
+.app #about-section h5, .app #about-section-profile h5 {
   font-size: 1rem;
   margin-bottom: 1rem;
   opacity: 0.75;
   text-transform: uppercase; }
-.app #about-section hr {
+.app #about-section hr, .app #about-section-profile hr {
   margin-top: 2rem; }
-.app #about-section p, .app #about-section div {
+.app #about-section p, .app #about-section div, .app #about-section-profile p, .app #about-section-profile div {
   font-size: 1.25rem;
   letter-spacing: 0.006rem;
   line-height: 2rem;
   padding: 12px 0 0 0; }
-.app #about-section p {
+.app #about-section p, .app #about-section-profile p {
   margin-bottom: 0; }
-.app #about-section p:empty:after {
-  color: rgba(25, 25, 25, 0.7);
-  content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing..."; }
-.app #about-section section {
+.app #about-section p:empty:after, .app #about-section-profile p:empty:after {
+  color: rgba(25, 25, 25, 0.7); }
+.app #about-section section, .app #about-section-profile section {
   margin-bottom: 4rem;
   position: absolute;
   width: 100%;
   z-index: 100000; }
-.app #about-section section img {
+.app #about-section section img, .app #about-section-profile section img {
   display: inline-block;
   height: 100px;
   vertical-align: middle;
   width: 100px; }
-.app #about-section section #last-book-title {
+.app #about-section section #last-book-title, .app #about-section-profile section #last-book-title {
   display: inline;
   font-weight: 700;
   margin-left: 20px;
   position: absolute; }
-.app #about-section section #last-book-owner {
+.app #about-section section #last-book-owner, .app #about-section-profile section #last-book-owner {
   font-weight: 100; }
-.app #about-section section #last-book-snippet {
+.app #about-section section #last-book-snippet, .app #about-section-profile section #last-book-snippet {
   display: inline-block;
   margin-left: 20px;
   position: absolute;
   top: 2rem; }
-.app #about-section section #browse-more {
+.app #about-section section #browse-more, .app #about-section-profile section #browse-more {
   bottom: -12rem;
   left: 25%;
   margin-bottom: 3rem;
   position: absolute;
   text-align: center;
   width: 50%; }
-.app #about-section section #browse-more button {
+.app #about-section section #browse-more button, .app #about-section-profile section #browse-more button {
   border: 1px solid #59b3a6;
   background-color: transparent;
   color: #59b3a6; }
@@ -3642,7 +3648,7 @@ body.landing .error {
 .app #user-splash .overlay-controls {
   bottom: 2rem;
   opacity: 0.5;
-  position: fixed;
+  position: absolute;
   text-align: center;
   transition: all 0.2s ease;
   z-index: 1 !important;
@@ -4002,9 +4008,8 @@ body.library #edit-shortcut .edit-library {
 body.library #about-section p:empty:after {
   display: none !important; }
 body.library #more-info {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.51);
   margin-left: 10px;
-  text-decoration: initial !important; }
+  text-decoration: underline; }
 body.library #arrow-down {
   bottom: 1rem;
   left: 25%;
@@ -9481,6 +9486,8 @@ a.count span.dont-move {
   .app #library-splash #close-splash img {
     height: 50px;
     width: 50px; }
+  .app #about-section-profile {
+    display: none; }
   .app #user-splash h1 {
     font-size: 2.4rem; }
   .app #user-splash h2 {

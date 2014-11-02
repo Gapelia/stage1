@@ -1500,12 +1500,27 @@
 		}
 	}
   
-  #about-section {
+  #about-section-profile p {
+    &:empty:after {
+        content: "Write an introduction essay or add relevant information about yourself...";
+      }
+  }
+  
+  #about-section p {
+      &:empty:after {
+        content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing...";
+      }
+  }
+  
+  #about-section, #about-section-profile {
     left: 20%;
     min-height: 300px;
     position: absolute;
     top: 110%;
     width: 60%;
+    z-index: 100000;
+    
+    a { text-decoration: underline; }
     
     h5 {
       font-size: 1rem;
@@ -1530,7 +1545,6 @@
       
       &:empty:after {
         color: rgba($black, 0.7);
-        content: "Write a mission statement or relevant information. Readers are usually interested in knowing the topics you aim to cover, the submission policy and the frequency of publishing...";
       }
     }
     
@@ -1613,7 +1627,7 @@
 			bottom: 2rem; 
 
 			opacity: 0.5;
-			position: fixed;
+			position: absolute;
       text-align: center;
 			transition: all 0.2s ease;
 			z-index: 1 !important;
